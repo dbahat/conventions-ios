@@ -13,6 +13,8 @@
 		3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F81C554ED3007A8A23 /* Main.storyboard */; };
 		3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */; };
 		3BA2D7FF1C554ED3007A8A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7FD1C554ED3007A8A23 /* LaunchScreen.storyboard */; };
+		3BA2D8081C56B207007A8A23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8071C56B207007A8A23 /* HomeViewController.swift */; };
+		3BA2D80A1C56B7A3007A8A23 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8091C56B7A3007A8A23 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BA2D7FE1C554ED3007A8A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BA2D8001C554ED3007A8A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BA2D8071C56B207007A8A23 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3BA2D8091C56B7A3007A8A23 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */,
 				3BA2D7FD1C554ED3007A8A23 /* LaunchScreen.storyboard */,
 				3BA2D8001C554ED3007A8A23 /* Info.plist */,
+				3BA2D8071C56B207007A8A23 /* HomeViewController.swift */,
+				3BA2D8091C56B7A3007A8A23 /* TabBarViewController.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3BA2D7F51C554ED3007A8A23 /* FirstViewController.swift in Sources */,
+				3BA2D80A1C56B7A3007A8A23 /* TabBarViewController.swift in Sources */,
+				3BA2D8081C56B207007A8A23 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
