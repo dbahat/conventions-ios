@@ -13,8 +13,11 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        let eventViewCell = UINib(nibName: "EventView", bundle: nil);
-        self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventView");
+        let eventViewCell = UINib(nibName: "EventTableViewCell", bundle: nil);
+        self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventTableViewCell");
+        
+        let eventHeaderView = UINib(nibName: "EventListHeaderView", bundle: nil);
+        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
     }
 
     // MARK: - Table view data source
@@ -44,14 +47,14 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let headerView = NSBundle.mainBundle().loadNibNamed("EventListHeaderView", owner: 0, options: nil)[0] as? EventListHeaderView;
-        headerView?.time.text = getSectionName(section: section);
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("EventListHeaderView") as! EventListHeaderView;
+        headerView.time.text = getSectionName(section: section);
         
         return headerView;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventView", forIndexPath: indexPath) as! EventTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventTableViewCell", forIndexPath: indexPath) as! EventTableViewCell
 
         let event = Convention.instance.events[indexPath.row];
         cell.startTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime).hour.description + ":00";
@@ -70,7 +73,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        let rowIndex = caller.tag;
+        let rowIndex = caller.favoriteButton.tag;
         let event = Convention.instance.events[rowIndex];
         event.attending = !event.attending;
         

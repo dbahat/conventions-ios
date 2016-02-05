@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventListHeaderView: UIView {
+class EventListHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var time: UILabel!
 }

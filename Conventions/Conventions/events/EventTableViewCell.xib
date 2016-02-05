@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventView" rowHeight="102" id="Iv4-bW-4qs" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventTableViewCell" rowHeight="102" id="Iv4-bW-4qs" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iv4-bW-4qs" id="hSg-qq-aGu">
@@ -55,23 +55,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atN-Ht-ERd">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="92"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1m-Rc-2md">
-                                        <rect key="frame" x="427" y="8" width="85" height="21.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event title" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1m-Rc-2md">
+                                        <rect key="frame" x="8" y="8" width="504" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1if-vi-dRW">
-                                        <rect key="frame" x="0.0" y="29" width="520" height="63"/>
+                                        <rect key="frame" x="0.0" y="29" width="520" height="62.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hall Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X3-Hb-QsB">
-                                                <rect key="frame" x="445" y="37.5" width="66.5" height="17"/>
+                                                <rect key="frame" x="445" y="37" width="66.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-6u-me4">
-                                                <rect key="frame" x="8" y="38.5" width="96" height="17"/>
+                                                <rect key="frame" x="8" y="38" width="96" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -88,6 +88,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="T1m-Rc-2md" firstAttribute="leading" secondItem="atN-Ht-ERd" secondAttribute="leading" constant="8" id="7V8-ay-ec0"/>
                                     <constraint firstItem="1if-vi-dRW" firstAttribute="leading" secondItem="atN-Ht-ERd" secondAttribute="leading" id="IYm-v3-h5t"/>
                                     <constraint firstAttribute="trailing" secondItem="1if-vi-dRW" secondAttribute="trailing" id="LUf-F3-yoh"/>
                                     <constraint firstItem="T1m-Rc-2md" firstAttribute="top" secondItem="atN-Ht-ERd" secondAttribute="top" constant="8" id="RzR-r8-YQt"/>

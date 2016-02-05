@@ -24,7 +24,7 @@
 		3BA2D81D1C613BE1007A8A23 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D81C1C613BE1007A8A23 /* CardView.swift */; };
 		3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */; };
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
-		3BA2D8231C6536C8007A8A23 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8221C6536C8007A8A23 /* EventView.xib */; };
+		3BA2D8231C6536C8007A8A23 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8221C6536C8007A8A23 /* EventTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		3BA2D81C1C613BE1007A8A23 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = externals/CardView.swift; sourceTree = "<group>"; };
 		3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListHeaderView.swift; path = events/EventListHeaderView.swift; sourceTree = "<group>"; };
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
-		3BA2D8221C6536C8007A8A23 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
+		3BA2D8221C6536C8007A8A23 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewCell.xib; path = events/EventTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,6 @@
 				3BA2D81B1C613BC8007A8A23 /* externals */,
 				3BA2D8181C5FF4C5007A8A23 /* events */,
 				3BA2D80D1C5FE8A0007A8A23 /* model */,
-				3BA2D80B1C5D4644007A8A23 /* EventsTableViewController.swift */,
 				3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */,
 				3BA2D7F61C554ED3007A8A23 /* SecondViewController.swift */,
 				3BA2D7F81C554ED3007A8A23 /* Main.storyboard */,
@@ -111,10 +110,11 @@
 		3BA2D8181C5FF4C5007A8A23 /* events */ = {
 			isa = PBXGroup;
 			children = (
+				3BA2D80B1C5D4644007A8A23 /* EventsTableViewController.swift */,
 				3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */,
 				3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */,
 				3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */,
-				3BA2D8221C6536C8007A8A23 /* EventView.xib */,
+				3BA2D8221C6536C8007A8A23 /* EventTableViewCell.xib */,
 			);
 			name = events;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
-				3BA2D8231C6536C8007A8A23 /* EventView.xib in Resources */,
+				3BA2D8231C6536C8007A8A23 /* EventTableViewCell.xib in Resources */,
 				3BA2D7FF1C554ED3007A8A23 /* LaunchScreen.storyboard in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
