@@ -40,7 +40,7 @@ class Convention {
                 hall: Hall(name: "אשכול 2"),
                 description: "Desc2"),
             ConventionEvent(
-                id: "2",
+                id: "3",
                 serverId: 2,
                 color: 123,
                 title: "אירוע פתיחה ותחרות האמא'ידול",

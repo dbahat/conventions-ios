@@ -20,6 +20,7 @@ class ConventionEvent {
     var hall: Hall!;
     var images: Array<Int>?;
     var description: String!;
+    var attending: Bool;
     
     init(id:String, serverId:Int, color: Int, title: String, lecturer: String, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String) {
         self.id = id;
@@ -32,5 +33,6 @@ class ConventionEvent {
         self.type = type;
         self.hall = hall;
         self.description = description;
+        self.attending = false;
     }
 }

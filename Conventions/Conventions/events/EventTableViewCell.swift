@@ -8,7 +8,11 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+public protocol EventStateProtocol : class {
+    func changeFavoriteStateWasClicked(caller: EventTableViewCell);
+}
+
+public class EventTableViewCell: UITableViewCell {
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var endTime: UILabel!
@@ -16,32 +20,11 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var hallName: UILabel!
     @IBOutlet weak var lecturer: UILabel!
     @IBOutlet weak var timeLayout: UIView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
-    @IBInspectable var cornerRadius: CGFloat = 2
-    @IBInspectable var shadowOffsetWidth: Int = 0
-    @IBInspectable var shadowOffsetHeight: Int = 3
-    @IBInspectable var shadowColor: UIColor? = UIColor.blackColor()
-    @IBInspectable var shadowOpacity: Float = 0.5
+    weak var delegate: EventStateProtocol?;
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func changeFavoriteStateButtonWasClicked(sender: UIButton) {
+        delegate?.changeFavoriteStateWasClicked(self);
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-//    override func layoutSubviews() {
-//        layer.cornerRadius = cornerRadius;
-//        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius);
-//        
-//        layer.masksToBounds = false;
-//        layer.shadowColor = shadowColor?.CGColor;
-//        layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight);
-//        layer.shadowOpacity = shadowOpacity;
-//        layer.shadowPath = shadowPath.CGPath;
-//    }
 }

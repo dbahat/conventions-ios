@@ -8,10 +8,13 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController, EventStateProtocol {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
+        let eventViewCell = UINib(nibName: "EventView", bundle: nil);
+        self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventView");
     }
 
     // MARK: - Table view data source
@@ -40,12 +43,11 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel();
-        label.textAlignment = NSTextAlignment.Center;
-        label.backgroundColor = UIColor.grayColor();
-        label.text = getSectionName(section: section);
+
+        let headerView = NSBundle.mainBundle().loadNibNamed("EventListHeaderView", owner: 0, options: nil)[0] as? EventListHeaderView;
+        headerView?.time.text = getSectionName(section: section);
         
-        return label;
+        return headerView;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,18 +61,41 @@ class EventsTableViewController: UITableViewController {
         cell.hallName.text = event.hall.name;
         cell.timeLayout.backgroundColor = UIColor.redColor(); // event.getColor
 
-        return cell
+        let favoriteImage = event.attending ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
+        cell.favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+        cell.favoriteButton.tag = indexPath.row;
+        cell.delegate = self;
+
+        return cell;
+    }
+    
+    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
+        let rowIndex = caller.tag;
+        let event = Convention.instance.events[rowIndex];
+        event.attending = !event.attending;
+        
+        tableView.reloadData();
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
-        let favorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
-            print("favorite button tapped")
-            
+        let addToFavorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
+            tableView.setEditing(false, animated: true);
+            let event = Convention.instance.events[index.row];
+            event.attending = true;
+            tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
         }
-        favorite.backgroundColor = UIColor.redColor()
-        favorite.backgroundEffect = UIBlurEffect(style: UIBlurEffectStyle.Light);
+        addToFavorite.backgroundColor = UIColor.redColor();
         
-        return [favorite]
+        let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
+            tableView.setEditing(false, animated: true);
+            let event = Convention.instance.events[index.row];
+            event.attending = false;
+            tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+        }
+        removeFromFavorite.backgroundColor = UIColor.redColor();
+        
+        let event = Convention.instance.events[indexPath.row];
+        return event.attending ? [removeFromFavorite] : [addToFavorite];
     }
 }
