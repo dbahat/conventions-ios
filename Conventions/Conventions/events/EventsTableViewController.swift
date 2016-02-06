@@ -20,6 +20,10 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
     }
 
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData();
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -64,6 +68,11 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         return cell;
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let event = Convention.instance.events[indexPath.row];
+        performSegueWithIdentifier("EventsToEventSegue", sender: event);
+    }
+    
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
         let rowIndex = caller.favoriteButton.tag;
         let event = Convention.instance.events[rowIndex];
@@ -92,5 +101,10 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         
         let event = Convention.instance.events[indexPath.row];
         return event.attending ? [removeFromFavorite] : [addToFavorite];
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let eventViewController = segue.destinationViewController as! EventViewController;
+        eventViewController.event = sender as? ConventionEvent;
     }
 }

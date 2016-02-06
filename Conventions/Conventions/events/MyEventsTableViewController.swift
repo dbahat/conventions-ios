@@ -46,54 +46,31 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
         let rowIndex = caller.favoriteButton.tag;
         let event = Convention.instance.favoriteEvents[rowIndex];
-        event.attending = !event.attending;
+        event.attending = false;
         
-        tableView.reloadData();
+        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: rowIndex, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic);
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
+            tableView.setEditing(false, animated: true);
+            let event = Convention.instance.favoriteEvents[index.row];
+            event.attending = false;
+            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
+        }
+        removeFromFavorite.backgroundColor = UIColor.redColor();
+        
+        return [removeFromFavorite];
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let event = Convention.instance.events[indexPath.row];
+        performSegueWithIdentifier("MyEventsToEventSegue", sender: event);
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let eventViewController = segue.destinationViewController as! EventViewController;
+        eventViewController.event = sender as? ConventionEvent;
     }
-    */
-
 }

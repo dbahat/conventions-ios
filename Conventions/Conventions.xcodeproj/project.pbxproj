@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
 		3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B981D091C65E5A800F31009 /* MyEventsTableViewController.swift */; };
 		3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */; };
 		3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F61C554ED3007A8A23 /* SecondViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
 		3B981D091C65E5A800F31009 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsTableViewController.swift; path = events/MyEventsTableViewController.swift; sourceTree = "<group>"; };
 		3BA2D7EF1C554ED3007A8A23 /* Conventions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */,
 				3BA2D8221C6536C8007A8A23 /* EventTableViewCell.xib */,
 				3B981D091C65E5A800F31009 /* MyEventsTableViewController.swift */,
+				3B523D4C1C660B1700D3D055 /* EventViewController.swift */,
 			);
 			name = events;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				3BA2D81D1C613BE1007A8A23 /* CardView.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
+				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,
