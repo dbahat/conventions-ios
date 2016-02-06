@@ -12,7 +12,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+
         let eventViewCell = UINib(nibName: "EventTableViewCell", bundle: nil);
         self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventTableViewCell");
         
@@ -57,15 +57,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventTableViewCell", forIndexPath: indexPath) as! EventTableViewCell
 
         let event = Convention.instance.events[indexPath.row];
-        cell.startTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime).hour.description + ":00";
-        cell.endTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime).hour.description + ":00";
-        cell.title.text = event.title;
-        cell.lecturer.text = event.lecturer;
-        cell.hallName.text = event.hall.name;
-        cell.timeLayout.backgroundColor = UIColor.redColor(); // event.getColor
-
-        let favoriteImage = event.attending ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
-        cell.favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+        cell.setEvent(event);
         cell.favoriteButton.tag = indexPath.row;
         cell.delegate = self;
 

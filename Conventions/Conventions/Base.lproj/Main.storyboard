@@ -8,7 +8,7 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--תוכניה-->
         <scene sceneID="OnC-Gy-QCl">
             <objects>
                 <tableViewController id="r5G-Fl-m4f" customClass="EventsTableViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                             <outlet property="delegate" destination="r5G-Fl-m4f" id="frI-py-Um4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="3XR-Bv-zRT">
+                    <navigationItem key="navigationItem" title="תוכניה" id="3XR-Bv-zRT">
                         <leftBarButtonItems>
                             <barButtonItem image="MenuEventListWithStar" id="eGQ-DU-Lkd"/>
                             <barButtonItem systemItem="search" id="TRE-bp-NzF"/>
@@ -33,6 +33,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6C-9q-m5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1624" y="-1140"/>
+        </scene>
+        <!--האירועים שלי-->
+        <scene sceneID="BUH-Tq-ByQ">
+            <objects>
+                <tableViewController id="Kwc-or-5TV" customClass="MyEventsTableViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" id="Guk-zn-han">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Kwc-or-5TV" id="2bZ-dN-gbr"/>
+                            <outlet property="delegate" destination="Kwc-or-5TV" id="V5h-hE-1lG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="האירועים שלי" id="y7e-w9-z8R"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cO0-F2-FdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608" y="-465"/>
+        </scene>
+        <!--האירועים שלי-->
+        <scene sceneID="eDZ-wL-7dU">
+            <objects>
+                <navigationController id="tLr-zC-cPf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="האירועים שלי" image="MenuEventListWithStar" id="Kzf-RW-juH"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b3n-ft-bUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kwc-or-5TV" kind="relationship" relationship="rootViewController" id="99m-pR-uzO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZX-e1-63w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="-465"/>
         </scene>
         <!--Events-->
         <scene sceneID="vuJ-Kh-HSp">
@@ -50,38 +87,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SC-5i-BBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776" y="-1156"/>
-        </scene>
-        <!--האירועים שלי-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="MyEvents" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="האירועים שלי" image="MenuEventListWithStar" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="782" y="-458"/>
         </scene>
         <!--Third-->
         <scene sceneID="r8Z-un-nJE">
@@ -329,7 +334,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="zSy-QS-4eH" kind="relationship" relationship="viewControllers" id="yhj-hV-Br0"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="tLr-zC-cPf" kind="relationship" relationship="viewControllers" id="KI2-Iw-hOd"/>
                         <segue destination="Z78-Hx-az5" kind="relationship" relationship="viewControllers" id="gya-hO-TYb"/>
                         <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="eXG-xa-9zp"/>
                         <segue destination="5MY-oK-WFf" kind="relationship" relationship="viewControllers" id="PjI-pi-E3Z"/>

@@ -124,7 +124,7 @@
                 <outlet property="hallName" destination="5X3-Hb-QsB" id="cri-Fl-F4C"/>
                 <outlet property="lecturer" destination="Pgo-6u-me4" id="95K-aa-Dld"/>
                 <outlet property="startTime" destination="9T6-c6-XMR" id="cLp-86-Yhv"/>
-                <outlet property="timeLayout" destination="EpU-l7-KAz" id="Bfg-Zh-ldg"/>
+                <outlet property="timeLayout" destination="EpU-l7-KAz" id="TyZ-yb-z5R"/>
                 <outlet property="title" destination="T1m-Rc-2md" id="Nh7-eZ-8uC"/>
             </connections>
         </tableViewCell>

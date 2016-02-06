@@ -27,4 +27,16 @@ public class EventTableViewCell: UITableViewCell {
     @IBAction func changeFavoriteStateButtonWasClicked(sender: UIButton) {
         delegate?.changeFavoriteStateWasClicked(self);
     }
+    
+    func setEvent(event : ConventionEvent) {
+        startTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime).hour.description + ":00";
+        endTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime).hour.description + ":00";
+        title.text = event.title;
+        lecturer.text = event.lecturer;
+        hallName.text = event.hall.name;
+        timeLayout.backgroundColor = UIColor.redColor(); // event.getColor
+        
+        let favoriteImage = event.attending ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
+        favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+    }
 }

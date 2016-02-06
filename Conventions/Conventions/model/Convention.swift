@@ -13,6 +13,13 @@ class Convention {
     
     var halls: Array<Hall>?;
     var events: Array<ConventionEvent>!;
+    var favoriteEvents: Array<ConventionEvent>! {
+        get {
+            return events.filter {
+                (event) in event.attending
+            }
+        }
+    }
     
     init() {
         NSCalendar(identifier: NSCalendarIdentifierGregorian)?.dateFromComponents(NSDateComponents());
