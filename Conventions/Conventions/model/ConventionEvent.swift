@@ -7,22 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 class ConventionEvent {
     var id: String?;
     var serverId: Int?;
-    var color: Int!;
-    var title: String!;
-    var lecturer: String!;
+    var color: UIColor!;
+    var title: String?;
+    var lecturer: String?;
     var startTime: NSDate!;
     var endTime: NSDate!;
-    var type: EventType!;
-    var hall: Hall!;
+    var type: EventType?;
+    var hall: Hall?;
     var images: Array<Int>?;
-    var description: String!;
+    var description: String?;
     var attending: Bool;
     
-    init(id:String, serverId:Int, color: Int, title: String, lecturer: String, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String) {
+    init(id:String?, serverId:Int?, color: UIColor!, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
         self.id = id;
         self.serverId = serverId;
         self.color = color;

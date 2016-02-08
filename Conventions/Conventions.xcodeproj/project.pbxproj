@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
+		3B523D521C6657FD00D3D055 /* ModelRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D511C6657FD00D3D055 /* ModelRefresher.swift */; };
+		3B523D541C665C0500D3D055 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D531C665C0500D3D055 /* ModelParser.swift */; };
+		3B523D561C67D46300D3D055 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D551C67D46300D3D055 /* Date.swift */; };
 		3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B981D091C65E5A800F31009 /* MyEventsTableViewController.swift */; };
 		3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */; };
 		3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F61C554ED3007A8A23 /* SecondViewController.swift */; };
@@ -31,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
+		3B523D511C6657FD00D3D055 /* ModelRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelRefresher.swift; path = networking/ModelRefresher.swift; sourceTree = "<group>"; };
+		3B523D531C665C0500D3D055 /* ModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelParser.swift; path = networking/ModelParser.swift; sourceTree = "<group>"; };
+		3B523D551C67D46300D3D055 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = model/Date.swift; sourceTree = "<group>"; };
 		3B981D091C65E5A800F31009 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsTableViewController.swift; path = events/MyEventsTableViewController.swift; sourceTree = "<group>"; };
 		3BA2D7EF1C554ED3007A8A23 /* Conventions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B523D501C66575C00D3D055 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3B523D511C6657FD00D3D055 /* ModelRefresher.swift */,
+				3B523D531C665C0500D3D055 /* ModelParser.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		3BA2D7E61C554ED3007A8A23 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +99,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B523D501C66575C00D3D055 /* Networking */,
 				3BA2D81B1C613BC8007A8A23 /* externals */,
 				3BA2D8181C5FF4C5007A8A23 /* events */,
 				3BA2D80D1C5FE8A0007A8A23 /* model */,
@@ -107,6 +123,7 @@
 				3BA2D8121C5FEDF5007A8A23 /* EventType.swift */,
 				3BA2D8141C5FEE7B007A8A23 /* Place.swift */,
 				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
+				3B523D551C67D46300D3D055 /* Date.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -206,11 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B523D521C6657FD00D3D055 /* ModelRefresher.swift in Sources */,
 				3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsTableViewController.swift in Sources */,
+				3B523D541C665C0500D3D055 /* ModelParser.swift in Sources */,
 				3BA2D81D1C613BE1007A8A23 /* CardView.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
+				3B523D561C67D46300D3D055 /* Date.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */,

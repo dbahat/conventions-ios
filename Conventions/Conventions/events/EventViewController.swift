@@ -22,7 +22,7 @@ class EventViewController: UIViewController {
 
         lecturer.text = event?.lecturer;
         eventTitle.text = event?.title;
-        hallAndTime.text = event?.hall.name;
+        hallAndTime.text = event?.hall?.name;
         eventDescription.text = event?.description;
     }
 

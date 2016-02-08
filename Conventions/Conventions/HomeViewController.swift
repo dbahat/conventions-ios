@@ -12,6 +12,10 @@ class HomeViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ModelRefresher().refresh({(result) in
+            print(result);
+        });
     }
 
     override func didReceiveMemoryWarning() {
