@@ -17,13 +17,29 @@ class EventViewController: UIViewController {
     @IBOutlet private weak var hallAndTime: UILabel!
     @IBOutlet private weak var eventDescription: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollContentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         lecturer.text = event?.lecturer;
         eventTitle.text = event?.title;
         hallAndTime.text = event?.hall?.name;
-        eventDescription.text = event?.description;
+        
+        let attrStr = try! NSMutableAttributedString(
+            data: (event?.description!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true))!,
+            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType ],
+            documentAttributes: nil);
+        
+        attrStr.addAttribute(NSWritingDirectionAttributeName, value: [NSWritingDirection.RightToLeft.rawValue | NSTextWritingDirection.Override.rawValue], range: NSRange(location: 0, length: attrStr.length));
+        
+        eventDescription.attributedText = attrStr;
+        eventDescription.textAlignment = NSTextAlignment.Right;
+    }
+    
+    override func viewDidLayoutSubviews() {
+        scrollView.contentSize = scrollContentView.frame.size;
     }
 
     /*

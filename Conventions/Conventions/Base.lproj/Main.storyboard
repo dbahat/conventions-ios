@@ -45,7 +45,7 @@
                         <viewControllerLayoutGuide type="top" id="2u5-aQ-Lns"/>
                         <viewControllerLayoutGuide type="bottom" id="GUh-RE-UP0"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="OtO-fa-Lu0">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" id="OtO-fa-Lu0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -66,20 +66,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="insentLeft">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="insentRight">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="insentTop">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="insentBottom">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80115840520000003" colorSpace="calibratedRGB"/>
@@ -129,7 +115,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlU-Dt-VbU">
-                                                <rect key="frame" x="10" y="163.5" width="540" height="37"/>
+                                                <rect key="frame" x="10" y="163" width="540" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="500" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0N-Ss-7Qc">
                                                         <rect key="frame" x="10" y="10" width="520" height="17"/>
@@ -184,7 +170,6 @@
                         <constraints>
                             <constraint firstItem="7wI-7h-sXm" firstAttribute="centerX" secondItem="OtO-fa-Lu0" secondAttribute="centerX" id="64m-7d-rer"/>
                             <constraint firstItem="7wI-7h-sXm" firstAttribute="centerY" secondItem="OtO-fa-Lu0" secondAttribute="centerY" id="Acr-Ox-nRe"/>
-                            <constraint firstItem="GUh-RE-UP0" firstAttribute="top" secondItem="7wI-7h-sXm" secondAttribute="bottom" id="ejW-DD-sNu"/>
                             <constraint firstItem="7wI-7h-sXm" firstAttribute="leading" secondItem="OtO-fa-Lu0" secondAttribute="leadingMargin" id="rSe-IB-6Zk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7wI-7h-sXm" secondAttribute="trailing" id="u0S-dD-Zau"/>
                             <constraint firstItem="7wI-7h-sXm" firstAttribute="top" secondItem="2u5-aQ-Lns" secondAttribute="bottom" id="xJp-bL-Wdf"/>
@@ -195,6 +180,8 @@
                         <outlet property="eventTitle" destination="ZHp-Y3-2oH" id="hFD-0p-lJx"/>
                         <outlet property="hallAndTime" destination="JXJ-aj-pd4" id="sQa-WM-C9g"/>
                         <outlet property="lecturer" destination="qVx-Ql-OBD" id="efM-qm-QkX"/>
+                        <outlet property="scrollContentView" destination="7wI-7h-sXm" id="UAx-lz-ARK"/>
+                        <outlet property="scrollView" destination="OtO-fa-Lu0" id="EI3-YN-UNy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwT-iS-kDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,7 +271,7 @@
                             <constraint firstItem="eIF-cz-iOU" firstAttribute="centerX" secondItem="7dE-zi-uy6" secondAttribute="centerX" id="hTV-h5-0PC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="מפה" image="MenuMap" id="3Q0-75-3hL"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="3Q0-75-3hL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzn-Hv-s0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -520,7 +507,6 @@
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>
         <image name="MenuEventListWithStar" width="32" height="32"/>
-        <image name="MenuMap" width="23" height="23"/>
         <image name="OpeningAmaiLogo" width="573" height="315"/>
         <image name="OpeningArrivalMethods" width="325" height="386"/>
         <image name="OpeningEvents" width="327" height="386"/>

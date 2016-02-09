@@ -29,7 +29,7 @@ class ModelParser {
                         let startTime = formatDate(internalEvent["start"] as! String!);
                         let endTime = formatDate(internalEvent["end"] as! String!);
                         let room = internalEvent["room"] as! String!;
-                        let description = event["content"] as! String?;
+                        let description = parseEventDescription(event["content"] as! String?);
                         let color = UIColor(hexString: event["timetable-bg"] as! String!);
                         
                         let conventionEvent = ConventionEvent(
@@ -63,6 +63,28 @@ class ModelParser {
         
         dateFormatter.dateFormat = "yyyy:MM:dd HH:mm:ss";
         return dateFormatter.dateFromString(conventionDate + " " + date);
+    }
+    
+    func parseEventDescription(eventDescription : String?) -> String? {
+        return eventDescription?
+            .removeAll(pattern: "class=\"[^\"]*\"")
+            .removeAll(pattern: "style=\"[^\"]*\"")
+            .removeAll(pattern: "width=\"[^\"]*\"")
+            .removeAll(pattern: "height=\"[^\"]*\"")
+            .replace(pattern: "<div", withTemplate: "<xdiv")
+            .replace(pattern: "/div>", withTemplate: "/xdiv")
+            .replace(pattern: "\t", withTemplate: "    ");
+    }
+}
+
+extension String {
+    func removeAll(pattern pattern: String) -> String {
+        return replace(pattern: pattern, withTemplate: "");
+    }
+    
+    func replace(pattern pattern: String, withTemplate template: String) -> String {
+        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive);
+        return regex.stringByReplacingMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: template);
     }
 }
 
