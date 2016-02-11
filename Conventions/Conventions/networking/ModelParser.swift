@@ -73,7 +73,9 @@ class ModelParser {
             .removeAll(pattern: "height=\"[^\"]*\"")
             .replace(pattern: "<div", withTemplate: "<xdiv")
             .replace(pattern: "/div>", withTemplate: "/xdiv")
-            .replace(pattern: "\t", withTemplate: "    ");
+            .replace(pattern: "\t", withTemplate: "    ")
+            .replace(pattern: "<img", withTemplate: "<ximg")
+            .replace(pattern: "/img>", withTemplate: "/ximg>");
     }
 }
 

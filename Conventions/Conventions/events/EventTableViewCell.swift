@@ -30,7 +30,7 @@ public class EventTableViewCell: UITableViewCell {
     
     func setEvent(event : ConventionEvent) {
         startTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime!).hour.description + ":00";
-        endTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.startTime!).hour.description + ":00";
+        endTime.text = NSCalendar.currentCalendar().components([.Hour], fromDate: event.endTime!).hour.description + ":00";
         title.text = event.title;
         lecturer.text = event.lecturer;
         hallName.text = event.hall?.name;

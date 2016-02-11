@@ -17,9 +17,6 @@ class EventViewController: UIViewController {
     @IBOutlet private weak var hallAndTime: UILabel!
     @IBOutlet private weak var eventDescription: UILabel!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollContentView: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,10 +33,6 @@ class EventViewController: UIViewController {
         
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
-    }
-    
-    override func viewDidLayoutSubviews() {
-        scrollView.contentSize = scrollContentView.frame.size;
     }
 
     /*
