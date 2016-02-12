@@ -9,47 +9,52 @@
 import Foundation
 import UIKit
 
-class ModelParser {
-    func parse(data: NSData!) -> Array<ConventionEvent> {
+class EventsParser {
+    func parse(data: NSData!) -> Array<ConventionEvent>? {
         var result = Array<ConventionEvent>();
         
         do {
             if let events = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
                 for event in events {
                     let eventId = event["ID"] as! Int?;
-                    let eventType = event["categories-text"]!!["name"] as! String?;
                     
-                    print(eventId, eventType);
+                    // Each event can appear in multiple times. For simplicity, we treat it as multiple
+                    // events.
+                    var internalEventNumber = 1;
                     let internalEvents = event["timetable-info"] as! Array<NSDictionary>;
                     for internalEvent in internalEvents {
                         if (internalEvent["tooltip"] as! String? == "hidden") {
+                            // ignore hidden events
                             continue;
                         }
                         
-                        let startTime = formatDate(internalEvent["start"] as! String!);
-                        let endTime = formatDate(internalEvent["end"] as! String!);
-                        let room = internalEvent["room"] as! String!;
-                        let description = parseEventDescription(event["content"] as! String?);
                         let color = UIColor(hexString: event["timetable-bg"] as! String!);
                         
                         let conventionEvent = ConventionEvent(
-                            id: String(format: "%d_%d", arguments: [eventId!, 1]),
+                            // Since we duplicate events that appear in multiple times, compose a new
+                            // unique id from the server event id and it's internal index.
+                            // e.g. if event 100 appears in 12:00 and 17:00, it's ids will be 100_1 and 100_2
+                            id: String(format: "%d_%d", arguments: [eventId!, internalEventNumber]),
                             serverId: event["ID"] as! Int?,
                             color: color,
                             title: event["title"] as! String?,
                             lecturer: internalEvent["before_hour_text"] as! String?,
-                            startTime: startTime,
-                            endTime: endTime,
-                            type: nil,
-                            hall: Hall(name: room),
-                            description: description);
+                            startTime: formatDate(internalEvent["start"] as! String!),
+                            endTime: formatDate(internalEvent["end"] as! String!),
+                            type: EventType(
+                                backgroundColor: color,
+                                description: event["categories-text"]!!["name"] as! String!),
+                            hall: Hall(name: internalEvent["room"] as! String!),
+                            description: parseEventDescription(event["content"] as! String?));
                         
                         result.append(conventionEvent);
+                        internalEventNumber++;
                     }
                 }
             }
         } catch let error as NSError {
-            print(error.localizedDescription)
+            print(error.localizedDescription);
+            return nil;
         }
         
         return result;
@@ -90,27 +95,3 @@ extension String {
     }
 }
 
-extension UIColor {
-    convenience init(hexString:String) {
-        let hexString:NSString = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let scanner            = NSScanner(string: hexString as String)
-        
-        if (hexString.hasPrefix("#")) {
-            scanner.scanLocation = 1
-        }
-        
-        var color:UInt32 = 0
-        scanner.scanHexInt(&color)
-        
-        let mask = 0x000000FF
-        let r = Int(color >> 16) & mask
-        let g = Int(color >> 8) & mask
-        let b = Int(color) & mask
-        
-        let red   = CGFloat(r) / 255.0
-        let green = CGFloat(g) / 255.0
-        let blue  = CGFloat(b) / 255.0
-        
-        self.init(red:red, green:green, blue:blue, alpha:1)
-    }
-}

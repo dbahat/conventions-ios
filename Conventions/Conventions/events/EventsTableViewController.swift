@@ -31,7 +31,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Convention.instance.events.count;
+        return Convention.instance.events != nil ? Convention.instance.events.count : 0;
     }
     
     func getSectionName(section section: Int) -> String? {

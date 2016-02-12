@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class EventType {
-    var backgroundColor: Int?;
-    var description: String?;
+    var backgroundColor: UIColor;
+    var description: String;
+    
+    init(backgroundColor: UIColor, description: String) {
+        self.backgroundColor = backgroundColor;
+        self.description = description;
+    }
 }

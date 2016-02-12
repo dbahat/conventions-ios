@@ -9,20 +9,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        ModelRefresher().refresh({(result) in
-            print(result);
-        });
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(0);
@@ -47,15 +33,4 @@ class HomeViewController: UIViewController {
             self.presentViewController(vc, animated: true, completion: nil)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

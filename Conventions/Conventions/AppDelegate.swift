@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -23,6 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // started in iOS9, and we want to support previous iOS versions.
             UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight;
         }
+        
+        let cachedEvents = NSData(contentsOfFile: eventsCacheFileName);
+        if (cachedEvents != nil) {
+            Convention.instance.events = EventsParser().parse(cachedEvents);
+            print("Events from cache: ", Convention.instance.events?.count);
+        }
+        
+        EventsDownloader().download({(result) in
+            if (result != nil) {
+                Convention.instance.events = EventsParser().parse(result);
+                print("Downloaded events: ", Convention.instance.events?.count);
+                result?.writeToFile(self.eventsCacheFileName, atomically: true);
+            }
+        });
         
         return true
     }
