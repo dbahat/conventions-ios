@@ -10,6 +10,9 @@ import UIKit
 
 class EventsTableViewController: UITableViewController, EventStateProtocol {
 
+    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
+    private var eventTimeSections: Array<NSDate>!;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
 
@@ -20,33 +23,27 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        // redraw the table when navigating in/out of the view, in case the model changed
+        eventsPerTimeSection = calculateEventsPerTimeSection();
+        eventTimeSections = calculateEventsTimeSections();
         tableView.reloadData();
     }
     
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return eventTimeSections.count;
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Convention.instance.events != nil ? Convention.instance.events.count : 0;
+        let timeSection = eventTimeSections[section];
+        return eventsPerTimeSection[timeSection]!.count;
     }
     
-    func getSectionName(section section: Int) -> String? {
-        switch section {
-        case 0:
-            return "10:00"
-        case 1:
-            return "11:00"
-        case 2:
-            return "12:00"
-        case 3:
-            return "13:00"
-        default:
-            return "14:00"
-        }
+    private func getSectionName(section section: Int) -> String? {
+        let timeSection = eventTimeSections[section];
+        return timeSection.format("HH:mm");
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -60,7 +57,8 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventTableViewCell", forIndexPath: indexPath) as! EventTableViewCell
 
-        let event = Convention.instance.events[indexPath.row];
+        let timeSection = eventTimeSections[indexPath.section];
+        let event = eventsPerTimeSection[timeSection]![indexPath.row];
         cell.setEvent(event);
         cell.favoriteButton.tag = indexPath.row;
         cell.delegate = self;
@@ -69,7 +67,8 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let event = Convention.instance.events[indexPath.row];
+        let timeSection = eventTimeSections[indexPath.section];
+        let event = eventsPerTimeSection[timeSection]![indexPath.row];
         performSegueWithIdentifier("EventsToEventSegue", sender: event);
     }
     
@@ -85,7 +84,8 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         
         let addToFavorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
             tableView.setEditing(false, animated: true);
-            let event = Convention.instance.events[index.row];
+            let timeSection = self.eventTimeSections[indexPath.section];
+            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
             event.attending = true;
             tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
         }
@@ -93,7 +93,8 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
-            let event = Convention.instance.events[index.row];
+            let timeSection = self.eventTimeSections[indexPath.section];
+            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
             event.attending = false;
             tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
         }
@@ -106,5 +107,38 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let eventViewController = segue.destinationViewController as! EventViewController;
         eventViewController.event = sender as? ConventionEvent;
+    }
+    
+    // MARK: - Private methods
+    
+    private func calculateEventsPerTimeSection() -> Dictionary<NSDate, Array<ConventionEvent>> {
+        var result = Dictionary<NSDate, Array<ConventionEvent>>();
+        
+        for event in Convention.instance.events {
+            // In case an event lasts more then 1 hour, duplicate them so they'll appear in multiple time sections.
+            // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
+            let eventLengthInHours = Int(event.endTime.timeIntervalSinceDate(event.startTime) / 60 / 60);
+            for var i = 0; i < eventLengthInHours; i++ {
+                let roundedEventTime = event.startTime.clearMinutesComponent().addHours(i);
+                if (result[roundedEventTime] == nil) {
+                    result[roundedEventTime] = [event];
+                } else {
+                    result[roundedEventTime]!.append(event);
+                }
+                
+                result[roundedEventTime]!.sortInPlace({$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
+            }
+        }
+        
+        return result;
+    }
+    
+    private func calculateEventsTimeSections() -> Array<NSDate>! {
+        if (Convention.instance.events == nil) {
+            return [];
+        }
+        
+        return Set(Convention.instance.events!.map({event in event.startTime.clearMinutesComponent()}))
+            .sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
 }

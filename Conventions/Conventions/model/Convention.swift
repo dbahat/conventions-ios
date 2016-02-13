@@ -13,14 +13,6 @@ class Convention {
     
     var halls: Array<Hall>?;
     var events: Array<ConventionEvent>!;
-    var favoriteEvents: Array<ConventionEvent>! {
-        get {
-            return events.filter {
-                (event) in event.attending
-            }
-        }
-    }
-    
     let date = Date.from(year: 2016, month: 3, day: 23);
 }
 

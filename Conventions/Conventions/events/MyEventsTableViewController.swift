@@ -9,6 +9,8 @@
 import UIKit
 
 class MyEventsTableViewController: UITableViewController, EventStateProtocol {
+    
+    private var myEvents: Array<ConventionEvent>?;
 
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -18,6 +20,7 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     override func viewDidAppear(animated: Bool) {
+        myEvents = Convention.instance.events?.filter { event in event.attending };
         tableView.reloadData();
     }
 
@@ -29,13 +32,13 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Convention.instance.favoriteEvents.count;
+        return myEvents != nil ? myEvents!.count : 0;
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventTableViewCell", forIndexPath: indexPath) as! EventTableViewCell
         
-        let event = Convention.instance.favoriteEvents[indexPath.row];
+        let event = myEvents![indexPath.row];
         cell.setEvent(event);
         cell.favoriteButton.tag = indexPath.row;
         cell.delegate = self;
@@ -45,7 +48,7 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
         let rowIndex = caller.favoriteButton.tag;
-        let event = Convention.instance.favoriteEvents[rowIndex];
+        let event = myEvents![rowIndex];
         event.attending = false;
         
         tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: rowIndex, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic);
@@ -55,7 +58,7 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
-            let event = Convention.instance.favoriteEvents[index.row];
+            let event = self.myEvents![index.row];
             event.attending = false;
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
         }

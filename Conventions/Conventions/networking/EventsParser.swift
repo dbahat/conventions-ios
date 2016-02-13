@@ -39,8 +39,8 @@ class EventsParser {
                             color: color,
                             title: event["title"] as! String?,
                             lecturer: internalEvent["before_hour_text"] as! String?,
-                            startTime: formatDate(internalEvent["start"] as! String!),
-                            endTime: formatDate(internalEvent["end"] as! String!),
+                            startTime: appendTimeToConventionDate(internalEvent["start"] as! String!),
+                            endTime: appendTimeToConventionDate(internalEvent["end"] as! String!),
                             type: EventType(
                                 backgroundColor: color,
                                 description: event["categories-text"]!!["name"] as! String!),
@@ -60,14 +60,9 @@ class EventsParser {
         return result;
     }
     
-    func formatDate(date: String!) -> NSDate? {
-        let dateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "yyyy:MM:dd";
-        dateFormatter.locale = NSLocale.systemLocale();
-        let conventionDate = dateFormatter.stringFromDate(Convention.instance.date);
-        
-        dateFormatter.dateFormat = "yyyy:MM:dd HH:mm:ss";
-        return dateFormatter.dateFromString(conventionDate + " " + date);
+    func appendTimeToConventionDate(time: String!) -> NSDate! {
+        let dateAndTime = Convention.instance.date.format("yyyy:MM:dd") + " " + time;
+        return NSDate.parse(dateAndTime, dateFormat: "yyyy:MM:dd HH:mm:ss");
     }
     
     func parseEventDescription(eventDescription : String?) -> String? {
