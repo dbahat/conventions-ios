@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window: UIWindow?;
 
     let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
 
@@ -31,10 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         EventsDownloader().download({(result) in
-            if (result != nil) {
-                Convention.instance.events = EventsParser().parse(result);
+            guard let events = result else {
+                return;
+            }
+            
+            result?.writeToFile(self.eventsCacheFileName, atomically: true);
+            
+            // Using main thread for syncronizing access to Convention.instance
+            dispatch_async(dispatch_get_main_queue()) {
+                Convention.instance.events = EventsParser().parse(events);
                 print("Downloaded events: ", Convention.instance.events?.count);
-                result?.writeToFile(self.eventsCacheFileName, atomically: true);
             }
         });
         

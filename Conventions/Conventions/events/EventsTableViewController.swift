@@ -101,7 +101,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         removeFromFavorite.backgroundColor = UIColor.redColor();
         
         let event = Convention.instance.events[indexPath.row];
-        return event.attending ? [removeFromFavorite] : [addToFavorite];
+        return event.attending == true ? [removeFromFavorite] : [addToFavorite];
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

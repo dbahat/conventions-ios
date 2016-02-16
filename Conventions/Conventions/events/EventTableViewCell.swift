@@ -36,7 +36,7 @@ public class EventTableViewCell: UITableViewCell {
         hallName.text = event.hall?.name;
         timeLayout.backgroundColor = event.color;
         
-        let favoriteImage = event.attending ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
+        let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
         favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
     }
 }

@@ -21,7 +21,7 @@ class ConventionEvent {
     var hall: Hall?;
     var images: Array<Int>?;
     var description: String?;
-    var attending: Bool;
+    var attending: Bool!;
     
     init(id:String!, serverId:Int?, color: UIColor?, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
         self.id = id;
