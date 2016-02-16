@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight;
         }
         
-        let cachedEvents = NSData(contentsOfFile: eventsCacheFileName);
-        if (cachedEvents != nil) {
+        if let cachedEvents = NSData(contentsOfFile: eventsCacheFileName) {
             Convention.instance.events = EventsParser().parse(cachedEvents);
             print("Events from cache: ", Convention.instance.events?.count);
         }

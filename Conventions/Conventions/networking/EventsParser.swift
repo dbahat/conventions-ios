@@ -16,35 +16,48 @@ class EventsParser {
         do {
             if let events = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
                 for event in events {
-                    let eventId = event["ID"] as! Int?;
+                    guard let eventId = event["ID"] as? Int else {
+                        continue; // Ignore events without ID
+                    }
                     
                     // Each event can appear in multiple times. For simplicity, we treat it as multiple
                     // events.
                     var internalEventNumber = 1;
-                    let internalEvents = event["timetable-info"] as! Array<NSDictionary>;
+                    guard let internalEvents = event["timetable-info"] as? Array<NSDictionary> else {
+                        continue;
+                    }
                     for internalEvent in internalEvents {
                         if (internalEvent["tooltip"] as! String? == "hidden") {
-                            // ignore hidden events
-                            continue;
+                            continue; // ignore hidden events
                         }
                         
-                        let color = UIColor(hexString: event["timetable-bg"] as! String!);
+                        var color: UIColor?;
+                        if let colorCode = event["timetable-bg"] as? String {
+                            color = UIColor(hexString: colorCode);
+                        }
+                        
+                        guard let startTime = internalEvent["start"] as? String else {
+                            continue;
+                        }
+                        guard let endTime = internalEvent["end"] as? String else {
+                            continue;
+                        }
                         
                         let conventionEvent = ConventionEvent(
                             // Since we duplicate events that appear in multiple times, compose a new
                             // unique id from the server event id and it's internal index.
                             // e.g. if event 100 appears in 12:00 and 17:00, it's ids will be 100_1 and 100_2
-                            id: String(format: "%d_%d", arguments: [eventId!, internalEventNumber]),
-                            serverId: event["ID"] as! Int?,
+                            id: String(format: "%d_%d", arguments: [eventId, internalEventNumber]),
+                            serverId: event["ID"] as? Int,
                             color: color,
-                            title: event["title"] as! String?,
-                            lecturer: internalEvent["before_hour_text"] as! String?,
-                            startTime: appendTimeToConventionDate(internalEvent["start"] as! String!),
-                            endTime: appendTimeToConventionDate(internalEvent["end"] as! String!),
+                            title: event["title"] as? String,
+                            lecturer: internalEvent["before_hour_text"] as? String,
+                            startTime: appendTimeToConventionDate(startTime),
+                            endTime: appendTimeToConventionDate(endTime),
                             type: EventType(
                                 backgroundColor: color,
-                                description: event["categories-text"]!!["name"] as! String!),
-                            hall: Hall(name: internalEvent["room"] as! String!),
+                                description: event["categories-text"]??["name"] as? String),
+                            hall: Hall(name: internalEvent["room"] as? String),
                             description: parseEventDescription(event["content"] as! String?));
                         
                         result.append(conventionEvent);
@@ -67,26 +80,33 @@ class EventsParser {
     
     func parseEventDescription(eventDescription : String?) -> String? {
         return eventDescription?
-            .removeAll(pattern: "class=\"[^\"]*\"")
-            .removeAll(pattern: "style=\"[^\"]*\"")
-            .removeAll(pattern: "width=\"[^\"]*\"")
-            .removeAll(pattern: "height=\"[^\"]*\"")
-            .replace(pattern: "<div", withTemplate: "<xdiv")
-            .replace(pattern: "/div>", withTemplate: "/xdiv")
-            .replace(pattern: "\t", withTemplate: "    ")
-            .replace(pattern: "<img", withTemplate: "<ximg")
+            .removeAll(pattern: "class=\"[^\"]*\"")?
+            .removeAll(pattern: "style=\"[^\"]*\"")?
+            .removeAll(pattern: "width=\"[^\"]*\"")?
+            .removeAll(pattern: "height=\"[^\"]*\"")?
+            .replace(pattern: "<div", withTemplate: "<xdiv")?
+            .replace(pattern: "/div>", withTemplate: "/xdiv")?
+            .replace(pattern: "\t", withTemplate: "    ")?
+            .replace(pattern: "<img", withTemplate: "<ximg")?
             .replace(pattern: "/img>", withTemplate: "/ximg>");
     }
 }
 
 extension String {
-    func removeAll(pattern pattern: String) -> String {
+    func removeAll(pattern pattern: String?) -> String? {
         return replace(pattern: pattern, withTemplate: "");
     }
     
-    func replace(pattern pattern: String, withTemplate template: String) -> String {
-        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive);
-        return regex.stringByReplacingMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: template);
+    func replace(pattern pattern: String?, withTemplate template: String?) -> String? {
+        guard let unwrappedPattern = pattern else {
+            return pattern;
+        }
+        guard let unwrappedTemplate = template else {
+            return pattern;
+        }
+        
+        let regex = try? NSRegularExpression(pattern: unwrappedPattern, options: NSRegularExpressionOptions.CaseInsensitive);
+        return regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: unwrappedTemplate);
     }
 }
 

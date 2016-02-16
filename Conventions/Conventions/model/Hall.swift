@@ -11,7 +11,7 @@ import Foundation
 class Hall : Place {
     var order: Int?;
     
-    override init(name: String) {
+    override init(name: String?) {
         super.init(name: name)
     }
 }

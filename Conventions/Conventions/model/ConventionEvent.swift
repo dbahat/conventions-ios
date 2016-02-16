@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class ConventionEvent {
-    var id: String?;
+    var id: String!;
     var serverId: Int?;
-    var color: UIColor!;
+    var color: UIColor?;
     var title: String?;
     var lecturer: String?;
     var startTime: NSDate!;
@@ -23,7 +23,7 @@ class ConventionEvent {
     var description: String?;
     var attending: Bool;
     
-    init(id:String?, serverId:Int?, color: UIColor!, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
+    init(id:String!, serverId:Int?, color: UIColor?, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
         self.id = id;
         self.serverId = serverId;
         self.color = color;
