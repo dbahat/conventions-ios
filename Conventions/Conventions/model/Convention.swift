@@ -13,6 +13,11 @@ class Convention {
     
     var halls: Array<Hall>?;
     var events: Array<ConventionEvent>!;
+    var userInput : Dictionary<String, ConventionEvent.UserInput>!;
     let date = Date.from(year: 2016, month: 3, day: 23);
+    
+    init() {
+        userInput = Dictionary<String, ConventionEvent.UserInput>();
+    }
 }
 

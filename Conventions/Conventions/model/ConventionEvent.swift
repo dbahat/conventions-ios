@@ -21,7 +21,29 @@ class ConventionEvent {
     var hall: Hall?;
     var images: Array<Int>?;
     var description: String?;
-    var attending: Bool!;
+    
+    var attending: Bool! {
+        get {
+            return Convention.instance.userInput[id] != nil
+                ? Convention.instance.userInput[id]!.attending
+                : false;
+        }
+        
+        set {
+            if (Convention.instance.userInput[id] == nil) {
+                Convention.instance.userInput[id] = UserInput(attending: newValue);
+                return;
+            }
+            
+            Convention.instance.userInput[id]!.attending = newValue;
+        }
+    }
+    
+    var userInput: UserInput? {
+        get {
+            return Convention.instance.userInput[id];
+        }
+    }
     
     init(id:String!, serverId:Int?, color: UIColor?, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
         self.id = id;
@@ -34,6 +56,13 @@ class ConventionEvent {
         self.type = type;
         self.hall = hall;
         self.description = description;
-        self.attending = false;
+    }
+    
+    class UserInput {
+        var attending: Bool!
+        
+        init(attending:Bool!) {
+            self.attending = attending;
+        }
     }
 }

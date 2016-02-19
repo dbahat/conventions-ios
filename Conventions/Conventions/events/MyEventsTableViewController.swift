@@ -20,15 +20,14 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     override func viewDidAppear(animated: Bool) {
-        myEvents = Convention.instance.events?.filter { event in event.attending };
+        reloadMyEvents();
         tableView.reloadData();
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 1;
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,18 +39,19 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
         
         let event = myEvents![indexPath.row];
         cell.setEvent(event);
-        cell.favoriteButton.tag = indexPath.row;
+        cell.indexPath = indexPath;
         cell.delegate = self;
 
         return cell
     }
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        let rowIndex = caller.favoriteButton.tag;
-        let event = myEvents![rowIndex];
-        event.attending = false;
-        
-        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: rowIndex, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic);
+        if let indexPath = caller.indexPath {
+            let event = myEvents![indexPath.row];
+            event.attending = false;
+            reloadMyEvents();
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+        }
     }
 
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -60,6 +60,7 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
             tableView.setEditing(false, animated: true);
             let event = self.myEvents![index.row];
             event.attending = false;
+            self.reloadMyEvents();
             tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
         }
         removeFromFavorite.backgroundColor = UIColor.redColor();
@@ -75,5 +76,11 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let eventViewController = segue.destinationViewController as! EventViewController;
         eventViewController.event = sender as? ConventionEvent;
+    }
+    
+    private func reloadMyEvents() {
+        myEvents = Convention.instance.events?
+            .filter { event in event.attending }
+            .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
     }
 }

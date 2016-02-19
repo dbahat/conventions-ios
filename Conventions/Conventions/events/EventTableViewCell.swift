@@ -23,6 +23,7 @@ public class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     weak var delegate: EventStateProtocol?;
+    var indexPath: NSIndexPath?;
     
     @IBAction func changeFavoriteStateButtonWasClicked(sender: UIButton) {
         delegate?.changeFavoriteStateWasClicked(self);

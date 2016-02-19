@@ -60,8 +60,9 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]![indexPath.row];
         cell.setEvent(event);
-        cell.favoriteButton.tag = indexPath.row;
         cell.delegate = self;
+        // Assigning the cell it's index path so we can identify it's position when clicked
+        cell.indexPath = indexPath;
 
         return cell;
     }
@@ -73,19 +74,21 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        let rowIndex = caller.favoriteButton.tag;
-        let event = Convention.instance.events[rowIndex];
-        event.attending = !event.attending;
+        if let indexPath = caller.indexPath {
+            let timeSection = self.eventTimeSections[indexPath.section];
+            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
+            event.attending = !event.attending;
         
-        tableView.reloadData();
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
+        }
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let addToFavorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
             tableView.setEditing(false, animated: true);
-            let timeSection = self.eventTimeSections[indexPath.section];
-            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
+            let timeSection = self.eventTimeSections[index.section];
+            let event = self.eventsPerTimeSection[timeSection]![index.row];
             event.attending = true;
             tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
         }
@@ -93,8 +96,8 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
-            let timeSection = self.eventTimeSections[indexPath.section];
-            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
+            let timeSection = self.eventTimeSections[index.section];
+            let event = self.eventsPerTimeSection[timeSection]![index.row];
             event.attending = false;
             tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
         }
@@ -120,6 +123,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
             let eventLengthInHours = Int(event.endTime.timeIntervalSinceDate(event.startTime) / 60 / 60);
             for var i = 0; i < eventLengthInHours; i++ {
                 let roundedEventTime = event.startTime.clearMinutesComponent().addHours(i);
+                
                 if (result[roundedEventTime] == nil) {
                     result[roundedEventTime] = [event];
                 } else {
