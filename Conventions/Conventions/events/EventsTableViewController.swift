@@ -61,8 +61,6 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         let event = eventsPerTimeSection[timeSection]![indexPath.row];
         cell.setEvent(event);
         cell.delegate = self;
-        // Assigning the cell it's index path so we can identify it's position when clicked
-        cell.indexPath = indexPath;
 
         return cell;
     }
@@ -74,13 +72,15 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        if let indexPath = caller.indexPath {
-            let timeSection = self.eventTimeSections[indexPath.section];
-            let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
-            event.attending = !event.attending;
-        
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
+        guard let indexPath = tableView.indexPathForCell(caller) else {
+            return;
         }
+        
+        let timeSection = self.eventTimeSections[indexPath.section];
+        let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
+        event.attending = !event.attending;
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {

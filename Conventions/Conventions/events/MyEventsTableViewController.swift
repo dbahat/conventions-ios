@@ -39,19 +39,23 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
         
         let event = myEvents![indexPath.row];
         cell.setEvent(event);
-        cell.indexPath = indexPath;
         cell.delegate = self;
 
         return cell
     }
     
     func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        if let indexPath = caller.indexPath {
-            let event = myEvents![indexPath.row];
-            event.attending = false;
-            reloadMyEvents();
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+        guard let indexPath = tableView.indexPathForCell(caller) else {
+            return;
         }
+        guard let event = myEvents?[indexPath.row] else {
+            return;
+        }
+        
+        
+        event.attending = false;
+        reloadMyEvents();
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
     }
 
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -69,8 +73,9 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let event = Convention.instance.events[indexPath.row];
-        performSegueWithIdentifier("MyEventsToEventSegue", sender: event);
+        if let event = myEvents?[indexPath.row] {
+            performSegueWithIdentifier("MyEventsToEventSegue", sender: event);
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

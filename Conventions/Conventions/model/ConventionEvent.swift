@@ -24,24 +24,25 @@ class ConventionEvent {
     
     var attending: Bool! {
         get {
-            return Convention.instance.userInput[id] != nil
-                ? Convention.instance.userInput[id]!.attending
+            return Convention.instance.userInputs[id] != nil
+                ? Convention.instance.userInputs[id]!.attending
                 : false;
         }
         
         set {
-            if (Convention.instance.userInput[id] == nil) {
-                Convention.instance.userInput[id] = UserInput(attending: newValue);
-                return;
+            if (Convention.instance.userInputs[id] == nil) {
+                Convention.instance.userInputs[id] = UserInput(attending: newValue);
+            } else {
+                Convention.instance.userInputs[id]!.attending = newValue;
             }
             
-            Convention.instance.userInput[id]!.attending = newValue;
+            Convention.instance.saveUserInputs();
         }
     }
     
     var userInput: UserInput? {
         get {
-            return Convention.instance.userInput[id];
+            return Convention.instance.userInputs[id];
         }
     }
     
@@ -63,6 +64,16 @@ class ConventionEvent {
         
         init(attending:Bool!) {
             self.attending = attending;
+        }
+        
+        init(json: Dictionary<String, String>) {
+            if let attendingString = json["attending"] {
+                self.attending = NSString(string: attendingString).boolValue;
+            }
+        }
+        
+        func toJson() -> Dictionary<String, String> {
+            return ["attending": attending.description];
         }
     }
 }
