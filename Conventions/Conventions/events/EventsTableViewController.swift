@@ -84,26 +84,30 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
+        let timeSection = eventTimeSections[indexPath.section];
+        let event = eventsPerTimeSection[timeSection]?[indexPath.row];
+        
         let addToFavorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
             tableView.setEditing(false, animated: true);
             let timeSection = self.eventTimeSections[index.section];
-            let event = self.eventsPerTimeSection[timeSection]![index.row];
-            event.attending = true;
-            tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+            if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
+                event.attending = true;
+                tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+            }
         }
-        addToFavorite.backgroundColor = UIColor.redColor();
+        addToFavorite.backgroundColor = event?.color;
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
             let timeSection = self.eventTimeSections[index.section];
-            let event = self.eventsPerTimeSection[timeSection]![index.row];
-            event.attending = false;
-            tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+            if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
+                event.attending = false;
+                tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+            }
         }
-        removeFromFavorite.backgroundColor = UIColor.redColor();
+        removeFromFavorite.backgroundColor = event?.color;
         
-        let event = Convention.instance.events[indexPath.row];
-        return event.attending == true ? [removeFromFavorite] : [addToFavorite];
+        return event?.attending == true ? [removeFromFavorite] : [addToFavorite];
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -62,12 +62,14 @@ class MyEventsTableViewController: UITableViewController, EventStateProtocol {
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
-            let event = self.myEvents![index.row];
-            event.attending = false;
-            self.reloadMyEvents();
-            tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
+            if let event = self.myEvents?[index.row] {
+                event.attending = false;
+                self.reloadMyEvents();
+                tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
+            }
         }
-        removeFromFavorite.backgroundColor = UIColor.redColor();
+        let event = self.myEvents?[indexPath.row];
+        removeFromFavorite.backgroundColor = event?.color;
         
         return [removeFromFavorite];
     }
