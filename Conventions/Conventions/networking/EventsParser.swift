@@ -17,7 +17,8 @@ class EventsParser {
             if let events = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
                 for event in events {
                     guard let eventId = event["ID"] as? Int else {
-                        continue; // Ignore events without ID
+                        print("Got event without ID. Skipping");
+                        continue;
                     }
                     
                     // Each event can appear in multiple times. For simplicity, we treat it as multiple
@@ -28,7 +29,8 @@ class EventsParser {
                     }
                     for internalEvent in internalEvents {
                         if (internalEvent["tooltip"] as! String? == "hidden") {
-                            continue; // ignore hidden events
+                            print("Skipping hidden event ", eventId);
+                            continue;
                         }
                         
                         var color: UIColor?;
@@ -37,9 +39,15 @@ class EventsParser {
                         }
                         
                         guard let startTime = internalEvent["start"] as? String else {
+                            print("Event missing startTime. Skipping. ID=", eventId);
                             continue;
                         }
                         guard let endTime = internalEvent["end"] as? String else {
+                            print("Event missing endTime. Skipping. ID=", eventId);
+                            continue;
+                        }
+                        guard let hallName = internalEvent["room"] as? String else {
+                            print("Event missing room. Skipping. ID=", eventId);
                             continue;
                         }
                         
@@ -57,7 +65,7 @@ class EventsParser {
                             type: EventType(
                                 backgroundColor: color,
                                 description: event["categories-text"]??["name"] as? String),
-                            hall: Hall(name: internalEvent["room"] as? String),
+                            hall: Convention.instance.findHallByName(hallName),
                             description: parseEventDescription(event["content"] as! String?));
                         
                         result.append(conventionEvent);

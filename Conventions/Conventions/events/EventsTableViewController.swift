@@ -25,8 +25,7 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
 
     override func viewWillAppear(animated: Bool) {
         // redraw the table when navigating in/out of the view, in case the model changed
-        eventsPerTimeSection = calculateEventsPerTimeSection();
-        eventTimeSections = calculateEventsTimeSections();
+        calculateEventsAndTimeSections();
         tableView.reloadData();
     }
     
@@ -114,13 +113,14 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     
     // MARK: - Private methods
     
-    private func calculateEventsPerTimeSection() -> Dictionary<NSDate, Array<ConventionEvent>> {
+    private func calculateEventsAndTimeSections() {
         var result = Dictionary<NSDate, Array<ConventionEvent>>();
         
         for event in Convention.instance.events {
             // In case an event lasts more then 1 hour, duplicate them so they'll appear in multiple time sections.
             // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
-            let eventLengthInHours = Int(event.endTime.timeIntervalSinceDate(event.startTime) / 60 / 60);
+            let eventLengthInHours = Int(event.endTime.moveToNextRoundHour().timeIntervalSinceDate(
+                event.startTime.clearMinutesComponent()) / 60 / 60);
             for var i = 0; i < eventLengthInHours; i++ {
                 let roundedEventTime = event.startTime.clearMinutesComponent().addHours(i);
                 
@@ -130,19 +130,21 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
                     result[roundedEventTime]!.append(event);
                 }
                 
-                result[roundedEventTime]!.sortInPlace({$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
+                result[roundedEventTime]!.sortInPlace({
+                    $0.hall?.order < $1.hall?.order})
             }
         }
         
-        return result;
+        eventsPerTimeSection = result;
+        eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
-    
-    private func calculateEventsTimeSections() -> Array<NSDate>! {
-        if (Convention.instance.events == nil) {
-            return [];
-        }
-        
-        return Set(Convention.instance.events!.map({event in event.startTime.clearMinutesComponent()}))
-            .sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
-    }
+//    
+//    private func calculateEventsTimeSections() -> Array<NSDate>! {
+//        if (Convention.instance.events == nil) {
+//            return [];
+//        }
+//        
+//        return Set(Convention.instance.events!.map({event in event.startTime.clearMinutesComponent()}))
+//            .sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
+//    }
 }

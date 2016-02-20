@@ -25,6 +25,13 @@ extension NSDate {
         return NSDate.parse(self.format("yyyy-MM-dd HH"), dateFormat: "yyyy-MM-dd HH");
     }
     
+    func moveToNextRoundHour() -> NSDate! {
+        if self.timeIntervalSinceDate(self.clearMinutesComponent()) > 0 {
+            return self.clearMinutesComponent().addHours(1);
+        }
+        return self.clearMinutesComponent();
+    }
+    
     static func parse(date: String!, dateFormat: String!) -> NSDate! {
         let dateFormatter = NSDateFormatter();
         dateFormatter.locale = NSLocale.systemLocale();
