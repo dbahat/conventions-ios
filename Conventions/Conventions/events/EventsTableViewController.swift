@@ -138,13 +138,4 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
         eventsPerTimeSection = result;
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
-//    
-//    private func calculateEventsTimeSections() -> Array<NSDate>! {
-//        if (Convention.instance.events == nil) {
-//            return [];
-//        }
-//        
-//        return Set(Convention.instance.events!.map({event in event.startTime.clearMinutesComponent()}))
-//            .sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
-//    }
 }
