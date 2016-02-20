@@ -24,25 +24,22 @@ class ConventionEvent {
     
     var attending: Bool! {
         get {
-            return Convention.instance.userInputs[id] != nil
-                ? Convention.instance.userInputs[id]!.attending
-                : false;
+            if let input = Convention.instance.userInputs.getInput(id) {
+                return input.attending;
+            }
+            
+            return false;
         }
         
         set {
-            if (Convention.instance.userInputs[id] == nil) {
-                Convention.instance.userInputs[id] = UserInput(attending: newValue);
-            } else {
-                Convention.instance.userInputs[id]!.attending = newValue;
-            }
-            
-            Convention.instance.saveUserInputs();
+            let input = UserInput(attending: newValue);
+            Convention.instance.userInputs.setInput(input, forEventId: id);
         }
     }
     
     var userInput: UserInput? {
         get {
-            return Convention.instance.userInputs[id];
+            return Convention.instance.userInputs.getInput(id);
         }
     }
     

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?;
 
-    let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
+    private static let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight;
         }
         
-        if let cachedEvents = NSData(contentsOfFile: eventsCacheFileName) {
+        if let cachedEvents = NSData(contentsOfFile: AppDelegate.eventsCacheFileName) {
             Convention.instance.events = EventsParser().parse(cachedEvents);
             print("Events from cache: ", Convention.instance.events?.count);
         }
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return;
             }
             
-            result?.writeToFile(self.eventsCacheFileName, atomically: true);
+            result?.writeToFile(AppDelegate.eventsCacheFileName, atomically: true);
             
             // Using main thread for syncronizing access to Convention.instance
             dispatch_async(dispatch_get_main_queue()) {
