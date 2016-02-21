@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController, EventStateProtocol {
+class EventsTableViewController: UITableViewController, EventCellStateProtocol {
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
     private var eventTimeSections: Array<NSDate>!;
@@ -16,9 +16,6 @@ class EventsTableViewController: UITableViewController, EventStateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad();
 
-        let eventViewCell = UINib(nibName: "EventTableViewCell", bundle: nil);
-        self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventTableViewCell");
-        
         let eventHeaderView = UINib(nibName: "EventListHeaderView", bundle: nil);
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
     }

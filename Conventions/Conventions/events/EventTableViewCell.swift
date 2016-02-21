@@ -8,35 +8,21 @@
 
 import UIKit
 
-public protocol EventStateProtocol : class {
+protocol EventCellStateProtocol : class {
     func changeFavoriteStateWasClicked(caller: EventTableViewCell);
 }
 
-public class EventTableViewCell: UITableViewCell {
+public class EventTableViewCell: UITableViewCell, EventStateProtocol {
 
-    @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var endTime: UILabel!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var hallName: UILabel!
-    @IBOutlet weak var lecturer: UILabel!
-    @IBOutlet weak var timeLayout: UIView!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet private weak var eventView: EventView!
+    weak var delegate: EventCellStateProtocol?;
     
-    weak var delegate: EventStateProtocol?;
-    
-    @IBAction func changeFavoriteStateButtonWasClicked(sender: UIButton) {
+    func changeFavoriteStateWasClicked(caller: EventView) {
         delegate?.changeFavoriteStateWasClicked(self);
     }
     
     func setEvent(event : ConventionEvent) {
-        startTime.text = event.startTime!.format("HH:mm");
-        endTime.text = event.endTime!.format("HH:mm");
-        title.text = event.title;
-        lecturer.text = event.lecturer;
-        hallName.text = event.hall?.name;
-        timeLayout.backgroundColor = event.color;
-        
-        let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
-        favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+        eventView.setEvent(event);
+        eventView.delegate = self;
     }
 }

@@ -15,6 +15,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="wlP-px-Cpu" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wlP-px-Cpu" id="oPf-Jw-Kt4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJW-ks-0Hd" customClass="EventView" customModule="Conventions" customModuleProvider="target">
+                                            <rect key="frame" x="5" y="5" width="590" height="92"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="GJW-ks-0Hd" secondAttribute="trailing" constant="5" id="1zl-GI-JfS"/>
+                                        <constraint firstItem="GJW-ks-0Hd" firstAttribute="top" secondItem="oPf-Jw-Kt4" secondAttribute="topMargin" constant="5" id="5xE-rp-d05"/>
+                                        <constraint firstItem="GJW-ks-0Hd" firstAttribute="leading" secondItem="oPf-Jw-Kt4" secondAttribute="leadingMargin" constant="5" id="E8t-iH-5kt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GJW-ks-0Hd" secondAttribute="bottom" constant="5" id="JWG-9t-I5S"/>
+                                    </constraints>
+                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                </tableViewCellContentView>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <connections>
+                                    <outlet property="eventView" destination="GJW-ks-0Hd" id="zdo-FG-yB8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="r5G-Fl-m4f" id="QrI-Xw-zYb"/>
@@ -200,6 +227,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="tGQ-EJ-YcR" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGQ-EJ-YcR" id="XLp-b4-8uR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDe-tV-12K" customClass="EventView" customModule="Conventions" customModuleProvider="target">
+                                            <rect key="frame" x="5" y="5" width="590" height="92"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="MDe-tV-12K" secondAttribute="bottom" constant="5" id="Ieb-Sd-GPr"/>
+                                        <constraint firstItem="MDe-tV-12K" firstAttribute="top" secondItem="XLp-b4-8uR" secondAttribute="topMargin" constant="5" id="XQQ-De-roC"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MDe-tV-12K" secondAttribute="trailing" constant="5" id="hql-AW-4Yn"/>
+                                        <constraint firstItem="MDe-tV-12K" firstAttribute="leading" secondItem="XLp-b4-8uR" secondAttribute="leadingMargin" constant="5" id="rau-Wg-JdE"/>
+                                    </constraints>
+                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                </tableViewCellContentView>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <connections>
+                                    <outlet property="eventView" destination="MDe-tV-12K" id="5hh-wf-g8m"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Kwc-or-5TV" id="2bZ-dN-gbr"/>
                             <outlet property="delegate" destination="Kwc-or-5TV" id="V5h-hE-1lG"/>

@@ -8,15 +8,12 @@
 
 import UIKit
 
-class MyEventsTableViewController: UITableViewController, EventStateProtocol {
+class MyEventsTableViewController: UITableViewController, EventCellStateProtocol {
     
     private var myEvents: Array<ConventionEvent>?;
 
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        let eventViewCell = UINib(nibName: "EventTableViewCell", bundle: nil);
-        self.tableView.registerNib(eventViewCell, forCellReuseIdentifier: "EventTableViewCell");
     }
     
     override func viewDidAppear(animated: Bool) {
