@@ -212,6 +212,7 @@
                         <outlet property="eventDescription" destination="3w3-85-5Ok" id="jFe-Ya-BKc"/>
                         <outlet property="eventTitle" destination="l8J-Dg-5UO" id="fFc-70-r3e"/>
                         <outlet property="hallAndTime" destination="CgD-mc-ttE" id="vzd-dh-Afn"/>
+                        <outlet property="image" destination="q76-A4-Mva" id="wAw-OJ-vDD"/>
                         <outlet property="lecturer" destination="Osb-kV-Cgw" id="oM5-eE-LBE"/>
                     </connections>
                 </viewController>

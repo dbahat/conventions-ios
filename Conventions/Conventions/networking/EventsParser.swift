@@ -70,6 +70,8 @@ class EventsParser {
                         
                         result.append(conventionEvent);
                         internalEventNumber++;
+                        
+                        print("Event ", conventionEvent.id, " name ", conventionEvent.title)
                     }
                 }
             }
@@ -114,6 +116,7 @@ extension String {
         }
         
         let regex = try? NSRegularExpression(pattern: unwrappedPattern, options: NSRegularExpressionOptions.CaseInsensitive);
+        
         return regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: unwrappedTemplate);
     }
 }

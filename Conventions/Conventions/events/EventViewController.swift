@@ -16,18 +16,33 @@ class EventViewController: UIViewController {
     @IBOutlet private weak var eventTitle: UILabel!
     @IBOutlet private weak var hallAndTime: UILabel!
     @IBOutlet private weak var eventDescription: UILabel!
+    @IBOutlet private weak var image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lecturer.text = event?.lecturer;
-        eventTitle.text = event?.title;
-        hallAndTime.text = event?.hall?.name;
+        guard let unwrappedEvent = event else {
+            return;
+        }
         
-        let attrStr = try! NSMutableAttributedString(
-            data: (event?.description!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true))!,
+        lecturer.text = unwrappedEvent.lecturer;
+        eventTitle.text = unwrappedEvent.title;
+        hallAndTime.text = unwrappedEvent.hall?.name;
+        
+        if let eventImage = UIImage(named: "Event_" + unwrappedEvent.id) {
+            image.image = eventImage;
+        }
+        
+        guard let descriptionData = unwrappedEvent.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
+            return;
+        }
+        
+        guard let attrStr = try? NSMutableAttributedString(
+            data: descriptionData,
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType ],
-            documentAttributes: nil);
+            documentAttributes: nil) else {
+                return;
+        }
         
         attrStr.addAttribute(NSWritingDirectionAttributeName, value: [NSWritingDirection.RightToLeft.rawValue | NSTextWritingDirection.Override.rawValue], range: NSRange(location: 0, length: attrStr.length));
         
