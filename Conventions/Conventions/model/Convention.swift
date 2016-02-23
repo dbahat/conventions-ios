@@ -11,7 +11,7 @@ import Foundation
 class Convention {
     static let instance = Convention();
     
-    var halls: Array<Hall>?;
+    var halls: Array<Hall>!;
     var events: Array<ConventionEvent>!;
     let userInputs = UserInputs();
     let date = Date.from(year: 2016, month: 3, day: 23);
@@ -24,7 +24,9 @@ class Convention {
             Hall(name: "אשכול 2", order: 4),
             Hall(name: "משחקייה", order: 5),
             Hall(name: "אירועים מיוחדים", order: 6)
-        ]
+        ];
+        
+        events = [];
     }
     
     func findHallByName(name: String!) -> Hall! {

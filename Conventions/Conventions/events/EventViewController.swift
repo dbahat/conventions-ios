@@ -29,8 +29,11 @@ class EventViewController: UIViewController {
         eventTitle.text = unwrappedEvent.title;
         hallAndTime.text = unwrappedEvent.hall?.name;
         
+        // Resize the image so it'll fit the screen width, but keep the same size ratio
         if let eventImage = UIImage(named: "Event_" + unwrappedEvent.id) {
-            image.image = eventImage;
+            image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
+        } else if let eventImage = UIImage(named: "Event_Default") {
+            image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
         }
         
         guard let descriptionData = unwrappedEvent.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
@@ -44,9 +47,22 @@ class EventViewController: UIViewController {
                 return;
         }
         
-        attrStr.addAttribute(NSWritingDirectionAttributeName, value: [NSWritingDirection.RightToLeft.rawValue | NSTextWritingDirection.Override.rawValue], range: NSRange(location: 0, length: attrStr.length));
+        attrStr.addAttribute(NSWritingDirectionAttributeName, value: [NSWritingDirection.Natural.rawValue | NSTextWritingDirection.Override.rawValue], range: NSRange(location: 0, length: attrStr.length));
         
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
+        eventDescription.font = UIFont.systemFontOfSize(14);
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = image.size.height / image.size.width
+        let newHeight = newWidth * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

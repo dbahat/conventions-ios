@@ -73,9 +73,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="-1" width="600" height="552"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventEatableCosplay" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventEatableCosplay" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </imageView>
@@ -164,7 +164,6 @@
                                     <constraint firstItem="i8g-JM-D6V" firstAttribute="top" secondItem="Vsq-dg-4zG" secondAttribute="top" constant="20" id="LsG-KU-aby"/>
                                     <constraint firstItem="q76-A4-Mva" firstAttribute="top" secondItem="Vsq-dg-4zG" secondAttribute="top" id="Nlf-8D-GK7"/>
                                     <constraint firstItem="u5k-i3-wiM" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="VbM-4r-dL8"/>
-                                    <constraint firstItem="u5k-i3-wiM" firstAttribute="top" secondItem="Vsq-dg-4zG" secondAttribute="top" constant="168.5" id="Wkj-2K-k7n"/>
                                     <constraint firstAttribute="trailing" secondItem="u5k-i3-wiM" secondAttribute="trailing" constant="20" id="aPB-VT-bXQ"/>
                                     <constraint firstItem="u5k-i3-wiM" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="bottom" constant="10" id="ci0-IM-5kq"/>
                                     <constraint firstItem="dze-UV-zhf" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="ddy-5p-UhU"/>
@@ -176,37 +175,18 @@
                                     <constraint firstAttribute="trailing" secondItem="i8g-JM-D6V" secondAttribute="trailing" constant="20" id="tiL-ms-qk9"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Wkj-2K-k7n"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="i8g-JM-D6V" secondAttribute="trailing" constant="10" id="B4P-sK-UiC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vsq-dg-4zG" secondAttribute="trailing" constant="-20" id="CEf-Gt-0Fo"/>
-                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" id="L1t-B6-8om"/>
-                            <constraint firstItem="i8g-JM-D6V" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leadingMargin" constant="10" id="MAe-Dd-fEd"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="Rr7-jH-HhS"/>
-                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="centerY" secondItem="9AU-0L-zpZ" secondAttribute="centerY" id="SeB-wo-BTP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q76-A4-Mva" secondAttribute="trailing" constant="-20" id="Yan-VP-brw"/>
-                            <constraint firstItem="eex-RS-Ur4" firstAttribute="top" secondItem="Vsq-dg-4zG" secondAttribute="bottom" id="inS-zH-2v6"/>
-                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="centerX" secondItem="9AU-0L-zpZ" secondAttribute="centerX" id="pMU-s4-bvX"/>
-                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" constant="-65" id="pbl-s6-pdA"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="q76-A4-Mva" secondAttribute="leading" id="tk3-Ss-5J4"/>
+                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="002-IK-1lJ"/>
+                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="bottom" secondItem="9AU-0L-zpZ" secondAttribute="bottomMargin" id="40u-EZ-ZVH"/>
+                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="6nN-SX-0JP"/>
+                            <constraint firstItem="Vsq-dg-4zG" firstAttribute="top" secondItem="9AU-0L-zpZ" secondAttribute="topMargin" id="U85-y4-8jV"/>
+                            <constraint firstItem="q76-A4-Mva" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" id="X0U-Ga-ecH"/>
+                            <constraint firstItem="q76-A4-Mva" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="hnr-uM-us5"/>
+                            <constraint firstItem="q76-A4-Mva" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="qHI-Tm-yGz"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="L1t-B6-8om"/>
-                                <exclude reference="SeB-wo-BTP"/>
-                                <exclude reference="pMU-s4-bvX"/>
-                                <exclude reference="tk3-Ss-5J4"/>
-                                <exclude reference="B4P-sK-UiC"/>
-                                <exclude reference="MAe-Dd-fEd"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="eventDescription" destination="3w3-85-5Ok" id="jFe-Ya-BKc"/>
