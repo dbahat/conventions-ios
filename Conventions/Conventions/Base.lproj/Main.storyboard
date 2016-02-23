@@ -75,7 +75,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventEatableCosplay" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </imageView>
@@ -155,7 +155,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="i8g-JM-D6V" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="5t6-yK-DFG"/>
                                     <constraint firstAttribute="trailing" secondItem="dze-UV-zhf" secondAttribute="trailing" constant="20" id="67d-jn-zsn"/>
@@ -183,7 +183,6 @@
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="bottom" secondItem="9AU-0L-zpZ" secondAttribute="bottomMargin" id="40u-EZ-ZVH"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="6nN-SX-0JP"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="top" secondItem="9AU-0L-zpZ" secondAttribute="topMargin" id="U85-y4-8jV"/>
-                            <constraint firstItem="q76-A4-Mva" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" id="X0U-Ga-ecH"/>
                             <constraint firstItem="q76-A4-Mva" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="hnr-uM-us5"/>
                             <constraint firstItem="q76-A4-Mva" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="qHI-Tm-yGz"/>
                         </constraints>
@@ -542,7 +541,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EventEatableCosplay" width="530" height="800"/>
+        <image name="Event_Default" width="530" height="800"/>
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>
         <image name="MenuEventListWithStar" width="32" height="32"/>

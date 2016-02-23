@@ -28,13 +28,14 @@ class EventViewController: UIViewController {
         lecturer.text = unwrappedEvent.lecturer;
         eventTitle.text = unwrappedEvent.title;
         hallAndTime.text = unwrappedEvent.hall?.name;
+
+        let eventImage = getImage(unwrappedEvent.id);
         
         // Resize the image so it'll fit the screen width, but keep the same size ratio
-        if let eventImage = UIImage(named: "Event_" + unwrappedEvent.id) {
-            image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
-        } else if let eventImage = UIImage(named: "Event_Default") {
-            image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
-        }
+        image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
+        
+        // Extract the dominent color from the image and set it as the background
+        self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
         
         guard let descriptionData = unwrappedEvent.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
             return;
@@ -52,6 +53,14 @@ class EventViewController: UIViewController {
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
         eventDescription.font = UIFont.systemFontOfSize(14);
+    }
+    
+    func getImage(eventId: String!) -> UIImage! {
+        if let eventImage = UIImage(named: "Event_" + eventId) {
+            return eventImage;
+        }
+        
+        return UIImage(named: "Event_Default")!
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
