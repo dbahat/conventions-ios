@@ -15,7 +15,7 @@ class EventViewController: UIViewController {
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
     @IBOutlet private weak var hallAndTime: UILabel!
-    @IBOutlet private weak var eventDescription: UILabel!
+    @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
     
     override func viewDidLoad() {
@@ -43,16 +43,21 @@ class EventViewController: UIViewController {
         
         guard let attrStr = try? NSMutableAttributedString(
             data: descriptionData,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType ],
+            options: [
+                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding ],
             documentAttributes: nil) else {
                 return;
         }
         
-        attrStr.addAttribute(NSWritingDirectionAttributeName, value: [NSWritingDirection.Natural.rawValue | NSTextWritingDirection.Override.rawValue], range: NSRange(location: 0, length: attrStr.length));
+        attrStr.addAttribute(NSWritingDirectionAttributeName,
+            value: [NSWritingDirection.Natural.rawValue | NSTextWritingDirection.Override.rawValue],
+            range: NSRange(location: 0, length: attrStr.length));
+        
+        attrStr.convertFontTo(UIFont.systemFontOfSize(14));
         
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
-        eventDescription.font = UIFont.systemFontOfSize(14);
     }
     
     func getImage(eventId: String!) -> UIImage! {
@@ -73,5 +78,27 @@ class EventViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+}
+
+extension NSMutableAttributedString
+{
+    func convertFontTo(font: UIFont)
+    {
+        var range = NSMakeRange(0, 0)
+        
+        while (NSMaxRange(range) < length)
+        {
+            let attributes = attributesAtIndex(NSMaxRange(range), effectiveRange: &range)
+            if let oldFont = attributes[NSFontAttributeName]
+            {
+                let newFont = UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(oldFont.fontDescriptor().symbolicTraits), size: font.pointSize)
+                addAttribute(NSFontAttributeName, value: newFont, range: range)
+            }
+            if let linkAttr = attributes[NSLinkAttributeName]
+            {
+                print(linkAttr.description);
+            }
+        }
     }
 }
