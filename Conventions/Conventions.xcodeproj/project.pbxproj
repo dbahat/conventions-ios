@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0800AA1C80DDD300F406FD /* MyEventsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsNavigationController.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3B4CEB521C7CF88D00AF041B /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				3B523D4C1C660B1700D3D055 /* EventViewController.swift */,
 				3B55A9991C7A48C700C5BCE4 /* EventView.swift */,
 				3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */,
+				3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */,
 			);
 			name = events;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B523D521C6657FD00D3D055 /* EventsDownloader.swift in Sources */,
+				3B0800AA1C80DDD300F406FD /* MyEventsNavigationController.swift in Sources */,
 				3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsTableViewController.swift in Sources */,

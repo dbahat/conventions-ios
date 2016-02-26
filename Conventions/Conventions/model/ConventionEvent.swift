@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 class ConventionEvent {
+    
+    /*
+     * An NSNotification event, fired when a user decides to attend an event
+     */
+    static let AttendingWasSetEventName = "AttendingWasSetEventName";
+    
     var id: String!;
     var serverId: Int?;
     var color: UIColor?;
@@ -34,6 +40,10 @@ class ConventionEvent {
         set {
             let input = UserInput(attending: newValue);
             Convention.instance.userInputs.setInput(input, forEventId: id);
+            
+            if input.attending == true {
+                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
+            }
         }
     }
     

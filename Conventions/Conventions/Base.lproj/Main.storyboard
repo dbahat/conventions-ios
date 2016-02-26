@@ -190,7 +190,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Title" id="QPR-94-4qG">
-                        <barButtonItem key="rightBarButtonItem" image="EventAttending" id="65r-yY-AR9">
+                        <barButtonItem key="rightBarButtonItem" image="MenuAddToFavorites" id="65r-yY-AR9">
                             <connections>
                                 <action selector="changeFavoriteStateClicked:" destination="euQ-tX-Zvn" id="411-za-VEe"/>
                             </connections>
@@ -260,14 +260,15 @@
         <!--האירועים שלי-->
         <scene sceneID="eDZ-wL-7dU">
             <objects>
-                <navigationController id="tLr-zC-cPf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="האירועים שלי" image="MenuEventListWithStar" id="Kzf-RW-juH"/>
+                <navigationController id="tLr-zC-cPf" customClass="MyEventsNavigationController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="100" title="האירועים שלי" image="MenuEventListWithStar" id="Kzf-RW-juH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b3n-ft-bUZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="tabBarIcon" destination="Kzf-RW-juH" id="bGf-Po-ceY"/>
                         <segue destination="Kwc-or-5TV" kind="relationship" relationship="rootViewController" id="99m-pR-uzO"/>
                     </connections>
                 </navigationController>
@@ -550,8 +551,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EventAttending" width="21" height="21"/>
         <image name="Event_Default" width="530" height="800"/>
+        <image name="MenuAddToFavorites" width="32" height="32"/>
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>
         <image name="MenuEventListWithStar" width="32" height="32"/>
@@ -563,6 +564,6 @@
         <image name="OpeningUpdates" width="328" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eHj-WY-0nj"/>
+        <segue reference="iD6-4y-mfX"/>
     </inferredMetricsTieBreakers>
 </document>

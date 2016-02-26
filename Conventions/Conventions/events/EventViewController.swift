@@ -56,6 +56,7 @@ class EventViewController: UIViewController {
         
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
+        refreshFavoriteBarIconImage();
     }
     
     func getImage(eventId: String!) -> UIImage! {
@@ -68,6 +69,12 @@ class EventViewController: UIViewController {
     
     @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
         event.attending = !event.attending;
+        
+        refreshFavoriteBarIconImage();
+    }
+    
+    func refreshFavoriteBarIconImage() {
+        navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "EventNotAttending") : UIImage(named: "MenuAddToFavorites");
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {

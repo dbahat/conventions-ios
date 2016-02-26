@@ -9,25 +9,21 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
     override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventAttendanceWasSet:", name: ConventionEvent.AttendingWasSetEventName, object: nil);
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
     }
-    */
-
+    
+    func eventAttendanceWasSet(notification: NSNotification) {
+        // Whenever an event attance is set, show a badge in the favorites screen icon to give the user
+        // a visual indication on what happened.
+        //
+        // Using tag to find MyEvents tab icon since it's possible the ViewController associated with it
+        // was not yet intialized.
+        self.tabBar.items?.filter({$0.tag == 100}).first?.badgeValue = "+";
+    }
 }
