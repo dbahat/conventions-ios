@@ -14,6 +14,9 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
 
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        refreshControl = UIRefreshControl();
+        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,5 +89,13 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         myEvents = Convention.instance.events?
             .filter { event in event.attending }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        Convention.instance.refresh({
+            self.tableView.reloadData();
+            self.refreshControl?.endRefreshing();
+        })
     }
 }

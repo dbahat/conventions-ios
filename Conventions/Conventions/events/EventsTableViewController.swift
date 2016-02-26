@@ -18,8 +18,10 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
 
         let eventHeaderView = UINib(nibName: "EventListHeaderView", bundle: nil);
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
+        refreshControl = UIRefreshControl();
+        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections();
@@ -108,8 +110,8 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let eventViewController = segue.destinationViewController as! EventViewController;
-        eventViewController.event = sender as? ConventionEvent;
+        let eventViewController = segue.destinationViewController as? EventViewController;
+        eventViewController?.event = sender as? ConventionEvent;
     }
     
     // MARK: - Private methods
@@ -138,5 +140,13 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
         
         eventsPerTimeSection = result;
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        Convention.instance.refresh({
+            self.tableView.reloadData();
+            self.refreshControl?.endRefreshing();
+        })
     }
 }

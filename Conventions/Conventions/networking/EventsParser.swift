@@ -10,84 +10,89 @@ import Foundation
 import UIKit
 
 class EventsParser {
-    func parse(data: NSData!) -> Array<ConventionEvent>? {
+    func parse(data data:NSData!) -> Array<ConventionEvent>! {
+        return parse(data: data, halls: Convention.instance.halls);
+    }
+    
+    func parse(data data: NSData!, halls: Array<Hall>!) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
-        do {
-            if let events = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
-                for event in events {
-                    guard let eventId = event["ID"] as? Int else {
-                        print("Got event without ID. Skipping");
-                        continue;
-                    }
-                    
-                    // Each event can appear in multiple times. For simplicity, we treat it as multiple
-                    // events.
-                    var internalEventNumber = 1;
-                    guard let internalEvents = event["timetable-info"] as? Array<NSDictionary> else {
-                        continue;
-                    }
-                    for internalEvent in internalEvents {
-                        if (internalEvent["tooltip"] as! String? == "hidden") {
-                            print("Skipping hidden event ", eventId);
-                            continue;
-                        }
-                        
-                        var color: UIColor?;
-                        if let colorCode = event["timetable-bg"] as? String {
-                            color = UIColor(hexString: colorCode);
-                        }
-                        
-                        guard let startTime = internalEvent["start"] as? String else {
-                            print("Event missing startTime. Skipping. ID=", eventId);
-                            continue;
-                        }
-                        guard let endTime = internalEvent["end"] as? String else {
-                            print("Event missing endTime. Skipping. ID=", eventId);
-                            continue;
-                        }
-                        guard let hallName = internalEvent["room"] as? String else {
-                            print("Event missing room. Skipping. ID=", eventId);
-                            continue;
-                        }
-                        
-                        let conventionEvent = ConventionEvent(
-                            // Since we duplicate events that appear in multiple times, compose a new
-                            // unique id from the server event id and it's internal index.
-                            // e.g. if event 100 appears in 12:00 and 17:00, it's ids will be 100_1 and 100_2
-                            id: String(format: "%d_%d", arguments: [eventId, internalEventNumber]),
-                            serverId: event["ID"] as? Int,
-                            color: color,
-                            title: event["title"] as? String,
-                            lecturer: internalEvent["before_hour_text"] as? String,
-                            startTime: appendTimeToConventionDate(startTime),
-                            endTime: appendTimeToConventionDate(endTime),
-                            type: EventType(
-                                backgroundColor: color,
-                                description: event["categories-text"]??["name"] as? String),
-                            hall: Convention.instance.findHallByName(hallName),
-                            description: parseEventDescription(event["content"] as! String?));
-                        
-                        result.append(conventionEvent);
-                        internalEventNumber++;
-                        
-                        print("Event ", conventionEvent.id, " name ", conventionEvent.title)
-                    }
-                }
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription);
-            return nil;
+        guard let deserializedEvents = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray else {
+            print("Failed to deserialize cached events");
+            return result;
         }
         
+        guard let events = deserializedEvents else {
+            print("Failed to deserialize cached events");
+            return result;
+        }
+        
+        for event in events {
+            guard let eventId = event["ID"] as? Int else {
+                print("Got event without ID. Skipping");
+                continue;
+            }
+            
+            guard let internalEvents = event["timetable-info"] as? Array<NSDictionary> else {
+                continue;
+            }
+            
+            // Each event can appear in multiple times (e.g. event Kareoke can be in both 12:00 
+            // and 18:00). For simplicity, we treat it as multiple events.
+            var internalEventNumber = 1;
+            for internalEvent in internalEvents {
+                if (internalEvent["tooltip"] as! String? == "hidden") {
+                    print("Skipping hidden event ", eventId);
+                    continue;
+                }
+                
+                var color: UIColor?;
+                if let colorCode = event["timetable-bg"] as? String {
+                    color = UIColor(hexString: colorCode);
+                }
+                
+                guard let startTime = internalEvent["start"] as? String else {
+                    print("Event missing startTime. Skipping. ID=", eventId);
+                    continue;
+                }
+                guard let endTime = internalEvent["end"] as? String else {
+                    print("Event missing endTime. Skipping. ID=", eventId);
+                    continue;
+                }
+                guard let hallName = internalEvent["room"] as? String else {
+                    print("Event missing room. Skipping. ID=", eventId);
+                    continue;
+                }
+                
+                let conventionEvent = ConventionEvent(
+                    // Since we duplicate events that appear in multiple times, compose a new
+                    // unique id from the server event id and it's internal index.
+                    // e.g. if event 100 appears in 12:00 and 17:00, it's ids will be 100_1 and 100_2
+                    id: String(format: "%d_%d", arguments: [eventId, internalEventNumber]),
+                    serverId: event["ID"] as? Int,
+                    color: color,
+                    title: event["title"] as? String,
+                    lecturer: internalEvent["before_hour_text"] as? String,
+                    startTime: appendTimeToConventionDate(startTime),
+                    endTime: appendTimeToConventionDate(endTime),
+                    type: EventType(
+                        backgroundColor: color,
+                        description: event["categories-text"]??["name"] as? String),
+                    hall: halls.filter({hall in hall.name == hallName}).first,
+                    description: parseEventDescription(event["content"] as! String?));
+                
+                result.append(conventionEvent);
+                internalEventNumber++;
+            }
+        }
         return result;
     }
-    
+
     func appendTimeToConventionDate(time: String!) -> NSDate! {
-        let dateAndTime = Convention.instance.date.format("yyyy:MM:dd") + " " + time;
+        let dateAndTime = Convention.date.format("yyyy:MM:dd") + " " + time;
         return NSDate.parse(dateAndTime, dateFormat: "yyyy:MM:dd HH:mm:ss");
     }
-    
+
     func parseEventDescription(eventDescription : String?) -> String? {
         return eventDescription?
             .removeAll(pattern: "class=\"[^\"]*\"")?

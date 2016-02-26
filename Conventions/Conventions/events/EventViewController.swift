@@ -10,7 +10,7 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-    var event: ConventionEvent?;
+    var event: ConventionEvent!;
     
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
@@ -20,16 +20,14 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let unwrappedEvent = event else {
-            return;
-        }
         
-        lecturer.text = unwrappedEvent.lecturer;
-        eventTitle.text = unwrappedEvent.title;
-        hallAndTime.text = unwrappedEvent.hall?.name;
+        lecturer.text = event.lecturer;
+        eventTitle.text = event.title;
+        hallAndTime.text = event.hall?.name;
+        
+        navigationItem.title = event.type?.description;
 
-        let eventImage = getImage(unwrappedEvent.id);
+        let eventImage = getImage(event.id);
         
         // Resize the image so it'll fit the screen width, but keep the same size ratio
         image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
@@ -37,7 +35,7 @@ class EventViewController: UIViewController {
         // Extract the dominent color from the image and set it as the background
         self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
         
-        guard let descriptionData = unwrappedEvent.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
+        guard let descriptionData = event.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
             return;
         }
         
@@ -66,6 +64,10 @@ class EventViewController: UIViewController {
         }
         
         return UIImage(named: "Event_Default")!
+    }
+    
+    @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
+        event.attending = !event.attending;
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
