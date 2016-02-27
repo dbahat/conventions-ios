@@ -37,7 +37,7 @@
 		3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */; };
 		3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */; };
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
-		3BA2D8271C65E3D7007A8A23 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8261C65E3D7007A8A23 /* EventsTableViewController.swift */; };
+		3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +76,7 @@
 		3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = events/EventTableViewCell.swift; sourceTree = "<group>"; };
 		3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListHeaderView.swift; path = events/EventListHeaderView.swift; sourceTree = "<group>"; };
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
-		3BA2D8261C65E3D7007A8A23 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = events/EventsTableViewController.swift; sourceTree = "<group>"; };
+		3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = events/EventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,7 @@
 		3BA2D8181C5FF4C5007A8A23 /* events */ = {
 			isa = PBXGroup;
 			children = (
-				3BA2D8261C65E3D7007A8A23 /* EventsTableViewController.swift */,
+				3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */,
 				3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */,
 				3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */,
 				3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */,
@@ -293,7 +293,7 @@
 				3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
-				3BA2D8271C65E3D7007A8A23 /* EventsTableViewController.swift in Sources */,
+				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
 				3B523D541C665C0500D3D055 /* EventsParser.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,

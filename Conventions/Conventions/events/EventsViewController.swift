@@ -8,18 +8,21 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController, EventCellStateProtocol {
+class EventsViewController: UIViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet private weak var tableView: UITableView!
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
     private var eventTimeSections: Array<NSDate>!;
+    private let refreshControl = UIRefreshControl();
     
     override func viewDidLoad() {
         super.viewDidLoad();
 
         let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil);
-        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
-        refreshControl = UIRefreshControl();
-        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
+        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView));
+        
+        tableView.addSubview(refreshControl);
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,21 +33,16 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return eventTimeSections.count;
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let timeSection = eventTimeSections[section];
         return eventsPerTimeSection[timeSection]!.count;
     }
     
-    private func getSectionName(section section: Int) -> String? {
-        let timeSection = eventTimeSections[section];
-        return timeSection.format("HH:mm");
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(String(EventListHeaderView)) as! EventListHeaderView;
         headerView.time.text = getSectionName(section: section);
@@ -52,7 +50,7 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
         return headerView;
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
 
         let timeSection = eventTimeSections[indexPath.section];
@@ -63,29 +61,13 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
         return cell;
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]![indexPath.row];
         performSegueWithIdentifier("EventsToEventSegue", sender: event);
     }
     
-    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        guard let indexPath = tableView.indexPathForCell(caller) else {
-            return;
-        }
-        
-        let timeSection = self.eventTimeSections[indexPath.section];
-        let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
-        event.attending = !event.attending;
-        
-        let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
-            .show();
-        
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
-    }
-    
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]?[indexPath.row];
@@ -114,6 +96,27 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
         
         return event?.attending == true ? [removeFromFavorite] : [addToFavorite];
     }
+    
+    
+    // MARK: - EventCellState Protocol
+    
+    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
+        guard let indexPath = tableView.indexPathForCell(caller) else {
+            return;
+        }
+        
+        let timeSection = self.eventTimeSections[indexPath.section];
+        let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
+        event.attending = !event.attending;
+        
+        let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
+            .show();
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
+    }
+    
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let eventViewController = segue.destinationViewController as? EventViewController;
@@ -152,7 +155,12 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
     {
         Convention.instance.refresh({
             self.tableView.reloadData();
-            self.refreshControl?.endRefreshing();
+            self.refreshControl.endRefreshing();
         })
+    }
+    
+    private func getSectionName(section section: Int) -> String? {
+        let timeSection = eventTimeSections[section];
+        return timeSection.format("HH:mm");
     }
 }

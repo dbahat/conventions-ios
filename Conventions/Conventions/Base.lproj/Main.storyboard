@@ -8,57 +8,74 @@
     </dependencies>
     <scenes>
         <!--תוכניה-->
-        <scene sceneID="OnC-Gy-QCl">
+        <scene sceneID="Iar-lo-k9d">
             <objects>
-                <tableViewController id="r5G-Fl-m4f" customClass="EventsTableViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" id="Ydn-rw-9af">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <viewController id="V0r-ed-Jpb" customClass="EventsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gtg-g3-pVk"/>
+                        <viewControllerLayoutGuide type="bottom" id="QXR-6U-4hy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tYJ-0M-xL8">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="wlP-px-Cpu" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="102"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wlP-px-Cpu" id="oPf-Jw-Kt4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJW-ks-0Hd" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="5" width="590" height="92"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="GJW-ks-0Hd" secondAttribute="trailing" constant="5" id="1zl-GI-JfS"/>
-                                        <constraint firstItem="GJW-ks-0Hd" firstAttribute="top" secondItem="oPf-Jw-Kt4" secondAttribute="topMargin" constant="5" id="5xE-rp-d05"/>
-                                        <constraint firstItem="GJW-ks-0Hd" firstAttribute="leading" secondItem="oPf-Jw-Kt4" secondAttribute="leadingMargin" constant="5" id="E8t-iH-5kt"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="GJW-ks-0Hd" secondAttribute="bottom" constant="5" id="JWG-9t-I5S"/>
-                                    </constraints>
-                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OXO-rt-127" id="MYl-BU-zg9">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="5" width="590" height="92"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leadingMargin" constant="5" id="5fY-2w-Gto"/>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="topMargin" constant="5" id="Nnm-3F-XoF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RWd-dD-fE6" secondAttribute="trailing" constant="5" id="lNK-0i-hzF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="RWd-dD-fE6" secondAttribute="bottom" constant="5" id="ssd-Sj-SqV"/>
+                                            </constraints>
+                                            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                        </tableViewCellContentView>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                        <connections>
+                                            <outlet property="eventView" destination="RWd-dD-fE6" id="tQD-4E-ApV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="eventView" destination="GJW-ks-0Hd" id="zdo-FG-yB8"/>
+                                    <outlet property="dataSource" destination="V0r-ed-Jpb" id="TOq-bH-IG8"/>
+                                    <outlet property="delegate" destination="V0r-ed-Jpb" id="MFv-z7-Izx"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="r5G-Fl-m4f" id="QrI-Xw-zYb"/>
-                            <outlet property="delegate" destination="r5G-Fl-m4f" id="frI-py-Um4"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="תוכניה" id="3XR-Bv-zRT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="TRE-bp-NzF"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="IEv-cR-XNp"/>
+                            <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="jfY-fu-2Nl"/>
+                            <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" id="n70-ii-viN"/>
+                            <constraint firstItem="QXR-6U-4hy" firstAttribute="top" secondItem="PSg-uB-BHT" secondAttribute="bottom" id="oaj-lO-7Xw"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="6hB-l5-2ZZ"/>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="euQ-tX-Zvn" kind="show" identifier="EventsToEventSegue" id="eHj-WY-0nj"/>
+                        <outlet property="tableView" destination="PSg-uB-BHT" id="L2f-tb-Bwh"/>
+                        <segue destination="euQ-tX-Zvn" kind="show" identifier="EventsToEventSegue" id="MNM-zg-NcH"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6C-9q-m5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sen-D3-Sty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624" y="-1140"/>
+            <point key="canvasLocation" x="1608" y="-1163"/>
         </scene>
         <!--Event-->
         <scene sceneID="8dA-1H-bzL">
@@ -286,12 +303,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="r5G-Fl-m4f" kind="relationship" relationship="rootViewController" id="iVe-YM-gsL"/>
+                        <segue destination="V0r-ed-Jpb" kind="relationship" relationship="rootViewController" id="Iw0-bQ-YWQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SC-5i-BBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776" y="-1156"/>
+            <point key="canvasLocation" x="800" y="-1163"/>
         </scene>
         <!--Third-->
         <scene sceneID="r8Z-un-nJE">
@@ -564,6 +581,6 @@
         <image name="OpeningUpdates" width="328" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eHj-WY-0nj"/>
+        <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
 </document>
