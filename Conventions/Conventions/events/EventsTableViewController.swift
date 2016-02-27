@@ -16,7 +16,7 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad();
 
-        let eventHeaderView = UINib(nibName: "EventListHeaderView", bundle: nil);
+        let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil);
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: "EventListHeaderView");
         refreshControl = UIRefreshControl();
         refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
@@ -46,14 +46,14 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("EventListHeaderView") as! EventListHeaderView;
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(String(EventListHeaderView)) as! EventListHeaderView;
         headerView.time.text = getSectionName(section: section);
         
         return headerView;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventTableViewCell", forIndexPath: indexPath) as! EventTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
 
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]![indexPath.row];
