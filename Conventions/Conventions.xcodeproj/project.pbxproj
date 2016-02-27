@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0800AA1C80DDD300F406FD /* MyEventsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */; };
+		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsNavigationController.swift; sourceTree = "<group>"; };
+		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3B4CEB521C7CF88D00AF041B /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0800B11C81B72F00F406FD /* TTGSnackbar */ = {
+			isa = PBXGroup;
+			children = (
+				3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */,
+			);
+			name = TTGSnackbar;
+			path = externals/TTGSnackbar;
+			sourceTree = "<group>";
+		};
 		3B4CEB461C7CF7F500AF041B /* CardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +208,7 @@
 		3BA2D81B1C613BC8007A8A23 /* externals */ = {
 			isa = PBXGroup;
 			children = (
+				3B0800B11C81B72F00F406FD /* TTGSnackbar */,
 				3B4CEB461C7CF7F500AF041B /* CardView */,
 				3B4CEB481C7CF7F500AF041B /* CCColorCube */,
 			);
@@ -280,6 +292,7 @@
 				3B0800AA1C80DDD300F406FD /* MyEventsNavigationController.swift in Sources */,
 				3BA2D7F71C554ED3007A8A23 /* SecondViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
+				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsTableViewController.swift in Sources */,
 				3B523D541C665C0500D3D055 /* EventsParser.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,

@@ -78,6 +78,10 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
         let event = self.eventsPerTimeSection[timeSection]![indexPath.row];
         event.attending = !event.attending;
         
+        let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
+            .show();
+        
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
     }
     
@@ -92,6 +96,7 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = true;
                 tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+                TTGSnackbar(message: "האירוע התווסף לאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
             }
         }
         addToFavorite.backgroundColor = event?.color;
@@ -102,6 +107,7 @@ class EventsTableViewController: UITableViewController, EventCellStateProtocol {
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = false;
                 tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
+                TTGSnackbar(message: "האירוע הוסר מהאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
             }
         }
         removeFromFavorite.backgroundColor = event?.color;

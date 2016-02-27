@@ -15,7 +15,7 @@ class EventViewController: UIViewController {
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
     @IBOutlet private weak var hallAndTime: UILabel!
-    @IBOutlet weak var eventDescription: UITextView!
+    @IBOutlet private weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
     
     override func viewDidLoad() {
@@ -71,6 +71,10 @@ class EventViewController: UIViewController {
         event.attending = !event.attending;
         
         refreshFavoriteBarIconImage();
+        
+        let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
+            .show();
     }
     
     func refreshFavoriteBarIconImage() {
