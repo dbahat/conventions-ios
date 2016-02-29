@@ -375,7 +375,7 @@
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
             <objects>
-                <viewController id="5MY-oK-WFf" sceneMemberID="viewController">
+                <viewController id="5MY-oK-WFf" customClass="ArrivalMethodsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWe-NY-LQy"/>
                         <viewControllerLayoutGuide type="bottom" id="2P3-8j-Bpe"/>
@@ -383,23 +383,37 @@
                     <view key="view" contentMode="scaleToFill" id="lL7-48-hx3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="ArrivalMethods" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="LEB-CA-L9V">
-                                <rect key="frame" x="180" y="279" width="241" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="דרכי הגעה" image="MenuArrivalMethods" id="68p-pR-sFa"/>
+                    <navigationItem key="navigationItem" title="דרכי הגעה" id="L6J-dU-28K">
+                        <barButtonItem key="rightBarButtonItem" image="MenuArrivalMethods" id="kSu-QE-SPf">
+                            <connections>
+                                <action selector="navigateWithExternalAppWasClicked:" destination="5MY-oK-WFf" id="no9-d6-Y6F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfE-TR-CNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="1552"/>
+            <point key="canvasLocation" x="1444" y="1546"/>
+        </scene>
+        <!--דרכי הגעה-->
+        <scene sceneID="Ort-5k-5Dw">
+            <objects>
+                <navigationController id="SxB-SE-C1c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="דרכי הגעה" image="MenuArrivalMethods" id="iKA-ZS-63Y"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9b5-Ah-OV0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5MY-oK-WFf" kind="relationship" relationship="rootViewController" id="j8y-m0-7G9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ug3-uj-gAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="1558"/>
         </scene>
         <!--Opening-->
         <scene sceneID="o0k-H8-zTx">
@@ -559,7 +573,7 @@
                         <segue destination="tLr-zC-cPf" kind="relationship" relationship="viewControllers" id="KI2-Iw-hOd"/>
                         <segue destination="Z78-Hx-az5" kind="relationship" relationship="viewControllers" id="gya-hO-TYb"/>
                         <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="eXG-xa-9zp"/>
-                        <segue destination="5MY-oK-WFf" kind="relationship" relationship="viewControllers" id="PjI-pi-E3Z"/>
+                        <segue destination="SxB-SE-C1c" kind="relationship" relationship="viewControllers" id="g6k-wD-U0K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

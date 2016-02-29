@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         UITabBar.appearance().tintColor = UIColor(hexString: "#402874");
-        
+        GMSServices.provideAPIKey("AIzaSyDZLXRjsoElTcja7Hz5WpetzSHFOApMOLI");
         if #available(iOS 9.0, *) {
             // Forcing the app to left-to-right layout, since automatic changing of layout direction only
             // started in iOS9, and we want to support previous iOS versions.
