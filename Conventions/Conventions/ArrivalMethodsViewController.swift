@@ -31,9 +31,19 @@ class ArrivalMethodsViewController: UIViewController {
     }
 
     @IBAction func navigateWithExternalAppWasClicked(sender: UIBarButtonItem) {
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "http://waze")!) {
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "waze://")!) {
             let url = String(format: "waze://?ll=%f,%f&navigate=yes", arguments: [latitude, longitude]);
             UIApplication.sharedApplication().openURL(NSURL(string: url)!);
+            return;
         }
+        
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "comgooglemaps://")!) {
+            let url = String(format: "comgooglemaps://?center=%f,%f&zoom=16&views=traffic", arguments: [latitude, longitude]);
+            UIApplication.sharedApplication().openURL(NSURL(string: url)!);
+            return;
+        }
+        
+        let url = String(format: "http://maps.apple.com/?ll=%f,%f", arguments: [latitude, longitude]);
+        UIApplication.sharedApplication().openURL(NSURL(string: url)!);
     }
 }
