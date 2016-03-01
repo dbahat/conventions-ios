@@ -10,6 +10,7 @@
 		201AF13B9E56DC3572D28289 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D3F246EA9FBF38FF127953 /* libPods.a */; };
 		3B0800AA1C80DDD300F406FD /* MyEventsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
+		3B2497CF1C8636E800A87623 /* CamiEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B2497CE1C8636E800A87623 /* CamiEvents.json */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B45F4BA1C84E5940090748B /* ArrivalMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45F4B91C84E5940090748B /* ArrivalMethodsViewController.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		3B0800A91C80DDD300F406FD /* MyEventsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsNavigationController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
+		3B2497CE1C8636E800A87623 /* CamiEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CamiEvents.json; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B45F4B91C84E5940090748B /* ArrivalMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalMethodsViewController.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			path = externals/TTGSnackbar;
 			sourceTree = "<group>";
 		};
+		3B2497CD1C8636E800A87623 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				3B2497CE1C8636E800A87623 /* CamiEvents.json */,
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
 		3B4CEB461C7CF7F500AF041B /* CardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B2497CD1C8636E800A87623 /* cache */,
 				3B6AF9811C6FC172004B9DAD /* extentions */,
 				3B523D501C66575C00D3D055 /* networking */,
 				3BA2D81B1C613BC8007A8A23 /* externals */,
@@ -309,6 +320,7 @@
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3BA2D7FF1C554ED3007A8A23 /* LaunchScreen.storyboard in Resources */,
+				3B2497CF1C8636E800A87623 /* CamiEvents.json in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,

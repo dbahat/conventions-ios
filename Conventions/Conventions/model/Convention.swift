@@ -24,13 +24,21 @@ class Convention {
             Hall(name: "אודיטוריום שוורץ", order: 2),
             Hall(name: "אשכול 1", order: 3),
             Hall(name: "אשכול 2", order: 4),
-            Hall(name: "משחקייה", order: 5),
-            Hall(name: "אירועים מיוחדים", order: 6)
+            Hall(name: "אשכול 3", order: 5),
+            Hall(name: "משחקייה", order: 6),
+            Hall(name: "אירועים מיוחדים", order: 7)
         ];
+        
+        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+            return;
+        };
         
         if let cachedEvents = NSData(contentsOfFile: Convention.eventsCacheFileName) {
             events = EventsParser().parse(data: cachedEvents, halls: halls);
             print("Events from cache: ", events.count);
+        } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/CamiEvents.json") {
+            events = EventsParser().parse(data: preInstalledEvents, halls: halls);
+            print("Preinstalled events: ", events.count);
         } else {
             events = [];
         }
