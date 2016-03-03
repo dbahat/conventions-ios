@@ -42,6 +42,9 @@
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
 		3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */; };
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
+		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
+		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
+		3BD446E01C877C1700CE07E8 /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD446DF1C877C1700CE07E8 /* UpdatesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +54,6 @@
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B45F4B91C84E5940090748B /* ArrivalMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalMethodsViewController.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		3B4CEB521C7CF88D00AF041B /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B4CEB531C7CF88E00AF041B /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
 		3B4CEB541C7CF88E00AF041B /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
 		3B4CEB561C7CF8DA00AF041B /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
@@ -83,7 +85,11 @@
 		3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListHeaderView.swift; path = events/EventListHeaderView.swift; sourceTree = "<group>"; };
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
 		3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = events/EventsViewController.swift; sourceTree = "<group>"; };
-		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
+		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3BD446DF1C877C1700CE07E8 /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		52016B8E6DBC50F5C3DF9FA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BA209EBB8C4E1CD1B2AB3DBA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2D3F246EA9FBF38FF127953 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				201AF13B9E56DC3572D28289 /* libPods.a in Frameworks */,
+				3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */,
+				3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +149,6 @@
 			children = (
 				3B4CEB531C7CF88E00AF041B /* CCColorCube.h */,
 				3B4CEB541C7CF88E00AF041B /* CCColorCube.m */,
-				3B4CEB521C7CF88D00AF041B /* Conventions-Bridging-Header.h */,
 				3B4CEB561C7CF8DA00AF041B /* CCLocalMaximum.h */,
 				3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */,
 			);
@@ -204,6 +211,8 @@
 				3BA2D8071C56B207007A8A23 /* HomeViewController.swift */,
 				3BA2D8091C56B7A3007A8A23 /* TabBarViewController.swift */,
 				3B45F4B91C84E5940090748B /* ArrivalMethodsViewController.swift */,
+				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
+				3BD446DF1C877C1700CE07E8 /* UpdatesViewController.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -251,6 +260,8 @@
 		3FE5F9B9B9C4572652184568 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */,
+				3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */,
 				E2D3F246EA9FBF38FF127953 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -405,6 +416,7 @@
 				3B45F4BA1C84E5940090748B /* ArrivalMethodsViewController.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */,
+				3BD446E01C877C1700CE07E8 /* UpdatesViewController.swift in Sources */,
 				3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */,
 				3BA2D8131C5FEDF5007A8A23 /* EventType.swift in Sources */,
 				3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */,
@@ -523,12 +535,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/externals/CCColorCube/Conventions-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -539,12 +555,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/externals/CCColorCube/Conventions-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
 			};
 			name = Release;
 		};

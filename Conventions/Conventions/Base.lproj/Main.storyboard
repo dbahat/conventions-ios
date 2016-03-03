@@ -65,9 +65,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="6hB-l5-2ZZ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n"/>
                     <connections>
                         <outlet property="tableView" destination="PSg-uB-BHT" id="L2f-tb-Bwh"/>
                         <segue destination="euQ-tX-Zvn" kind="show" identifier="EventsToEventSegue" id="MNM-zg-NcH"/>
@@ -343,10 +341,10 @@
             </objects>
             <point key="canvasLocation" x="782" y="215"/>
         </scene>
-        <!--View Controller-->
+        <!--Updates View Controller-->
         <scene sceneID="E3v-Ff-JsW">
             <objects>
-                <viewController id="6s1-WB-npc" sceneMemberID="viewController">
+                <viewController id="6s1-WB-npc" customClass="UpdatesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N6h-fc-8yz"/>
                         <viewControllerLayoutGuide type="bottom" id="x6J-pE-fi6"/>
@@ -354,15 +352,6 @@
                     <view key="view" contentMode="scaleToFill" id="HV6-8m-8ed">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Updates" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ma0-wS-SZl">
-                                <rect key="frame" x="215" y="279" width="169.5" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="Gkw-hq-pVW"/>
