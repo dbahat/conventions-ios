@@ -4,4 +4,5 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Google/Analytics.h>
 #import "CCColorCube.h"

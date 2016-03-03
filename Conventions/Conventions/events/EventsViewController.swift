@@ -29,6 +29,12 @@ class EventsViewController: UIViewController, EventCellStateProtocol, UITableVie
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections();
         tableView.reloadData();
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "EventsViewController")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     // MARK: - Table view data source

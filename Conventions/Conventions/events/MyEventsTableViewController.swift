@@ -22,6 +22,12 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
     override func viewDidAppear(animated: Bool) {
         reloadMyEvents();
         tableView.reloadData();
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "MyEventsTableViewController")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     // MARK: - Table view data source

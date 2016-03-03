@@ -59,6 +59,14 @@ class EventViewController: UIViewController {
         refreshFavoriteBarIconImage();
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "EventViewController")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
+    
     func getImage(eventId: String!) -> UIImage! {
         if let eventImage = UIImage(named: "Event_" + eventId) {
             return eventImage;

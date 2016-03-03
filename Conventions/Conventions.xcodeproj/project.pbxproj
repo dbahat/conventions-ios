@@ -42,6 +42,7 @@
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
 		3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */; };
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
+		3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 		3BD446E01C877C1700CE07E8 /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD446DF1C877C1700CE07E8 /* UpdatesViewController.swift */; };
@@ -86,6 +87,7 @@
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
 		3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = events/EventsViewController.swift; sourceTree = "<group>"; };
 		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		3BA2D80D1C5FE8A0007A8A23 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */,
 				3BA2D80E1C5FE8EB007A8A23 /* Convention.swift */,
 				3BA2D8101C5FEB69007A8A23 /* ConventionEvent.swift */,
 				3BA2D8121C5FEDF5007A8A23 /* EventType.swift */,
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
+				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3BA2D7FF1C554ED3007A8A23 /* LaunchScreen.storyboard in Resources */,
 				3B2497CF1C8636E800A87623 /* CamiEvents.json in Resources */,
