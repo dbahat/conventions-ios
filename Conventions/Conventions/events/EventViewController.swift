@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController: UIViewController {
+class EventViewController: BaseViewController {
 
     var event: ConventionEvent!;
     
@@ -57,14 +57,6 @@ class EventViewController: UIViewController {
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
         refreshFavoriteBarIconImage();
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "EventViewController")
-        
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     func getImage(eventId: String!) -> UIImage! {

@@ -10,12 +10,23 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
+        super.viewDidLoad();
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventAttendanceWasSet:", name: ConventionEvent.AttendingWasSetEventName, object: nil);
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        // Send an event that the screen was visited. Not taken from BaseViewController since we derive from UITabBarController.
+        // Not adding a new base since we probebly won't have more UITabBarController.
+        let tracker = GAI.sharedInstance().defaultTracker;
+        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
     }
     
     func eventAttendanceWasSet(notification: NSNotification) {

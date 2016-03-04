@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsViewController: UIViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
+class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView!
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
@@ -26,15 +26,11 @@ class EventsViewController: UIViewController, EventCellStateProtocol, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections();
         tableView.reloadData();
-        
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "EventsViewController")
-        
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     // MARK: - Table view data source

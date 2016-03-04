@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ArrivalMethodsViewController: UIViewController {
+class ArrivalMethodsViewController: BaseViewController {
     
     let latitude = 31.786372
     let longitude = 35.202425

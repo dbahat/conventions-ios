@@ -23,11 +23,11 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         reloadMyEvents();
         tableView.reloadData();
         
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "MyEventsTableViewController")
-        
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        // Send an event that the screen was visited. Not taken from BaseViewController since we derive from UITableViewController.
+        // Not adding a new base since we probebly won't have more UITableViewControllers.
+        let tracker = GAI.sharedInstance().defaultTracker;
+        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
     }
     
     // MARK: - Table view data source

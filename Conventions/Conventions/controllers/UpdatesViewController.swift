@@ -6,9 +6,11 @@
 //  Copyright © 2016 Amai. All rights reserved.
 //
 
-class UpdatesViewController: UIViewController, FBSDKLoginButtonDelegate {
+class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
+        super.viewDidLoad();
+        
         if (FBSDKAccessToken.currentAccessToken() == nil) {
             let loginButton = FBSDKLoginButton();
             loginButton.center = view.center;

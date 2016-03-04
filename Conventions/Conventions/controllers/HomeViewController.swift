@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(0);

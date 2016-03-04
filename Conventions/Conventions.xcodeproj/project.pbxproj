@@ -42,6 +42,7 @@
 		3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6310A1C89680800D54D3E /* TabBarViewController.swift */; };
 		3BB631101C89680800D54D3E /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6310B1C89680800D54D3E /* UpdatesViewController.swift */; };
 		3BB631141C89688700D54D3E /* MyEventsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631131C89688700D54D3E /* MyEventsNavigationController.swift */; };
+		3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631171C896B7700D54D3E /* BaseViewController.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		3BB6310A1C89680800D54D3E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3BB6310B1C89680800D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		3BB631131C89688700D54D3E /* MyEventsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsNavigationController.swift; path = events/MyEventsNavigationController.swift; sourceTree = "<group>"; };
+		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				3BA2D8001C554ED3007A8A23 /* Info.plist */,
 				3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */,
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
+				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB631141C89688700D54D3E /* MyEventsNavigationController.swift in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
+				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
