@@ -308,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="800" y="-1163"/>
         </scene>
-        <!--Third-->
+        <!--Map-->
         <scene sceneID="r8Z-un-nJE">
             <objects>
-                <viewController id="Z78-Hx-az5" userLabel="Third" sceneMemberID="viewController">
+                <viewController id="Z78-Hx-az5" userLabel="Map" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ARL-8X-TxG"/>
                         <viewControllerLayoutGuide type="bottom" id="EbD-uu-oqe"/>
@@ -522,6 +522,9 @@
                             <constraint firstItem="XQ6-WU-Gyy" firstAttribute="top" secondItem="rw4-Fy-OSt" secondAttribute="bottom" constant="5" id="zNc-8C-txB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFO-9I-u4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Dbr-yP-CVz" userLabel="EventsRecognizer">

@@ -28,9 +28,11 @@ class HomeViewController: UIViewController {
     }
     
     private func navigateToTabController(selectedIndex: Int) {
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarViewController") as? TabBarViewController {
-            vc.selectedIndex = selectedIndex;
-            self.presentViewController(vc, animated: true, completion: nil)
-        }
+        performSegueWithIdentifier("HomeToTabBarSegue", sender: selectedIndex);
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let tabBarViewController = segue.destinationViewController as? TabBarViewController;
+        tabBarViewController?.selectedIndex = sender as! Int;
     }
 }
