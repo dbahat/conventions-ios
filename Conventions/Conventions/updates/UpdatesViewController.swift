@@ -8,14 +8,14 @@
 
 class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    let updateCellTopLayoutSize: CGFloat = 19;
-    let updateCellMargins: CGFloat = 20;
+    private let updateCellTopLayoutSize: CGFloat = 19;
+    private let updateCellMargins: CGFloat = 20;
     
-    var updates: Array<Update> = [];
+    @IBOutlet private weak var facebookLoginButton: FBSDKLoginButton!
+    @IBOutlet private weak var loginButtonContainer: UIView!
+    @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
-    @IBOutlet weak var loginButtonContainer: UIView!
-    @IBOutlet weak var tableView: UITableView!
+    private let refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -31,7 +31,24 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
             loginButtonContainer.hidden = true;
         }
         
-        refreshUpdates();
+        refreshUpdates(nil);
+        
+        tableView.addSubview(refreshControl);
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData();
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated);
+        
+        Convention.instance.updates = Convention.instance.updates.map({update in
+            update.isNew = false
+            return update
+        });
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -47,7 +64,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         
         loginButtonContainer.hidden = true;
         tableView.hidden = false;
-        refreshUpdates();
+        refreshUpdates(nil);
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -65,35 +82,53 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return updates.count;
+        return Convention.instance.updates.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(UpdateTableViewCell), forIndexPath: indexPath) as! UpdateTableViewCell;
-        cell.setUpdate(updates[indexPath.row])
+        cell.setUpdate(Convention.instance.updates[indexPath.row])
         
         return cell;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
-        let updateText = self.updates[indexPath.row].text;
+        let updateText = Convention.instance.updates[indexPath.row].text;
         let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)]);
         return attrText.boundingRectWithSize(CGSize(width: self.tableView.frame.width, height: CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize;
     }
     
-    // MARK: - UITableViewDelegate
-    
     // MARK: - Private methods
     
-    func refreshUpdates() {
-        let request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: nil);
-        // TODO - Add 'since' param for 2 days ago in unix epoch time
-        request.startWithCompletionHandler({ connection, result, error in
-            self.updates = self.parseFacebookResult(result)
-                .sort({ $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 });
-            print("Downloaded updates ", self.updates.count);
+    func refresh(sender:AnyObject)
+    {
+        refreshUpdates({
             self.tableView.reloadData();
+            self.refreshControl.endRefreshing();
+        })
+    }
+    
+    func refreshUpdates(callback: (() -> Void)?) {
+        var request : FBSDKGraphRequest;
+        if let latestUpdateTime = Convention.instance.updates
+            .maxElement({$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970}) {
+                request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: ["since": (latestUpdateTime.date.timeIntervalSince1970)]);
+        } else {
+            request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: nil);
+        }
+
+        request.startWithCompletionHandler({ connection, result, error in
+            let updates = self.parseFacebookResult(result)
+                .sort({ $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 });
+            print("Downloaded updates ", Convention.instance.updates.count);
+            callback?();
+            
+            // Using main thread for syncronizing access to updates
+            dispatch_async(dispatch_get_main_queue()) {
+                Convention.instance.updates.appendContentsOf(updates);
+                self.tableView.reloadData();
+            }
         });
     }
     

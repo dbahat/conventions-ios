@@ -92,7 +92,7 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
     }
     
     private func reloadMyEvents() {
-        myEvents = Convention.instance.events?
+        myEvents = Convention.instance.events
             .filter { event in event.attending }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
     }

@@ -14,8 +14,9 @@ class Convention {
     static let instance = Convention();
     static let date = NSDate.from(year: 2016, month: 3, day: 23);
     
-    var halls: Array<Hall>!;
-    var events: Array<ConventionEvent>!;
+    var halls: Array<Hall>;
+    var events: Array<ConventionEvent> = [];
+    var updates: Array<Update> = [];
     let userInputs = UserInputs();
     
     init() {
@@ -39,13 +40,11 @@ class Convention {
         } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/CamiEvents.json") {
             events = EventsParser().parse(data: preInstalledEvents, halls: halls);
             print("Preinstalled events: ", events.count);
-        } else {
-            events = [];
         }
     }
     
     func findHallByName(name: String!) -> Hall! {
-        if let hall = halls?.filter({hall in hall.name == name}).first {
+        if let hall = halls.filter({hall in hall.name == name}).first {
             return hall;
         }
         print("Couldn't find hall ", name, ". Using default hall.");
@@ -63,7 +62,7 @@ class Convention {
             // Using main thread for syncronizing access to events
             dispatch_async(dispatch_get_main_queue()) {
                 Convention.instance.events = EventsParser().parse(data: events);
-                print("Downloaded events: ", Convention.instance.events?.count);
+                print("Downloaded events: ", Convention.instance.events.count);
                 callback?();
             }
         });

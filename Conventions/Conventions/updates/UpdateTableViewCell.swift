@@ -13,5 +13,8 @@ class UpdateTableViewCell: UITableViewCell {
     func setUpdate(update: Update) {
         title.text = update.date.format("dd.MM.yyyy HH:mm");
         message.text = update.text;
+        
+        message.backgroundColor = update.isNew
+            ? UIColor(hexString: "#DCDCDC") : UIColor.whiteColor();
     }
 }

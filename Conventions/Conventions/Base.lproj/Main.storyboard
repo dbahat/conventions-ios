@@ -350,11 +350,11 @@
                         <viewControllerLayoutGuide type="bottom" id="x6J-pE-fi6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HV6-8m-8ed">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="spa-7L-sPa">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -364,7 +364,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
-                                <rect key="frame" x="20" y="242.5" width="560" height="116.5"/>
+                                <rect key="frame" x="20" y="210" width="560" height="116.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כדי לצפות בעדכונים יש להתחבר לפייסבוק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="26.5"/>
@@ -400,7 +400,9 @@
                             <constraint firstItem="JFY-3o-v3d" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="sKE-8F-rDh"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" id="Gkw-hq-pVW"/>
+                    <navigationItem key="navigationItem" title="עדכונים" id="cYx-Db-2Ie"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="facebookLoginButton" destination="1Y9-rj-6Rw" id="ZdY-2i-8go"/>
@@ -410,7 +412,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRH-kk-Qxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="875"/>
+            <point key="canvasLocation" x="1444" y="871"/>
+        </scene>
+        <!--Updates Navigation-->
+        <scene sceneID="whL-aC-RN6">
+            <objects>
+                <navigationController id="IDt-2B-o5c" userLabel="Updates Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="tc4-WG-U1F"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OeQ-51-zfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6s1-WB-npc" kind="relationship" relationship="rootViewController" id="gg9-zc-1Hq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qEZ-oP-FbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="871"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
@@ -615,8 +634,8 @@
                         <segue destination="zSy-QS-4eH" kind="relationship" relationship="viewControllers" id="yhj-hV-Br0"/>
                         <segue destination="tLr-zC-cPf" kind="relationship" relationship="viewControllers" id="KI2-Iw-hOd"/>
                         <segue destination="Z78-Hx-az5" kind="relationship" relationship="viewControllers" id="gya-hO-TYb"/>
-                        <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="eXG-xa-9zp"/>
                         <segue destination="SxB-SE-C1c" kind="relationship" relationship="viewControllers" id="g6k-wD-U0K"/>
+                        <segue destination="IDt-2B-o5c" kind="relationship" relationship="viewControllers" id="LSz-za-j7w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

@@ -12,7 +12,7 @@ class Update {
     var id: String;
     var text: String;
     var date: NSDate;
-    var isNew = false;
+    var isNew = true;
     
     init(id: String, text: String, date: NSDate) {
         self.id = id;
