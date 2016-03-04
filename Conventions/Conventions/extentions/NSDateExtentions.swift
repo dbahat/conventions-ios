@@ -32,7 +32,17 @@ extension NSDate {
         return self.clearMinutesComponent();
     }
     
-    static func parse(date: String!, dateFormat: String!) -> NSDate! {
+    static func from(year year:Int, month:Int, day:Int) -> NSDate {
+        let dateComponents = NSDateComponents();
+        dateComponents.year = year;
+        dateComponents.month = month;
+        dateComponents.day = day;
+        
+        let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian);
+        return gregorian!.dateFromComponents(dateComponents)!;
+    }
+    
+    static func parse(date: String, dateFormat: String) -> NSDate? {
         let dateFormatter = NSDateFormatter();
         dateFormatter.locale = NSLocale.systemLocale();
         dateFormatter.dateFormat = dateFormat;

@@ -12,7 +12,7 @@ class Convention {
     private static let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
     
     static let instance = Convention();
-    static let date = Date.from(year: 2016, month: 3, day: 23);
+    static let date = NSDate.from(year: 2016, month: 3, day: 23);
     
     var halls: Array<Hall>!;
     var events: Array<ConventionEvent>!;

@@ -17,7 +17,6 @@
 		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
 		3B523D521C6657FD00D3D055 /* EventsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D511C6657FD00D3D055 /* EventsDownloader.swift */; };
 		3B523D541C665C0500D3D055 /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D531C665C0500D3D055 /* EventsParser.swift */; };
-		3B523D561C67D46300D3D055 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D551C67D46300D3D055 /* Date.swift */; };
 		3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A9991C7A48C700C5BCE4 /* EventView.swift */; };
 		3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */; };
 		3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */; };
@@ -43,6 +42,7 @@
 		3BB631101C89680800D54D3E /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6310B1C89680800D54D3E /* UpdatesViewController.swift */; };
 		3BB631141C89688700D54D3E /* MyEventsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631131C89688700D54D3E /* MyEventsNavigationController.swift */; };
 		3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631171C896B7700D54D3E /* BaseViewController.swift */; };
+		3BB6311A1C89738400D54D3E /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631191C89738400D54D3E /* Update.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,6 @@
 		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
 		3B523D511C6657FD00D3D055 /* EventsDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsDownloader.swift; path = networking/EventsDownloader.swift; sourceTree = "<group>"; };
 		3B523D531C665C0500D3D055 /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = networking/EventsParser.swift; sourceTree = "<group>"; };
-		3B523D551C67D46300D3D055 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = model/Date.swift; sourceTree = "<group>"; };
 		3B55A9991C7A48C700C5BCE4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = events/EventView.swift; sourceTree = "<group>"; };
 		3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		3BB6310B1C89680800D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		3BB631131C89688700D54D3E /* MyEventsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsNavigationController.swift; path = events/MyEventsNavigationController.swift; sourceTree = "<group>"; };
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -222,8 +222,8 @@
 				3BA2D8121C5FEDF5007A8A23 /* EventType.swift */,
 				3BA2D8141C5FEE7B007A8A23 /* Place.swift */,
 				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
-				3B523D551C67D46300D3D055 /* Date.swift */,
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
+				3BB631191C89738400D54D3E /* Update.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -415,10 +415,10 @@
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
-				3B523D561C67D46300D3D055 /* Date.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */,
+				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,
 				3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */,
 				3BA2D80F1C5FE8EB007A8A23 /* Convention.swift in Sources */,
