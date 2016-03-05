@@ -17,6 +17,18 @@ class EventsParser {
     func parse(data data: NSData!, halls: Array<Hall>!) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
+        // Note -
+        // Some events are defined as "special events", meaning they share a common description.
+        // For these event types, the server returns an extra parameter timetable-url-pid, which contains
+        // the id of the event containing the description.
+        //
+        // To parse special event, we keep a maps of special events to the eventId containing the special 
+        // event content, and another map from eventId to it's description.
+        // After all events were parsed, we can follow the internal link in timetable-url-pid to get the
+        // special event description.
+        var specialEvents = Dictionary<Int, Array<ConventionEvent>>();
+        var eventIdToDescription = Dictionary<Int, String>();
+        
         guard let deserializedEvents = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray else {
             print("Failed to deserialize cached events");
             return result;
@@ -33,9 +45,17 @@ class EventsParser {
                 continue;
             }
             
+            guard var description = event["content"] as? String else {
+                print("Event missing description. Skipping. ID=", eventId);
+                continue;
+            }
+            
             guard let internalEvents = event["timetable-info"] as? Array<NSDictionary> else {
                 continue;
             }
+            
+            // Keep the event description. Needed for special events.
+            eventIdToDescription[eventId] = description;
             
             // Each event can appear in multiple times (e.g. event Kareoke can be in both 12:00 
             // and 18:00). For simplicity, we treat it as multiple events.
@@ -67,10 +87,6 @@ class EventsParser {
                     print("Event missing room. Skipping. ID=", eventId);
                     continue;
                 }
-                guard var description = event["content"] as? String else {
-                    print("Event missing description. Skipping. ID=", eventId);
-                    continue;
-                }
                 
                 if let ignoreDescription = event["timetable-disable-url"] as? String {
                     if (ignoreDescription == "1") {
@@ -100,8 +116,27 @@ class EventsParser {
                 
                 result.append(conventionEvent);
                 internalEventNumber++;
+                
+                // In case the event is a speical event, add it to the map
+                if let specialEventId = event["timetable-url-pid"] as? Int {
+                    if specialEventId != 0 {
+                        if (specialEvents[specialEventId] == nil) {
+                            specialEvents[specialEventId] = [conventionEvent];
+                        } else {
+                            specialEvents[specialEventId]?.append(conventionEvent);
+                        }
+                    }
+                }
             }
         }
+        
+        // Go over all the speical events and map them to their linked description
+        for specialEvent in specialEvents {
+            for event in specialEvent.1 {
+                event.description = parseEventDescription(eventIdToDescription[specialEvent.0]);
+            }
+        }
+        
         return result;
     }
 
