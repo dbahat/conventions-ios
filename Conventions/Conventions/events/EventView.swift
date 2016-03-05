@@ -45,6 +45,11 @@ class EventView: UIView {
         
         let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
         favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+        
+        if let textColor = event.textColor {
+            startTime.textColor = textColor;
+            endTime.textColor = textColor;
+        }
     }
 
 }

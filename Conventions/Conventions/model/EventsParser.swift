@@ -50,6 +50,10 @@ class EventsParser {
                 if let colorCode = event["timetable-bg"] as? String {
                     color = UIColor(hexString: colorCode);
                 }
+                var textColor: UIColor?;
+                if let colorCode = event["timetable-text-color"] as? String {
+                    textColor = UIColor(hexString: "#" + colorCode);
+                }
                 
                 guard let startTime = internalEvent["start"] as? String else {
                     print("Event missing startTime. Skipping. ID=", eventId);
@@ -71,6 +75,7 @@ class EventsParser {
                     id: String(format: "%d_%d", arguments: [eventId, internalEventNumber]),
                     serverId: event["ID"] as? Int,
                     color: color,
+                    textColor: textColor,
                     title: event["title"] as? String,
                     lecturer: internalEvent["before_hour_text"] as? String,
                     startTime: appendTimeToConventionDate(startTime),
