@@ -145,7 +145,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 }
                 
                 result[roundedEventTime]!.sortInPlace({
-                    $0.hall?.order < $1.hall?.order})
+                    $0.hall.order < $1.hall.order})
             }
         }
         

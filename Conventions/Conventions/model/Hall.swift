@@ -9,10 +9,10 @@
 import Foundation
 
 class Hall : Place {
-    var order: Int!;
+    var order: Int;
     
-    init(name: String?, order: Int!) {
-        super.init(name: name);
+    init(name: String, order: Int) {
         self.order = order;
+        super.init(name: name);
     }
 }

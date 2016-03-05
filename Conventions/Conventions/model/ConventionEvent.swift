@@ -25,7 +25,7 @@ class ConventionEvent {
     var startTime: NSDate;
     var endTime: NSDate;
     var type: EventType?;
-    var hall: Hall?;
+    var hall: Hall;
     var images: Array<Int>?;
     var description: String?;
     
@@ -54,7 +54,7 @@ class ConventionEvent {
         }
     }
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String?, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall?, description: String?) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String?, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
         self.id = id;
         self.serverId = serverId;
         self.color = color;

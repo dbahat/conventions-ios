@@ -111,7 +111,7 @@ class EventsParser {
                     type: EventType(
                         backgroundColor: color,
                         description: event["categories-text"]??["name"] as? String),
-                    hall: halls.filter({hall in hall.name == hallName}).first,
+                    hall: findHallByName(halls, hallName: hallName),
                     description: parseEventDescription(description));
                 
                 result.append(conventionEvent);
@@ -139,6 +139,14 @@ class EventsParser {
         
         return result;
     }
+    
+    func findHallByName(halls: Array<Hall>, hallName: String) -> Hall {
+        if let hall = halls.filter({hall in hall.name == hallName}).first {
+            return hall;
+        }
+        
+        return Hall(name: "", order: 100);
+    }
 
     func appendTimeToConventionDate(time: String!) -> NSDate! {
         let dateAndTime = Convention.date.format("yyyy:MM:dd") + " " + time;
@@ -155,7 +163,9 @@ class EventsParser {
             .replace(pattern: "/div>", withTemplate: "/xdiv")?
             .replace(pattern: "\t", withTemplate: "    ")?
             .replace(pattern: "<img", withTemplate: "<ximg")?
-            .replace(pattern: "/img>", withTemplate: "/ximg>");
+            .replace(pattern: "/img>", withTemplate: "/ximg>")?
+            .replace(pattern: "<iframe", withTemplate: "<xiframe")?
+            .replace(pattern: "iframe>", withTemplate: "xiframe>");
     }
 }
 

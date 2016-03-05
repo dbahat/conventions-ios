@@ -40,7 +40,7 @@ class EventView: UIView {
         endTime.text = event.endTime.format("HH:mm");
         title.text = event.title;
         lecturer.text = event.lecturer;
-        hallName.text = event.hall?.name;
+        hallName.text = event.hall.name;
         timeLayout.backgroundColor = event.color;
         
         let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");

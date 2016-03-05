@@ -15,20 +15,20 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(0);
+        navigateToTabController(3);
     }
     
     @IBAction func mapWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(1);
+        //navigateToTabController(1); Disabled until we have a map
     }
     
     
     @IBAction func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(2);
+        navigateToTabController(1);
     }
 
     @IBAction func updatedWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(3);
+        navigateToTabController(0);
     }
     
     private func navigateToTabController(selectedIndex: Int) {

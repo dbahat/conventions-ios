@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QXR-6U-4hy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tYJ-0M-xL8">
-                        <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
@@ -66,7 +66,7 @@
                             <constraint firstItem="QXR-6U-4hy" firstAttribute="top" secondItem="PSg-uB-BHT" secondAttribute="bottom" id="oaj-lO-7Xw"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n"/>
                     <connections>
                         <outlet property="tableView" destination="PSg-uB-BHT" id="L2f-tb-Bwh"/>
@@ -92,8 +92,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="936"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="428"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8g-JM-D6V">
@@ -294,11 +294,11 @@
             </objects>
             <point key="canvasLocation" x="782" y="-465"/>
         </scene>
-        <!--Events-->
+        <!--תוכניה-->
         <scene sceneID="vuJ-Kh-HSp">
             <objects>
                 <navigationController id="zSy-QS-4eH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="MenuEventList" id="bIA-XX-8KV"/>
+                    <tabBarItem key="tabBarItem" title="תוכניה" image="MenuEventList" id="bIA-XX-8KV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="blV-h7-EBd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -320,7 +320,7 @@
                         <viewControllerLayoutGuide type="bottom" id="x6J-pE-fi6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HV6-8m-8ed">
-                        <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="spa-7L-sPa">
@@ -333,7 +333,7 @@
                                     <outlet property="delegate" destination="6s1-WB-npc" id="aPG-k5-diD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
                                 <rect key="frame" x="20" y="410" width="560" height="116.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כדי לצפות בעדכונים יש להתחבר לפייסבוק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
@@ -370,7 +370,7 @@
                             <constraint firstItem="JFY-3o-v3d" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="sKE-8F-rDh"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" id="Gkw-hq-pVW"/>
                     <navigationItem key="navigationItem" title="עדכונים" id="cYx-Db-2Ie"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -388,7 +388,7 @@
         <scene sceneID="whL-aC-RN6">
             <objects>
                 <navigationController id="IDt-2B-o5c" userLabel="Updates Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tc4-WG-U1F"/>
+                    <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" id="tc4-WG-U1F"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OeQ-51-zfQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -573,10 +573,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="zSy-QS-4eH" kind="relationship" relationship="viewControllers" id="yhj-hV-Br0"/>
-                        <segue destination="tLr-zC-cPf" kind="relationship" relationship="viewControllers" id="KI2-Iw-hOd"/>
-                        <segue destination="SxB-SE-C1c" kind="relationship" relationship="viewControllers" id="g6k-wD-U0K"/>
                         <segue destination="IDt-2B-o5c" kind="relationship" relationship="viewControllers" id="LSz-za-j7w"/>
+                        <segue destination="SxB-SE-C1c" kind="relationship" relationship="viewControllers" id="g6k-wD-U0K"/>
+                        <segue destination="tLr-zC-cPf" kind="relationship" relationship="viewControllers" id="KI2-Iw-hOd"/>
+                        <segue destination="zSy-QS-4eH" kind="relationship" relationship="viewControllers" id="yhj-hV-Br0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -598,6 +598,6 @@
         <image name="OpeningUpdates" width="484" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="iD6-4y-mfX"/>
     </inferredMetricsTieBreakers>
 </document>
