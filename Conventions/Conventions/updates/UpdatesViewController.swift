@@ -27,11 +27,12 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
             facebookLoginButton.readPermissions = ["public_profile"];
             tableView.hidden = true;
             return;
-        } else {
-            loginButtonContainer.hidden = true;
         }
         
-        refreshUpdates(nil);
+        loginButtonContainer.hidden = true;
+        Convention.instance.updates.refresh({
+            self.tableView.reloadData();
+        });
         
         tableView.addSubview(refreshControl);
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
@@ -45,10 +46,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     override func viewWillDisappear(animated: Bool) {
         super.viewDidDisappear(animated);
         
-        Convention.instance.updates = Convention.instance.updates.map({update in
-            update.isNew = false
-            return update
-        });
+        Convention.instance.updates.markAllAsRead();
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -64,7 +62,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         
         loginButtonContainer.hidden = true;
         tableView.hidden = false;
-        refreshUpdates(nil);
+        Convention.instance.updates.refresh(nil);
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -82,19 +80,19 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Convention.instance.updates.count;
+        return Convention.instance.updates.getAll().count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(UpdateTableViewCell), forIndexPath: indexPath) as! UpdateTableViewCell;
-        cell.setUpdate(Convention.instance.updates[indexPath.row])
+        cell.setUpdate(Convention.instance.updates.getAll()[indexPath.row])
         
         return cell;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
-        let updateText = Convention.instance.updates[indexPath.row].text;
+        let updateText = Convention.instance.updates.getAll()[indexPath.row].text;
         let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)]);
         return attrText.boundingRectWithSize(CGSize(width: self.tableView.frame.width, height: CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize;
     }
@@ -103,47 +101,12 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     
     func refresh(sender:AnyObject)
     {
-        refreshUpdates({
+        // Mark all current updates as old so new events will appear with different UI
+        Convention.instance.updates.markAllAsRead();
+        
+        Convention.instance.updates.refresh({
             self.tableView.reloadData();
             self.refreshControl.endRefreshing();
-        })
-    }
-    
-    func refreshUpdates(callback: (() -> Void)?) {
-        var request : FBSDKGraphRequest;
-        if let latestUpdateTime = Convention.instance.updates
-            .maxElement({$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970}) {
-                request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: ["since": (latestUpdateTime.date.timeIntervalSince1970)]);
-        } else {
-            request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: nil);
-        }
-
-        request.startWithCompletionHandler({ connection, result, error in
-            let updates = self.parseFacebookResult(result)
-                .sort({ $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 });
-            print("Downloaded updates ", Convention.instance.updates.count);
-            callback?();
-            
-            // Using main thread for syncronizing access to updates
-            dispatch_async(dispatch_get_main_queue()) {
-                Convention.instance.updates.appendContentsOf(updates);
-                self.tableView.reloadData();
-            }
         });
-    }
-    
-    private func parseFacebookResult(result: AnyObject!) -> Array<Update> {
-        var updates = Array<Update>();
-        guard let resultEvents = result["data"] as? [AnyObject] else {return updates;}
-        for event in resultEvents {
-            guard let id = event["id"] as? String else {continue;};
-            guard let message = event["message"] as? String else {continue;}
-            guard let createdTime = event["created_time"] as? String else {continue;}
-            guard let parsedDate = NSDate.parse(createdTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ssz") else {continue;}
-            
-            updates.append(Update(id: id, text: message, date: parsedDate));
-        }
-        
-        return updates;
     }
 }

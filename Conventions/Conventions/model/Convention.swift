@@ -14,7 +14,7 @@ class Convention {
     
     var halls: Array<Hall>;
     var events: Events;
-    var updates: Array<Update> = [];
+    var updates = Updates();
     let userInputs = UserInputs();
     
     init() {

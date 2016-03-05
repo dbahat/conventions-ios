@@ -45,6 +45,7 @@
 		3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */; };
 		3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631241C8ADC0B00D54D3E /* Events.swift */; };
 		3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* EventsParser.swift */; };
+		3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6312A1C8AE28400D54D3E /* Updates.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
 		3BB631241C8ADC0B00D54D3E /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = model/Events.swift; sourceTree = "<group>"; };
 		3BB631281C8AE15900D54D3E /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = model/EventsParser.swift; sourceTree = "<group>"; };
+		3BB6312A1C8AE28400D54D3E /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				3BB631191C89738400D54D3E /* Update.swift */,
 				3BB631241C8ADC0B00D54D3E /* Events.swift */,
 				3BB631281C8AE15900D54D3E /* EventsParser.swift */,
+				3BB6312A1C8AE28400D54D3E /* Updates.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
+				3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsTableViewController.swift in Sources */,
 				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
 				3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */,
