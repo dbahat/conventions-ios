@@ -10,6 +10,10 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait;
+    }
+    
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(0);
     }

@@ -49,10 +49,6 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         Convention.instance.updates.markAllAsRead();
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        self.tableView.reloadData();
-    }
-    
     // MARK: - FBSDKLoginButtonDelegate
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
