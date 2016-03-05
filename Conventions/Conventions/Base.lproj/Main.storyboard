@@ -213,6 +213,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="eventDescription" destination="t8J-Y6-ovI" id="guw-JN-K8c"/>
+                        <outlet property="eventDescriptionContainer" destination="u5k-i3-wiM" id="hNO-Pk-2l6"/>
                         <outlet property="eventTitle" destination="l8J-Dg-5UO" id="fFc-70-r3e"/>
                         <outlet property="hallAndTime" destination="CgD-mc-ttE" id="vzd-dh-Afn"/>
                         <outlet property="image" destination="q76-A4-Mva" id="wAw-OJ-vDD"/>

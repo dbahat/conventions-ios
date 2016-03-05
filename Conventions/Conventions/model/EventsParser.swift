@@ -67,6 +67,18 @@ class EventsParser {
                     print("Event missing room. Skipping. ID=", eventId);
                     continue;
                 }
+                guard var description = event["content"] as? String else {
+                    print("Event missing description. Skipping. ID=", eventId);
+                    continue;
+                }
+                
+                if let ignoreDescription = event["timetable-disable-url"] as? String {
+                    if (ignoreDescription == "1") {
+                        // Some events have temporary description and are not clickable in the website.
+                        // Don't show description for these types of events.
+                        description = "";
+                    }
+                }
                 
                 let conventionEvent = ConventionEvent(
                     // Since we duplicate events that appear in multiple times, compose a new
@@ -84,7 +96,7 @@ class EventsParser {
                         backgroundColor: color,
                         description: event["categories-text"]??["name"] as? String),
                     hall: halls.filter({hall in hall.name == hallName}).first,
-                    description: parseEventDescription(event["content"] as! String?));
+                    description: parseEventDescription(description));
                 
                 result.append(conventionEvent);
                 internalEventNumber++;

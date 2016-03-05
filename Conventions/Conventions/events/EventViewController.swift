@@ -17,6 +17,7 @@ class EventViewController: BaseViewController {
     @IBOutlet private weak var hallAndTime: UILabel!
     @IBOutlet private weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
+    @IBOutlet weak var eventDescriptionContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class EventViewController: BaseViewController {
         
         // Extract the dominent color from the image and set it as the background
         self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
+        
+        eventDescriptionContainer.hidden = event.description == "";
         
         guard let descriptionData = event.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
             return;
