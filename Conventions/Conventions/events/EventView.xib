@@ -30,9 +30,6 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-7c-klt">
                                     <rect key="frame" x="24" y="8" width="21" height="22"/>
                                     <state key="normal" image="EventAttending"/>
-                                    <connections>
-                                        <action selector="changeFavoriteStateButtonWasClicked:" destination="-1" eventType="touchUpInside" id="fho-6w-7oF"/>
-                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V75-pZ-Hax">
                                     <rect key="frame" x="12" y="33" width="46" height="21.5"/>
@@ -57,6 +54,9 @@
                                 <constraint firstItem="mFw-7c-klt" firstAttribute="top" secondItem="7xQ-wK-gf8" secondAttribute="top" constant="8" id="wh0-XS-uTk"/>
                                 <constraint firstItem="V75-pZ-Hax" firstAttribute="centerX" secondItem="7xQ-wK-gf8" secondAttribute="centerX" id="x5N-Bs-GbT"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="PAd-ob-HPP" appends="YES" id="DvR-AT-z1c"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-fH-VhW">
                             <rect key="frame" x="0.0" y="0.0" width="530" height="600"/>
@@ -105,6 +105,7 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="7xQ-wK-gf8" firstAttribute="top" secondItem="XqZ-b5-4ob" secondAttribute="top" id="7dV-8f-WtQ"/>
                         <constraint firstItem="tZ3-fH-VhW" firstAttribute="leading" secondItem="XqZ-b5-4ob" secondAttribute="leading" id="Kb3-wP-kBV"/>
@@ -124,6 +125,11 @@
                 <constraint firstItem="XqZ-b5-4ob" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mYF-LP-eYH"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="PAd-ob-HPP">
+            <connections>
+                <action selector="changeFavoriteStateButtonWasClicked:" destination="-1" id="3tI-74-kwi"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="EventAttending" width="21" height="21"/>

@@ -11,13 +11,6 @@ import UIKit
 class MyEventsTableViewController: UITableViewController, EventCellStateProtocol {
     
     private var myEvents: Array<ConventionEvent>?;
-
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        
-        refreshControl = UIRefreshControl();
-        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
-    }
     
     override func viewDidAppear(animated: Bool) {
         reloadMyEvents();
@@ -49,20 +42,6 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
 
         return cell
     }
-    
-    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        guard let indexPath = tableView.indexPathForCell(caller) else {
-            return;
-        }
-        guard let event = myEvents?[indexPath.row] else {
-            return;
-        }
-        
-        
-        event.attending = false;
-        reloadMyEvents();
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
-    }
 
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
@@ -91,17 +70,23 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         eventViewController.event = sender as! ConventionEvent;
     }
     
+    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
+        guard let indexPath = tableView.indexPathForCell(caller) else {
+            return;
+        }
+        guard let event = myEvents?[indexPath.row] else {
+            return;
+        }
+        
+        
+        event.attending = false;
+        reloadMyEvents();
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+    }
+    
     private func reloadMyEvents() {
         myEvents = Convention.instance.events.getAll()
             .filter { event in event.attending }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
-    }
-    
-    func refresh(sender:AnyObject)
-    {
-        Convention.instance.events.refresh({
-            self.tableView.reloadData();
-            self.refreshControl?.endRefreshing();
-        })
     }
 }

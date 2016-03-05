@@ -333,8 +333,8 @@
                                     <outlet property="delegate" destination="6s1-WB-npc" id="aPG-k5-diD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
-                                <rect key="frame" x="20" y="410" width="560" height="116.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
+                                <rect key="frame" x="20" y="385.5" width="560" height="116.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כדי לצפות בעדכונים יש להתחבר לפייסבוק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="26.5"/>

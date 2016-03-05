@@ -79,8 +79,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             let timeSection = self.eventTimeSections[index.section];
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = true;
-                tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
                 TTGSnackbar(message: "האירוע התווסף לאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
+                // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
+                tableView.reloadData();
             }
         }
         addToFavorite.backgroundColor = event?.color;
@@ -90,8 +91,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             let timeSection = self.eventTimeSections[index.section];
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = false;
-                tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None);
                 TTGSnackbar(message: "האירוע הוסר מהאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
+                // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
+                tableView.reloadData();
             }
         }
         removeFromFavorite.backgroundColor = event?.color;
@@ -112,10 +114,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         event.attending = !event.attending;
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
-            .show();
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view).show();
         
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None);
+        // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
+        tableView.reloadData();
     }
     
     // MARK: - Navigation
