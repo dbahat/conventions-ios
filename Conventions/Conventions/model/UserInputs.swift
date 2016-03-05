@@ -9,7 +9,8 @@
 import Foundation
 
 class UserInputs {
-    private static let userInputFileName = NSHomeDirectory() + "/Documents/CamiUserInput.json";
+    private static let storageFileName = Convention.name + "UserInputs.json";
+    private static let storageFile = NSHomeDirectory() + "/Documents/" + UserInputs.storageFileName;
     
     // Maps eventId to the user input for that event
     private var inputs = Dictionary<String, ConventionEvent.UserInput>();
@@ -34,11 +35,11 @@ class UserInputs {
         let serilizableInputs = inputs.map({input in [input.0: input.1.toJson()]});
         
         let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);
-        json?.writeToFile(UserInputs.userInputFileName, atomically: true);
+        json?.writeToFile(UserInputs.storageFile, atomically: true);
     }
     
     private func load() -> Dictionary<String, ConventionEvent.UserInput>? {
-        guard let storedInputs = NSData(contentsOfFile: UserInputs.userInputFileName) else {
+        guard let storedInputs = NSData(contentsOfFile: UserInputs.storageFile) else {
             return nil;
         }
         guard let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments) else {

@@ -11,6 +11,7 @@ import Foundation
 class Convention {
     static let instance = Convention();
     static let date = NSDate.from(year: 2016, month: 3, day: 23);
+    static let name = "Harucon2016";
     
     var halls: Array<Hall>;
     var events: Events;
@@ -23,9 +24,7 @@ class Convention {
             Hall(name: "אודיטוריום שוורץ", order: 2),
             Hall(name: "אשכול 1", order: 3),
             Hall(name: "אשכול 2", order: 4),
-            Hall(name: "אשכול 3", order: 5),
-            Hall(name: "משחקייה", order: 6),
-            Hall(name: "אירועים מיוחדים", order: 7)
+            Hall(name: "אשכול 3", order: 5)
         ];
         
         events = Events(halls: halls);

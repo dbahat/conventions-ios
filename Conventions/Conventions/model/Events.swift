@@ -10,8 +10,8 @@ import Foundation
 
 class Events {
     private static let eventsApiUrl = "http://2016.harucon.org.il/wp-admin/admin-ajax.php?action=get_event_list";
-    private static let cacheFileName = "CamiEvents.json";
-    private static let cacheFileNameAndPath = NSHomeDirectory() + "/Library/Caches/" + cacheFileName;
+    private static let fileName = Convention.name + "Events.json";
+    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + fileName;
     
     private var events: Array<ConventionEvent> = [];
     
@@ -20,10 +20,10 @@ class Events {
             return;
         };
         
-        if let cachedEvents = NSData(contentsOfFile: Events.cacheFileNameAndPath) {
+        if let cachedEvents = NSData(contentsOfFile: Events.cacheFile) {
             events = EventsParser().parse(data: cachedEvents, halls: halls);
             print("Events from cache: ", events.count);
-        } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/" + Events.cacheFileName) {
+        } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/" + Events.fileName) {
             events = EventsParser().parse(data: preInstalledEvents, halls: halls);
             print("Preinstalled events: ", events.count);
         }
@@ -39,7 +39,7 @@ class Events {
                 return;
             }
             
-            result?.writeToFile(Events.cacheFileName, atomically: true);
+            result?.writeToFile(Events.cacheFile, atomically: true);
             
             // Using main thread for syncronizing access to events
             dispatch_async(dispatch_get_main_queue()) {

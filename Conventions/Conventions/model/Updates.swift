@@ -9,7 +9,14 @@
 import Foundation
 
 class Updates {
+    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
     private var updates: Array<Update> = [];
+    
+    init() {
+        if let cachedUpdates = load() {
+            updates = cachedUpdates;
+        }
+    }
     
     func getAll() -> Array<Update> {
         return updates;
@@ -17,6 +24,7 @@ class Updates {
     
     func markAllAsRead() {
         updates.forEach({$0.isNew = false});
+        save();
     }
     
     func refresh(callback: (() -> Void)?) {
@@ -42,6 +50,7 @@ class Updates {
                 self.updates.appendContentsOf(updates);
                 print("Downloaded updates ", self.updates.count);
                 callback?();
+                self.save();
             }
         });
     }
@@ -59,5 +68,32 @@ class Updates {
         }
         
         return updates;
+    }
+    
+    private func save() {
+        let serializedUpdates = self.updates.map({$0.toJson()});
+        
+        let json = try? NSJSONSerialization.dataWithJSONObject(serializedUpdates, options: NSJSONWritingOptions.PrettyPrinted);
+        json?.writeToFile(Updates.cacheFile, atomically: true);
+    }
+    
+    private func load() -> Array<Update>? {
+        guard let storedUpdates = NSData(contentsOfFile: Updates.cacheFile) else {
+            return nil;
+        }
+        guard let updatesJson = try? NSJSONSerialization.JSONObjectWithData(storedUpdates, options: NSJSONReadingOptions.AllowFragments) else {
+            return nil;
+        }
+        guard let parsedUpdates = updatesJson as? [Dictionary<String, AnyObject>] else {
+            return nil;
+        }
+        
+        var result = Array<Update>();
+        parsedUpdates.forEach({parsedUpdate in
+            if let update = Update(json: parsedUpdate) {
+                result.append(update);
+            }
+        });
+        return result;
     }
 }

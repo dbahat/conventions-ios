@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		201AF13B9E56DC3572D28289 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D3F246EA9FBF38FF127953 /* libPods.a */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
-		3B2497CF1C8636E800A87623 /* CamiEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B2497CE1C8636E800A87623 /* CamiEvents.json */; };
+		3B2497CF1C8636E800A87623 /* Harucon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B2497CE1C8636E800A87623 /* Harucon2016Events.json */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
-		3B2497CE1C8636E800A87623 /* CamiEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CamiEvents.json; sourceTree = "<group>"; };
+		3B2497CE1C8636E800A87623 /* Harucon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Harucon2016Events.json; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3B4CEB531C7CF88E00AF041B /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				3B2497CE1C8636E800A87623 /* CamiEvents.json */,
+				3B2497CE1C8636E800A87623 /* Harucon2016Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -220,10 +220,10 @@
 				3BA2D8141C5FEE7B007A8A23 /* Place.swift */,
 				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
-				3BB631191C89738400D54D3E /* Update.swift */,
 				3BB631241C8ADC0B00D54D3E /* Events.swift */,
 				3BB631281C8AE15900D54D3E /* EventsParser.swift */,
 				3BB6312A1C8AE28400D54D3E /* Updates.swift */,
+				3BB631191C89738400D54D3E /* Update.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -349,7 +349,7 @@
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
-				3B2497CF1C8636E800A87623 /* CamiEvents.json in Resources */,
+				3B2497CF1C8636E800A87623 /* Harucon2016Events.json in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
