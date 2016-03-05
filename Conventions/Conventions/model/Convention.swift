@@ -9,13 +9,11 @@
 import Foundation
 
 class Convention {
-    private static let eventsCacheFileName = NSHomeDirectory() + "/Library/Caches/CamiEvents.json";
-    
     static let instance = Convention();
     static let date = NSDate.from(year: 2016, month: 3, day: 23);
     
     var halls: Array<Hall>;
-    var events: Array<ConventionEvent> = [];
+    var events: Events;
     var updates: Array<Update> = [];
     let userInputs = UserInputs();
     
@@ -30,17 +28,10 @@ class Convention {
             Hall(name: "אירועים מיוחדים", order: 7)
         ];
         
-        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
-            return;
-        };
+        events = Events(halls: halls);
         
-        if let cachedEvents = NSData(contentsOfFile: Convention.eventsCacheFileName) {
-            events = EventsParser().parse(data: cachedEvents, halls: halls);
-            print("Events from cache: ", events.count);
-        } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/CamiEvents.json") {
-            events = EventsParser().parse(data: preInstalledEvents, halls: halls);
-            print("Preinstalled events: ", events.count);
-        }
+        // Initiate an async refresh to the events content when opening the app
+        events.refresh(nil);
     }
     
     func findHallByName(name: String!) -> Hall! {
@@ -49,23 +40,6 @@ class Convention {
         }
         print("Couldn't find hall ", name, ". Using default hall.");
         return Hall(name: "אירועים מיוחדים", order: 6);
-    }
-    
-    func refresh(callback: (() -> Void)?) {
-        EventsDownloader().download({(result) in
-            guard let events = result else {
-                return;
-            }
-            
-            result?.writeToFile(Convention.eventsCacheFileName, atomically: true);
-            
-            // Using main thread for syncronizing access to events
-            dispatch_async(dispatch_get_main_queue()) {
-                Convention.instance.events = EventsParser().parse(data: events);
-                print("Downloaded events: ", Convention.instance.events.count);
-                callback?();
-            }
-        });
     }
 }
 

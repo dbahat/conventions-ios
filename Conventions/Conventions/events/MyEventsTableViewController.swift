@@ -92,14 +92,14 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
     }
     
     private func reloadMyEvents() {
-        myEvents = Convention.instance.events
+        myEvents = Convention.instance.events.getAll()
             .filter { event in event.attending }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
     }
     
     func refresh(sender:AnyObject)
     {
-        Convention.instance.refresh({
+        Convention.instance.events.refresh({
             self.tableView.reloadData();
             self.refreshControl?.endRefreshing();
         })

@@ -130,7 +130,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     private func calculateEventsAndTimeSections() {
         var result = Dictionary<NSDate, Array<ConventionEvent>>();
         
-        for event in Convention.instance.events {
+        for event in Convention.instance.events.getAll() {
             // In case an event lasts more then 1 hour, duplicate them so they'll appear in multiple time sections.
             // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
             let eventLengthInHours = Int(event.endTime.moveToNextRoundHour().timeIntervalSinceDate(
@@ -155,7 +155,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     func refresh(sender:AnyObject)
     {
-        Convention.instance.refresh({
+        Convention.instance.events.refresh({
             self.tableView.reloadData();
             self.refreshControl.endRefreshing();
         })

@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight;
         }
         
-        Convention.instance.refresh(nil);
-        
         // Facebook SDK init
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions);
         

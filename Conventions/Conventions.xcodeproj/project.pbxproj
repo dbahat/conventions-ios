@@ -15,8 +15,6 @@
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
 		3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */; };
 		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
-		3B523D521C6657FD00D3D055 /* EventsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D511C6657FD00D3D055 /* EventsDownloader.swift */; };
-		3B523D541C665C0500D3D055 /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D531C665C0500D3D055 /* EventsParser.swift */; };
 		3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A9991C7A48C700C5BCE4 /* EventView.swift */; };
 		3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */; };
 		3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */; };
@@ -45,6 +43,8 @@
 		3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */; };
 		3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */; };
 		3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */; };
+		3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631241C8ADC0B00D54D3E /* Events.swift */; };
+		3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* EventsParser.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -59,8 +59,6 @@
 		3B4CEB561C7CF8DA00AF041B /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
 		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
-		3B523D511C6657FD00D3D055 /* EventsDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsDownloader.swift; path = networking/EventsDownloader.swift; sourceTree = "<group>"; };
-		3B523D531C665C0500D3D055 /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = networking/EventsParser.swift; sourceTree = "<group>"; };
 		3B55A9991C7A48C700C5BCE4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = events/EventView.swift; sourceTree = "<group>"; };
 		3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
@@ -91,6 +89,8 @@
 		3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
+		3BB631241C8ADC0B00D54D3E /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = model/Events.swift; sourceTree = "<group>"; };
+		3BB631281C8AE15900D54D3E /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = model/EventsParser.swift; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -160,15 +160,6 @@
 			path = externals/CCColorCube;
 			sourceTree = "<group>";
 		};
-		3B523D501C66575C00D3D055 /* networking */ = {
-			isa = PBXGroup;
-			children = (
-				3B523D511C6657FD00D3D055 /* EventsDownloader.swift */,
-				3B523D531C665C0500D3D055 /* EventsParser.swift */,
-			);
-			name = networking;
-			sourceTree = "<group>";
-		};
 		3B6AF9811C6FC172004B9DAD /* extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +194,6 @@
 				3BB631061C89680800D54D3E /* controllers */,
 				3B2497CD1C8636E800A87623 /* cache */,
 				3B6AF9811C6FC172004B9DAD /* extentions */,
-				3B523D501C66575C00D3D055 /* networking */,
 				3BA2D81B1C613BC8007A8A23 /* externals */,
 				3BA2D8181C5FF4C5007A8A23 /* events */,
 				3BB6311B1C89833D00D54D3E /* updates */,
@@ -229,6 +219,8 @@
 				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
 				3BB631191C89738400D54D3E /* Update.swift */,
+				3BB631241C8ADC0B00D54D3E /* Events.swift */,
+				3BB631281C8AE15900D54D3E /* EventsParser.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -418,15 +410,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
-				3B523D521C6657FD00D3D055 /* EventsDownloader.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB631141C89688700D54D3E /* MyEventsNavigationController.swift in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
 				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
+				3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
-				3B523D541C665C0500D3D055 /* EventsParser.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
@@ -441,6 +432,7 @@
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
 				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
+				3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */,
 				3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */,
 				3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */,
 				3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */,

@@ -10,6 +10,8 @@ import Foundation
 
 class UserInputs {
     private static let userInputFileName = NSHomeDirectory() + "/Documents/CamiUserInput.json";
+    
+    // Maps eventId to the user input for that event
     private var inputs = Dictionary<String, ConventionEvent.UserInput>();
     
     init() {
@@ -29,13 +31,7 @@ class UserInputs {
     }
     
     private func save() {
-        // Map each eventId to a Json object (represented by a Dictionary<String, String> type)
-        var serilizableInputs = Dictionary<String, Dictionary<String, String>>();
-        
-        // First call toJson for all UserInput objects
-        for input in inputs {
-            serilizableInputs[input.0] = input.1.toJson();
-        }
+        let serilizableInputs = inputs.map({input in [input.0: input.1.toJson()]});
         
         let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);
         json?.writeToFile(UserInputs.userInputFileName, atomically: true);
@@ -48,14 +44,14 @@ class UserInputs {
         guard let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments) else {
             return nil;
         }
-        guard let userInputsDict = userInputsJson as? Dictionary<String, Dictionary<String, String>> else {
+        guard let userInputs = userInputsJson as? [Dictionary<String, Dictionary<String, String>>] else {
             return nil;
         }
         
         var result = Dictionary<String, ConventionEvent.UserInput>();
-        for userInputJson in userInputsDict {
-            result[userInputJson.0] = ConventionEvent.UserInput(json: userInputJson.1);
+        for userInput in userInputs {
+            userInput.forEach({input in result[input.0] = ConventionEvent.UserInput(json: input.1)})
         }
-        return result;
+        return result
     }
 }
