@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sen-D3-Sty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608" y="-1163"/>
+            <point key="canvasLocation" x="1600" y="-1603"/>
         </scene>
         <!--Event-->
         <scene sceneID="8dA-1H-bzL">
@@ -92,7 +92,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="936"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </imageView>
@@ -309,7 +309,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SC-5i-BBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="-1163"/>
+            <point key="canvasLocation" x="776" y="-1603"/>
         </scene>
         <!--עדכונים-->
         <scene sceneID="E3v-Ff-JsW">
@@ -425,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfE-TR-CNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="1546"/>
+            <point key="canvasLocation" x="1460" y="2054"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="Ort-5k-5Dw">
@@ -442,7 +442,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ug3-uj-gAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="1558"/>
+            <point key="canvasLocation" x="750" y="2054"/>
         </scene>
         <!--Opening-->
         <scene sceneID="o0k-H8-zTx">
@@ -585,7 +585,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Event_Default" width="530" height="800"/>
         <image name="MenuAddToFavorites" width="32" height="32"/>
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>

@@ -101,7 +101,7 @@ class EventsParser {
                     // unique id from the server event id and it's internal index.
                     // e.g. if event 100 appears in 12:00 and 17:00, it's ids will be 100_1 and 100_2
                     id: String(format: "%d_%d", arguments: [eventId, internalEventNumber]),
-                    serverId: event["ID"] as? Int,
+                    serverId: eventId,
                     color: color,
                     textColor: textColor,
                     title: event["title"] as? String,

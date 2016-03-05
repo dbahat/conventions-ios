@@ -28,7 +28,7 @@ class EventViewController: BaseViewController {
         
         navigationItem.title = event.type?.description;
 
-        let eventImage = getImage(event.id);
+        let eventImage = getImage(String(event.serverId));
         
         // Resize the image so it'll fit the screen width, but keep the same size ratio
         image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
@@ -62,12 +62,12 @@ class EventViewController: BaseViewController {
         refreshFavoriteBarIconImage();
     }
     
-    func getImage(eventId: String!) -> UIImage! {
-        if let eventImage = UIImage(named: "Event_" + eventId) {
+    func getImage(serverEventId: String) -> UIImage {
+        if let eventImage = UIImage(named: "Event_" + serverEventId) {
             return eventImage;
         }
         
-        return UIImage(named: "Event_Default")!
+        return UIImage(named: "OpeningCover")!
     }
     
     @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {

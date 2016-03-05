@@ -88,7 +88,7 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let eventViewController = segue.destinationViewController as! EventViewController;
-        eventViewController.event = sender as? ConventionEvent;
+        eventViewController.event = sender as! ConventionEvent;
     }
     
     private func reloadMyEvents() {

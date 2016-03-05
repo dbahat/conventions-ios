@@ -36,8 +36,8 @@ class EventView: UIView {
     }
     
     func setEvent(event : ConventionEvent) {
-        startTime.text = event.startTime!.format("HH:mm");
-        endTime.text = event.endTime!.format("HH:mm");
+        startTime.text = event.startTime.format("HH:mm");
+        endTime.text = event.endTime.format("HH:mm");
         title.text = event.title;
         lecturer.text = event.lecturer;
         hallName.text = event.hall?.name;

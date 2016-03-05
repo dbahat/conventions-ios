@@ -16,14 +16,14 @@ class ConventionEvent {
      */
     static let AttendingWasSetEventName = "AttendingWasSetEventName";
     
-    var id: String!;
-    var serverId: Int?;
+    var id: String;
+    var serverId: Int;
     var color: UIColor?;
     var textColor: UIColor?;
     var title: String?;
     var lecturer: String?;
-    var startTime: NSDate!;
-    var endTime: NSDate!;
+    var startTime: NSDate;
+    var endTime: NSDate;
     var type: EventType?;
     var hall: Hall?;
     var images: Array<Int>?;
@@ -54,7 +54,7 @@ class ConventionEvent {
         }
     }
     
-    init(id:String!, serverId:Int?, color: UIColor?, textColor: UIColor?, title: String?, lecturer: String?, startTime: NSDate!, endTime: NSDate!, type: EventType?, hall: Hall?, description: String?) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String?, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall?, description: String?) {
         self.id = id;
         self.serverId = serverId;
         self.color = color;
