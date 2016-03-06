@@ -8,32 +8,35 @@
 
 import UIKit
 
-class MyEventsTableViewController: UITableViewController, EventCellStateProtocol {
+class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tabBarIcon: UITabBarItem!
     
     private var myEvents: Array<ConventionEvent>?;
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated);
+        
+        // Adding to my events will trigger a badge icon to hint the user to click my events.
+        // Once clicked we can clear the badge.
+        tabBarIcon.badgeValue = nil;
+        
         reloadMyEvents();
         tableView.reloadData();
-        
-        // Send an event that the screen was visited. Not taken from BaseViewController since we derive from UITableViewController.
-        // Not adding a new base since we probebly won't have more UITableViewControllers.
-        let tracker = GAI.sharedInstance().defaultTracker;
-        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
-        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myEvents != nil ? myEvents!.count : 0;
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
         
         let event = myEvents![indexPath.row];
@@ -43,7 +46,7 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         return cell
     }
 
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
@@ -59,7 +62,7 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         return [removeFromFavorite];
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let event = myEvents?[indexPath.row] {
             performSegueWithIdentifier("MyEventsToEventSegue", sender: event);
         }
@@ -77,7 +80,6 @@ class MyEventsTableViewController: UITableViewController, EventCellStateProtocol
         guard let event = myEvents?[indexPath.row] else {
             return;
         }
-        
         
         event.attending = false;
         reloadMyEvents();

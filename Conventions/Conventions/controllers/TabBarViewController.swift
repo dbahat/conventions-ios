@@ -8,11 +8,13 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventAttendanceWasSet:", name: ConventionEvent.AttendingWasSetEventName, object: nil);
+        
+        delegate = self;
     }
     
     deinit {
@@ -27,6 +29,9 @@ class TabBarViewController: UITabBarController {
         let tracker = GAI.sharedInstance().defaultTracker;
         tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
         tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
+        
+        // Unhide the nav bar in case it was hidden (e.g. by the HomeViewController)
+        navigationController?.setNavigationBarHidden(false, animated: false);
     }
     
     func eventAttendanceWasSet(notification: NSNotification) {

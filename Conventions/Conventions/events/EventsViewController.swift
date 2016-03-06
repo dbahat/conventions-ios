@@ -23,6 +23,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         
         tableView.addSubview(refreshControl);
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
+        
+        // Make initial model calculation when the view loads
+        calculateEventsAndTimeSections();
     }
     
     override func viewWillAppear(animated: Bool) {

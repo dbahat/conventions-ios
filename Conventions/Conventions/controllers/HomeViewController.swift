@@ -9,7 +9,11 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+    
+    override func viewDidLoad() {
+        self.navigationItem.title = "דף הבית"
+    }
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait;
     }
