@@ -40,10 +40,11 @@ class Events {
             }
             
             result?.writeToFile(Events.cacheFile, atomically: true);
+            let parsedEvents = EventsParser().parse(data: events);
             
             // Using main thread for syncronizing access to events
             dispatch_async(dispatch_get_main_queue()) {
-                self.events = EventsParser().parse(data: events);
+                self.events = parsedEvents;
                 print("Downloaded events: ", self.events.count);
                 callback?();
             }

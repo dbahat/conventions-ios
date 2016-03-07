@@ -50,7 +50,11 @@ class Updates {
                 self.updates.appendContentsOf(updates);
                 print("Downloaded updates ", self.updates.count);
                 callback?();
-                self.save();
+                
+                // Persist the updated events in a background thread, so as not to block the UI
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    self.save();
+                }
             }
         });
     }
