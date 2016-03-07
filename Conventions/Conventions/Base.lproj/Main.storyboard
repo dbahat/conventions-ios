@@ -93,7 +93,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </imageView>
@@ -230,8 +230,7 @@
         <!--Opening Navigation-->
         <scene sceneID="qe6-hS-6vh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GHf-6S-9Xe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
+                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" customClass="HomeNavigationController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -240,6 +239,7 @@
                         <segue destination="eEe-jU-bHM" kind="relationship" relationship="rootViewController" id="9HB-WF-XMF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHf-6S-9Xe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1595" y="0.0"/>
         </scene>
@@ -432,7 +432,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="PSi-ES-P60"/>
+                    <navigationItem key="navigationItem" title="דף הבית" id="PSi-ES-P60"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>

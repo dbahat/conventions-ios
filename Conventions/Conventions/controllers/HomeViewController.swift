@@ -10,12 +10,11 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    override func viewDidLoad() {
-        self.navigationItem.title = "דף הבית"
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait;
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        // Change the device back to Portrait for this screen (as all others support landscape)
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation");
     }
     
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {

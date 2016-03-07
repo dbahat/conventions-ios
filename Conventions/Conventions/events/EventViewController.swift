@@ -27,14 +27,6 @@ class EventViewController: BaseViewController {
         hallAndTime.text = event.hall.name + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm");
         
         navigationItem.title = event.type?.description;
-
-        let eventImage = getImage(String(event.serverId));
-        
-        // Resize the image so it'll fit the screen width, but keep the same size ratio
-        image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
-        
-        // Extract the dominent color from the image and set it as the background
-        self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
         
         eventDescriptionContainer.hidden = event.description == "";
         
@@ -60,6 +52,26 @@ class EventViewController: BaseViewController {
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
         refreshFavoriteBarIconImage();
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated);
+        
+        // Loading the image only during viewDidAppear so as not to cause a delay when the ViewController
+        // is opened when an event has a "heavy" image.
+        let eventImage = getImage(String(event.serverId));
+        
+        // Resize the image so it'll fit the screen width, but keep the same size ratio
+        image.image = resizeImage(eventImage, newWidth: self.view.frame.width);
+        
+        // Fade in the image
+        image.alpha = 0;
+        UIView.animateWithDuration(0.3, animations: {
+            self.image.alpha = 1;
+            
+            // Extract the dominent color from the image and set it as the background
+            self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
+        });
     }
     
     func getImage(serverEventId: String) -> UIImage {
@@ -99,6 +111,9 @@ class EventViewController: BaseViewController {
 
 extension NSMutableAttributedString
 {
+    //
+    // Converts just the font of the attributed string to the input font.
+    //
     func convertFontTo(font: UIFont)
     {
         var range = NSMakeRange(0, 0)
@@ -110,10 +125,6 @@ extension NSMutableAttributedString
             {
                 let newFont = UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(oldFont.fontDescriptor().symbolicTraits), size: font.pointSize)
                 addAttribute(NSFontAttributeName, value: newFont, range: range)
-            }
-            if let linkAttr = attributes[NSLinkAttributeName]
-            {
-                print(linkAttr.description);
             }
         }
     }
