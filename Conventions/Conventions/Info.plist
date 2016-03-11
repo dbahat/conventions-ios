@@ -111,5 +111,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>CFBundleDisplayName</key>
+	<string>הארוקון 2016</string>
 </dict>
 </plist>

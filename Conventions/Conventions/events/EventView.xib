@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="Conventions" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="הארוקון_2016" customModuleProvider="target">
             <connections>
                 <outlet property="endTime" destination="rMH-w8-RVL" id="juL-nB-KrC"/>
                 <outlet property="favoriteButton" destination="mFw-7c-klt" id="8p6-Wk-aHX"/>
@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-b5-4ob" customClass="CardView" customModule="Conventions" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-b5-4ob" customClass="CardView" customModule="הארוקון_2016" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-wK-gf8">
@@ -85,6 +85,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="r5w-m4-Yqp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0DF-YK-F5U" secondAttribute="trailing" id="3Cv-bJ-7mg"/>
                                         <constraint firstAttribute="bottom" secondItem="r5w-m4-Yqp" secondAttribute="bottom" constant="8" id="E11-LH-hF2"/>
                                         <constraint firstAttribute="trailing" secondItem="r5w-m4-Yqp" secondAttribute="trailing" constant="8" id="FBo-24-TIJ"/>
                                         <constraint firstItem="0DF-YK-F5U" firstAttribute="leading" secondItem="oe7-bM-u99" secondAttribute="leading" constant="8" id="GBV-o2-5Wd"/>

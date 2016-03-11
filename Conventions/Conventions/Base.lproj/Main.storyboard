@@ -375,7 +375,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.56470588235294117" green="0.50980392156862742" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5ZX-VQ-eql" firstAttribute="top" secondItem="jMN-7u-fwi" secondAttribute="top" id="Ig3-ST-1Ul"/>
                             <constraint firstItem="5ZX-VQ-eql" firstAttribute="bottom" secondItem="pTa-3F-Fnb" secondAttribute="top" id="Po8-52-beI"/>

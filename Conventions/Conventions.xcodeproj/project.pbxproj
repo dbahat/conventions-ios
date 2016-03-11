@@ -70,7 +70,7 @@
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
 		3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtentions.swift; path = extentions/NSDateExtentions.swift; sourceTree = "<group>"; };
 		3B981D091C65E5A800F31009 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsViewController.swift; path = events/MyEventsViewController.swift; sourceTree = "<group>"; };
-		3BA2D7EF1C554ED3007A8A23 /* הארוקון 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "הארוקון 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA2D7EF1C554ED3007A8A23 /* Conventions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BA2D7F91C554ED3007A8A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		3BA2D7F01C554ED3007A8A23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3BA2D7EF1C554ED3007A8A23 /* הארוקון 2016.app */,
+				3BA2D7EF1C554ED3007A8A23 /* Conventions.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			);
 			name = Conventions;
 			productName = Conventions;
-			productReference = 3BA2D7EF1C554ED3007A8A23 /* הארוקון 2016.app */;
+			productReference = 3BA2D7EF1C554ED3007A8A23 /* Conventions.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -329,6 +329,7 @@
 				TargetAttributes = {
 					3BA2D7EE1C554ED3007A8A23 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = GX9867J6RP;
 					};
 				};
 			};
@@ -570,6 +571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,7 +581,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
-				PRODUCT_NAME = "הארוקון 2016";
+				PRODUCT_NAME = Conventions;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -593,6 +596,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,7 +606,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
-				PRODUCT_NAME = "הארוקון 2016";
+				PRODUCT_NAME = Conventions;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
