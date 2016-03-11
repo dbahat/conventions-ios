@@ -6,11 +6,11 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_dialog_map.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Map Marker.png",
       "scale" : "3x"
     }
   ],

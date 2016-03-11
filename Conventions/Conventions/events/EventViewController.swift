@@ -98,7 +98,7 @@ class EventViewController: BaseViewController {
     }
     
     private func refreshFavoriteBarIconImage() {
-        navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "EventNotAttending") : UIImage(named: "MenuAddToFavorites");
+        navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "MenuAddedToFavorites") : UIImage(named: "MenuAddToFavorites");
     }
     
     private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
