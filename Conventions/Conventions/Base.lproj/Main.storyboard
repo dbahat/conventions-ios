@@ -355,18 +355,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Floor1" translatesAutoresizingMaskIntoConstraints="NO" id="1pE-lv-djH">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="5ZX-VQ-eql">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Floor1" translatesAutoresizingMaskIntoConstraints="NO" id="1pE-lv-djH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1pE-lv-djH" firstAttribute="centerX" secondItem="5ZX-VQ-eql" secondAttribute="centerX" id="4vj-ZG-xH8"/>
+                                    <constraint firstItem="1pE-lv-djH" firstAttribute="centerY" secondItem="5ZX-VQ-eql" secondAttribute="centerY" id="Byd-RN-Epf"/>
+                                    <constraint firstItem="1pE-lv-djH" firstAttribute="leading" secondItem="5ZX-VQ-eql" secondAttribute="leading" id="WQP-5E-W3Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="1pE-lv-djH" secondAttribute="trailing" id="kRY-5E-mGj"/>
+                                    <constraint firstAttribute="bottom" secondItem="1pE-lv-djH" secondAttribute="bottom" id="mjj-sr-xGE"/>
+                                    <constraint firstItem="1pE-lv-djH" firstAttribute="top" secondItem="5ZX-VQ-eql" secondAttribute="top" id="pIv-0S-Zio"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="38e-4C-t5g" id="yia-rW-EDE"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1pE-lv-djH" secondAttribute="trailing" id="2ll-6U-Z27"/>
-                            <constraint firstItem="1pE-lv-djH" firstAttribute="leading" secondItem="jMN-7u-fwi" secondAttribute="leading" id="LfK-HL-3nS"/>
-                            <constraint firstItem="pTa-3F-Fnb" firstAttribute="top" secondItem="1pE-lv-djH" secondAttribute="bottom" id="ndP-PY-W0k"/>
-                            <constraint firstItem="1pE-lv-djH" firstAttribute="top" secondItem="vvx-cF-fny" secondAttribute="bottom" id="sfG-Wb-8ur"/>
+                            <constraint firstItem="5ZX-VQ-eql" firstAttribute="top" secondItem="jMN-7u-fwi" secondAttribute="top" id="Ig3-ST-1Ul"/>
+                            <constraint firstItem="5ZX-VQ-eql" firstAttribute="bottom" secondItem="pTa-3F-Fnb" secondAttribute="top" id="Po8-52-beI"/>
+                            <constraint firstAttribute="trailing" secondItem="5ZX-VQ-eql" secondAttribute="trailing" id="jSB-Ui-fdw"/>
+                            <constraint firstItem="5ZX-VQ-eql" firstAttribute="leading" secondItem="jMN-7u-fwi" secondAttribute="leading" id="r0S-Wn-F1l"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="floorImageView" destination="1pE-lv-djH" id="3ui-5v-eTE"/>
@@ -374,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcN-66-2pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="300"/>
+            <point key="canvasLocation" x="1946" y="300"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
@@ -619,7 +636,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Floor1" width="1920" height="1080"/>
+        <image name="Floor1" width="640" height="360"/>
         <image name="MenuAddToFavorites" width="32" height="32"/>
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>
