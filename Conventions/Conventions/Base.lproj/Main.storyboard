@@ -577,6 +577,12 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף אירוע לאירועים שלי ע&quot;י לחיצה על הכוכב בדף האירוע או ע&quot;י גרירתו ברשימת האירועים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-9t-HBx">
+                                <rect key="frame" x="20" y="272.5" width="374" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-5U-iw3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -616,7 +622,11 @@
                             <constraint firstItem="4T8-O5-cGp" firstAttribute="top" secondItem="R2k-5U-iw3" secondAttribute="bottom" id="3uQ-mh-ZsI"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="8Gk-OS-KIT"/>
                             <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" id="k05-vD-CUC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EBg-9t-HBx" secondAttribute="trailing" id="n30-kg-q1a"/>
+                            <constraint firstItem="EBg-9t-HBx" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leadingMargin" id="pGC-dp-Uxq"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="top" secondItem="qOZ-2u-GFq" secondAttribute="bottom" id="pbE-LH-5d7"/>
+                            <constraint firstItem="EBg-9t-HBx" firstAttribute="centerY" secondItem="syY-rg-AlJ" secondAttribute="centerY" id="qfg-cI-p01"/>
+                            <constraint firstItem="EBg-9t-HBx" firstAttribute="centerX" secondItem="syY-rg-AlJ" secondAttribute="centerX" id="tPn-xh-QuB"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -625,6 +635,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="noEventsLabel" destination="EBg-9t-HBx" id="7Bb-ZI-aLe"/>
                         <outlet property="tabBarIcon" destination="gTS-3I-WYL" id="yoc-ad-naT"/>
                         <outlet property="tableView" destination="R2k-5U-iw3" id="DPb-Ud-HIG"/>
                         <segue destination="euQ-tX-Zvn" kind="show" identifier="MyEventsToEventSegue" id="r01-Z4-ri2"/>

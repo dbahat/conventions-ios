@@ -10,6 +10,7 @@ import UIKit
 
 class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var noEventsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tabBarIcon: UITabBarItem!
     
@@ -90,5 +91,13 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         myEvents = Convention.instance.events.getAll()
             .filter { event in event.attending }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
+        
+        if (myEvents == nil || myEvents?.count == 0) {
+            tableView.hidden = true;
+            noEventsLabel.hidden = false;
+        } else {
+            tableView.hidden = false;
+            noEventsLabel.hidden = true;
+        }
     }
 }
