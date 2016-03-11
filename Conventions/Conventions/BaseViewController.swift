@@ -18,8 +18,10 @@ class BaseViewController: UIViewController {
         tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
         tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
         
-        // Set the tab bar (which is also in the navigation controller) to have the title of the current tab.
+        // Set the tab bar (which is also in the navigation controller) to have the title / button of the 
+        // current tab. Only setting right button since left is reserved for back.
         tabBarController?.navigationItem.title = navigationItem.title;
+        tabBarController?.navigationItem.rightBarButtonItem = navigationItem.rightBarButtonItem;
         
         // Hide the navigation bar on the root view controller (this is done by default only when the
         // root view controller doesn't have a name, but we want it named for the default back button).

@@ -46,6 +46,8 @@
 		3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* EventsParser.swift */; };
 		3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6312A1C8AE28400D54D3E /* Updates.swift */; };
 		3BB6312D1C8B79E200D54D3E /* Harucon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BB6312C1C8B79E200D54D3E /* Harucon2016Events.json */; };
+		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
+		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		3BB631281C8AE15900D54D3E /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = model/EventsParser.swift; sourceTree = "<group>"; };
 		3BB6312A1C8AE28400D54D3E /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3BB6312C1C8B79E200D54D3E /* Harucon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Harucon2016Events.json; sourceTree = "<group>"; };
+		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				3BB631081C89680800D54D3E /* HomeViewController.swift */,
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
 				3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */,
+				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
+				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
 			);
 			name = controllers;
 			path = Conventions/controllers;
@@ -412,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
@@ -433,6 +440,7 @@
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,
 				3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */,
 				3BA2D80F1C5FE8EB007A8A23 /* Convention.swift in Sources */,
+				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
 				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
@@ -560,6 +568,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -580,6 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -18,19 +18,18 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(3);
+        navigateToTabController(4);
     }
     
     @IBAction func mapWasTapped(sender: UITapGestureRecognizer) {
-        //navigateToTabController(1); Disabled until we have a map
-    }
-    
-    
-    @IBAction func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(1);
+        navigateToTabController(2);
     }
 
     @IBAction func updatedWasTapped(sender: UITapGestureRecognizer) {
+        navigateToTabController(1);
+    }
+    
+    @IBAction func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(0);
     }
     
