@@ -79,7 +79,7 @@ class EventViewController: BaseViewController {
             return eventImage;
         }
         
-        return UIImage(named: "OpeningCover")!
+        return UIImage(named: "Event_Default")!
     }
     
     @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
