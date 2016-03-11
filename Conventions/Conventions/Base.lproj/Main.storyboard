@@ -636,7 +636,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Floor1" width="640" height="360"/>
+        <image name="Floor1" width="563" height="293"/>
         <image name="MenuAddToFavorites" width="32" height="32"/>
         <image name="MenuArrivalMethods" width="23" height="23"/>
         <image name="MenuEventList" width="32" height="32"/>

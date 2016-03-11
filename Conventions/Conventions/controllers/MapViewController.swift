@@ -37,6 +37,12 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate {
         self.pageViewController = pageViewController;
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        updatePageTitle();
+    }
+    
     @IBAction func changeFloorWasClicked(sender: UIBarButtonItem) {
         let direction = currentFloorIndex == 1
             ? UIPageViewControllerNavigationDirection.Forward
@@ -47,5 +53,12 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate {
             direction: direction,
             animated: true,
             completion: {done in });
+        
+        updatePageTitle();
+    }
+    
+    func updatePageTitle() {
+        let floorName = currentFloorIndex == 0 ? "מפלס תחתון" : "מפלס עליון";
+        tabBarController?.title = "מפה - " + floorName;
     }
 }
