@@ -15,7 +15,9 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     @IBOutlet private weak var loginButtonContainer: UIView!
     @IBOutlet private weak var tableView: UITableView!
     
-    private let refreshControl: UIRefreshControl = UIRefreshControl()
+    // Keeping the tableController as a child so we'll be able to add other subviews to the current
+    // screen's view controller (e.g. snackbarView)
+    private let tableViewController = UITableViewController();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -31,9 +33,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         
         loginButtonContainer.hidden = true;
         
-        tableView.addSubview(refreshControl);
-        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
-
+        addRefreshControl();
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -98,7 +98,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         Convention.instance.updates.markAllAsRead();
         
         Convention.instance.updates.refresh({success in
-            self.refreshControl.endRefreshing();
+            self.tableViewController.refreshControl?.endRefreshing();
             
             if (!success) {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
@@ -107,5 +107,16 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
             
             self.tableView.reloadData();
         });
+    }
+    
+    func addRefreshControl() {
+        // Adding a tableViewController for hosting a UIRefreshControl.
+        // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
+        // sticky section headers).
+        tableViewController.tableView = tableView;
+        tableViewController.refreshControl = UIRefreshControl();
+        tableViewController.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
+        addChildViewController(tableViewController);
+        tableViewController.didMoveToParentViewController(self);
     }
 }

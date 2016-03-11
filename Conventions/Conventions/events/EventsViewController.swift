@@ -13,7 +13,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
     private var eventTimeSections: Array<NSDate>!;
-    private let refreshControl = UIRefreshControl();
+    
+    // Keeping the tableController as a child so we'll be able to add other subviews to the current
+    // screen's view controller (e.g. snackbarView)
+    private let tableViewController = UITableViewController();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -21,8 +24,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil);
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView));
         
-        tableView.addSubview(refreshControl);
-        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
+        addRefreshControl();
         
         // Make initial model calculation when the view loads
         calculateEventsAndTimeSections();
@@ -161,7 +163,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     func refresh()
     {
         Convention.instance.events.refresh({success in
-            self.refreshControl.endRefreshing();
+            self.tableViewController.refreshControl?.endRefreshing();
             
             if (!success) {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
@@ -175,5 +177,16 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     private func getSectionName(section section: Int) -> String? {
         let timeSection = eventTimeSections[section];
         return timeSection.format("HH:mm");
+    }
+    
+    func addRefreshControl() {
+        // Adding a tableViewController for hosting a UIRefreshControl.
+        // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
+        // sticky section headers).
+        tableViewController.tableView = tableView;
+        tableViewController.refreshControl = UIRefreshControl();
+        tableViewController.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
+        addChildViewController(tableViewController);
+        tableViewController.didMoveToParentViewController(self);
     }
 }
