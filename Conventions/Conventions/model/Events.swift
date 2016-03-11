@@ -33,9 +33,12 @@ class Events {
         return events;
     }
     
-    func refresh(callback: (() -> Void)?) {
+    func refresh(callback: ((success: Bool) -> Void)?) {
         download({result in
             guard let events = result else {
+                dispatch_async(dispatch_get_main_queue()) {
+                    callback?(success: false);
+                }
                 return;
             }
             
@@ -46,7 +49,7 @@ class Events {
             dispatch_async(dispatch_get_main_queue()) {
                 self.events = parsedEvents;
                 print("Downloaded events: ", self.events.count);
-                callback?();
+                callback?(success: true);
             }
         });
     }

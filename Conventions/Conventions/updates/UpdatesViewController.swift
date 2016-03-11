@@ -30,12 +30,9 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         }
         
         loginButtonContainer.hidden = true;
-        Convention.instance.updates.refresh({
-            self.tableView.reloadData();
-        });
         
         tableView.addSubview(refreshControl);
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
 
     }
     
@@ -58,7 +55,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         
         loginButtonContainer.hidden = true;
         tableView.hidden = false;
-        Convention.instance.updates.refresh(nil);
+        refresh();
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -95,14 +92,20 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     
     // MARK: - Private methods
     
-    func refresh(sender:AnyObject)
+    func refresh()
     {
         // Mark all current updates as old so new events will appear with different UI
         Convention.instance.updates.markAllAsRead();
         
-        Convention.instance.updates.refresh({
-            self.tableView.reloadData();
+        Convention.instance.updates.refresh({success in
             self.refreshControl.endRefreshing();
+            
+            if (!success) {
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
+                return;
+            }
+            
+            self.tableView.reloadData();
         });
     }
 }

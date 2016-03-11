@@ -22,7 +22,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView));
         
         tableView.addSubview(refreshControl);
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged);
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
         
         // Make initial model calculation when the view loads
         calculateEventsAndTimeSections();
@@ -158,11 +158,17 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
     
-    func refresh(sender:AnyObject)
+    func refresh()
     {
-        Convention.instance.events.refresh({
-            self.tableView.reloadData();
+        Convention.instance.events.refresh({success in
             self.refreshControl.endRefreshing();
+            
+            if (!success) {
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
+                return;
+            }
+            
+            self.tableView.reloadData();
         })
     }
     

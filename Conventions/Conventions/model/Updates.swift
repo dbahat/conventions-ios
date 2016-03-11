@@ -27,9 +27,11 @@ class Updates {
         save();
     }
     
-    func refresh(callback: (() -> Void)?) {
+    func refresh(callback: ((success: Bool) -> Void)?) {
         if FBSDKAccessToken.currentAccessToken() == nil {
-            callback?();
+            dispatch_async(dispatch_get_main_queue()) {
+                callback?(success: true /* So we won't show error if the user didn't sign in to facebook */);
+            }
             return;
         }
         
@@ -42,6 +44,14 @@ class Updates {
         }
         
         request.startWithCompletionHandler({ connection, result, error in
+            
+            if (error != nil || result == nil) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    callback?(success: false);
+                }
+                return;
+            }
+            
             let updates = self.parseFacebookResult(result)
                 .sort({ $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 });
 
@@ -49,7 +59,7 @@ class Updates {
             dispatch_async(dispatch_get_main_queue()) {
                 self.updates.appendContentsOf(updates);
                 print("Downloaded updates ", self.updates.count);
-                callback?();
+                callback?(success: true);
                 
                 // Persist the updated events in a background thread, so as not to block the UI
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

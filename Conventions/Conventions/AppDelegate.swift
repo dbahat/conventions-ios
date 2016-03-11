@@ -37,8 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
         gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
         
-        // Reference Convention for eager initialization (which includes triggering content refresh)
-        Convention.instance;
+        // Initiate an async refresh to the events and updates when opening the app
+        Convention.instance.events.refresh(nil);
+        Convention.instance.updates.refresh(nil);
         
         return true;
     }

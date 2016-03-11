@@ -28,9 +28,6 @@ class Convention {
         ];
         
         events = Events(halls: halls);
-        
-        // Initiate an async refresh to the events content when opening the app
-        events.refresh(nil);
     }
     
     func findHallByName(name: String!) -> Hall! {
