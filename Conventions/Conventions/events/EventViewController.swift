@@ -74,6 +74,11 @@ class EventViewController: BaseViewController {
         });
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        // Resize the image so it'll fit the screen width, but keep the same size ratio
+        image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
+    }
+    
     func getImage(serverEventId: String) -> UIImage {
         if let eventImage = UIImage(named: "Event_" + serverEventId) {
             return eventImage;
