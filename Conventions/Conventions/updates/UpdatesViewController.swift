@@ -92,7 +92,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     
     // MARK: - Private methods
     
-    func refresh()
+    private func refresh()
     {
         // Mark all current updates as old so new events will appear with different UI
         Convention.instance.updates.markAllAsRead();
@@ -109,7 +109,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         });
     }
     
-    func addRefreshControl() {
+    private func addRefreshControl() {
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).

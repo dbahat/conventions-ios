@@ -79,14 +79,6 @@ class EventViewController: BaseViewController {
         image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
     }
     
-    func getImage(serverEventId: String) -> UIImage {
-        if let eventImage = UIImage(named: "Event_" + serverEventId) {
-            return eventImage;
-        }
-        
-        return UIImage(named: "Event_Default")!
-    }
-    
     @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
         event.attending = !event.attending;
         
@@ -97,11 +89,19 @@ class EventViewController: BaseViewController {
             .show();
     }
     
-    func refreshFavoriteBarIconImage() {
+    private func getImage(serverEventId: String) -> UIImage {
+        if let eventImage = UIImage(named: "Event_" + serverEventId) {
+            return eventImage;
+        }
+        
+        return UIImage(named: "Event_Default")!
+    }
+    
+    private func refreshFavoriteBarIconImage() {
         navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "EventNotAttending") : UIImage(named: "MenuAddToFavorites");
     }
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = image.size.height / image.size.width
         let newHeight = newWidth * scale

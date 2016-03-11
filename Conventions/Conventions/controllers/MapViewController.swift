@@ -8,9 +8,9 @@
 
 class MapViewController: BaseViewController, UIPageViewControllerDelegate {
 
-    var pageViewController: UIPageViewController!
-    var viewControllers = Array<UIViewController>();
-    var currentFloorIndex = 0;
+    private var pageViewController: UIPageViewController!
+    private var viewControllers = Array<UIViewController>();
+    private var currentFloorIndex = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -57,7 +57,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate {
         updatePageTitle();
     }
     
-    func updatePageTitle() {
+    private func updatePageTitle() {
         let floorName = currentFloorIndex == 0 ? "מפלס תחתון" : "מפלס עליון";
         tabBarController?.title = "מפה - " + floorName;
     }

@@ -11,8 +11,8 @@ import GoogleMaps
 
 class ArrivalMethodsViewController: BaseViewController {
     
-    let latitude = 31.786372
-    let longitude = 35.202425
+    let latitude = 31.786372;
+    let longitude = 35.202425;
 
     override func viewDidLoad() {
         super.viewDidLoad()

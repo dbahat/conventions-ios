@@ -8,7 +8,7 @@
 
 class UpdateTableViewCell: UITableViewCell {
     @IBOutlet private weak var message: UITextView!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet private weak var title: UILabel!
     
     func setUpdate(update: Update) {
         title.text = update.date.format("dd.MM.yyyy HH:mm");

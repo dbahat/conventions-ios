@@ -160,7 +160,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
     
-    func refresh()
+    private func refresh()
     {
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing();
@@ -179,7 +179,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         return timeSection.format("HH:mm");
     }
     
-    func addRefreshControl() {
+    private func addRefreshControl() {
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).
