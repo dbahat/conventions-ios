@@ -12,7 +12,7 @@
         <!--תוכניה-->
         <scene sceneID="Iar-lo-k9d">
             <objects>
-                <viewController id="V0r-ed-Jpb" customClass="EventsViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="V0r-ed-Jpb" customClass="EventsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gtg-g3-pVk"/>
                         <viewControllerLayoutGuide type="bottom" id="QXR-6U-4hy"/>
@@ -26,14 +26,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="הארוקון_2016" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OXO-rt-127" id="MYl-BU-zg9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="הארוקון_2016" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="5" width="404" height="92"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -81,7 +81,7 @@
         <!--Event-->
         <scene sceneID="8dA-1H-bzL">
             <objects>
-                <viewController id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dju-af-QrC"/>
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
@@ -230,7 +230,7 @@
         <!--Opening Navigation-->
         <scene sceneID="qe6-hS-6vh">
             <objects>
-                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" customClass="HomeNavigationController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" customClass="HomeNavigationController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -246,7 +246,7 @@
         <!--עדכונים-->
         <scene sceneID="E3v-Ff-JsW">
             <objects>
-                <viewController id="6s1-WB-npc" customClass="UpdatesViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6s1-WB-npc" customClass="UpdatesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N6h-fc-8yz"/>
                         <viewControllerLayoutGuide type="bottom" id="x6J-pE-fi6"/>
@@ -319,7 +319,7 @@
         <!--מפה-->
         <scene sceneID="LSe-EK-Bna">
             <objects>
-                <viewController id="fiD-sP-JMw" customClass="MapViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fiD-sP-JMw" customClass="MapViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EsY-8b-nMI"/>
                         <viewControllerLayoutGuide type="bottom" id="AR8-Ur-XwN"/>
@@ -346,7 +346,7 @@
         <!--Map Floor View Controller-->
         <scene sceneID="xRt-z4-idB">
             <objects>
-                <viewController storyboardIdentifier="MapFloorViewController" id="38e-4C-t5g" customClass="MapFloorViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapFloorViewController" id="38e-4C-t5g" customClass="MapFloorViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vvx-cF-fny"/>
                         <viewControllerLayoutGuide type="bottom" id="pTa-3F-Fnb"/>
@@ -360,6 +360,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Floor1" translatesAutoresizingMaskIntoConstraints="NO" id="1pE-lv-djH">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -372,6 +373,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="38e-4C-t5g" id="yia-rW-EDE"/>
+                                    <outletCollection property="gestureRecognizers" destination="kE6-cb-PzT" appends="YES" id="g2p-g6-b5V"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -387,16 +389,22 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="floorImageView" destination="1pE-lv-djH" id="3ui-5v-eTE"/>
+                        <outlet property="scrollView" destination="5ZX-VQ-eql" id="ykL-x4-9KR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcN-66-2pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="kE6-cb-PzT">
+                    <connections>
+                        <action selector="mapWasDoubleTapped:" destination="38e-4C-t5g" id="ZcX-2S-2fP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1946" y="300"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
             <objects>
-                <viewController id="5MY-oK-WFf" customClass="ArrivalMethodsViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5MY-oK-WFf" customClass="ArrivalMethodsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWe-NY-LQy"/>
                         <viewControllerLayoutGuide type="bottom" id="2P3-8j-Bpe"/>
@@ -423,7 +431,7 @@
         <!--Opening-->
         <scene sceneID="o0k-H8-zTx">
             <objects>
-                <viewController id="eEe-jU-bHM" userLabel="Opening" customClass="HomeViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eEe-jU-bHM" userLabel="Opening" customClass="HomeViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Xg-sD-Iyu"/>
                         <viewControllerLayoutGuide type="bottom" id="ANc-rH-SqQ"/>
@@ -545,7 +553,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarViewController" id="49e-Tb-3d3" customClass="TabBarViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" id="49e-Tb-3d3" customClass="TabBarViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -568,7 +576,7 @@
         <!--האירועים שלי-->
         <scene sceneID="WtB-4x-plz">
             <objects>
-                <viewController id="dzP-YM-jGI" customClass="MyEventsViewController" customModule="הארוקון_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dzP-YM-jGI" customClass="MyEventsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qOZ-2u-GFq"/>
                         <viewControllerLayoutGuide type="bottom" id="4T8-O5-cGp"/>
@@ -587,14 +595,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="c6F-Vv-NRJ" customClass="EventTableViewCell" customModule="הארוקון_2016" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="c6F-Vv-NRJ" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6F-Vv-NRJ" id="ZcJ-IC-VUv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1U-A7-VX0" customClass="EventView" customModule="הארוקון_2016" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1U-A7-VX0" customClass="EventView" customModule="Conventions" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="5" width="404" height="91.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>

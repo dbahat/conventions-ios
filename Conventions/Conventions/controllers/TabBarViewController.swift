@@ -40,6 +40,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         //
         // Using tag to find MyEvents tab icon since it's possible the ViewController associated with it
         // was not yet intialized.
-        self.tabBar.items?.filter({$0.tag == 100}).first?.badgeValue = "+";
+        self.tabBar.items?.filter({$0.tag == 100}).first?.badgeValue = "!";
     }
 }

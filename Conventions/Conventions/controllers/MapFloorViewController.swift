@@ -8,8 +8,9 @@
 
 class MapFloorViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet weak var floorImageView: UIImageView!
-
+    @IBOutlet private weak var floorImageView: UIImageView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    
     var floorImage: UIImage?;
     
     override func viewDidLoad() {
@@ -20,5 +21,13 @@ class MapFloorViewController: UIViewController, UIScrollViewDelegate {
         return floorImageView;
     }
     
+    @IBAction func mapWasDoubleTapped(sender: UITapGestureRecognizer) {
+        // In case the current zoom scale is lower then the max, scale it to max on double tap
+        let scale = scrollView.zoomScale == scrollView.maximumZoomScale
+            ? scrollView.minimumZoomScale
+            : scrollView.maximumZoomScale;
+        
+        scrollView.zoomToPoint(sender.locationInView(scrollView), withScale: scale, animated: true);
+    }
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		201AF13B9E56DC3572D28289 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D3F246EA9FBF38FF127953 /* libPods.a */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
+		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
 		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
+		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
 		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,15 @@
 			);
 			name = TTGSnackbar;
 			path = externals/TTGSnackbar;
+			sourceTree = "<group>";
+		};
+		3B16597E1C946E320074F1FF /* ZoomToPoint */ = {
+			isa = PBXGroup;
+			children = (
+				3B16597F1C946E720074F1FF /* ZoomToPoint.swift */,
+			);
+			name = ZoomToPoint;
+			path = externals/ZoomToPoint;
 			sourceTree = "<group>";
 		};
 		3B2497CD1C8636E800A87623 /* cache */ = {
@@ -253,6 +264,7 @@
 		3BA2D81B1C613BC8007A8A23 /* externals */ = {
 			isa = PBXGroup;
 			children = (
+				3B16597E1C946E320074F1FF /* ZoomToPoint */,
 				3B0800B11C81B72F00F406FD /* TTGSnackbar */,
 				3B4CEB461C7CF7F500AF041B /* CardView */,
 				3B4CEB481C7CF7F500AF041B /* CCColorCube */,
@@ -449,6 +461,7 @@
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
 				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
+				3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */,
 				3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */,
 				3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */,
 				3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */,
