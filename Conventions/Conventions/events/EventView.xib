@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="הארוקון_2016" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="Conventions" customModuleProvider="target">
             <connections>
                 <outlet property="endTime" destination="rMH-w8-RVL" id="juL-nB-KrC"/>
                 <outlet property="favoriteButton" destination="mFw-7c-klt" id="8p6-Wk-aHX"/>
@@ -21,24 +21,28 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-b5-4ob" customClass="CardView" customModule="הארוקון_2016" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-b5-4ob" customClass="CardView" customModule="Conventions" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-wK-gf8">
                             <rect key="frame" x="530" y="0.0" width="70" height="600"/>
                             <subviews>
                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-7c-klt">
-                                    <rect key="frame" x="24" y="8" width="21" height="22"/>
+                                    <rect key="frame" x="24.5" y="8" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="8Si-uo-D0Q"/>
+                                        <constraint firstAttribute="height" constant="20" id="Shn-LZ-XiJ"/>
+                                    </constraints>
                                     <state key="normal" image="EventAttending"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V75-pZ-Hax">
-                                    <rect key="frame" x="12" y="33" width="46" height="21.5"/>
+                                    <rect key="frame" x="12" y="31" width="46" height="21.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMH-w8-RVL">
-                                    <rect key="frame" x="18" y="58" width="34.5" height="17"/>
+                                    <rect key="frame" x="18" y="56" width="34.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -133,6 +137,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="EventAttending" width="21" height="21"/>
+        <image name="EventAttending" width="32" height="32"/>
     </resources>
 </document>

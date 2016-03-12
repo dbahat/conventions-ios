@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "harucon2016_logo_and_title.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "harucon2016_logo_and_title.png",
       "scale" : "2x"
     },
     {

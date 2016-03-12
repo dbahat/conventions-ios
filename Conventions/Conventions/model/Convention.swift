@@ -10,7 +10,7 @@ import Foundation
 
 class Convention {
     static let instance = Convention();
-    static let date = NSDate.from(year: 2016, month: 3, day: 23);
+    static let date = NSDate.from(year: 2016, month: 3, day: 24);
     static let name = "Harucon2016";
     
     var halls: Array<Hall>;

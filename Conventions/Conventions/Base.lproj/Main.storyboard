@@ -655,7 +655,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Floor1" width="563" height="293"/>
+        <image name="Floor1" width="845" height="440"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
         <image name="MenuEventList" width="33" height="33"/>
@@ -663,12 +663,12 @@
         <image name="MenuMap" width="33" height="33"/>
         <image name="MenuOpenUsingMaps" width="23" height="23"/>
         <image name="MenuUpdates" width="33" height="33"/>
-        <image name="OpeningArrivalMethods" width="484" height="465"/>
-        <image name="OpeningCover" width="1000" height="428"/>
-        <image name="OpeningEvents" width="484" height="465"/>
-        <image name="OpeningMap" width="484" height="465"/>
-        <image name="OpeningTitle" width="1078" height="328"/>
-        <image name="OpeningUpdates" width="484" height="465"/>
+        <image name="OpeningArrivalMethods" width="242" height="232"/>
+        <image name="OpeningCover" width="500" height="214"/>
+        <image name="OpeningEvents" width="242" height="232"/>
+        <image name="OpeningMap" width="242" height="232"/>
+        <image name="OpeningTitle" width="539" height="164"/>
+        <image name="OpeningUpdates" width="242" height="232"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="r01-Z4-ri2"/>

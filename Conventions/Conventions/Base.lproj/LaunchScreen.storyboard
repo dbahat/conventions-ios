@@ -130,11 +130,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="OpeningArrivalMethods" width="484" height="465"/>
-        <image name="OpeningCover" width="1000" height="428"/>
-        <image name="OpeningEvents" width="484" height="465"/>
-        <image name="OpeningMap" width="484" height="465"/>
-        <image name="OpeningTitle" width="1078" height="328"/>
-        <image name="OpeningUpdates" width="484" height="465"/>
+        <image name="OpeningArrivalMethods" width="242" height="232"/>
+        <image name="OpeningCover" width="500" height="214"/>
+        <image name="OpeningEvents" width="242" height="232"/>
+        <image name="OpeningMap" width="242" height="232"/>
+        <image name="OpeningTitle" width="539" height="164"/>
+        <image name="OpeningUpdates" width="242" height="232"/>
     </resources>
 </document>

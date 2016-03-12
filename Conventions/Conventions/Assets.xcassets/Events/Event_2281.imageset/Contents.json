@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "event_hentai.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "event_hentai.png",
       "scale" : "2x"
     },
     {
