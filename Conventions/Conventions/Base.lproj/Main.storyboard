@@ -81,7 +81,7 @@
         <!--Event-->
         <scene sceneID="8dA-1H-bzL">
             <objects>
-                <viewController id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dju-af-QrC"/>
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
@@ -355,7 +355,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="5ZX-VQ-eql">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="5ZX-VQ-eql">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Floor1" translatesAutoresizingMaskIntoConstraints="NO" id="1pE-lv-djH">
@@ -655,7 +655,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Floor1" width="845" height="440"/>
+        <image name="Floor1" width="845" height="497"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
         <image name="MenuEventList" width="33" height="33"/>

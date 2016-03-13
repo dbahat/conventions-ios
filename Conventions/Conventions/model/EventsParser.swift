@@ -87,6 +87,10 @@ class EventsParser {
                     print("Event missing room. Skipping. ID=", eventId);
                     continue;
                 }
+                guard let title = event["title"] as? String else {
+                    print("Event missing title. Skipping. ID=", eventId);
+                    continue;
+                }
                 
                 if let ignoreDescription = event["timetable-disable-url"] as? String {
                     if (ignoreDescription == "1") {
@@ -104,7 +108,7 @@ class EventsParser {
                     serverId: eventId,
                     color: color,
                     textColor: textColor,
-                    title: event["title"] as? String,
+                    title: title,
                     lecturer: internalEvent["before_hour_text"] as? String,
                     startTime: appendTimeToConventionDate(startTime),
                     endTime: appendTimeToConventionDate(endTime),

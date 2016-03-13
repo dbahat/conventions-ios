@@ -20,7 +20,7 @@ class ConventionEvent {
     var serverId: Int;
     var color: UIColor?;
     var textColor: UIColor?;
-    var title: String?;
+    var title: String;
     var lecturer: String?;
     var startTime: NSDate;
     var endTime: NSDate;
@@ -44,6 +44,9 @@ class ConventionEvent {
             
             if input.attending == true {
                 NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
+                addNotification();
+            } else {
+                removeNotification();
             }
         }
     }
@@ -54,7 +57,7 @@ class ConventionEvent {
         }
     }
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String?, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
         self.id = id;
         self.serverId = serverId;
         self.color = color;
@@ -66,6 +69,40 @@ class ConventionEvent {
         self.type = type;
         self.hall = hall;
         self.description = description;
+    }
+    
+    private func addNotification() {
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);
+        
+        if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return;}
+        
+        // Don't schdule a notification in the past
+        if (startTime.timeIntervalSince1970 < NSDate().timeIntervalSince1970) {return;}
+        
+        let notification = UILocalNotification();
+        notification.fireDate = startTime.addMinutes(-5);
+        notification.timeZone = NSTimeZone.systemTimeZone();
+        if #available(iOS 8.2, *) {
+            notification.alertTitle = "אירוע עומד להתחיל"
+        }
+        notification.alertBody = String(format: "האירוע %@ עומד להתחיל ב%@", arguments: [title, hall.name]);
+        notification.alertAction = "לפתיחת האירוע"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["EventId": id];
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    private func removeNotification() {
+        guard let notifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return;};
+        
+        for notification in notifications {
+            guard let userInfo = notification.userInfo else {continue;}
+            guard let eventId = userInfo["EventId"] as? String else {continue;}
+            if (eventId == id) {
+                UIApplication.sharedApplication().cancelLocalNotification(notification);
+            }
+        }
     }
     
     class UserInput {

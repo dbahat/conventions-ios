@@ -21,6 +21,11 @@ extension NSDate {
         return calendar.dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: self, options: []);
     }
     
+    func addMinutes(minutes: Int) -> NSDate! {
+        let calendar = NSCalendar.autoupdatingCurrentCalendar()
+        return calendar.dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: self, options: []);
+    }
+    
     func clearMinutesComponent() -> NSDate! {
         return NSDate.parse(self.format("yyyy-MM-dd HH"), dateFormat: "yyyy-MM-dd HH");
     }
