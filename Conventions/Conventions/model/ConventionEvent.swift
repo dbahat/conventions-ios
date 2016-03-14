@@ -78,7 +78,7 @@ class ConventionEvent {
         if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return;}
         
         // Don't schdule a notification in the past
-        if (startTime.timeIntervalSince1970 < NSDate().timeIntervalSince1970) {return;}
+        if (startTime.addMinutes(-5).timeIntervalSince1970 < NSDate().timeIntervalSince1970) {return;}
         
         let notification = UILocalNotification();
         notification.fireDate = startTime.addMinutes(-5);
