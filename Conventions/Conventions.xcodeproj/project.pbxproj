@@ -18,7 +18,6 @@
 		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
 		3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A9991C7A48C700C5BCE4 /* EventView.swift */; };
 		3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */; };
-		3B5E0C751C92F117004BF8AE /* Harucon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E0C741C92F117004BF8AE /* Harucon2016Events.json */; };
 		3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E0C761C933B2D004BF8AE /* LaunchScreen.storyboard */; };
 		3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */; };
 		3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */; };
@@ -50,6 +49,7 @@
 		3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6312A1C8AE28400D54D3E /* Updates.swift */; };
 		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
 		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
+		3BCDA5501C973D48007EAABF /* Harucon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BCDA54F1C973D48007EAABF /* Harucon2016Events.json */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,6 @@
 		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
 		3B55A9991C7A48C700C5BCE4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = events/EventView.swift; sourceTree = "<group>"; };
 		3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
-		3B5E0C741C92F117004BF8AE /* Harucon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Harucon2016Events.json; sourceTree = "<group>"; };
 		3B5E0C771C933B2D004BF8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Conventions/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
 		3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtentions.swift; path = extentions/NSDateExtentions.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		3BB6312A1C8AE28400D54D3E /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
+		3BCDA54F1C973D48007EAABF /* Harucon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Harucon2016Events.json; sourceTree = "<group>"; };
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				3B5E0C741C92F117004BF8AE /* Harucon2016Events.json */,
+				3BCDA54F1C973D48007EAABF /* Harucon2016Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -369,11 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
+				3BCDA5501C973D48007EAABF /* Harucon2016Events.json in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
-				3B5E0C751C92F117004BF8AE /* Harucon2016Events.json in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,

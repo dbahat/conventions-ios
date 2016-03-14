@@ -81,7 +81,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation);
     }
     
-    func handleNotificationIfNeeded(notification: UILocalNotification?) {
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        // Since we want the launch screen and homeViewController to show in portrait only, and all the 
+        // rest of the screens to support landscape, we configure the plist to allow portrait only, and
+        // override this definition here.
+        return UIInterfaceOrientationMask.All;
+    }
+    
+    private func handleNotificationIfNeeded(notification: UILocalNotification?) {
         guard let unwrappedNotification = notification else {return;}
         guard let userInfo = unwrappedNotification.userInfo else {return;}
         guard let eventId = userInfo["EventId"] as? String else {return;}
