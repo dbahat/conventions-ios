@@ -160,8 +160,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
     }
     
-    private func refresh()
-    {
+    // Note - This method is accessed by the refreshControl using introspection, and should not be private
+    func refresh() {
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing();
             
@@ -171,7 +171,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             }
             
             self.tableView.reloadData();
-        })
+        });
     }
     
     private func getSectionName(section section: Int) -> String? {

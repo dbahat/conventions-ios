@@ -92,7 +92,8 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     
     // MARK: - Private methods
     
-    private func refresh()
+    // Note - This method is accessed by the refreshControl using introspection, and should not be private
+    func refresh()
     {
         // Mark all current updates as old so new events will appear with different UI
         Convention.instance.updates.markAllAsRead();
