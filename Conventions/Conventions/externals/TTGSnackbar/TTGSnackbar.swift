@@ -241,7 +241,7 @@ public class TTGSnackbar: UIView {
         }
         
         // Create dismiss timer
-        dismissTimer = NSTimer.scheduledTimerWithTimeInterval(duration.rawValue, target: self, selector: "dismiss", userInfo: nil, repeats: false)
+        dismissTimer = NSTimer.scheduledTimerWithTimeInterval(duration.rawValue, target: self, selector: #selector(TTGSnackbar.dismiss), userInfo: nil, repeats: false)
         
         // Show or hide action button
         actionButton.hidden = actionText.isEmpty || actionBlock == nil
@@ -314,7 +314,7 @@ public class TTGSnackbar: UIView {
         actionButton.titleLabel?.font = actionTextFont
         actionButton.setTitle(actionText, forState: UIControlState.Normal)
         actionButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        actionButton.addTarget(self, action: Selector("doAction"), forControlEvents: UIControlEvents.TouchUpInside)
+        actionButton.addTarget(self, action: #selector(TTGSnackbar.doAction), forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(actionButton)
         
         seperateView = UIView()

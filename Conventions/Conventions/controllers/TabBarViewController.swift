@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventAttendanceWasSet:", name: ConventionEvent.AttendingWasSetEventName, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet(_:)), name: ConventionEvent.AttendingWasSetEventName, object: nil);
         
         delegate = self;
     }

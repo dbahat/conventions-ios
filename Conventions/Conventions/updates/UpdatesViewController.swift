@@ -116,7 +116,7 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         // sticky section headers).
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl();
-        tableViewController.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
+        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), forControlEvents: UIControlEvents.ValueChanged);
         addChildViewController(tableViewController);
         tableViewController.didMoveToParentViewController(self);
     }

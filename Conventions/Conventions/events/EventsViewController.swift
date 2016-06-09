@@ -142,7 +142,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
             let eventLengthInHours = Int(event.endTime.moveToNextRoundHour().timeIntervalSinceDate(
                 event.startTime.clearMinutesComponent()) / 60 / 60);
-            for var i = 0; i < eventLengthInHours; i++ {
+            for i in 0 ..< eventLengthInHours {
                 let roundedEventTime = event.startTime.clearMinutesComponent().addHours(i);
                 
                 if (result[roundedEventTime] == nil) {
@@ -185,7 +185,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // sticky section headers).
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl();
-        tableViewController.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged);
+        tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged);
         addChildViewController(tableViewController);
         tableViewController.didMoveToParentViewController(self);
     }

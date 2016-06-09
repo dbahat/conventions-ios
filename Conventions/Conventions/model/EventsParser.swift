@@ -119,7 +119,7 @@ class EventsParser {
                     description: parseEventDescription(description));
                 
                 result.append(conventionEvent);
-                internalEventNumber++;
+                internalEventNumber += 1;
                 
                 // In case the event is a speical event, add it to the map
                 if let specialEventId = event["timetable-url-pid"] as? Int {
