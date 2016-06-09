@@ -5,4 +5,5 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <Google/Analytics.h>
+#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 #import "CCColorCube.h"

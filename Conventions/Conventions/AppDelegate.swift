@@ -43,8 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Convention.instance.updates.refresh(nil);
         
         if let options = launchOptions {
-            handleNotificationIfNeeded(options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification);
+            handleNotificationIfNeeded(options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification)
         }
+        
+        let settings = UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications();
         
         return true;
     }
@@ -54,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If the app is active, show the user an alert dialog instead of perfoming the action
         if (isActive) {
             // Using hardcoded alert title instead of the notification one, since iOS8 didn't have
-            // notification title, and we only support single notification types anyway now.
+            // notification title, and currently we only support single notification type anyways.
             let alert = UIAlertController(title: "אירוע עומד להתחיל", message: notification.alertBody, preferredStyle: .Alert);
             alert.addAction(UIAlertAction(title: "פתח אירוע", style: .Default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification);
@@ -66,6 +70,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         handleNotificationIfNeeded(notification)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        // When the app isn't active, iOS will show the notification by itself
+        if (!isActive) {
+            return;
+        }
+        
+        guard let messgae = userInfo["aps"]?["alert"] as? String else {
+            return;
+        }
+        
+        let alert = UIAlertController(title: "הודעה התקבלה", message: messgae, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
+        guard let vc = self.window?.rootViewController as? UINavigationController else {return;}
+        vc.presentViewController(alert, animated: true, completion: nil);
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
@@ -86,6 +106,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // rest of the screens to support landscape, we configure the plist to allow portrait only, and
         // override this definition here.
         return UIInterfaceOrientationMask.All;
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
+        do {
+            try hub.registerNativeWithDeviceToken(deviceToken, tags: nil)
+        } catch {
+            print("error registering to Azure notification hub ", error)
+        }
     }
     
     private func handleNotificationIfNeeded(notification: UILocalNotification?) {
