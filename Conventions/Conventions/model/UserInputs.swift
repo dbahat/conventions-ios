@@ -13,26 +13,26 @@ class UserInputs {
     private static let storageFile = NSHomeDirectory() + "/Documents/" + UserInputs.storageFileName;
     
     // Maps eventId to the user input for that event
-    private var inputs = Dictionary<String, ConventionEvent.UserInput>();
+    private var eventInputs = Dictionary<String, ConventionEvent.UserInput>();
     
     init() {
         // Try to load the cached user inputs upon init
         if let cachedInputs = load() {
-            inputs = cachedInputs;
+            eventInputs = cachedInputs;
         }
     }
     
     func getInput(forEventId: String) -> ConventionEvent.UserInput? {
-        return inputs[forEventId];
+        return eventInputs[forEventId];
     }
     
     func setInput(input: ConventionEvent.UserInput, forEventId: String) {
-        inputs[forEventId] = input;
+        eventInputs[forEventId] = input;
         save();
     }
     
     private func save() {
-        let serilizableInputs = inputs.map({input in [input.0: input.1.toJson()]});
+        let serilizableInputs = eventInputs.map({input in [input.0: input.1.toJson()]});
         
         let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);
         json?.writeToFile(UserInputs.storageFile, atomically: true);
@@ -45,7 +45,7 @@ class UserInputs {
         guard let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments) else {
             return nil;
         }
-        guard let userInputs = userInputsJson as? [Dictionary<String, Dictionary<String, String>>] else {
+        guard let userInputs = userInputsJson as? [Dictionary<String, Dictionary<String, AnyObject>>] else {
             return nil;
         }
         

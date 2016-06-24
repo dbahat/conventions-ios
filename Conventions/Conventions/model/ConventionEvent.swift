@@ -29,6 +29,13 @@ class ConventionEvent {
     var images: Array<Int>?;
     var description: String?;
     
+    let feedback = Feedback(questions: [
+        FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
+        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
+        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
+        FeedbackQuestion(question:"עוד משהו?", answerType: .Text)
+        ], userInput: Feedback.UserInput())
+    
     var attending: Bool! {
         get {
             if let input = Convention.instance.userInputs.getInput(id) {
@@ -39,7 +46,7 @@ class ConventionEvent {
         }
         
         set {
-            let input = UserInput(attending: newValue);
+            let input = UserInput(attending: newValue, feedbackUserInput: feedback.userInput ?? Feedback.UserInput());
             Convention.instance.userInputs.setInput(input, forEventId: id);
             
             if input.attending == true {
@@ -106,20 +113,32 @@ class ConventionEvent {
     }
     
     class UserInput {
-        var attending: Bool!
+        var attending: Bool
+        let feedbackUserInput: Feedback.UserInput
         
-        init(attending:Bool!) {
-            self.attending = attending;
+        init(attending: Bool, feedbackUserInput: Feedback.UserInput) {
+            self.attending = attending
+            self.feedbackUserInput = feedbackUserInput
         }
         
-        init(json: Dictionary<String, String>) {
-            if let attendingString = json["attending"] {
-                self.attending = NSString(string: attendingString).boolValue;
+        init(json: Dictionary<String, AnyObject>) {
+            if let attendingString = json["attending"] as? String {
+                self.attending = NSString(string: attendingString).boolValue
+            } else {
+                self.attending = false
+            }
+            
+            if let feedbackObject = json["feedback"] as? Dictionary<String, AnyObject> {
+                self.feedbackUserInput = Feedback.UserInput(json: feedbackObject)
+            } else {
+                self.feedbackUserInput = Feedback.UserInput()
             }
         }
         
-        func toJson() -> Dictionary<String, String> {
-            return ["attending": attending.description];
+        func toJson() -> Dictionary<String, AnyObject> {
+            return [
+                "attending": self.attending.description,
+                "feedback": self.feedbackUserInput.toJson()]
         }
     }
 }
