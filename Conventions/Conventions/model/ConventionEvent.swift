@@ -33,34 +33,39 @@ class ConventionEvent {
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
         FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
         FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .Text)
+        FeedbackQuestion(question:"עוד משהו?", answerType: .Smiley)
         ], userInput: Feedback.UserInput())
     
-    var attending: Bool! {
+    var attending: Bool {
         get {
-            if let input = Convention.instance.userInputs.getInput(id) {
-                return input.attending;
-            }
-            
-            return false;
+            return userInput.attending
         }
         
         set {
-            let input = UserInput(attending: newValue, feedbackUserInput: feedback.userInput ?? Feedback.UserInput());
-            Convention.instance.userInputs.setInput(input, forEventId: id);
+            userInput.attending = newValue
             
-            if input.attending == true {
+            if userInput.attending {
                 NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
-                addNotification();
+                addEventNotifications();
             } else {
-                removeNotification();
+                removeEventNotifications();
             }
         }
     }
     
-    var userInput: UserInput? {
+    var userInput: UserInput {
         get {
-            return Convention.instance.userInputs.getInput(id);
+            // Creating the user inputs in a lazy manner, since we assume most events will not have any user inputs
+            guard let input = Convention.instance.userInputs.getInput(id) else {
+                let defaultInput = UserInput(attending: false, feedbackUserInput: Feedback.UserInput())
+                Convention.instance.userInputs.setInput(defaultInput, forEventId: id)
+                return defaultInput
+            }
+            
+            return input
+        }
+        set {
+            Convention.instance.userInputs.setInput(newValue, forEventId: id)
         }
     }
     
@@ -78,7 +83,7 @@ class ConventionEvent {
         self.description = description;
     }
     
-    private func addNotification() {
+    private func addEventNotifications() {
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);
         
@@ -100,7 +105,7 @@ class ConventionEvent {
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
-    private func removeNotification() {
+    private func removeEventNotifications() {
         guard let notifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return;};
         
         for notification in notifications {

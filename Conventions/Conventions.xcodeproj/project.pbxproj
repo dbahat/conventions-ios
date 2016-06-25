@@ -26,6 +26,11 @@
 		3B8D9FE71D1539C1005181DA /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FE61D1539C1005181DA /* Feedback.swift */; };
 		3B8D9FE91D153A28005181DA /* FeedbackQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */; };
 		3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */; };
+		3B8D9FEE1D1D4E9C005181DA /* EventsFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D9FED1D1D4E9C005181DA /* EventsFeedbackView.xib */; };
+		3B8D9FF01D1D9BA9005181DA /* EventsFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FEF1D1D9BA9005181DA /* EventsFeedbackView.swift */; };
+		3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF11D1DA068005181DA /* SmileyFeedbackQuestionCell.xib */; };
+		3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF31D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift */; };
+		3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */; };
 		3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B981D091C65E5A800F31009 /* MyEventsViewController.swift */; };
 		3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */; };
 		3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F81C554ED3007A8A23 /* Main.storyboard */; };
@@ -81,6 +86,11 @@
 		3B8D9FE61D1539C1005181DA /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feedback.swift; path = model/Feedback.swift; sourceTree = "<group>"; };
 		3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackQuestion.swift; path = model/FeedbackQuestion.swift; sourceTree = "<group>"; };
 		3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackAnswer.swift; path = model/FeedbackAnswer.swift; sourceTree = "<group>"; };
+		3B8D9FED1D1D4E9C005181DA /* EventsFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsFeedbackView.xib; sourceTree = "<group>"; };
+		3B8D9FEF1D1D9BA9005181DA /* EventsFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsFeedbackView.swift; sourceTree = "<group>"; };
+		3B8D9FF11D1DA068005181DA /* SmileyFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmileyFeedbackQuestionCell.xib; sourceTree = "<group>"; };
+		3B8D9FF31D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileyFeedbackQuestionCell.swift; sourceTree = "<group>"; };
+		3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMailInfo.swift; sourceTree = "<group>"; };
 		3B981D091C65E5A800F31009 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsViewController.swift; path = events/MyEventsViewController.swift; sourceTree = "<group>"; };
 		3BA2D7EF1C554ED3007A8A23 /* Conventions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +209,17 @@
 			name = extentions;
 			sourceTree = "<group>";
 		};
+		3B8D9FEC1D1D4E4E005181DA /* feedback */ = {
+			isa = PBXGroup;
+			children = (
+				3B8D9FED1D1D4E9C005181DA /* EventsFeedbackView.xib */,
+				3B8D9FEF1D1D9BA9005181DA /* EventsFeedbackView.swift */,
+				3B8D9FF11D1DA068005181DA /* SmileyFeedbackQuestionCell.xib */,
+				3B8D9FF31D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift */,
+			);
+			path = feedback;
+			sourceTree = "<group>";
+		};
 		3BA2D7E61C554ED3007A8A23 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +242,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B8D9FEC1D1D4E4E005181DA /* feedback */,
 				3BB631061C89680800D54D3E /* controllers */,
 				3B2497CD1C8636E800A87623 /* cache */,
 				3B6AF9811C6FC172004B9DAD /* extentions */,
@@ -237,6 +259,7 @@
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 				3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */,
+				3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -390,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
+				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
 				3BF061601C9F4A1700E29C17 /* Harucon2016Events.json in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
@@ -397,6 +421,7 @@
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
+				3B8D9FEE1D1D4E9C005181DA /* EventsFeedbackView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,12 +486,15 @@
 				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
+				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
 				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
+				3B8D9FF01D1D9BA9005181DA /* EventsFeedbackView.swift in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
 				3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
+				3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */,
 				3B8D9FE71D1539C1005181DA /* Feedback.swift in Sources */,

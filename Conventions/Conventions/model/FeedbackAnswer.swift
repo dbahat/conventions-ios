@@ -20,6 +20,10 @@ import Foundation
         return ["question": questionText]
     }
     
+    func getAnswer() -> String {
+        return ""
+    }
+    
     static func parse(json: Dictionary<String, AnyObject>) -> FeedbackAnswer? {
         guard let type = json["type"] as? String else {
             return nil
@@ -61,6 +65,10 @@ import Foundation
             json["type"] = String(FeedbackAnswer.Text.self)
             return json
         }
+        
+        override func getAnswer() -> String {
+            return answer
+        }
     }
     
     class Smiley : FeedbackAnswer {
@@ -76,6 +84,10 @@ import Foundation
             json["answer"] = self.answer.description()
             json["type"] = String(FeedbackAnswer.Smiley.self)
             return json
+        }
+        
+        override func getAnswer() -> String {
+            return answer.description()
         }
         
         enum SmileyType {

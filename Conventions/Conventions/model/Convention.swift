@@ -12,6 +12,7 @@ class Convention {
     static let instance = Convention();
     static let date = NSDate.from(year: 2016, month: 3, day: 24);
     static let name = "Harucon2016";
+    static let mailbox = "dbahat@live.com"
     
     var halls: Array<Hall>;
     var events: Events;

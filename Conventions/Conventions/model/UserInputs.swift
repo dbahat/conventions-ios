@@ -31,7 +31,7 @@ class UserInputs {
         save();
     }
     
-    private func save() {
+    func save() {
         let serilizableInputs = eventInputs.map({input in [input.0: input.1.toJson()]});
         
         let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);

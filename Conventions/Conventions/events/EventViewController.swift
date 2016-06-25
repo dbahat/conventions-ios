@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController: BaseViewController {
+class EventViewController: BaseViewController, EventFeedbackViewProtocol {
 
     var event: ConventionEvent!;
     
@@ -18,9 +18,16 @@ class EventViewController: BaseViewController {
     @IBOutlet private weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet weak var eventDescriptionContainer: UIView!
+    @IBOutlet weak var feedbackView: EventsFeedbackView!
+    @IBOutlet weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        feedbackView.state = .Collapsed
+        feedbackView.setFeedback(event.feedback)
+        feedbackViewHeightConstraint.constant = feedbackView.getSize()
+        feedbackView.delegate = self
         
         lecturer.text = event.lecturer;
         eventTitle.text = event.title;
@@ -52,6 +59,30 @@ class EventViewController: BaseViewController {
         eventDescription.attributedText = attrStr;
         eventDescription.textAlignment = NSTextAlignment.Right;
         refreshFavoriteBarIconImage();
+    }
+    
+    func changeFeedbackViewStateWasClicked(newState: EventsFeedbackView.State) {
+        feedbackViewHeightConstraint.constant = feedbackView.getSize()
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func feedbackProvided(feedback: FeedbackAnswer) {
+        self.event.feedback.provide(answer: feedback)
+        Convention.instance.userInputs.setInput(event.userInput, forEventId: event.id)
+    }
+    
+    func sendFeedbackWasClicked() {
+        event.feedback.submit(event.title, callback: {success in
+            
+            if !success {
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                    .show();
+            }
+            
+            self.feedbackView.setFeedbackAsSent(success)
+        })
     }
     
     override func viewDidAppear(animated: Bool) {
