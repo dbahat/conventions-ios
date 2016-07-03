@@ -13,10 +13,12 @@ protocol EventFeedbackViewProtocol : class {
     
     func feedbackProvided(feedback: FeedbackAnswer)
     
+    func feedbackCleared(feedback: FeedbackQuestion)
+    
     func sendFeedbackWasClicked()
 }
 
-class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, SmileyFeedbackQuestionProtocol {
+class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
     
     @IBOutlet private weak var changeStateButton: UIButton!
     @IBOutlet private weak var sendButton: UIButton!
@@ -27,7 +29,9 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, S
     @IBOutlet private weak var footerView: UIView!
     @IBOutlet private weak var sendMailIndicator: UIActivityIndicatorView!
     
-    var feedback = Feedback(questions: [], userInput: Feedback.UserInput())
+    private var questions: Array<FeedbackQuestion> = []
+    private var answers: Array<FeedbackAnswer> = []
+    
     weak var delegate: EventFeedbackViewProtocol?
     
     var state: State = State.Collapsed {
@@ -36,7 +40,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, S
             case .Expended:
                 footerView.hidden = false
                 footerHeightConstraint.constant = 31
-                questionsTableHeightConstraint.constant = CGFloat(102 * feedback.questions.count)
+                questionsTableHeightConstraint.constant = CGFloat(102 * questions.count)
                 changeStateButton.setTitle("הסתר",forState: .Normal)
                 titleLabel.text = "פידבק"
                 
@@ -56,13 +60,16 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, S
         let view = NSBundle.mainBundle().loadNibNamed(String(EventsFeedbackView), owner: self, options: nil)[0] as! UIView
         view.frame = self.bounds
         addSubview(view);
-        
     }
     
-    func setFeedback(feedback: Feedback) {
-        self.feedback = feedback
+    func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>) {
+        self.questions = questions
+        self.answers = answers
         
+        // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
+        questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
+        
         questionsTableView.reloadData()
     }
     
@@ -71,19 +78,19 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, S
         case .Collapsed:
             return 50 // TODO - Replace with actual size calculations
         case .Expended:
-            return CGFloat(91 + feedback.questions.count * 102)
+            return CGFloat(91 + questions.count * 102)
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedback.questions.count
+        return questions.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let question = feedback.questions[indexPath.row]
+        let question = questions[indexPath.row]
         let cellId = String(question.answerType) + "FeedbackQuestionCell"
-        let cell = questionsTableView.dequeueReusableCellWithIdentifier(cellId)! as! SmileyFeedbackQuestionCell
-        cell.setQuestion(question)
+        let cell = questionsTableView.dequeueReusableCellWithIdentifier(cellId)! as! FeedbackQuestionCell
+        cell.question = question
         cell.delegate = self
         return cell
     }
@@ -93,7 +100,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, S
     }
     
     func questionCleared(question: FeedbackQuestion) {
-        print("cleared!")
+        delegate?.feedbackCleared(question)
     }
     
     func setFeedbackAsSent(success: Bool) {

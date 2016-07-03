@@ -25,7 +25,7 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
         super.viewDidLoad()
         
         feedbackView.state = .Collapsed
-        feedbackView.setFeedback(event.feedback)
+        feedbackView.setFeedback(questions: event.feedbackQuestions, answers: event.feedbackAnswers)
         feedbackViewHeightConstraint.constant = feedbackView.getSize()
         feedbackView.delegate = self
         
@@ -61,6 +61,10 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
         refreshFavoriteBarIconImage();
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        Convention.instance.userInputs.save()
+    }
+    
     func changeFeedbackViewStateWasClicked(newState: EventsFeedbackView.State) {
         feedbackViewHeightConstraint.constant = feedbackView.getSize()
         UIView.animateWithDuration(0.3) {
@@ -69,12 +73,15 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     }
     
     func feedbackProvided(feedback: FeedbackAnswer) {
-        self.event.feedback.provide(answer: feedback)
-        Convention.instance.userInputs.setInput(event.userInput, forEventId: event.id)
+        event.provide(feedback: feedback)
+    }
+    
+    func feedbackCleared(feedback: FeedbackQuestion) {
+        event.clear(feedback: feedback)
     }
     
     func sendFeedbackWasClicked() {
-        event.feedback.submit(event.title, callback: {success in
+        event.submitFeedback({success in
             
             if !success {
                 TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)

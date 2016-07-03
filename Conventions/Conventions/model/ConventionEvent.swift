@@ -29,22 +29,44 @@ class ConventionEvent {
     var images: Array<Int>?;
     var description: String?;
     
-    let feedback = Feedback(questions: [
+    let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
         FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
         FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .Smiley)
-        ], userInput: Feedback.UserInput())
+        FeedbackQuestion(question:"עוד משהו?", answerType: .Text)
+        ]
+    
+    var feedbackAnswers: Array<FeedbackAnswer> {
+        get {
+            guard let input = Convention.instance.userInputs.getInput(id) else {
+                return []
+            }
+            
+            return input.feedbackUserInput.answers
+        }
+    }
     
     var attending: Bool {
         get {
-            return userInput.attending
+            guard let input = Convention.instance.userInputs.getInput(id) else {
+                return false
+            }
+            
+            return input.attending
         }
         
         set {
-            userInput.attending = newValue
+            if let input = Convention.instance.userInputs.getInput(id) {
+                input.attending = newValue
+                Convention.instance.userInputs.save()
+                return
+            }
             
-            if userInput.attending {
+            let input = UserInputs.ConventionEvent(attending: newValue, feedbackUserInput: UserInputs.ConventionEvent.Feedback())
+            Convention.instance.userInputs.setInput(input, forEventId: id)
+            Convention.instance.userInputs.save()
+            
+            if input.attending {
                 NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
                 addEventNotifications();
             } else {
@@ -53,20 +75,48 @@ class ConventionEvent {
         }
     }
     
-    var userInput: UserInput {
-        get {
-            // Creating the user inputs in a lazy manner, since we assume most events will not have any user inputs
-            guard let input = Convention.instance.userInputs.getInput(id) else {
-                let defaultInput = UserInput(attending: false, feedbackUserInput: Feedback.UserInput())
-                Convention.instance.userInputs.setInput(defaultInput, forEventId: id)
-                return defaultInput
+    func provide(feedback answer: FeedbackAnswer) {
+        
+        if let input = Convention.instance.userInputs.getInput(id) {
+            // If the answer already exists, override it
+            if let existingAnswerIndex = input.feedbackUserInput.answers.indexOf({$0.questionText == answer.questionText}) {
+                input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
             }
-            
-            return input
+            input.feedbackUserInput.answers.append(answer)
+            Convention.instance.userInputs.save()
+            return
         }
-        set {
-            Convention.instance.userInputs.setInput(newValue, forEventId: id)
+        
+        let feedback = UserInputs.ConventionEvent.Feedback()
+        feedback.answers.append(answer)
+        let input = UserInputs.ConventionEvent(attending: false, feedbackUserInput: feedback)
+        Convention.instance.userInputs.setInput(input, forEventId: id)
+        Convention.instance.userInputs.save()
+    }
+    
+    func clear(feedback question: FeedbackQuestion) {
+        guard let input = Convention.instance.userInputs.getInput(id) else {
+            // no inputs means nothing to clear
+            return
         }
+        
+        guard let existingAnswerIndex = input.feedbackUserInput.answers.indexOf({$0.questionText == question.question}) else {
+            // no existing answer means nothing to clear
+            return
+        }
+        
+        input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
+        Convention.instance.userInputs.save()
+    }
+    
+    func submitFeedback(callback: ((success: Bool) -> Void)?) {
+        guard let input = Convention.instance.userInputs.getInput(id) else {
+            // In case the user tries to submit empty feedback auto-fail the submission request
+            callback?(success: false)
+            return
+        }
+        
+        input.feedbackUserInput.submit(title, callback: callback)
     }
     
     init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
@@ -114,36 +164,6 @@ class ConventionEvent {
             if (eventId == id) {
                 UIApplication.sharedApplication().cancelLocalNotification(notification);
             }
-        }
-    }
-    
-    class UserInput {
-        var attending: Bool
-        let feedbackUserInput: Feedback.UserInput
-        
-        init(attending: Bool, feedbackUserInput: Feedback.UserInput) {
-            self.attending = attending
-            self.feedbackUserInput = feedbackUserInput
-        }
-        
-        init(json: Dictionary<String, AnyObject>) {
-            if let attendingString = json["attending"] as? String {
-                self.attending = NSString(string: attendingString).boolValue
-            } else {
-                self.attending = false
-            }
-            
-            if let feedbackObject = json["feedback"] as? Dictionary<String, AnyObject> {
-                self.feedbackUserInput = Feedback.UserInput(json: feedbackObject)
-            } else {
-                self.feedbackUserInput = Feedback.UserInput()
-            }
-        }
-        
-        func toJson() -> Dictionary<String, AnyObject> {
-            return [
-                "attending": self.attending.description,
-                "feedback": self.feedbackUserInput.toJson()]
         }
     }
 }

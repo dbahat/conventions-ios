@@ -8,25 +8,15 @@
 
 import Foundation
 
-protocol SmileyFeedbackQuestionProtocol : class {
-    func questionWasAnswered(answer: FeedbackAnswer)
+class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     
-    func questionCleared(question: FeedbackQuestion)
-}
-
-class SmileyFeedbackQuestionCell : UITableViewCell {
-    
-    private var question: FeedbackQuestion?
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var positiveFeedbackButton: UIButton!
     @IBOutlet private weak var negetiveFeedbackButton: UIButton!
     @IBOutlet private weak var veryPositiveFeedbackButton: UIButton!
     
-    var delegate: SmileyFeedbackQuestionProtocol?
-    
-    func setQuestion(question: FeedbackQuestion) {
-        self.question = question
-        self.questionLabel.text = question.question
+    override func questionDidSet(question: FeedbackQuestion) {
+        questionLabel.text = question.question
     }
     
     @IBAction private func veryPositiveWasClicked(sender: UIButton) {
