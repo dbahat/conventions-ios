@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
+		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
 		3B1A68691D099EDF000F4414 /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		0128839004EFB32D3F38B10C /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
+		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */,
 				3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */,
+				3B114C3F1D30224C003C6167 /* UITextView.swift */,
 			);
 			name = extentions;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
 				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
 				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
+				3B114C401D30224C003C6167 /* UITextView.swift in Sources */,
 				3B8D9FF01D1D9BA9005181DA /* EventsFeedbackView.swift in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,

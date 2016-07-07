@@ -1,3 +1,4 @@
+
 //
 //  EventsFeedbackView.swift
 //  Conventions
@@ -9,7 +10,7 @@
 import Foundation
 
 protocol EventFeedbackViewProtocol : class {
-    func changeFeedbackViewStateWasClicked(newState: EventsFeedbackView.State)
+    func feedbackViewHeightDidChange(newHeight: CGFloat)
     
     func feedbackProvided(feedback: FeedbackAnswer)
     
@@ -34,13 +35,17 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     
     weak var delegate: EventFeedbackViewProtocol?
     
+    private let headerHeight = CGFloat(30)
+    private let footerHeight = CGFloat(31)
+    private let paddingSize = CGFloat(10)
+    
     var state: State = State.Collapsed {
         didSet {
             switch state {
             case .Expended:
                 footerView.hidden = false
-                footerHeightConstraint.constant = 31
-                questionsTableHeightConstraint.constant = CGFloat(102 * questions.count)
+                footerHeightConstraint.constant = footerHeight
+                questionsTableHeightConstraint.constant = questions.height
                 changeStateButton.setTitle("הסתר",forState: .Normal)
                 titleLabel.text = "פידבק"
                 
@@ -73,12 +78,13 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         questionsTableView.reloadData()
     }
     
-    func getSize() -> CGFloat {
+    func getHeight() -> CGFloat {
         switch state {
         case .Collapsed:
-            return 50 // TODO - Replace with actual size calculations
+            return headerHeight + 2 * paddingSize
         case .Expended:
-            return CGFloat(91 + questions.count * 102)
+            let questionsLayoutHeight = questions.height
+            return headerHeight + 2 * paddingSize + questionsLayoutHeight + footerHeight + paddingSize
         }
     }
     
@@ -88,11 +94,28 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let question = questions[indexPath.row]
-        let cellId = String(question.answerType) + "FeedbackQuestionCell"
+        let cellId = String(question.answerType) + String(FeedbackQuestionCell)
         let cell = questionsTableView.dequeueReusableCellWithIdentifier(cellId)! as! FeedbackQuestionCell
-        cell.question = question
         cell.delegate = self
+        cell.question = question
+        
+        if let foundAnswer = answers.filter({answer in answer.questionText == question.question}).first {
+            cell.setAnswer(foundAnswer)
+            
+            if (question.viewHeight != question.answerType.defaultHeight + cell.cellHeightDelta) {
+                question.viewHeight = question.answerType.defaultHeight + cell.cellHeightDelta
+                
+                questionsTableHeightConstraint.constant = questions.height
+                delegate?.feedbackViewHeightDidChange(getHeight())
+            }
+        }
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let question = questions[indexPath.row]
+        return question.viewHeight
     }
     
     func questionWasAnswered(answer: FeedbackAnswer) {
@@ -103,12 +126,28 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         delegate?.feedbackCleared(question)
     }
     
+    func questionViewHeightChanged(caller caller: UITableViewCell, newHeight: CGFloat) {
+        guard let indexPath = questionsTableView.indexPathForCell(caller) else {
+            // if the calling cell is not in the model, ignore it's event
+            return
+        }
+        
+        let question = questions[indexPath.row]
+        question.viewHeight = question.answerType.defaultHeight + newHeight
+        
+        questionsTableView.beginUpdates()
+        questionsTableView.endUpdates()
+        
+        questionsTableHeightConstraint.constant = questions.height
+        delegate?.feedbackViewHeightDidChange(getHeight())
+    }
+    
     func setFeedbackAsSent(success: Bool) {
         sendMailIndicator.stopAnimating()
         
         if (success) {
             state = .Collapsed
-            delegate?.changeFeedbackViewStateWasClicked(state)
+            delegate?.feedbackViewHeightDidChange(getHeight())
             
             UIView.animateWithDuration(0.3) {
                 self.layoutIfNeeded()
@@ -117,12 +156,12 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
             sendButton.hidden = false
         }
     }
-    
-    @IBAction private func changeStateWasClicked(sender: UIButton) {
+
+    @IBAction func headerWasClicked(sender: UITapGestureRecognizer) {
         state = state.toggle()
         
-        delegate?.changeFeedbackViewStateWasClicked(state)
-
+        delegate?.feedbackViewHeightDidChange(getHeight())
+        
         UIView.animateWithDuration(0.3) {
             self.layoutIfNeeded()
         }
@@ -146,6 +185,14 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
             case .Collapsed:
                 return . Expended
             }
+        }
+    }
+}
+
+extension Array where Element: FeedbackQuestion {
+    var height: CGFloat {
+        get {
+            return self.reduce(0, combine: {totalHight, question in totalHight + question.viewHeight})
         }
     }
 }

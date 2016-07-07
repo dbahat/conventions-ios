@@ -26,7 +26,7 @@
                         <rect key="frame" x="8" y="25" width="460" height="68.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wG-2f-9l2">
-                                <rect key="frame" x="390" y="10" width="50" height="50"/>
+                                <rect key="frame" x="410" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PT6-k7-cCD"/>
                                     <constraint firstAttribute="width" constant="50" id="fM8-ba-PMC"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DQ-pE-eQB">
-                                <rect key="frame" x="320" y="10" width="50" height="50"/>
+                                <rect key="frame" x="340" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="KlI-2W-kb7"/>
                                     <constraint firstAttribute="height" constant="50" id="qrZ-PR-VKw"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="374-Yf-I7b">
-                                <rect key="frame" x="250" y="10" width="50" height="50"/>
+                                <rect key="frame" x="270" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="PXW-qR-3rQ"/>
                                     <constraint firstAttribute="height" constant="50" id="Szy-hC-yiX"/>
@@ -65,7 +65,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9wG-2f-9l2" secondAttribute="trailing" constant="20" id="6Ig-XQ-JKG"/>
+                            <constraint firstAttribute="trailing" secondItem="9wG-2f-9l2" secondAttribute="trailing" id="6Ig-XQ-JKG"/>
                             <constraint firstItem="9wG-2f-9l2" firstAttribute="top" secondItem="rhm-v7-4Ez" secondAttribute="top" constant="10" id="Nq6-56-YIy"/>
                             <constraint firstItem="1DQ-pE-eQB" firstAttribute="leading" secondItem="374-Yf-I7b" secondAttribute="trailing" constant="20" id="QFy-HI-yn1"/>
                             <constraint firstItem="9wG-2f-9l2" firstAttribute="leading" secondItem="1DQ-pE-eQB" secondAttribute="trailing" constant="20" id="Sjw-Kh-gnu"/>

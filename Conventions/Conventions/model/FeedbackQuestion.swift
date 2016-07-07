@@ -12,6 +12,7 @@ class FeedbackQuestion {
     var question: String
     let answerType: AnswerType
     let answersToSelectFrom: Array<String>?
+    var viewHeight: CGFloat
     
     var answerChanged: Bool = false
     
@@ -19,6 +20,7 @@ class FeedbackQuestion {
         self.question = question
         self.answerType = answerType
         self.answersToSelectFrom = answersToSelectFrom
+        self.viewHeight = answerType.defaultHeight
     }
     
     enum AnswerType {
@@ -26,5 +28,18 @@ class FeedbackQuestion {
         case Text
         case MultipleAnswersRadioButton
         case MultipleAnswersChecklist
+        
+        var defaultHeight: CGFloat {
+            get {
+                switch self {
+                case .Smiley:
+                    return 102
+                case .Text:
+                    return 102
+                default:
+                    return 102
+                }
+            }
+        }
     }
 }

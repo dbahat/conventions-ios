@@ -24,10 +24,10 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        feedbackView.delegate = self
         feedbackView.state = .Collapsed
         feedbackView.setFeedback(questions: event.feedbackQuestions, answers: event.feedbackAnswers)
-        feedbackViewHeightConstraint.constant = feedbackView.getSize()
-        feedbackView.delegate = self
+        feedbackViewHeightConstraint.constant = feedbackView.getHeight()
         
         lecturer.text = event.lecturer;
         eventTitle.text = event.title;
@@ -65,33 +65,6 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
         Convention.instance.userInputs.save()
     }
     
-    func changeFeedbackViewStateWasClicked(newState: EventsFeedbackView.State) {
-        feedbackViewHeightConstraint.constant = feedbackView.getSize()
-        UIView.animateWithDuration(0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func feedbackProvided(feedback: FeedbackAnswer) {
-        event.provide(feedback: feedback)
-    }
-    
-    func feedbackCleared(feedback: FeedbackQuestion) {
-        event.clear(feedback: feedback)
-    }
-    
-    func sendFeedbackWasClicked() {
-        event.submitFeedback({success in
-            
-            if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
-                    .show();
-            }
-            
-            self.feedbackView.setFeedbackAsSent(success)
-        })
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
         
@@ -127,6 +100,37 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
             .show();
     }
     
+    // MARK: - EventFeedbackViewProtocol
+    
+    func feedbackViewHeightDidChange(newHeight: CGFloat) {
+        feedbackViewHeightConstraint.constant = feedbackView.getHeight()
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func feedbackProvided(feedback: FeedbackAnswer) {
+        event.provide(feedback: feedback)
+    }
+    
+    func feedbackCleared(feedback: FeedbackQuestion) {
+        event.clear(feedback: feedback)
+    }
+    
+    func sendFeedbackWasClicked() {
+        event.submitFeedback({success in
+            
+            if !success {
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                    .show();
+            }
+            
+            self.feedbackView.setFeedbackAsSent(success)
+        })
+    }
+    
+    // MARK: - private methods
+    
     private func getImage(serverEventId: String) -> UIImage {
         if let eventImage = UIImage(named: "Event_" + serverEventId) {
             return eventImage;
@@ -152,8 +156,7 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     }
 }
 
-extension NSMutableAttributedString
-{
+extension NSMutableAttributedString {
     //
     // Converts just the font of the attributed string to the input font.
     //

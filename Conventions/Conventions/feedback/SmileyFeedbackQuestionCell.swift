@@ -19,25 +19,38 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         questionLabel.text = question.question
     }
     
-    @IBAction private func veryPositiveWasClicked(sender: UIButton) {
-        setState(.VeryPositive, sender: sender)
-    }
-    @IBAction private func positiveWasClicked(sender: UIButton) {
-        setState(.Positive, sender: sender)
-    }
-    @IBAction private func negetiveWasClicked(sender: UIButton) {
-        setState(.Negetive, sender: sender)
-    }
-    
-    private func setState(newState: FeedbackAnswer.Smiley.SmileyType, sender: UIButton) {
-        
-        if sender.selected {
-            // In case the user clicked on an already selected button, clear the selection
-            sender.selected = false
-            delegate?.questionCleared(question!) // ok to force unwrap here, since the user can only click a button if we've set a question
+    override func setAnswer(answer: FeedbackAnswer) {
+        guard let smilyAnswer = answer as? FeedbackAnswer.Smiley else {
             return
         }
         
+        setState(smilyAnswer.answer)
+    }
+    
+    @IBAction private func veryPositiveWasClicked(sender: UIButton) {
+        resetState(button: sender, newState: .VeryPositive)
+    }
+    @IBAction private func positiveWasClicked(sender: UIButton) {
+        resetState(button: sender, newState: .Positive)
+    }
+    @IBAction private func negetiveWasClicked(sender: UIButton) {
+        resetState(button: sender, newState: .Negetive)
+    }
+    
+    private func resetState(button button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
+        // In case the user clicked on an already selected button, clear the selection
+        if button.selected {
+            button.selected = false
+            if let unwrappedQuestion = question {
+                delegate?.questionCleared(unwrappedQuestion)
+            }
+            return
+        }
+        
+        setState(newState)
+    }
+    
+    private func setState(newState: FeedbackAnswer.Smiley.SmileyType) {
         negetiveFeedbackButton.selected = false
         positiveFeedbackButton.selected = false
         veryPositiveFeedbackButton.selected = false

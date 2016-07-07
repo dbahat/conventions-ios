@@ -25,12 +25,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2g-Pw-ZgC" userLabel="AnswersLayout">
                         <rect key="frame" x="8" y="25" width="460" height="68.5"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="xl4-aU-iqj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="xl4-aU-iqj">
                                 <rect key="frame" x="0.0" y="0.0" width="460" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-w4-rLS">
+                                <rect key="frame" x="0.0" y="43" width="460" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="J9C-8z-Bqr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -38,6 +45,9 @@
                             <constraint firstItem="xl4-aU-iqj" firstAttribute="top" secondItem="c2g-Pw-ZgC" secondAttribute="top" id="Kw7-J0-IuN"/>
                             <constraint firstItem="xl4-aU-iqj" firstAttribute="leading" secondItem="c2g-Pw-ZgC" secondAttribute="leading" id="L2I-bX-PDz"/>
                             <constraint firstAttribute="trailing" secondItem="xl4-aU-iqj" secondAttribute="trailing" id="isC-fe-dGj"/>
+                            <constraint firstAttribute="trailing" secondItem="TVs-w4-rLS" secondAttribute="trailing" id="qRQ-dl-Xj5"/>
+                            <constraint firstItem="TVs-w4-rLS" firstAttribute="leading" secondItem="c2g-Pw-ZgC" secondAttribute="leading" id="t3E-KO-VAg"/>
+                            <constraint firstItem="TVs-w4-rLS" firstAttribute="top" secondItem="xl4-aU-iqj" secondAttribute="bottom" constant="10" id="xwx-8Y-hXw"/>
                         </constraints>
                     </view>
                 </subviews>

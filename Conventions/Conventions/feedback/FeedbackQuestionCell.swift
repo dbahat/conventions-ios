@@ -12,6 +12,8 @@ protocol FeedbackQuestionProtocol : class {
     func questionWasAnswered(answer: FeedbackAnswer)
     
     func questionCleared(question: FeedbackQuestion)
+    
+    func questionViewHeightChanged(caller caller: UITableViewCell, newHeight: CGFloat)
 }
 
 /* abstract */ class FeedbackQuestionCell : UITableViewCell {
@@ -24,7 +26,10 @@ protocol FeedbackQuestionProtocol : class {
     }
     var delegate: FeedbackQuestionProtocol?
     
-    /* abstract */ func questionDidSet(question: FeedbackQuestion) {
-        
-    }
+    // Since the question cell can change based on it's content, keep the delta from default here
+    var cellHeightDelta = CGFloat(0)
+    
+    /* abstract */ func questionDidSet(question: FeedbackQuestion) {}
+    
+    /* abstract */ func setAnswer(answer: FeedbackAnswer) {}
 }

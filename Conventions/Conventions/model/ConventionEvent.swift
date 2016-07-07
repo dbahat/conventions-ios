@@ -36,6 +36,20 @@ class ConventionEvent {
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text)
         ]
     
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
+        self.id = id;
+        self.serverId = serverId;
+        self.color = color;
+        self.textColor = textColor;
+        self.title = title;
+        self.lecturer = lecturer;
+        self.startTime = startTime;
+        self.endTime = endTime;
+        self.type = type;
+        self.hall = hall;
+        self.description = description;
+    }
+    
     var feedbackAnswers: Array<FeedbackAnswer> {
         get {
             guard let input = Convention.instance.userInputs.getInput(id) else {
@@ -90,6 +104,7 @@ class ConventionEvent {
         let feedback = UserInputs.ConventionEvent.Feedback()
         feedback.answers.append(answer)
         let input = UserInputs.ConventionEvent(attending: false, feedbackUserInput: feedback)
+        
         Convention.instance.userInputs.setInput(input, forEventId: id)
         Convention.instance.userInputs.save()
     }
@@ -117,20 +132,6 @@ class ConventionEvent {
         }
         
         input.feedbackUserInput.submit(title, callback: callback)
-    }
-    
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
-        self.id = id;
-        self.serverId = serverId;
-        self.color = color;
-        self.textColor = textColor;
-        self.title = title;
-        self.lecturer = lecturer;
-        self.startTime = startTime;
-        self.endTime = endTime;
-        self.type = type;
-        self.hall = hall;
-        self.description = description;
     }
     
     private func addEventNotifications() {

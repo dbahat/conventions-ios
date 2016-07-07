@@ -31,12 +31,9 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nU-vt-zOV">
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nU-vt-zOV">
                             <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
                             <state key="normal" title="הסתר"/>
-                            <connections>
-                                <action selector="changeStateWasClicked:" destination="-1" eventType="touchUpInside" id="6nL-IB-Mbw"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -48,10 +45,14 @@
                         <constraint firstItem="0nU-vt-zOV" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="nju-vV-Ett"/>
                         <constraint firstItem="uF0-AY-RiL" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="yg3-vs-NOz"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="F2J-aT-WRG" appends="YES" id="79r-R3-mG9"/>
+                    </connections>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="102" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="DPN-bR-NDS">
                     <rect key="frame" x="10" y="50" width="580" height="408"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="408" id="cq9-y5-ghS"/>
                     </constraints>
@@ -62,7 +63,7 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcI-wy-Rm0" userLabel="FooterView">
-                    <rect key="frame" x="20" y="468" width="580" height="31"/>
+                    <rect key="frame" x="10" y="468" width="580" height="31"/>
                     <subviews>
                         <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-ru-yMO" userLabel="SeperatorView">
                             <rect key="frame" x="0.0" y="0.0" width="580" height="1"/>
@@ -99,16 +100,21 @@
             </subviews>
             <color key="backgroundColor" red="0.99607843137254903" green="1" blue="0.78823529411764703" alpha="0.75053879310344829" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="JcI-wy-Rm0" secondAttribute="trailing" constant="10" id="OLm-Bg-PVY"/>
                 <constraint firstItem="DPN-bR-NDS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dtG-Xf-qeY"/>
                 <constraint firstItem="DPN-bR-NDS" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="bottom" constant="10" id="ooC-zK-UtM"/>
                 <constraint firstAttribute="trailing" secondItem="DPN-bR-NDS" secondAttribute="trailing" constant="10" id="qwb-tZ-yoF"/>
                 <constraint firstItem="JcI-wy-Rm0" firstAttribute="top" secondItem="DPN-bR-NDS" secondAttribute="bottom" constant="10" id="qxE-vQ-xpd"/>
                 <constraint firstItem="woT-wP-Mo9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="uH2-AL-0cR"/>
                 <constraint firstItem="woT-wP-Mo9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="vsP-0h-b99"/>
-                <constraint firstItem="JcI-wy-Rm0" firstAttribute="leading" secondItem="DPN-bR-NDS" secondAttribute="leading" constant="10" id="wMp-jB-1ri"/>
                 <constraint firstAttribute="trailing" secondItem="woT-wP-Mo9" secondAttribute="trailing" constant="10" id="wb1-dl-EhF"/>
-                <constraint firstItem="JcI-wy-Rm0" firstAttribute="trailing" secondItem="DPN-bR-NDS" secondAttribute="trailing" constant="10" id="yEL-Ml-Mby"/>
+                <constraint firstItem="JcI-wy-Rm0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="y73-Ka-tEC"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="F2J-aT-WRG">
+            <connections>
+                <action selector="headerWasClicked:" destination="-1" id="zwd-e0-8GR"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
