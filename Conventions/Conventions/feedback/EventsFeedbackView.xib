@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventsFeedbackView" customModule="Conventions" customModuleProvider="target">
             <connections>
                 <outlet property="changeStateButton" destination="0nU-vt-zOV" id="Y80-96-XZG"/>
+                <outlet property="feedbackIcon" destination="4Zb-5r-3RP" id="SCu-iw-PlJ"/>
+                <outlet property="feedbackIconContainerWidth" destination="lZG-2C-ssV" id="VSV-MU-fKt"/>
                 <outlet property="footerHeightConstraint" destination="oXr-N0-ODR" id="Th8-Mk-Csu"/>
                 <outlet property="footerView" destination="JcI-wy-Rm0" id="D5J-p2-ltz"/>
                 <outlet property="questionsTableHeightConstraint" destination="cq9-y5-ghS" id="Yfu-hq-32l"/>
@@ -31,18 +33,39 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkQ-Mg-uh3" userLabel="Feedback Icon Container">
+                            <rect key="frame" x="0.0" y="0.0" width="28" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Feedback_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-5r-3RP">
+                                    <rect key="frame" x="5" y="6" width="18" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="8K3-xr-W1R"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="4Zb-5r-3RP" firstAttribute="centerY" secondItem="GkQ-Mg-uh3" secondAttribute="centerY" id="GsR-Jz-Arm"/>
+                                <constraint firstAttribute="trailing" secondItem="4Zb-5r-3RP" secondAttribute="trailing" constant="5" id="L2f-h0-HDe"/>
+                                <constraint firstAttribute="width" constant="28" id="lZG-2C-ssV"/>
+                                <constraint firstItem="4Zb-5r-3RP" firstAttribute="leading" secondItem="GkQ-Mg-uh3" secondAttribute="leading" constant="5" id="sJl-nr-9JM"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nU-vt-zOV">
-                            <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                            <rect key="frame" x="38" y="0.0" width="35" height="30"/>
                             <state key="normal" title="הסתר"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="0nU-vt-zOV" firstAttribute="leading" secondItem="woT-wP-Mo9" secondAttribute="leading" id="18O-Z3-ku8"/>
+                        <constraint firstItem="GkQ-Mg-uh3" firstAttribute="leading" secondItem="woT-wP-Mo9" secondAttribute="leading" id="7R4-eL-5L1"/>
+                        <constraint firstItem="0nU-vt-zOV" firstAttribute="leading" secondItem="GkQ-Mg-uh3" secondAttribute="trailing" constant="10" id="DeX-ai-dBK"/>
                         <constraint firstAttribute="trailing" secondItem="uF0-AY-RiL" secondAttribute="trailing" id="PdN-C0-SHT"/>
                         <constraint firstAttribute="bottom" secondItem="0nU-vt-zOV" secondAttribute="bottom" id="QPs-Bc-7yE"/>
                         <constraint firstAttribute="bottom" secondItem="uF0-AY-RiL" secondAttribute="bottom" id="Z3d-uG-xoJ"/>
+                        <constraint firstItem="GkQ-Mg-uh3" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="bjt-Pa-c8N"/>
                         <constraint firstItem="0nU-vt-zOV" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="nju-vV-Ett"/>
+                        <constraint firstAttribute="bottom" secondItem="GkQ-Mg-uh3" secondAttribute="bottom" id="sJM-sy-vBA"/>
                         <constraint firstItem="uF0-AY-RiL" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="yg3-vs-NOz"/>
                     </constraints>
                     <connections>
@@ -117,4 +140,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="Feedback_icon" width="24" height="24"/>
+    </resources>
 </document>

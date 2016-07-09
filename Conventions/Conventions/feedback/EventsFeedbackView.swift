@@ -21,6 +21,8 @@ protocol EventFeedbackViewProtocol : class {
 
 class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
     
+    @IBOutlet private weak var feedbackIconContainerWidth: NSLayoutConstraint!
+    @IBOutlet private weak var feedbackIcon: UIImageView!
     @IBOutlet private weak var changeStateButton: UIButton!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var questionsTableView: UITableView!
@@ -48,6 +50,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
                 questionsTableHeightConstraint.constant = questions.height
                 changeStateButton.setTitle("הסתר",forState: .Normal)
                 titleLabel.text = "פידבק"
+                feedbackIconContainerWidth.constant = 0
                 
             case .Collapsed:
                 footerView.hidden = true
@@ -55,6 +58,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
                 questionsTableHeightConstraint.constant = 0
                 changeStateButton.setTitle("מלא פידבק",forState: .Normal)
                 titleLabel.text = "האירוע נגמר"
+                feedbackIconContainerWidth.constant = 28
             }
         }
     }
@@ -65,15 +69,18 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         let view = NSBundle.mainBundle().loadNibNamed(String(EventsFeedbackView), owner: self, options: nil)[0] as! UIView
         view.frame = self.bounds
         addSubview(view);
+        
+        feedbackIcon.image = feedbackIcon.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        feedbackIcon.tintColor = UIColor.grayColor()
+        
+        // Register all cells dynamiclly, since we want each cell to have a seperate xib file
+        questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
+        questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
     }
     
     func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>) {
         self.questions = questions
         self.answers = answers
-        
-        // Register all cells dynamiclly, since we want each cell to have a seperate xib file
-        questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
-        questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
         
         questionsTableView.reloadData()
     }
