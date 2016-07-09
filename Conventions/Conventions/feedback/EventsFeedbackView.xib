@@ -46,9 +46,9 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="4Zb-5r-3RP" firstAttribute="centerY" secondItem="GkQ-Mg-uh3" secondAttribute="centerY" id="GsR-Jz-Arm"/>
-                                <constraint firstAttribute="trailing" secondItem="4Zb-5r-3RP" secondAttribute="trailing" constant="5" id="L2f-h0-HDe"/>
+                                <constraint firstAttribute="trailing" secondItem="4Zb-5r-3RP" secondAttribute="trailing" priority="999" constant="5" id="L2f-h0-HDe"/>
                                 <constraint firstAttribute="width" constant="28" id="lZG-2C-ssV"/>
-                                <constraint firstItem="4Zb-5r-3RP" firstAttribute="leading" secondItem="GkQ-Mg-uh3" secondAttribute="leading" constant="5" id="sJl-nr-9JM"/>
+                                <constraint firstItem="4Zb-5r-3RP" firstAttribute="leading" secondItem="GkQ-Mg-uh3" secondAttribute="leading" priority="999" constant="5" id="sJl-nr-9JM"/>
                             </constraints>
                         </view>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nU-vt-zOV">
@@ -92,7 +92,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="580" height="1"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1" id="iNu-L0-SE9"/>
+                                <constraint firstAttribute="height" priority="999" constant="1" id="iNu-L0-SE9"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3a-FY-EfO">
