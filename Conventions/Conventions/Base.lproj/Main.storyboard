@@ -157,14 +157,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="EventsFeedbackView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="168.5" width="374" height="500"/>
+                                        <rect key="frame" x="20" y="168.5" width="374" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="500" id="6OO-Xy-ohO"/>
+                                            <constraint firstAttribute="height" constant="50" id="6OO-Xy-ohO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-i3-wiM">
-                                        <rect key="frame" x="20" y="678.5" width="374" height="220"/>
+                                        <rect key="frame" x="20" y="228.5" width="374" height="220"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t8J-Y6-ovI">
                                                 <rect key="frame" x="10" y="10" width="354" height="200"/>

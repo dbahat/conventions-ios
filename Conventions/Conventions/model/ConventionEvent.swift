@@ -139,6 +139,14 @@ class ConventionEvent {
         return NSDate().compare(endTime.addMinutes(-15)) == .OrderedDescending
     }
     
+    func didSubmitFeedback() -> Bool {
+        guard let input = Convention.instance.userInputs.getInput(id) else {
+            return false
+        }
+        
+        return input.feedbackUserInput.isSent
+    }
+    
     private func addEventNotifications() {
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);

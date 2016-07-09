@@ -24,10 +24,24 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        feedbackView.delegate = self
-        feedbackView.state = .Collapsed
-        feedbackView.setFeedback(questions: event.feedbackQuestions, answers: event.feedbackAnswers)
-        feedbackViewHeightConstraint.constant = feedbackView.getHeight()
+        if event.canFillFeedback() {
+            feedbackView.delegate = self
+            feedbackView.setFeedback(questions: event.feedbackQuestions, answers: event.feedbackAnswers)
+            
+            if (event.didSubmitFeedback()) {
+                feedbackView.state = .Collapsed
+            } else if event.attending || event.feedbackAnswers.count > 0 {
+                // If the user marked this as favorite or started filling feedback for the event
+                feedbackView.state = .Expended
+            } else {
+                feedbackView.state = .Collapsed
+            }
+            
+            // Need to get the view height only after setting it's collapsed/expanded state
+            feedbackViewHeightConstraint.constant = feedbackView.getHeight()
+        } else {
+            feedbackViewHeightConstraint.constant = 0
+        }
         
         lecturer.text = event.lecturer;
         eventTitle.text = event.title;
