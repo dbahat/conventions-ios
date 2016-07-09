@@ -3,12 +3,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="Conventions" customModuleProvider="target">
             <connections>
                 <outlet property="endTime" destination="rMH-w8-RVL" id="juL-nB-KrC"/>
                 <outlet property="favoriteButton" destination="mFw-7c-klt" id="8p6-Wk-aHX"/>
+                <outlet property="feedbackContainerWidthConstraint" destination="1WZ-dc-KFb" id="maC-MR-I8m"/>
+                <outlet property="feedbackIcon" destination="CNm-3L-gF8" id="ZZy-J2-OFj"/>
                 <outlet property="hallName" destination="r5w-m4-Yqp" id="6nA-U3-VJ1"/>
                 <outlet property="lecturer" destination="0DF-YK-F5U" id="YbP-zH-Q1J"/>
                 <outlet property="startTime" destination="V75-pZ-Hax" id="6pP-Yo-hFg"/>
@@ -28,7 +31,7 @@
                             <rect key="frame" x="530" y="0.0" width="70" height="600"/>
                             <subviews>
                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-7c-klt">
-                                    <rect key="frame" x="24.5" y="8" width="20" height="20"/>
+                                    <rect key="frame" x="25" y="8" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="8Si-uo-D0Q"/>
                                         <constraint firstAttribute="height" constant="20" id="Shn-LZ-XiJ"/>
@@ -81,19 +84,40 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DF-YK-F5U">
-                                            <rect key="frame" x="8" y="546" width="96" height="17"/>
+                                            <rect key="frame" x="34" y="546" width="96" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZx-sj-EmB" userLabel="Feedback Icon Container">
+                                            <rect key="frame" x="0.0" y="544.5" width="26" height="26"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Feedback_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CNm-3L-gF8">
+                                                    <rect key="frame" x="8" y="0.0" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="CNm-3L-gF8" secondAttribute="height" multiplier="1:1" id="NJM-Fm-9Ks"/>
+                                                        <constraint firstAttribute="height" constant="18" id="bVM-S8-vrt"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="1WZ-dc-KFb"/>
+                                                <constraint firstItem="CNm-3L-gF8" firstAttribute="leading" secondItem="LZx-sj-EmB" secondAttribute="leading" constant="8" id="YEa-ir-aEI"/>
+                                                <constraint firstAttribute="bottom" secondItem="CNm-3L-gF8" secondAttribute="bottom" constant="8" id="c6J-Yi-qcM"/>
+                                                <constraint firstAttribute="width" secondItem="LZx-sj-EmB" secondAttribute="height" multiplier="1:1" id="dFD-PZ-tPH"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="r5w-m4-Yqp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0DF-YK-F5U" secondAttribute="trailing" id="3Cv-bJ-7mg"/>
                                         <constraint firstAttribute="bottom" secondItem="r5w-m4-Yqp" secondAttribute="bottom" constant="8" id="E11-LH-hF2"/>
                                         <constraint firstAttribute="trailing" secondItem="r5w-m4-Yqp" secondAttribute="trailing" constant="8" id="FBo-24-TIJ"/>
-                                        <constraint firstItem="0DF-YK-F5U" firstAttribute="leading" secondItem="oe7-bM-u99" secondAttribute="leading" constant="8" id="GBV-o2-5Wd"/>
+                                        <constraint firstItem="LZx-sj-EmB" firstAttribute="leading" secondItem="oe7-bM-u99" secondAttribute="leading" id="H6Y-fE-d7i"/>
+                                        <constraint firstAttribute="bottom" secondItem="LZx-sj-EmB" secondAttribute="bottom" id="La5-v0-Yz8"/>
                                         <constraint firstAttribute="bottom" secondItem="0DF-YK-F5U" secondAttribute="bottom" constant="8" id="MnZ-Kv-mwd"/>
+                                        <constraint firstItem="0DF-YK-F5U" firstAttribute="leading" secondItem="LZx-sj-EmB" secondAttribute="trailing" constant="8" id="i2j-GW-iFd"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -138,5 +162,6 @@
     </objects>
     <resources>
         <image name="EventAttending" width="32" height="32"/>
+        <image name="Feedback_icon" width="24" height="24"/>
     </resources>
 </document>

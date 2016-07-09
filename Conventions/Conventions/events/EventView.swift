@@ -21,6 +21,8 @@ class EventView: UIView {
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var timeLayout: UIView!
     @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private weak var feedbackIcon: UIImageView!
+    @IBOutlet private weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
     
     weak var delegate: EventStateProtocol?;
     
@@ -50,6 +52,16 @@ class EventView: UIView {
         if let textColor = event.textColor {
             startTime.textColor = textColor;
             endTime.textColor = textColor;
+        }
+        
+        if event.canFillFeedback() {
+            feedbackIcon.hidden = false
+            feedbackIcon.image = feedbackIcon.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            feedbackIcon.tintColor = UIColor.grayColor()
+            feedbackContainerWidthConstraint.constant = 26
+        } else {
+            feedbackIcon.hidden = true
+            feedbackContainerWidthConstraint.constant = 0
         }
     }
 

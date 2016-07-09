@@ -16,14 +16,14 @@ extension NSDate {
         return dateFormatter.stringFromDate(self);
     }
     
-    func addHours(hours: Int) -> NSDate! {
+    func addHours(hours: Int) -> NSDate {
         let calendar = NSCalendar.autoupdatingCurrentCalendar()
-        return calendar.dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: self, options: []);
+        return calendar.dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: self, options: [])!;
     }
     
-    func addMinutes(minutes: Int) -> NSDate! {
+    func addMinutes(minutes: Int) -> NSDate {
         let calendar = NSCalendar.autoupdatingCurrentCalendar()
-        return calendar.dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: self, options: []);
+        return calendar.dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: self, options: [])!;
     }
     
     func clearMinutesComponent() -> NSDate! {

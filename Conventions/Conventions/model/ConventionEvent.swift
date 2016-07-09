@@ -134,6 +134,11 @@ class ConventionEvent {
         input.feedbackUserInput.submit(title, callback: callback)
     }
     
+    func canFillFeedback() -> Bool {
+        // Check if the event will end in 15 minutes or less
+        return NSDate().compare(endTime.addMinutes(-15)) == .OrderedDescending
+    }
+    
     private func addEventNotifications() {
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);
