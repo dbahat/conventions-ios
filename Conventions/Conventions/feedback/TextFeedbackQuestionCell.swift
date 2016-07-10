@@ -15,6 +15,13 @@ class TextFeedbackQuestionCell: FeedbackQuestionCell, UITextViewDelegate  {
     
     private let answerTextViewDefaultHeight = CGFloat(33)
     
+    override var enabled: Bool {
+        didSet {
+            answerTextView.editable = enabled
+            answerTextView.selectable = enabled
+        }
+    }
+    
     override func questionDidSet(question: FeedbackQuestion) {
         questionLabel.text = question.question
         answerTextView.delegate = self

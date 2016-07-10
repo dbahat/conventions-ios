@@ -38,5 +38,10 @@ class Convention {
         print("Couldn't find hall ", name, ". Using default hall.");
         return Hall(name: "אירועים מיוחדים", order: 6);
     }
+    
+    func isFeedbackSendingTimeOver() -> Bool {
+        // Check if the event will end in 15 minutes or less
+        return NSDate().compare(Convention.date.addDays(14)) == .OrderedDescending
+    }
 }
 

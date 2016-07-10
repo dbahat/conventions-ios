@@ -98,11 +98,11 @@ import Foundation
             func getImage() -> UIImage {
                 switch self {
                 case .Negetive:
-                    return UIImage(named: "feedback_negetive")!
+                    return UIImage(named: "Feedback_negetive_selected")!
                 case .Positive:
-                    return UIImage(named: "feedback_positive")!
+                    return UIImage(named: "Feedback_positive_selected")!
                 case .VeryPositive:
-                    return UIImage(named: "feedback_very_positive")!
+                    return UIImage(named: "Feedback_very_positive_selected")!
                 }
             }
             

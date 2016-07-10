@@ -181,3 +181,15 @@ class ConventionEvent {
         }
     }
 }
+
+extension Array where Element: FeedbackAnswer {
+    // "Weighted rating" represents the overall rating the user gave to this event amongst the smiley
+    // questions
+    func getFeedbackWeightedRating() -> FeedbackAnswer.Smiley? {
+        // We assume the smiley questions are sorted by importance
+        return self
+            .filter({answer in answer as? FeedbackAnswer.Smiley != nil})
+            .map({answer in answer as! FeedbackAnswer.Smiley})
+            .first
+    }
+}

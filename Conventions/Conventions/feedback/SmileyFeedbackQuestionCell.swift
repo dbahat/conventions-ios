@@ -15,6 +15,14 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     @IBOutlet private weak var negetiveFeedbackButton: UIButton!
     @IBOutlet private weak var veryPositiveFeedbackButton: UIButton!
     
+    override var enabled: Bool {
+        didSet {
+            positiveFeedbackButton.userInteractionEnabled = enabled
+            negetiveFeedbackButton.userInteractionEnabled = enabled
+            veryPositiveFeedbackButton.userInteractionEnabled = enabled
+        }
+    }
+    
     override func questionDidSet(question: FeedbackQuestion) {
         questionLabel.text = question.question
     }

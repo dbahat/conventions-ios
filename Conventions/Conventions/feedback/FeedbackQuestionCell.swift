@@ -29,6 +29,9 @@ protocol FeedbackQuestionProtocol : class {
     // Since the question cell can change based on it's content, keep the delta from default here
     var cellHeightDelta = CGFloat(0)
     
+    // Allow disabling the interactions inside the question cell
+    var enabled = true
+    
     /* abstract */ func questionDidSet(question: FeedbackQuestion) {}
     
     /* abstract */ func setAnswer(answer: FeedbackAnswer) {}

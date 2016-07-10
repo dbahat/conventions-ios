@@ -34,6 +34,21 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     
     private var questions: Array<FeedbackQuestion> = []
     private var answers: Array<FeedbackAnswer> = []
+    private var isSent: Bool = false {
+        didSet {
+            if !isSent {
+                return
+            }
+            
+            if let rating = self.answers.getFeedbackWeightedRating() {
+                feedbackIcon.image = rating.answer.getImage()
+            }
+            
+            sendButton.setTitle("הפידבק נשלח. תודה!", forState: .Normal)
+            sendButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            sendButton.userInteractionEnabled = false
+        }
+    }
     
     weak var delegate: EventFeedbackViewProtocol?
     
@@ -56,13 +71,13 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
                 footerView.hidden = true
                 footerHeightConstraint.constant = 0
                 questionsTableHeightConstraint.constant = 0
-                changeStateButton.setTitle("מלא פידבק",forState: .Normal)
-                titleLabel.text = "האירוע נגמר"
-                feedbackIconContainerWidth.constant = 28
+                changeStateButton.setTitle(isSent ? "הצג פידבק" : "מלא פידבק",forState: .Normal)
+                titleLabel.text = getCollapsedTitleLabel()
+                feedbackIconContainerWidth.constant = 38
             }
         }
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
@@ -78,9 +93,23 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
     }
     
-    func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>) {
+    func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
         self.questions = questions
         self.answers = answers
+        self.isSent = isSent
+        
+        if isSent {
+            // Filter out un-answered questions
+            self.questions = questions.filter({question in
+                answers.contains({answer in question.question == answer.questionText})
+            })
+        } else {
+            if Convention.instance.isFeedbackSendingTimeOver() {
+                sendButton.setTitle("זמן שליחת הפידבק הסתיים", forState: .Normal)
+                sendButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+                sendButton.userInteractionEnabled = false
+            }
+        }
         
         questionsTableView.reloadData()
     }
@@ -105,6 +134,9 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         let cell = questionsTableView.dequeueReusableCellWithIdentifier(cellId)! as! FeedbackQuestionCell
         cell.delegate = self
         cell.question = question
+        
+        // disable the question cell interactions if the feedback was already sent
+        cell.enabled = !isSent
         
         if let foundAnswer = answers.filter({answer in answer.questionText == question.question}).first {
             cell.setAnswer(foundAnswer)
@@ -151,20 +183,20 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     
     func setFeedbackAsSent(success: Bool) {
         sendMailIndicator.stopAnimating()
+        sendButton.hidden = false
         
-        if (success) {
+        if success {
+            isSent = true
             state = .Collapsed
             delegate?.feedbackViewHeightDidChange(getHeight())
             
             UIView.animateWithDuration(0.3) {
                 self.layoutIfNeeded()
             }
-        } else {
-            sendButton.hidden = false
         }
     }
 
-    @IBAction func headerWasClicked(sender: UITapGestureRecognizer) {
+    @IBAction private func headerWasClicked(sender: UITapGestureRecognizer) {
         state = state.toggle()
         
         delegate?.feedbackViewHeightDidChange(getHeight())
@@ -179,6 +211,14 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         sendButton.hidden = true
         
         delegate?.sendFeedbackWasClicked()
+    }
+    
+    private func getCollapsedTitleLabel() -> String {
+        if isSent {
+            return "הפידבק נשלח. תודה!"
+        }
+        
+        return Convention.instance.isFeedbackSendingTimeOver() ? "זמן שליחת הפידבק הסתיים" : "האירוע נגמר"
     }
     
     enum State {
@@ -196,7 +236,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     }
 }
 
-extension Array where Element: FeedbackQuestion {
+private extension Array where Element: FeedbackQuestion {
     var height: CGFloat {
         get {
             return self.reduce(0, combine: {totalHight, question in totalHight + question.viewHeight})

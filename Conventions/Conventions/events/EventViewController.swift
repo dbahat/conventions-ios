@@ -17,16 +17,18 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     @IBOutlet private weak var hallAndTime: UILabel!
     @IBOutlet private weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
-    @IBOutlet weak var eventDescriptionContainer: UIView!
-    @IBOutlet weak var feedbackView: EventsFeedbackView!
-    @IBOutlet weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var eventDescriptionContainer: UIView!
+    @IBOutlet private weak var feedbackView: EventsFeedbackView!
+    @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if event.canFillFeedback() {
             feedbackView.delegate = self
-            feedbackView.setFeedback(questions: event.feedbackQuestions, answers: event.feedbackAnswers)
+            feedbackView.setFeedback(questions: event.feedbackQuestions,
+                                     answers: event.feedbackAnswers,
+                                     isSent: event.didSubmitFeedback())
             
             if (event.didSubmitFeedback()) {
                 feedbackView.state = .Collapsed
@@ -134,12 +136,15 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     func sendFeedbackWasClicked() {
         event.submitFeedback({success in
             
+            self.feedbackView.setFeedbackAsSent(success)
+            self.feedbackView.setFeedback(questions: self.event.feedbackQuestions,
+                answers: self.event.feedbackAnswers,
+                isSent: self.event.didSubmitFeedback())
+            
             if !success {
                 TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
                     .show();
             }
-            
-            self.feedbackView.setFeedbackAsSent(success)
         })
     }
     

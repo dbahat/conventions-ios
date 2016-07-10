@@ -56,9 +56,23 @@ class EventView: UIView {
         
         if event.canFillFeedback() {
             feedbackIcon.hidden = false
-            feedbackIcon.image = feedbackIcon.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            feedbackIcon.tintColor = UIColor.grayColor()
             feedbackContainerWidthConstraint.constant = 26
+            
+            if event.didSubmitFeedback() {
+                feedbackIcon.image = event.feedbackAnswers.getFeedbackWeightedRating()?.answer.getImage()
+                    ?? UIImage(named: "Feedback_icon_yellow")
+            } else {
+                
+                let imageName = event.feedbackAnswers.count > 0 && !Convention.instance.isFeedbackSendingTimeOver()
+                        ? "Feedback_email" // Mail icon to indicate the feedback is pending submission
+                        : "Feedback_icon"
+                feedbackIcon.image = UIImage(named: imageName)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                
+                feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
+                    ? UIColor(hexString: "#7EC078") // mark that the user needs to complete the feedback
+                    : UIColor.grayColor()
+            }
+            
         } else {
             feedbackIcon.hidden = true
             feedbackContainerWidthConstraint.constant = 0

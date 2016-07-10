@@ -16,6 +16,11 @@ extension NSDate {
         return dateFormatter.stringFromDate(self);
     }
     
+    func addDays(days: Int) -> NSDate {
+        let calendar = NSCalendar.autoupdatingCurrentCalendar()
+        return calendar.dateByAddingUnit(NSCalendarUnit.Day, value: days, toDate: self, options: [])!;
+    }
+    
     func addHours(hours: Int) -> NSDate {
         let calendar = NSCalendar.autoupdatingCurrentCalendar()
         return calendar.dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: self, options: [])!;
