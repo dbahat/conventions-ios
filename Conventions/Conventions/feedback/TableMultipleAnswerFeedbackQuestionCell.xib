@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableMultipleAnswerFeedbackQuestionCell" rowHeight="102" id="h9u-kD-WZ4" customClass="TableMultipleAnswerFeedbackQuestionCell" customModule="Conventions" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9u-kD-WZ4" id="aqA-Gm-ZQ1">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="101.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="השאלה:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArQ-Gu-Kfh">
+                        <rect key="frame" x="8" y="8" width="460" height="17"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hUa-hv-qdO">
+                        <rect key="frame" x="8" y="25" width="460" height="68.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tableView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <gestureRecognizers/>
+                <constraints>
+                    <constraint firstItem="hUa-hv-qdO" firstAttribute="top" secondItem="ArQ-Gu-Kfh" secondAttribute="bottom" id="1RA-1h-Dfe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hUa-hv-qdO" secondAttribute="trailing" id="3K6-H3-xJ2"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="hUa-hv-qdO" secondAttribute="leading" id="Qh6-iq-AVm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ArQ-Gu-Kfh" secondAttribute="trailing" priority="999" id="YC5-At-9Qc"/>
+                    <constraint firstItem="ArQ-Gu-Kfh" firstAttribute="top" secondItem="aqA-Gm-ZQ1" secondAttribute="topMargin" id="ZNp-b7-Kti"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hUa-hv-qdO" secondAttribute="bottom" id="qbB-sD-aUU"/>
+                    <constraint firstItem="ArQ-Gu-Kfh" firstAttribute="leading" secondItem="aqA-Gm-ZQ1" secondAttribute="leadingMargin" id="uIy-uK-0KZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <connections>
+                <outlet property="questionLabel" destination="ArQ-Gu-Kfh" id="muj-Xt-yfi"/>
+                <outlet property="questionsTableView" destination="hUa-hv-qdO" id="xr8-9d-4I5"/>
+            </connections>
+            <point key="canvasLocation" x="258" y="-131"/>
+        </tableViewCell>
+    </objects>
+</document>

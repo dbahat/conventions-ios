@@ -15,6 +15,14 @@
 		3B1A68691D099EDF000F4414 /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */; };
 		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
+		3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */; };
+		3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */; };
+		3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A751D341A1600943EF5 /* MultipleAnswerCell.xib */; };
+		3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A771D341B2A00943EF5 /* MultipleAnswerCell.swift */; };
+		3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A7B1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib */; };
+		3B4B4A7E1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A7D1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift */; };
+		3B4B4A801D36BD4B00943EF5 /* TableAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A7F1D36BD4B00943EF5 /* TableAnswerCell.xib */; };
+		3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A811D36BD5900943EF5 /* TableAnswerCell.swift */; };
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
 		3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */; };
@@ -76,6 +84,14 @@
 		3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
 		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
+		3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleAnswerFeedbackQuestionCell.xib; sourceTree = "<group>"; };
+		3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAnswerFeedbackQuestionCell.swift; sourceTree = "<group>"; };
+		3B4B4A751D341A1600943EF5 /* MultipleAnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleAnswerCell.xib; sourceTree = "<group>"; };
+		3B4B4A771D341B2A00943EF5 /* MultipleAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAnswerCell.swift; sourceTree = "<group>"; };
+		3B4B4A7B1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableMultipleAnswerFeedbackQuestionCell.xib; sourceTree = "<group>"; };
+		3B4B4A7D1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableMultipleAnswerFeedbackQuestionCell.swift; sourceTree = "<group>"; };
+		3B4B4A7F1D36BD4B00943EF5 /* TableAnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableAnswerCell.xib; sourceTree = "<group>"; };
+		3B4B4A811D36BD5900943EF5 /* TableAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableAnswerCell.swift; sourceTree = "<group>"; };
 		3B4CEB471C7CF7F500AF041B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3B4CEB531C7CF88E00AF041B /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
 		3B4CEB541C7CF88E00AF041B /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
@@ -226,6 +242,14 @@
 				3B8D9FF91D27BCEF005181DA /* TextFeedbackQuestionCell.xib */,
 				3B8D9FFB1D27BEE3005181DA /* TextFeedbackQuestionCell.swift */,
 				3B8D9FFD1D27BFEC005181DA /* FeedbackQuestionCell.swift */,
+				3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */,
+				3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */,
+				3B4B4A751D341A1600943EF5 /* MultipleAnswerCell.xib */,
+				3B4B4A771D341B2A00943EF5 /* MultipleAnswerCell.swift */,
+				3B4B4A7B1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib */,
+				3B4B4A7D1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift */,
+				3B4B4A7F1D36BD4B00943EF5 /* TableAnswerCell.xib */,
+				3B4B4A811D36BD5900943EF5 /* TableAnswerCell.swift */,
 			);
 			path = feedback;
 			sourceTree = "<group>";
@@ -423,13 +447,17 @@
 			files = (
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
+				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BF061601C9F4A1700E29C17 /* Harucon2016Events.json in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
+				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
+				3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3B8D9FFA1D27BCEF005181DA /* TextFeedbackQuestionCell.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
+				3B4B4A801D36BD4B00943EF5 /* TableAnswerCell.xib in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* EventsFeedbackView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
@@ -501,6 +529,7 @@
 				3B114C401D30224C003C6167 /* UITextView.swift in Sources */,
 				3B8D9FF01D1D9BA9005181DA /* EventsFeedbackView.swift in Sources */,
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
+				3B4B4A7E1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
 				3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
@@ -512,7 +541,10 @@
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */,
+				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
+				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
+				3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */,
 				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
 				3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,

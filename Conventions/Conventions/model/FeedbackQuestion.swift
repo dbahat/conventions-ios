@@ -26,8 +26,8 @@ class FeedbackQuestion {
     enum AnswerType {
         case Smiley
         case Text
-        case MultipleAnswersRadioButton
-        case MultipleAnswersChecklist
+        case MultipleAnswer
+        case TableMultipleAnswer
         
         var defaultHeight: CGFloat {
             get {
@@ -36,6 +36,8 @@ class FeedbackQuestion {
                     return 102
                 case .Text:
                     return 102
+                case .TableMultipleAnswer:
+                    return 68
                 default:
                     return 102
                 }

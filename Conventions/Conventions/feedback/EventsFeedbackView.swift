@@ -91,6 +91,8 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
         questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
+        questionsTableView.registerNib(UINib(nibName: String(MultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(MultipleAnswerFeedbackQuestionCell))
+        questionsTableView.registerNib(UINib(nibName: String(TableMultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TableMultipleAnswerFeedbackQuestionCell))
     }
     
     func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
@@ -140,13 +142,13 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         
         if let foundAnswer = answers.filter({answer in answer.questionText == question.question}).first {
             cell.setAnswer(foundAnswer)
+        }
+        
+        if (question.viewHeight != question.answerType.defaultHeight + cell.cellHeightDelta) {
+            question.viewHeight = question.answerType.defaultHeight + cell.cellHeightDelta
             
-            if (question.viewHeight != question.answerType.defaultHeight + cell.cellHeightDelta) {
-                question.viewHeight = question.answerType.defaultHeight + cell.cellHeightDelta
-                
-                questionsTableHeightConstraint.constant = questions.height
-                delegate?.feedbackViewHeightDidChange(getHeight())
-            }
+            questionsTableHeightConstraint.constant = questions.height
+            delegate?.feedbackViewHeightDidChange(getHeight())
         }
         
         return cell

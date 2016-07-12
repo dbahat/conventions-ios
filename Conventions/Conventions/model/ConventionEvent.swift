@@ -33,7 +33,7 @@ class ConventionEvent {
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
         FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
         FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .Text)
+        FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
     init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
