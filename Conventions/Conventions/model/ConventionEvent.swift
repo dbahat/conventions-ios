@@ -52,7 +52,7 @@ class ConventionEvent {
     
     var feedbackAnswers: Array<FeedbackAnswer> {
         get {
-            guard let input = Convention.instance.userInputs.getInput(id) else {
+            guard let input = Convention.instance.eventsInputs.getInput(id) else {
                 return []
             }
             
@@ -62,7 +62,7 @@ class ConventionEvent {
     
     var attending: Bool {
         get {
-            guard let input = Convention.instance.userInputs.getInput(id) else {
+            guard let input = Convention.instance.eventsInputs.getInput(id) else {
                 return false
             }
             
@@ -70,15 +70,15 @@ class ConventionEvent {
         }
         
         set {
-            if let input = Convention.instance.userInputs.getInput(id) {
+            if let input = Convention.instance.eventsInputs.getInput(id) {
                 input.attending = newValue
-                Convention.instance.userInputs.save()
+                Convention.instance.eventsInputs.save()
                 return
             }
             
-            let input = UserInputs.ConventionEvent(attending: newValue, feedbackUserInput: UserInputs.ConventionEvent.Feedback())
-            Convention.instance.userInputs.setInput(input, forEventId: id)
-            Convention.instance.userInputs.save()
+            let input = UserInput.ConventionEvent(attending: newValue, feedbackUserInput: UserInput.Feedback())
+            Convention.instance.eventsInputs.setInput(input, forEventId: id)
+            Convention.instance.eventsInputs.save()
             
             if input.attending {
                 NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
@@ -91,26 +91,26 @@ class ConventionEvent {
     
     func provide(feedback answer: FeedbackAnswer) {
         
-        if let input = Convention.instance.userInputs.getInput(id) {
+        if let input = Convention.instance.eventsInputs.getInput(id) {
             // If the answer already exists, override it
             if let existingAnswerIndex = input.feedbackUserInput.answers.indexOf({$0.questionText == answer.questionText}) {
                 input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
             }
             input.feedbackUserInput.answers.append(answer)
-            Convention.instance.userInputs.save()
+            Convention.instance.eventsInputs.save()
             return
         }
         
-        let feedback = UserInputs.ConventionEvent.Feedback()
+        let feedback = UserInput.Feedback()
         feedback.answers.append(answer)
-        let input = UserInputs.ConventionEvent(attending: false, feedbackUserInput: feedback)
+        let input = UserInput.ConventionEvent(attending: false, feedbackUserInput: feedback)
         
-        Convention.instance.userInputs.setInput(input, forEventId: id)
-        Convention.instance.userInputs.save()
+        Convention.instance.eventsInputs.setInput(input, forEventId: id)
+        Convention.instance.eventsInputs.save()
     }
     
     func clear(feedback question: FeedbackQuestion) {
-        guard let input = Convention.instance.userInputs.getInput(id) else {
+        guard let input = Convention.instance.eventsInputs.getInput(id) else {
             // no inputs means nothing to clear
             return
         }
@@ -121,11 +121,11 @@ class ConventionEvent {
         }
         
         input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
-        Convention.instance.userInputs.save()
+        Convention.instance.eventsInputs.save()
     }
     
     func submitFeedback(callback: ((success: Bool) -> Void)?) {
-        guard let input = Convention.instance.userInputs.getInput(id) else {
+        guard let input = Convention.instance.eventsInputs.getInput(id) else {
             // In case the user tries to submit empty feedback auto-fail the submission request
             callback?(success: false)
             return
@@ -140,7 +140,7 @@ class ConventionEvent {
     }
     
     func didSubmitFeedback() -> Bool {
-        guard let input = Convention.instance.userInputs.getInput(id) else {
+        guard let input = Convention.instance.eventsInputs.getInput(id) else {
             return false
         }
         

@@ -32,6 +32,7 @@
 		3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E0C761C933B2D004BF8AE /* LaunchScreen.storyboard */; };
 		3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */; };
 		3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */; };
+		3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8664C71D4007DC00A504FC /* UserInput.swift */; };
 		3B8D9FE91D153A28005181DA /* FeedbackQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */; };
 		3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */; };
 		3B8D9FEE1D1D4E9C005181DA /* EventsFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D9FED1D1D4E9C005181DA /* EventsFeedbackView.xib */; };
@@ -103,6 +104,7 @@
 		3B5E0C771C933B2D004BF8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Conventions/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
 		3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtentions.swift; path = extentions/NSDateExtentions.swift; sourceTree = "<group>"; };
+		3B8664C71D4007DC00A504FC /* UserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInput.swift; path = model/UserInput.swift; sourceTree = "<group>"; };
 		3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackQuestion.swift; path = model/FeedbackQuestion.swift; sourceTree = "<group>"; };
 		3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackAnswer.swift; path = model/FeedbackAnswer.swift; sourceTree = "<group>"; };
 		3B8D9FED1D1D4E9C005181DA /* EventsFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsFeedbackView.xib; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				3BB631191C89738400D54D3E /* Update.swift */,
 				3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */,
 				3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */,
+				3B8664C71D4007DC00A504FC /* UserInput.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			files = (
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
+				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
 				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,

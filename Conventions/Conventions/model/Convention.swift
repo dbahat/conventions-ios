@@ -9,16 +9,20 @@
 import Foundation
 
 class Convention {
-    static let instance = Convention();
-    static let date = NSDate.from(year: 2016, month: 7, day: 11);
-    static let name = "Harucon2016";
+    static let instance = Convention()
+    static let date = NSDate.from(year: 2016, month: 7, day: 11)
+    static let name = "Harucon2016"
     static let mailbox = "dbahat@live.com"
     
-    var halls: Array<Hall>;
-    var events: Events;
-    var updates = Updates();
-    let userInputs = UserInputs();
+    var halls: Array<Hall>
+    var events: Events
+    var updates = Updates()
     
+    let eventsInputs = UserInputs.Events()
+    
+    let feedback = UserInputs.ConventionInputs()
+    let feedbackQuestions: Array<FeedbackQuestion>
+ 
     init() {
         halls = [
             Hall(name: "אולם ראשי", order: 1),
@@ -28,15 +32,32 @@ class Convention {
             Hall(name: "אשכול 3", order: 5)
         ];
         
-        events = Events(halls: halls);
+        events = Events(halls: halls)
+        
+        feedbackQuestions = [
+            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
+                "פחות מ-12", "17-12", "25-18", "+25"
+                ]),
+            FeedbackQuestion(question:"עד כמה נהנית בכנס?", answerType: .Smiley),
+            FeedbackQuestion(question:"הצעות לשיפור ודברים לשימור?", answerType: .Smiley),
+            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
+                "כן", "לא"
+                ]),
+            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
+                "האירוע התנגש עם אירוע אחר שהלכתי אילו",
+                "לא הצלחתי למצא את החדר",
+                "האירוע התרחש מוקדם או מאוחר מידי",
+                "סיבה אחרת",
+                ])
+        ]
     }
     
-    func findHallByName(name: String!) -> Hall! {
+    func findHallByName(name: String) -> Hall {
         if let hall = halls.filter({hall in hall.name == name}).first {
-            return hall;
+            return hall
         }
         print("Couldn't find hall ", name, ". Using default hall.");
-        return Hall(name: "אירועים מיוחדים", order: 6);
+        return Hall(name: "אירועים מיוחדים", order: 6)
     }
     
     func isFeedbackSendingTimeOver() -> Bool {

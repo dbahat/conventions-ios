@@ -78,7 +78,7 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        Convention.instance.userInputs.save()
+        Convention.instance.eventsInputs.save()
     }
     
     override func viewDidAppear(animated: Bool) {
