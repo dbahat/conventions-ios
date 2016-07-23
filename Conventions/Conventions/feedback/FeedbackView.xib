@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventsFeedbackView" customModule="Conventions" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackView">
             <connections>
                 <outlet property="changeStateButton" destination="0nU-vt-zOV" id="Y80-96-XZG"/>
                 <outlet property="feedbackIcon" destination="4Zb-5r-3RP" id="SCu-iw-PlJ"/>
                 <outlet property="feedbackIconContainerWidth" destination="lZG-2C-ssV" id="VSV-MU-fKt"/>
                 <outlet property="footerHeightConstraint" destination="oXr-N0-ODR" id="Th8-Mk-Csu"/>
                 <outlet property="footerView" destination="JcI-wy-Rm0" id="D5J-p2-ltz"/>
+                <outlet property="headerView" destination="woT-wP-Mo9" id="IBn-F9-lgm"/>
+                <outlet property="headerViewHeightConstraint" destination="ffw-MQ-S4o" id="kuj-L5-EcH"/>
                 <outlet property="questionsTableHeightConstraint" destination="cq9-y5-ghS" id="Yfu-hq-32l"/>
                 <outlet property="questionsTableView" destination="DPN-bR-NDS" id="T2j-K1-Vwk"/>
                 <outlet property="sendButton" destination="d3a-FY-EfO" id="M7q-Kc-Yla"/>
@@ -30,7 +32,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF0-AY-RiL">
                             <rect key="frame" x="539" y="0.0" width="41" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkQ-Mg-uh3" userLabel="Feedback Icon Container">
@@ -64,6 +66,7 @@
                         <constraint firstAttribute="bottom" secondItem="0nU-vt-zOV" secondAttribute="bottom" id="QPs-Bc-7yE"/>
                         <constraint firstAttribute="bottom" secondItem="uF0-AY-RiL" secondAttribute="bottom" id="Z3d-uG-xoJ"/>
                         <constraint firstItem="GkQ-Mg-uh3" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="bjt-Pa-c8N"/>
+                        <constraint firstAttribute="height" constant="30" id="ffw-MQ-S4o"/>
                         <constraint firstItem="0nU-vt-zOV" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="nju-vV-Ett"/>
                         <constraint firstAttribute="bottom" secondItem="GkQ-Mg-uh3" secondAttribute="bottom" id="sJM-sy-vBA"/>
                         <constraint firstItem="uF0-AY-RiL" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="yg3-vs-NOz"/>
@@ -121,7 +124,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.99607843137254903" green="1" blue="0.78823529411764703" alpha="0.75053879310344829" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JcI-wy-Rm0" secondAttribute="trailing" constant="10" id="OLm-Bg-PVY"/>
                 <constraint firstItem="DPN-bR-NDS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dtG-Xf-qeY"/>

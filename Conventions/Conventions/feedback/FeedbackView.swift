@@ -1,6 +1,6 @@
 
 //
-//  EventsFeedbackView.swift
+//  FeedbackView.swift
 //  Conventions
 //
 //  Created by David Bahat on 6/24/16.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-protocol EventFeedbackViewProtocol : class {
+protocol FeedbackViewProtocol : class {
     func feedbackViewHeightDidChange(newHeight: CGFloat)
     
     func feedbackProvided(feedback: FeedbackAnswer)
@@ -19,7 +19,7 @@ protocol EventFeedbackViewProtocol : class {
     func sendFeedbackWasClicked()
 }
 
-class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
+class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
     
     @IBOutlet private weak var feedbackIconContainerWidth: NSLayoutConstraint!
     @IBOutlet private weak var feedbackIcon: UIImageView!
@@ -31,6 +31,8 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var footerView: UIView!
     @IBOutlet private weak var sendMailIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerViewHeightConstraint: NSLayoutConstraint!
     
     private var questions: Array<FeedbackQuestion> = []
     private var answers: Array<FeedbackAnswer> = []
@@ -50,7 +52,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
         }
     }
     
-    weak var delegate: EventFeedbackViewProtocol?
+    weak var delegate: FeedbackViewProtocol?
     
     private let headerHeight = CGFloat(30)
     private let footerHeight = CGFloat(31)
@@ -81,7 +83,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        let view = NSBundle.mainBundle().loadNibNamed(String(EventsFeedbackView), owner: self, options: nil)[0] as! UIView
+        let view = NSBundle.mainBundle().loadNibNamed(String(FeedbackView), owner: self, options: nil)[0] as! UIView
         view.frame = self.bounds
         addSubview(view);
         
@@ -124,6 +126,11 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
             let questionsLayoutHeight = questions.height
             return headerHeight + 2 * paddingSize + questionsLayoutHeight + footerHeight + paddingSize
         }
+    }
+    
+    func setHeaderHidden(hidden: Bool) {
+        headerView.hidden = hidden
+        headerViewHeightConstraint.constant = hidden ? 0 : 30
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -186,16 +193,7 @@ class EventsFeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, F
     func setFeedbackAsSent(success: Bool) {
         sendMailIndicator.stopAnimating()
         sendButton.hidden = false
-        
-        if success {
-            isSent = true
-            state = .Collapsed
-            delegate?.feedbackViewHeightDidChange(getHeight())
-            
-            UIView.animateWithDuration(0.3) {
-                self.layoutIfNeeded()
-            }
-        }
+        isSent = success
     }
 
     @IBAction private func headerWasClicked(sender: UITapGestureRecognizer) {

@@ -39,7 +39,6 @@ class Convention {
                 "פחות מ-12", "17-12", "25-18", "+25"
                 ]),
             FeedbackQuestion(question:"עד כמה נהנית בכנס?", answerType: .Smiley),
-            FeedbackQuestion(question:"הצעות לשיפור ודברים לשימור?", answerType: .Smiley),
             FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
                 "כן", "לא"
                 ]),
@@ -48,7 +47,8 @@ class Convention {
                 "לא הצלחתי למצא את החדר",
                 "האירוע התרחש מוקדם או מאוחר מידי",
                 "סיבה אחרת",
-                ])
+                ]),
+            FeedbackQuestion(question: "הצעות לשיפור ודברים לשימור", answerType: .Text)
         ]
     }
     

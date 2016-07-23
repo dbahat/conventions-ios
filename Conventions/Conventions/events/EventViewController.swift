@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController: BaseViewController, EventFeedbackViewProtocol {
+class EventViewController: BaseViewController, FeedbackViewProtocol {
 
     var event: ConventionEvent!;
     
@@ -18,7 +18,7 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     @IBOutlet private weak var eventDescription: UITextView!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var eventDescriptionContainer: UIView!
-    @IBOutlet private weak var feedbackView: EventsFeedbackView!
+    @IBOutlet private weak var feedbackView: FeedbackView!
     @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -119,7 +119,7 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
     // MARK: - EventFeedbackViewProtocol
     
     func feedbackViewHeightDidChange(newHeight: CGFloat) {
-        feedbackViewHeightConstraint.constant = feedbackView.getHeight()
+        feedbackViewHeightConstraint.constant = newHeight
         UIView.animateWithDuration(0.3) {
             self.view.layoutIfNeeded()
         }
@@ -145,6 +145,9 @@ class EventViewController: BaseViewController, EventFeedbackViewProtocol {
                 TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
                     .show();
             }
+            
+            self.feedbackView.state = .Collapsed
+            self.feedbackViewHeightDidChange(self.feedbackView.getHeight())
         })
     }
     

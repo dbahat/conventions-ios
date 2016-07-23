@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YKF-oi-L6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YKF-oi-L6D">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -156,9 +156,9 @@
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="top" constant="5" id="lQ5-WN-5kT"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="EventsFeedbackView" customModule="Conventions" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
                                         <rect key="frame" x="20" y="168.5" width="374" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.78823529410000004" alpha="0.75053879310000005" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6OO-Xy-ohO"/>
                                         </constraints>
@@ -443,6 +443,75 @@
             </objects>
             <point key="canvasLocation" x="913" y="1798"/>
         </scene>
+        <!--Convention Feedback View Controller-->
+        <scene sceneID="txX-gI-Qrm">
+            <objects>
+                <viewController id="9cX-Hv-YPC" customClass="ConventionFeedbackViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sek-9v-cec"/>
+                        <viewControllerLayoutGuide type="bottom" id="kZz-j6-9jY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1ap-V7-ALv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S4-nS-Wyp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הכנס" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
+                                        <rect key="frame" x="10" y="0.0" width="394" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מלא פידבק כללי על הכנס - קופות, דוכנים, משחקיה, עמדת צילום וכל דבר אחר." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcq-pQ-meg">
+                                        <rect key="frame" x="10" y="29" width="394" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-Ke-l8Y" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="48" width="394" height="623.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="623.5" id="cUH-Qs-AQX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gcq-pQ-meg" firstAttribute="bottom" secondItem="WRh-Ke-l8Y" secondAttribute="top" id="540-w6-0fN"/>
+                                    <constraint firstItem="uWh-41-boP" firstAttribute="top" secondItem="9S4-nS-Wyp" secondAttribute="top" id="AAn-ai-ihw"/>
+                                    <constraint firstAttribute="trailing" secondItem="gcq-pQ-meg" secondAttribute="trailing" constant="10" id="FZe-81-245"/>
+                                    <constraint firstItem="WRh-Ke-l8Y" firstAttribute="leading" secondItem="9S4-nS-Wyp" secondAttribute="leading" constant="10" id="GvJ-eV-lwv"/>
+                                    <constraint firstAttribute="bottom" secondItem="WRh-Ke-l8Y" secondAttribute="bottom" id="S2l-Y0-N0k"/>
+                                    <constraint firstAttribute="trailing" secondItem="uWh-41-boP" secondAttribute="trailing" constant="10" id="TL1-cq-C3b"/>
+                                    <constraint firstItem="uWh-41-boP" firstAttribute="leading" secondItem="9S4-nS-Wyp" secondAttribute="leading" constant="10" id="bpO-J6-JVQ"/>
+                                    <constraint firstItem="uWh-41-boP" firstAttribute="bottom" secondItem="gcq-pQ-meg" secondAttribute="top" id="hT1-47-jhJ"/>
+                                    <constraint firstItem="gcq-pQ-meg" firstAttribute="leading" secondItem="9S4-nS-Wyp" secondAttribute="leading" constant="10" id="id6-Xc-ouS"/>
+                                    <constraint firstAttribute="trailing" secondItem="WRh-Ke-l8Y" secondAttribute="trailing" constant="10" id="yQw-B3-n10"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uWh-41-boP" firstAttribute="leading" secondItem="1ap-V7-ALv" secondAttribute="leading" constant="10" id="3br-Nf-S6t"/>
+                            <constraint firstAttribute="trailing" secondItem="uWh-41-boP" secondAttribute="trailing" constant="10" id="JFV-vZ-TVr"/>
+                            <constraint firstItem="9S4-nS-Wyp" firstAttribute="leading" secondItem="1ap-V7-ALv" secondAttribute="leading" id="Yu6-L8-MAr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="9S4-nS-Wyp" secondAttribute="bottom" id="eqK-Yp-s8F"/>
+                            <constraint firstAttribute="topMargin" secondItem="9S4-nS-Wyp" secondAttribute="top" id="siR-9e-md6"/>
+                            <constraint firstAttribute="trailing" secondItem="9S4-nS-Wyp" secondAttribute="trailing" id="zBs-Pr-hZe"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="feedbackView" destination="WRh-Ke-l8Y" id="TEy-QG-ewW"/>
+                        <outlet property="feedbackViewHeightConstraint" destination="cUH-Qs-AQX" id="NoB-Ft-1ZO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93b-YU-Fqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-823" y="-820"/>
+        </scene>
         <!--Opening-->
         <scene sceneID="o0k-H8-zTx">
             <objects>
@@ -461,11 +530,15 @@
                                     <constraint firstAttribute="width" secondItem="aId-wV-mvS" secondAttribute="height" multiplier="250:107" id="97m-Xo-XNC"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RLG-Wu-VfY">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RLG-Wu-VfY">
                                 <rect key="frame" x="0.0" y="157.5" width="414" height="126"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RLG-Wu-VfY" secondAttribute="height" multiplier="539:164" id="wjc-4D-711"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dOV-Ct-MtA" appends="YES" id="Nqz-BW-BQd"/>
+                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtS-g4-zw2" userLabel="ButtonsBackground">
                                 <rect key="frame" x="0.0" y="283.5" width="414" height="388.5"/>
@@ -539,6 +612,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>
+                        <segue destination="9cX-Hv-YPC" kind="show" identifier="HomeToFeedbackSegue" id="UEp-OA-9fr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFO-9I-u4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -560,6 +634,11 @@
                 <tapGestureRecognizer id="VkU-sB-0kP" userLabel="UpdatesRecognizer">
                     <connections>
                         <action selector="updatedWasTapped:" destination="eEe-jU-bHM" id="Hak-Ud-HNM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="dOV-Ct-MtA">
+                    <connections>
+                        <action selector="FeedbackWasTapped:" destination="eEe-jU-bHM" id="FEf-Qk-LqQ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

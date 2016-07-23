@@ -64,7 +64,7 @@ class TableMultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UITableVie
             delegate?.questionCleared(question!)
         } else {
             selectedAnswerIndex = indexPath
-            delegate?.questionWasAnswered(FeedbackAnswer(questionText: question!.question))
+            delegate?.questionWasAnswered(FeedbackAnswer.Text(questionText: question!.question, answer: answersToSelectFrom[indexPath.row]))
         }
         questionsTableView.reloadData()
     }

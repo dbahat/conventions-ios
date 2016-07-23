@@ -36,10 +36,10 @@ class FeedbackQuestion {
                     return 102
                 case .Text:
                     return 102
+                case .MultipleAnswer:
+                    return 60
                 case .TableMultipleAnswer:
                     return 68
-                default:
-                    return 102
                 }
             }
         }

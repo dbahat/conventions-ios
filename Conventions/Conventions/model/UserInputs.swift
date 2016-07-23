@@ -36,11 +36,11 @@ class UserInputs {
             let serilizableInputs = eventInputs.map({input in [input.0: input.1.toJson()]});
             
             let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);
-            json?.writeToFile(UserInputs.Events.eventsStorageFileName, atomically: true);
+            json?.writeToFile(UserInputs.Events.eventsStorageFile, atomically: true);
         }
         
         private func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEvent>? {
-            guard let storedInputs = NSData(contentsOfFile: UserInputs.Events.eventsStorageFileName) else {
+            guard let storedInputs = NSData(contentsOfFile: UserInputs.Events.eventsStorageFile) else {
                 return nil;
             }
             guard let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments) else {
@@ -62,8 +62,7 @@ class UserInputs {
         private static let conventionStorageFileName = Convention.name + "ConventionInputs.json";
         private static let conventionStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.ConventionInputs.conventionStorageFileName;
         
-        
-        private var conventionInputs = UserInput.Feedback()
+        private(set) var conventionInputs = UserInput.Feedback()
         
         init() {
             if let cachedConventionInputs = loadConventionFeedback() {
@@ -73,12 +72,12 @@ class UserInputs {
         
         func save() {
             let json = try? NSJSONSerialization.dataWithJSONObject(conventionInputs.toJson(), options: NSJSONWritingOptions.PrettyPrinted);
-            json?.writeToFile(UserInputs.Events.eventsStorageFileName, atomically: true);
+            json?.writeToFile(UserInputs.ConventionInputs.conventionStorageFile, atomically: true);
         }
         
         private func loadConventionFeedback() -> UserInput.Feedback? {
             guard
-                let storedInputs = NSData(contentsOfFile: UserInputs.ConventionInputs.conventionStorageFileName),
+                let storedInputs = NSData(contentsOfFile: UserInputs.ConventionInputs.conventionStorageFile),
                 let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments),
                 let userInputs = userInputsJson as? Dictionary<String, AnyObject>
                 else {
