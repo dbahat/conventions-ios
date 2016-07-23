@@ -44,7 +44,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     }
     
     func sendFeedbackWasClicked() {
-        Convention.instance.feedback.conventionInputs.submit("כנס הארוקון 2016", callback: {success in
+        Convention.instance.feedback.conventionInputs.submit("פידבק לכנס " + Convention.displayName, callback: {success in
             
             self.feedbackView.setFeedbackAsSent(success)
             self.feedbackView.setFeedback(questions: Convention.instance.feedbackQuestions,

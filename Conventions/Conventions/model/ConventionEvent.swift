@@ -131,7 +131,7 @@ class ConventionEvent {
             return
         }
         
-        input.feedbackUserInput.submit(title, callback: callback)
+        input.feedbackUserInput.submit("פידבק עבור האירוע " + title, callback: callback)
     }
     
     func canFillFeedback() -> Bool {

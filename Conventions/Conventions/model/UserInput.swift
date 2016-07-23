@@ -53,7 +53,7 @@ class UserInput {
             let builder = MCOMessageBuilder();
             builder.header.from = MCOAddress(mailbox: FeedbackMailInfo.mailbox)
             builder.header.to = [MCOAddress(mailbox: Convention.mailbox)]
-            builder.header.subject = "מייל אוטומטי - פידבק עבור האירוע " + title
+            builder.header.subject = "מייל אוטומטי -  " + title
             
             var formattedAnswers = answers.map({
                 String(format: "%@\n%@", $0.questionText, $0.getAnswer())
