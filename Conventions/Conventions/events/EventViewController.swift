@@ -127,10 +127,12 @@ class EventViewController: BaseViewController, FeedbackViewProtocol {
     
     func feedbackProvided(feedback: FeedbackAnswer) {
         event.provide(feedback: feedback)
+        feedbackView.setSendButtonEnabled(event.feedbackAnswers.count > 0)
     }
     
     func feedbackCleared(feedback: FeedbackQuestion) {
         event.clear(feedback: feedback)
+        feedbackView.setSendButtonEnabled(event.feedbackAnswers.count > 0)
     }
     
     func sendFeedbackWasClicked() {

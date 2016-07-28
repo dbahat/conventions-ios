@@ -112,25 +112,48 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
                 sendButton.setTitle("זמן שליחת הפידבק הסתיים", forState: .Normal)
                 sendButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
                 sendButton.userInteractionEnabled = false
+            } else {
+                // Disable the send button unless the user answers a question
+                sendButton.enabled = answers.count > 0
             }
         }
         
         questionsTableView.reloadData()
     }
     
+    func removeAnsweredQuestions(answers: Array<FeedbackAnswer>) {
+        self.answers = answers
+        
+        var indexesToUpdate = Array<NSIndexPath>()
+        var answeredQuestions = Array<FeedbackQuestion>()
+        
+        // get the indexes of all un-answered questions, so we can animate their removal
+        for index in 0...(questions.count - 1) {
+            let question = questions[index]
+            if !answers.contains({answer in answer.questionText == question.question}) {
+                indexesToUpdate.append(NSIndexPath(forRow: index, inSection: 0))
+            } else {
+                answeredQuestions.append(question)
+            }
+        }
+        
+        questions = answeredQuestions
+        questionsTableView.deleteRowsAtIndexPaths(indexesToUpdate, withRowAnimation: UITableViewRowAnimation.Automatic)
+        questionsTableHeightConstraint.constant = questions.height
+    }
+    
     func getHeight() -> CGFloat {
         switch state {
         case .Collapsed:
-            return headerHeight + 2 * paddingSize
+            return headerView.frame.size.height + 2 * paddingSize
         case .Expended:
-            let questionsLayoutHeight = questions.height
-            return headerHeight + 2 * paddingSize + questionsLayoutHeight + footerHeight + paddingSize
+            return paddingSize + headerViewHeightConstraint.constant + 2 * paddingSize + questions.height + footerHeight + paddingSize
         }
     }
     
     func setHeaderHidden(hidden: Bool) {
         headerView.hidden = hidden
-        headerViewHeightConstraint.constant = hidden ? 0 : 30
+        headerViewHeightConstraint.constant = hidden ? 0 : headerHeight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -194,6 +217,10 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         sendMailIndicator.stopAnimating()
         sendButton.hidden = false
         isSent = success
+    }
+    
+    func setSendButtonEnabled(enabled: Bool) {
+        sendButton.enabled = enabled;
     }
 
     @IBAction private func headerWasClicked(sender: UITapGestureRecognizer) {

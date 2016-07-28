@@ -71,6 +71,7 @@
                         <constraint firstAttribute="bottom" secondItem="GkQ-Mg-uh3" secondAttribute="bottom" id="sJM-sy-vBA"/>
                         <constraint firstItem="uF0-AY-RiL" firstAttribute="top" secondItem="woT-wP-Mo9" secondAttribute="top" id="yg3-vs-NOz"/>
                     </constraints>
+                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="F2J-aT-WRG" appends="YES" id="79r-R3-mG9"/>
                     </connections>
@@ -82,6 +83,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="408" id="cq9-y5-ghS"/>
                     </constraints>
+                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="C1Q-3r-eTg"/>
@@ -122,6 +124,7 @@
                         <constraint firstAttribute="height" constant="31" id="oXr-N0-ODR"/>
                         <constraint firstItem="Ggs-ru-yMO" firstAttribute="leading" secondItem="JcI-wy-Rm0" secondAttribute="leading" id="pfF-BM-NZd"/>
                     </constraints>
+                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -136,6 +139,7 @@
                 <constraint firstAttribute="trailing" secondItem="woT-wP-Mo9" secondAttribute="trailing" constant="10" id="wb1-dl-EhF"/>
                 <constraint firstItem="JcI-wy-Rm0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="y73-Ka-tEC"/>
             </constraints>
+            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
         </view>
         <tapGestureRecognizer id="F2J-aT-WRG">
             <connections>
