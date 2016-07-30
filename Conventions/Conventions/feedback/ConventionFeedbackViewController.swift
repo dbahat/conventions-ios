@@ -12,6 +12,16 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     
     @IBOutlet private weak var feedbackView: FeedbackView!
     @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var submittedEventsTabledView: UITableView!
+    @IBOutlet private weak var submittedEventsTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var eventsToSubmitTableView: UITableView!
+    @IBOutlet private weak var eventsToSubmitHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var submitAllFeedbacksButtonIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var submitAllFeedbacksButton: UIButton!
+    
+    private let submittedEventsDataSource = EventsTableDataSource()
+    private let eventsToSubmitDataSource = EventsTableDataSource()
     
     private var userInputs: UserInput.Feedback {
         get {
@@ -37,6 +47,8 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         // Need to set the view height constrant only after we set the 
         // feedback and it's collapsed state, since its size changes based on the questions and state
         feedbackViewHeightConstraint.constant = feedbackView.getHeight()
+        
+        initializeEventsTableViews()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -88,5 +100,76 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     
     func feedbackViewHeightDidChange(newHeight: CGFloat) {
         feedbackViewHeightConstraint.constant = newHeight
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let eventViewController = segue.destinationViewController as? EventViewController;
+        if let event = sender as? ConventionEvent {
+            eventViewController?.event = event
+        }
+    }
+    
+    @IBAction private func submitAllEventsFeedbackWasTapped(sender: UIButton) {
+        submitAllFeedbacksButton.hidden = true
+        submitAllFeedbacksButtonIndicator.hidden = false
+        
+        var submittedEventsCount = 0;
+        
+        for event in eventsToSubmitDataSource.events {
+            event.submitFeedback({success in
+                if !success {
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                        .show();
+                    return
+                }
+                
+                submittedEventsCount += 1;
+                if submittedEventsCount == self.eventsToSubmitDataSource.events.count {
+                    self.submitAllFeedbacksButton.hidden = false
+                    self.submitAllFeedbacksButtonIndicator.hidden = true
+                    
+                    // reset the tableViews to reflect the new changes in submitted events
+                    self.initializeEventsTableViews()
+                    self.submittedEventsTabledView.reloadData()
+                    self.eventsToSubmitTableView.reloadData()
+                }
+            })
+        }
+    }
+    
+    private func initializeEventsTableViews() {
+        submittedEventsDataSource.events = Convention.instance.events.getAll().filter({$0.didSubmitFeedback()})
+        submittedEventsTableViewHeightConstraint.constant = CGFloat(102 * submittedEventsDataSource.events.count)
+        submittedEventsTabledView.dataSource = submittedEventsDataSource
+        submittedEventsTabledView.delegate = submittedEventsDataSource
+        submittedEventsDataSource.referencingViewController = self
+        
+        eventsToSubmitDataSource.events = Convention.instance.events.getAll().filter({$0.feedbackAnswers.count > 0 && !$0.didSubmitFeedback() && !Convention.instance.isFeedbackSendingTimeOver()})
+        eventsToSubmitHeightConstraint.constant = CGFloat(102 * eventsToSubmitDataSource.events.count)
+        eventsToSubmitTableView.dataSource = eventsToSubmitDataSource
+        eventsToSubmitTableView.delegate = eventsToSubmitDataSource
+        eventsToSubmitDataSource.referencingViewController = self
+    }
+    
+    class EventsTableDataSource : NSObject, UITableViewDataSource, UITableViewDelegate {
+        
+        var events = Array<ConventionEvent>()
+        weak var referencingViewController: UIViewController?
+        
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return events.count
+        }
+        
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let event = events[indexPath.row]
+            let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell)) as! EventTableViewCell
+            cell.setEvent(event)
+            return cell
+        }
+        
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            let event = events[indexPath.row]
+            referencingViewController?.performSegueWithIdentifier("ConventionFeedbackToEventSegue", sender: event)
+        }
     }
 }
