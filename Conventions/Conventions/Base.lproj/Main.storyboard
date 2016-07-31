@@ -59,6 +59,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="IEv-cR-XNp"/>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="jfY-fu-2Nl"/>
@@ -90,8 +91,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -209,7 +210,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="002-IK-1lJ"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="bottom" secondItem="9AU-0L-zpZ" secondAttribute="bottomMargin" id="40u-EZ-ZVH"/>
@@ -305,7 +306,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="spa-7L-sPa" firstAttribute="top" secondItem="N6h-fc-8yz" secondAttribute="bottom" id="5LA-ei-xsA"/>
                             <constraint firstItem="JFY-3o-v3d" firstAttribute="centerY" secondItem="HV6-8m-8ed" secondAttribute="centerY" id="FdP-a0-DVc"/>
@@ -342,7 +343,7 @@
                     <view key="view" contentMode="scaleToFill" id="Cng-0T-jnZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="מפה" image="MenuMap" id="rxg-Sj-KVZ"/>
                     <navigationItem key="navigationItem" title="מפה" id="c9g-k1-xt3">
@@ -392,7 +393,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.56470588235294117" green="0.50980392156862742" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.95294117647058818" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5ZX-VQ-eql" firstAttribute="top" secondItem="jMN-7u-fwi" secondAttribute="top" id="Ig3-ST-1Ul"/>
                             <constraint firstItem="5ZX-VQ-eql" firstAttribute="bottom" secondItem="pTa-3F-Fnb" secondAttribute="top" id="Po8-52-beI"/>
@@ -427,7 +428,7 @@
                     <view key="view" contentMode="scaleToFill" id="lL7-48-hx3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="דרכי הגעה" image="MenuArrivalMethods" id="f6T-IB-I0A"/>
                     <navigationItem key="navigationItem" title="דרכי הגעה" id="L6J-dU-28K">
@@ -506,9 +507,14 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-Gm-K8v">
-                                        <rect key="frame" x="180" y="186" width="54" height="30"/>
-                                        <state key="normal" title="שלח הכל"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-Gm-K8v">
+                                        <rect key="frame" x="175" y="186" width="64" height="34"/>
+                                        <state key="normal" title="שלח הכל">
+                                            <color key="titleColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.96078431369999995" green="0.32549019610000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="submitAllEventsFeedbackWasTapped:" destination="9cX-Hv-YPC" eventType="touchUpInside" id="yVq-Zx-8iE"/>
                                         </connections>
@@ -517,20 +523,20 @@
                                         <rect key="frame" x="197" y="191" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wr-My-40V" userLabel="Seperator View">
-                                        <rect key="frame" x="10" y="216.5" width="394" height="1"/>
+                                        <rect key="frame" x="10" y="220" width="394" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Q0q-cP-6od"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק שמילאת על אירועים" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFt-4d-yfh">
-                                        <rect key="frame" x="10" y="221" width="394" height="29"/>
+                                        <rect key="frame" x="10" y="225" width="394" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Em6-3o-DVx">
-                                        <rect key="frame" x="0.0" y="250" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="254" width="414" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="CxQ-Ue-l17"/>
@@ -566,19 +572,19 @@
                                         </prototypes>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הכנס" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
-                                        <rect key="frame" x="10" y="388" width="394" height="29"/>
+                                        <rect key="frame" x="10" y="392" width="394" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מלא פידבק כללי על הכנס - קופות, דוכנים, משחקיה, עמדת צילום וכל דבר אחר." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcq-pQ-meg">
-                                        <rect key="frame" x="10" y="417" width="394" height="19.5"/>
+                                        <rect key="frame" x="10" y="421" width="394" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-Ke-l8Y" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="436" width="394" height="623.5"/>
+                                        <rect key="frame" x="10" y="440" width="394" height="623.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="623.5" id="cUH-Qs-AQX"/>
@@ -621,7 +627,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uWh-41-boP" firstAttribute="leading" secondItem="1ap-V7-ALv" secondAttribute="leading" constant="10" id="3br-Nf-S6t"/>
                             <constraint firstAttribute="trailing" secondItem="uWh-41-boP" secondAttribute="trailing" constant="10" id="JFV-vZ-TVr"/>
@@ -855,7 +861,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4T8-O5-cGp" firstAttribute="top" secondItem="R2k-5U-iw3" secondAttribute="bottom" id="3uQ-mh-ZsI"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="8Gk-OS-KIT"/>

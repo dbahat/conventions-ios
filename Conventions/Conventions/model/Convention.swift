@@ -10,9 +10,9 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = NSDate.from(year: 2016, month: 7, day: 11)
-    static let name = "Harucon2016"
-    static let displayName = "הארוקון 2016"
+    static let date = NSDate.from(year: 2016, month: 8, day: 25)
+    static let name = "Cami2016"
+    static let displayName = "כאמ\"י 2016"
     static let mailbox = "dbahat@live.com"
     
     var halls: Array<Hall>

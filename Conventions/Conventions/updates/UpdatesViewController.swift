@@ -8,8 +8,8 @@
 
 class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    private let updateCellTopLayoutSize: CGFloat = 19;
-    private let updateCellMargins: CGFloat = 20;
+    private let updateCellTopLayoutSize: CGFloat = 19
+    private let updateCellMargins: CGFloat = 20
     
     @IBOutlet private weak var facebookLoginButton: FBSDKLoginButton!
     @IBOutlet private weak var loginButtonContainer: UIView!
@@ -17,45 +17,45 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
-    private let tableViewController = UITableViewController();
+    private let tableViewController = UITableViewController()
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         
-        tableView.registerNib(UINib(nibName: String(UpdateTableViewCell), bundle: nil), forCellReuseIdentifier: String(UpdateTableViewCell));
+        tableView.registerNib(UINib(nibName: String(UpdateTableViewCell), bundle: nil), forCellReuseIdentifier: String(UpdateTableViewCell))
         
         if (FBSDKAccessToken.currentAccessToken() == nil) {
-            facebookLoginButton.delegate = self;
-            facebookLoginButton.readPermissions = ["public_profile"];
-            tableView.hidden = true;
-            return;
+            facebookLoginButton.delegate = self
+            facebookLoginButton.readPermissions = ["public_profile"]
+            tableView.hidden = true
+            return
         }
         
-        loginButtonContainer.hidden = true;
+        loginButtonContainer.hidden = true
         
-        addRefreshControl();
+        addRefreshControl()
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData();
+        self.tableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewDidDisappear(animated);
+        super.viewDidDisappear(animated)
         
-        Convention.instance.updates.markAllAsRead();
+        Convention.instance.updates.markAllAsRead()
     }
     
     // MARK: - FBSDKLoginButtonDelegate
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         if (result.isCancelled) {
-            return;
+            return
         }
         
         loginButtonContainer.hidden = true;
-        tableView.hidden = false;
-        refresh();
+        tableView.hidden = false
+        refresh()
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -63,31 +63,31 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     }
     
     func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
-        return true;
+        return true
     }
     
     // MARK: - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Convention.instance.updates.getAll().count;
+        return Convention.instance.updates.getAll().count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(UpdateTableViewCell), forIndexPath: indexPath) as! UpdateTableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(UpdateTableViewCell), forIndexPath: indexPath) as! UpdateTableViewCell
         cell.setUpdate(Convention.instance.updates.getAll()[indexPath.row])
         
-        return cell;
+        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
         let updateText = Convention.instance.updates.getAll()[indexPath.row].text;
-        let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)]);
-        return attrText.boundingRectWithSize(CGSize(width: self.tableView.frame.width, height: CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize;
+        let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)])
+        return attrText.boundingRectWithSize(CGSize(width: self.tableView.frame.width, height: CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize
     }
     
     // MARK: - Private methods
@@ -96,17 +96,17 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
     func refresh()
     {
         // Mark all current updates as old so new events will appear with different UI
-        Convention.instance.updates.markAllAsRead();
+        Convention.instance.updates.markAllAsRead()
         
         Convention.instance.updates.refresh({success in
-            self.tableViewController.refreshControl?.endRefreshing();
+            self.tableViewController.refreshControl?.endRefreshing()
             
             if (!success) {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
-                return;
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show()
+                return
             }
             
-            self.tableView.reloadData();
+            self.tableView.reloadData()
         });
     }
     
@@ -114,10 +114,11 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).
-        tableViewController.tableView = tableView;
-        tableViewController.refreshControl = UIRefreshControl();
-        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), forControlEvents: UIControlEvents.ValueChanged);
-        addChildViewController(tableViewController);
-        tableViewController.didMoveToParentViewController(self);
+        tableViewController.tableView = tableView
+        tableViewController.refreshControl = UIRefreshControl()
+        tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
+        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        addChildViewController(tableViewController)
+        tableViewController.didMoveToParentViewController(self)
     }
 }

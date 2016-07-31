@@ -11,10 +11,10 @@ class UpdateTableViewCell: UITableViewCell {
     @IBOutlet private weak var title: UILabel!
     
     func setUpdate(update: Update) {
-        title.text = update.date.format("dd.MM.yyyy HH:mm");
-        message.text = update.text;
+        title.text = update.date.format("dd.MM.yyyy HH:mm")
+        message.text = update.text
         
         message.backgroundColor = update.isNew
-            ? UIColor(hexString: "#DCDCDC") : UIColor.whiteColor();
+            ? UIColor(hexString: "#fffdf7") : UIColor.whiteColor()
     }
 }

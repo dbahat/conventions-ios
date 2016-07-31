@@ -22,8 +22,8 @@ class TableAnswerCell : UITableViewCell {
         didSet {
             // Hide the accessoryView by setting the cell tint color to clear (not setting the 
             // accessory to None since we want the text indented to it's size)
-            tintColor = selected ? UIColor(hexString: "#FF0000") : UIColor.clearColor()
-            answerLabel.textColor = selected ? UIColor(hexString: "#FF0000") : UIColor(colorLiteralRed: 0.48, green: 0, blue: 0.48, alpha: 1)
+            tintColor = selected ? UIColor(hexString: "#f55368") : UIColor.clearColor()
+            answerLabel.textColor = selected ? UIColor(hexString: "#f55368") : UIColor(hexString: "#b92136")
         }
     }
 }

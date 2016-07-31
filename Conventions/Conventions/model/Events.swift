@@ -9,7 +9,7 @@
 import Foundation
 
 class Events {
-    private static let eventsApiUrl = "http://2016.harucon.org.il/wp-admin/admin-ajax.php?action=get_event_list";
+    private static let eventsApiUrl = "http://2016.cami.org.il/wp-admin/admin-ajax.php?action=get_event_list";
     private static let fileName = Convention.name + "Events.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + fileName;
     
