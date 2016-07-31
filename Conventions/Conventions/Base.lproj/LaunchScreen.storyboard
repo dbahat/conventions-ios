@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-uG-L6z">
-                                <rect key="frame" x="-157" y="20" width="728" height="311.5"/>
+                                <rect key="frame" x="-140" y="20" width="694" height="297"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hca-uG-L6z" secondAttribute="height" multiplier="250:107" id="gtW-oh-GJs"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9IC-KD-Oqf" userLabel="ButtonsBackground">
                                 <rect key="frame" x="0.0" y="347" width="414" height="389"/>
-                                <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.64705882349999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningMap" translatesAutoresizingMaskIntoConstraints="NO" id="lWJ-jj-4XS">
                                 <rect key="frame" x="10" y="347" width="192" height="184.5"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.08235294118" green="0.64705882349999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="9IC-KD-Oqf" secondAttribute="bottom" id="2MB-JW-KOq"/>
                             <constraint firstItem="Hca-uG-L6z" firstAttribute="centerX" secondItem="JDP-Ww-J8r" secondAttribute="centerX" id="5e8-Wf-rTt"/>
@@ -88,7 +88,7 @@
                             <constraint firstItem="Xdg-nt-JIk" firstAttribute="width" secondItem="JDP-Ww-J8r" secondAttribute="width" multiplier="0.5" constant="-15" id="UEE-Me-UDO"/>
                             <constraint firstItem="Hca-uG-L6z" firstAttribute="top" secondItem="B8I-4C-lAt" secondAttribute="bottom" id="Wm5-kF-JKK"/>
                             <constraint firstAttribute="trailing" secondItem="Xdg-nt-JIk" secondAttribute="trailing" constant="10" id="YAe-Tq-bby"/>
-                            <constraint firstItem="Db2-Nm-IvU" firstAttribute="bottom" secondItem="Hca-uG-L6z" secondAttribute="bottom" constant="15.5" id="arE-0p-Whe"/>
+                            <constraint firstItem="Db2-Nm-IvU" firstAttribute="bottom" secondItem="Hca-uG-L6z" secondAttribute="bottom" constant="30" id="arE-0p-Whe"/>
                             <constraint firstItem="9IC-KD-Oqf" firstAttribute="top" secondItem="Db2-Nm-IvU" secondAttribute="bottom" id="bPL-ky-il7"/>
                             <constraint firstItem="Db2-Nm-IvU" firstAttribute="baseline" secondItem="lWJ-jj-4XS" secondAttribute="top" id="dYO-rV-hKm"/>
                             <constraint firstItem="9IC-KD-Oqf" firstAttribute="leading" secondItem="JDP-Ww-J8r" secondAttribute="leading" id="drB-RJ-Fki"/>
@@ -130,11 +130,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="OpeningArrivalMethods" width="242" height="232"/>
-        <image name="OpeningCover" width="500" height="214"/>
-        <image name="OpeningEvents" width="242" height="232"/>
-        <image name="OpeningMap" width="242" height="232"/>
-        <image name="OpeningTitle" width="539" height="164"/>
-        <image name="OpeningUpdates" width="242" height="232"/>
+        <image name="OpeningArrivalMethods" width="240" height="212"/>
+        <image name="OpeningCover" width="500" height="244"/>
+        <image name="OpeningEvents" width="240" height="212"/>
+        <image name="OpeningMap" width="240" height="212"/>
+        <image name="OpeningTitle" width="214" height="60"/>
+        <image name="OpeningUpdates" width="240" height="212"/>
     </resources>
 </document>

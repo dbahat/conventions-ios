@@ -667,7 +667,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="aId-wV-mvS">
-                                <rect key="frame" x="-106" y="0.0" width="626" height="268"/>
+                                <rect key="frame" x="-89" y="0.0" width="592" height="253.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aId-wV-mvS" secondAttribute="height" multiplier="250:107" id="97m-Xo-XNC"/>
                                 </constraints>
@@ -684,7 +684,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtS-g4-zw2" userLabel="ButtonsBackground">
                                 <rect key="frame" x="0.0" y="283.5" width="414" height="388.5"/>
-                                <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.082352941176470587" green="0.6470588235294118" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningMap" translatesAutoresizingMaskIntoConstraints="NO" id="YKh-0o-gyo">
                                 <rect key="frame" x="10" y="283.5" width="192" height="184.5"/>
@@ -723,7 +723,7 @@
                                 </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.6470588235294118" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vNy-I4-Lxw" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="48p-MU-xxf"/>
                             <constraint firstAttribute="trailing" secondItem="TtS-g4-zw2" secondAttribute="trailing" id="4BL-CP-aaS"/>
@@ -732,12 +732,12 @@
                             <constraint firstItem="vNy-I4-Lxw" firstAttribute="top" secondItem="dvT-u3-hzJ" secondAttribute="bottom" constant="10" id="BbC-00-dSP"/>
                             <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="vNy-I4-Lxw" secondAttribute="bottom" constant="10" id="GJA-Ib-0Sy"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="Jtb-c4-cFc"/>
-                            <constraint firstItem="RLG-Wu-VfY" firstAttribute="bottom" secondItem="aId-wV-mvS" secondAttribute="bottom" constant="15.5" id="Pvr-qu-zk3"/>
+                            <constraint firstItem="RLG-Wu-VfY" firstAttribute="bottom" secondItem="aId-wV-mvS" secondAttribute="bottom" priority="997" constant="30" id="Pvr-qu-zk3"/>
                             <constraint firstItem="YKh-0o-gyo" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="S33-io-XVg"/>
                             <constraint firstItem="pqF-lS-87k" firstAttribute="top" secondItem="YKh-0o-gyo" secondAttribute="bottom" constant="10" id="WNf-RK-1M4"/>
                             <constraint firstItem="dvT-u3-hzJ" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="XM5-PX-C8o"/>
                             <constraint firstAttribute="bottomMargin" secondItem="TtS-g4-zw2" secondAttribute="bottom" id="ZM8-NB-kjy"/>
-                            <constraint firstItem="TtS-g4-zw2" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="bottom" id="a3E-di-1sM"/>
+                            <constraint firstItem="TtS-g4-zw2" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="bottom" priority="998" id="a3E-di-1sM"/>
                             <constraint firstItem="pqF-lS-87k" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="cyP-FZ-KPG"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="top" secondItem="3Xg-sD-Iyu" secondAttribute="bottom" id="dTx-lM-BlF"/>
                             <constraint firstAttribute="trailing" secondItem="vNy-I4-Lxw" secondAttribute="trailing" constant="10" id="iQF-9F-kWk"/>
@@ -899,12 +899,12 @@
         <image name="MenuMap" width="33" height="33"/>
         <image name="MenuOpenUsingMaps" width="23" height="23"/>
         <image name="MenuUpdates" width="33" height="33"/>
-        <image name="OpeningArrivalMethods" width="242" height="232"/>
-        <image name="OpeningCover" width="500" height="214"/>
-        <image name="OpeningEvents" width="242" height="232"/>
-        <image name="OpeningMap" width="242" height="232"/>
-        <image name="OpeningTitle" width="539" height="164"/>
-        <image name="OpeningUpdates" width="242" height="232"/>
+        <image name="OpeningArrivalMethods" width="240" height="212"/>
+        <image name="OpeningCover" width="500" height="244"/>
+        <image name="OpeningEvents" width="240" height="212"/>
+        <image name="OpeningMap" width="240" height="212"/>
+        <image name="OpeningTitle" width="214" height="60"/>
+        <image name="OpeningUpdates" width="240" height="212"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w1u-TZ-YLe"/>
