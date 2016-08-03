@@ -8,14 +8,16 @@
 
 import UIKit
 
-class EventViewController: BaseViewController, FeedbackViewProtocol {
+class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate {
 
     var event: ConventionEvent!;
     
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
     @IBOutlet private weak var hallAndTime: UILabel!
-    @IBOutlet private weak var eventDescription: UITextView!
+
+    @IBOutlet private weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var eventDescriptionWebView: UIWebView!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var eventDescriptionContainer: UIView!
     @IBOutlet private weak var feedbackView: FeedbackView!
@@ -54,27 +56,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol {
         
         eventDescriptionContainer.hidden = event.description == "";
         
-        guard let descriptionData = event.description?.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true) else {
-            return;
+        eventDescriptionWebView.opaque = false
+        eventDescriptionWebView.delegate = self
+        eventDescriptionWebView.scrollView.scrollEnabled = false
+        
+        if let eventDescription = event.description {
+            eventDescriptionWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", eventDescription), baseURL: nil)
         }
         
-        guard let attrStr = try? NSMutableAttributedString(
-            data: descriptionData,
-            options: [
-                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding ],
-            documentAttributes: nil) else {
-                return;
-        }
-        
-        attrStr.addAttribute(NSWritingDirectionAttributeName,
-            value: [NSWritingDirection.Natural.rawValue | NSTextWritingDirection.Override.rawValue],
-            range: NSRange(location: 0, length: attrStr.length));
-        
-        attrStr.convertFontTo(UIFont.systemFontOfSize(14));
-        
-        eventDescription.attributedText = attrStr;
-        eventDescription.textAlignment = NSTextAlignment.Right;
         refreshFavoriteBarIconImage();
     }
     
@@ -115,6 +104,19 @@ class EventViewController: BaseViewController, FeedbackViewProtocol {
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
         TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
             .show();
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        webView.sizeToFit()
+        eventDescriptionWebViewHeightConstraint.constant = webView.frame.size.height
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.LinkClicked {
+            UIApplication.sharedApplication().openURL(request.URL!)
+            return false
+        }
+        return true
     }
     
     // MARK: - EventFeedbackViewProtocol
@@ -178,25 +180,5 @@ class EventViewController: BaseViewController, FeedbackViewProtocol {
         UIGraphicsEndImageContext()
         
         return newImage
-    }
-}
-
-extension NSMutableAttributedString {
-    //
-    // Converts just the font of the attributed string to the input font.
-    //
-    func convertFontTo(font: UIFont)
-    {
-        var range = NSMakeRange(0, 0)
-        
-        while (NSMaxRange(range) < length)
-        {
-            let attributes = attributesAtIndex(NSMaxRange(range), effectiveRange: &range)
-            if let oldFont = attributes[NSFontAttributeName]
-            {
-                let newFont = UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(oldFont.fontDescriptor().symbolicTraits), size: font.pointSize)
-                addAttribute(NSFontAttributeName, value: newFont, range: range)
-            }
-        }
     }
 }

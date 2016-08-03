@@ -159,13 +159,6 @@ class EventsParser {
 
     func parseEventDescription(eventDescription : String?) -> String? {
         return eventDescription?
-            .removeAll(pattern: "class=\"[^\"]*\"")?
-            .removeAll(pattern: "style=\"[^\"]*\"")?
-            .removeAll(pattern: "width=\"[^\"]*\"")?
-            .removeAll(pattern: "height=\"[^\"]*\"")?
-            .replace(pattern: "<div", withTemplate: "<xdiv")?
-            .replace(pattern: "/div>", withTemplate: "/xdiv")?
-            .replace(pattern: "\t", withTemplate: "    ")?
             .replace(pattern: "<img", withTemplate: "<ximg")?
             .replace(pattern: "/img>", withTemplate: "/ximg>")?
             .replace(pattern: "<iframe", withTemplate: "<xiframe")?
