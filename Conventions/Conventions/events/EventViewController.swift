@@ -42,6 +42,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol {
             // Need to get the view height only after setting it's collapsed/expanded state
             feedbackViewHeightConstraint.constant = feedbackView.getHeight()
         } else {
+            feedbackView.hidden = true
             feedbackViewHeightConstraint.constant = 0
         }
         
