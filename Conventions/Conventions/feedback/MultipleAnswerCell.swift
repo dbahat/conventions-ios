@@ -16,7 +16,7 @@ class MultipleAnswerCell : UICollectionViewCell {
     
     @IBOutlet private weak var answerButton: UIButton!
     
-    var delegate: MultipleAnswerCellProtocol?
+    weak var delegate: MultipleAnswerCellProtocol?
     
     var answer: String? {
         didSet {

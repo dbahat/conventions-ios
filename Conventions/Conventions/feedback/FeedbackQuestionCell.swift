@@ -24,7 +24,7 @@ protocol FeedbackQuestionProtocol : class {
             }
         }
     }
-    var delegate: FeedbackQuestionProtocol?
+    weak var delegate: FeedbackQuestionProtocol?
     
     // Since the question cell can change based on it's content, keep the delta from default here
     var cellHeightDelta = CGFloat(0)
