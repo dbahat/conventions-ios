@@ -10,6 +10,8 @@ import Foundation
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
+    @IBOutlet private weak var sendFeedbackContainer: UIView!
+    @IBOutlet private weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var feedbackView: FeedbackView!
     @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var submittedEventsTabledView: UITableView!
@@ -152,6 +154,14 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         eventsToSubmitTableView.dataSource = eventsToSubmitDataSource
         eventsToSubmitTableView.delegate = eventsToSubmitDataSource
         eventsToSubmitDataSource.referencingViewController = self
+        
+        if eventsToSubmitHeightConstraint.constant == 0 {
+            sendFeedbackContainerHeightConstraint.constant = 0
+            sendFeedbackContainer.hidden = true
+        } else {
+            sendFeedbackContainerHeightConstraint.constant = eventsToSubmitHeightConstraint.constant + 116
+            sendFeedbackContainer.hidden = false
+        }
     }
     
     class EventsTableDataSource : NSObject, UITableViewDataSource, UITableViewDelegate {
