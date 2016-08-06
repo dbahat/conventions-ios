@@ -81,10 +81,10 @@ class ConventionEvent {
             Convention.instance.eventsInputs.save()
             
             if input.attending {
-                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self);
-                addEventNotifications();
+                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self)
+                NotificationsSchedualer.scheduleEventNotifications(self)
             } else {
-                removeEventNotifications();
+                NotificationsSchedualer.removeEventNotifications(self)
             }
         }
     }
@@ -145,40 +145,6 @@ class ConventionEvent {
         }
         
         return input.feedbackUserInput.isSent
-    }
-    
-    private func addEventNotifications() {
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);
-        
-        if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return;}
-        
-        // Don't schdule a notification in the past
-        if (startTime.addMinutes(-5).timeIntervalSince1970 < NSDate().timeIntervalSince1970) {return;}
-        
-        let notification = UILocalNotification();
-        notification.fireDate = startTime.addMinutes(-5);
-        notification.timeZone = NSTimeZone.systemTimeZone();
-        if #available(iOS 8.2, *) {
-            notification.alertTitle = "אירוע עומד להתחיל"
-        }
-        notification.alertBody = String(format: "האירוע %@ עומד להתחיל ב%@", arguments: [title, hall.name]);
-        notification.alertAction = "לפתיחת האירוע"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["EventId": id];
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    }
-    
-    private func removeEventNotifications() {
-        guard let notifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return;};
-        
-        for notification in notifications {
-            guard let userInfo = notification.userInfo else {continue;}
-            guard let eventId = userInfo["EventId"] as? String else {continue;}
-            if (eventId == id) {
-                UIApplication.sharedApplication().cancelLocalNotification(notification);
-            }
-        }
     }
 }
 

@@ -447,7 +447,7 @@
         <!--Convention Feedback View Controller-->
         <scene sceneID="txX-gI-Qrm">
             <objects>
-                <viewController id="9cX-Hv-YPC" customClass="ConventionFeedbackViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConventionFeedbackViewController" id="9cX-Hv-YPC" customClass="ConventionFeedbackViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sek-9v-cec"/>
                         <viewControllerLayoutGuide type="bottom" id="kZz-j6-9jY"/>
@@ -891,7 +891,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Floor1" width="845" height="497"/>
+        <image name="Floor1" width="800" height="458"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
         <image name="MenuEventList" width="33" height="33"/>
@@ -903,7 +903,7 @@
         <image name="OpeningCover" width="500" height="244"/>
         <image name="OpeningEvents" width="240" height="212"/>
         <image name="OpeningMap" width="240" height="212"/>
-        <image name="OpeningTitle" width="214" height="60"/>
+        <image name="OpeningTitle" width="428" height="120"/>
         <image name="OpeningUpdates" width="240" height="212"/>
     </resources>
     <inferredMetricsTieBreakers>

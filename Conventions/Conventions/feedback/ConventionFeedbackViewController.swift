@@ -83,6 +83,9 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
             
             self.feedbackView.setFeedbackAsSent(success)
             
+            // Cancel the convention feedback reminder notifications (so the user won't see it again)
+            NotificationsSchedualer.removeConventionFeedback()
+            
             if !success {
                 TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
                     .show();

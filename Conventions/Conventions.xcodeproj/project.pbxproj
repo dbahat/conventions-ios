@@ -12,7 +12,6 @@
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
-		3B1A68691D099EDF000F4414 /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */; };
 		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */; };
@@ -58,6 +57,8 @@
 		3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */; };
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
 		3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */; };
+		3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */; };
+		3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */; };
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
 		3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */; };
 		3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */; };
@@ -83,7 +84,6 @@
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
-		3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
 		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleAnswerFeedbackQuestionCell.xib; sourceTree = "<group>"; };
@@ -133,6 +133,8 @@
 		3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListHeaderView.swift; path = events/EventListHeaderView.swift; sourceTree = "<group>"; };
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
 		3BA2D8261C65E3D7007A8A23 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = events/EventsViewController.swift; sourceTree = "<group>"; };
+		3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
+		3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsSchedualer.swift; sourceTree = "<group>"; };
 		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalMethodsViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				3BA2D8181C5FF4C5007A8A23 /* events */,
 				3BB6311B1C89833D00D54D3E /* updates */,
 				3BA2D80D1C5FE8A0007A8A23 /* model */,
+				3BADBDE01D55DEA5002227CB /* notifications */,
 				3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */,
 				3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */,
 				3BA2D7F81C554ED3007A8A23 /* Main.storyboard */,
@@ -297,7 +300,6 @@
 				3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */,
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
-				3B1A68681D099EDF000F4414 /* NotificationHubInfo.swift */,
 				3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */,
 			);
 			path = Conventions;
@@ -347,6 +349,15 @@
 				3B4CEB481C7CF7F500AF041B /* CCColorCube */,
 			);
 			name = externals;
+			sourceTree = "<group>";
+		};
+		3BADBDE01D55DEA5002227CB /* notifications */ = {
+			isa = PBXGroup;
+			children = (
+				3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */,
+				3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */,
+			);
+			path = notifications;
 			sourceTree = "<group>";
 		};
 		3BB631061C89680800D54D3E /* controllers */ = {
@@ -549,6 +560,7 @@
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
 				3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */,
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
+				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
@@ -562,8 +574,8 @@
 				3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */,
 				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
-				3B1A68691D099EDF000F4414 /* NotificationHubInfo.swift in Sources */,
 				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
+				3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */,
 				3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */,
