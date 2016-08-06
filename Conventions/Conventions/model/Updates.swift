@@ -39,9 +39,9 @@ class Updates {
         let requestFields = "id, message, created_time";
         if let latestUpdateTime = updates
             .maxElement({$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970}) {
-                request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: ["since": (latestUpdateTime.date.timeIntervalSince1970), "fields": requestFields]);
+                request = FBSDKGraphRequest(graphPath: "/cami.org.il/posts", parameters: ["since": (latestUpdateTime.date.timeIntervalSince1970), "fields": requestFields]);
         } else {
-            request = FBSDKGraphRequest(graphPath: "/harucon.org.il/posts", parameters: ["fields": requestFields]);
+            request = FBSDKGraphRequest(graphPath: "/cami.org.il/posts", parameters: ["fields": requestFields]);
         }
         
         request.startWithCompletionHandler({ connection, result, error in
