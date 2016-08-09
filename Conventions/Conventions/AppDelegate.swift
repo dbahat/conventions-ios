@@ -13,7 +13,12 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // Current app state (forground or background). Needed to know how to handle incoming notifications.
     var isActive = true
+    
+    // The message we got in a remote notification. Needed in case we get push notification while in background
+    private var remoteNotificationMessage: String = ""
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -43,7 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Convention.instance.updates.refresh(nil)
         
         if let options = launchOptions {
-            handleNotificationIfNeeded(options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification)
+            // In case we were launched due to user clicking a notification, handle the notification
+            // now (e.g. navigate to a specific page, show the notification in a larger popup...).
+            // Dispatching the task to the message queue so the UI will finish it's init first.
+            if let localNotification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.handleNotificationIfNeeded(localNotification)
+                }
+            }
+            
+            if let remoteNotification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject : AnyObject] {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.application(application, didReceiveRemoteNotification: remoteNotification)
+                }
+            }
         }
         
         let settings = UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: nil)
@@ -56,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
         // If the app is active, show the user an alert dialog instead of perfoming the action
-        if (isActive) {
+        if isActive {
             let alert = getAlertForNotification(notification)
             guard let vc = self.window?.rootViewController as? UINavigationController else {return}
             vc.presentViewController(alert, animated: true, completion: nil)
@@ -67,16 +85,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        // When the app isn't active, iOS will show the notification by itself
-        if (!isActive) {
+        
+        guard let message = userInfo["aps"]?["alert"] as? String else {
             return;
         }
         
-        guard let messgae = userInfo["aps"]?["alert"] as? String else {
+        // When the app isn't active we want to allow iOS to show the notification, and only present it
+        // to the user if he clicked the notification
+        if !isActive {
+            remoteNotificationMessage = message
             return;
         }
         
-        let alert = UIAlertController(title: "הודעה התקבלה", message: messgae, preferredStyle: .Alert)
+        showNotificationPopup(message)
+    }
+    
+    private func showNotificationPopup(message: String) {
+        
+        let alert = UIAlertController(title: "הודעה התקבלה", message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .Default, handler: {action in
+            guard let vc = self.window?.rootViewController as? UINavigationController else {return}
+            if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(NotificationSettingsViewController)) as? NotificationSettingsViewController {
+                vc.pushViewController(settingsVc, animated: true)
+            }
+        }))
         alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
         guard let vc = self.window?.rootViewController as? UINavigationController else {return}
         vc.presentViewController(alert, animated: true, completion: nil)
@@ -85,6 +117,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
         isActive = true
+        
+        // In case we got push notification while in background, show it to the user in a larger dialog
+        // since some notifications may be too long for the iOS default notification area
+        if remoteNotificationMessage != "" {
+            showNotificationPopup(remoteNotificationMessage)
+            remoteNotificationMessage = ""
+        }
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
@@ -103,15 +142,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        Convention.deviceToken = deviceToken
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
         do {
-            try hub.registerNativeWithDeviceToken(deviceToken, tags: nil)
+            try hub.registerNativeWithDeviceToken(deviceToken, tags: Convention.instance.notificationCategories)
         } catch {
             print("error registering to Azure notification hub ", error)
         }
     }
-    
-
     
     private func handleNotificationIfNeeded(notification: UILocalNotification?) {
         handleEventNotificationIfNeeded(notification)

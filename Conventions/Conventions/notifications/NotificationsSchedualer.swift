@@ -58,21 +58,27 @@ class NotificationsSchedualer {
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil);
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings);
         
-        if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return;}
+        if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return}
+        
+        // In case the user manually disabled event reminter notification in the settings page
+        if !NSUserDefaults.standardUserDefaults().boolForKey("EventReminderNotification") {
+            return
+        }
         
         // Don't schdule a notification in the past
         if (event.startTime.addMinutes(-5).timeIntervalSince1970 < NSDate().timeIntervalSince1970) {return;}
         
-        let notification = UILocalNotification();
-        notification.fireDate = event.startTime.addMinutes(-5);
-        notification.timeZone = NSTimeZone.systemTimeZone();
+        // event about to start notification
+        let notification = UILocalNotification()
+        notification.fireDate = event.startTime.addMinutes(-5)
+        notification.timeZone = NSTimeZone.systemTimeZone()
         if #available(iOS 8.2, *) {
             notification.alertTitle = "אירוע עומד להתחיל"
         }
-        notification.alertBody = String(format: "האירוע %@ עומד להתחיל ב%@", arguments: [event.title, event.hall.name]);
+        notification.alertBody = String(format: "האירוע %@ עומד להתחיל ב%@", arguments: [event.title, event.hall.name])
         notification.alertAction = "לפתיחת האירוע"
         notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = [eventUserInfo: event.id];
+        notification.userInfo = [eventUserInfo: event.id]
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     

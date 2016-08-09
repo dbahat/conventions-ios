@@ -736,6 +736,13 @@
                                     <outletCollection property="gestureRecognizers" destination="VkU-sB-0kP" appends="YES" id="qNx-cU-dZ2"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olN-at-cYf">
+                                <rect key="frame" x="192" y="101" width="30" height="30"/>
+                                <state key="normal" title="אף"/>
+                                <connections>
+                                    <segue destination="JZD-xw-s30" kind="show" id="Fzb-6f-M17"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.082352941176470587" green="0.6470588235294118" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -799,6 +806,338 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-836" y="0.0"/>
+        </scene>
+        <!--Notification Settings View Controller-->
+        <scene sceneID="fSN-iB-Rya">
+            <objects>
+                <viewController storyboardIdentifier="NotificationSettingsViewController" id="JZD-xw-s30" customClass="NotificationSettingsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TOR-yM-bZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="3PP-2U-wIc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q2J-WM-w3M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="התראות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-AS-YaN">
+                                <rect key="frame" x="339" y="74" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-x6-iIJ">
+                                <rect key="frame" x="20" y="95" width="374" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כללי" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uj-jo-coj">
+                                        <rect key="frame" x="346" y="13" width="28" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LB-zO-nUf">
+                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019607843135" green="0.12941176470588234" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="generalNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="PM2-xa-iR1"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Sa-z4q">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ATj-ig-fyv"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות כלליות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyV-eM-C0o">
+                                        <rect key="frame" x="265" y="39" width="109" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="B7q-Uw-1EQ"/>
+                                    <constraint firstItem="CyV-eM-C0o" firstAttribute="trailing" secondItem="0Uj-jo-coj" secondAttribute="trailing" id="Ir4-j6-5h9"/>
+                                    <constraint firstAttribute="bottom" secondItem="2dF-Sa-z4q" secondAttribute="bottom" id="W9B-MV-mcV"/>
+                                    <constraint firstItem="0Uj-jo-coj" firstAttribute="centerY" secondItem="FgD-x6-iIJ" secondAttribute="centerY" constant="-12" id="e9f-l6-ZpS"/>
+                                    <constraint firstItem="CyV-eM-C0o" firstAttribute="centerY" secondItem="FgD-x6-iIJ" secondAttribute="centerY" constant="12" id="iMu-aL-cFw"/>
+                                    <constraint firstItem="9LB-zO-nUf" firstAttribute="leading" secondItem="FgD-x6-iIJ" secondAttribute="leading" id="qhz-Ts-dch"/>
+                                    <constraint firstAttribute="trailing" secondItem="2dF-Sa-z4q" secondAttribute="trailing" id="suP-qA-Jz2"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Uj-jo-coj" secondAttribute="trailing" id="swa-jp-bbB"/>
+                                    <constraint firstItem="9LB-zO-nUf" firstAttribute="centerY" secondItem="FgD-x6-iIJ" secondAttribute="centerY" id="w1v-dk-OF9"/>
+                                    <constraint firstItem="2dF-Sa-z4q" firstAttribute="leading" secondItem="FgD-x6-iIJ" secondAttribute="leading" id="wFJ-kJ-2I4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0d-Z8-2Uk">
+                                <rect key="frame" x="20" y="166" width="374" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אירועים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awn-wU-7Jm">
+                                        <rect key="frame" x="324" y="13" width="50" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2GO-fO-m2Y">
+                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="eventsNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="w91-I4-X2G"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mM-8k-cLS">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="fAr-Bv-7A7"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על עדכונים בתוכניה ואירועים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-yD-BRz">
+                                        <rect key="frame" x="146" y="39" width="228" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5mM-8k-cLS" secondAttribute="trailing" id="EMg-X5-3AL"/>
+                                    <constraint firstItem="2GO-fO-m2Y" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="WWs-Hj-bwo"/>
+                                    <constraint firstAttribute="height" constant="71" id="Wnb-oJ-CWa"/>
+                                    <constraint firstAttribute="trailing" secondItem="awn-wU-7Jm" secondAttribute="trailing" id="YP2-lj-VEX"/>
+                                    <constraint firstItem="5mM-8k-cLS" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="ZnP-U5-Ted"/>
+                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" constant="12" id="j6q-lU-Gfw"/>
+                                    <constraint firstItem="2GO-fO-m2Y" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" id="qBc-h5-1aP"/>
+                                    <constraint firstAttribute="bottom" secondItem="5mM-8k-cLS" secondAttribute="bottom" id="vzj-o6-u3z"/>
+                                    <constraint firstItem="awn-wU-7Jm" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" constant="-12" id="ygi-db-L8o"/>
+                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="trailing" secondItem="awn-wU-7Jm" secondAttribute="trailing" id="yud-tf-ReV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFt-TD-tnO">
+                                <rect key="frame" x="20" y="237" width="374" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="השתתפות באירוע הקוספליי" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-FX-g8G">
+                                        <rect key="frame" x="192" y="13" width="182" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A2n-vk-y82">
+                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="cosplayNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="lKW-VZ-g98"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gun-0N-7sa">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="kIS-C5-5zh"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות עבור המשתתפים בתחרות הקוספליי" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-W0-p0L">
+                                        <rect key="frame" x="106.5" y="39" width="267.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KSm-FX-g8G" firstAttribute="centerY" secondItem="nFt-TD-tnO" secondAttribute="centerY" constant="-12" id="8TL-xE-07W"/>
+                                    <constraint firstItem="gun-0N-7sa" firstAttribute="leading" secondItem="nFt-TD-tnO" secondAttribute="leading" id="B8f-L3-xR3"/>
+                                    <constraint firstAttribute="trailing" secondItem="KSm-FX-g8G" secondAttribute="trailing" id="DwX-NY-cFG"/>
+                                    <constraint firstAttribute="trailing" secondItem="gun-0N-7sa" secondAttribute="trailing" id="EB4-ka-OEm"/>
+                                    <constraint firstAttribute="height" constant="71" id="L7P-mM-Gqd"/>
+                                    <constraint firstItem="qhO-W0-p0L" firstAttribute="centerY" secondItem="nFt-TD-tnO" secondAttribute="centerY" constant="12" id="Oyv-HS-m34"/>
+                                    <constraint firstAttribute="bottom" secondItem="gun-0N-7sa" secondAttribute="bottom" id="Q3e-CO-fnx"/>
+                                    <constraint firstItem="A2n-vk-y82" firstAttribute="leading" secondItem="nFt-TD-tnO" secondAttribute="leading" id="e4d-9P-Hz4"/>
+                                    <constraint firstItem="qhO-W0-p0L" firstAttribute="trailing" secondItem="KSm-FX-g8G" secondAttribute="trailing" id="kD3-nd-t4h"/>
+                                    <constraint firstItem="A2n-vk-y82" firstAttribute="centerY" secondItem="nFt-TD-tnO" secondAttribute="centerY" id="uyk-SA-oWZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I60-xB-NrF">
+                                <rect key="frame" x="20" y="308" width="374" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הסעות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxN-h6-fmp">
+                                        <rect key="frame" x="329" y="13" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="phu-d0-vGH">
+                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="busNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="HIq-Lf-Fha"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-vU-Poz">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="1Vc-45-aqx"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על הסעות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5h-b0-2lp">
+                                        <rect key="frame" x="246.5" y="39" width="127.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BR4-vU-Poz" secondAttribute="trailing" id="HvD-o9-RzA"/>
+                                    <constraint firstItem="CxN-h6-fmp" firstAttribute="centerY" secondItem="I60-xB-NrF" secondAttribute="centerY" constant="-12" id="NsE-3G-9yw"/>
+                                    <constraint firstItem="S5h-b0-2lp" firstAttribute="trailing" secondItem="CxN-h6-fmp" secondAttribute="trailing" id="U4q-Jp-Cr7"/>
+                                    <constraint firstItem="phu-d0-vGH" firstAttribute="centerY" secondItem="I60-xB-NrF" secondAttribute="centerY" id="Wgo-Pd-MXC"/>
+                                    <constraint firstAttribute="trailing" secondItem="CxN-h6-fmp" secondAttribute="trailing" id="XZ6-um-pWo"/>
+                                    <constraint firstAttribute="height" constant="71" id="ZYE-gw-AHX"/>
+                                    <constraint firstItem="phu-d0-vGH" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" id="gFT-r6-6Qx"/>
+                                    <constraint firstItem="BR4-vU-Poz" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" id="i0S-Sf-eXj"/>
+                                    <constraint firstAttribute="bottom" secondItem="BR4-vU-Poz" secondAttribute="bottom" id="ie8-Jl-eXd"/>
+                                    <constraint firstItem="S5h-b0-2lp" firstAttribute="centerY" secondItem="I60-xB-NrF" secondAttribute="centerY" constant="12" id="po1-RJ-2Vi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="תזכורות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDu-E3-Ndz">
+                                <rect key="frame" x="340" y="399" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcB-4o-ZN3">
+                                <rect key="frame" x="20" y="420" width="374" height="81"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לפני שאירוע מתחיל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztu-Bk-D0l">
+                                        <rect key="frame" x="247" y="13" width="127" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-Zt-TmM">
+                                        <rect key="frame" x="0.0" y="25" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="beforeEventNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="Jpa-lT-cja"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjr-tL-m4x">
+                                        <rect key="frame" x="0.0" y="80" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="kJY-OX-7DQ"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לפני שאירוע שסימנתי מתחיל. ניתן לשנות הגדרה זו לכל אירוע בנפרד בדף האירוע." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-w7-yLT">
+                                        <rect key="frame" x="60" y="41" width="314" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="IKI-w7-yLT" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" constant="60" id="CRP-jR-c0l"/>
+                                    <constraint firstItem="Ztu-Bk-D0l" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="-17" id="DUk-NR-dWc"/>
+                                    <constraint firstItem="Ugz-Zt-TmM" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" id="MDz-ye-x5O"/>
+                                    <constraint firstItem="IKI-w7-yLT" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="17" id="RIl-pt-Q6h"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ztu-Bk-D0l" secondAttribute="trailing" id="ZFW-ma-u3T"/>
+                                    <constraint firstItem="IKI-w7-yLT" firstAttribute="trailing" secondItem="Ztu-Bk-D0l" secondAttribute="trailing" id="aR7-6s-zxg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bjr-tL-m4x" secondAttribute="trailing" id="haZ-ub-lja"/>
+                                    <constraint firstAttribute="height" constant="81" id="kcM-fC-GLM"/>
+                                    <constraint firstItem="Bjr-tL-m4x" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" id="mdQ-js-TZl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bjr-tL-m4x" secondAttribute="bottom" id="mw8-el-bU1"/>
+                                    <constraint firstAttribute="trailing" secondItem="IKI-w7-yLT" secondAttribute="trailing" id="nal-bU-MsJ"/>
+                                    <constraint firstItem="Ugz-Zt-TmM" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" id="oe1-tZ-VjI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-em-4Aj">
+                                <rect key="frame" x="20" y="501" width="374" height="101"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לאירוע" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgl-em-oeg">
+                                        <rect key="frame" x="285" y="13" width="89" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZK-jT-BvB">
+                                        <rect key="frame" x="0.0" y="35" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="afterEventNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="YxU-R8-2EE"/>
+                                        </connections>
+                                    </switch>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3G-2l-CAs">
+                                        <rect key="frame" x="0.0" y="100" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="RFf-hf-khC"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לשליחת פידבק אחרי שאירוע שסימנתי מסתיים. ניתן לשנות הגדרה זו לכל אירוע בנפרד בדף האירוע." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sea-em-HQD">
+                                        <rect key="frame" x="60" y="45.5" width="314" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sea-em-HQD" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="20" id="AJ1-Qt-j1Q"/>
+                                    <constraint firstItem="kZK-jT-BvB" firstAttribute="leading" secondItem="UKG-em-4Aj" secondAttribute="leading" id="BJU-Nn-BPt"/>
+                                    <constraint firstItem="kZK-jT-BvB" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" id="BvH-Uh-UKk"/>
+                                    <constraint firstItem="sea-em-HQD" firstAttribute="trailing" secondItem="hgl-em-oeg" secondAttribute="trailing" id="TwS-q9-X6e"/>
+                                    <constraint firstItem="hgl-em-oeg" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="-27" id="gLO-Ma-e2H"/>
+                                    <constraint firstAttribute="height" constant="101" id="h9F-oD-Sqg"/>
+                                    <constraint firstAttribute="trailing" secondItem="hgl-em-oeg" secondAttribute="trailing" id="kXB-zJ-sbC"/>
+                                    <constraint firstItem="Q3G-2l-CAs" firstAttribute="leading" secondItem="UKG-em-4Aj" secondAttribute="leading" id="kyI-eV-r4O"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q3G-2l-CAs" secondAttribute="trailing" id="nhQ-I2-lZm"/>
+                                    <constraint firstItem="sea-em-HQD" firstAttribute="leading" secondItem="UKG-em-4Aj" secondAttribute="leading" constant="60" id="xTy-N0-Iw5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q3G-2l-CAs" secondAttribute="bottom" id="y47-Gc-LjJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.95294117647058818" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="qJ4-AS-YaN" secondAttribute="trailing" id="10m-da-v4M"/>
+                            <constraint firstItem="nFt-TD-tnO" firstAttribute="top" secondItem="I0d-Z8-2Uk" secondAttribute="bottom" id="3JW-a9-ht7"/>
+                            <constraint firstItem="I60-xB-NrF" firstAttribute="leading" secondItem="nFt-TD-tnO" secondAttribute="leading" id="6rE-sa-wpe"/>
+                            <constraint firstItem="I60-xB-NrF" firstAttribute="top" secondItem="nFt-TD-tnO" secondAttribute="bottom" id="D7q-xw-3t1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FgD-x6-iIJ" secondAttribute="trailing" id="Elc-OX-aZ0"/>
+                            <constraint firstItem="qJ4-AS-YaN" firstAttribute="top" secondItem="TOR-yM-bZb" secondAttribute="bottom" constant="10" id="FKB-Nb-Ma4"/>
+                            <constraint firstItem="I0d-Z8-2Uk" firstAttribute="leading" secondItem="FgD-x6-iIJ" secondAttribute="leading" id="Gd7-Ar-nLH"/>
+                            <constraint firstItem="FgD-x6-iIJ" firstAttribute="top" secondItem="qJ4-AS-YaN" secondAttribute="bottom" id="NLH-bx-UpQ"/>
+                            <constraint firstItem="I60-xB-NrF" firstAttribute="trailing" secondItem="nFt-TD-tnO" secondAttribute="trailing" id="PLR-Bi-PYV"/>
+                            <constraint firstItem="I0d-Z8-2Uk" firstAttribute="top" secondItem="FgD-x6-iIJ" secondAttribute="bottom" id="R13-M0-W6y"/>
+                            <constraint firstItem="UKG-em-4Aj" firstAttribute="trailing" secondItem="LcB-4o-ZN3" secondAttribute="trailing" id="T6q-dX-A2t"/>
+                            <constraint firstItem="UKG-em-4Aj" firstAttribute="top" secondItem="LcB-4o-ZN3" secondAttribute="bottom" id="Urj-C6-sDL"/>
+                            <constraint firstItem="LcB-4o-ZN3" firstAttribute="top" secondItem="pDu-E3-Ndz" secondAttribute="bottom" id="YC2-IZ-OeO"/>
+                            <constraint firstItem="LcB-4o-ZN3" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" id="a3Q-54-fSH"/>
+                            <constraint firstItem="pDu-E3-Ndz" firstAttribute="trailing" secondItem="qJ4-AS-YaN" secondAttribute="trailing" id="dXU-79-6II"/>
+                            <constraint firstItem="I0d-Z8-2Uk" firstAttribute="trailing" secondItem="FgD-x6-iIJ" secondAttribute="trailing" id="eI0-4h-3dv"/>
+                            <constraint firstItem="LcB-4o-ZN3" firstAttribute="trailing" secondItem="I60-xB-NrF" secondAttribute="trailing" id="fQa-3w-t6y"/>
+                            <constraint firstItem="nFt-TD-tnO" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="iJX-pD-zZi"/>
+                            <constraint firstItem="FgD-x6-iIJ" firstAttribute="leading" secondItem="Q2J-WM-w3M" secondAttribute="leadingMargin" id="nWJ-Ed-k4C"/>
+                            <constraint firstItem="pDu-E3-Ndz" firstAttribute="top" secondItem="I60-xB-NrF" secondAttribute="bottom" constant="20" id="ptk-dB-wI0"/>
+                            <constraint firstItem="UKG-em-4Aj" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" id="wNk-Gx-lM4"/>
+                            <constraint firstItem="nFt-TD-tnO" firstAttribute="trailing" secondItem="I0d-Z8-2Uk" secondAttribute="trailing" id="ybG-VU-DEU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="busCategoryButton" destination="phu-d0-vGH" id="QdB-l5-3B3"/>
+                        <outlet property="cosplayCategoryButton" destination="A2n-vk-y82" id="9tD-ml-5Cl"/>
+                        <outlet property="eventNotificationButton" destination="Ugz-Zt-TmM" id="99Q-oM-3SA"/>
+                        <outlet property="eventsCategoryButton" destination="2GO-fO-m2Y" id="sPj-Ks-QKt"/>
+                        <outlet property="feedbackNotificationButton" destination="kZK-jT-BvB" id="LH9-ES-WjS"/>
+                        <outlet property="generalCategoryButton" destination="9LB-zO-nUf" id="yA6-Q0-LAB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpU-EO-Oti" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-836" y="813"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">

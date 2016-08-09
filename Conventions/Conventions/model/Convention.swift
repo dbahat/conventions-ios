@@ -15,6 +15,10 @@ class Convention {
     static let displayName = "כאמ\"י 2016"
     static let mailbox = "dbahat@live.com"
     
+    // The APNS token. Set during app init, and saved here in case the user wish to change his push
+    // notifications topics (which requires re-registration)
+    static var deviceToken = NSData()
+    
     var halls: Array<Hall>
     var events: Events
     var updates = Updates()
@@ -23,6 +27,8 @@ class Convention {
     
     let feedback = UserInputs.ConventionInputs()
     let feedbackQuestions: Array<FeedbackQuestion>
+    
+    var notificationCategories: Set<String>
  
     init() {
         halls = [
@@ -34,6 +40,12 @@ class Convention {
         ];
         
         events = Events(halls: halls)
+        
+        if let topics = NSUserDefaults.standardUserDefaults().stringArrayForKey(NotificationHubInfo.CATEGORIES_NSUSERDEFAULTS_KEY) {
+            notificationCategories = Set(topics)
+        } else {
+            notificationCategories = Set(NotificationHubInfo.DEFAULT_CATEGORIES)
+        }
         
         feedbackQuestions = [
             FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [

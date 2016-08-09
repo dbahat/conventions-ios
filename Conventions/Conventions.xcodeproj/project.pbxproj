@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */; };
+		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		0128839004EFB32D3F38B10C /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
+		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */,
 				3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */,
+				3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */,
 			);
 			path = notifications;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */,
 				3BA2D8131C5FEDF5007A8A23 /* EventType.swift in Sources */,
 				3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */,
+				3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
