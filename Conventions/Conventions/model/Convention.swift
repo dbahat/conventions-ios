@@ -28,9 +28,7 @@ class Convention {
     let feedback = UserInputs.ConventionInputs()
     let feedbackQuestions: Array<FeedbackQuestion>
     
-    var notificationCategories: Set<String>
- 
-    init() {
+    private init() {
         halls = [
             Hall(name: "אולם ראשי", order: 1),
             Hall(name: "אודיטוריום שוורץ", order: 2),
@@ -40,12 +38,6 @@ class Convention {
         ];
         
         events = Events(halls: halls)
-        
-        if let topics = NSUserDefaults.standardUserDefaults().stringArrayForKey(NotificationHubInfo.CATEGORIES_NSUSERDEFAULTS_KEY) {
-            notificationCategories = Set(topics)
-        } else {
-            notificationCategories = Set(NotificationHubInfo.DEFAULT_CATEGORIES)
-        }
         
         feedbackQuestions = [
             FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [

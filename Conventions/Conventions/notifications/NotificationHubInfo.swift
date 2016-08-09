@@ -18,7 +18,5 @@ class NotificationHubInfo {
     static let CATEGORY_BUS = "cami2016_bus"
     static let CATEGORY_EMERGENCY = "cami2016_emergency"
     
-    static let CATEGORIES_NSUSERDEFAULTS_KEY = "NotificationTopics"
-    
     static let DEFAULT_CATEGORIES = [CATEGORY_GENERAL, CATEGORY_EVENTS, CATEGORY_EMERGENCY]
 }

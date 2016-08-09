@@ -16,7 +16,7 @@ class NotificationsSchedualer {
     
     static func scheduleConventionFeedback() {
         
-        if NSUserDefaults.standardUserDefaults().boolForKey(wasConventionScheduledKey)
+        if NotificationSettings.instance.conventionFeedbackReminderWasSet
             || Convention.instance.feedback.conventionInputs.isSent
             || Convention.instance.isFeedbackSendingTimeOver() {
             return;
@@ -34,7 +34,7 @@ class NotificationsSchedualer {
         notification.userInfo = [conventionUserInfo: true];
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: wasConventionScheduledKey)
+        NotificationSettings.instance.conventionFeedbackReminderWasSet = true
     }
     
     static func removeConventionFeedback() {
@@ -60,8 +60,8 @@ class NotificationsSchedualer {
         
         if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return}
         
-        // In case the user manually disabled event reminter notification in the settings page
-        if !NSUserDefaults.standardUserDefaults().boolForKey("EventReminderNotification") {
+        // In case the user manually disabled event reminder notifications don't schedule anything
+        if !NotificationSettings.instance.eventReminder {
             return
         }
         

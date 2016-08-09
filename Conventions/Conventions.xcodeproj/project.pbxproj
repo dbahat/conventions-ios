@@ -14,6 +14,7 @@
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
 		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
+		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */; };
 		3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */; };
@@ -87,6 +88,7 @@
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleAnswerFeedbackQuestionCell.xib; sourceTree = "<group>"; };
 		3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAnswerFeedbackQuestionCell.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		3BADBDE01D55DEA5002227CB /* notifications */ = {
 			isa = PBXGroup;
 			children = (
+				3B2FD5161D5A65B30009139A /* NotificationSettings.swift */,
 				3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */,
 				3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */,
 				3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */,
@@ -542,6 +545,7 @@
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
+				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
 				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,

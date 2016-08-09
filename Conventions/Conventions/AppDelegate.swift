@@ -145,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Convention.deviceToken = deviceToken
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
         do {
-            try hub.registerNativeWithDeviceToken(deviceToken, tags: Convention.instance.notificationCategories)
+            try hub.registerNativeWithDeviceToken(deviceToken, tags: NotificationSettings.instance.categories)
         } catch {
             print("error registering to Azure notification hub ", error)
         }

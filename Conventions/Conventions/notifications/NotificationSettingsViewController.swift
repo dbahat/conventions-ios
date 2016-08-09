@@ -20,14 +20,14 @@ class NotificationSettingsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let registeredCategories = Convention.instance.notificationCategories
+        let registeredCategories = NotificationSettings.instance.categories
         generalCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
         eventsCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
         cosplayCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_COSPLAY)
         busCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_BUS)
         
-        eventNotificationButton.on = NSUserDefaults.standardUserDefaults().boolForKey("EventReminderNotification")
-        feedbackNotificationButton.on = NSUserDefaults.standardUserDefaults().boolForKey("FeedbackReminderNotification")
+        eventNotificationButton.on = NotificationSettings.instance.eventReminder
+        feedbackNotificationButton.on = NotificationSettings.instance.eventFeedbackReminder
     }
     
     @IBAction private func generalNotificationsTapped(sender: UISwitch) {
@@ -51,33 +51,36 @@ class NotificationSettingsViewController: BaseViewController {
     }
     
     @IBAction private func beforeEventNotificationsTapped(sender: UISwitch) {
-        for event in Convention.instance.events.getAll() {
-            NotificationsSchedualer.removeEventNotifications(event)
+        NotificationSettings.instance.eventReminder = sender.on
+        
+        let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
+        for event in favoriteEvents {
+            if sender.on {
+                NotificationsSchedualer.scheduleEventNotifications(event)
+            } else {
+                NotificationsSchedualer.removeEventNotifications(event)
+            }
         }
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "EventReminderNotification")
     }
-    
+
     @IBAction private func afterEventNotificationsTapped(sender: UISwitch) {
-        for event in Convention.instance.events.getAll() {
-            NotificationsSchedualer.removeEventNotifications(event)
-        }
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "FeedbackReminderNotification")
+        NotificationSettings.instance.eventFeedbackReminder = sender.on
+        
+        // TODO - Implement once we add event feedback notifications
     }
     
     private func updateCategory(category: String, isOn: Bool) {
         if isOn {
-            Convention.instance.notificationCategories.insert(category)
+            NotificationSettings.instance.categories.insert(category)
         } else {
-            Convention.instance.notificationCategories.remove(category)
+            NotificationSettings.instance.categories.remove(category)
         }
-    
-        NSUserDefaults.standardUserDefaults().setObject(Array(Convention.instance.notificationCategories), forKey: NotificationHubInfo.CATEGORIES_NSUSERDEFAULTS_KEY)
     }
     
     private func register() {
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
         do {
-            try hub.registerNativeWithDeviceToken(Convention.deviceToken, tags: Convention.instance.notificationCategories)
+            try hub.registerNativeWithDeviceToken(Convention.deviceToken, tags: NotificationSettings.instance.categories)
         } catch {
             print("error registering to Azure notification hub ", error)
         }
