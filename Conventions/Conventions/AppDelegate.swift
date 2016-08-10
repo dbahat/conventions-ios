@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
-        NotificationsSchedualer.scheduleConventionFeedback()
+        
         return true;
     }
     
@@ -141,6 +141,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIInterfaceOrientationMask.All
     }
     
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        
+        // Scheduling the feedback reminder here, since we can only schedule notifications after the 
+        // notifications settings were registered (and the user gave his concent)
+        NotificationsSchedualer.scheduleConventionFeedbackIfNeeded()
+    }
+    
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         Convention.deviceToken = deviceToken
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
@@ -152,14 +159,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func handleNotificationIfNeeded(notification: UILocalNotification?) {
-        handleEventNotificationIfNeeded(notification)
+        handleEventAboutToStartNotificationIfNeeded(notification)
+        handleEventFeedbackReminderNotificationIfNeeded(notification)
         handleConventionNotificationIfNeeded(notification)
     }
     
     private func handleConventionNotificationIfNeeded(notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
-            let conventionFeedback = userInfo["ConventionFeedback"] as? Bool,
+            let conventionFeedback = userInfo[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool,
             let vc = self.window?.rootViewController as? UINavigationController,
             let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(ConventionFeedbackViewController)) as? ConventionFeedbackViewController
         else {
@@ -172,10 +180,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func handleEventNotificationIfNeeded(notification: UILocalNotification?) {
+    private func handleEventAboutToStartNotificationIfNeeded(notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
-            let eventId = userInfo["EventId"] as? String,
+            let eventId = userInfo[NotificationsSchedualer.EVENT_ABOUT_TO_START_INFO] as? String,
             let event = Convention.instance.events.getAll().filter({$0.id == eventId}).first,
             let vc = self.window?.rootViewController as? UINavigationController,
             let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController
@@ -184,6 +192,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         eventVc.event = event
+        vc.pushViewController(eventVc, animated: true)
+    }
+    
+    private func handleEventFeedbackReminderNotificationIfNeeded(notification: UILocalNotification?) {
+        guard
+            let userInfo = notification?.userInfo,
+            let eventId = userInfo[NotificationsSchedualer.EVENT_FEEDBACK_REMINDER_INFO] as? String,
+            let event = Convention.instance.events.getAll().filter({$0.id == eventId}).first,
+            let vc = self.window?.rootViewController as? UINavigationController,
+            let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController
+            else {
+                return
+        }
+        
+        eventVc.event = event
+        eventVc.feedbackViewOpen = true
         vc.pushViewController(eventVc, animated: true)
     }
     
@@ -209,7 +233,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func isConventionFeedbackNotification(notification: UILocalNotification) -> Bool {
         
-        return notification.userInfo?["ConventionFeedback"] as? Bool == true
+        return notification.userInfo?[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool == true
     }
 }
 

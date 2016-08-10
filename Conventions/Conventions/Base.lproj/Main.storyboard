@@ -937,7 +937,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות עבור המשתתפים בתחרות הקוספליי" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-W0-p0L">
-                                        <rect key="frame" x="106.5" y="39" width="267.5" height="17"/>
+                                        <rect key="frame" x="106" y="39" width="267.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -981,7 +981,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על הסעות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5h-b0-2lp">
-                                        <rect key="frame" x="246.5" y="39" width="127.5" height="17"/>
+                                        <rect key="frame" x="246" y="39" width="127.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1008,7 +1008,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcB-4o-ZN3">
-                                <rect key="frame" x="20" y="420" width="374" height="81"/>
+                                <rect key="frame" x="20" y="420" width="374" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לפני שאירוע מתחיל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztu-Bk-D0l">
                                         <rect key="frame" x="247" y="13" width="127" height="21"/>
@@ -1017,21 +1017,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-Zt-TmM">
-                                        <rect key="frame" x="0.0" y="25" width="51" height="31"/>
+                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
                                         <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="beforeEventNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="Jpa-lT-cja"/>
                                         </connections>
                                     </switch>
                                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjr-tL-m4x">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="1"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="kJY-OX-7DQ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לפני שאירוע שסימנתי מתחיל. ניתן לשנות הגדרה זו לכל אירוע בנפרד בדף האירוע." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-w7-yLT">
-                                        <rect key="frame" x="60" y="41" width="314" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לפני שאירוע שסימנתי מתחיל." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-w7-yLT">
+                                        <rect key="frame" x="60" y="39" width="314" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1040,13 +1040,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="IKI-w7-yLT" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" constant="60" id="CRP-jR-c0l"/>
-                                    <constraint firstItem="Ztu-Bk-D0l" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="-17" id="DUk-NR-dWc"/>
+                                    <constraint firstItem="Ztu-Bk-D0l" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="-12" id="DUk-NR-dWc"/>
                                     <constraint firstItem="Ugz-Zt-TmM" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" id="MDz-ye-x5O"/>
-                                    <constraint firstItem="IKI-w7-yLT" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="17" id="RIl-pt-Q6h"/>
+                                    <constraint firstItem="IKI-w7-yLT" firstAttribute="centerY" secondItem="LcB-4o-ZN3" secondAttribute="centerY" constant="12" id="RIl-pt-Q6h"/>
                                     <constraint firstAttribute="trailing" secondItem="Ztu-Bk-D0l" secondAttribute="trailing" id="ZFW-ma-u3T"/>
                                     <constraint firstItem="IKI-w7-yLT" firstAttribute="trailing" secondItem="Ztu-Bk-D0l" secondAttribute="trailing" id="aR7-6s-zxg"/>
                                     <constraint firstAttribute="trailing" secondItem="Bjr-tL-m4x" secondAttribute="trailing" id="haZ-ub-lja"/>
-                                    <constraint firstAttribute="height" constant="81" id="kcM-fC-GLM"/>
+                                    <constraint firstAttribute="height" constant="71" id="kcM-fC-GLM"/>
                                     <constraint firstItem="Bjr-tL-m4x" firstAttribute="leading" secondItem="LcB-4o-ZN3" secondAttribute="leading" id="mdQ-js-TZl"/>
                                     <constraint firstAttribute="bottom" secondItem="Bjr-tL-m4x" secondAttribute="bottom" id="mw8-el-bU1"/>
                                     <constraint firstAttribute="trailing" secondItem="IKI-w7-yLT" secondAttribute="trailing" id="nal-bU-MsJ"/>
@@ -1054,7 +1054,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-em-4Aj">
-                                <rect key="frame" x="20" y="501" width="374" height="101"/>
+                                <rect key="frame" x="20" y="491" width="374" height="81"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לאירוע" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgl-em-oeg">
                                         <rect key="frame" x="285" y="13" width="89" height="21"/>
@@ -1063,21 +1063,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZK-jT-BvB">
-                                        <rect key="frame" x="0.0" y="35" width="51" height="31"/>
+                                        <rect key="frame" x="0.0" y="25" width="51" height="31"/>
                                         <color key="onTintColor" red="0.72549019609999998" green="0.12941176469999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="afterEventNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="YxU-R8-2EE"/>
                                         </connections>
                                     </switch>
                                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3G-2l-CAs">
-                                        <rect key="frame" x="0.0" y="100" width="374" height="1"/>
+                                        <rect key="frame" x="0.0" y="80" width="374" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="RFf-hf-khC"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לשליחת פידבק אחרי שאירוע שסימנתי מסתיים. ניתן לשנות הגדרה זו לכל אירוע בנפרד בדף האירוע." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sea-em-HQD">
-                                        <rect key="frame" x="60" y="45.5" width="314" height="50.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג תזכורת לשליחת פידבק אחרי שאירוע שסימנתי מסתיים." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sea-em-HQD">
+                                        <rect key="frame" x="60" y="41" width="314" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1085,12 +1085,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="sea-em-HQD" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="20" id="AJ1-Qt-j1Q"/>
+                                    <constraint firstItem="sea-em-HQD" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="17" id="AJ1-Qt-j1Q"/>
                                     <constraint firstItem="kZK-jT-BvB" firstAttribute="leading" secondItem="UKG-em-4Aj" secondAttribute="leading" id="BJU-Nn-BPt"/>
                                     <constraint firstItem="kZK-jT-BvB" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" id="BvH-Uh-UKk"/>
                                     <constraint firstItem="sea-em-HQD" firstAttribute="trailing" secondItem="hgl-em-oeg" secondAttribute="trailing" id="TwS-q9-X6e"/>
-                                    <constraint firstItem="hgl-em-oeg" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="-27" id="gLO-Ma-e2H"/>
-                                    <constraint firstAttribute="height" constant="101" id="h9F-oD-Sqg"/>
+                                    <constraint firstItem="hgl-em-oeg" firstAttribute="centerY" secondItem="UKG-em-4Aj" secondAttribute="centerY" constant="-17" id="gLO-Ma-e2H"/>
+                                    <constraint firstAttribute="height" constant="81" id="h9F-oD-Sqg"/>
                                     <constraint firstAttribute="trailing" secondItem="hgl-em-oeg" secondAttribute="trailing" id="kXB-zJ-sbC"/>
                                     <constraint firstItem="Q3G-2l-CAs" firstAttribute="leading" secondItem="UKG-em-4Aj" secondAttribute="leading" id="kyI-eV-r4O"/>
                                     <constraint firstAttribute="trailing" secondItem="Q3G-2l-CAs" secondAttribute="trailing" id="nhQ-I2-lZm"/>

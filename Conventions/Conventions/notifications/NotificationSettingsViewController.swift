@@ -56,17 +56,24 @@ class NotificationSettingsViewController: BaseViewController {
         let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
         for event in favoriteEvents {
             if sender.on {
-                NotificationsSchedualer.scheduleEventNotifications(event)
+                NotificationsSchedualer.scheduleEventAboutToStartNotification(event)
             } else {
-                NotificationsSchedualer.removeEventNotifications(event)
+                NotificationsSchedualer.removeEventAboutToStartNotification(event)
             }
         }
     }
 
     @IBAction private func afterEventNotificationsTapped(sender: UISwitch) {
         NotificationSettings.instance.eventFeedbackReminder = sender.on
-        
-        // TODO - Implement once we add event feedback notifications
+
+        let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
+        for event in favoriteEvents {
+            if sender.on {
+                NotificationsSchedualer.scheduleEventFeedbackReminderNotification(event)
+            } else {
+                NotificationsSchedualer.removeEventFeedbackReminderNotification(event)
+            }
+        }
     }
     
     private func updateCategory(category: String, isOn: Bool) {

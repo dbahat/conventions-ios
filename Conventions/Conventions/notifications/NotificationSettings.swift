@@ -58,6 +58,8 @@ class NotificationSettings {
     }
     
     private init() {
-        
+        // by default have both reminders active
+        eventReminder = true
+        eventFeedbackReminder = true
     }
 }

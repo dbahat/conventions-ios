@@ -10,7 +10,8 @@ import UIKit
 
 class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate {
 
-    var event: ConventionEvent!;
+    var event: ConventionEvent!
+    var feedbackViewOpen: Bool = false
     
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
@@ -34,7 +35,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             
             if (event.didSubmitFeedback()) {
                 feedbackView.state = .Collapsed
-            } else if event.attending || event.feedbackAnswers.count > 0 {
+            } else if event.attending || event.feedbackAnswers.count > 0 || feedbackViewOpen {
                 // If the user marked this as favorite or started filling feedback for the event
                 feedbackView.state = .Expended
             } else {

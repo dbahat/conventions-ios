@@ -70,6 +70,16 @@ class ConventionEvent {
         }
         
         set {
+            if newValue {
+                NotificationsSchedualer.scheduleEventAboutToStartNotification(self)
+                NotificationsSchedualer.scheduleEventFeedbackReminderNotification(self)
+                
+                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self)
+            } else {
+                NotificationsSchedualer.removeEventAboutToStartNotification(self)
+                NotificationsSchedualer.removeEventFeedbackReminderNotification(self)
+            }
+            
             if let input = Convention.instance.eventsInputs.getInput(id) {
                 input.attending = newValue
                 Convention.instance.eventsInputs.save()
@@ -79,13 +89,6 @@ class ConventionEvent {
             let input = UserInput.ConventionEvent(attending: newValue, feedbackUserInput: UserInput.Feedback())
             Convention.instance.eventsInputs.setInput(input, forEventId: id)
             Convention.instance.eventsInputs.save()
-            
-            if input.attending {
-                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self)
-                NotificationsSchedualer.scheduleEventNotifications(self)
-            } else {
-                NotificationsSchedualer.removeEventNotifications(self)
-            }
         }
     }
     
