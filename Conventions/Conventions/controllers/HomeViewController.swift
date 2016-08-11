@@ -10,31 +10,42 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
+    @IBOutlet private weak var arrivalMethodsImage: UIImageView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         // Change the device back to Portrait for this screen (as all others support landscape)
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        
+        if Convention.date.timeIntervalSince1970 < NSDate().timeIntervalSince1970 {
+            arrivalMethodsImage.image = UIImage(named: "OpeningFeedback")
+        }
     }
     
-    @IBAction func eventsWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction private func eventsWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(4)
     }
     
-    @IBAction func mapWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction private func mapWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(2)
     }
 
-    @IBAction func updatedWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction private func updatedWasTapped(sender: UITapGestureRecognizer) {
         navigateToTabController(1)
     }
     
-    @IBAction func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(0)
+    @IBAction private func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
+        // After the convention is over, the arrival methods button becomes the convention feedback button
+        if Convention.date.timeIntervalSince1970 < NSDate().timeIntervalSince1970 {
+            performSegueWithIdentifier("HomeToFeedbackSegue", sender: nil)
+        } else {
+            navigateToTabController(0)
+        }
     }
     
-    @IBAction func FeedbackWasTapped(sender: UITapGestureRecognizer) {
-        performSegueWithIdentifier("HomeToFeedbackSegue", sender: nil)
+    @IBAction private func FeedbackWasTapped(sender: UITapGestureRecognizer) {
+        
     }
     
     private func navigateToTabController(selectedIndex: Int) {
