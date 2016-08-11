@@ -13,6 +13,7 @@ class NotificationSettings {
     private static let EVENT_REMINDER = "EventReminder"
     private static let EVENT_FEEDBACK_REMINDER = "EventFeedbackReminder"
     private static let CONVENTION_FEEDBACK_REMINDER = "ConventionFeedbackReminder"
+    private static let DEVELOPER_OPTIONS = "DeveloperOptions"
     
     static let instance = NotificationSettings()
     
@@ -54,6 +55,15 @@ class NotificationSettings {
         }
         set {
             preferences.setBool(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
+        }
+    }
+    
+    var developerOptionsEnabled : Bool {
+        get {
+            return preferences.boolForKey(NotificationSettings.DEVELOPER_OPTIONS)
+        }
+        set {
+            preferences.setBool(newValue, forKey: NotificationSettings.DEVELOPER_OPTIONS)
         }
     }
     

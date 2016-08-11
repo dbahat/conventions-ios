@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
+    private var developerOptionsButtonTapCount = 0
+    
     @IBOutlet private weak var arrivalMethodsImage: UIImageView!
     
     override func viewWillAppear(animated: Bool) {
@@ -44,8 +46,17 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    @IBAction private func FeedbackWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction private func developerOptionsButtonTapped(sender: UIButton) {
+        developerOptionsButtonTapCount+=1
         
+        if developerOptionsButtonTapCount >= 7 {
+            let alert = UIAlertController(title: "", message: "אפשרויות מתקדמות אופשרו", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
+            guard let vc = self.navigationController else {return}
+            vc.presentViewController(alert, animated: true, completion: nil)
+            
+            NotificationSettings.instance.developerOptionsEnabled = true
+        }
     }
     
     private func navigateToTabController(selectedIndex: Int) {
