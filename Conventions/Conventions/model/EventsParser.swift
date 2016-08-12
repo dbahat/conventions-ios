@@ -68,11 +68,16 @@ class EventsParser {
                 
                 var color: UIColor?;
                 if let colorCode = event["timetable-bg"] as? String {
-                    color = UIColor(hexString: colorCode);
+                    color = colorCode != ""
+                        ? UIColor(hexString: colorCode)
+                        : UIColor(hexString: "#efcfdc");
                 }
+                
                 var textColor: UIColor?;
                 if let colorCode = event["timetable-text-color"] as? String {
-                    textColor = UIColor(hexString: "#" + colorCode);
+                    textColor = colorCode != ""
+                        ? UIColor(hexString: "#" + colorCode)
+                        : UIColor.blackColor();
                 }
                 
                 guard let startTime = internalEvent["start"] as? String else {
