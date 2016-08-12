@@ -95,10 +95,17 @@ class NotificationSettingsViewController: BaseViewController {
     
     private func updateCategoryAndRegister(category: String, sender: UISwitch) {
         let isOn = sender.on
-
+        var currentCategories = NotificationSettings.instance.categories;
+        
+        if isOn {
+            currentCategories.insert(category)
+        } else {
+            currentCategories.remove(category)
+        }
+        
         // Register the hub in an async manner not to block the UI
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
-        hub.registerNativeWithDeviceToken(Convention.deviceToken, tags: NotificationSettings.instance.categories, completion: {error in
+        hub.registerNativeWithDeviceToken(Convention.deviceToken, tags: currentCategories, completion: {error in
             if error != nil {
                 // In case the async operation failed, revert the UI change and show an error indication
                 TTGSnackbar(message: "לא ניתן לשנות את ההגדרות. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Short, superView: self.view)
@@ -106,11 +113,7 @@ class NotificationSettingsViewController: BaseViewController {
                 sender.setOn(!isOn, animated: true)
             } else {
                 // after a succesful registration in the hub, persist the new categories
-                if isOn {
-                    NotificationSettings.instance.categories.insert(category)
-                } else {
-                    NotificationSettings.instance.categories.remove(category)
-                }
+                NotificationSettings.instance.categories = currentCategories
             }
         })
     }

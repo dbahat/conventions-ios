@@ -906,8 +906,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="fAr-Bv-7A7"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על עדכונים בתוכניה ואירועים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-yD-BRz">
-                                                        <rect key="frame" x="146" y="39" width="228" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על עדכונים בתוכניה ואירועים" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-yD-BRz">
+                                                        <rect key="frame" x="60" y="39" width="314" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -915,6 +915,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" constant="60" id="AkQ-hq-44b"/>
                                                     <constraint firstAttribute="trailing" secondItem="5mM-8k-cLS" secondAttribute="trailing" id="EMg-X5-3AL"/>
                                                     <constraint firstItem="2GO-fO-m2Y" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="WWs-Hj-bwo"/>
                                                     <constraint firstAttribute="height" constant="71" id="Wnb-oJ-CWa"/>
@@ -950,8 +951,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="kIS-C5-5zh"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות עבור המשתתפים בתחרות הקוספליי" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-W0-p0L">
-                                                        <rect key="frame" x="106" y="39" width="268" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות עבור המשתתפים בתחרות הקוספליי" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-W0-p0L">
+                                                        <rect key="frame" x="60" y="39" width="314" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -963,6 +964,7 @@
                                                     <constraint firstItem="gun-0N-7sa" firstAttribute="leading" secondItem="nFt-TD-tnO" secondAttribute="leading" id="B8f-L3-xR3"/>
                                                     <constraint firstAttribute="trailing" secondItem="KSm-FX-g8G" secondAttribute="trailing" id="DwX-NY-cFG"/>
                                                     <constraint firstAttribute="trailing" secondItem="gun-0N-7sa" secondAttribute="trailing" id="EB4-ka-OEm"/>
+                                                    <constraint firstItem="qhO-W0-p0L" firstAttribute="leading" secondItem="nFt-TD-tnO" secondAttribute="leading" constant="60" id="JEm-tF-2vL"/>
                                                     <constraint firstAttribute="height" constant="71" id="L7P-mM-Gqd"/>
                                                     <constraint firstItem="qhO-W0-p0L" firstAttribute="centerY" secondItem="nFt-TD-tnO" secondAttribute="centerY" constant="12" id="Oyv-HS-m34"/>
                                                     <constraint firstAttribute="bottom" secondItem="gun-0N-7sa" secondAttribute="bottom" id="Q3e-CO-fnx"/>
@@ -994,8 +996,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="1Vc-45-aqx"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על הסעות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5h-b0-2lp">
-                                                        <rect key="frame" x="246" y="39" width="128" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על הסעות" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5h-b0-2lp">
+                                                        <rect key="frame" x="60" y="39" width="314" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1012,6 +1014,7 @@
                                                     <constraint firstItem="phu-d0-vGH" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" id="gFT-r6-6Qx"/>
                                                     <constraint firstItem="BR4-vU-Poz" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" id="i0S-Sf-eXj"/>
                                                     <constraint firstAttribute="bottom" secondItem="BR4-vU-Poz" secondAttribute="bottom" id="ie8-Jl-eXd"/>
+                                                    <constraint firstItem="S5h-b0-2lp" firstAttribute="leading" secondItem="I60-xB-NrF" secondAttribute="leading" constant="60" id="l8D-Xp-jrd"/>
                                                     <constraint firstItem="S5h-b0-2lp" firstAttribute="centerY" secondItem="I60-xB-NrF" secondAttribute="centerY" constant="12" id="po1-RJ-2Vi"/>
                                                 </constraints>
                                             </view>
