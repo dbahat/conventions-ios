@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController {
     private var developerOptionsButtonTapCount = 0
     
     @IBOutlet private weak var arrivalMethodsImage: UIImageView!
+    @IBOutlet private weak var settingsButton: UIButton!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,6 +24,10 @@ class HomeViewController: BaseViewController {
         if Convention.date.timeIntervalSince1970 < NSDate().timeIntervalSince1970 {
             arrivalMethodsImage.image = UIImage(named: "OpeningFeedback")
         }
+        
+        let settingsImage = UIImage(named: "OpeningSettings")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        settingsButton.setImage(settingsImage, forState: .Normal)
+        settingsButton.imageView?.tintColor = UIColor.yellowColor()
     }
     
     @IBAction private func eventsWasTapped(sender: UITapGestureRecognizer) {

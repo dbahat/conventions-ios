@@ -683,10 +683,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="aId-wV-mvS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="182.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkO-0k-X7a">
-                                <rect key="frame" x="184" y="69" width="45" height="45"/>
+                                <rect key="frame" x="184" y="61" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="VPA-tB-FuT"/>
                                     <constraint firstAttribute="height" constant="45" id="cfu-Lv-eJp"/>
@@ -696,20 +696,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningBackground" translatesAutoresizingMaskIntoConstraints="NO" id="egL-WH-osG">
-                                <rect key="frame" x="0.0" y="182" width="414" height="584"/>
+                                <rect key="frame" x="0.0" y="167" width="414" height="584"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="egL-WH-osG" secondAttribute="height" multiplier="275:388" id="Bf2-5K-V4k"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RLG-Wu-VfY">
-                                <rect key="frame" x="52" y="182" width="310" height="100.5"/>
+                                <rect key="frame" x="52" y="167" width="310" height="100.5"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="NPB-qT-4oj"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningMap" translatesAutoresizingMaskIntoConstraints="NO" id="YKh-0o-gyo">
-                                <rect key="frame" x="10" y="283" width="192" height="184.5"/>
+                                <rect key="frame" x="10" y="268" width="192" height="184.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YKh-0o-gyo" secondAttribute="height" multiplier="484:465" id="UGk-bU-KrD"/>
                                 </constraints>
@@ -718,7 +718,7 @@
                                 </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningArrivalMethods" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-lS-87k">
-                                <rect key="frame" x="10" y="477" width="192" height="184.5"/>
+                                <rect key="frame" x="10" y="462" width="192" height="184.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pqF-lS-87k" secondAttribute="height" multiplier="484:465" id="DXH-0n-CcM"/>
                                 </constraints>
@@ -727,7 +727,7 @@
                                 </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningEvents" translatesAutoresizingMaskIntoConstraints="NO" id="dvT-u3-hzJ">
-                                <rect key="frame" x="212" y="283" width="192" height="184.5"/>
+                                <rect key="frame" x="212" y="268" width="192" height="184.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dvT-u3-hzJ" secondAttribute="height" multiplier="484:465" id="2HF-52-MJF"/>
                                 </constraints>
@@ -736,7 +736,7 @@
                                 </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="vNy-I4-Lxw">
-                                <rect key="frame" x="212" y="477" width="192" height="184.5"/>
+                                <rect key="frame" x="212" y="462" width="192" height="184.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vNy-I4-Lxw" secondAttribute="height" multiplier="484:465" id="T6H-OC-vVe"/>
                                 </constraints>
@@ -744,8 +744,12 @@
                                     <outletCollection property="gestureRecognizers" destination="VkU-sB-0kP" appends="YES" id="qNx-cU-dZ2"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-bd-KgV">
-                                <rect key="frame" x="193" y="639" width="29" height="28"/>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-bd-KgV">
+                                <rect key="frame" x="187.5" y="627" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="bDT-V2-iQh"/>
+                                    <constraint firstAttribute="height" constant="40" id="bxZ-m9-4Ha"/>
+                                </constraints>
                                 <state key="normal" image="OpeningSettings"/>
                                 <connections>
                                     <segue destination="JZD-xw-s30" kind="show" id="VSh-sU-Tsj"/>
@@ -756,7 +760,7 @@
                         <constraints>
                             <constraint firstItem="vNy-I4-Lxw" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="48p-MU-xxf"/>
                             <constraint firstItem="vNy-I4-Lxw" firstAttribute="top" secondItem="dvT-u3-hzJ" secondAttribute="bottom" constant="10" id="BbC-00-dSP"/>
-                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="vNy-I4-Lxw" secondAttribute="bottom" constant="10" id="Cc2-aC-uec"/>
+                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="vNy-I4-Lxw" secondAttribute="bottom" constant="25" id="Cc2-aC-uec"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" id="Dkb-l0-ckd"/>
                             <constraint firstItem="LkO-0k-X7a" firstAttribute="centerY" secondItem="aId-wV-mvS" secondAttribute="centerY" id="HbX-ZV-juD"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="Jtb-c4-cFc"/>
@@ -778,7 +782,7 @@
                             <constraint firstAttribute="trailing" secondItem="dvT-u3-hzJ" secondAttribute="trailing" constant="10" id="tkr-X1-y77"/>
                             <constraint firstItem="cEj-bd-KgV" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="uI4-Ql-Qmz"/>
                             <constraint firstItem="egL-WH-osG" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="top" id="wYE-K9-Ry1"/>
-                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="pqF-lS-87k" secondAttribute="bottom" constant="10" id="yZg-cJ-0NB"/>
+                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="pqF-lS-87k" secondAttribute="bottom" constant="25" id="yZg-cJ-0NB"/>
                             <constraint firstItem="YKh-0o-gyo" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="zDY-DC-yiJ"/>
                         </constraints>
                     </view>
@@ -787,6 +791,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="arrivalMethodsImage" destination="pqF-lS-87k" id="thc-zt-VF8"/>
+                        <outlet property="settingsButton" destination="cEj-bd-KgV" id="2xT-aV-W9O"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>
                         <segue destination="9cX-Hv-YPC" kind="show" identifier="HomeToFeedbackSegue" id="UEp-OA-9fr"/>
                     </connections>
@@ -1366,7 +1371,7 @@
         <image name="OpeningCover" width="677" height="250"/>
         <image name="OpeningEvents" width="240" height="221"/>
         <image name="OpeningMap" width="240" height="221"/>
-        <image name="OpeningSettings" width="29" height="28"/>
+        <image name="OpeningSettings" width="43" height="42"/>
         <image name="OpeningTitle" width="310" height="100"/>
         <image name="OpeningUpdates" width="240" height="221"/>
     </resources>
