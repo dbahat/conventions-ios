@@ -10,6 +10,9 @@ import Foundation
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
+    @IBOutlet private weak var filledEventsFeedbackLabel: UILabel!
+    @IBOutlet private weak var seperatorView: UIView!
+    @IBOutlet private weak var sendAllFeedbackDescriptionLabel: UILabel!
     @IBOutlet private weak var sendFeedbackContainer: UIView!
     @IBOutlet private weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var feedbackView: FeedbackView!
@@ -149,13 +152,20 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         submittedEventsTabledView.delegate = submittedEventsDataSource
         submittedEventsDataSource.referencingViewController = self
         
-        eventsToSubmitDataSource.events = Convention.instance.events.getAll().filter({$0.feedbackAnswers.count > 0 && !$0.didSubmitFeedback() && !Convention.instance.isFeedbackSendingTimeOver()})
+        eventsToSubmitDataSource.events = Convention.instance.events.getAll().filter({($0.feedbackAnswers.count > 0 || $0.attending) && !$0.didSubmitFeedback() && !Convention.instance.isFeedbackSendingTimeOver()})
         eventsToSubmitHeightConstraint.constant = CGFloat(102 * eventsToSubmitDataSource.events.count)
         eventsToSubmitTableView.dataSource = eventsToSubmitDataSource
         eventsToSubmitTableView.delegate = eventsToSubmitDataSource
         eventsToSubmitDataSource.referencingViewController = self
         
-        if eventsToSubmitHeightConstraint.constant == 0 {
+        if eventsToSubmitDataSource.events.count == 0 && submittedEventsDataSource.events.count == 0 {
+            sendFeedbackContainerHeightConstraint.constant = 81
+            sendFeedbackContainer.hidden = false
+            submitAllFeedbacksButton.hidden = true
+            seperatorView.hidden = true
+            filledEventsFeedbackLabel.hidden = true
+            sendAllFeedbackDescriptionLabel.text = "בחר אירועים שהיית בהם דרך התוכניה ומלא עליהם פידבק"
+        } else if eventsToSubmitDataSource.events.count == 0 {
             sendFeedbackContainerHeightConstraint.constant = 0
             sendFeedbackContainer.hidden = true
         } else {

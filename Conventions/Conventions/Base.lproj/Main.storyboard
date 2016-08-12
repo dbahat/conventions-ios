@@ -654,8 +654,11 @@
                         <outlet property="eventsToSubmitTableView" destination="RHH-cB-LNw" id="Im5-s4-5ff"/>
                         <outlet property="feedbackView" destination="WRh-Ke-l8Y" id="TEy-QG-ewW"/>
                         <outlet property="feedbackViewHeightConstraint" destination="cUH-Qs-AQX" id="NoB-Ft-1ZO"/>
+                        <outlet property="filledEventsFeedbackLabel" destination="WFt-4d-yfh" id="Rfh-Ch-jpK"/>
+                        <outlet property="sendAllFeedbackDescriptionLabel" destination="HYG-c9-oPP" id="SVN-Cc-Bdk"/>
                         <outlet property="sendFeedbackContainer" destination="Plh-bl-lc0" id="jl0-YB-IeK"/>
                         <outlet property="sendFeedbackContainerHeightConstraint" destination="qBH-YO-gda" id="ofs-5u-A3o"/>
+                        <outlet property="seperatorView" destination="9Wr-My-40V" id="ir7-Lz-Ybp"/>
                         <outlet property="submitAllFeedbacksButton" destination="Swa-Gm-K8v" id="PYa-17-7R2"/>
                         <outlet property="submitAllFeedbacksButtonIndicator" destination="oVu-Vc-oFR" id="fiG-GS-a4F"/>
                         <outlet property="submittedEventsTableViewHeightConstraint" destination="CxQ-Ue-l17" id="K7V-SG-ABd"/>
