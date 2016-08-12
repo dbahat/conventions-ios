@@ -85,7 +85,7 @@ class NotificationSettingsViewController: BaseViewController {
         feedbackNotificationButton.on = NotificationSettings.instance.eventFeedbackReminder
         
         if NotificationSettings.instance.developerOptionsEnabled {
-            developerOptionsContainerHeightConstraint.constant = 71
+            developerOptionsContainerHeightConstraint.constant = 132
             developerOptionsContainer.hidden = false
         } else {
             developerOptionsContainerHeightConstraint.constant = 0
