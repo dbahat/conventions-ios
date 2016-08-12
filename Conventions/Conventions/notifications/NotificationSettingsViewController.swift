@@ -18,8 +18,8 @@ class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var eventNotificationButton: UISwitch!
     @IBOutlet private weak var feedbackNotificationButton: UISwitch!
     
-    @IBOutlet private weak var developerOptionsTitle: UILabel!
     @IBOutlet private weak var developerOptionsContainer: UIView!
+    @IBOutlet private weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +79,17 @@ class NotificationSettingsViewController: BaseViewController {
         eventsCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
         cosplayCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_COSPLAY)
         busCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_BUS)
+        developerOptionsButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
         
         eventNotificationButton.on = NotificationSettings.instance.eventReminder
         feedbackNotificationButton.on = NotificationSettings.instance.eventFeedbackReminder
         
         if NotificationSettings.instance.developerOptionsEnabled {
-            developerOptionsTitle.hidden = false
+            developerOptionsContainerHeightConstraint.constant = 71
             developerOptionsContainer.hidden = false
-            developerOptionsButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
+        } else {
+            developerOptionsContainerHeightConstraint.constant = 0
+            developerOptionsContainer.hidden = true
         }
     }
     
