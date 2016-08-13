@@ -75,6 +75,11 @@ class ConventionEvent {
                 NotificationsSchedualer.scheduleEventFeedbackReminderNotification(self)
                 
                 NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self)
+                
+                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Favorites",
+                    action: newValue ? "Added" : "Remove",
+                    label: "", value: NSNumber())
+                    .build() as [NSObject: AnyObject]);
             } else {
                 NotificationsSchedualer.removeEventAboutToStartNotification(self)
                 NotificationsSchedualer.removeEventFeedbackReminderNotification(self)
@@ -134,7 +139,7 @@ class ConventionEvent {
             return
         }
         
-        input.feedbackUserInput.submit("פידבק עבור האירוע " + title, callback: callback)
+        input.feedbackUserInput.submit("פידבק ל" + Convention.displayName + " עבור האירוע: " + title, callback: callback)
     }
     
     func canFillFeedback() -> Bool {

@@ -61,7 +61,7 @@ class NotificationsSchedualer {
         if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return}
         
         // In case the user manually disabled event reminder notifications don't schedule anything
-        if !NotificationSettings.instance.eventReminder {
+        if !NotificationSettings.instance.eventStartingReminder {
             return
         }
         

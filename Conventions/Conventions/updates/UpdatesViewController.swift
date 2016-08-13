@@ -101,6 +101,12 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         Convention.instance.updates.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             
+            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("PullToRefresh",
+                action: "RefreshUpdates",
+                label: "",
+                value: success ? 1 : 0)
+                .build() as [NSObject: AnyObject]);
+            
             if (!success) {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show()
                 return

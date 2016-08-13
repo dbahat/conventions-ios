@@ -10,8 +10,8 @@ import Foundation
 
 class NotificationSettings {
     private static let CATEGORIES = "NotificationCategories"
-    private static let EVENT_REMINDER = "EventReminder"
-    private static let EVENT_FEEDBACK_REMINDER = "EventFeedbackReminder"
+    private static let EVENT_FEEDBACK_REMINDER = Convention.name + "_Event_FeedbackReminder"
+    private static let EVENT_STARTING_REMINDER = Convention.name + "_Event_StartingReminder"
     private static let CONVENTION_FEEDBACK_REMINDER = "ConventionFeedbackReminder"
     private static let DEVELOPER_OPTIONS = "DeveloperOptions"
     
@@ -31,12 +31,12 @@ class NotificationSettings {
         }
     }
     
-    var eventReminder: Bool {
+    var eventStartingReminder: Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.EVENT_REMINDER)
+            return preferences.boolForKey(NotificationSettings.EVENT_STARTING_REMINDER)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.EVENT_REMINDER)
+            preferences.setBool(newValue, forKey: NotificationSettings.EVENT_STARTING_REMINDER)
         }
     }
     
@@ -69,7 +69,7 @@ class NotificationSettings {
     
     private init() {
         // by default have both reminders active
-        eventReminder = true
+        eventStartingReminder = true
         eventFeedbackReminder = true
     }
 }

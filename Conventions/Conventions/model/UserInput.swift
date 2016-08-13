@@ -70,6 +70,12 @@ class UserInput {
             callback?(success: true)
             let operation = session.sendOperationWithData(builder.data());
             operation.start { error in
+                
+                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Feedback",
+                    action: "SendAttempt",
+                    label: error != nil ? "success" : "failure", value: NSNumber())
+                    .build() as [NSObject: AnyObject]);
+                
                 if error != nil {
                     callback?(success: false)
                 } else {

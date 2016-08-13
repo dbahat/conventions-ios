@@ -49,7 +49,7 @@ class NotificationSettingsViewController: BaseViewController {
     }
     
     @IBAction private func beforeEventNotificationsTapped(sender: UISwitch) {
-        NotificationSettings.instance.eventReminder = sender.on
+        NotificationSettings.instance.eventStartingReminder = sender.on
         
         let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
         for event in favoriteEvents {
@@ -59,6 +59,12 @@ class NotificationSettingsViewController: BaseViewController {
                 NotificationsSchedualer.removeEventAboutToStartNotification(event)
             }
         }
+        
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Notifications",
+            action: sender.on ? "PreferenceSelected" : "PreferenceDeselected",
+            label: Convention.name.lowercaseString + "_event_starting_reminder",
+            value: NSNumber())
+            .build() as [NSObject: AnyObject]);
     }
 
     @IBAction private func afterEventNotificationsTapped(sender: UISwitch) {
@@ -72,6 +78,12 @@ class NotificationSettingsViewController: BaseViewController {
                 NotificationsSchedualer.removeEventFeedbackReminderNotification(event)
             }
         }
+        
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Notifications",
+            action: sender.on ? "PreferenceSelected" : "PreferenceDeselected",
+            label: Convention.name.lowercaseString + "_event_feedback_reminder",
+            value: NSNumber())
+            .build() as [NSObject: AnyObject]);
     }
     
     private func initializeButtonsState() {
@@ -82,7 +94,7 @@ class NotificationSettingsViewController: BaseViewController {
         busCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_BUS)
         developerOptionsButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
         
-        eventNotificationButton.on = NotificationSettings.instance.eventReminder
+        eventNotificationButton.on = NotificationSettings.instance.eventStartingReminder
         feedbackNotificationButton.on = NotificationSettings.instance.eventFeedbackReminder
         
         if NotificationSettings.instance.developerOptionsEnabled {
@@ -116,6 +128,12 @@ class NotificationSettingsViewController: BaseViewController {
                 // after a succesful registration in the hub, persist the new categories
                 NotificationSettings.instance.categories = currentCategories
             }
+            
+            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Notifications",
+                action: isOn ? "CategoryAdded" : "CategoryRemoved",
+                label: category,
+                value: error != nil ? 1 : 0)
+                .build() as [NSObject: AnyObject]);
         })
     }
 }
