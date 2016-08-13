@@ -25,6 +25,7 @@ class NotificationSettingsViewController: BaseViewController {
         super.viewDidLoad()
         
         initializeButtonsState()
+        navigationItem.title = "הגדרות"
     }
     
     @IBAction private func generalNotificationsTapped(sender: UISwitch) {
