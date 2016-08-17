@@ -25,7 +25,7 @@ class ArrivalMethodsViewController: BaseViewController {
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
-        marker.title = "הארוקון 2016"
+        marker.title = Convention.displayName
         marker.snippet = "בנייני האומה"
         marker.map = mapView
     }
