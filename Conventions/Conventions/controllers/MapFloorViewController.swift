@@ -12,9 +12,22 @@ class MapFloorViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var scrollView: UIScrollView!
     
     var floorImage: UIImage?;
+    var floor: Int = 1
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         floorImageView.image = floorImage;
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if floor == 0 {
+            tabBarController?.title = "מפה - מפלס תחתון"
+        } else {
+            tabBarController?.title = "מפה - מפלס עליון"
+        }
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
