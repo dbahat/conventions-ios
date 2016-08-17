@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // The message we got in a remote notification. Needed in case we get push notification while in background
     private var remoteNotificationMessage: String = ""
+    private var remoteNotificationCategory: String = ""
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -89,20 +90,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let message = userInfo["aps"]?["alert"] as? String else {
             return;
         }
+        let category = userInfo["category"] as? String ?? ""
         
         // When the app isn't active we want to allow iOS to show the notification, and only present it
         // to the user if he clicked the notification
         if !isActive {
             remoteNotificationMessage = message
+            remoteNotificationCategory = category
             return;
         }
         
-        showNotificationPopup(message)
+        showNotificationPopup(message, category: category)
     }
     
-    private func showNotificationPopup(message: String) {
+    private func showNotificationPopup(message: String, category: String) {
         
-        let alert = UIAlertController(title: "הודעה התקבלה", message: message, preferredStyle: .Alert)
+        let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .Default, handler: {action in
             guard let vc = self.window?.rootViewController as? UINavigationController else {return}
             if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(NotificationSettingsViewController)) as? NotificationSettingsViewController {
@@ -121,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // In case we got push notification while in background, show it to the user in a larger dialog
         // since some notifications may be too long for the iOS default notification area
         if remoteNotificationMessage != "" {
-            showNotificationPopup(remoteNotificationMessage)
+            showNotificationPopup(remoteNotificationMessage, category: remoteNotificationCategory)
             remoteNotificationMessage = ""
         }
     }
@@ -234,6 +237,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func isConventionFeedbackNotification(notification: UILocalNotification) -> Bool {
         
         return notification.userInfo?[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool == true
+    }
+    
+    private func categoryIdToName(category: String) -> String {
+        if category == NotificationHubInfo.CATEGORY_TEST {
+            return "בדיקות"
+        }
+        if category == NotificationHubInfo.CATEGORY_BUS {
+            return "הסעות"
+        }
+        if category == NotificationHubInfo.CATEGORY_COSPLAY {
+            return "השתתפות באירוע הקוספליי"
+        }
+        if category == NotificationHubInfo.CATEGORY_EVENTS {
+            return "אירועים"
+        }
+        
+        return "התראה"
     }
 }
 
