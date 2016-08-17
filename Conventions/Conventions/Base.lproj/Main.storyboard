@@ -702,7 +702,7 @@
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RLG-Wu-VfY">
-                                <rect key="frame" x="52" y="167" width="310" height="100.5"/>
+                                <rect key="frame" x="52.5" y="167" width="309" height="100.5"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="NPB-qT-4oj"/>
@@ -745,7 +745,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-bd-KgV">
-                                <rect key="frame" x="187.5" y="627" width="40" height="40"/>
+                                <rect key="frame" x="187" y="627" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="bDT-V2-iQh"/>
                                     <constraint firstAttribute="height" constant="40" id="bxZ-m9-4Ha"/>
@@ -791,7 +791,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="arrivalMethodsImage" destination="pqF-lS-87k" id="thc-zt-VF8"/>
-                        <outlet property="settingsButton" destination="cEj-bd-KgV" id="2xT-aV-W9O"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>
                         <segue destination="9cX-Hv-YPC" kind="show" identifier="HomeToFeedbackSegue" id="UEp-OA-9fr"/>
                     </connections>
@@ -1367,12 +1366,12 @@
         <image name="MenuOpenUsingMaps" width="23" height="23"/>
         <image name="MenuUpdates" width="33" height="33"/>
         <image name="OpeningArrivalMethods" width="240" height="221"/>
-        <image name="OpeningBackground" width="550" height="776"/>
+        <image name="OpeningBackground" width="526" height="742"/>
         <image name="OpeningCover" width="677" height="250"/>
         <image name="OpeningEvents" width="240" height="221"/>
         <image name="OpeningMap" width="240" height="221"/>
-        <image name="OpeningSettings" width="43" height="42"/>
-        <image name="OpeningTitle" width="310" height="100"/>
+        <image name="OpeningSettings" width="46" height="44"/>
+        <image name="OpeningTitle" width="309" height="100"/>
         <image name="OpeningUpdates" width="240" height="221"/>
     </resources>
     <inferredMetricsTieBreakers>
