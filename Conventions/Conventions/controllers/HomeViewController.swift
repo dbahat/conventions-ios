@@ -12,8 +12,7 @@ class HomeViewController: BaseViewController {
     
     private var developerOptionsButtonTapCount = 0
     
-    @IBOutlet private weak var arrivalMethodsImage: UIImageView!
-    @IBOutlet private weak var settingsButton: UIButton!
+    @IBOutlet private weak var arrivalMethodsButton: UIButton!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,27 +21,23 @@ class HomeViewController: BaseViewController {
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
         
         if Convention.date.timeIntervalSince1970 < NSDate().timeIntervalSince1970 {
-            arrivalMethodsImage.image = UIImage(named: "OpeningFeedback")
+            arrivalMethodsButton.setImage(UIImage(named: "OpeningFeedback"), forState: .Normal)
         }
-        
-        let settingsImage = UIImage(named: "OpeningSettings")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        settingsButton.setImage(settingsImage, forState: .Normal)
-        settingsButton.imageView?.tintColor = UIColor.yellowColor()
     }
     
-    @IBAction private func eventsWasTapped(sender: UITapGestureRecognizer) {
-        navigateToTabController(4)
+    @IBAction func eventsWasTapped(sender: UIButton) {
+            navigateToTabController(4)
     }
     
-    @IBAction private func mapWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction func mapWasTapped(sender: UIButton) {
         navigateToTabController(2)
     }
-
-    @IBAction private func updatedWasTapped(sender: UITapGestureRecognizer) {
+    
+    @IBAction func updatesWasTapped(sender: UIButton) {
         navigateToTabController(1)
     }
     
-    @IBAction private func arrivalMethodsWasTapped(sender: UITapGestureRecognizer) {
+    @IBAction func arrivalMethodsWasTapped(sender: UIButton) {
         // After the convention is over, the arrival methods button becomes the convention feedback button
         if Convention.date.timeIntervalSince1970 < NSDate().timeIntervalSince1970 {
             performSegueWithIdentifier("HomeToFeedbackSegue", sender: nil)
@@ -50,7 +45,6 @@ class HomeViewController: BaseViewController {
             navigateToTabController(0)
         }
     }
-    
     @IBAction private func developerOptionsButtonTapped(sender: UIButton) {
         developerOptionsButtonTapCount+=1
         

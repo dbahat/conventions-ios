@@ -683,7 +683,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="aId-wV-mvS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="167.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkO-0k-X7a">
                                 <rect key="frame" x="184" y="61" width="45" height="45"/>
@@ -702,49 +702,54 @@
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RLG-Wu-VfY">
-                                <rect key="frame" x="52.5" y="167" width="309" height="100.5"/>
+                                <rect key="frame" x="52" y="167" width="309" height="100.5"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="NPB-qT-4oj"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningMap" translatesAutoresizingMaskIntoConstraints="NO" id="YKh-0o-gyo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoE-Yz-elC" userLabel="Map Button">
                                 <rect key="frame" x="10" y="268" width="192" height="184.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YKh-0o-gyo" secondAttribute="height" multiplier="484:465" id="UGk-bU-KrD"/>
+                                    <constraint firstAttribute="width" secondItem="AoE-Yz-elC" secondAttribute="height" multiplier="484:465" id="x3U-Gj-WJu"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <state key="normal" image="OpeningMap"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="76O-Ae-mTN" appends="YES" id="efr-pw-RM8"/>
+                                    <action selector="mapWasTapped:" destination="eEe-jU-bHM" eventType="touchUpInside" id="N03-EI-cQh"/>
                                 </connections>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningArrivalMethods" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-lS-87k">
-                                <rect key="frame" x="10" y="462" width="192" height="184.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="pqF-lS-87k" secondAttribute="height" multiplier="484:465" id="DXH-0n-CcM"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="JUx-eb-P2H" appends="YES" id="1Pj-qe-6gI"/>
-                                </connections>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningEvents" translatesAutoresizingMaskIntoConstraints="NO" id="dvT-u3-hzJ">
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyM-Tf-KSO" userLabel="Events Button">
                                 <rect key="frame" x="212" y="268" width="192" height="184.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="dvT-u3-hzJ" secondAttribute="height" multiplier="484:465" id="2HF-52-MJF"/>
+                                    <constraint firstAttribute="width" secondItem="pyM-Tf-KSO" secondAttribute="height" multiplier="484:465" id="VKw-vS-zRJ"/>
                                 </constraints>
+                                <state key="normal" image="OpeningEvents"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Dbr-yP-CVz" appends="YES" id="FPi-50-iqK"/>
+                                    <action selector="eventsWasTapped:" destination="eEe-jU-bHM" eventType="touchUpInside" id="ZVp-Hh-nEJ"/>
                                 </connections>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="vNy-I4-Lxw">
-                                <rect key="frame" x="212" y="462" width="192" height="184.5"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-1e-BK9" userLabel="Updates Button">
+                                <rect key="frame" x="212" y="462.5" width="192" height="184.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="vNy-I4-Lxw" secondAttribute="height" multiplier="484:465" id="T6H-OC-vVe"/>
+                                    <constraint firstAttribute="width" secondItem="ehM-1e-BK9" secondAttribute="height" multiplier="484:465" id="I85-b8-FTY"/>
                                 </constraints>
+                                <state key="normal" image="OpeningUpdates"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VkU-sB-0kP" appends="YES" id="qNx-cU-dZ2"/>
+                                    <action selector="updatesWasTapped:" destination="eEe-jU-bHM" eventType="touchUpInside" id="uv8-Pn-8DM"/>
                                 </connections>
-                            </imageView>
-                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-bd-KgV">
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QS-aG-rUv" userLabel="Arrival Methods Button">
+                                <rect key="frame" x="10" y="462.5" width="192" height="184.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2QS-aG-rUv" secondAttribute="height" multiplier="484:465" id="ORJ-lq-MzX"/>
+                                </constraints>
+                                <state key="normal" image="OpeningArrivalMethods"/>
+                                <connections>
+                                    <action selector="arrivalMethodsWasTapped:" destination="eEe-jU-bHM" eventType="touchUpInside" id="xLT-rU-NOM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-bd-KgV" userLabel="Settings Button">
                                 <rect key="frame" x="187" y="627" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="bDT-V2-iQh"/>
@@ -758,64 +763,44 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509802" green="0.78823529411764703" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vNy-I4-Lxw" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="48p-MU-xxf"/>
-                            <constraint firstItem="vNy-I4-Lxw" firstAttribute="top" secondItem="dvT-u3-hzJ" secondAttribute="bottom" constant="10" id="BbC-00-dSP"/>
-                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="vNy-I4-Lxw" secondAttribute="bottom" constant="25" id="Cc2-aC-uec"/>
+                            <constraint firstItem="AoE-Yz-elC" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="bottom" id="06T-j4-laA"/>
+                            <constraint firstItem="ehM-1e-BK9" firstAttribute="top" secondItem="pyM-Tf-KSO" secondAttribute="bottom" constant="10" id="2EK-hc-TpQ"/>
+                            <constraint firstItem="2QS-aG-rUv" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="4Bk-zg-ws9"/>
+                            <constraint firstItem="ehM-1e-BK9" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="4Z2-Tl-Mt8"/>
+                            <constraint firstAttribute="trailing" secondItem="pyM-Tf-KSO" secondAttribute="trailing" constant="10" id="9yW-fe-3jX"/>
+                            <constraint firstItem="pyM-Tf-KSO" firstAttribute="width" secondItem="egL-WH-osG" secondAttribute="width" multiplier="0.5" constant="-15" id="B6k-8G-Vpx"/>
+                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="ehM-1e-BK9" secondAttribute="bottom" constant="25" id="BVB-Ad-KcX"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" id="Dkb-l0-ckd"/>
+                            <constraint firstItem="AoE-Yz-elC" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="GJU-AR-O99"/>
                             <constraint firstItem="LkO-0k-X7a" firstAttribute="centerY" secondItem="aId-wV-mvS" secondAttribute="centerY" id="HbX-ZV-juD"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="Jtb-c4-cFc"/>
+                            <constraint firstItem="AoE-Yz-elC" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="KIq-2N-cQd"/>
                             <constraint firstAttribute="trailing" secondItem="egL-WH-osG" secondAttribute="trailing" id="KZ2-M1-efH"/>
                             <constraint firstItem="RLG-Wu-VfY" firstAttribute="top" secondItem="aId-wV-mvS" secondAttribute="bottom" id="Pvr-qu-zk3"/>
                             <constraint firstItem="LkO-0k-X7a" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="RK6-jX-VHg"/>
-                            <constraint firstItem="YKh-0o-gyo" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="S33-io-XVg"/>
-                            <constraint firstItem="pqF-lS-87k" firstAttribute="top" secondItem="YKh-0o-gyo" secondAttribute="bottom" constant="10" id="WNf-RK-1M4"/>
-                            <constraint firstItem="dvT-u3-hzJ" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="XM5-PX-C8o"/>
+                            <constraint firstItem="2QS-aG-rUv" firstAttribute="top" secondItem="AoE-Yz-elC" secondAttribute="bottom" constant="10" id="VTX-zv-xUL"/>
                             <constraint firstItem="egL-WH-osG" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" id="Yc2-zW-GJj"/>
-                            <constraint firstItem="pqF-lS-87k" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="cyP-FZ-KPG"/>
+                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="2QS-aG-rUv" secondAttribute="bottom" constant="25" id="ctF-3V-MAh"/>
                             <constraint firstAttribute="trailing" secondItem="aId-wV-mvS" secondAttribute="trailing" id="h1d-D1-bDA"/>
                             <constraint firstItem="aId-wV-mvS" firstAttribute="top" secondItem="3Xg-sD-Iyu" secondAttribute="bottom" id="hOO-RN-izT"/>
                             <constraint firstItem="RLG-Wu-VfY" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="hU7-Zd-lIk"/>
+                            <constraint firstItem="2QS-aG-rUv" firstAttribute="leading" secondItem="XuI-Qs-es8" secondAttribute="leading" constant="10" id="hcg-eb-tHk"/>
                             <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="cEj-bd-KgV" secondAttribute="bottom" constant="5" id="i65-DW-oLt"/>
-                            <constraint firstAttribute="trailing" secondItem="vNy-I4-Lxw" secondAttribute="trailing" constant="10" id="iQF-9F-kWk"/>
-                            <constraint firstItem="pqF-lS-87k" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="rbT-aY-JhI"/>
-                            <constraint firstItem="YKh-0o-gyo" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="bottom" id="ryi-wu-zYv"/>
-                            <constraint firstAttribute="trailing" secondItem="dvT-u3-hzJ" secondAttribute="trailing" constant="10" id="tkr-X1-y77"/>
+                            <constraint firstAttribute="trailing" secondItem="ehM-1e-BK9" secondAttribute="trailing" constant="10" id="qvS-cw-46W"/>
                             <constraint firstItem="cEj-bd-KgV" firstAttribute="centerX" secondItem="XuI-Qs-es8" secondAttribute="centerX" id="uI4-Ql-Qmz"/>
                             <constraint firstItem="egL-WH-osG" firstAttribute="top" secondItem="RLG-Wu-VfY" secondAttribute="top" id="wYE-K9-Ry1"/>
-                            <constraint firstItem="ANc-rH-SqQ" firstAttribute="top" secondItem="pqF-lS-87k" secondAttribute="bottom" constant="25" id="yZg-cJ-0NB"/>
-                            <constraint firstItem="YKh-0o-gyo" firstAttribute="width" secondItem="XuI-Qs-es8" secondAttribute="width" multiplier="0.5" constant="-15" id="zDY-DC-yiJ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="דף הבית" id="PSi-ES-P60"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="arrivalMethodsImage" destination="pqF-lS-87k" id="thc-zt-VF8"/>
+                        <outlet property="arrivalMethodsButton" destination="2QS-aG-rUv" id="f9D-jJ-hSb"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="HomeToTabBarSegue" id="hyM-Jh-EZA"/>
                         <segue destination="9cX-Hv-YPC" kind="show" identifier="HomeToFeedbackSegue" id="UEp-OA-9fr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFO-9I-u4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Dbr-yP-CVz" userLabel="EventsRecognizer">
-                    <connections>
-                        <action selector="eventsWasTapped:" destination="eEe-jU-bHM" id="weS-mn-WUr"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="JUx-eb-P2H" userLabel="ArrivalRecognizer">
-                    <connections>
-                        <action selector="arrivalMethodsWasTapped:" destination="eEe-jU-bHM" id="YgT-ef-Mjc"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="76O-Ae-mTN" userLabel="MapRecognizer">
-                    <connections>
-                        <action selector="mapWasTapped:" destination="eEe-jU-bHM" id="dpd-Yy-dJc"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="VkU-sB-0kP" userLabel="UpdatesRecognizer">
-                    <connections>
-                        <action selector="updatedWasTapped:" destination="eEe-jU-bHM" id="Hak-Ud-HNM"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-836" y="0.0"/>
         </scene>
