@@ -9,8 +9,17 @@
 class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     private var pageViewController: UIPageViewController!
-    private var viewControllers = Array<UIViewController>();
-    private var currentFloorIndex = 0;
+    private var viewControllers = Array<MapFloorViewController>()
+    private let areas = [
+        MapArea(name: "מפה - מפלס עליון", image: UIImage(named: "Floor1")!),
+        MapArea(name: "מפה - מפלס תחתון", image: UIImage(named: "Floor2")!),
+        MapArea(name: "דוכנים - טרקלין אגם", image: UIImage(named: "Stands1")!),
+        MapArea(name: "דוכנים - אולם פינקוס", image: UIImage(named: "Stands2")!),
+        MapArea(name: "דוכנים - אולם כניסה", image: UIImage(named: "Stands3")!)
+    ]
+    
+    // Not using the built in UIPageViewController page control since it's only supported for horizontal paging
+    @IBOutlet private weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -18,20 +27,20 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         let pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Vertical, options: nil);
         pageViewController.delegate = self;
         
-        let floor1ViewController = storyboard!.instantiateViewControllerWithIdentifier(String(MapFloorViewController)) as! MapFloorViewController;
-        let floor2ViewController = storyboard!.instantiateViewControllerWithIdentifier(String(MapFloorViewController)) as! MapFloorViewController;
+        viewControllers = areas.map({area in
+            let mapAreaViewController = storyboard!.instantiateViewControllerWithIdentifier(String(MapFloorViewController)) as! MapFloorViewController;
+            mapAreaViewController.area = area
+            return mapAreaViewController
+        })
         
-        floor1ViewController.floorImage = UIImage(named: "Floor1");
-        floor2ViewController.floorImage = UIImage(named: "Floor2");
-        
-        floor1ViewController.floor = 0
-        floor2ViewController.floor = 1
-        
-        viewControllers = [floor1ViewController, floor2ViewController]
-        pageViewController.setViewControllers([viewControllers[currentFloorIndex]],
+        pageViewController.setViewControllers([viewControllers[0]],
             direction: .Forward,
             animated: false,
             completion: {done in });
+        
+        for (index, viewController) in viewControllers.enumerate() {
+            viewController.index = index
+        }
         
         pageViewController.dataSource = self
         
@@ -40,54 +49,29 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
 
         pageViewController.didMoveToParentViewController(self);
         self.pageViewController = pageViewController;
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
         
-        updatePageTitle();
-    }
-    
-    @IBAction func changeFloorWasClicked(sender: UIBarButtonItem) {
-        // hack - since we
-        currentFloorIndex = tabBarController?.title == "מפה - מפלס תחתון"
-            ? 0 : 1
-        let direction = currentFloorIndex == 1
-            ? UIPageViewControllerNavigationDirection.Forward
-            : UIPageViewControllerNavigationDirection.Reverse;
-        currentFloorIndex = 1 - currentFloorIndex;
-        
-        pageViewController.setViewControllers([viewControllers[currentFloorIndex]],
-            direction: direction,
-            animated: true,
-            completion: {done in });
-        
-        updatePageTitle();
-    }
-    
-    private func updatePageTitle() {
-        let floorName = currentFloorIndex == 0 ? "מפלס תחתון" : "מפלס עליון";
-        tabBarController?.title = "מפה - " + floorName;
+        // Since pageControl is only horizontal, transform it to be vertical
+        pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         if let vc = viewController as? MapFloorViewController {
-            if vc.floor == 1 {
+            if vc.index == 0 {
                 return nil
             }
 
-            return viewControllers[1]
+            return viewControllers[vc.index - 1]
         }
         return nil
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         if let vc = viewController as? MapFloorViewController {
-            if vc.floor == 0 {
+            if vc.index == viewControllers.count - 1 {
                 return nil
             }
 
-            return viewControllers[0]
+            return viewControllers[vc.index + 1]
         }
         return nil
     }
@@ -97,8 +81,8 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
             return
         }
         
-        if let currentController = previousViewControllers.first as? MapFloorViewController {
-            currentFloorIndex = currentController.floor
+        if let currentController = pageViewController.viewControllers?.first as? MapFloorViewController {
+            pageControl.currentPage = currentController.index
         }
     }
 }

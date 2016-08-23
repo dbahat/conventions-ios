@@ -78,6 +78,7 @@
 		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
+		3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4724B1D6CC5090066AD35 /* MapArea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +158,7 @@
 		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3BF4724B1D6CC5090066AD35 /* MapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapArea.swift; path = model/MapArea.swift; sourceTree = "<group>"; };
 		91EE3412A5156C8021C08D64 /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -325,6 +327,7 @@
 				3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */,
 				3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */,
 				3B8664C71D4007DC00A504FC /* UserInput.swift */,
+				3BF4724B1D6CC5090066AD35 /* MapArea.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */,
+				3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */,
 				3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */,
 				3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */,
 				3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */,
