@@ -41,7 +41,7 @@ class Convention {
         
         feedbackQuestions = [
             FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
-                "פחות מ-12", "17-12", "25-18", "+25"
+                "פחות מ-12", "17–12", "25–18", "25+"
                 ]),
             FeedbackQuestion(question:"עד כמה נהנית בכנס?", answerType: .Smiley),
             FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [

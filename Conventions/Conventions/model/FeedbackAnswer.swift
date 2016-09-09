@@ -109,11 +109,11 @@ import Foundation
             func description() -> String {
                 switch self {
                 case .Negetive:
-                    return ":("
+                    return "|:"
                 case .Positive:
-                    return ":)"
+                    return "(:"
                 case .VeryPositive:
-                    return ":D"
+                    return "D:"
                 }
             }
             
