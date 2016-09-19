@@ -28,7 +28,7 @@ class EventView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        let view = NSBundle.mainBundle().loadNibNamed(String(EventView), owner: self, options: nil)[0] as! UIView;
+        let view = NSBundle.mainBundle().loadNibNamed(String(EventView), owner: self, options: nil)![0] as! UIView;
         view.frame = self.bounds;
         addSubview(view);
     }

@@ -180,6 +180,6 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
 }
