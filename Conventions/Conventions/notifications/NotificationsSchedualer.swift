@@ -31,7 +31,7 @@ class NotificationsSchedualer {
             notification.alertTitle = "עזור לנו להשתפר"
         }
         notification.alertBody = String(format: "%@ הסתיים, ואנחנו רוצים לשמוע את דעתך", arguments: [Convention.displayName]);
-        notification.alertAction = "מלא פידבק לכנס"
+        notification.alertAction = "מלא פידבק על הפסטיבל"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = [CONVENTION_FEEDBACK_INFO: true];
         UIApplication.sharedApplication().scheduleLocalNotification(notification)

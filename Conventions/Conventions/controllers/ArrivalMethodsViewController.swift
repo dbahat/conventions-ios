@@ -11,8 +11,8 @@ import GoogleMaps
 
 class ArrivalMethodsViewController: BaseViewController {
     
-    let latitude = 31.786372;
-    let longitude = 35.202425;
+    let latitude = 32.0707265;
+    let longitude = 34.7845003;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class ArrivalMethodsViewController: BaseViewController {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
         marker.title = Convention.displayName
-        marker.snippet = "בנייני האומה"
+        marker.snippet = Convention.displayName
         marker.map = mapView
     }
 

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         UITabBar.appearance().tintColor = UIColor(hexString: "#7a3d59")
-        GMSServices.provideAPIKey("AIzaSyDZLXRjsoElTcja7Hz5WpetzSHFOApMOLI")
+        GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
             // Forcing the app to left-to-right layout, since automatic changing of layout direction only
             // started in iOS9, and we want to support previous iOS versions.
@@ -242,12 +242,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func categoryIdToName(category: String) -> String {
         if category == NotificationHubInfo.CATEGORY_TEST {
             return "בדיקות"
-        }
-        if category == NotificationHubInfo.CATEGORY_BUS {
-            return "הסעות"
-        }
-        if category == NotificationHubInfo.CATEGORY_COSPLAY {
-            return "השתתפות באירוע הקוספליי"
         }
         if category == NotificationHubInfo.CATEGORY_EVENTS {
             return "אירועים"

@@ -439,7 +439,7 @@
 				TargetAttributes = {
 					3BA2D7EE1C554ED3007A8A23 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = GX9867J6RP;
+						DevelopmentTeam = RSX72H9CGZ;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -716,6 +716,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,7 +725,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
+				PRODUCT_BUNDLE_IDENTIFIER = SFF.Conventions;
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
@@ -741,6 +742,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -749,7 +751,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMAI.Conventions;
+				PRODUCT_BUNDLE_IDENTIFIER = SFF.Conventions;
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";

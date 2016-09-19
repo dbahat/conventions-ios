@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>TRACKING_ID</key>
-	<string>UA-65293055-1</string>
+	<string>UA-65293055-2</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>AMAI.Conventions</string>
+	<string>SFF.Conventions</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -21,6 +21,6 @@
 	<key>GOOGLE_APP_ID</key>
 	<string>1:458203975509:ios:e65303962248c05e</string>
 	<key>PROJECT_ID</key>
-	<string>starlit-brand-95018</string>
+	<string>sff-conventions</string>
 </dict>
 </plist>

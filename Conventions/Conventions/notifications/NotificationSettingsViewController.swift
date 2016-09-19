@@ -36,14 +36,6 @@ class NotificationSettingsViewController: BaseViewController {
         updateCategoryAndRegister(NotificationHubInfo.CATEGORY_EVENTS, sender: sender)
     }
     
-    @IBAction private func cosplayNotificationsTapped(sender: UISwitch) {
-        updateCategoryAndRegister(NotificationHubInfo.CATEGORY_COSPLAY, sender: sender)
-    }
-    
-    @IBAction private func busNotificationsTapped(sender: UISwitch) {
-        updateCategoryAndRegister(NotificationHubInfo.CATEGORY_BUS, sender: sender)
-    }
-    
     @IBAction func developerOptionsTapped(sender: UISwitch) {
         updateCategoryAndRegister(NotificationHubInfo.CATEGORY_TEST, sender: sender)
     }
@@ -90,8 +82,6 @@ class NotificationSettingsViewController: BaseViewController {
         let registeredCategories = NotificationSettings.instance.categories
         generalCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
         eventsCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
-        cosplayCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_COSPLAY)
-        busCategoryButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_BUS)
         developerOptionsButton.on = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
         
         eventNotificationButton.on = NotificationSettings.instance.eventStartingReminder
