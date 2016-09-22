@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */; };
+		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -72,7 +73,7 @@
 		3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */; };
 		3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */; };
 		3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631241C8ADC0B00D54D3E /* Events.swift */; };
-		3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* EventsParser.swift */; };
+		3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */; };
 		3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6312A1C8AE28400D54D3E /* Updates.swift */; };
 		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
 		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		0128839004EFB32D3F38B10C /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
+		3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SffEventsParser.swift; path = model/SffEventsParser.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 		3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
 		3BB631241C8ADC0B00D54D3E /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = model/Events.swift; sourceTree = "<group>"; };
-		3BB631281C8AE15900D54D3E /* EventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsParser.swift; path = model/EventsParser.swift; sourceTree = "<group>"; };
+		3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmaiEventsParser.swift; path = model/AmaiEventsParser.swift; sourceTree = "<group>"; };
 		3BB6312A1C8AE28400D54D3E /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
@@ -321,13 +323,14 @@
 				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
 				3BB631241C8ADC0B00D54D3E /* Events.swift */,
-				3BB631281C8AE15900D54D3E /* EventsParser.swift */,
+				3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */,
 				3BB6312A1C8AE28400D54D3E /* Updates.swift */,
 				3BB631191C89738400D54D3E /* Update.swift */,
 				3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */,
 				3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */,
 				3B8664C71D4007DC00A504FC /* UserInput.swift */,
 				3BF4724B1D6CC5090066AD35 /* MapArea.swift */,
+				3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -559,7 +562,7 @@
 				3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */,
 				3B4B4A7E1D36BAE500943EF5 /* TableMultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3BA2D8271C65E3D7007A8A23 /* EventsViewController.swift in Sources */,
-				3BB631291C8AE15900D54D3E /* EventsParser.swift in Sources */,
+				3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */,
@@ -575,6 +578,7 @@
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
 				3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */,
+				3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */,
 				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
 				3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,

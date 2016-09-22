@@ -9,7 +9,7 @@
 import Foundation
 
 class Events {
-    private static let eventsApiUrl = "http://2016.cami.org.il/wp-admin/admin-ajax.php?action=get_event_list";
+    private static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2016";
     private static let fileName = Convention.name + "Events.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + fileName;
     
@@ -21,10 +21,10 @@ class Events {
         };
         
         if let cachedEvents = NSData(contentsOfFile: Events.cacheFile) {
-            events = EventsParser().parse(data: cachedEvents, halls: halls);
+            events = SffEventsParser().parse(data: cachedEvents, halls: halls);
             print("Events from cache: ", events.count);
         } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/" + Events.fileName) {
-            events = EventsParser().parse(data: preInstalledEvents, halls: halls);
+            events = SffEventsParser().parse(data: preInstalledEvents, halls: halls);
             print("Preinstalled events: ", events.count);
         }
     }
@@ -43,7 +43,7 @@ class Events {
             }
             
             result?.writeToFile(Events.cacheFile, atomically: true);
-            let parsedEvents = EventsParser().parse(data: events);
+            let parsedEvents = SffEventsParser().parse(data: events);
             
             // Using main thread for syncronizing access to events
             dispatch_async(dispatch_get_main_queue()) {

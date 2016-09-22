@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class EventsParser {
+class AmaiEventsParser {
     func parse(data data:NSData!) -> Array<ConventionEvent>! {
         return parse(data: data, halls: Convention.instance.halls);
     }
