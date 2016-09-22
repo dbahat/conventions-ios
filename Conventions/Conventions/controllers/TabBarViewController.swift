@@ -12,6 +12,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        selectedIndex = 4;
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet(_:)), name: ConventionEvent.AttendingWasSetEventName, object: nil);
         
         delegate = self;
