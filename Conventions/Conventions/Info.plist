@@ -35,7 +35,7 @@
 	<key>FacebookAppID</key>
 	<string>1443838229254090</string>
 	<key>FacebookDisplayName</key>
-	<string>כאמ&quot;י 2016</string>
+	<string>כאמ"י 2016</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -50,17 +50,17 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>api.sf-f.org.il</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
 			<key>akamaihd.net</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
+			</dict>
+			<key>api.sf-f.org.il</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 			</dict>
 			<key>facebook.com</key>
 			<dict>

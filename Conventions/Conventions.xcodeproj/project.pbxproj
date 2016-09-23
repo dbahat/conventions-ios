@@ -733,7 +733,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SFF.Conventions;
+				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
@@ -759,7 +759,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SFF.Conventions;
+				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Conventions/Conventions-Bridging-Header.h";
