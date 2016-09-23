@@ -88,13 +88,16 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         addSubview(view);
         
         feedbackIcon.image = feedbackIcon.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        feedbackIcon.tintColor = UIColor(hexString: "#b92136")
+        feedbackIcon.tintColor = Colors.colorAccent
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
         questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
         questionsTableView.registerNib(UINib(nibName: String(MultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(MultipleAnswerFeedbackQuestionCell))
         questionsTableView.registerNib(UINib(nibName: String(TableMultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TableMultipleAnswerFeedbackQuestionCell))
+        
+        changeStateButton.setTitleColor(Colors.buttonColor, forState: .Normal)
+        sendButton.setTitleColor(Colors.buttonColor, forState: .Normal)
     }
     
     func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {

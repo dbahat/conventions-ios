@@ -234,7 +234,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1172,7 +1172,7 @@
         <image name="Floor1" width="800" height="464"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
-        <image name="MenuEventList" width="33" height="33"/>
+        <image name="MenuEventList" width="32" height="32"/>
         <image name="MenuEventListWithStar" width="33" height="33"/>
         <image name="MenuMap" width="33" height="33"/>
         <image name="MenuOpenUsingMaps" width="23" height="23"/>

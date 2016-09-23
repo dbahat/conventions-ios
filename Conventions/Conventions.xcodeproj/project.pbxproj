@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */; };
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
+		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		0128839004EFB32D3F38B10C /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SffEventsParser.swift; path = model/SffEventsParser.swift; sourceTree = "<group>"; };
+		3B014FB11D95A1AD0002DE8F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 				3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */,
+				3B014FB11D95A1AD0002DE8F /* Colors.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */,
 				3B8D9FE91D153A28005181DA /* FeedbackQuestion.swift in Sources */,
 				3BA2D80F1C5FE8EB007A8A23 /* Convention.swift in Sources */,
+				3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */,
 				3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */,
 				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,

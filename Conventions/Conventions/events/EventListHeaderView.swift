@@ -10,5 +10,12 @@ import UIKit
 
 class EventListHeaderView: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var containerView: CardView!
     @IBOutlet weak var time: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        containerView.backgroundColor = Colors.eventTimeHeaderColor
+    }
 }

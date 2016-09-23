@@ -63,7 +63,7 @@ class SffEventsParser {
             let conventionEvent = ConventionEvent(
                 id: eventId,
                 serverId: Int(eventId) ?? 0,
-                color: nil,
+                color: Colors.eventTimeDefaultBackgroundColor,
                 textColor: nil,
                 title: String(htmlEncodedString: title),
                 lecturer: String(htmlEncodedString: speaker),

@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,78 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="tVN-O7-P6B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="OpeningCover" translatesAutoresizingMaskIntoConstraints="NO" id="5I8-VQ-cwR"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofd-E3-VQJ">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="phr-xt-bUg"/>
-                                    <constraint firstAttribute="width" constant="45" id="q6Z-Sd-3Tf"/>
-                                </constraints>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-Uw-Rqj">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mtd-Uw-Rqj" secondAttribute="height" multiplier="275:388" id="tOH-q5-veT"/>
-                                </constraints>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningTitle" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-8g-ort">
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="7pb-hW-kFZ"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningMap" translatesAutoresizingMaskIntoConstraints="NO" id="6Yr-dV-b68">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6Yr-dV-b68" secondAttribute="height" multiplier="484:465" id="gv8-1l-0eD"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningArrivalMethods" translatesAutoresizingMaskIntoConstraints="NO" id="3FU-Au-kRI">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="3FU-Au-kRI" secondAttribute="height" multiplier="484:465" id="7dp-YU-YWO"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningEvents" translatesAutoresizingMaskIntoConstraints="NO" id="mVi-cV-ftf">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mVi-cV-ftf" secondAttribute="height" multiplier="484:465" id="Byu-AM-DF5"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpeningUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="Mcy-kG-CO4">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mcy-kG-CO4" secondAttribute="height" multiplier="484:465" id="MTy-xD-jhY"/>
-                                </constraints>
-                            </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KC-xI-ry7">
-                                <state key="normal" image="OpeningSettings"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.19215686269999999" green="0.78823529410000004" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Yr-dV-b68" firstAttribute="top" secondItem="l3a-8g-ort" secondAttribute="bottom" id="1gs-0x-BVh"/>
-                            <constraint firstItem="6Yr-dV-b68" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="10" id="4PC-DY-aGZ"/>
-                            <constraint firstItem="Mtd-Uw-Rqj" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" id="5Vk-4H-nad"/>
-                            <constraint firstAttribute="trailing" secondItem="mVi-cV-ftf" secondAttribute="trailing" constant="10" id="64K-f3-4B6"/>
-                            <constraint firstItem="Mcy-kG-CO4" firstAttribute="width" secondItem="tVN-O7-P6B" secondAttribute="width" multiplier="0.5" constant="-15" id="7CK-Ge-YIG"/>
-                            <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="8KC-xI-ry7" secondAttribute="bottom" constant="5" id="BE3-nI-k0t"/>
-                            <constraint firstItem="3FU-Au-kRI" firstAttribute="top" secondItem="6Yr-dV-b68" secondAttribute="bottom" constant="10" id="BX0-Hq-uef"/>
-                            <constraint firstItem="6Yr-dV-b68" firstAttribute="width" secondItem="tVN-O7-P6B" secondAttribute="width" multiplier="0.5" constant="-15" id="Ee6-3O-XEs"/>
-                            <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="3FU-Au-kRI" secondAttribute="bottom" constant="25" id="K7J-GO-5PI"/>
-                            <constraint firstItem="ofd-E3-VQJ" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="M1r-tU-os5"/>
-                            <constraint firstItem="l3a-8g-ort" firstAttribute="top" secondItem="5I8-VQ-cwR" secondAttribute="bottom" id="Mes-cd-IX8"/>
-                            <constraint firstItem="5I8-VQ-cwR" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="Mq6-Sj-PSx"/>
-                            <constraint firstItem="ofd-E3-VQJ" firstAttribute="centerY" secondItem="5I8-VQ-cwR" secondAttribute="centerY" id="OU7-Rj-OgF"/>
-                            <constraint firstItem="5I8-VQ-cwR" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" id="TbW-l8-hha"/>
-                            <constraint firstItem="3FU-Au-kRI" firstAttribute="width" secondItem="tVN-O7-P6B" secondAttribute="width" multiplier="0.5" constant="-15" id="bO4-s7-Haf"/>
-                            <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="Mcy-kG-CO4" secondAttribute="bottom" constant="25" id="eVZ-dB-ps8"/>
-                            <constraint firstAttribute="trailing" secondItem="5I8-VQ-cwR" secondAttribute="trailing" id="g4J-mE-uUK"/>
-                            <constraint firstItem="3FU-Au-kRI" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="10" id="hVi-Pd-R1V"/>
-                            <constraint firstItem="8KC-xI-ry7" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="jRu-3Q-X8X"/>
-                            <constraint firstAttribute="trailing" secondItem="Mcy-kG-CO4" secondAttribute="trailing" constant="10" id="jdS-Oe-7yf"/>
-                            <constraint firstItem="Mcy-kG-CO4" firstAttribute="top" secondItem="mVi-cV-ftf" secondAttribute="bottom" constant="10" id="kTr-8S-tCT"/>
-                            <constraint firstItem="Mtd-Uw-Rqj" firstAttribute="top" secondItem="l3a-8g-ort" secondAttribute="top" id="lYr-sx-bks"/>
-                            <constraint firstAttribute="trailing" secondItem="Mtd-Uw-Rqj" secondAttribute="trailing" id="mPw-F5-oWX"/>
-                            <constraint firstItem="mVi-cV-ftf" firstAttribute="width" secondItem="tVN-O7-P6B" secondAttribute="width" multiplier="0.5" constant="-15" id="n0I-Z6-0dh"/>
-                            <constraint firstItem="l3a-8g-ort" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="q7r-IG-L0Y"/>
-                            <constraint firstItem="5I8-VQ-cwR" firstAttribute="top" secondItem="B8I-4C-lAt" secondAttribute="bottom" id="wyt-P2-gSx"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="דף הבית" id="O8J-TO-KWV"/>
@@ -120,14 +47,4 @@
             <point key="canvasLocation" x="-836" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="OpeningArrivalMethods" width="240" height="221"/>
-        <image name="OpeningBackground" width="526" height="742"/>
-        <image name="OpeningCover" width="677" height="250"/>
-        <image name="OpeningEvents" width="240" height="221"/>
-        <image name="OpeningMap" width="240" height="221"/>
-        <image name="OpeningSettings" width="46" height="44"/>
-        <image name="OpeningTitle" width="309" height="100"/>
-        <image name="OpeningUpdates" width="240" height="221"/>
-    </resources>
 </document>
