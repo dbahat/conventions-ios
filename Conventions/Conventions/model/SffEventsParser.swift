@@ -50,8 +50,11 @@ class SffEventsParser {
                 print("Event missing endTime. Skipping. ID=", eventId);
                 continue;
             }
-            guard let hallName = event["location"] as? String else {
-                print("Event missing room. Skipping. ID=", eventId);
+            guard
+                let hallName = event["location"] as? String,
+                let hall = findHallByName(halls, hallName: hallName)
+            else {
+                print("Event missing location. Skipping. ID=", eventId, " name=", title);
                 continue;
             }
             
@@ -72,7 +75,7 @@ class SffEventsParser {
                 type: EventType(
                     backgroundColor: nil,
                     description: eventType),
-                hall: findHallByName(halls, hallName: hallName),
+                hall: hall,
                 description: parseEventDescription(description));
             
             result.append(conventionEvent);
@@ -82,12 +85,12 @@ class SffEventsParser {
         return result;
     }
     
-    private func findHallByName(halls: Array<Hall>, hallName: String) -> Hall {
+    private func findHallByName(halls: Array<Hall>, hallName: String) -> Hall? {
         if let hall = halls.filter({hall in hall.name == hallName}).first {
-            return hall;
+            return hall
         }
         
-        return Hall(name: "", order: 100);
+        return nil
     }
     
     private func parseDate(time: String) -> NSDate {
