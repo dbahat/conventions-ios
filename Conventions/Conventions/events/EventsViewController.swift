@@ -11,31 +11,45 @@ import UIKit
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView!
 
-    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!;
-    private var eventTimeSections: Array<NSDate>!;
+    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!
+    private var eventTimeSections: Array<NSDate>!
     
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
-    private let tableViewController = UITableViewController();
+    private let tableViewController = UITableViewController()
+    @IBOutlet private weak var dateFilterControl: UISegmentedControl!
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
 
-        let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil);
-        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView));
+        let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil)
+        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView))
         
-        addRefreshControl();
+        addRefreshControl()
         
         // Make initial model calculation when the view loads
-        calculateEventsAndTimeSections();
+        calculateEventsAndTimeSections()
+        
+        dateFilterControl.removeAllSegments()
+        for i in 0...Convention.instance.getConventionLengthInDays()-1 {
+            dateFilterControl.insertSegmentWithTitle(Convention.endDate.addDays(-i).format("EEE (dd.MM)"), atIndex: i, animated: false)
+        }
+        dateFilterControl.selectedSegmentIndex = dateFilterControl.numberOfSegments - 1
+        dateFilterControl.tintColor = Colors.colorAccent
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
+        super.viewWillAppear(animated)
         
         // redraw the table when navigating in/out of the view, in case the model changed
-        calculateEventsAndTimeSections();
+        calculateEventsAndTimeSections()
         tableView.reloadData();
+    }
+    
+    @IBAction func dateFilterTapped(sender: UISegmentedControl) {
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
     }
     
     // MARK: - Table view data source
@@ -134,10 +148,24 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - Private methods
     
+    private func getCurrentDateFilter() -> NSDate {
+        if dateFilterControl.selectedSegmentIndex == 0 {
+            return Convention.endDate
+        } else if dateFilterControl.selectedSegmentIndex == 1 {
+            return Convention.endDate.addDays(-1)
+        } else {
+            return Convention.date
+        }
+    }
+    
     private func calculateEventsAndTimeSections() {
         var result = Dictionary<NSDate, Array<ConventionEvent>>();
         
-        for event in Convention.instance.events.getAll() {
+        let eventsForSelectedDate =
+            Convention.instance.events.getAll()
+                .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == getCurrentDateFilter().timeIntervalSince1970})
+        
+        for event in eventsForSelectedDate {
             // In case an event lasts more then 1 hour, duplicate them so they'll appear in multiple time sections.
             // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
             let eventLengthInHours = Int(event.endTime.moveToNextRoundHour().timeIntervalSinceDate(

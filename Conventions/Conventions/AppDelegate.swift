@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
         gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
         
-        // Initiate an async refresh to the events and updates when opening the app
-        Convention.instance.events.refresh(nil)
+        // Initiate an async refresh to the updates when opening the app. Events will be refeshed
+        // anyways since the programme is the initial screen.
         Convention.instance.updates.refresh(nil)
         
         if let options = launchOptions {

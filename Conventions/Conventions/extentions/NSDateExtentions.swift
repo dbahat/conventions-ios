@@ -9,10 +9,10 @@
 import Foundation
 
 extension NSDate {
-    func format(dateFormat: String!) -> String! {
+    func format(dateFormat: String) -> String {
         let dateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = dateFormat;
-        dateFormatter.locale = NSLocale.systemLocale();
+        dateFormatter.locale = NSLocale(localeIdentifier: "iw-IL")
         return dateFormatter.stringFromDate(self);
     }
     
@@ -42,6 +42,10 @@ extension NSDate {
         return self.clearMinutesComponent();
     }
     
+    func clearTimeComponent() -> NSDate! {
+        return NSDate.parse(self.format("yyyy-MM-dd"), dateFormat: "yyyy-MM-dd");
+    }
+    
     static func from(year year:Int, month:Int, day:Int) -> NSDate {
         let dateComponents = NSDateComponents();
         dateComponents.year = year;
@@ -49,12 +53,13 @@ extension NSDate {
         dateComponents.day = day;
         
         let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian);
+        gregorian?.timeZone = NSTimeZone.systemTimeZone()
         return gregorian!.dateFromComponents(dateComponents)!;
     }
     
     static func parse(date: String, dateFormat: String) -> NSDate? {
         let dateFormatter = NSDateFormatter();
-        dateFormatter.locale = NSLocale.systemLocale();
+        dateFormatter.timeZone = NSTimeZone.systemTimeZone()
         dateFormatter.dateFormat = dateFormat;
         return dateFormatter.dateFromString(date);
     }
