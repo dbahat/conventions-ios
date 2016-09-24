@@ -166,22 +166,17 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == getCurrentDateFilter().timeIntervalSince1970})
         
         for event in eventsForSelectedDate {
-            // In case an event lasts more then 1 hour, duplicate them so they'll appear in multiple time sections.
-            // e.g. If an event is from 12:00 until 14:00, it should appear in time sections 12:00, 13:00.
-            let eventLengthInHours = Int(event.endTime.moveToNextRoundHour().timeIntervalSinceDate(
-                event.startTime.clearMinutesComponent()) / 60 / 60);
-            for i in 0 ..< eventLengthInHours {
-                let roundedEventTime = event.startTime.clearMinutesComponent().addHours(i);
-                
-                if (result[roundedEventTime] == nil) {
-                    result[roundedEventTime] = [event];
-                } else {
-                    result[roundedEventTime]!.append(event);
-                }
-                
-                result[roundedEventTime]!.sortInPlace({
-                    $0.hall.order < $1.hall.order})
+
+            let roundedEventTime = event.startTime.clearMinutesComponent()
+            if (result[roundedEventTime] == nil) {
+                result[roundedEventTime] = [event];
+            } else {
+                result[roundedEventTime]!.append(event);
             }
+        }
+        
+        for time in result.keys {
+            result[time]!.sortInPlace({$0.hall.order < $1.hall.order})
         }
         
         eventsPerTimeSection = result;
