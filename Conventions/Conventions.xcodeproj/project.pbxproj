@@ -17,6 +17,7 @@
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
 		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
 		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
+		3B36B7EB1D96800D00F8EB49 /* Icon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EA1D96800D00F8EB49 /* Icon2016Events.json */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
 		3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */; };
 		3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */; };
@@ -29,7 +30,6 @@
 		3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB471C7CF7F500AF041B /* CardView.swift */; };
 		3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB541C7CF88E00AF041B /* CCColorCube.m */; };
 		3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */; };
-		3B5080EC1D4E79C6008F9F16 /* Cami2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5080EB1D4E79C6008F9F16 /* Cami2016Events.json */; };
 		3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B523D4C1C660B1700D3D055 /* EventViewController.swift */; };
 		3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A9991C7A48C700C5BCE4 /* EventView.swift */; };
 		3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */; };
@@ -94,6 +94,7 @@
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		3B36B7EA1D96800D00F8EB49 /* Icon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icon2016Events.json; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
 		3B4B4A711D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleAnswerFeedbackQuestionCell.xib; sourceTree = "<group>"; };
 		3B4B4A731D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAnswerFeedbackQuestionCell.swift; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		3B4CEB541C7CF88E00AF041B /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
 		3B4CEB561C7CF8DA00AF041B /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		3B4CEB571C7CF8DA00AF041B /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
-		3B5080EB1D4E79C6008F9F16 /* Cami2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cami2016Events.json; sourceTree = "<group>"; };
 		3B523D4C1C660B1700D3D055 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = events/EventViewController.swift; sourceTree = "<group>"; };
 		3B55A9991C7A48C700C5BCE4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = events/EventView.swift; sourceTree = "<group>"; };
 		3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				3B5080EB1D4E79C6008F9F16 /* Cami2016Events.json */,
+				3B36B7EA1D96800D00F8EB49 /* Icon2016Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -479,8 +479,8 @@
 			files = (
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
+				3B36B7EB1D96800D00F8EB49 /* Icon2016Events.json in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
-				3B5080EC1D4E79C6008F9F16 /* Cami2016Events.json in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
