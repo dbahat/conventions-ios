@@ -41,7 +41,7 @@ class Convention {
             Hall(name: "אשכול 6", order: 8),
             Hall(name: "חדר סדנאות 1", order: 9),
             Hall(name: "חדר סדנאות 2", order: 10),
-            Hall(name: "אירועים מיוחדים", order: 11),
+            Hall(name: "ארועים מיוחדים", order: 11),
             Hall(name: "עירוני 1", order: 12),
             Hall(name: "עירוני 2", order: 13),
             Hall(name: "עירוני 3", order: 14),
