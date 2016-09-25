@@ -26,9 +26,6 @@
                                 <constraint firstAttribute="height" constant="15" id="TIb-po-vPx"/>
                             </constraints>
                             <color key="onTintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="LecturesWasTapped:" destination="-1" eventType="valueChanged" id="FEu-wr-Rua"/>
-                            </connections>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הרצאות" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd3-dc-bVz">
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -45,6 +42,9 @@
                         <constraint firstItem="qd3-dc-bVz" firstAttribute="leading" secondItem="93s-kf-4lu" secondAttribute="leading" id="oTj-ic-KAK"/>
                         <constraint firstItem="MhS-oZ-Hii" firstAttribute="centerX" secondItem="93s-kf-4lu" secondAttribute="centerX" id="s6T-7c-ozy"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="bLA-Ni-VxS" appends="YES" id="2wm-tl-HuO"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfm-Zd-0n8">
                     <subviews>
@@ -53,9 +53,6 @@
                                 <constraint firstAttribute="height" constant="15" id="M2p-pZ-ou0"/>
                             </constraints>
                             <color key="onTintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="gamesWasTapped:" destination="-1" eventType="valueChanged" id="fyB-GJ-mv0"/>
-                            </connections>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="משחקים" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-3Y-pA5">
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -72,6 +69,9 @@
                         <constraint firstItem="bfU-3Y-pA5" firstAttribute="top" secondItem="ihm-io-Vxe" secondAttribute="bottom" constant="5" id="p5u-Ce-5Wx"/>
                         <constraint firstItem="ihm-io-Vxe" firstAttribute="centerX" secondItem="Qfm-Zd-0n8" secondAttribute="centerX" id="ysy-9V-qVG"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="b2g-7I-d2Y" appends="YES" id="sBl-jA-vog"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmo-B0-5LQ">
                     <subviews>
@@ -80,9 +80,6 @@
                                 <constraint firstAttribute="height" constant="15" id="lce-Qo-4qf"/>
                             </constraints>
                             <color key="onTintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="showsWasTapped:" destination="-1" eventType="valueChanged" id="y8i-IS-yTa"/>
-                            </connections>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הקרנות ומופעים" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-IK-HmW">
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -99,6 +96,9 @@
                         <constraint firstAttribute="trailing" secondItem="Lcn-IK-HmW" secondAttribute="trailing" id="mW5-kL-BdW"/>
                         <constraint firstItem="Lcn-IK-HmW" firstAttribute="top" secondItem="UxP-Uh-Fbj" secondAttribute="bottom" constant="5" id="o4a-kR-auX"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="FX5-9t-oQy" appends="YES" id="d46-xm-sGJ"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-Qj-S4P">
                     <subviews>
@@ -107,9 +107,6 @@
                                 <constraint firstAttribute="height" constant="15" id="TJA-Ej-9g4"/>
                             </constraints>
                             <color key="onTintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="othersWasTapped:" destination="-1" eventType="valueChanged" id="FNb-yX-PKp"/>
-                            </connections>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אחר" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viA-3y-Zps">
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -126,9 +123,13 @@
                         <constraint firstAttribute="trailing" secondItem="viA-3y-Zps" secondAttribute="trailing" id="dtp-dD-eAR"/>
                         <constraint firstItem="viA-3y-Zps" firstAttribute="leading" secondItem="Ft2-Qj-S4P" secondAttribute="leading" id="l9n-pS-hKV"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="awe-sj-iI6" appends="YES" id="HWT-68-eqU"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Jmo-B0-5LQ" firstAttribute="width" secondItem="Ft2-Qj-S4P" secondAttribute="width" id="3cW-Ve-UcU"/>
                 <constraint firstAttribute="trailing" secondItem="93s-kf-4lu" secondAttribute="trailing" constant="5" id="EZF-H1-9p9"/>
@@ -145,5 +146,25 @@
             </constraints>
             <point key="canvasLocation" x="95.5" y="110.5"/>
         </view>
+        <tapGestureRecognizer id="bLA-Ni-VxS">
+            <connections>
+                <action selector="lecturesWasTapped:" destination="-1" id="AwW-2S-q06"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="b2g-7I-d2Y">
+            <connections>
+                <action selector="gamesWasTapped:" destination="-1" id="vz2-VU-0PK"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="FX5-9t-oQy">
+            <connections>
+                <action selector="showsWasTapped:" destination="-1" id="rEn-Xc-ysh"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="awe-sj-iI6">
+            <connections>
+                <action selector="othersWasTapped:" destination="-1" id="wMW-PY-7wh"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

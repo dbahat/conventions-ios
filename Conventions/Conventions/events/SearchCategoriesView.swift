@@ -27,12 +27,17 @@ class SearchCategoriesView : UIView {
         othersSwitch.transform = CGAffineTransformMakeScale(0.5, 0.5)
     }
     
-    @IBAction private func LecturesWasTapped(sender: UISwitch) {
+    @IBAction private func lecturesWasTapped(sender: UITapGestureRecognizer) {
+        lecturesSwitch.setOn(!lecturesSwitch.on, animated: true)
     }
-    @IBAction private func gamesWasTapped(sender: UISwitch) {
+    @IBAction private func gamesWasTapped(sender: UITapGestureRecognizer) {
+        gamesSwitch.setOn(!gamesSwitch.on, animated: true)
     }
-    @IBAction private func showsWasTapped(sender: UISwitch) {
+    @IBAction private func showsWasTapped(sender: UITapGestureRecognizer) {
+        showsSwitch.setOn(!showsSwitch.on, animated: true)
     }
-    @IBAction private func othersWasTapped(sender: UISwitch) {
+    @IBAction private func othersWasTapped(sender: UITapGestureRecognizer) {
+        othersSwitch.setOn(!othersSwitch.on, animated: true)
     }
+    
 }
