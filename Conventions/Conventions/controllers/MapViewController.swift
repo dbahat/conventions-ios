@@ -11,11 +11,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
     private var pageViewController: UIPageViewController!
     private var viewControllers = Array<MapFloorViewController>()
     private let areas = [
-        MapArea(name: "מפה - מפלס עליון", image: UIImage(named: "Floor1")!),
-        MapArea(name: "מפה - מפלס תחתון", image: UIImage(named: "Floor2")!),
-        MapArea(name: "דוכנים - טרקלין אגם", image: UIImage(named: "Stands1")!),
-        MapArea(name: "דוכנים - אולם פינקוס", image: UIImage(named: "Stands2")!),
-        MapArea(name: "דוכנים - אולם כניסה", image: UIImage(named: "Stands3")!)
+        MapArea(name: "מפת התמצאות", image: UIImage(named: "Floor1")!)
     ]
     
     // Not using the built in UIPageViewController page control since it's only supported for horizontal paging
@@ -52,6 +48,10 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         
         // Since pageControl is only horizontal, transform it to be vertical
         pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
+        
+        if areas.count == 1 {
+            pageControl.hidden = true
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
