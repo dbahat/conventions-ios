@@ -105,6 +105,7 @@
                     <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n"/>
                     <connections>
                         <outlet property="dateFilterControl" destination="LRf-fP-w9f" id="6AD-sG-xZm"/>
+                        <outlet property="searchCategoriesLayout" destination="PUg-8I-cRS" id="Rw1-eB-nwJ"/>
                         <outlet property="tableView" destination="PSg-uB-BHT" id="L2f-tb-Bwh"/>
                         <segue destination="euQ-tX-Zvn" kind="show" identifier="EventsToEventSegue" id="MNM-zg-NcH"/>
                     </connections>

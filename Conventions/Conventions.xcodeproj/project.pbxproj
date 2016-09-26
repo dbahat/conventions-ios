@@ -82,6 +82,7 @@
 		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
 		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 		3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551511D96893800E91634 /* SearchCategoriesView.swift */; };
+		3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */; };
 		3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4724B1D6CC5090066AD35 /* MapArea.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		3BE551511D96893800E91634 /* SearchCategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCategoriesView.swift; path = events/SearchCategoriesView.swift; sourceTree = "<group>"; };
+		3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedSearchCategory.swift; path = model/AggregatedSearchCategory.swift; sourceTree = "<group>"; };
 		3BF4724B1D6CC5090066AD35 /* MapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapArea.swift; path = model/MapArea.swift; sourceTree = "<group>"; };
 		91EE3412A5156C8021C08D64 /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +340,7 @@
 				3B8664C71D4007DC00A504FC /* UserInput.swift */,
 				3BF4724B1D6CC5090066AD35 /* MapArea.swift */,
 				3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */,
+				3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */,
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
 				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
+				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,

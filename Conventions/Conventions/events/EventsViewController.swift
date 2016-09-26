@@ -8,16 +8,20 @@
 
 import UIKit
 
-class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
+class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol {
     @IBOutlet private weak var tableView: UITableView!
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!
     private var eventTimeSections: Array<NSDate>!
-    
+
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
     private let tableViewController = UITableViewController()
+    
+    private var enabledCategories: Array<AggregatedSearchCategory> = [.Lectures, .Games, .Shows, .Others]
+    
     @IBOutlet private weak var dateFilterControl: UISegmentedControl!
+    @IBOutlet private weak var searchCategoriesLayout: SearchCategoriesView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         }
         dateFilterControl.selectedSegmentIndex = dateFilterControl.numberOfSegments - 1
         dateFilterControl.tintColor = Colors.colorAccent
+        
+        searchCategoriesLayout.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,13 +49,23 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections()
-        tableView.reloadData();
+        tableView.reloadData()
     }
     
     @IBAction func dateFilterTapped(sender: UISegmentedControl) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
+        
+        // reset the scroll state when changing days for better user experiance
         tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+    }
+    
+    func filterSearchCategoriesChanged(enabledCategories: Array<AggregatedSearchCategory>) {
+        self.enabledCategories = enabledCategories
+        print("filter changed")
+        
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -165,7 +181,19 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             Convention.instance.events.getAll()
                 .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == getCurrentDateFilter().timeIntervalSince1970})
         
-        for event in eventsForSelectedDate {
+        let dailyEventsFilteredByCategory = eventsForSelectedDate.filter({event in
+            if let type = event.type?.description {
+                for enabledCategory in enabledCategories {
+                    if enabledCategory.containsCategory(type) {
+                        return true
+                    }
+                }
+            }
+            
+            return false
+        })
+        
+        for event in dailyEventsFilteredByCategory {
 
             let roundedEventTime = event.startTime.clearMinutesComponent()
             if (result[roundedEventTime] == nil) {
