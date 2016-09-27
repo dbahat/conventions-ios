@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class EventType {
-    var backgroundColor: UIColor?;
-    var description: String?;
+    var backgroundColor: UIColor?
+    var description: String
     
-    init(backgroundColor: UIColor?, description: String?) {
-        self.backgroundColor = backgroundColor;
-        self.description = description;
+    init(backgroundColor: UIColor?, description: String) {
+        self.backgroundColor = backgroundColor
+        self.description = description
     }
 }

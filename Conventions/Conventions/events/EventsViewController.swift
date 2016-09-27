@@ -167,11 +167,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970})
         
         let dailyEventsFilteredByCategory = eventsForSelectedDate.filter({event in
-            if let type = event.type?.description {
-                for enabledCategory in enabledCategories {
-                    if enabledCategory.containsCategory(type) {
-                        return true
-                    }
+
+            for enabledCategory in enabledCategories {
+                if enabledCategory.containsCategory(event.type.description) {
+                    return true
                 }
             }
             

@@ -58,6 +58,32 @@ class SffEventsParser {
                 continue;
             }
             
+            guard let categories = event["categories"] as? NSArray else {
+                print("Event missing categories. Skipping. ID=", eventId);
+                continue;
+            }
+            guard let category = categories.firstObject as? String else {
+                print("Event missing categories. Skipping. ID=", eventId);
+                continue;
+            }
+            
+            var eventPrice = 0
+            if let price = event["price"] as? String,
+                let intPrice = Int(price) {
+                eventPrice = intPrice
+            }
+            
+            // Tags are returned as an object: {1: "tag1", 2: "tag2"} or a string: "tag1"
+            var tags: Array<String> = []
+            if let tag = event["tags"] as? String {
+                tags.append(tag)
+            }
+            if let tagsObject = event["tags"] as? Dictionary<String, String> {
+                for tagString in tagsObject.values {
+                    tags.append(tagString)
+                }
+            }
+            
             var speaker = ""
             if let speakers = event["speakers"] as? NSArray {
                 speaker = speakers.count > 0 ? speakers.componentsJoinedByString(",") : ""
@@ -76,9 +102,12 @@ class SffEventsParser {
                     backgroundColor: nil,
                     description: eventType),
                 hall: hall,
-                description: parseEventDescription(description));
+                description: parseEventDescription(description),
+                category: category,
+                price: eventPrice,
+                tags: tags)
             
-            result.append(conventionEvent);
+            result.append(conventionEvent)
             
         }
         

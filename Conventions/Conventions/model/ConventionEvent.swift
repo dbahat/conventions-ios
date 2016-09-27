@@ -14,20 +14,23 @@ class ConventionEvent {
     /*
      * An NSNotification event, fired when a user decides to attend an event
      */
-    static let AttendingWasSetEventName = "AttendingWasSetEventName";
+    static let AttendingWasSetEventName = "AttendingWasSetEventName"
     
-    var id: String;
-    var serverId: Int;
-    var color: UIColor?;
-    var textColor: UIColor?;
-    var title: String;
-    var lecturer: String?;
-    var startTime: NSDate;
-    var endTime: NSDate;
-    var type: EventType?;
-    var hall: Hall;
-    var images: Array<Int>?;
-    var description: String?;
+    var id: String
+    var serverId: Int
+    var color: UIColor?
+    var textColor: UIColor?
+    var title: String
+    var lecturer: String?
+    var startTime: NSDate
+    var endTime: NSDate
+    var type: EventType
+    var hall: Hall
+    var images: Array<Int>?
+    var description: String?
+    var category: String
+    var price: Int
+    var tags: Array<String>
     
     let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
@@ -36,18 +39,21 @@ class ConventionEvent {
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType?, hall: Hall, description: String?) {
-        self.id = id;
-        self.serverId = serverId;
-        self.color = color;
-        self.textColor = textColor;
-        self.title = title;
-        self.lecturer = lecturer;
-        self.startTime = startTime;
-        self.endTime = endTime;
-        self.type = type;
-        self.hall = hall;
-        self.description = description;
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>) {
+        self.id = id
+        self.serverId = serverId
+        self.color = color
+        self.textColor = textColor
+        self.title = title
+        self.lecturer = lecturer
+        self.startTime = startTime
+        self.endTime = endTime
+        self.type = type
+        self.hall = hall
+        self.description = description
+        self.category = category
+        self.price = price
+        self.tags = tags
     }
     
     var feedbackAnswers: Array<FeedbackAnswer> {

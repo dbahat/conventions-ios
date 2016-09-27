@@ -15,8 +15,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     
     @IBOutlet private weak var lecturer: UILabel!
     @IBOutlet private weak var eventTitle: UILabel!
+    @IBOutlet private weak var eventTypeAndCategory: UILabel!
     @IBOutlet private weak var hallAndTime: UILabel!
-
+    @IBOutlet private weak var tags: UILabel!
+    @IBOutlet private weak var prices: UILabel!
+    
     @IBOutlet private weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var eventDescriptionWebView: UIWebView!
     @IBOutlet private weak var image: UIImageView!
@@ -49,13 +52,17 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             feedbackViewHeightConstraint.constant = 0
         }
         
-        lecturer.text = event.lecturer;
-        eventTitle.text = event.title;
-        hallAndTime.text = event.hall.name + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm");
+        lecturer.text = event.lecturer
+        eventTitle.text = event.title
+        eventTypeAndCategory.text =  event.category + " - " + event.type.description
+        hallAndTime.text = event.hall.name + ", " + event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
-        navigationItem.title = event.type?.description;
+        prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price - 10)
+        tags.text = "תגיות: " + event.tags.joinWithSeparator(", ")
         
-        eventDescriptionContainer.hidden = event.description == "";
+        navigationItem.title = event.type.description
+        
+        eventDescriptionContainer.hidden = event.description == ""
         
         eventDescriptionWebView.opaque = false
         eventDescriptionWebView.delegate = self
@@ -65,7 +72,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             eventDescriptionWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", eventDescription), baseURL: nil)
         }
         
-        refreshFavoriteBarIconImage();
+        refreshFavoriteBarIconImage()
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -119,9 +119,12 @@ class AmaiEventsParser {
                     endTime: appendTimeToConventionDate(endTime),
                     type: EventType(
                         backgroundColor: color,
-                        description: event["categories-text"]??["name"] as? String),
+                        description: event["categories-text"]??["name"] as? String ?? ""),
                     hall: findHallByName(halls, hallName: hallName),
-                    description: parseEventDescription(description));
+                    description: parseEventDescription(description),
+                    category: "",
+                    price: 0,
+                    tags: [])
                 
                 result.append(conventionEvent);
                 internalEventNumber += 1;
