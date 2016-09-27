@@ -68,7 +68,6 @@
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
 		3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */; };
 		3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */; };
-		3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631081C89680800D54D3E /* HomeViewController.swift */; };
 		3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6310A1C89680800D54D3E /* TabBarViewController.swift */; };
 		3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631171C896B7700D54D3E /* BaseViewController.swift */; };
 		3BB6311A1C89738400D54D3E /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631191C89738400D54D3E /* Update.swift */; };
@@ -150,7 +149,6 @@
 		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalMethodsViewController.swift; sourceTree = "<group>"; };
-		3BB631081C89680800D54D3E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3BB6310A1C89680800D54D3E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */,
-				3BB631081C89680800D54D3E /* HomeViewController.swift */,
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
 				3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */,
 				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
@@ -557,7 +554,6 @@
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
-				3BB6310D1C89680800D54D3E /* HomeViewController.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
 				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
