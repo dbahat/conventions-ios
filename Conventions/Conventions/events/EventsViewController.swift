@@ -62,8 +62,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     func filterSearchCategoriesChanged(enabledCategories: Array<AggregatedSearchCategory>) {
         self.enabledCategories = enabledCategories
-        print("filter changed")
-        
+
         calculateEventsAndTimeSections()
         tableView.reloadData()
     }
