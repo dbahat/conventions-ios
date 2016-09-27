@@ -304,38 +304,20 @@
                                     <outlet property="delegate" destination="6s1-WB-npc" id="aPG-k5-diD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-3o-v3d">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כדי לצפות בעדכונים יש להתחבר לפייסבוק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-rj-6Rw" customClass="FBSDKLoginButton">
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="1Y9-rj-6Rw" secondAttribute="bottom" constant="30" id="3sW-hA-B4g"/>
-                                    <constraint firstAttribute="trailing" secondItem="lkX-K2-lvV" secondAttribute="trailing" id="LaP-tj-qDw"/>
-                                    <constraint firstItem="1Y9-rj-6Rw" firstAttribute="top" secondItem="lkX-K2-lvV" secondAttribute="bottom" constant="30" id="Z3a-1m-Vw8"/>
-                                    <constraint firstItem="1Y9-rj-6Rw" firstAttribute="centerX" secondItem="JFY-3o-v3d" secondAttribute="centerX" id="dv3-TG-a1J"/>
-                                    <constraint firstItem="lkX-K2-lvV" firstAttribute="leading" secondItem="JFY-3o-v3d" secondAttribute="leading" id="f25-MY-L5c"/>
-                                    <constraint firstItem="lkX-K2-lvV" firstAttribute="top" secondItem="JFY-3o-v3d" secondAttribute="top" id="yXQ-KE-eFP"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לא נמצאו עדכונים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="spa-7L-sPa" firstAttribute="top" secondItem="N6h-fc-8yz" secondAttribute="bottom" id="5LA-ei-xsA"/>
-                            <constraint firstItem="JFY-3o-v3d" firstAttribute="centerY" secondItem="HV6-8m-8ed" secondAttribute="centerY" id="FdP-a0-DVc"/>
-                            <constraint firstItem="JFY-3o-v3d" firstAttribute="leading" secondItem="HV6-8m-8ed" secondAttribute="leadingMargin" id="J6Y-x7-5JD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JFY-3o-v3d" secondAttribute="trailing" id="RrL-Li-BXY"/>
                             <constraint firstItem="spa-7L-sPa" firstAttribute="leading" secondItem="HV6-8m-8ed" secondAttribute="leading" id="Sgc-dT-0EH"/>
+                            <constraint firstItem="lkX-K2-lvV" firstAttribute="centerY" secondItem="HV6-8m-8ed" secondAttribute="centerY" id="XZV-k1-Ioi"/>
                             <constraint firstItem="x6J-pE-fi6" firstAttribute="top" secondItem="spa-7L-sPa" secondAttribute="bottom" id="c6p-Qu-zGl"/>
                             <constraint firstAttribute="trailing" secondItem="spa-7L-sPa" secondAttribute="trailing" id="mvU-E1-DgX"/>
-                            <constraint firstItem="JFY-3o-v3d" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="sKE-8F-rDh"/>
+                            <constraint firstItem="lkX-K2-lvV" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="vVh-oP-G5q"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -343,8 +325,7 @@
                     <navigationItem key="navigationItem" title="עדכונים" id="cYx-Db-2Ie"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="facebookLoginButton" destination="1Y9-rj-6Rw" id="ZdY-2i-8go"/>
-                        <outlet property="loginButtonContainer" destination="JFY-3o-v3d" id="roT-mP-RUe"/>
+                        <outlet property="noUpdatesFoundLabel" destination="lkX-K2-lvV" id="Ahv-Bn-MNJ"/>
                         <outlet property="tableView" destination="spa-7L-sPa" id="hRw-6A-D76"/>
                     </connections>
                 </viewController>

@@ -6,13 +6,12 @@
 //  Copyright © 2016 Amai. All rights reserved.
 //
 
-class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITableViewDataSource, UITableViewDelegate {
+class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     private let updateCellTopLayoutSize: CGFloat = 19
     private let updateCellMargins: CGFloat = 20
     
-    @IBOutlet private weak var facebookLoginButton: FBSDKLoginButton!
-    @IBOutlet private weak var loginButtonContainer: UIView!
+    @IBOutlet private weak var noUpdatesFoundLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
@@ -24,14 +23,9 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         
         tableView.registerNib(UINib(nibName: String(UpdateTableViewCell), bundle: nil), forCellReuseIdentifier: String(UpdateTableViewCell))
         
-        if (FBSDKAccessToken.currentAccessToken() == nil) {
-            facebookLoginButton.delegate = self
-            facebookLoginButton.readPermissions = ["public_profile"]
-            tableView.hidden = true
-            return
+        if Convention.instance.updates.getAll().count > 0 {
+            noUpdatesFoundLabel.hidden = true
         }
-        
-        loginButtonContainer.hidden = true
         
         addRefreshControl()
     }
@@ -44,26 +38,6 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
         super.viewDidDisappear(animated)
         
         Convention.instance.updates.markAllAsRead()
-    }
-    
-    // MARK: - FBSDKLoginButtonDelegate
-    
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if (result.isCancelled) {
-            return
-        }
-        
-        loginButtonContainer.hidden = true;
-        tableView.hidden = false
-        refresh()
-    }
-    
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        
-    }
-    
-    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
-        return true
     }
     
     // MARK: - UITableViewDataSource
@@ -107,9 +81,13 @@ class UpdatesViewController: BaseViewController, FBSDKLoginButtonDelegate, UITab
                 value: success ? 1 : 0)
                 .build() as [NSObject: AnyObject]);
             
-            if (!success) {
+            if !success {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show()
                 return
+            }
+            
+            if Convention.instance.updates.getAll().count == 0 {
+                self.noUpdatesFoundLabel.hidden = false
             }
             
             self.tableView.reloadData()

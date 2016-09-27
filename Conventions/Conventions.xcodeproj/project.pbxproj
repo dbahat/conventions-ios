@@ -10,6 +10,7 @@
 		05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */; };
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
+		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -76,11 +77,8 @@
 		3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */; };
 		3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631241C8ADC0B00D54D3E /* Events.swift */; };
 		3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */; };
-		3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6312A1C8AE28400D54D3E /* Updates.swift */; };
 		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
 		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
-		3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */; };
-		3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */; };
 		3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551511D96893800E91634 /* SearchCategoriesView.swift */; };
 		3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */; };
 		3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4724B1D6CC5090066AD35 /* MapArea.swift */; };
@@ -90,6 +88,7 @@
 		0128839004EFB32D3F38B10C /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SffEventsParser.swift; path = model/SffEventsParser.swift; sourceTree = "<group>"; };
 		3B014FB11D95A1AD0002DE8F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -160,12 +159,9 @@
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
 		3BB631241C8ADC0B00D54D3E /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = model/Events.swift; sourceTree = "<group>"; };
 		3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmaiEventsParser.swift; path = model/AmaiEventsParser.swift; sourceTree = "<group>"; };
-		3BB6312A1C8AE28400D54D3E /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
-		3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
-		3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		3BE551511D96893800E91634 /* SearchCategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCategoriesView.swift; path = events/SearchCategoriesView.swift; sourceTree = "<group>"; };
 		3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedSearchCategory.swift; path = model/AggregatedSearchCategory.swift; sourceTree = "<group>"; };
 		3BF4724B1D6CC5090066AD35 /* MapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapArea.swift; path = model/MapArea.swift; sourceTree = "<group>"; };
@@ -178,8 +174,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD446D51C8776C200CE07E8 /* FBSDKCoreKit.framework in Frameworks */,
-				3BD446DE1C877B8E00CE07E8 /* FBSDKLoginKit.framework in Frameworks */,
 				3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */,
 				05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */,
 			);
@@ -333,7 +327,7 @@
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
 				3BB631241C8ADC0B00D54D3E /* Events.swift */,
 				3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */,
-				3BB6312A1C8AE28400D54D3E /* Updates.swift */,
+				3B0288771D99BA4D006E158C /* Updates.swift */,
 				3BB631191C89738400D54D3E /* Update.swift */,
 				3B8D9FE81D153A28005181DA /* FeedbackQuestion.swift */,
 				3B8D9FEA1D171B1D005181DA /* FeedbackAnswer.swift */,
@@ -412,8 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */,
-				3BD446DD1C877B8E00CE07E8 /* FBSDKLoginKit.framework */,
-				3BD446D41C8776C200CE07E8 /* FBSDKCoreKit.framework */,
 				9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */,
 			);
 			name = Frameworks;
@@ -581,11 +573,11 @@
 				3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */,
+				3B0288781D99BA4D006E158C /* Updates.swift in Sources */,
 				3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
-				3BB6312B1C8AE28400D54D3E /* Updates.swift in Sources */,
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
 				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
 				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,

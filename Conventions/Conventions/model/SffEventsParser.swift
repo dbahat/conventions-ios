@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 class SffEventsParser {
-    func parse(data data:NSData!) -> Array<ConventionEvent>! {
+    func parse(data data:NSData) -> Array<ConventionEvent>! {
         return parse(data: data, halls: Convention.instance.halls);
     }
     
-    func parse(data data: NSData!, halls: Array<Hall>!) -> Array<ConventionEvent>! {
+    func parse(data data: NSData, halls: Array<Hall>!) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
         guard let deserializedEvents =
             try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray,
             events = deserializedEvents
         else {
-            print("Failed to deserialize cached events");
+            print("Failed to deserialize events");
             return result;
         }
         
