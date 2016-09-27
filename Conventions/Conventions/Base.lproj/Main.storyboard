@@ -21,7 +21,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUM-PN-H3K" customClass="CardView" customModule="Conventions" customModuleProvider="target">
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LRf-fP-w9f">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LRf-fP-w9f" customClass="DateFilterControl" customModule="Conventions" customModuleProvider="target">
                                         <segments>
                                             <segment title="יום ה' (20.10)"/>
                                             <segment title="יום ד' (19.10)"/>
@@ -102,7 +102,7 @@
                     <tabBarItem key="tabBarItem" title="תוכניה" image="MenuEventList" id="Zdf-dW-I1G"/>
                     <navigationItem key="navigationItem" title="תוכניה" id="Iv1-yL-V4n"/>
                     <connections>
-                        <outlet property="dateFilterControl" destination="LRf-fP-w9f" id="6AD-sG-xZm"/>
+                        <outlet property="dateFilterControl" destination="LRf-fP-w9f" id="8Yk-nv-Oz0"/>
                         <outlet property="searchCategoriesLayout" destination="PUg-8I-cRS" id="Rw1-eB-nwJ"/>
                         <outlet property="tableView" destination="PSg-uB-BHT" id="L2f-tb-Bwh"/>
                         <segue destination="euQ-tX-Zvn" kind="show" identifier="EventsToEventSegue" id="MNM-zg-NcH"/>
@@ -269,7 +269,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1001,6 +1001,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-yU-iwa" customClass="CardView" customModule="Conventions" customModuleProvider="target">
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-ht-wg0" customClass="DateFilterControl" customModule="Conventions" customModuleProvider="target">
+                                        <segments>
+                                            <segment title="יום ה' (20.10)"/>
+                                            <segment title="יום ד' (19.10)"/>
+                                            <segment title="יום ג' (18.10)"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="dateFilterTapped:" destination="V0r-ed-Jpb" eventType="valueChanged" id="mvS-Fy-jEV"/>
+                                            <action selector="dateFilterWasTapped:" destination="dzP-YM-jGI" eventType="valueChanged" id="oIe-y7-NNY"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Sun-ht-wg0" secondAttribute="trailing" id="8XZ-r4-ckx"/>
+                                    <constraint firstAttribute="height" constant="52" id="g2u-4I-ibQ"/>
+                                    <constraint firstItem="Sun-ht-wg0" firstAttribute="top" secondItem="c2k-yU-iwa" secondAttribute="top" id="gaZ-jC-7zr"/>
+                                    <constraint firstItem="Sun-ht-wg0" firstAttribute="leading" secondItem="c2k-yU-iwa" secondAttribute="leading" id="ppB-B9-5hd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sun-ht-wg0" secondAttribute="bottom" id="quX-1y-AGa"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-5U-iw3">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -1036,11 +1060,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4T8-O5-cGp" firstAttribute="top" secondItem="R2k-5U-iw3" secondAttribute="bottom" id="3uQ-mh-ZsI"/>
+                            <constraint firstAttribute="trailing" secondItem="c2k-yU-iwa" secondAttribute="trailing" constant="5" id="5gW-4G-f1T"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="8Gk-OS-KIT"/>
+                            <constraint firstItem="c2k-yU-iwa" firstAttribute="top" secondItem="syY-rg-AlJ" secondAttribute="topMargin" id="Skb-gg-Sgu"/>
+                            <constraint firstItem="c2k-yU-iwa" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" constant="5" id="ahB-RA-woi"/>
                             <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" id="k05-vD-CUC"/>
+                            <constraint firstItem="R2k-5U-iw3" firstAttribute="top" secondItem="c2k-yU-iwa" secondAttribute="bottom" constant="1" id="ljr-Od-qEO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EBg-9t-HBx" secondAttribute="trailing" id="n30-kg-q1a"/>
                             <constraint firstItem="EBg-9t-HBx" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leadingMargin" id="pGC-dp-Uxq"/>
-                            <constraint firstItem="R2k-5U-iw3" firstAttribute="top" secondItem="qOZ-2u-GFq" secondAttribute="bottom" id="pbE-LH-5d7"/>
                             <constraint firstItem="EBg-9t-HBx" firstAttribute="centerY" secondItem="syY-rg-AlJ" secondAttribute="centerY" id="qfg-cI-p01"/>
                             <constraint firstItem="EBg-9t-HBx" firstAttribute="centerX" secondItem="syY-rg-AlJ" secondAttribute="centerX" id="tPn-xh-QuB"/>
                         </constraints>
@@ -1050,6 +1077,7 @@
                     <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateFilterControl" destination="Sun-ht-wg0" id="kHT-bA-j0N"/>
                         <outlet property="noEventsLabel" destination="EBg-9t-HBx" id="7Bb-ZI-aLe"/>
                         <outlet property="tabBarIcon" destination="gTS-3I-WYL" id="yoc-ad-naT"/>
                         <outlet property="tableView" destination="R2k-5U-iw3" id="DPb-Ud-HIG"/>
@@ -1072,6 +1100,6 @@
         <image name="MenuUpdates" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
 </document>

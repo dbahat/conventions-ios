@@ -87,10 +87,5 @@ class Convention {
     func isFeedbackSendingTimeOver() -> Bool {
         return NSDate().compare(Convention.date.addDays(14)) == .OrderedDescending
     }
-    
-    func getConventionLengthInDays() -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.components([.Day], fromDate: Convention.date, toDate: Convention.endDate, options: []).day + 1 /* including the first date */
-    }
 }
 

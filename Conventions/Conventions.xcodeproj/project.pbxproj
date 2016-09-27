@@ -11,6 +11,7 @@
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
+		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -88,6 +89,7 @@
 		3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SffEventsParser.swift; path = model/SffEventsParser.swift; sourceTree = "<group>"; };
 		3B014FB11D95A1AD0002DE8F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
+		3B0288791D9AF1CB006E158C /* DateFilterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilterControl.swift; path = events/DateFilterControl.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */,
 				3BE551511D96893800E91634 /* SearchCategoriesView.swift */,
 				3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */,
+				3B0288791D9AF1CB006E158C /* DateFilterControl.swift */,
 			);
 			name = events;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
+				3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */,
 				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
 				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
 				3B114C401D30224C003C6167 /* UITextView.swift in Sources */,

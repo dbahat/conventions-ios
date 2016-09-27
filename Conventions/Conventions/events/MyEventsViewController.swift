@@ -10,39 +10,51 @@ import UIKit
 
 class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var noEventsLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tabBarIcon: UITabBarItem!
+    @IBOutlet private weak var noEventsLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tabBarIcon: UITabBarItem!
+    @IBOutlet private weak var dateFilterControl: DateFilterControl!
     
-    private var myEvents: Array<ConventionEvent>?;
+    private var myEvents: Array<ConventionEvent>?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
+    }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated);
+        super.viewDidAppear(animated)
         
         // Adding to my events will trigger a badge icon to hint the user to click my events.
         // Once clicked we can clear the badge.
-        tabBarIcon.badgeValue = nil;
+        tabBarIcon.badgeValue = nil
         
-        reloadMyEvents();
-        tableView.reloadData();
+        reloadMyEvents()
+        tableView.reloadData()
+    }
+    
+    @IBAction func dateFilterWasTapped(sender: DateFilterControl) {
+        reloadMyEvents()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myEvents != nil ? myEvents!.count : 0;
+        return myEvents != nil ? myEvents!.count : 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
         
-        let event = myEvents![indexPath.row];
-        cell.setEvent(event);
-        cell.delegate = self;
+        let event = myEvents![indexPath.row]
+        cell.setEvent(event)
+        cell.delegate = self
 
         return cell
     }
@@ -89,7 +101,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     
     private func reloadMyEvents() {
         myEvents = Convention.instance.events.getAll()
-            .filter { event in event.attending }
+            .filter { event in event.attending && event.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970 }
             .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
         
         if (myEvents == nil || myEvents?.count == 0) {

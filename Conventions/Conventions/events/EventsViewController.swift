@@ -20,7 +20,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     private var enabledCategories: Array<AggregatedSearchCategory> = [.Lectures, .Games, .Shows, .Others]
     
-    @IBOutlet private weak var dateFilterControl: UISegmentedControl!
+    @IBOutlet private weak var dateFilterControl: DateFilterControl!
+    
     @IBOutlet private weak var searchCategoriesLayout: SearchCategoriesView!
     
     override func viewDidLoad() {
@@ -34,12 +35,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // Make initial model calculation when the view loads
         calculateEventsAndTimeSections()
         
-        dateFilterControl.removeAllSegments()
-        for i in 0...Convention.instance.getConventionLengthInDays()-1 {
-            dateFilterControl.insertSegmentWithTitle(Convention.endDate.addDays(-i).format("EEE (dd.MM)"), atIndex: i, animated: false)
-        }
-        dateFilterControl.selectedSegmentIndex = dateFilterControl.numberOfSegments - 1
-        dateFilterControl.tintColor = Colors.colorAccent
+        dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         
         searchCategoriesLayout.delegate = self
     }
@@ -163,22 +159,12 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - Private methods
     
-    private func getCurrentDateFilter() -> NSDate {
-        if dateFilterControl.selectedSegmentIndex == 0 {
-            return Convention.endDate
-        } else if dateFilterControl.selectedSegmentIndex == 1 {
-            return Convention.endDate.addDays(-1)
-        } else {
-            return Convention.date
-        }
-    }
-    
     private func calculateEventsAndTimeSections() {
         var result = Dictionary<NSDate, Array<ConventionEvent>>();
         
         let eventsForSelectedDate =
             Convention.instance.events.getAll()
-                .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == getCurrentDateFilter().timeIntervalSince1970})
+                .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970})
         
         let dailyEventsFilteredByCategory = eventsForSelectedDate.filter({event in
             if let type = event.type?.description {
