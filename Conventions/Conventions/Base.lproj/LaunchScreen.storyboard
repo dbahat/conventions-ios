@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,20 @@
                     <view key="view" contentMode="scaleToFill" id="tVN-O7-P6B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Rb-1lE">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fZh-Rb-1lE" secondAttribute="height" multiplier="298:107" id="VKt-If-IVQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.70980392156862748" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerY" secondItem="tVN-O7-P6B" secondAttribute="centerY" id="CxB-9k-Mp2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fZh-Rb-1lE" secondAttribute="trailing" constant="8" id="hLm-lf-XJ1"/>
+                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="jVP-Qa-b49"/>
+                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leadingMargin" constant="8" id="rUG-l4-lbP"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="דף הבית" id="O8J-TO-KWV"/>
@@ -47,4 +62,7 @@
             <point key="canvasLocation" x="-836" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SplashIcon" width="298" height="107"/>
+    </resources>
 </document>
