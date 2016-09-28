@@ -25,7 +25,7 @@ class NotificationsSchedualer {
         }
         
         let notification = UILocalNotification()
-        notification.fireDate = NSDate.from(year: 2016, month: 8, day: 25).addDays(1).addHours(10)
+        notification.fireDate = Convention.endDate.addDays(1).addHours(10)
         notification.timeZone = NSTimeZone.systemTimeZone()
         if #available(iOS 8.2, *) {
             notification.alertTitle = "עזור לנו להשתפר"
