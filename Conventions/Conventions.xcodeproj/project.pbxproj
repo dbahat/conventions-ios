@@ -90,6 +90,7 @@
 		3B014FB11D95A1AD0002DE8F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3B0288791D9AF1CB006E158C /* DateFilterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilterControl.swift; path = events/DateFilterControl.swift; sourceTree = "<group>"; };
+		3B02887B1D9C4720006E158C /* Conventions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Conventions.entitlements; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -293,6 +294,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B02887B1D9C4720006E158C /* Conventions.entitlements */,
 				3B8D9FEC1D1D4E4E005181DA /* feedback */,
 				3BB631061C89680800D54D3E /* controllers */,
 				3B2497CD1C8636E800A87623 /* cache */,
@@ -726,6 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
@@ -752,6 +755,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
