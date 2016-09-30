@@ -105,6 +105,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         // Resize the image so it'll fit the screen width, but keep the same size ratio
         image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
         
+        // Re-evaluate the description, so the webView will resize
         if let eventDescription = event.description {
             eventDescriptionWebView.setContent(eventDescription)
         }
@@ -121,7 +122,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        // Reset the webView before calling sizeToFit(), which will only increase it's size
+        webView.frame.size.height = 1.0
         webView.sizeToFit()
+        
+        // Update the height constraint so the rest of the layout will also align to the new height
         eventDescriptionWebViewHeightConstraint.constant = webView.frame.size.height
     }
     
