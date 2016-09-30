@@ -21,6 +21,8 @@ class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var developerOptionsContainer: UIView!
     @IBOutlet private weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
     
+    private var debugOptionsSwitchTapCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +79,17 @@ class NotificationSettingsViewController: BaseViewController {
             value: NSNumber())
             .build() as [NSObject: AnyObject]);
     }
+
+    @IBAction private func
+        debugOptionsSwitchWasTapped(sender: UITapGestureRecognizer) {
+            debugOptionsSwitchTapCount = debugOptionsSwitchTapCount + 1
+            if debugOptionsSwitchTapCount == 7 {
+                NotificationSettings.instance.developerOptionsEnabled = true
+                developerOptionsContainerHeightConstraint.constant = 132
+                developerOptionsContainer.hidden = false
+            }
+    }
+    
     
     private func initializeButtonsState() {
         let registeredCategories = NotificationSettings.instance.categories
