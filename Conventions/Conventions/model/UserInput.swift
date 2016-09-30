@@ -41,7 +41,7 @@ class UserInput {
             ]
         }
         
-        func submit(title: String, callback: ((success: Bool) -> Void)?) {
+        func submit(title: String, bodyOpening: String, callback: ((success: Bool) -> Void)?) {
             
             let session = MCOSMTPSession();
             session.hostname = "smtp.gmail.com"
@@ -55,13 +55,13 @@ class UserInput {
             builder.header.to = [MCOAddress(mailbox: Convention.mailbox)]
             builder.header.subject = "מייל אוטומטי -  " + title
             
-            var formattedAnswers = answers.map({
+            var formattedAnswers = bodyOpening + answers.map({
                 String(format: "%@\n%@", $0.questionText, $0.getAnswer())
             }).joinWithSeparator("\n\t\n\t\n")
             
             // Attaching device id to mails to allow basic fraud detection
             if let deviceId = UIDevice.currentDevice().identifierForVendor {
-                formattedAnswers.appendContentsOf(String(format: "\n\t\n\t\nDeviceId:\n%@", deviceId.UUIDString))
+                formattedAnswers.appendContentsOf(String(format: "\n\t\n\t\n\t\nDeviceId:\n%@", deviceId.UUIDString))
             }
             
             builder.textBody = formattedAnswers

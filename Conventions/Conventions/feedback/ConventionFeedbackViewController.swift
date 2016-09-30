@@ -58,10 +58,19 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         navigationItem.title = "פידבק לפסטיבל"
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConventionFeedbackViewController.keyboardFrameWillChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         // Saving to the filesystem only when leaving the screen, since we don't want to save
         // on each small change inside free-text questions
         Convention.instance.feedback.save()
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func feedbackProvided(feedback: FeedbackAnswer) {
@@ -86,7 +95,12 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     }
     
     func sendFeedbackWasClicked() {
-        Convention.instance.feedback.conventionInputs.submit("פידבק לכנס " + Convention.displayName, callback: {success in
+        // Force close the keyboard
+        view.endEditing(true)
+        
+        Convention.instance.feedback.conventionInputs.submit("פידבק לכנס " + Convention.displayName,
+                                                             bodyOpening: "",
+                                                             callback: {success in
             
             self.feedbackView.setFeedbackAsSent(success)
             
@@ -110,6 +124,29 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     
     func feedbackViewHeightDidChange(newHeight: CGFloat) {
         feedbackViewHeightConstraint.constant = newHeight
+    }
+    
+    // Resize the screen to be at the height minus the keyboard, so that the keyboard won't hide the user's feedback
+    func keyboardFrameWillChange(notification: NSNotification) {
+        let keyboardBeginFrame = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue
+        let keyboardEndFrame = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardFrameEndUserInfoKey)!.CGRectValue
+        
+        let animationCurve = UIViewAnimationCurve(rawValue: (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardAnimationCurveUserInfoKey)!.integerValue)
+        
+        let animationDuration: NSTimeInterval = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardAnimationDurationUserInfoKey)!.doubleValue
+        
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(animationDuration)
+        UIView.setAnimationCurve(animationCurve!)
+        
+        var newFrame = self.view.frame
+        let keyboardFrameEnd = self.view.convertRect(keyboardEndFrame, toView: nil)
+        let keyboardFrameBegin = self.view.convertRect(keyboardBeginFrame, toView: nil)
+        
+        newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y)
+        self.view.frame = newFrame;
+        
+        UIView.commitAnimations()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -16,7 +16,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
     @IBOutlet private weak var aboutAppVersionLabel: UILabel!
     @IBOutlet private weak var aboutAppContentWebView: StaticContentWebView!
     
-    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב <a href=\"market://details?id=sff.org.conventions/\">בדף האפליקציה בחנות</a>. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, תומר שלו."
+    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, תומר שלו."
     
     override func viewDidLoad() {
         super.viewDidLoad()

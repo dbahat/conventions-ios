@@ -145,7 +145,12 @@ class ConventionEvent {
             return
         }
         
-        input.feedbackUserInput.submit("פידבק ל" + Convention.displayName + " עבור האירוע: " + title, callback: callback)
+        input.feedbackUserInput.submit("פידבק ל" + Convention.displayName + " עבור האירוע: " + title,
+                                       bodyOpening: String(format: "%@\n%@, %@\n\n",
+                                        title,
+                                        startTime.format("HH:mm"),
+                                        hall.name),
+                                       callback: callback)
     }
     
     func canFillFeedback() -> Bool {
