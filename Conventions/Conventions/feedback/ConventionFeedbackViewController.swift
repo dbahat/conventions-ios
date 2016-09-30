@@ -54,6 +54,8 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         feedbackViewHeightConstraint.constant = feedbackView.getHeight()
         
         initializeEventsTableViews()
+        
+        navigationItem.title = "פידבק לפסטיבל"
     }
     
     override func viewWillDisappear(animated: Bool) {

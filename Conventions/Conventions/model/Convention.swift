@@ -10,8 +10,8 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = NSDate.from(year: 2016, month: 10, day: 18)
-    static let endDate = NSDate.from(year: 2016, month: 10, day: 20)
+    static let date = NSDate.from(year: 2016, month: 9, day: 26)
+    static let endDate = NSDate.from(year: 2016, month: 9, day: 28)
     static let name = "Icon2016"
     static let displayName = "פסטיבל אייקון"
     static let mailbox = "feedback@iconfestival.org.il"
@@ -86,6 +86,10 @@ class Convention {
     
     func isFeedbackSendingTimeOver() -> Bool {
         return NSDate().compare(Convention.date.addDays(14)) == .OrderedDescending
+    }
+    
+    func canFillConventionFeedback() -> Bool {
+        return NSDate().compare(Convention.date.addDays(1)) == .OrderedDescending
     }
 }
 
