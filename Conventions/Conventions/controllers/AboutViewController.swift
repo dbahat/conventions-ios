@@ -12,9 +12,9 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
     
     @IBOutlet private weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var aboutAppContentWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var aboutContentWebView: UIWebView!
+    @IBOutlet private weak var aboutContentWebView: StaticContentWebView!
     @IBOutlet private weak var aboutAppVersionLabel: UILabel!
-    @IBOutlet private weak var aboutAppContentWebView: UIWebView!
+    @IBOutlet private weak var aboutAppContentWebView: StaticContentWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,12 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
             return;
         }
         
-        aboutContentWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", aboutContent), baseURL: nil)
+        aboutContentWebView.setContent(aboutContent)
         aboutContentWebView.scrollView.scrollEnabled = false
         aboutContentWebView.delegate = self
         
         let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב <a href=\"market://details?id=sff.org.conventions/\">בדף האפליקציה בחנות</a>. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, תומר שלו."
-        aboutAppContentWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", aboutAppContent), baseURL: nil)
+        aboutAppContentWebView.setContent(aboutAppContent)
         aboutAppContentWebView.scrollView.scrollEnabled = false
         aboutAppContentWebView.delegate = self
         

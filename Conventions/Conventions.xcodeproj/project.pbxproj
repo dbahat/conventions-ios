@@ -86,6 +86,7 @@
 		3BF22D381D9D9CBD0090E8E6 /* AboutContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BF22D371D9D9CBD0090E8E6 /* AboutContent.html */; };
 		3BF22D3A1D9DA9230090E8E6 /* DiscountsContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BF22D391D9DA9230090E8E6 /* DiscountsContent.html */; };
 		3BF22D3C1D9DA9470090E8E6 /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D3B1D9DA9470090E8E6 /* DiscountsViewController.swift */; };
+		3BF22D3E1D9E7CC60090E8E6 /* StaticContentWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */; };
 		3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4724B1D6CC5090066AD35 /* MapArea.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,7 @@
 		3BF22D371D9D9CBD0090E8E6 /* AboutContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutContent.html; sourceTree = "<group>"; };
 		3BF22D391D9DA9230090E8E6 /* DiscountsContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DiscountsContent.html; sourceTree = "<group>"; };
 		3BF22D3B1D9DA9470090E8E6 /* DiscountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
+		3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticContentWebView.swift; sourceTree = "<group>"; };
 		3BF4724B1D6CC5090066AD35 /* MapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapArea.swift; path = model/MapArea.swift; sourceTree = "<group>"; };
 		91EE3412A5156C8021C08D64 /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +328,7 @@
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 				3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */,
 				3B014FB11D95A1AD0002DE8F /* Colors.swift */,
+				3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
+				3BF22D3E1D9E7CC60090E8E6 /* StaticContentWebView.swift in Sources */,
 				3BF22D341D9D93700090E8E6 /* MoreInfoViewController.swift in Sources */,
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,

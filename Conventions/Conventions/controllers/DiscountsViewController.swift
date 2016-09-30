@@ -10,7 +10,7 @@ import Foundation
 
 class DiscountsViewController: BaseViewController, UIWebViewDelegate {
     
-    @IBOutlet private weak var contentWebView: UIWebView!
+    @IBOutlet private weak var contentWebView: StaticContentWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class DiscountsViewController: BaseViewController, UIWebViewDelegate {
             return;
         }
         
-        contentWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", aboutContent), baseURL: nil)
+        contentWebView.setContent(aboutContent)
         contentWebView.delegate = self
         
         navigationItem.title = "מבצעים והנחות"

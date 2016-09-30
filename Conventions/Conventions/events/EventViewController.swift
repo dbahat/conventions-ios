@@ -21,7 +21,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet private weak var prices: UILabel!
     
     @IBOutlet private weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var eventDescriptionWebView: UIWebView!
+    @IBOutlet private weak var eventDescriptionWebView: StaticContentWebView!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var eventDescriptionContainer: UIView!
     @IBOutlet private weak var feedbackView: FeedbackView!
@@ -69,7 +69,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         eventDescriptionWebView.scrollView.scrollEnabled = false
         
         if let eventDescription = event.description {
-            eventDescriptionWebView.loadHTMLString(String(format: "<body style=\"font: -apple-system-body\"><div dir='rtl'>%@</div></body>", eventDescription), baseURL: nil)
+            eventDescriptionWebView.setContent(eventDescription)
         }
         
         refreshFavoriteBarIconImage()
@@ -100,8 +100,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
         // Resize the image so it'll fit the screen width, but keep the same size ratio
         image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
+        
+        if let eventDescription = event.description {
+            eventDescriptionWebView.setContent(eventDescription)
+        }
     }
     
     @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
