@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -607,7 +608,25 @@
                     <view key="view" contentMode="scaleToFill" id="lL7-48-hx3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-FX-jAj" customClass="GMSMapView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36v-mf-1PU" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fIb-FX-jAj" firstAttribute="height" secondItem="lL7-48-hx3" secondAttribute="height" multiplier="0.5" id="6sv-1N-AML"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="36v-mf-1PU" secondAttribute="bottom" id="9I7-P4-go3"/>
+                            <constraint firstAttribute="trailing" secondItem="36v-mf-1PU" secondAttribute="trailing" id="DmI-NW-d8d"/>
+                            <constraint firstItem="36v-mf-1PU" firstAttribute="height" secondItem="lL7-48-hx3" secondAttribute="height" multiplier="0.5" id="LX8-HD-erS"/>
+                            <constraint firstItem="fIb-FX-jAj" firstAttribute="leading" secondItem="lL7-48-hx3" secondAttribute="leading" id="e92-hQ-cjG"/>
+                            <constraint firstItem="36v-mf-1PU" firstAttribute="leading" secondItem="lL7-48-hx3" secondAttribute="leading" id="i4D-Md-nDj"/>
+                            <constraint firstItem="fIb-FX-jAj" firstAttribute="top" secondItem="lL7-48-hx3" secondAttribute="topMargin" id="kDQ-OT-IyT"/>
+                            <constraint firstAttribute="trailing" secondItem="fIb-FX-jAj" secondAttribute="trailing" id="sga-CI-fyP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="דרכי הגעה" image="MenuArrivalMethods" id="f6T-IB-I0A"/>
                     <navigationItem key="navigationItem" title="דרכי הגעה" id="L6J-dU-28K">
@@ -618,6 +637,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="directionsWebView" destination="36v-mf-1PU" id="f7m-F2-z7j"/>
+                        <outlet property="mapView" destination="fIb-FX-jAj" id="A0l-dR-iqV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfE-TR-CNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1226,7 +1249,7 @@
         <!--Discounts View Controller-->
         <scene sceneID="ziS-ab-taa">
             <objects>
-                <viewController id="9zD-oq-szF" customClass="DiscountsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscountsViewController" id="9zD-oq-szF" customClass="DiscountsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vsa-WQ-GuI"/>
                         <viewControllerLayoutGuide type="bottom" id="jZf-vN-y2g"/>

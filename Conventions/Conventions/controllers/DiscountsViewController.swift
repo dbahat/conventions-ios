@@ -15,11 +15,10 @@ class DiscountsViewController: BaseViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
-            return;
-        };
-        
-        guard let aboutContent = try? String(contentsOfFile: resourcePath + "/DiscountsContent.html") else {
+        guard
+            let resourcePath = NSBundle.mainBundle().resourcePath,
+            let aboutContent = try? String(contentsOfFile: resourcePath + "/DiscountsContent.html")
+        else {
             return;
         }
         
