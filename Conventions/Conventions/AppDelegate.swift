@@ -141,6 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Scheduling the feedback reminder here, since we can only schedule notifications after the 
         // notifications settings were registered (and the user gave his concent)
         NotificationsSchedualer.scheduleConventionFeedbackIfNeeded()
+        NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

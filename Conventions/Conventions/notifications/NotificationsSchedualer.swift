@@ -11,6 +11,7 @@ import Foundation
 class NotificationsSchedualer {
     
     static let CONVENTION_FEEDBACK_INFO = "ConventionFeedback"
+    static let CONVENTION_FEEDBACK_LAST_CHANCE_INFO = "ConventionFeedbackLastChance"
     static let EVENT_ABOUT_TO_START_INFO = "EventAboutToStart"
     static let EVENT_FEEDBACK_REMINDER_INFO = "EventFeedbackReminder"
     
@@ -39,6 +40,31 @@ class NotificationsSchedualer {
         NotificationSettings.instance.conventionFeedbackReminderWasSet = true
     }
     
+    static func scheduleConventionFeedbackLastChanceIfNeeded() {
+        
+        if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return}
+        
+        if NotificationSettings.instance.conventionFeedbackReminderWasSet
+            || Convention.instance.feedback.conventionInputs.isSent
+            || Convention.instance.isFeedbackSendingTimeOver() {
+            return;
+        }
+        
+        let notification = UILocalNotification()
+        notification.fireDate = Convention.endDate.addDays(10)
+        notification.timeZone = NSTimeZone.systemTimeZone()
+        if #available(iOS 8.2, *) {
+            notification.alertTitle = "הזדמנות אחרונה להשפיע"
+        }
+        notification.alertBody = String(format: "נהנתם ב%@? נשארו רק עוד 4 ימים לשליחת פידבק!", arguments: [Convention.displayName]);
+        notification.alertAction = "מלא פידבק על הפסטיבל"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = [CONVENTION_FEEDBACK_LAST_CHANCE_INFO: true];
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        NotificationSettings.instance.conventionFeedbackReminderWasSet = true
+    }
+    
     static func removeConventionFeedback() {
         guard let notifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return;};
         
@@ -46,6 +72,23 @@ class NotificationsSchedualer {
             guard
                 let userInfo = notification.userInfo,
                 let conventionFeedback = userInfo[CONVENTION_FEEDBACK_INFO] as? Bool
+                else {
+                    continue;
+            }
+            
+            if conventionFeedback {
+                UIApplication.sharedApplication().cancelLocalNotification(notification);
+            }
+        }
+    }
+    
+    static func removeConventionFeedbackLastChance() {
+        guard let notifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return;};
+        
+        for notification in notifications {
+            guard
+                let userInfo = notification.userInfo,
+                let conventionFeedback = userInfo[CONVENTION_FEEDBACK_LAST_CHANCE_INFO] as? Bool
                 else {
                     continue;
             }

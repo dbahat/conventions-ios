@@ -100,25 +100,28 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         Convention.instance.feedback.conventionInputs.submit("פידבק לכנס " + Convention.displayName,
                                                              bodyOpening: "",
-                                                             callback: {success in
+                                                             callback:
+            {
+                success in
             
-            self.feedbackView.setFeedbackAsSent(success)
-            
-            // Cancel the convention feedback reminder notifications (so the user won't see it again)
-            NotificationsSchedualer.removeConventionFeedback()
-            
-            if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
-                    .show();
-                return;
-            }
-            
-            // filter un-answered questions and animate the possible layout height change
-            self.feedbackView.removeAnsweredQuestions(self.userInputs.answers)
-            self.feedbackViewHeightConstraint.constant = self.feedbackView.getHeight()
-            UIView.animateWithDuration(0.3) {
-                self.view.layoutIfNeeded()
-            }
+                self.feedbackView.setFeedbackAsSent(success)
+                
+                if !success {
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                        .show();
+                    return;
+                }
+                
+                // Cancel the convention feedback reminder notifications (so the user won't see it again)
+                NotificationsSchedualer.removeConventionFeedback()
+                NotificationsSchedualer.removeConventionFeedbackLastChance()
+                
+                // filter un-answered questions and animate the possible layout height change
+                self.feedbackView.removeAnsweredQuestions(self.userInputs.answers)
+                self.feedbackViewHeightConstraint.constant = self.feedbackView.getHeight()
+                UIView.animateWithDuration(0.3) {
+                    self.view.layoutIfNeeded()
+                }
         })
     }
     
