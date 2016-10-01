@@ -80,7 +80,7 @@ class SffEventsParser {
             }
             if let tagsObject = event["tags"] as? Dictionary<String, String> {
                 for tagString in tagsObject.values {
-                    tags.append(tagString)
+                    tags.append(String(htmlEncodedString: tagString))
                 }
             }
             
@@ -103,7 +103,7 @@ class SffEventsParser {
                     description: eventType),
                 hall: hall,
                 description: parseEventDescription(description),
-                category: category,
+                category: String(htmlEncodedString: category),
                 price: eventPrice,
                 tags: tags)
             
