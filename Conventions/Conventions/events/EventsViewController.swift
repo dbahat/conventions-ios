@@ -38,6 +38,11 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         
         searchCategoriesLayout.delegate = self
+        
+        // TODO - only perform this if an hour has passed since last refresh
+        Convention.instance.events.refresh({success in
+            self.tableView.reloadData()
+        })
     }
     
     override func viewWillAppear(animated: Bool) {

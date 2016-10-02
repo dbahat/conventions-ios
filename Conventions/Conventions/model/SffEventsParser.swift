@@ -10,11 +10,7 @@ import Foundation
 import UIKit
 
 class SffEventsParser {
-    func parse(data data:NSData) -> Array<ConventionEvent>! {
-        return parse(data: data, halls: Convention.instance.halls);
-    }
-    
-    func parse(data data: NSData, halls: Array<Hall>!) -> Array<ConventionEvent>! {
+    func parse(data data: NSData) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
         guard let deserializedEvents =
@@ -51,9 +47,7 @@ class SffEventsParser {
                 continue;
             }
             guard
-                let hallName = event["location"] as? String,
-                let hall = findHallByName(halls, hallName: hallName)
-            else {
+                let hallName = event["location"] as? String else {
                 print("Event missing location. Skipping. ID=", eventId, " name=", title);
                 continue;
             }
@@ -101,7 +95,7 @@ class SffEventsParser {
                 type: EventType(
                     backgroundColor: nil,
                     description: eventType),
-                hall: hall,
+                hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
                 category: String(htmlEncodedString: category),
                 price: eventPrice,
@@ -112,14 +106,6 @@ class SffEventsParser {
         }
         
         return result;
-    }
-    
-    private func findHallByName(halls: Array<Hall>, hallName: String) -> Hall? {
-        if let hall = halls.filter({hall in hall.name == hallName}).first {
-            return hall
-        }
-        
-        return nil
     }
     
     private func parseDate(time: String) -> NSDate {

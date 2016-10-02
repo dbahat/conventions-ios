@@ -21,11 +21,15 @@ class Events {
         };
         
         if let cachedEvents = NSData(contentsOfFile: Events.cacheFile) {
-            events = SffEventsParser().parse(data: cachedEvents, halls: halls);
-            print("Events from cache: ", events.count);
+            if let parsedCachedEvents = parse(cachedEvents, halls: halls) {
+                events = parsedCachedEvents
+                print("Cached events: ", events.count)
+            }
         } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/" + Events.fileName) {
-            events = SffEventsParser().parse(data: preInstalledEvents, halls: halls);
-            print("Preinstalled events: ", events.count);
+            if let parsedPreInstalledEvents = parse(preInstalledEvents, halls: halls) {
+                events = parsedPreInstalledEvents
+                print("Preinstalled events: ", events.count)
+            }
         }
     }
     
@@ -42,8 +46,13 @@ class Events {
                 return;
             }
             
-            result?.writeToFile(Events.cacheFile, atomically: true);
-            let parsedEvents = SffEventsParser().parse(data: events);
+            //result?.writeToFile(Events.cacheFile, atomically: true);
+            let parsedEvents = SffEventsParser().parse(data: events)
+            if let serializedData = try? NSJSONSerialization.dataWithJSONObject(
+                self.events.map({$0.toJson()}),
+                options: NSJSONWritingOptions.PrettyPrinted) {
+                serializedData.writeToFile(Events.cacheFile, atomically: true)
+            }
             
             // Using main thread for syncronizing access to events
             dispatch_async(dispatch_get_main_queue()) {
@@ -52,6 +61,26 @@ class Events {
                 callback?(success: true);
             }
         });
+    }
+    
+    private func parse(data: NSData, halls: Array<Hall>) -> Array<ConventionEvent>? {
+        var result = Array<ConventionEvent>()
+        
+        guard let deserializedEvents =
+            try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray,
+            parsedEvents = deserializedEvents
+            else {
+                print("Failed to deserialize events");
+                return result;
+        }
+        
+        for event in parsedEvents {
+            if let parsedEvent = ConventionEvent.parse(event as! Dictionary<String, AnyObject>, halls: halls) {
+                result.append(parsedEvent)
+            }
+        }
+        
+        return result
     }
     
     private func download(completion: (data: NSData?) -> Void) {

@@ -56,6 +56,64 @@ class ConventionEvent {
         self.tags = tags
     }
     
+    static func parse(json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
+        guard
+            let id = json["id"] as? String,
+            let serverId = json["serverId"] as? Int,
+            let title = json["title"] as? String,
+            let lecturer = json["lecturer"] as? String,
+            let startTime = json["startTime"] as? Double,
+            let endTime = json["endTime"] as? Double,
+            let type = json["type"] as? String,
+            let hall = json["hall"] as? String,
+            let description = json["description"] as? String,
+            let category = json["category"] as? String,
+            let price = json["price"] as? Int,
+            let tags = json["tags"] as? Array<String>
+        else {
+            return nil
+        }
+        
+        return ConventionEvent(id: id,
+                               serverId: serverId,
+                               color: Colors.eventTimeDefaultBackgroundColor,
+                               textColor: nil,
+                               title: title,
+                               lecturer: lecturer,
+                               startTime: NSDate(timeIntervalSince1970: startTime),
+                               endTime: NSDate(timeIntervalSince1970: endTime),
+                               type: EventType(backgroundColor: nil, description: type),
+                               hall: ConventionEvent.findHall(halls, hallName: hall),
+                               description: description,
+                               category: category,
+                               price: price,
+                               tags: tags)
+    }
+    
+    private static func findHall(halls: Array<Hall>, hallName: String) -> Hall {
+        if let hall = halls.filter({hall in hall.name == hallName}).first {
+            return hall
+        }
+        
+        return Hall(name: hallName, order: 100)
+    }
+    
+    func toJson() -> Dictionary<String, AnyObject> {
+        return [
+            "id": self.id,
+            "serverId": self.serverId,
+            "title": self.title,
+            "lecturer": self.lecturer ?? "",
+            "startTime": self.startTime.timeIntervalSince1970,
+            "endTime": self.endTime.timeIntervalSince1970,
+            "type": self.type.description,
+            "hall": self.hall.name,
+            "description": self.description ?? "",
+            "category": self.category,
+            "price": self.price,
+            "tags": self.tags]
+    }
+    
     var feedbackAnswers: Array<FeedbackAnswer> {
         get {
             guard let input = Convention.instance.eventsInputs.getInput(id) else {
