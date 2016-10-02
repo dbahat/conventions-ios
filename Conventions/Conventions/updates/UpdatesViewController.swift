@@ -28,6 +28,14 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         }
         
         addRefreshControl()
+        
+        Convention.instance.updates.refresh({success in
+            if Convention.instance.updates.getAll().count == 0 {
+                self.noUpdatesFoundLabel.hidden = false
+            }
+            
+            self.tableView.reloadData()
+        })
     }
     
     override func viewDidAppear(animated: Bool) {

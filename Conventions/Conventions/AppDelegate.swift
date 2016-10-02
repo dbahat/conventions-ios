@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // The message we got in a remote notification. Needed in case we get push notification while in background
     private var remoteNotificationMessage: String = ""
     private var remoteNotificationCategory: String = ""
+    private var remoteNotificationId: String = ""
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -42,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
         
         // Initiate an async refresh to the updates when opening the app. Events will be refeshed
-        // anyways since the programme is the initial screen.
+        // anyways since the EventsViewController is the initial screen.
         Convention.instance.updates.refresh(nil)
         
         if let options = launchOptions {
@@ -57,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let remoteNotification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject : AnyObject] {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.application(application, didReceiveRemoteNotification: remoteNotification)
+                    // In case we got opened from a remove notification, also navigate to the updates page
+                    self.showPushNotificationPopup(remoteNotification, shouldNavigateToUpdates: true)
                 }
             }
         }
@@ -83,35 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-        guard let message = userInfo["aps"]?["alert"] as? String else {
-            return;
-        }
-        let category = userInfo["category"] as? String ?? ""
-        
-        // When the app isn't active we want to allow iOS to show the notification, and only present it
-        // to the user if he clicked the notification
-        if !isActive {
-            remoteNotificationMessage = message
-            remoteNotificationCategory = category
-            return;
-        }
-        
-        showNotificationPopup(message, category: category)
-    }
-    
-    private func showNotificationPopup(message: String, category: String) {
-        
-        let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .Default, handler: {action in
-            guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-            if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(NotificationSettingsViewController)) as? NotificationSettingsViewController {
-                vc.pushViewController(settingsVc, animated: true)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
-        guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-        vc.presentViewController(alert, animated: true, completion: nil)
+        showPushNotificationPopup(userInfo, shouldNavigateToUpdates: false /* so we won't interupt the user */)
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
@@ -152,6 +126,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("error registering to Azure notification hub ", error)
         }
+    }
+    
+    private func showPushNotificationPopup(userInfo: [NSObject : AnyObject], shouldNavigateToUpdates: Bool) {
+        guard let message = userInfo["aps"]?["alert"] as? String else {
+            return;
+        }
+        let category = userInfo["category"] as? String ?? ""
+        let id = userInfo["id"] as? String ?? ""
+        
+        // When the app isn't active we want to allow iOS to show the notification, and only present it
+        // to the user if he clicked the notification
+        if !isActive {
+            remoteNotificationMessage = message
+            remoteNotificationCategory = category
+            remoteNotificationId = id
+            return;
+        }
+        
+        if shouldNavigateToUpdates {
+            guard let vc = self.window?.rootViewController as? UINavigationController else {return}
+            if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(UpdatesViewController)) as? UpdatesViewController {
+                vc.pushViewController(updatesVc, animated: true)
+            }
+        }
+        
+        showNotificationPopup(message, category: category)
+    }
+    
+    private func showNotificationPopup(message: String, category: String) {
+        
+        let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .Default, handler: {action in
+            guard let vc = self.window?.rootViewController as? UINavigationController else {return}
+            if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(NotificationSettingsViewController)) as? NotificationSettingsViewController {
+                vc.pushViewController(settingsVc, animated: true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
+        guard let vc = self.window?.rootViewController as? UINavigationController else {return}
+        vc.presentViewController(alert, animated: true, completion: nil)
     }
     
     private func handleNotificationIfNeeded(notification: UILocalNotification?) {

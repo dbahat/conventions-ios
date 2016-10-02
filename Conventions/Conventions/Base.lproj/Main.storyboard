@@ -312,7 +312,7 @@
         <!--עדכונים-->
         <scene sceneID="E3v-Ff-JsW">
             <objects>
-                <viewController id="6s1-WB-npc" customClass="UpdatesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdatesViewController" id="6s1-WB-npc" customClass="UpdatesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N6h-fc-8yz"/>
                         <viewControllerLayoutGuide type="bottom" id="x6J-pE-fi6"/>
@@ -1064,7 +1064,6 @@
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-kw-ELj">
                                                                 <color key="onTintColor" red="0.74901960779999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
-                                                                    <action selector="busNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="VPU-23-a4R"/>
                                                                     <action selector="developerOptionsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="D3v-0t-0T5"/>
                                                                 </connections>
                                                             </switch>
