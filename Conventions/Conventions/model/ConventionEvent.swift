@@ -148,7 +148,7 @@ class ConventionEvent {
         input.feedbackUserInput.submit("פידבק ל" + Convention.displayName + " עבור האירוע: " + title,
                                        bodyOpening: String(format: "%@\n%@, %@\n\n",
                                         title,
-                                        startTime.format("HH:mm"),
+                                        startTime.format("dd.MM.yyyy HH:mm"),
                                         hall.name),
                                        callback: callback)
     }
