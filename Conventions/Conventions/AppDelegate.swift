@@ -163,15 +163,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func handleConventionNotificationIfNeeded(notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
-            let conventionFeedback = userInfo[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool,
             let vc = self.window?.rootViewController as? UINavigationController,
             let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(ConventionFeedbackViewController)) as? ConventionFeedbackViewController
         else {
                 return
         }
         
-        if conventionFeedback {
-            
+        if userInfo[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool != nil {
+            vc.pushViewController(feedbackVc, animated: true)
+        } else if userInfo[NotificationsSchedualer.CONVENTION_FEEDBACK_LAST_CHANCE_INFO] as? Bool != nil {
             vc.pushViewController(feedbackVc, animated: true)
         }
     }

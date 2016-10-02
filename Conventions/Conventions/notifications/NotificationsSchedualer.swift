@@ -44,7 +44,7 @@ class NotificationsSchedualer {
         
         if (UIApplication.sharedApplication().currentUserNotificationSettings()?.types == UIUserNotificationType.None) {return}
         
-        if NotificationSettings.instance.conventionFeedbackReminderWasSet
+        if NotificationSettings.instance.conventionFeedbackLastChanceReminderWasSet
             || Convention.instance.feedback.conventionInputs.isSent
             || Convention.instance.isFeedbackSendingTimeOver() {
             return;
@@ -62,7 +62,7 @@ class NotificationsSchedualer {
         notification.userInfo = [CONVENTION_FEEDBACK_LAST_CHANCE_INFO: true];
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
-        NotificationSettings.instance.conventionFeedbackReminderWasSet = true
+        NotificationSettings.instance.conventionFeedbackLastChanceReminderWasSet = true
     }
     
     static func removeConventionFeedback() {

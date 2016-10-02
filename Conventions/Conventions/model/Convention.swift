@@ -85,7 +85,7 @@ class Convention {
     }
     
     func isFeedbackSendingTimeOver() -> Bool {
-        return NSDate().compare(Convention.date.addDays(14)) == .OrderedDescending
+        return NSDate().compare(Convention.endDate.addDays(14)) == .OrderedDescending
     }
     
     func canFillConventionFeedback() -> Bool {

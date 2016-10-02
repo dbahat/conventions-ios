@@ -56,6 +56,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         initializeEventsTableViews()
         
         navigationItem.title = "פידבק לפסטיבל"
+        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, forState: .Normal)
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -12,7 +12,8 @@ class NotificationSettings {
     private static let CATEGORIES = "NotificationCategories"
     private static let EVENT_FEEDBACK_REMINDER = Convention.name + "_Event_FeedbackReminder"
     private static let EVENT_STARTING_REMINDER = Convention.name + "_Event_StartingReminder"
-    private static let CONVENTION_FEEDBACK_REMINDER = "ConventionFeedbackReminder"
+    private static let CONVENTION_FEEDBACK_REMINDER = Convention.name + "_ConventionFeedbackReminder"
+    private static let CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER = Convention.name + "_ConventionFeedbackLastChanceReminder"
     private static let DEVELOPER_OPTIONS = "DeveloperOptions"
     
     static let instance = NotificationSettings()
@@ -55,6 +56,15 @@ class NotificationSettings {
         }
         set {
             preferences.setBool(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
+        }
+    }
+    
+    var conventionFeedbackLastChanceReminderWasSet : Bool {
+        get {
+            return preferences.boolForKey(NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
+        }
+        set {
+            preferences.setBool(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
         }
     }
     

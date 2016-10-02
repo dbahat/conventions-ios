@@ -297,7 +297,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
