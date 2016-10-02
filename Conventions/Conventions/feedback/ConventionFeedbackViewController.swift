@@ -99,7 +99,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         // Force close the keyboard
         view.endEditing(true)
         
-        Convention.instance.feedback.conventionInputs.submit("פידבק לכנס " + Convention.displayName,
+        Convention.instance.feedback.conventionInputs.submit("פידבק ל" + Convention.displayName,
                                                              bodyOpening: "",
                                                              callback:
             {

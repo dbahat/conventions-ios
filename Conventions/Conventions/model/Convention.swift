@@ -13,7 +13,7 @@ class Convention {
     static let date = NSDate.from(year: 2016, month: 10, day: 18)
     static let endDate = NSDate.from(year: 2016, month: 10, day: 20)
     static let name = "Icon2016"
-    static let displayName = "פסטיבל אייקון"
+    static let displayName = "פסטיבל אייקון 2016"
     static let mailbox = "feedback@iconfestival.org.il"
     
     // The APNS token. Set during app init, and saved here in case the user wish to change his push
