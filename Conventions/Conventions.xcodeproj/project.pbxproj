@@ -17,7 +17,6 @@
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
-		3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */; };
 		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
 		3B36B7EB1D96800D00F8EB49 /* Icon2016Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EA1D96800D00F8EB49 /* Icon2016Events.json */; };
 		3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */; };
@@ -103,7 +102,6 @@
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
-		3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		3B36B7EA1D96800D00F8EB49 /* Icon2016Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icon2016Events.json; sourceTree = "<group>"; };
 		3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchCategoriesView.xib; path = events/SearchCategoriesView.xib; sourceTree = "<group>"; };
@@ -402,7 +400,6 @@
 			children = (
 				3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */,
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
-				3B20A78E1C8E12300075CC95 /* HomeNavigationController.swift */,
 				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
 				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
 				3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */,
@@ -611,7 +608,6 @@
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */,
 				3B0288781D99BA4D006E158C /* Updates.swift in Sources */,
-				3B20A78F1C8E12300075CC95 /* HomeNavigationController.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
