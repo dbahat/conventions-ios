@@ -15,7 +15,9 @@ class Colors {
     static let eventTimeHeaderColor = UIColor(hexString: "#E5EBF7")
     static let buttonColor = UIColor(hexString: "#af7800")
     static let buttonPressedColor = UIColor(hexString: "#d8ac00")
-    
+    static let eventEndedColor = UIColor(hexString: "#EBEBEB")
+    static let eventRunningColor = UIColor(hexString: "#FEFFC9")
+    static let eventNotStartedColor = UIColor.whiteColor()
     
     
 }

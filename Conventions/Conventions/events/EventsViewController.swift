@@ -51,6 +51,21 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections()
         tableView.reloadData()
+        
+        // If the convention is currently taking place, auto-scroll to the correct time section.
+        // Dispatching to the next layout pass so the user will see the scroll animation
+        tableView.layoutIfNeeded()
+        dispatch_async(dispatch_get_main_queue()) {
+            if Convention.instance.isRunning() {
+                if let sectionIndex = self.getSectionIndex(forDate: NSDate()) {
+                    self.tableView.scrollToRowAtIndexPath(
+                        NSIndexPath(forRow: 0, inSection: sectionIndex),
+                        atScrollPosition: .Top,
+                        animated: true)
+                }
+            }
+        }
+
     }
     
     @IBAction func dateFilterTapped(sender: UISegmentedControl) {
@@ -90,10 +105,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
 
-        let timeSection = eventTimeSections[indexPath.section];
-        let event = eventsPerTimeSection[timeSection]![indexPath.row];
-        cell.setEvent(event);
-        cell.delegate = self;
+        let timeSection = eventTimeSections[indexPath.section]
+        let event = eventsPerTimeSection[timeSection]![indexPath.row]
+        cell.setEvent(event)
+        cell.delegate = self
 
         return cell;
     }
@@ -235,5 +250,17 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged);
         addChildViewController(tableViewController);
         tableViewController.didMoveToParentViewController(self);
+    }
+    
+    private func getSectionIndex(forDate forDate: NSDate) -> Int? {
+        var index = 0
+        for timeSection in eventTimeSections {
+            if timeSection.timeIntervalSince1970 == forDate.clearMinutesComponent().timeIntervalSince1970 {
+                return index
+            }
+            index += 1
+        }
+        
+        return nil
     }
 }

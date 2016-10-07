@@ -91,5 +91,12 @@ class Convention {
     func canFillConventionFeedback() -> Bool {
         return NSDate().compare(Convention.date.addDays(1)) == .OrderedDescending
     }
+    
+    // returns true iif the convention is current running
+    func isRunning() -> Bool {
+        let currentDate = NSDate()
+        return currentDate.timeIntervalSince1970 >= Convention.date.timeIntervalSince1970
+            && currentDate.timeIntervalSince1970 <= Convention.endDate.timeIntervalSince1970
+    }
 }
 

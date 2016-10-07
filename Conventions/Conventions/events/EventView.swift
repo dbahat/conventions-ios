@@ -24,6 +24,7 @@ class EventView: UIView {
     @IBOutlet private weak var feedbackIcon: UIImageView!
     @IBOutlet private weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet private weak var titleAndDetailsContainer: UIView!
     weak var delegate: EventStateProtocol?;
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +53,15 @@ class EventView: UIView {
         if let textColor = event.textColor {
             startTime.textColor = textColor;
             endTime.textColor = textColor;
+        }
+        
+        let currentTime = NSDate()
+        if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
+            titleAndDetailsContainer.backgroundColor = Colors.eventEndedColor
+        } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
+            titleAndDetailsContainer.backgroundColor = Colors.eventRunningColor
+        } else {
+            titleAndDetailsContainer.backgroundColor = Colors.eventNotStartedColor
         }
         
         if event.canFillFeedback() {
