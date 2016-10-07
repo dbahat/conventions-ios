@@ -124,7 +124,8 @@ class AmaiEventsParser {
                     description: parseEventDescription(description),
                     category: "",
                     price: 0,
-                    tags: [])
+                    tags: [],
+                    url: NSURL())
                 
                 result.append(conventionEvent);
                 internalEventNumber += 1;

@@ -132,7 +132,25 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if navigationType == UIWebViewNavigationType.LinkClicked {
-            UIApplication.sharedApplication().openURL(request.URL!)
+            
+            guard let url = request.URL else {
+                return true;
+            }
+            
+            // In case the URL clicked points to another event, navigate to it in the App instead of
+            // in a browser
+            if let eventToNavigateTo = Convention.instance.events.getAll().filter({event in
+                // Comparing paths and not the full URLs, since the host portion differs due to redirects
+                event.url.path == url.path
+            }).first {
+                if let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController {
+                    eventVc.event = eventToNavigateTo
+                    navigationController?.pushViewController(eventVc, animated: true)
+                    return false
+                }
+            }
+            
+            UIApplication.sharedApplication().openURL(url)
             return false
         }
         return true

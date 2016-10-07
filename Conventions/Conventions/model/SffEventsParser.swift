@@ -83,6 +83,11 @@ class SffEventsParser {
                 speaker = speakers.count > 0 ? speakers.componentsJoinedByString(",") : ""
             }
             
+            var webSiteUrl = NSURL()
+            if let url = event["url"] as? String {
+                webSiteUrl = NSURL(string: url) ?? NSURL()
+            }
+            
             let conventionEvent = ConventionEvent(
                 id: eventId,
                 serverId: Int(eventId) ?? 0,
@@ -99,7 +104,8 @@ class SffEventsParser {
                 description: parseEventDescription(description),
                 category: String(htmlEncodedString: category),
                 price: eventPrice,
-                tags: tags)
+                tags: tags,
+                url: webSiteUrl)
             
             result.append(conventionEvent)
             

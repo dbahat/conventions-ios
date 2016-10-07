@@ -31,6 +31,7 @@ class ConventionEvent {
     var category: String
     var price: Int
     var tags: Array<String>
+    var url: NSURL
     
     let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
@@ -39,7 +40,7 @@ class ConventionEvent {
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: NSURL) {
         self.id = id
         self.serverId = serverId
         self.color = color
@@ -54,6 +55,7 @@ class ConventionEvent {
         self.category = category
         self.price = price
         self.tags = tags
+        self.url = url
     }
     
     static func parse(json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
@@ -69,7 +71,8 @@ class ConventionEvent {
             let description = json["description"] as? String,
             let category = json["category"] as? String,
             let price = json["price"] as? Int,
-            let tags = json["tags"] as? Array<String>
+            let tags = json["tags"] as? Array<String>,
+            let url = json["url"] as? String
         else {
             return nil
         }
@@ -87,7 +90,8 @@ class ConventionEvent {
                                description: description,
                                category: category,
                                price: price,
-                               tags: tags)
+                               tags: tags,
+                               url: NSURL(string: url) ?? NSURL())
     }
     
     private static func findHall(halls: Array<Hall>, hallName: String) -> Hall {
@@ -111,7 +115,8 @@ class ConventionEvent {
             "description": self.description ?? "",
             "category": self.category,
             "price": self.price,
-            "tags": self.tags]
+            "tags": self.tags,
+            "url": self.url.absoluteString ?? ""]
     }
     
     var feedbackAnswers: Array<FeedbackAnswer> {
