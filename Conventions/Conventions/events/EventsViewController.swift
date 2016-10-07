@@ -36,7 +36,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         calculateEventsAndTimeSections()
         
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
-        
+        dateFilterControl.selectDate(NSDate())
         searchCategoriesLayout.delegate = self
         
         // TODO - only perform this if an hour has passed since last refresh

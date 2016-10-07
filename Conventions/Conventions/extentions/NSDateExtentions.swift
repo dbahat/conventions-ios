@@ -13,6 +13,7 @@ extension NSDate {
         let dateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = dateFormat;
         dateFormatter.locale = NSLocale(localeIdentifier: "iw-IL")
+        dateFormatter.timeZone = NSTimeZone.systemTimeZone()
         return dateFormatter.stringFromDate(self);
     }
     
@@ -31,36 +32,43 @@ extension NSDate {
         return calendar.dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: self, options: [])!;
     }
     
-    func clearMinutesComponent() -> NSDate! {
-        return NSDate.parse(self.format("yyyy-MM-dd HH"), dateFormat: "yyyy-MM-dd HH");
+    func clearMinutesComponent() -> NSDate {
+        let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+        let components = gregorian!.components([.Year, .Month, .Day, .Hour], fromDate: self)
+        components.timeZone = NSTimeZone.systemTimeZone()
+        return gregorian?.dateFromComponents(components) ?? self
     }
     
-    func moveToNextRoundHour() -> NSDate! {
+    func moveToNextRoundHour() -> NSDate {
         if self.timeIntervalSinceDate(self.clearMinutesComponent()) > 0 {
-            return self.clearMinutesComponent().addHours(1);
+            return self.clearMinutesComponent().addHours(1)
         }
-        return self.clearMinutesComponent();
+        return self.clearMinutesComponent()
     }
     
     func clearTimeComponent() -> NSDate! {
-        return NSDate.parse(self.format("yyyy-MM-dd"), dateFormat: "yyyy-MM-dd");
+        let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+        let components = gregorian!.components([.Year, .Month, .Day], fromDate: self)
+        components.timeZone = NSTimeZone(name: "GMT")
+        return gregorian?.dateFromComponents(components)!
     }
     
     static func from(year year:Int, month:Int, day:Int) -> NSDate {
-        let dateComponents = NSDateComponents();
-        dateComponents.year = year;
-        dateComponents.month = month;
-        dateComponents.day = day;
+        let dateComponents = NSDateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.timeZone = NSTimeZone(name: "GMT")
+        dateComponents.calendar = NSCalendar(identifier:NSCalendarIdentifierGregorian)
         
-        let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian);
-        gregorian?.timeZone = NSTimeZone.systemTimeZone()
-        return gregorian!.dateFromComponents(dateComponents)!;
+        let gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+        return gregorian!.dateFromComponents(dateComponents)!
     }
     
     static func parse(date: String, dateFormat: String) -> NSDate? {
-        let dateFormatter = NSDateFormatter();
-        dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-        dateFormatter.dateFormat = dateFormat;
-        return dateFormatter.dateFromString(date);
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")
+        return dateFormatter.dateFromString(date)
     }
 }

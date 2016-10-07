@@ -10,7 +10,8 @@ import Foundation
 
 class DateFilterControl : UISegmentedControl {
     
-    var toDate = NSDate()
+    private var toDate = NSDate()
+    private let SecondsInDay : Double = 60 * 60 * 24
     
     var selectedDate: NSDate {
         get {
@@ -19,10 +20,10 @@ class DateFilterControl : UISegmentedControl {
     }
     
     func setDates(fromDate fromDate: NSDate, toDate: NSDate) {
-        self.toDate = toDate
+        self.toDate = toDate.clearTimeComponent()
         
         removeAllSegments()
-        for i in 0...getNumberOfDays(fromDate: fromDate, toDate: toDate) {
+        for i in 0...getNumberOfDays(fromDate: fromDate.clearTimeComponent(), toDate: self.toDate) {
             insertSegmentWithTitle(toDate.addDays(-i).format("EEE (dd.MM)"), atIndex: i, animated: false)
         }
         
@@ -32,8 +33,20 @@ class DateFilterControl : UISegmentedControl {
         tintColor = Colors.colorAccent
     }
     
-    func getNumberOfDays(fromDate fromDate: NSDate, toDate: NSDate) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.components([.Day], fromDate: fromDate, toDate: toDate, options: []).day
+    func selectDate(date: NSDate) {
+        let dayDiff = getNumberOfDays(fromDate: date, toDate: toDate)
+        let segmentToSelect = dayDiff
+        
+        if segmentToSelect < 0 || segmentToSelect >= numberOfSegments {
+            // when the requested date is before or past the convention date, don't select anything
+            return
+        }
+        
+        selectedSegmentIndex = segmentToSelect
+    }
+    
+    // returns the number of days between 2 NSDates, rounded up
+    private func getNumberOfDays(fromDate fromDate: NSDate, toDate: NSDate) -> Int {
+        return Int(ceil((toDate.timeIntervalSince1970 - fromDate.timeIntervalSince1970) / SecondsInDay))
     }
 }
