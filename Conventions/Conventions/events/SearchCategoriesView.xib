@@ -33,7 +33,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="MhS-oZ-Hii" firstAttribute="top" secondItem="93s-kf-4lu" secondAttribute="top" constant="5" id="Bkd-eb-lyS"/>
                         <constraint firstAttribute="bottom" secondItem="qd3-dc-bVz" secondAttribute="bottom" id="Eks-d5-4Us"/>
@@ -60,7 +60,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="ihm-io-Vxe" firstAttribute="top" secondItem="Qfm-Zd-0n8" secondAttribute="top" constant="5" id="2QC-BK-sgR"/>
                         <constraint firstItem="bfU-3Y-pA5" firstAttribute="leading" secondItem="Qfm-Zd-0n8" secondAttribute="leading" id="5YQ-zN-tkS"/>
@@ -87,7 +87,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Lcn-IK-HmW" firstAttribute="leading" secondItem="Jmo-B0-5LQ" secondAttribute="leading" id="QF5-dG-omD"/>
                         <constraint firstItem="UxP-Uh-Fbj" firstAttribute="top" secondItem="Jmo-B0-5LQ" secondAttribute="top" constant="5" id="Z6T-vw-oon"/>
@@ -114,7 +114,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="viA-3y-Zps" secondAttribute="bottom" id="4SV-Ew-7Bw"/>
                         <constraint firstItem="9rs-k3-5ag" firstAttribute="centerX" secondItem="Ft2-Qj-S4P" secondAttribute="centerX" id="8Ds-L0-73n"/>
@@ -128,7 +128,7 @@
                     </connections>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Jmo-B0-5LQ" firstAttribute="width" secondItem="Ft2-Qj-S4P" secondAttribute="width" id="3cW-Ve-UcU"/>

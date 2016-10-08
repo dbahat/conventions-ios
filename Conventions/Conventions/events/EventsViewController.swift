@@ -10,6 +10,7 @@ import UIKit
 
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var noResultsFoundLabel: UILabel!
 
     private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>> = [:]
     private var eventTimeSections: Array<NSDate> = []
@@ -227,13 +228,15 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     func willPresentSearchController(searchController: UISearchController) {
         tabBarController?.tabBar.hidden = true
         edgesForExtendedLayout = .Bottom // needed otherwise a gap is left where the empty tab bar was
-        tableViewController.refreshControl = nil
+        
+        view.backgroundColor = Colors.eventEndedColor
     }
     
     func willDismissSearchController(searchController: UISearchController) {
         self.tabBarController?.tabBar.hidden = false
         edgesForExtendedLayout = .None
-        addRefreshController()
+        
+        view.backgroundColor = UIColor.whiteColor()
     }
     
     // MARK: - Private methods
@@ -284,10 +287,18 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         
         eventsPerTimeSection = result;
         eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
+        
+        noResultsFoundLabel.hidden = eventsPerTimeSection.count > 0
     }
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
     func refresh() {
+        
+        if searchController.active {
+            tableViewController.refreshControl?.endRefreshing()
+            return
+        }
+        
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             

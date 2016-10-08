@@ -18,6 +18,6 @@ class Colors {
     static let eventEndedColor = UIColor(hexString: "#EBEBEB")
     static let eventRunningColor = UIColor(hexString: "#FEFFC9")
     static let eventNotStartedColor = UIColor.whiteColor()
-    
+    static let eventUserNeedsToCompleteFeecbackButtonColor = UIColor(hexString: "#7EC078")
     
 }

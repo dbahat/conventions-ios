@@ -79,7 +79,7 @@ class EventView: UIView {
                 feedbackIcon.image = UIImage(named: imageName)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
                 
                 feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
-                    ? Colors.colorAccent // mark that the user needs to complete the feedback
+                    ? Colors.eventUserNeedsToCompleteFeecbackButtonColor
                     : UIColor.grayColor()
             }
             
