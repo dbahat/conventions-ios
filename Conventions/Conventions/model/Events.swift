@@ -11,7 +11,7 @@ import Foundation
 class Events {
     private static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2016";
     private static let fileName = Convention.name + "Events.json";
-    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + fileName;
+    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "2_" + fileName;
     
     private var events: Array<ConventionEvent> = [];
     
