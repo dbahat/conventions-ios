@@ -23,6 +23,12 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self);
     }
     
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        if let eventsVc = viewController as? EventsViewController {
+            eventsVc.shouldScrollToCurrentDateAndTime = true
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         

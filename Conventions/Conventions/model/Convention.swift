@@ -96,7 +96,7 @@ class Convention {
     func isRunning() -> Bool {
         let currentDate = NSDate()
         return currentDate.timeIntervalSince1970 >= Convention.date.timeIntervalSince1970
-            && currentDate.timeIntervalSince1970 <= Convention.endDate.timeIntervalSince1970
+            && currentDate.timeIntervalSince1970 <= Convention.endDate.addDays(1).timeIntervalSince1970
     }
 }
 

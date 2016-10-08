@@ -11,7 +11,7 @@
         <!--תוכניה-->
         <scene sceneID="Iar-lo-k9d">
             <objects>
-                <viewController id="V0r-ed-Jpb" customClass="EventsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventsViewController" id="V0r-ed-Jpb" customClass="EventsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gtg-g3-pVk"/>
                         <viewControllerLayoutGuide type="bottom" id="QXR-6U-4hy"/>
@@ -87,15 +87,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="PSg-uB-BHT" secondAttribute="bottom" id="1qd-LA-MIS"/>
                             <constraint firstAttribute="trailing" secondItem="PUg-8I-cRS" secondAttribute="trailing" constant="5" id="HxB-bS-6xT"/>
                             <constraint firstAttribute="trailing" secondItem="sUM-PN-H3K" secondAttribute="trailing" constant="5" id="Mzh-1E-i9x"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="top" secondItem="sUM-PN-H3K" secondAttribute="bottom" constant="1" id="UIP-ve-Wm7"/>
+                            <constraint firstItem="sUM-PN-H3K" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="YLY-0q-Plg"/>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="PUg-8I-cRS" secondAttribute="bottom" id="eKe-BD-OgF"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="ihY-yI-UKn"/>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="jfY-fu-2Nl"/>
                             <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" id="n70-ii-viN"/>
-                            <constraint firstItem="QXR-6U-4hy" firstAttribute="top" secondItem="PSg-uB-BHT" secondAttribute="bottom" id="oaj-lO-7Xw"/>
-                            <constraint firstItem="sUM-PN-H3K" firstAttribute="top" secondItem="tYJ-0M-xL8" secondAttribute="topMargin" id="ree-Rx-B6d"/>
                             <constraint firstItem="sUM-PN-H3K" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="zUr-5A-azT"/>
                         </constraints>
                     </view>
@@ -116,13 +116,13 @@
         <!--Event-->
         <scene sceneID="8dA-1H-bzL">
             <objects>
-                <viewController storyboardIdentifier="EventViewController" id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" hidesBottomBarWhenPushed="YES" id="euQ-tX-Zvn" userLabel="Event" customClass="EventViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dju-af-QrC"/>
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AU-0L-zpZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
@@ -1423,6 +1423,6 @@
         <image name="MenuUpdates" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w1u-TZ-YLe"/>
+        <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
 </document>

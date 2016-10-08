@@ -8,17 +8,21 @@
 
 import UIKit
 
-class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol {
+class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate {
     @IBOutlet private weak var tableView: UITableView!
 
-    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>>!
-    private var eventTimeSections: Array<NSDate>!
+    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>> = [:]
+    private var eventTimeSections: Array<NSDate> = []
+    
+    var shouldScrollToCurrentDateAndTime = true
 
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
     private let tableViewController = UITableViewController()
     
     private var enabledCategories: Array<AggregatedSearchCategory> = [.Lectures, .Games, .Shows, .Others]
+    
+    private let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet private weak var dateFilterControl: DateFilterControl!
     
@@ -30,19 +34,27 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil)
         self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView))
         
-        addRefreshControl()
+        addRefreshController()
+        addSearchController()
         
         // Make initial model calculation when the view loads
         calculateEventsAndTimeSections()
         
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
-        dateFilterControl.selectDate(NSDate())
         searchCategoriesLayout.delegate = self
         
         // TODO - only perform this if an hour has passed since last refresh
         Convention.instance.events.refresh({success in
             self.tableView.reloadData()
         })
+        
+        // Initial loading of the table. Done here so we can auto-scroll to the first position, leaving the search bar control hidden
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
+        if eventTimeSections.count > 0 {
+            // reset the scroll state when changing days for better user experiance
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,34 +63,67 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections()
         tableView.reloadData()
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        dispatch_async(dispatch_get_main_queue()) {
+            // Disabling search during orientation/size changes since the search control seem to have issues when orientation changes 
+            // (suddenly appearing in the wrong position).
+            self.searchController.active = false
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollToCurrentRunningEventsIfNeeded()
+    }
+    
+    private func scrollToCurrentRunningEventsIfNeeded() {
+        if !Convention.instance.isRunning() || !shouldScrollToCurrentDateAndTime {
+            return
+        }
+        
+        dateFilterControl.selectDate(NSDate())
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
         
         // If the convention is currently taking place, auto-scroll to the correct time section.
         // Dispatching to the next layout pass so the user will see the scroll animation
         tableView.layoutIfNeeded()
         dispatch_async(dispatch_get_main_queue()) {
-            if Convention.instance.isRunning() {
-                if let sectionIndex = self.getSectionIndex(forDate: NSDate()) {
-                    self.tableView.scrollToRowAtIndexPath(
-                        NSIndexPath(forRow: 0, inSection: sectionIndex),
-                        atScrollPosition: .Top,
-                        animated: true)
-                }
+            if let sectionIndex = self.getSectionIndex(forDate: NSDate()) {
+                self.tableView.scrollToRowAtIndexPath(
+                    NSIndexPath(forRow: 0, inSection: sectionIndex),
+                    atScrollPosition: .Top,
+                    animated: true)
+                
+                // only scroll once (or when set to scroll from externally)
+                self.shouldScrollToCurrentDateAndTime = false
             }
         }
-
     }
     
     @IBAction func dateFilterTapped(sender: UISegmentedControl) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
         
-        // reset the scroll state when changing days for better user experiance
-        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+        if eventTimeSections.count > 0 {
+            // reset the scroll state when changing days for better user experiance
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+        }
     }
     
     func filterSearchCategoriesChanged(enabledCategories: Array<AggregatedSearchCategory>) {
         self.enabledCategories = enabledCategories
 
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
     }
@@ -177,10 +222,24 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         eventViewController?.event = sender as! ConventionEvent;
     }
     
+    // MARK: - Search Controller delegate
+    
+    func willPresentSearchController(searchController: UISearchController) {
+        tabBarController?.tabBar.hidden = true
+        edgesForExtendedLayout = .Bottom // needed otherwise a gap is left where the empty tab bar was
+        tableViewController.refreshControl = nil
+    }
+    
+    func willDismissSearchController(searchController: UISearchController) {
+        self.tabBarController?.tabBar.hidden = false
+        edgesForExtendedLayout = .None
+        addRefreshController()
+    }
+    
     // MARK: - Private methods
     
     private func calculateEventsAndTimeSections() {
-        var result = Dictionary<NSDate, Array<ConventionEvent>>();
+        var result = Dictionary<NSDate, Array<ConventionEvent>>()
         
         let eventsForSelectedDate =
             Convention.instance.events.getAll()
@@ -197,7 +256,19 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             return false
         })
         
-        for event in dailyEventsFilteredByCategory {
+        var textFilteredEvents = dailyEventsFilteredByCategory
+        if let searchText = searchController.searchBar.text where searchController.active && searchText != "" {
+            textFilteredEvents = textFilteredEvents.filter({event in
+                if let lecturer = event.lecturer where lecturer.containsString(searchText) {
+                    return true
+                }
+                
+                return event.title.containsString(searchText)
+                    || event.hall.name.containsString(searchText)
+            })
+        }
+        
+        for event in textFilteredEvents {
 
             let roundedEventTime = event.startTime.clearMinutesComponent()
             if (result[roundedEventTime] == nil) {
@@ -218,7 +289,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
     func refresh() {
         Convention.instance.events.refresh({success in
-            self.tableViewController.refreshControl?.endRefreshing();
+            self.tableViewController.refreshControl?.endRefreshing()
             
             GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("PullToRefresh",
                 action: "RefreshProgramme",
@@ -240,22 +311,33 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         return timeSection.format("HH:mm");
     }
     
-    private func addRefreshControl() {
+    private func addRefreshController() {
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).
         tableViewController.tableView = tableView;
-        tableViewController.refreshControl = UIRefreshControl();
+        tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
-        tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged);
-        addChildViewController(tableViewController);
-        tableViewController.didMoveToParentViewController(self);
+        tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        addChildViewController(tableViewController)
+        tableViewController.didMoveToParentViewController(self)
+    }
+    
+    private func addSearchController() {
+        searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
+        searchController.searchBar.searchBarStyle = .Default
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.delegate = self
+        
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     private func getSectionIndex(forDate forDate: NSDate) -> Int? {
         var index = 0
+        let timeToSearchFor = forDate.clearMinutesComponent()
         for timeSection in eventTimeSections {
-            if timeSection.timeIntervalSince1970 == forDate.clearMinutesComponent().timeIntervalSince1970 {
+            if timeSection.timeIntervalSince1970 == timeToSearchFor.timeIntervalSince1970 {
                 return index
             }
             index += 1
