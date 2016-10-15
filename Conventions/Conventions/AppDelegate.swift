@@ -91,6 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         isActive = true
         
+        // Clear the app icon badge, in case it was set by a remote notification
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         // In case we got push notification while in background, show it to the user in a larger dialog
         // since some notifications may be too long for the iOS default notification area
         if remoteNotificationMessage != "" {
