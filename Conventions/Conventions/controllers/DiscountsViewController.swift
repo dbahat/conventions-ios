@@ -10,13 +10,13 @@ import Foundation
 
 class DiscountsViewController: BaseViewController, UIWebViewDelegate {
     
-    @IBOutlet private weak var contentWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var contentWebView: StaticContentWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard
-            let resourcePath = NSBundle.mainBundle().resourcePath,
+            let resourcePath = Bundle.main.resourcePath,
             let aboutContent = try? String(contentsOfFile: resourcePath + "/DiscountsContent.html")
         else {
             return;
@@ -28,9 +28,9 @@ class DiscountsViewController: BaseViewController, UIWebViewDelegate {
         navigationItem.title = "מבצעים והנחות"
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.LinkClicked {
-            UIApplication.sharedApplication().openURL(request.URL!)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
+            UIApplication.shared.openURL(request.url!)
             return false
         }
         return true

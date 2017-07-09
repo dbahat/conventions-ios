@@ -9,19 +9,19 @@
 import UIKit
 
 protocol EventCellStateProtocol : class {
-    func changeFavoriteStateWasClicked(caller: EventTableViewCell);
+    func changeFavoriteStateWasClicked(_ caller: EventTableViewCell);
 }
 
-public class EventTableViewCell: UITableViewCell, EventStateProtocol {
+open class EventTableViewCell: UITableViewCell, EventStateProtocol {
 
-    @IBOutlet private weak var eventView: EventView!
+    @IBOutlet fileprivate weak var eventView: EventView!
     weak var delegate: EventCellStateProtocol?;
     
-    func changeFavoriteStateWasClicked(caller: EventView) {
+    func changeFavoriteStateWasClicked(_ caller: EventView) {
         delegate?.changeFavoriteStateWasClicked(self);
     }
     
-    func setEvent(event : ConventionEvent) {
+    func setEvent(_ event : ConventionEvent) {
         eventView.setEvent(event);
         eventView.delegate = self;
     }

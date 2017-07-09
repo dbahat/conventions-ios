@@ -10,24 +10,24 @@ import Foundation
 
 class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     
-    @IBOutlet private weak var questionLabel: UILabel!
-    @IBOutlet private weak var positiveFeedbackButton: UIButton!
-    @IBOutlet private weak var negetiveFeedbackButton: UIButton!
-    @IBOutlet private weak var veryPositiveFeedbackButton: UIButton!
+    @IBOutlet fileprivate weak var questionLabel: UILabel!
+    @IBOutlet fileprivate weak var positiveFeedbackButton: UIButton!
+    @IBOutlet fileprivate weak var negetiveFeedbackButton: UIButton!
+    @IBOutlet fileprivate weak var veryPositiveFeedbackButton: UIButton!
     
     override var enabled: Bool {
         didSet {
-            positiveFeedbackButton.userInteractionEnabled = enabled
-            negetiveFeedbackButton.userInteractionEnabled = enabled
-            veryPositiveFeedbackButton.userInteractionEnabled = enabled
+            positiveFeedbackButton.isUserInteractionEnabled = enabled
+            negetiveFeedbackButton.isUserInteractionEnabled = enabled
+            veryPositiveFeedbackButton.isUserInteractionEnabled = enabled
         }
     }
     
-    override func questionDidSet(question: FeedbackQuestion) {
+    override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
     }
     
-    override func setAnswer(answer: FeedbackAnswer) {
+    override func setAnswer(_ answer: FeedbackAnswer) {
         guard let smilyAnswer = answer as? FeedbackAnswer.Smiley else {
             return
         }
@@ -35,20 +35,20 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         setState(smilyAnswer.answer)
     }
     
-    @IBAction private func veryPositiveWasClicked(sender: UIButton) {
-        resetState(button: sender, newState: .VeryPositive)
+    @IBAction fileprivate func veryPositiveWasClicked(_ sender: UIButton) {
+        resetState(button: sender, newState: .veryPositive)
     }
-    @IBAction private func positiveWasClicked(sender: UIButton) {
-        resetState(button: sender, newState: .Positive)
+    @IBAction fileprivate func positiveWasClicked(_ sender: UIButton) {
+        resetState(button: sender, newState: .positive)
     }
-    @IBAction private func negetiveWasClicked(sender: UIButton) {
-        resetState(button: sender, newState: .Negetive)
+    @IBAction fileprivate func negetiveWasClicked(_ sender: UIButton) {
+        resetState(button: sender, newState: .negetive)
     }
     
-    private func resetState(button button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
+    fileprivate func resetState(button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
         // In case the user clicked on an already selected button, clear the selection
-        if button.selected {
-            button.selected = false
+        if button.isSelected {
+            button.isSelected = false
             if let unwrappedQuestion = question {
                 delegate?.questionCleared(unwrappedQuestion)
             }
@@ -58,20 +58,20 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         setState(newState)
     }
     
-    private func setState(newState: FeedbackAnswer.Smiley.SmileyType) {
-        negetiveFeedbackButton.selected = false
-        positiveFeedbackButton.selected = false
-        veryPositiveFeedbackButton.selected = false
+    fileprivate func setState(_ newState: FeedbackAnswer.Smiley.SmileyType) {
+        negetiveFeedbackButton.isSelected = false
+        positiveFeedbackButton.isSelected = false
+        veryPositiveFeedbackButton.isSelected = false
         
         switch newState {
-        case .Negetive:
-            negetiveFeedbackButton.selected = true
+        case .negetive:
+            negetiveFeedbackButton.isSelected = true
             break;
-        case .Positive:
-            positiveFeedbackButton.selected = true
+        case .positive:
+            positiveFeedbackButton.isSelected = true
             break;
-        case .VeryPositive:
-            veryPositiveFeedbackButton.selected = true
+        case .veryPositive:
+            veryPositiveFeedbackButton.isSelected = true
             break;
         }
         

@@ -10,7 +10,7 @@ import Foundation
 
 class StaticContentWebView : UIWebView {
  
-    func setContent(content: String) {
+    func setContent(_ content: String) {
         // Removing the below CSS attribute since it seem to cause texts to be left aligned
         let rightAlignedContent = content.replace(pattern: "white-space: pre-wrap;", withTemplate: "")
         

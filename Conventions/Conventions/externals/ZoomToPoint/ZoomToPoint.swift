@@ -9,7 +9,7 @@
 //
 
 extension UIScrollView {
-    func zoomToPoint(point: CGPoint, withScale scale: CGFloat, animated: Bool) {
+    func zoomToPoint(_ point: CGPoint, withScale scale: CGFloat, animated: Bool) {
         var x, y, width, height: CGFloat
         
         //Normalize current content size back to content scale of 1.0f
@@ -35,6 +35,6 @@ extension UIScrollView {
         let zoomRect = CGRect(x: x, y: y, width: width, height: height)
         
         //apply the resize
-        self.zoomToRect(zoomRect, animated: animated)
+        self.zoom(to: zoomRect, animated: animated)
     }
 }

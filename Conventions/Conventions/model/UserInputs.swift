@@ -11,11 +11,11 @@ import Foundation
 class UserInputs {
     
     class Events {
-        private static let eventsStorageFileName = Convention.name + "EventsInputs.json";
-        private static let eventsStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.Events.eventsStorageFileName;
+        fileprivate static let eventsStorageFileName = Convention.name + "EventsInputs.json";
+        fileprivate static let eventsStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.Events.eventsStorageFileName;
         
         // Maps eventId to the user input for that event
-        private var eventInputs = Dictionary<String, UserInput.ConventionEvent>();
+        fileprivate var eventInputs = Dictionary<String, UserInput.ConventionEvent>();
         
         init() {
             // Try to load the cached user inputs upon init
@@ -24,26 +24,26 @@ class UserInputs {
             }
         }
         
-        func getInput(forEventId: String) -> UserInput.ConventionEvent? {
+        func getInput(_ forEventId: String) -> UserInput.ConventionEvent? {
             return eventInputs[forEventId];
         }
         
-        func setInput(input: UserInput.ConventionEvent, forEventId: String) {
+        func setInput(_ input: UserInput.ConventionEvent, forEventId: String) {
             eventInputs[forEventId] = input;
         }
         
         func save() {
             let serilizableInputs = eventInputs.map({input in [input.0: input.1.toJson()]});
             
-            let json = try? NSJSONSerialization.dataWithJSONObject(serilizableInputs, options: NSJSONWritingOptions.PrettyPrinted);
-            json?.writeToFile(UserInputs.Events.eventsStorageFile, atomically: true);
+            let json = try? JSONSerialization.data(withJSONObject: serilizableInputs, options: JSONSerialization.WritingOptions.prettyPrinted);
+            try? json?.write(to: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile), options: [.atomic]);
         }
         
-        private func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEvent>? {
-            guard let storedInputs = NSData(contentsOfFile: UserInputs.Events.eventsStorageFile) else {
+        fileprivate func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEvent>? {
+            guard let storedInputs = try? Data(contentsOf: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile)) else {
                 return nil;
             }
-            guard let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments) else {
+            guard let userInputsJson = try? JSONSerialization.jsonObject(with: storedInputs, options: JSONSerialization.ReadingOptions.allowFragments) else {
                 return nil;
             }
             guard let userInputs = userInputsJson as? [Dictionary<String, Dictionary<String, AnyObject>>] else {
@@ -59,10 +59,10 @@ class UserInputs {
     }
     
     class ConventionInputs {
-        private static let conventionStorageFileName = Convention.name + "ConventionInputs.json";
-        private static let conventionStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.ConventionInputs.conventionStorageFileName;
+        fileprivate static let conventionStorageFileName = Convention.name + "ConventionInputs.json";
+        fileprivate static let conventionStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.ConventionInputs.conventionStorageFileName;
         
-        private(set) var conventionInputs = UserInput.Feedback()
+        fileprivate(set) var conventionInputs = UserInput.Feedback()
         
         init() {
             if let cachedConventionInputs = loadConventionFeedback() {
@@ -71,14 +71,14 @@ class UserInputs {
         }
         
         func save() {
-            let json = try? NSJSONSerialization.dataWithJSONObject(conventionInputs.toJson(), options: NSJSONWritingOptions.PrettyPrinted);
-            json?.writeToFile(UserInputs.ConventionInputs.conventionStorageFile, atomically: true);
+            let json = try? JSONSerialization.data(withJSONObject: conventionInputs.toJson(), options: JSONSerialization.WritingOptions.prettyPrinted);
+            try? json?.write(to: URL(fileURLWithPath: UserInputs.ConventionInputs.conventionStorageFile), options: [.atomic]);
         }
         
-        private func loadConventionFeedback() -> UserInput.Feedback? {
+        fileprivate func loadConventionFeedback() -> UserInput.Feedback? {
             guard
-                let storedInputs = NSData(contentsOfFile: UserInputs.ConventionInputs.conventionStorageFile),
-                let userInputsJson = try? NSJSONSerialization.JSONObjectWithData(storedInputs, options: NSJSONReadingOptions.AllowFragments),
+                let storedInputs = try? Data(contentsOf: URL(fileURLWithPath: UserInputs.ConventionInputs.conventionStorageFile)),
+                let userInputsJson = try? JSONSerialization.jsonObject(with: storedInputs, options: JSONSerialization.ReadingOptions.allowFragments),
                 let userInputs = userInputsJson as? Dictionary<String, AnyObject>
                 else {
                     return nil;

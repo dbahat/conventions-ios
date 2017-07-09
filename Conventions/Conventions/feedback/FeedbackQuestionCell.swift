@@ -9,11 +9,11 @@
 import Foundation
 
 protocol FeedbackQuestionProtocol : class {
-    func questionWasAnswered(answer: FeedbackAnswer)
+    func questionWasAnswered(_ answer: FeedbackAnswer)
     
-    func questionCleared(question: FeedbackQuestion)
+    func questionCleared(_ question: FeedbackQuestion)
     
-    func questionViewHeightChanged(caller caller: UITableViewCell, newHeight: CGFloat)
+    func questionViewHeightChanged(caller: UITableViewCell, newHeight: CGFloat)
 }
 
 /* abstract */ class FeedbackQuestionCell : UITableViewCell {
@@ -32,7 +32,7 @@ protocol FeedbackQuestionProtocol : class {
     // Allow disabling the interactions inside the question cell
     var enabled = true
     
-    /* abstract */ func questionDidSet(question: FeedbackQuestion) {}
+    /* abstract */ func questionDidSet(_ question: FeedbackQuestion) {}
     
-    /* abstract */ func setAnswer(answer: FeedbackAnswer) {}
+    /* abstract */ func setAnswer(_ answer: FeedbackAnswer) {}
 }

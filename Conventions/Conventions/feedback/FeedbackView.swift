@@ -10,33 +10,33 @@
 import Foundation
 
 protocol FeedbackViewProtocol : class {
-    func feedbackViewHeightDidChange(newHeight: CGFloat)
+    func feedbackViewHeightDidChange(_ newHeight: CGFloat)
     
-    func feedbackProvided(feedback: FeedbackAnswer)
+    func feedbackProvided(_ feedback: FeedbackAnswer)
     
-    func feedbackCleared(feedback: FeedbackQuestion)
+    func feedbackCleared(_ feedback: FeedbackQuestion)
     
     func sendFeedbackWasClicked()
 }
 
 class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
     
-    @IBOutlet private weak var feedbackIconContainerWidth: NSLayoutConstraint!
-    @IBOutlet private weak var feedbackIcon: UIImageView!
-    @IBOutlet private weak var changeStateButton: UIButton!
-    @IBOutlet private weak var sendButton: UIButton!
-    @IBOutlet private weak var questionsTableView: UITableView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var questionsTableHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerView: UIView!
-    @IBOutlet private weak var sendMailIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var feedbackIconContainerWidth: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var feedbackIcon: UIImageView!
+    @IBOutlet fileprivate weak var changeStateButton: UIButton!
+    @IBOutlet fileprivate weak var sendButton: UIButton!
+    @IBOutlet fileprivate weak var questionsTableView: UITableView!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet fileprivate weak var questionsTableHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var footerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var footerView: UIView!
+    @IBOutlet fileprivate weak var sendMailIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate weak var headerView: UIView!
+    @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
     
-    private var questions: Array<FeedbackQuestion> = []
-    private var answers: Array<FeedbackAnswer> = []
-    private var isSent: Bool = false {
+    fileprivate var questions: Array<FeedbackQuestion> = []
+    fileprivate var answers: Array<FeedbackAnswer> = []
+    fileprivate var isSent: Bool = false {
         didSet {
             if !isSent {
                 return
@@ -46,34 +46,34 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
                 feedbackIcon.image = rating.answer.getImage()
             }
             
-            sendButton.setTitle("הפידבק נשלח. תודה!", forState: .Normal)
-            sendButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            sendButton.userInteractionEnabled = false
+            sendButton.setTitle("הפידבק נשלח. תודה!", for: UIControlState())
+            sendButton.setTitleColor(UIColor.black, for: UIControlState())
+            sendButton.isUserInteractionEnabled = false
         }
     }
     
     weak var delegate: FeedbackViewProtocol?
     
-    private let headerHeight = CGFloat(30)
-    private let footerHeight = CGFloat(31)
-    private let paddingSize = CGFloat(10)
+    fileprivate let headerHeight = CGFloat(30)
+    fileprivate let footerHeight = CGFloat(31)
+    fileprivate let paddingSize = CGFloat(10)
     
-    var state: State = State.Collapsed {
+    var state: State = State.collapsed {
         didSet {
             switch state {
-            case .Expended:
-                footerView.hidden = false
+            case .expended:
+                footerView.isHidden = false
                 footerHeightConstraint.constant = footerHeight
                 questionsTableHeightConstraint.constant = questions.height
-                changeStateButton.setTitle("הסתר",forState: .Normal)
+                changeStateButton.setTitle("הסתר",for: UIControlState())
                 titleLabel.text = "פידבק"
                 feedbackIconContainerWidth.constant = 0
                 
-            case .Collapsed:
-                footerView.hidden = true
+            case .collapsed:
+                footerView.isHidden = true
                 footerHeightConstraint.constant = 0
                 questionsTableHeightConstraint.constant = 0
-                changeStateButton.setTitle(isSent ? "הצג פידבק" : "מלא פידבק",forState: .Normal)
+                changeStateButton.setTitle(isSent ? "הצג פידבק" : "מלא פידבק",for: UIControlState())
                 titleLabel.text = getCollapsedTitleLabel()
                 feedbackIconContainerWidth.constant = 38
             }
@@ -83,24 +83,24 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        let view = NSBundle.mainBundle().loadNibNamed(String(FeedbackView), owner: self, options: nil)![0] as! UIView
+        let view = Bundle.main.loadNibNamed(String(describing: FeedbackView.self), owner: self, options: nil)![0] as! UIView
         view.frame = self.bounds
         addSubview(view);
         
-        feedbackIcon.image = feedbackIcon.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         feedbackIcon.tintColor = Colors.colorAccent
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
-        questionsTableView.registerNib(UINib(nibName: String(SmileyFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(SmileyFeedbackQuestionCell))
-        questionsTableView.registerNib(UINib(nibName: String(TextFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TextFeedbackQuestionCell))
-        questionsTableView.registerNib(UINib(nibName: String(MultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(MultipleAnswerFeedbackQuestionCell))
-        questionsTableView.registerNib(UINib(nibName: String(TableMultipleAnswerFeedbackQuestionCell), bundle: nil), forCellReuseIdentifier: String(TableMultipleAnswerFeedbackQuestionCell))
+        questionsTableView.register(UINib(nibName: String(describing: SmileyFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SmileyFeedbackQuestionCell.self))
+        questionsTableView.register(UINib(nibName: String(describing: TextFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFeedbackQuestionCell.self))
+        questionsTableView.register(UINib(nibName: String(describing: MultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MultipleAnswerFeedbackQuestionCell.self))
+        questionsTableView.register(UINib(nibName: String(describing: TableMultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableMultipleAnswerFeedbackQuestionCell.self))
         
-        changeStateButton.setTitleColor(Colors.buttonColor, forState: .Normal)
-        sendButton.setTitleColor(Colors.buttonColor, forState: .Normal)
+        changeStateButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+        sendButton.setTitleColor(Colors.buttonColor, for: UIControlState())
     }
     
-    func setFeedback(questions questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
+    func setFeedback(questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
         self.questions = questions
         self.answers = answers
         self.isSent = isSent
@@ -108,65 +108,65 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         if isSent {
             // Filter out un-answered questions
             self.questions = questions.filter({question in
-                answers.contains({answer in question.question == answer.questionText})
+                answers.contains(where: {answer in question.question == answer.questionText})
             })
         } else {
             if Convention.instance.isFeedbackSendingTimeOver() {
-                sendButton.setTitle("זמן שליחת הפידבק הסתיים", forState: .Normal)
-                sendButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-                sendButton.userInteractionEnabled = false
+                sendButton.setTitle("זמן שליחת הפידבק הסתיים", for: UIControlState())
+                sendButton.setTitleColor(UIColor.black, for: UIControlState())
+                sendButton.isUserInteractionEnabled = false
             } else {
                 // Disable the send button unless the user answers a question
-                sendButton.enabled = answers.count > 0
+                sendButton.isEnabled = answers.count > 0
             }
         }
         
         questionsTableView.reloadData()
     }
     
-    func removeAnsweredQuestions(answers: Array<FeedbackAnswer>) {
+    func removeAnsweredQuestions(_ answers: Array<FeedbackAnswer>) {
         self.answers = answers
         
-        var indexesToUpdate = Array<NSIndexPath>()
+        var indexesToUpdate = Array<IndexPath>()
         var answeredQuestions = Array<FeedbackQuestion>()
         
         // get the indexes of all un-answered questions, so we can animate their removal
         for index in 0...(questions.count - 1) {
             let question = questions[index]
-            if !answers.contains({answer in answer.questionText == question.question}) {
-                indexesToUpdate.append(NSIndexPath(forRow: index, inSection: 0))
+            if !answers.contains(where: {answer in answer.questionText == question.question}) {
+                indexesToUpdate.append(IndexPath(row: index, section: 0))
             } else {
                 answeredQuestions.append(question)
             }
         }
         
         questions = answeredQuestions
-        questionsTableView.deleteRowsAtIndexPaths(indexesToUpdate, withRowAnimation: UITableViewRowAnimation.Automatic)
+        questionsTableView.deleteRows(at: indexesToUpdate, with: UITableViewRowAnimation.automatic)
         questionsTableHeightConstraint.constant = questions.height
     }
     
     func getHeight() -> CGFloat {
         switch state {
-        case .Collapsed:
+        case .collapsed:
             return headerView.frame.size.height + 2 * paddingSize
-        case .Expended:
+        case .expended:
             return paddingSize + headerViewHeightConstraint.constant + 2 * paddingSize + questions.height + footerHeight + paddingSize
         }
     }
     
-    func setHeaderHidden(hidden: Bool) {
-        headerView.hidden = hidden
+    func setHeaderHidden(_ hidden: Bool) {
+        headerView.isHidden = hidden
         headerViewHeightConstraint.constant = hidden ? 0 : headerHeight
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let question = questions[indexPath.row]
-        let cellId = String(question.answerType) + String(FeedbackQuestionCell)
-        let cell = questionsTableView.dequeueReusableCellWithIdentifier(cellId)! as! FeedbackQuestionCell
+        let cellId = String(describing: question.answerType) + String(describing: FeedbackQuestionCell.self)
+        let cell = questionsTableView.dequeueReusableCell(withIdentifier: cellId)! as! FeedbackQuestionCell
         cell.delegate = self
         cell.question = question
         
@@ -187,21 +187,21 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let question = questions[indexPath.row]
         return question.viewHeight
     }
     
-    func questionWasAnswered(answer: FeedbackAnswer) {
+    func questionWasAnswered(_ answer: FeedbackAnswer) {
         delegate?.feedbackProvided(answer)
     }
     
-    func questionCleared(question: FeedbackQuestion) {
+    func questionCleared(_ question: FeedbackQuestion) {
         delegate?.feedbackCleared(question)
     }
     
-    func questionViewHeightChanged(caller caller: UITableViewCell, newHeight: CGFloat) {
-        guard let indexPath = questionsTableView.indexPathForCell(caller) else {
+    func questionViewHeightChanged(caller: UITableViewCell, newHeight: CGFloat) {
+        guard let indexPath = questionsTableView.indexPath(for: caller) else {
             // if the calling cell is not in the model, ignore it's event
             return
         }
@@ -216,34 +216,34 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         delegate?.feedbackViewHeightDidChange(getHeight())
     }
     
-    func setFeedbackAsSent(success: Bool) {
+    func setFeedbackAsSent(_ success: Bool) {
         sendMailIndicator.stopAnimating()
-        sendButton.hidden = false
+        sendButton.isHidden = false
         isSent = success
     }
     
-    func setSendButtonEnabled(enabled: Bool) {
-        sendButton.enabled = enabled;
+    func setSendButtonEnabled(_ enabled: Bool) {
+        sendButton.isEnabled = enabled;
     }
 
-    @IBAction private func headerWasClicked(sender: UITapGestureRecognizer) {
+    @IBAction fileprivate func headerWasClicked(_ sender: UITapGestureRecognizer) {
         state = state.toggle()
         
         delegate?.feedbackViewHeightDidChange(getHeight())
         
-        UIView.animateWithDuration(0.3) {
+        UIView.animate(withDuration: 0.3, animations: {
             self.layoutIfNeeded()
-        }
+        }) 
     }
     
-    @IBAction private func sendWasClicked(sender: UIButton) {
+    @IBAction fileprivate func sendWasClicked(_ sender: UIButton) {
         sendMailIndicator.startAnimating()
-        sendButton.hidden = true
+        sendButton.isHidden = true
         
         delegate?.sendFeedbackWasClicked()
     }
     
-    private func getCollapsedTitleLabel() -> String {
+    fileprivate func getCollapsedTitleLabel() -> String {
         if isSent {
             return "הפידבק נשלח. תודה!"
         }
@@ -252,15 +252,15 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     }
     
     enum State {
-        case Expended
-        case Collapsed
+        case expended
+        case collapsed
         
         func toggle() -> State {
             switch self {
-            case .Expended:
-                return .Collapsed
-            case .Collapsed:
-                return . Expended
+            case .expended:
+                return .collapsed
+            case .collapsed:
+                return . expended
             }
         }
     }
@@ -269,7 +269,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
 private extension Array where Element: FeedbackQuestion {
     var height: CGFloat {
         get {
-            return self.reduce(0, combine: {totalHight, question in totalHight + question.viewHeight})
+            return self.reduce(0, {totalHight, question in totalHight + question.viewHeight})
         }
     }
 }

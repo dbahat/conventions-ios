@@ -7,14 +7,14 @@
 //
 
 class UpdateTableViewCell: UITableViewCell {
-    @IBOutlet private weak var message: UITextView!
-    @IBOutlet private weak var title: UILabel!
+    @IBOutlet fileprivate weak var message: UITextView!
+    @IBOutlet fileprivate weak var title: UILabel!
     
-    func setUpdate(update: Update) {
+    func setUpdate(_ update: Update) {
         title.text = update.date.format("dd.MM.yyyy HH:mm")
         message.text = update.text
         
         message.backgroundColor = update.isNew
-            ? UIColor(hexString: "#fffdf7") : UIColor.whiteColor()
+            ? UIColor(hexString: "#fffdf7") : UIColor.white
     }
 }

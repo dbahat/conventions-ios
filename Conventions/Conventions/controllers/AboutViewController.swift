@@ -10,18 +10,18 @@ import Foundation
 
 class AboutViewController : BaseViewController, UIWebViewDelegate {
     
-    @IBOutlet private weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var aboutAppContentWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var aboutContentWebView: StaticContentWebView!
-    @IBOutlet private weak var aboutAppVersionLabel: UILabel!
-    @IBOutlet private weak var aboutAppContentWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var aboutAppContentWebViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var aboutContentWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var aboutAppVersionLabel: UILabel!
+    @IBOutlet fileprivate weak var aboutAppContentWebView: StaticContentWebView!
     
-    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, עמרי רוזנברג, תומר שלו."
+    fileprivate let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, עמרי רוזנברג, תומר שלו."
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+        guard let resourcePath = Bundle.main.resourcePath else {
             return
         }
         
@@ -30,24 +30,24 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         }
         
         aboutContentWebView.setContent(aboutContent)
-        aboutContentWebView.scrollView.scrollEnabled = false
+        aboutContentWebView.scrollView.isScrollEnabled = false
         aboutContentWebView.delegate = self
         
         aboutAppContentWebView.setContent(aboutAppContent)
-        aboutAppContentWebView.scrollView.scrollEnabled = false
+        aboutAppContentWebView.scrollView.isScrollEnabled = false
         aboutAppContentWebView.delegate = self
         
-        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             aboutAppVersionLabel.text = "גרסה " + version
         }
         
         navigationItem.title = "אודות הפסטיבל"
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
-        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+        guard let resourcePath = Bundle.main.resourcePath else {
             return
         }
         guard let aboutContent = try? String(contentsOfFile: resourcePath + "/AboutContent.html") else {
@@ -57,7 +57,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         aboutAppContentWebView.setContent(aboutAppContent)
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         // Reset the webView before calling sizeToFit(), which will only increase it's size
         webView.frame.size.height = 1.0
         webView.sizeToFit()
@@ -66,9 +66,9 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         aboutAppContentWebViewHeightConstraint.constant = aboutAppContentWebView.frame.size.height
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.LinkClicked {
-            UIApplication.sharedApplication().openURL(request.URL!)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
+            UIApplication.shared.openURL(request.url!)
             return false
         }
         return true

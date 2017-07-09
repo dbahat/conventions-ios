@@ -10,25 +10,25 @@ import Foundation
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
-    @IBOutlet private weak var filledEventsFeedbackLabel: UILabel!
-    @IBOutlet private weak var seperatorView: UIView!
-    @IBOutlet private weak var sendAllFeedbackDescriptionLabel: UILabel!
-    @IBOutlet private weak var sendFeedbackContainer: UIView!
-    @IBOutlet private weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var feedbackView: FeedbackView!
-    @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var submittedEventsTabledView: UITableView!
-    @IBOutlet private weak var submittedEventsTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var eventsToSubmitTableView: UITableView!
-    @IBOutlet private weak var eventsToSubmitHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var filledEventsFeedbackLabel: UILabel!
+    @IBOutlet fileprivate weak var seperatorView: UIView!
+    @IBOutlet fileprivate weak var sendAllFeedbackDescriptionLabel: UILabel!
+    @IBOutlet fileprivate weak var sendFeedbackContainer: UIView!
+    @IBOutlet fileprivate weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var feedbackView: FeedbackView!
+    @IBOutlet fileprivate weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var submittedEventsTabledView: UITableView!
+    @IBOutlet fileprivate weak var submittedEventsTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var eventsToSubmitTableView: UITableView!
+    @IBOutlet fileprivate weak var eventsToSubmitHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet private weak var submitAllFeedbacksButtonIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var submitAllFeedbacksButton: UIButton!
+    @IBOutlet fileprivate weak var submitAllFeedbacksButtonIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate weak var submitAllFeedbacksButton: UIButton!
     
-    private let submittedEventsDataSource = EventsTableDataSource()
-    private let eventsToSubmitDataSource = EventsTableDataSource()
+    fileprivate let submittedEventsDataSource = EventsTableDataSource()
+    fileprivate let eventsToSubmitDataSource = EventsTableDataSource()
     
-    private var userInputs: UserInput.Feedback {
+    fileprivate var userInputs: UserInput.Feedback {
         get {
             return Convention.instance.feedback.conventionInputs
         }
@@ -47,7 +47,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         // In this view the feedbackView should always be expended.
         // Note - should be done after setting the questions/answers, since they affect the view height.
-        feedbackView.state = .Expended
+        feedbackView.state = .expended
         
         // Need to set the view height constrant only after we set the 
         // feedback and it's collapsed state, since its size changes based on the questions and state
@@ -56,28 +56,28 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         initializeEventsTableViews()
         
         navigationItem.title = "פידבק לפסטיבל"
-        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, forState: .Normal)
+        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControlState())
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConventionFeedbackViewController.keyboardFrameWillChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ConventionFeedbackViewController.keyboardFrameWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Saving to the filesystem only when leaving the screen, since we don't want to save
         // on each small change inside free-text questions
         Convention.instance.feedback.save()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func feedbackProvided(feedback: FeedbackAnswer) {
+    func feedbackProvided(_ feedback: FeedbackAnswer) {
         // If the answer already exists, override it
-        if let existingAnswerIndex = userInputs.answers.indexOf({$0.questionText == feedback.questionText}) {
-            userInputs.answers.removeAtIndex(existingAnswerIndex)
+        if let existingAnswerIndex = userInputs.answers.index(where: {$0.questionText == feedback.questionText}) {
+            userInputs.answers.remove(at: existingAnswerIndex)
         }
         userInputs.answers.append(feedback)
         Convention.instance.feedback.save()
@@ -85,12 +85,12 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         feedbackView.setSendButtonEnabled(userInputs.answers.count > 0)
     }
     
-    func feedbackCleared(feedback: FeedbackQuestion) {
-        guard let existingAnswerIndex = userInputs.answers.indexOf({$0.questionText == feedback.question}) else {
+    func feedbackCleared(_ feedback: FeedbackQuestion) {
+        guard let existingAnswerIndex = userInputs.answers.index(where: {$0.questionText == feedback.question}) else {
             // no existing answer means nothing to clear
             return
         }
-        userInputs.answers.removeAtIndex(existingAnswerIndex);
+        userInputs.answers.remove(at: existingAnswerIndex);
         
         feedbackView.setSendButtonEnabled(userInputs.answers.count > 0)
     }
@@ -108,7 +108,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
                 self.feedbackView.setFeedbackAsSent(success)
                 
                 if !success {
-                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
                         .show();
                     return;
                 }
@@ -120,32 +120,32 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
                 // filter un-answered questions and animate the possible layout height change
                 self.feedbackView.removeAnsweredQuestions(self.userInputs.answers)
                 self.feedbackViewHeightConstraint.constant = self.feedbackView.getHeight()
-                UIView.animateWithDuration(0.3) {
+                UIView.animate(withDuration: 0.3, animations: {
                     self.view.layoutIfNeeded()
-                }
+                }) 
         })
     }
     
-    func feedbackViewHeightDidChange(newHeight: CGFloat) {
+    func feedbackViewHeightDidChange(_ newHeight: CGFloat) {
         feedbackViewHeightConstraint.constant = newHeight
     }
     
     // Resize the screen to be at the height minus the keyboard, so that the keyboard won't hide the user's feedback
-    func keyboardFrameWillChange(notification: NSNotification) {
-        let keyboardBeginFrame = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue
-        let keyboardEndFrame = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardFrameEndUserInfoKey)!.CGRectValue
+    func keyboardFrameWillChange(_ notification: Notification) {
+        let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
+        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
         
-        let animationCurve = UIViewAnimationCurve(rawValue: (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardAnimationCurveUserInfoKey)!.integerValue)
+        let animationCurve = UIViewAnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)! as AnyObject).intValue)
         
-        let animationDuration: NSTimeInterval = (notification.userInfo! as NSDictionary).objectForKey(UIKeyboardAnimationDurationUserInfoKey)!.doubleValue
+        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(animationDuration)
         UIView.setAnimationCurve(animationCurve!)
         
         var newFrame = self.view.frame
-        let keyboardFrameEnd = self.view.convertRect(keyboardEndFrame, toView: nil)
-        let keyboardFrameBegin = self.view.convertRect(keyboardBeginFrame, toView: nil)
+        let keyboardFrameEnd = self.view.convert(keyboardEndFrame!, to: nil)
+        let keyboardFrameBegin = self.view.convert(keyboardBeginFrame!, to: nil)
         
         newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y)
         self.view.frame = newFrame;
@@ -153,31 +153,31 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         UIView.commitAnimations()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let eventViewController = segue.destinationViewController as? EventViewController;
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let eventViewController = segue.destination as? EventViewController;
         if let event = sender as? ConventionEvent {
             eventViewController?.event = event
         }
     }
     
-    @IBAction private func submitAllEventsFeedbackWasTapped(sender: UIButton) {
-        submitAllFeedbacksButton.hidden = true
-        submitAllFeedbacksButtonIndicator.hidden = false
+    @IBAction fileprivate func submitAllEventsFeedbackWasTapped(_ sender: UIButton) {
+        submitAllFeedbacksButton.isHidden = true
+        submitAllFeedbacksButtonIndicator.isHidden = false
         
         var submittedEventsCount = 0;
         
         for event in eventsToSubmitDataSource.events {
             event.submitFeedback({success in
                 if !success {
-                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
                         .show();
                     return
                 }
                 
                 submittedEventsCount += 1;
                 if submittedEventsCount == self.eventsToSubmitDataSource.events.count {
-                    self.submitAllFeedbacksButton.hidden = false
-                    self.submitAllFeedbacksButtonIndicator.hidden = true
+                    self.submitAllFeedbacksButton.isHidden = false
+                    self.submitAllFeedbacksButtonIndicator.isHidden = true
                     
                     // reset the tableViews to reflect the new changes in submitted events
                     self.initializeEventsTableViews()
@@ -188,7 +188,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         }
     }
     
-    private func initializeEventsTableViews() {
+    fileprivate func initializeEventsTableViews() {
         submittedEventsDataSource.events = Convention.instance.events.getAll().filter({$0.didSubmitFeedback()})
         submittedEventsTableViewHeightConstraint.constant = CGFloat(102 * submittedEventsDataSource.events.count)
         submittedEventsTabledView.dataSource = submittedEventsDataSource
@@ -203,17 +203,17 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         if eventsToSubmitDataSource.events.count == 0 && submittedEventsDataSource.events.count == 0 {
             sendFeedbackContainerHeightConstraint.constant = 81
-            sendFeedbackContainer.hidden = false
-            submitAllFeedbacksButton.hidden = true
-            seperatorView.hidden = true
-            filledEventsFeedbackLabel.hidden = true
+            sendFeedbackContainer.isHidden = false
+            submitAllFeedbacksButton.isHidden = true
+            seperatorView.isHidden = true
+            filledEventsFeedbackLabel.isHidden = true
             sendAllFeedbackDescriptionLabel.text = "בחר אירועים שהיית בהם דרך התוכניה ומלא עליהם פידבק"
         } else if eventsToSubmitDataSource.events.count == 0 {
             sendFeedbackContainerHeightConstraint.constant = 0
-            sendFeedbackContainer.hidden = true
+            sendFeedbackContainer.isHidden = true
         } else {
             sendFeedbackContainerHeightConstraint.constant = eventsToSubmitHeightConstraint.constant + 116
-            sendFeedbackContainer.hidden = false
+            sendFeedbackContainer.isHidden = false
         }
     }
     
@@ -222,20 +222,20 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         var events = Array<ConventionEvent>()
         weak var referencingViewController: UIViewController?
         
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return events.count
         }
         
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let event = events[indexPath.row]
-            let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell)) as! EventTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventTableViewCell.self)) as! EventTableViewCell
             cell.setEvent(event)
             return cell
         }
         
-        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let event = events[indexPath.row]
-            referencingViewController?.performSegueWithIdentifier("ConventionFeedbackToEventSegue", sender: event)
+            referencingViewController?.performSegue(withIdentifier: "ConventionFeedbackToEventSegue", sender: event)
         }
     }
 }

@@ -10,26 +10,26 @@ import Foundation
 
 class MultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, MultipleAnswerCellProtocol {
     
-    @IBOutlet private weak var questionLabel: UILabel!
-    @IBOutlet private weak var multipleAnswersCollectionView: UICollectionView!
+    @IBOutlet fileprivate weak var questionLabel: UILabel!
+    @IBOutlet fileprivate weak var multipleAnswersCollectionView: UICollectionView!
     
-    private var answersToSelectFrom: Array<String> = []
-    private var selectedAnswer: String?
+    fileprivate var answersToSelectFrom: Array<String> = []
+    fileprivate var selectedAnswer: String?
     
     override var enabled: Bool {
         didSet {
-            multipleAnswersCollectionView.userInteractionEnabled = enabled
+            multipleAnswersCollectionView.isUserInteractionEnabled = enabled
         }
     }
     
-    override func questionDidSet(question: FeedbackQuestion) {
+    override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
         
         multipleAnswersCollectionView.delegate = self
         multipleAnswersCollectionView.dataSource = self
         
         // Register the cell prototyle dynamiclly, since xcode doesn't allow defining prototyle cells in custom nibs
-        multipleAnswersCollectionView.registerNib(UINib(nibName: String(MultipleAnswerCell), bundle: nil), forCellWithReuseIdentifier: String(MultipleAnswerCell))
+        multipleAnswersCollectionView.register(UINib(nibName: String(describing: MultipleAnswerCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: MultipleAnswerCell.self))
 
         if let answersToSelectFrom = question.answersToSelectFrom {
             self.answersToSelectFrom = answersToSelectFrom
@@ -37,34 +37,34 @@ class MultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UICollectionVie
         }
     }
     
-    override func setAnswer(answer: FeedbackAnswer) {
+    override func setAnswer(_ answer: FeedbackAnswer) {
         selectedAnswer = answer.getAnswer()
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return answersToSelectFrom.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let answerToSelectFrom = answersToSelectFrom[indexPath.row]
-        let cell = multipleAnswersCollectionView.dequeueReusableCellWithReuseIdentifier(String(MultipleAnswerCell), forIndexPath: indexPath) as! MultipleAnswerCell
+        let cell = multipleAnswersCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MultipleAnswerCell.self), for: indexPath) as! MultipleAnswerCell
         cell.answer = answerToSelectFrom
         cell.delegate = self
-        cell.selected = answerToSelectFrom == selectedAnswer
+        cell.isSelected = answerToSelectFrom == selectedAnswer
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(60, 30)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: 30)
     }
     
-    func answerCellSelected(caller: MultipleAnswerCell) {
-        guard let index = multipleAnswersCollectionView.indexPathForCell(caller) else {
+    func answerCellSelected(_ caller: MultipleAnswerCell) {
+        guard let index = multipleAnswersCollectionView.indexPath(for: caller) else {
             return
         }
         
-        if caller.selected {
+        if caller.isSelected {
             selectedAnswer = nil
             delegate?.questionCleared(question!)
             multipleAnswersCollectionView.reloadData()

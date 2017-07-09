@@ -36,12 +36,12 @@ class UserInput {
         
         func toJson() -> Dictionary<String, AnyObject> {
             return [
-                "isSent": isSent.description,
-                "answers": answers.map({$0.toJson()})
+                "isSent": isSent.description as AnyObject,
+                "answers": answers.map({$0.toJson()}) as AnyObject
             ]
         }
         
-        func submit(title: String, bodyOpening: String, callback: ((success: Bool) -> Void)?) {
+        func submit(_ title: String, bodyOpening: String, callback: ((_ success: Bool) -> Void)?) {
             
             let session = MCOSMTPSession();
             session.hostname = "smtp.gmail.com"
@@ -57,30 +57,30 @@ class UserInput {
             
             var formattedAnswers = bodyOpening + answers.map({
                 String(format: "%@\n%@", $0.questionText, $0.getAnswer())
-            }).joinWithSeparator("\n\t\n\t\n")
+            }).joined(separator: "\n\t\n\t\n")
             
             // Attaching device id to mails to allow basic fraud detection
-            if let deviceId = UIDevice.currentDevice().identifierForVendor {
-                formattedAnswers.appendContentsOf(String(format: "\n\t\n\t\n\t\nDeviceId:\n%@", deviceId.UUIDString))
+            if let deviceId = UIDevice.current.identifierForVendor {
+                formattedAnswers.append(String(format: "\n\t\n\t\n\t\nDeviceId:\n%@", deviceId.uuidString))
             }
             
             builder.textBody = formattedAnswers
             
             self.isSent = true
-            callback?(success: true)
-            let operation = session.sendOperationWithData(builder.data());
-            operation.start { error in
+            callback?(true)
+            let operation = session.sendOperation(with: builder.data());
+            operation?.start { error in
                 
-                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Feedback",
+                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Feedback",
                     action: "SendAttempt",
                     label: error != nil ? "success" : "failure", value: NSNumber())
-                    .build() as [NSObject: AnyObject]);
+                    .build() as! [AnyHashable: Any]);
                 
                 if error != nil {
-                    callback?(success: false)
+                    callback?(false)
                 } else {
                     self.isSent = true
-                    callback?(success: true)
+                    callback?(true)
                 }
             }
         }
@@ -112,8 +112,8 @@ class UserInput {
         
         func toJson() -> Dictionary<String, AnyObject> {
             return [
-                "attending": self.attending.description,
-                "feedback": self.feedbackUserInput.toJson()]
+                "attending": self.attending.description as AnyObject,
+                "feedback": self.feedbackUserInput.toJson() as AnyObject]
         }
     }
 }

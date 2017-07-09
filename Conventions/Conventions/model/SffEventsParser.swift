@@ -10,18 +10,23 @@ import Foundation
 import UIKit
 
 class SffEventsParser {
-    func parse(data data: NSData) -> Array<ConventionEvent>! {
+    func parse(data: Data) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
         guard let deserializedEvents =
-            try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray,
-            events = deserializedEvents
+            try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray,
+            let events = deserializedEvents
         else {
             print("Failed to deserialize events");
             return result;
         }
         
-        for event in events {
+        for rawEvent in events {
+            guard let event = rawEvent as? Dictionary<String, AnyObject> else {
+                print("Got invalid event. Skipping");
+                continue;
+            }
+            
             guard let eventId = event["id"] as? String else {
                 print("Got event without ID. Skipping");
                 continue;
@@ -38,11 +43,11 @@ class SffEventsParser {
                 print("Event missing description. Skipping. ID=", eventId);
                 continue;
             }
-            guard let startTime = event["time"]??["start"] as? String else {
+            guard let startTime = event["time"]?["start"] as? String else {
                 print("Event missing startTime. Skipping. ID=", eventId);
                 continue;
             }
-            guard let endTime = event["time"]??["end"] as? String else {
+            guard let endTime = event["time"]?["end"] as? String else {
                 print("Event missing endTime. Skipping. ID=", eventId);
                 continue;
             }
@@ -74,18 +79,13 @@ class SffEventsParser {
             }
             if let tagsObject = event["tags"] as? Dictionary<String, String> {
                 for tagString in tagsObject.values {
-                    tags.append(String(htmlEncodedString: tagString))
+                    tags.append(tagString.decodeHtmlSymbols() ?? tagString)
                 }
             }
             
             var speaker = ""
             if let speakers = event["speakers"] as? NSArray {
-                speaker = speakers.count > 0 ? speakers.componentsJoinedByString(",") : ""
-            }
-            
-            var webSiteUrl = NSURL()
-            if let url = event["url"] as? String {
-                webSiteUrl = NSURL(string: url) ?? NSURL()
+                speaker = speakers.count > 0 ? speakers.componentsJoined(by: ",") : ""
             }
             
             let conventionEvent = ConventionEvent(
@@ -93,8 +93,8 @@ class SffEventsParser {
                 serverId: Int(eventId) ?? 0,
                 color: Colors.eventTimeDefaultBackgroundColor,
                 textColor: nil,
-                title: String(htmlEncodedString: title),
-                lecturer: String(htmlEncodedString: speaker),
+                title: title.decodeHtmlSymbols() ?? title,
+                lecturer: speaker.decodeHtmlSymbols() ?? speaker,
                 startTime: parseDate(startTime),
                 endTime: parseDate(endTime),
                 type: EventType(
@@ -102,10 +102,10 @@ class SffEventsParser {
                     description: eventType),
                 hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
-                category: String(htmlEncodedString: category),
+                category: category.decodeHtmlSymbols() ?? category,
                 price: eventPrice,
                 tags: tags,
-                url: webSiteUrl)
+                url: URL(string: (event["url"] as? String)!)!)
             
             result.append(conventionEvent)
             
@@ -114,15 +114,15 @@ class SffEventsParser {
         return result;
     }
     
-    private func parseDate(time: String) -> NSDate {
-        if let result = NSDate.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
+    fileprivate func parseDate(_ time: String) -> Date {
+        if let result = Date.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
             return result;
         }
         
-        return NSDate()
+        return Date()
     }
     
-    private func parseEventDescription(eventDescription : String?) -> String? {
+    fileprivate func parseEventDescription(_ eventDescription : String?) -> String? {
         return eventDescription?
             .replace(pattern: "<img", withTemplate: "<ximg")?
             .replace(pattern: "/img>", withTemplate: "/ximg>")?
@@ -132,18 +132,9 @@ class SffEventsParser {
 }
 
 extension String {
-    init(htmlEncodedString: String) {
-        do {
-            let encodedData = htmlEncodedString.dataUsingEncoding(NSUTF8StringEncoding)!
-            let attributedOptions : [String: AnyObject] = [
-                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
-            ]
-            let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
-            self.init(attributedString.string)
-        } catch {
-            fatalError("Unhandled error: \(error)")
-        }
+    func decodeHtmlSymbols() -> String? {
+        guard let data = data(using: .utf8) else { return nil }
+        return try? NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
     }
 }
 

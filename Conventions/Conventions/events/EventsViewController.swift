@@ -9,31 +9,31 @@
 import UIKit
 
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate {
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var noResultsFoundLabel: UILabel!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var noResultsFoundLabel: UILabel!
 
-    private var eventsPerTimeSection: Dictionary<NSDate, Array<ConventionEvent>> = [:]
-    private var eventTimeSections: Array<NSDate> = []
+    fileprivate var eventsPerTimeSection: Dictionary<Date, Array<ConventionEvent>> = [:]
+    fileprivate var eventTimeSections: Array<Date> = []
     
     var shouldScrollToCurrentDateAndTime = true
 
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
-    private let tableViewController = UITableViewController()
+    fileprivate let tableViewController = UITableViewController()
     
-    private var enabledCategories: Array<AggregatedSearchCategory> = [.Lectures, .Games, .Shows, .Others]
+    fileprivate var enabledCategories: Array<AggregatedSearchCategory> = [.lectures, .games, .shows, .others]
     
-    private let searchController = UISearchController(searchResultsController: nil)
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
     
-    @IBOutlet private weak var dateFilterControl: DateFilterControl!
+    @IBOutlet fileprivate weak var dateFilterControl: DateFilterControl!
     
-    @IBOutlet private weak var searchCategoriesLayout: SearchCategoriesView!
+    @IBOutlet fileprivate weak var searchCategoriesLayout: SearchCategoriesView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let eventHeaderView = UINib(nibName: String(EventListHeaderView), bundle: nil)
-        self.tableView.registerNib(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(EventListHeaderView))
+        let eventHeaderView = UINib(nibName: String(describing: EventListHeaderView.self), bundle: nil)
+        self.tableView.register(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(describing: EventListHeaderView.self))
         
         addRefreshController()
         addSearchController()
@@ -54,11 +54,11 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableView.reloadData()
         if eventTimeSections.count > 0 {
             // reset the scroll state when changing days for better user experiance
-            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // redraw the table when navigating in/out of the view, in case the model changed
@@ -66,36 +66,36 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableView.reloadData()
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        dispatch_async(dispatch_get_main_queue()) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.async {
             // Disabling search during orientation/size changes since the search control seem to have issues when orientation changes 
             // (suddenly appearing in the wrong position).
-            self.searchController.active = false
+            self.searchController.isActive = false
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scrollToCurrentRunningEventsIfNeeded()
     }
     
-    private func scrollToCurrentRunningEventsIfNeeded() {
+    fileprivate func scrollToCurrentRunningEventsIfNeeded() {
         if !Convention.instance.isRunning() || !shouldScrollToCurrentDateAndTime {
             return
         }
         
-        dateFilterControl.selectDate(NSDate())
+        dateFilterControl.selectDate(Date())
         calculateEventsAndTimeSections()
         tableView.reloadData()
         
         // If the convention is currently taking place, auto-scroll to the correct time section.
         // Dispatching to the next layout pass so the user will see the scroll animation
         tableView.layoutIfNeeded()
-        dispatch_async(dispatch_get_main_queue()) {
-            if let sectionIndex = self.getSectionIndex(forDate: NSDate()) {
-                self.tableView.scrollToRowAtIndexPath(
-                    NSIndexPath(forRow: 0, inSection: sectionIndex),
-                    atScrollPosition: .Top,
+        DispatchQueue.main.async {
+            if let sectionIndex = self.getSectionIndex(forDate: Date()) {
+                self.tableView.scrollToRow(
+                    at: IndexPath(row: 0, section: sectionIndex),
+                    at: .top,
                     animated: true)
                 
                 // only scroll once (or when set to scroll from externally)
@@ -104,17 +104,17 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         }
     }
     
-    @IBAction func dateFilterTapped(sender: UISegmentedControl) {
+    @IBAction func dateFilterTapped(_ sender: UISegmentedControl) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
         
         if eventTimeSections.count > 0 {
             // reset the scroll state when changing days for better user experiance
-            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
     
-    func filterSearchCategoriesChanged(enabledCategories: Array<AggregatedSearchCategory>) {
+    func filterSearchCategoriesChanged(_ enabledCategories: Array<AggregatedSearchCategory>) {
         self.enabledCategories = enabledCategories
 
         calculateEventsAndTimeSections()
@@ -124,32 +124,32 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - UISearchResultsUpdating
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return eventTimeSections.count;
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let timeSection = eventTimeSections[section];
         return eventsPerTimeSection[timeSection]!.count;
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(String(EventListHeaderView)) as! EventListHeaderView;
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: EventListHeaderView.self)) as! EventListHeaderView;
         headerView.time.text = getSectionName(section: section);
         
         return headerView;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventTableViewCell.self), for: indexPath) as! EventTableViewCell
 
         let timeSection = eventTimeSections[indexPath.section]
         let event = eventsPerTimeSection[timeSection]![indexPath.row]
@@ -159,35 +159,35 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         return cell;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]![indexPath.row];
-        performSegueWithIdentifier("EventsToEventSegue", sender: event);
+        performSegue(withIdentifier: "EventsToEventSegue", sender: event);
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let timeSection = eventTimeSections[indexPath.section];
         let event = eventsPerTimeSection[timeSection]?[indexPath.row];
         
-        let addToFavorite = UITableViewRowAction(style: .Normal, title: "הוסף") { action, index in
+        let addToFavorite = UITableViewRowAction(style: .normal, title: "הוסף") { action, index in
             tableView.setEditing(false, animated: true);
             let timeSection = self.eventTimeSections[index.section];
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = true;
-                TTGSnackbar(message: "האירוע התווסף לאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
+                TTGSnackbar(message: "האירוע התווסף לאירועים שלי", duration: TTGSnackbarDuration.short, superView: self.view).show();
                 // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
                 tableView.reloadData();
             }
         }
         addToFavorite.backgroundColor = event?.color;
         
-        let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
+        let removeFromFavorite = UITableViewRowAction(style: .normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
             let timeSection = self.eventTimeSections[index.section];
             if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
                 event.attending = false;
-                TTGSnackbar(message: "האירוע הוסר מהאירועים שלי", duration: TTGSnackbarDuration.Short, superView: self.view).show();
+                TTGSnackbar(message: "האירוע הוסר מהאירועים שלי", duration: TTGSnackbarDuration.short, superView: self.view).show();
                 // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
                 tableView.reloadData();
             }
@@ -200,8 +200,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - EventCellState Protocol
     
-    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        guard let indexPath = tableView.indexPathForCell(caller) else {
+    func changeFavoriteStateWasClicked(_ caller: EventTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: caller) else {
             return;
         }
         
@@ -210,7 +210,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         event.attending = !event.attending;
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view).show();
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: view).show();
         
         // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
         tableView.reloadData();
@@ -218,31 +218,31 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let eventViewController = segue.destinationViewController as? EventViewController;
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let eventViewController = segue.destination as? EventViewController;
         eventViewController?.event = sender as! ConventionEvent;
     }
     
     // MARK: - Search Controller delegate
     
-    func willPresentSearchController(searchController: UISearchController) {
-        tabBarController?.tabBar.hidden = true
-        edgesForExtendedLayout = .Bottom // needed otherwise a gap is left where the empty tab bar was
+    func willPresentSearchController(_ searchController: UISearchController) {
+        tabBarController?.tabBar.isHidden = true
+        edgesForExtendedLayout = .bottom // needed otherwise a gap is left where the empty tab bar was
         
         view.backgroundColor = Colors.eventEndedColor
     }
     
-    func willDismissSearchController(searchController: UISearchController) {
-        self.tabBarController?.tabBar.hidden = false
-        edgesForExtendedLayout = .None
+    func willDismissSearchController(_ searchController: UISearchController) {
+        self.tabBarController?.tabBar.isHidden = false
+        edgesForExtendedLayout = UIRectEdge()
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
     }
     
     // MARK: - Private methods
     
-    private func calculateEventsAndTimeSections() {
-        var result = Dictionary<NSDate, Array<ConventionEvent>>()
+    fileprivate func calculateEventsAndTimeSections() {
+        var result = Dictionary<Date, Array<ConventionEvent>>()
         
         let eventsForSelectedDate =
             Convention.instance.events.getAll()
@@ -260,41 +260,41 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         })
         
         var textFilteredEvents = dailyEventsFilteredByCategory
-        if let searchText = searchController.searchBar.text where searchController.active && searchText != "" {
+        if let searchText = searchController.searchBar.text, searchController.isActive && searchText != "" {
             textFilteredEvents = textFilteredEvents.filter({event in
-                if let lecturer = event.lecturer where lecturer.containsString(searchText) {
+                if let lecturer = event.lecturer, lecturer.contains(searchText) {
                     return true
                 }
                 
-                return event.title.containsString(searchText)
-                    || event.hall.name.containsString(searchText)
+                return event.title.contains(searchText)
+                    || event.hall.name.contains(searchText)
             })
         }
         
         for event in textFilteredEvents {
 
             let roundedEventTime = event.startTime.clearMinutesComponent()
-            if (result[roundedEventTime] == nil) {
-                result[roundedEventTime] = [event];
+            if (result[roundedEventTime as Date] == nil) {
+                result[roundedEventTime as Date] = [event];
             } else {
-                result[roundedEventTime]!.append(event);
+                result[roundedEventTime as Date]!.append(event);
             }
         }
         
         for time in result.keys {
-            result[time]!.sortInPlace({$0.hall.order < $1.hall.order})
+            result[time]!.sort(by: {$0.hall.order < $1.hall.order})
         }
         
         eventsPerTimeSection = result;
-        eventTimeSections = eventsPerTimeSection.keys.sort({$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
+        eventTimeSections = eventsPerTimeSection.keys.sorted(by: {$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
         
-        noResultsFoundLabel.hidden = eventsPerTimeSection.count > 0
+        noResultsFoundLabel.isHidden = eventsPerTimeSection.count > 0
     }
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
     func refresh() {
         
-        if searchController.active {
+        if searchController.isActive {
             tableViewController.refreshControl?.endRefreshing()
             return
         }
@@ -302,14 +302,14 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             
-            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("PullToRefresh",
-                action: "RefreshProgramme",
-                label: "",
-                value: success ? 1 : 0)
-                .build() as [NSObject: AnyObject]);
+            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "PullToRefresh",
+                                                                                      action: "RefreshProgramme",
+                                                                                      label: "",
+                                                                                      value: success ? 1 : 0)
+                .build() as! [AnyHashable : Any]!);
             
             if (!success) {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show();
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show();
                 return;
             }
             
@@ -317,26 +317,26 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         });
     }
     
-    private func getSectionName(section section: Int) -> String? {
+    fileprivate func getSectionName(section: Int) -> String? {
         let timeSection = eventTimeSections[section];
         return timeSection.format("HH:mm");
     }
     
-    private func addRefreshController() {
+    fileprivate func addRefreshController() {
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
-        tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), for: UIControlEvents.valueChanged)
         addChildViewController(tableViewController)
-        tableViewController.didMoveToParentViewController(self)
+        tableViewController.didMove(toParentViewController: self)
     }
     
-    private func addSearchController() {
+    fileprivate func addSearchController() {
         searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
-        searchController.searchBar.searchBarStyle = .Default
+        searchController.searchBar.searchBarStyle = .default
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self
@@ -344,7 +344,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableView.tableHeaderView = searchController.searchBar
     }
     
-    private func getSectionIndex(forDate forDate: NSDate) -> Int? {
+    fileprivate func getSectionIndex(forDate: Date) -> Int? {
         var index = 0
         let timeToSearchFor = forDate.clearMinutesComponent()
         for timeSection in eventTimeSections {

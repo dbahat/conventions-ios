@@ -9,29 +9,29 @@
 import Foundation
 
 protocol MultipleAnswerCellProtocol : class {
-    func answerCellSelected(caller: MultipleAnswerCell)
+    func answerCellSelected(_ caller: MultipleAnswerCell)
 }
 
 class MultipleAnswerCell : UICollectionViewCell {
     
-    @IBOutlet private weak var answerButton: UIButton!
+    @IBOutlet fileprivate weak var answerButton: UIButton!
     
     weak var delegate: MultipleAnswerCellProtocol?
     
     var answer: String? {
         didSet {
-            answerButton.setTitle(answer, forState: UIControlState.Normal)
-            answerButton.setTitle(answer, forState: UIControlState.Selected)
+            answerButton.setTitle(answer, for: UIControlState())
+            answerButton.setTitle(answer, for: UIControlState.selected)
         }
     }
     
-    override var selected: Bool {
+    override var isSelected: Bool {
         didSet {
-            answerButton.selected = selected
+            answerButton.isSelected = isSelected
         }
     }
     
-    @IBAction private func answerSelected(sender: UIButton) {
+    @IBAction fileprivate func answerSelected(_ sender: UIButton) {
         delegate?.answerCellSelected(self)
     }
 }

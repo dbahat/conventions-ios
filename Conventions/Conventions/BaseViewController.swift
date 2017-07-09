@@ -10,13 +10,13 @@ import Foundation
 
 class BaseViewController: UIViewController {
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
         // Send an event that the screen was visited
         let tracker = GAI.sharedInstance().defaultTracker;
-        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
-        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
+        tracker?.set(kGAIScreenName, value: NSStringFromClass(type(of: self)));
+        tracker?.send(GAIDictionaryBuilder.createScreenView().build() as! [AnyHashable: Any]);
         
         // Set the tab bar (which is also in the navigation controller) to have the title / button of the 
         // current tab. Only setting right button since left is reserved for back.

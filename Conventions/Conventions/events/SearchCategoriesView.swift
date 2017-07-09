@@ -9,60 +9,60 @@
 import Foundation
 
 protocol SearchCategoriesProtocol : class {
-    func filterSearchCategoriesChanged(enabledCategories: Array<AggregatedSearchCategory>)
+    func filterSearchCategoriesChanged(_ enabledCategories: Array<AggregatedSearchCategory>)
 }
 
 class SearchCategoriesView : UIView {
     
-    @IBOutlet private weak var lecturesSwitch: UISwitch!
-    @IBOutlet private weak var gamesSwitch: UISwitch!
-    @IBOutlet private weak var showsSwitch: UISwitch!
-    @IBOutlet private weak var othersSwitch: UISwitch!
+    @IBOutlet fileprivate weak var lecturesSwitch: UISwitch!
+    @IBOutlet fileprivate weak var gamesSwitch: UISwitch!
+    @IBOutlet fileprivate weak var showsSwitch: UISwitch!
+    @IBOutlet fileprivate weak var othersSwitch: UISwitch!
     
     weak var delegate: SearchCategoriesProtocol?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        let view = NSBundle.mainBundle().loadNibNamed(String(SearchCategoriesView), owner: self, options: nil)![0] as! UIView;
+        let view = Bundle.main.loadNibNamed(String(describing: SearchCategoriesView.self), owner: self, options: nil)![0] as! UIView;
         view.frame = self.bounds;
         addSubview(view);
         
-        lecturesSwitch.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        gamesSwitch.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        showsSwitch.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        othersSwitch.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        lecturesSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        gamesSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        showsSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        othersSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
     
-    @IBAction private func lecturesWasTapped(sender: UITapGestureRecognizer) {
-        lecturesSwitch.setOn(!lecturesSwitch.on, animated: true)
+    @IBAction fileprivate func lecturesWasTapped(_ sender: UITapGestureRecognizer) {
+        lecturesSwitch.setOn(!lecturesSwitch.isOn, animated: true)
         filterSearchCategoriesChanged()
     }
-    @IBAction private func gamesWasTapped(sender: UITapGestureRecognizer) {
-        gamesSwitch.setOn(!gamesSwitch.on, animated: true)
+    @IBAction fileprivate func gamesWasTapped(_ sender: UITapGestureRecognizer) {
+        gamesSwitch.setOn(!gamesSwitch.isOn, animated: true)
         filterSearchCategoriesChanged()
     }
-    @IBAction private func showsWasTapped(sender: UITapGestureRecognizer) {
-        showsSwitch.setOn(!showsSwitch.on, animated: true)
+    @IBAction fileprivate func showsWasTapped(_ sender: UITapGestureRecognizer) {
+        showsSwitch.setOn(!showsSwitch.isOn, animated: true)
         filterSearchCategoriesChanged()
     }
-    @IBAction private func othersWasTapped(sender: UITapGestureRecognizer) {
-        othersSwitch.setOn(!othersSwitch.on, animated: true)
+    @IBAction fileprivate func othersWasTapped(_ sender: UITapGestureRecognizer) {
+        othersSwitch.setOn(!othersSwitch.isOn, animated: true)
         filterSearchCategoriesChanged()
     }
     
-    private func filterSearchCategoriesChanged() {
+    fileprivate func filterSearchCategoriesChanged() {
         var searchCategories = Array<AggregatedSearchCategory>()
-        if lecturesSwitch.on {
-            searchCategories.append(AggregatedSearchCategory.Lectures)
+        if lecturesSwitch.isOn {
+            searchCategories.append(AggregatedSearchCategory.lectures)
         }
-        if gamesSwitch.on {
-            searchCategories.append(AggregatedSearchCategory.Games)
+        if gamesSwitch.isOn {
+            searchCategories.append(AggregatedSearchCategory.games)
         }
-        if showsSwitch.on {
-            searchCategories.append(AggregatedSearchCategory.Shows)
+        if showsSwitch.isOn {
+            searchCategories.append(AggregatedSearchCategory.shows)
         }
-        if othersSwitch.on {
-            searchCategories.append(AggregatedSearchCategory.Others)
+        if othersSwitch.isOn {
+            searchCategories.append(AggregatedSearchCategory.others)
         }
         
         delegate?.filterSearchCategoriesChanged(searchCategories)

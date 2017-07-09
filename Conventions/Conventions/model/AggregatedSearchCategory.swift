@@ -9,29 +9,29 @@
 import Foundation
 
 enum AggregatedSearchCategory {
-    case Lectures
-    case Games
-    case Shows
-    case Others
+    case lectures
+    case games
+    case shows
+    case others
     
     var categories: Array<String> {
         switch self {
-        case Lectures:
+        case .lectures:
             return ["הרצאה" ,"פאנל"]
-        case Games:
+        case .games:
             return ["משחק שולחני" ,"משחק תפקידים חי" ,"מיוחד" ,"טורניר"]
-        case Shows:
+        case .shows:
             return ["הקרנה" ,"מופע"]
-        case Others:
+        case .others:
             return []
         }
     }
     
-    func containsCategory(eventCategory: String) -> Bool {
-        if self == .Others {
-            return !AggregatedSearchCategory.Lectures.containsCategory(eventCategory)
-                && !AggregatedSearchCategory.Games.containsCategory(eventCategory)
-                && !AggregatedSearchCategory.Shows.containsCategory(eventCategory)
+    func containsCategory(_ eventCategory: String) -> Bool {
+        if self == .others {
+            return !AggregatedSearchCategory.lectures.containsCategory(eventCategory)
+                && !AggregatedSearchCategory.games.containsCategory(eventCategory)
+                && !AggregatedSearchCategory.shows.containsCategory(eventCategory)
         }
         
         return categories.contains(eventCategory)

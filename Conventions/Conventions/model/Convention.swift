@@ -10,15 +10,15 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = NSDate.from(year: 2016, month: 10, day: 18)
-    static let endDate = NSDate.from(year: 2016, month: 10, day: 20)
+    static let date = Date.from(year: 2016, month: 10, day: 18)
+    static let endDate = Date.from(year: 2016, month: 10, day: 20)
     static let name = "Icon2016"
     static let displayName = "פסטיבל אייקון 2016"
     static let mailbox = "feedback@iconfestival.org.il"
     
     // The APNS token. Set during app init, and saved here in case the user wish to change his push
     // notifications topics (which requires re-registration)
-    static var deviceToken = NSData()
+    static var deviceToken = Data()
     
     var halls: Array<Hall>
     var events: Events
@@ -29,7 +29,7 @@ class Convention {
     let feedback = UserInputs.ConventionInputs()
     let feedbackQuestions: Array<FeedbackQuestion>
     
-    private init() {
+    fileprivate init() {
         halls = [
             Hall(name: "סינמטק 1", order: 1),
             Hall(name: "סינמטק 2", order: 2),
@@ -59,24 +59,24 @@ class Convention {
         events = Events(halls: halls)
         
         feedbackQuestions = [
-            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question:"גיל", answerType: .multipleAnswer, answersToSelectFrom: [
                 "פחות מ-12", "17–12", "25–18", "25+"
                 ]),
-            FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .Smiley),
-            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .smiley),
+            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .multipleAnswer, answersToSelectFrom: [
                 "כן", "לא"
                 ]),
-            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .tableMultipleAnswer, answersToSelectFrom: [
                 "האירוע התנגש עם אירוע אחר שהלכתי אילו",
                 "לא הצלחתי למצא את מקום האירוע",
                 "האירוע התרחש מוקדם או מאוחר מידי",
                 "סיבה אחרת",
                 ]),
-            FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
+            FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .text)
         ]
     }
     
-    func findHallByName(name: String) -> Hall {
+    func findHallByName(_ name: String) -> Hall {
         if let hall = halls.filter({hall in hall.name == name}).first {
             return hall
         }
@@ -85,16 +85,16 @@ class Convention {
     }
     
     func isFeedbackSendingTimeOver() -> Bool {
-        return NSDate().compare(Convention.endDate.addDays(14)) == .OrderedDescending
+        return Date().compare(Convention.endDate.addDays(14)) == .orderedDescending
     }
     
     func canFillConventionFeedback() -> Bool {
-        return NSDate().compare(Convention.date.addDays(1)) == .OrderedDescending
+        return Date().compare(Convention.date.addDays(1)) == .orderedDescending
     }
     
     // returns true iif the convention is current running
     func isRunning() -> Bool {
-        let currentDate = NSDate()
+        let currentDate = Date()
         return currentDate.timeIntervalSince1970 >= Convention.date.timeIntervalSince1970
             && currentDate.timeIntervalSince1970 <= Convention.endDate.addDays(1).timeIntervalSince1970
     }

@@ -9,75 +9,75 @@
 import Foundation
 
 class NotificationSettings {
-    private static let CATEGORIES = "NotificationCategories"
-    private static let EVENT_FEEDBACK_REMINDER = Convention.name + "_Event_FeedbackReminder"
-    private static let EVENT_STARTING_REMINDER = Convention.name + "_Event_StartingReminder"
-    private static let CONVENTION_FEEDBACK_REMINDER = Convention.name + "_ConventionFeedbackReminder"
-    private static let CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER = Convention.name + "_ConventionFeedbackLastChanceReminder"
-    private static let DEVELOPER_OPTIONS = "DeveloperOptions"
+    fileprivate static let CATEGORIES = "NotificationCategories"
+    fileprivate static let EVENT_FEEDBACK_REMINDER = Convention.name + "_Event_FeedbackReminder"
+    fileprivate static let EVENT_STARTING_REMINDER = Convention.name + "_Event_StartingReminder"
+    fileprivate static let CONVENTION_FEEDBACK_REMINDER = Convention.name + "_ConventionFeedbackReminder"
+    fileprivate static let CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER = Convention.name + "_ConventionFeedbackLastChanceReminder"
+    fileprivate static let DEVELOPER_OPTIONS = "DeveloperOptions"
     
     static let instance = NotificationSettings()
     
-    let preferences = NSUserDefaults.standardUserDefaults()
+    let preferences = UserDefaults.standard
     
     var categories: Set<String> {
         get {
-            if let storedValue = preferences.stringArrayForKey(NotificationSettings.CATEGORIES) {
+            if let storedValue = preferences.stringArray(forKey: NotificationSettings.CATEGORIES) {
                 return Set(storedValue)
             }
             return Set(NotificationHubInfo.DEFAULT_CATEGORIES)
         }
         set {
-            preferences.setObject(Array(newValue), forKey:NotificationSettings.CATEGORIES)
+            preferences.set(Array(newValue), forKey:NotificationSettings.CATEGORIES)
         }
     }
     
     var eventStartingReminder: Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.EVENT_STARTING_REMINDER)
+            return preferences.bool(forKey: NotificationSettings.EVENT_STARTING_REMINDER)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.EVENT_STARTING_REMINDER)
+            preferences.set(newValue, forKey: NotificationSettings.EVENT_STARTING_REMINDER)
         }
     }
     
     var eventFeedbackReminder : Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.EVENT_FEEDBACK_REMINDER)
+            return preferences.bool(forKey: NotificationSettings.EVENT_FEEDBACK_REMINDER)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.EVENT_FEEDBACK_REMINDER)
+            preferences.set(newValue, forKey: NotificationSettings.EVENT_FEEDBACK_REMINDER)
         }
     }
     
     var conventionFeedbackReminderWasSet : Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
+            return preferences.bool(forKey: NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
+            preferences.set(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_REMINDER)
         }
     }
     
     var conventionFeedbackLastChanceReminderWasSet : Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
+            return preferences.bool(forKey: NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
+            preferences.set(newValue, forKey: NotificationSettings.CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER)
         }
     }
     
     var developerOptionsEnabled : Bool {
         get {
-            return preferences.boolForKey(NotificationSettings.DEVELOPER_OPTIONS)
+            return preferences.bool(forKey: NotificationSettings.DEVELOPER_OPTIONS)
         }
         set {
-            preferences.setBool(newValue, forKey: NotificationSettings.DEVELOPER_OPTIONS)
+            preferences.set(newValue, forKey: NotificationSettings.DEVELOPER_OPTIONS)
         }
     }
     
-    private init() {
+    fileprivate init() {
         // by default have both reminders active
         eventStartingReminder = true
         eventFeedbackReminder = true

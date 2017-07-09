@@ -8,41 +8,41 @@
 
 class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
-    private let updateCellTopLayoutSize: CGFloat = 19
-    private let updateCellMargins: CGFloat = 20
+    fileprivate let updateCellTopLayoutSize: CGFloat = 19
+    fileprivate let updateCellMargins: CGFloat = 20
     
-    @IBOutlet private weak var noUpdatesFoundLabel: UILabel!
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var noUpdatesFoundLabel: UILabel!
+    @IBOutlet fileprivate weak var tableView: UITableView!
     
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
-    private let tableViewController = UITableViewController()
+    fileprivate let tableViewController = UITableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerNib(UINib(nibName: String(UpdateTableViewCell), bundle: nil), forCellReuseIdentifier: String(UpdateTableViewCell))
+        tableView.register(UINib(nibName: String(describing: UpdateTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: UpdateTableViewCell.self))
         
         if Convention.instance.updates.getAll().count > 0 {
-            noUpdatesFoundLabel.hidden = true
+            noUpdatesFoundLabel.isHidden = true
         }
         
         addRefreshControl()
         
         Convention.instance.updates.refresh({success in
             if Convention.instance.updates.getAll().count == 0 {
-                self.noUpdatesFoundLabel.hidden = false
+                self.noUpdatesFoundLabel.isHidden = false
             }
             
             self.tableView.reloadData()
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         Convention.instance.updates.markAllAsRead()
@@ -50,26 +50,26 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
     
     // MARK: - UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Convention.instance.updates.getAll().count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(UpdateTableViewCell), forIndexPath: indexPath) as! UpdateTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UpdateTableViewCell.self), for: indexPath) as! UpdateTableViewCell
         cell.setUpdate(Convention.instance.updates.getAll()[indexPath.row])
         
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         let updateText = Convention.instance.updates.getAll()[indexPath.row].text;
-        let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)])
-        return attrText.boundingRectWithSize(CGSize(width: self.tableView.frame.width, height: CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize
+        let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)])
+        return attrText.boundingRect(with: CGSize(width: self.tableView.frame.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize
     }
     
     // MARK: - Private methods
@@ -83,34 +83,34 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         Convention.instance.updates.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             
-            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("PullToRefresh",
+            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "PullToRefresh",
                 action: "RefreshUpdates",
                 label: "",
                 value: success ? 1 : 0)
-                .build() as [NSObject: AnyObject]);
+                .build() as! [AnyHashable: Any]);
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.Middle, superView: self.view).show()
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
             }
             
             if Convention.instance.updates.getAll().count == 0 {
-                self.noUpdatesFoundLabel.hidden = false
+                self.noUpdatesFoundLabel.isHidden = false
             }
             
             self.tableView.reloadData()
         });
     }
     
-    private func addRefreshControl() {
+    fileprivate func addRefreshControl() {
         // Adding a tableViewController for hosting a UIRefreshControl.
         // Without a table controller the refresh control causes weird UI issues (e.g. wrong handling of
         // sticky section headers).
         tableViewController.tableView = tableView
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
-        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), for: UIControlEvents.valueChanged)
         addChildViewController(tableViewController)
-        tableViewController.didMoveToParentViewController(self)
+        tableViewController.didMove(toParentViewController: self)
     }
 }

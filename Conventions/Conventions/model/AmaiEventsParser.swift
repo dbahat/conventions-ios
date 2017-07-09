@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class AmaiEventsParser {
-    func parse(data data:NSData!) -> Array<ConventionEvent>! {
+    func parse(data:Data!) -> Array<ConventionEvent>! {
         return parse(data: data, halls: Convention.instance.halls);
     }
     
-    func parse(data data: NSData!, halls: Array<Hall>!) -> Array<ConventionEvent>! {
+    func parse(data: Data!, halls: Array<Hall>!) -> Array<ConventionEvent>! {
         var result = Array<ConventionEvent>();
         
         // Note -
@@ -29,7 +29,7 @@ class AmaiEventsParser {
         var specialEvents = Dictionary<Int, Array<ConventionEvent>>();
         var eventIdToDescription = Dictionary<Int, String>();
         
-        guard let deserializedEvents = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray else {
+        guard let deserializedEvents = try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray else {
             print("Failed to deserialize cached events");
             return result;
         }
@@ -39,7 +39,12 @@ class AmaiEventsParser {
             return result;
         }
         
-        for event in events {
+        for rawEvent in events {
+            guard let event = rawEvent as? Dictionary<String, AnyObject> else {
+                print("Got invalid event. Skipping");
+                continue;
+            }
+            
             guard let eventId = event["ID"] as? Int else {
                 print("Got event without ID. Skipping");
                 continue;
@@ -77,7 +82,7 @@ class AmaiEventsParser {
                 if let colorCode = event["timetable-text-color"] as? String {
                     textColor = colorCode != ""
                         ? UIColor(hexString: "#" + colorCode)
-                        : UIColor.blackColor();
+                        : UIColor.black;
                 }
                 
                 guard let startTime = internalEvent["start"] as? String else {
@@ -119,13 +124,13 @@ class AmaiEventsParser {
                     endTime: appendTimeToConventionDate(endTime),
                     type: EventType(
                         backgroundColor: color,
-                        description: event["categories-text"]??["name"] as? String ?? ""),
+                        description: event["categories-text"]?["name"] as? String ?? ""),
                     hall: findHallByName(halls, hallName: hallName),
                     description: parseEventDescription(description),
                     category: "",
                     price: 0,
                     tags: [],
-                    url: NSURL())
+                    url: URL(string: "")!)
                 
                 result.append(conventionEvent);
                 internalEventNumber += 1;
@@ -153,7 +158,7 @@ class AmaiEventsParser {
         return result;
     }
     
-    func findHallByName(halls: Array<Hall>, hallName: String) -> Hall {
+    func findHallByName(_ halls: Array<Hall>, hallName: String) -> Hall {
         if let hall = halls.filter({hall in hall.name == hallName}).first {
             return hall;
         }
@@ -161,12 +166,12 @@ class AmaiEventsParser {
         return Hall(name: "", order: 100);
     }
 
-    func appendTimeToConventionDate(time: String!) -> NSDate! {
+    func appendTimeToConventionDate(_ time: String!) -> Date! {
         let dateAndTime = Convention.date.format("yyyy:MM:dd") + " " + time;
-        return NSDate.parse(dateAndTime, dateFormat: "yyyy:MM:dd HH:mm:ss");
+        return Date.parse(dateAndTime, dateFormat: "yyyy:MM:dd HH:mm:ss");
     }
 
-    func parseEventDescription(eventDescription : String?) -> String? {
+    func parseEventDescription(_ eventDescription : String?) -> String? {
         return eventDescription?
             .replace(pattern: "<img", withTemplate: "<ximg")?
             .replace(pattern: "/img>", withTemplate: "/ximg>")?
@@ -176,11 +181,11 @@ class AmaiEventsParser {
 }
 
 extension String {
-    func removeAll(pattern pattern: String?) -> String? {
+    func removeAll(pattern: String?) -> String? {
         return replace(pattern: pattern, withTemplate: "");
     }
     
-    func replace(pattern pattern: String?, withTemplate template: String?) -> String? {
+    func replace(pattern: String?, withTemplate template: String?) -> String? {
         guard let unwrappedPattern = pattern else {
             return pattern;
         }
@@ -188,9 +193,9 @@ extension String {
             return pattern;
         }
         
-        let regex = try? NSRegularExpression(pattern: unwrappedPattern, options: NSRegularExpressionOptions.CaseInsensitive);
+        let regex = try? NSRegularExpression(pattern: unwrappedPattern, options: NSRegularExpression.Options.caseInsensitive);
         
-        return regex?.stringByReplacingMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: unwrappedTemplate);
+        return regex?.stringByReplacingMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: unwrappedTemplate);
     }
 }
 

@@ -11,18 +11,18 @@ import GoogleMaps
 
 class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
     
-    private let latitude = 32.0707265;
-    private let longitude = 34.7845003;
+    fileprivate let latitude = 32.0707265;
+    fileprivate let longitude = 34.7845003;
 
-    @IBOutlet private weak var mapView: GMSMapView!
-    @IBOutlet private weak var directionsWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var mapView: GMSMapView!
+    @IBOutlet fileprivate weak var directionsWebView: StaticContentWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.cameraWithLatitude(latitude,
+        let camera = GMSCameraPosition.camera(withLatitude: latitude,
             longitude: longitude, zoom: 16)
-        mapView.myLocationEnabled = true
+        mapView.isMyLocationEnabled = true
         mapView.camera = camera
         
         let marker = GMSMarker()
@@ -32,7 +32,7 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
         marker.map = mapView
         
         guard
-            let resourcePath = NSBundle.mainBundle().resourcePath,
+            let resourcePath = Bundle.main.resourcePath,
             let directions = try? String(contentsOfFile: resourcePath + "/ArrivalMethodsContent.html")
             else {
                 return;
@@ -43,34 +43,34 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
         directionsWebView.scrollView.bounces = false
     }
 
-    @IBAction func navigateWithExternalAppWasClicked(sender: UIBarButtonItem) {
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "waze://")!) {
+    @IBAction func navigateWithExternalAppWasClicked(_ sender: UIBarButtonItem) {
+        if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
             let url = String(format: "waze://?ll=%f,%f&navigate=yes", arguments: [latitude, longitude]);
-            UIApplication.sharedApplication().openURL(NSURL(string: url)!);
+            UIApplication.shared.openURL(URL(string: url)!);
             return;
         }
         
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "comgooglemaps://")!) {
+        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
             let url = String(format: "comgooglemaps://?center=%f,%f&zoom=16&views=traffic", arguments: [latitude, longitude]);
-            UIApplication.sharedApplication().openURL(NSURL(string: url)!);
+            UIApplication.shared.openURL(URL(string: url)!);
             return;
         }
         
         let url = String(format: "http://maps.apple.com/?ll=%f,%f", arguments: [latitude, longitude]);
-        UIApplication.sharedApplication().openURL(NSURL(string: url)!);
+        UIApplication.shared.openURL(URL(string: url)!);
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.LinkClicked {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
             
-            if (request.URL!.isEqual(NSURL(string: "http://2016.iconfestival.org.il/info/discounts/"))) {
-                if let discountsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(DiscountsViewController)) as? DiscountsViewController {
+            if (request.url! == URL(string: "http://2016.iconfestival.org.il/info/discounts/")) {
+                if let discountsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DiscountsViewController.self)) as? DiscountsViewController {
                     navigationController?.pushViewController(discountsVc, animated: true)
                 }
                 return false
             }
             
-            UIApplication.sharedApplication().openURL(request.URL!)
+            UIApplication.shared.openURL(request.url!)
             return false
         }
         return true

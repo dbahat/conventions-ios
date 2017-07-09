@@ -13,19 +13,19 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
     
-    @IBOutlet private weak var lecturer: UILabel!
-    @IBOutlet private weak var eventTitle: UILabel!
-    @IBOutlet private weak var eventTypeAndCategory: UILabel!
-    @IBOutlet private weak var hallAndTime: UILabel!
-    @IBOutlet private weak var tags: UILabel!
-    @IBOutlet private weak var prices: UILabel!
+    @IBOutlet fileprivate weak var lecturer: UILabel!
+    @IBOutlet fileprivate weak var eventTitle: UILabel!
+    @IBOutlet fileprivate weak var eventTypeAndCategory: UILabel!
+    @IBOutlet fileprivate weak var hallAndTime: UILabel!
+    @IBOutlet fileprivate weak var tags: UILabel!
+    @IBOutlet fileprivate weak var prices: UILabel!
     
-    @IBOutlet private weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var eventDescriptionWebView: StaticContentWebView!
-    @IBOutlet private weak var image: UIImageView!
-    @IBOutlet private weak var eventDescriptionContainer: UIView!
-    @IBOutlet private weak var feedbackView: FeedbackView!
-    @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var eventDescriptionWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var image: UIImageView!
+    @IBOutlet fileprivate weak var eventDescriptionContainer: UIView!
+    @IBOutlet fileprivate weak var feedbackView: FeedbackView!
+    @IBOutlet fileprivate weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +37,18 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                                      isSent: event.didSubmitFeedback())
             
             if (event.didSubmitFeedback()) {
-                feedbackView.state = .Collapsed
+                feedbackView.state = .collapsed
             } else if event.attending || event.feedbackAnswers.count > 0 || feedbackViewOpen {
                 // If the user marked this as favorite or started filling feedback for the event
-                feedbackView.state = .Expended
+                feedbackView.state = .expended
             } else {
-                feedbackView.state = .Collapsed
+                feedbackView.state = .collapsed
             }
             
             // Need to get the view height only after setting it's collapsed/expanded state
             feedbackViewHeightConstraint.constant = feedbackView.getHeight()
         } else {
-            feedbackView.hidden = true
+            feedbackView.isHidden = true
             feedbackViewHeightConstraint.constant = 0
         }
         
@@ -58,15 +58,15 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         hallAndTime.text = event.hall.name + ", " + event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
         prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price - 10)
-        tags.text = "תגיות: " + event.tags.joinWithSeparator(", ")
+        tags.text = "תגיות: " + event.tags.joined(separator: ", ")
         
         navigationItem.title = event.type.description
         
-        eventDescriptionContainer.hidden = event.description == ""
+        eventDescriptionContainer.isHidden = event.description == ""
         
-        eventDescriptionWebView.opaque = false
+        eventDescriptionWebView.isOpaque = false
         eventDescriptionWebView.delegate = self
-        eventDescriptionWebView.scrollView.scrollEnabled = false
+        eventDescriptionWebView.scrollView.isScrollEnabled = false
         
         if let eventDescription = event.description {
             eventDescriptionWebView.setContent(eventDescription)
@@ -75,11 +75,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         refreshFavoriteBarIconImage()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         Convention.instance.eventsInputs.save()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
         // Loading the image only during viewDidAppear so as not to cause a delay when the ViewController
@@ -91,16 +91,16 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         // Fade in the image
         image.alpha = 0;
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.image.alpha = 1;
             
             // Extract the dominent color from the image and set it as the background
-            self.view.backgroundColor = (CCColorCube().extractColorsFromImage(eventImage, flags: 0)[0] as! UIColor);
+            self.view.backgroundColor = (CCColorCube().extractColors(from: eventImage, flags: 0)[0] as! UIColor);
         });
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
         // Resize the image so it'll fit the screen width, but keep the same size ratio
         image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
@@ -111,17 +111,17 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
     }
     
-    @IBAction func changeFavoriteStateClicked(sender: UIBarButtonItem) {
+    @IBAction func changeFavoriteStateClicked(_ sender: UIBarButtonItem) {
         event.attending = !event.attending;
         
         refreshFavoriteBarIconImage();
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.Short, superView: view)
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: view)
             .show();
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         // Reset the webView before calling sizeToFit(), which will only increase it's size
         webView.frame.size.height = 1.0
         webView.sizeToFit()
@@ -130,10 +130,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         eventDescriptionWebViewHeightConstraint.constant = webView.frame.size.height
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.LinkClicked {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
             
-            guard let url = request.URL else {
+            guard let url = request.url else {
                 return true;
             }
             
@@ -143,14 +143,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                 // Comparing paths and not the full URLs, since the host portion differs due to redirects
                 event.url.path == url.path
             }).first {
-                if let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController {
+                if let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController {
                     eventVc.event = eventToNavigateTo
                     navigationController?.pushViewController(eventVc, animated: true)
                     return false
                 }
             }
             
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url)
             return false
         }
         return true
@@ -158,19 +158,19 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     
     // MARK: - EventFeedbackViewProtocol
     
-    func feedbackViewHeightDidChange(newHeight: CGFloat) {
+    func feedbackViewHeightDidChange(_ newHeight: CGFloat) {
         feedbackViewHeightConstraint.constant = newHeight
-        UIView.animateWithDuration(0.3) {
+        UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     
-    func feedbackProvided(feedback: FeedbackAnswer) {
+    func feedbackProvided(_ feedback: FeedbackAnswer) {
         event.provide(feedback: feedback)
         feedbackView.setSendButtonEnabled(event.feedbackAnswers.count > 0)
     }
     
-    func feedbackCleared(feedback: FeedbackQuestion) {
+    func feedbackCleared(_ feedback: FeedbackQuestion) {
         event.clear(feedback: feedback)
         feedbackView.setSendButtonEnabled(event.feedbackAnswers.count > 0)
     }
@@ -184,18 +184,18 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                 isSent: self.event.didSubmitFeedback())
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.Middle, superView: self.view)
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
                     .show();
             }
             
-            self.feedbackView.state = .Collapsed
+            self.feedbackView.state = .collapsed
             self.feedbackViewHeightDidChange(self.feedbackView.getHeight())
         })
     }
     
     // MARK: - private methods
     
-    private func getImage(serverEventId: String) -> UIImage {
+    fileprivate func getImage(_ serverEventId: String) -> UIImage {
         if let eventImage = UIImage(named: "Event_" + serverEventId) {
             return eventImage;
         }
@@ -203,16 +203,16 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         return UIImage(named: "Event_Default")!
     }
     
-    private func refreshFavoriteBarIconImage() {
+    fileprivate func refreshFavoriteBarIconImage() {
         navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "MenuAddedToFavorites") : UIImage(named: "MenuAddToFavorites");
     }
     
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    fileprivate func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = image.size.height / image.size.width
         let newHeight = newWidth * scale
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

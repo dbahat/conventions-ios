@@ -14,35 +14,35 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         
         selectedIndex = 4;
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet(_:)), name: ConventionEvent.AttendingWasSetEventName, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet), name: ConventionEvent.AttendingWasSetEventName, object: nil);
         
         delegate = self;
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self);
+        NotificationCenter.default.removeObserver(self);
     }
     
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if let eventsVc = viewController as? EventsViewController {
             eventsVc.shouldScrollToCurrentDateAndTime = true
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
         // Send an event that the screen was visited. Not taken from BaseViewController since we derive from UITabBarController.
         // Not adding a new base since we probebly won't have more UITabBarController.
         let tracker = GAI.sharedInstance().defaultTracker;
-        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType));
-        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]);
+        tracker?.set(kGAIScreenName, value: NSStringFromClass(type(of: self)));
+        tracker?.send(GAIDictionaryBuilder.createScreenView().build() as! [AnyHashable: Any]);
         
         // Unhide the nav bar in case it was hidden (e.g. by the HomeViewController)
         navigationController?.setNavigationBarHidden(false, animated: false);
     }
     
-    func eventAttendanceWasSet(notification: NSNotification) {
+    func eventAttendanceWasSet(_ notification: Notification) {
         // Whenever an event attance is set, show a badge in the favorites screen icon to give the user
         // a visual indication on what happened.
         //

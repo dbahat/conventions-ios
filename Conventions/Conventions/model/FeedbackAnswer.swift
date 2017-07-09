@@ -17,14 +17,14 @@ import Foundation
     }
     
     func toJson() -> Dictionary<String, AnyObject> {
-        return ["question": questionText]
+        return ["question": questionText as AnyObject]
     }
     
     func getAnswer() -> String {
         return ""
     }
     
-    static func parse(json: Dictionary<String, AnyObject>) -> FeedbackAnswer? {
+    static func parse(_ json: Dictionary<String, AnyObject>) -> FeedbackAnswer? {
         guard let type = json["type"] as? String else {
             return nil
         }
@@ -33,12 +33,12 @@ import Foundation
         }
         
         switch type {
-        case String(FeedbackAnswer.Text.self):
+        case String(describing: FeedbackAnswer.Text.self):
             guard let answer = json["answer"] as? String else {
                 return nil
             }
             return Text(questionText: questionText, answer: answer)
-        case String(FeedbackAnswer.Smiley.self):
+        case String(describing: FeedbackAnswer.Smiley.self):
             guard let answerText = json["answer"] as? String else {
                 return nil
             }
@@ -61,8 +61,8 @@ import Foundation
         
         override func toJson() -> Dictionary<String, AnyObject> {
             var json = super.toJson();
-            json["answer"] = self.answer
-            json["type"] = String(FeedbackAnswer.Text.self)
+            json["answer"] = self.answer as AnyObject
+            json["type"] = String(describing: FeedbackAnswer.Text.self) as AnyObject
             return json
         }
         
@@ -81,8 +81,8 @@ import Foundation
         
         override func toJson() -> Dictionary<String, AnyObject> {
             var json = super.toJson();
-            json["answer"] = self.answer.description()
-            json["type"] = String(FeedbackAnswer.Smiley.self)
+            json["answer"] = self.answer.description() as AnyObject
+            json["type"] = String(describing: FeedbackAnswer.Smiley.self) as AnyObject
             return json
         }
         
@@ -91,44 +91,44 @@ import Foundation
         }
         
         enum SmileyType {
-            case Negetive
-            case Positive
-            case VeryPositive
+            case negetive
+            case positive
+            case veryPositive
             
             func getImage() -> UIImage {
                 switch self {
-                case .Negetive:
+                case .negetive:
                     return UIImage(named: "Feedback_negetive_selected")!
-                case .Positive:
+                case .positive:
                     return UIImage(named: "Feedback_positive_selected")!
-                case .VeryPositive:
+                case .veryPositive:
                     return UIImage(named: "Feedback_very_positive_selected")!
                 }
             }
             
             func description() -> String {
                 switch self {
-                case .Negetive:
+                case .negetive:
                     return "|:"
-                case .Positive:
+                case .positive:
                     return "(:"
-                case .VeryPositive:
+                case .veryPositive:
                     return "D:"
                 }
             }
             
-            static func parse(value: String?) -> SmileyType? {
+            static func parse(_ value: String?) -> SmileyType? {
                 guard let unwrappedValue = value else {
                     return nil
                 }
                 
                 switch unwrappedValue {
                 case ":(":
-                    return .Negetive
+                    return .negetive
                 case ":)":
-                    return .Positive
+                    return .positive
                 case ":D":
-                    return .VeryPositive
+                    return .veryPositive
                 default:
                     return nil
                 }

@@ -11,7 +11,7 @@ import Foundation
 extension UITextView {
     func heightToFitContent() -> CGFloat {
         let fixedWidth = self.frame.size.width
-        let newSize = self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         return newSize.height
     }
 }

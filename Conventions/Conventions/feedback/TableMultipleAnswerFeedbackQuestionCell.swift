@@ -10,24 +10,24 @@ import Foundation
 
 class TableMultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet private weak var questionLabel: UILabel!
-    @IBOutlet private weak var questionsTableView: UITableView!
+    @IBOutlet fileprivate weak var questionLabel: UILabel!
+    @IBOutlet fileprivate weak var questionsTableView: UITableView!
     
-    private var answersToSelectFrom: Array<String> = []
-    private var selectedAnswerIndex: NSIndexPath?
+    fileprivate var answersToSelectFrom: Array<String> = []
+    fileprivate var selectedAnswerIndex: IndexPath?
     
-    private let cellHeight = CGFloat(44)
+    fileprivate let cellHeight = CGFloat(44)
     
     override var enabled: Bool {
         didSet {
-            questionsTableView.userInteractionEnabled = enabled
+            questionsTableView.isUserInteractionEnabled = enabled
         }
     }
     
-    override func questionDidSet(question: FeedbackQuestion) {
+    override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
         
-        questionsTableView.registerNib(UINib(nibName: String(TableAnswerCell), bundle: nil), forCellReuseIdentifier: String(TableAnswerCell))
+        questionsTableView.register(UINib(nibName: String(describing: TableAnswerCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableAnswerCell.self))
         questionsTableView.delegate = self
         questionsTableView.dataSource = self
         
@@ -39,26 +39,26 @@ class TableMultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UITableVie
         }
     }
     
-    override func setAnswer(answer: FeedbackAnswer) {
-        if let answerIndex = answersToSelectFrom.indexOf({$0 == answer.getAnswer()}) {
-            selectedAnswerIndex = NSIndexPath(forRow: answerIndex, inSection: 0)
+    override func setAnswer(_ answer: FeedbackAnswer) {
+        if let answerIndex = answersToSelectFrom.index(where: {$0 == answer.getAnswer()}) {
+            selectedAnswerIndex = IndexPath(row: answerIndex, section: 0)
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answersToSelectFrom.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let answerToSelectFrom = answersToSelectFrom[indexPath.row]
-        let cell = questionsTableView.dequeueReusableCellWithIdentifier(String(TableAnswerCell)) as! TableAnswerCell;
+        let cell = questionsTableView.dequeueReusableCell(withIdentifier: String(describing: TableAnswerCell.self)) as! TableAnswerCell;
         cell.answer = answerToSelectFrom
-        cell.selected = indexPath == selectedAnswerIndex
+        cell.isSelected = indexPath == selectedAnswerIndex
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectedAnswerIndex == indexPath {
             selectedAnswerIndex = nil
             delegate?.questionCleared(question!)

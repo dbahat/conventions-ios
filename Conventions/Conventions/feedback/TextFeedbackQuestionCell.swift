@@ -10,19 +10,19 @@ import Foundation
 
 class TextFeedbackQuestionCell: FeedbackQuestionCell, UITextViewDelegate  {
     
-    @IBOutlet private weak var questionLabel: UILabel!
-    @IBOutlet private weak var answerTextView: UITextView!
+    @IBOutlet fileprivate weak var questionLabel: UILabel!
+    @IBOutlet fileprivate weak var answerTextView: UITextView!
     
-    private let answerTextViewDefaultHeight = CGFloat(33)
+    fileprivate let answerTextViewDefaultHeight = CGFloat(33)
     
     override var enabled: Bool {
         didSet {
-            answerTextView.editable = enabled
-            answerTextView.selectable = enabled
+            answerTextView.isEditable = enabled
+            answerTextView.isSelectable = enabled
         }
     }
     
-    override func questionDidSet(question: FeedbackQuestion) {
+    override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
         answerTextView.delegate = self
         
@@ -30,7 +30,7 @@ class TextFeedbackQuestionCell: FeedbackQuestionCell, UITextViewDelegate  {
         cellHeightDelta = answerTextView.heightToFitContent() - answerTextViewDefaultHeight
     }
     
-    override func setAnswer(answer: FeedbackAnswer) {
+    override func setAnswer(_ answer: FeedbackAnswer) {
         answerTextView.text = answer.getAnswer()
         
         // resize the text view so it fits the text inside the answer
@@ -42,7 +42,7 @@ class TextFeedbackQuestionCell: FeedbackQuestionCell, UITextViewDelegate  {
         cellHeightDelta = answerTextView.heightToFitContent() - answerTextViewDefaultHeight
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         
         let newCellHeightDelta = answerTextView.heightToFitContent() - answerTextViewDefaultHeight
         

@@ -18,18 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isActive = true
     
     // The message we got in a remote notification. Needed in case we get push notification while in background
-    private var remoteNotificationMessage: String = ""
-    private var remoteNotificationCategory: String = ""
-    private var remoteNotificationId: String = ""
+    fileprivate var remoteNotificationMessage: String = ""
+    fileprivate var remoteNotificationCategory: String = ""
+    fileprivate var remoteNotificationId: String = ""
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UITabBar.appearance().tintColor = Colors.colorAccent
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
             // Forcing the app to left-to-right layout, since automatic changing of layout direction only
             // started in iOS9, and we want to support previous iOS versions.
-            UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight
+            UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         }
         
         // Configure tracker from GoogleService-Info.plist.
@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Optional: configure GAI options.
         let gai = GAI.sharedInstance()
-        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
         
         // Initiate an async refresh to the updates when opening the app. Events will be refeshed
         // anyways since the EventsViewController is the initial screen.
@@ -50,49 +50,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // In case we were launched due to user clicking a notification, handle the notification
             // now (e.g. navigate to a specific page, show the notification in a larger popup...).
             // Dispatching the task to the message queue so the UI will finish it's init first.
-            if let localNotification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-                dispatch_async(dispatch_get_main_queue()) {
+            if let localNotification = options[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification {
+                DispatchQueue.main.async {
                     self.handleNotificationIfNeeded(localNotification)
                 }
             }
             
-            if let remoteNotification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject : AnyObject] {
-                dispatch_async(dispatch_get_main_queue()) {
+            if let remoteNotification = options[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
+                DispatchQueue.main.async {
                     // In case we got opened from a remove notification, also navigate to the updates page
                     self.showPushNotificationPopup(remoteNotification, shouldNavigateToUpdates: true)
                 }
             }
         }
         
-        let settings = UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
+        let settings = UIUserNotificationSettings(types: [.sound , .alert , .badge], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
+        UIApplication.shared.registerForRemoteNotifications()
         
         return true;
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         
         // If the app is active, show the user an alert dialog instead of perfoming the action
         if isActive {
             let alert = getAlertForNotification(notification)
             guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-            vc.presentViewController(alert, animated: true, completion: nil)
+            vc.present(alert, animated: true, completion: nil)
             return;
         }
         
         handleNotificationIfNeeded(notification)
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         showPushNotificationPopup(userInfo, shouldNavigateToUpdates: false /* so we won't interupt the user */)
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         isActive = true
         
         // Clear the app icon badge, in case it was set by a remote notification
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        UIApplication.shared.applicationIconBadgeNumber = 0
         
         // In case we got push notification while in background, show it to the user in a larger dialog
         // since some notifications may be too long for the iOS default notification area
@@ -102,18 +102,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         isActive = false
     }
     
-    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         // Since we want the launch screen and homeViewController to show in portrait only, and all the 
         // rest of the screens to support landscape, we configure the plist to allow portrait only, and
         // override this definition here.
-        return UIInterfaceOrientationMask.All
+        return UIInterfaceOrientationMask.all
     }
     
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         
         // Scheduling the feedback reminder here, since we can only schedule notifications after the 
         // notifications settings were registered (and the user gave his concent)
@@ -121,18 +121,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Convention.deviceToken = deviceToken
         let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
         do {
-            try hub.registerNativeWithDeviceToken(deviceToken, tags: NotificationSettings.instance.categories)
+            try hub?.registerNative(withDeviceToken: deviceToken, tags: NotificationSettings.instance.categories)
         } catch {
             print("error registering to Azure notification hub ", error)
         }
     }
     
-    private func showPushNotificationPopup(userInfo: [NSObject : AnyObject], shouldNavigateToUpdates: Bool) {
-        guard let message = userInfo["aps"]?["alert"] as? String else {
+    fileprivate func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {
+        guard let rawMessage = userInfo["aps"] as? [String: Any],
+            let message = rawMessage["alert"] as? String else {
             return;
         }
         let category = userInfo["category"] as? String ?? ""
@@ -149,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if shouldNavigateToUpdates {
             guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-            if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(UpdatesViewController)) as? UpdatesViewController {
+            if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: UpdatesViewController.self)) as? UpdatesViewController {
                 vc.pushViewController(updatesVc, animated: true)
             }
         }
@@ -157,31 +158,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         showNotificationPopup(message, category: category)
     }
     
-    private func showNotificationPopup(message: String, category: String) {
+    fileprivate func showNotificationPopup(_ message: String, category: String) {
         
-        let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .Default, handler: {action in
+        let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .default, handler: {action in
             guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-            if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(NotificationSettingsViewController)) as? NotificationSettingsViewController {
+            if let settingsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NotificationSettingsViewController.self)) as? NotificationSettingsViewController {
                 vc.pushViewController(settingsVc, animated: true)
             }
         }))
-        alert.addAction(UIAlertAction(title: "סגור", style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "סגור", style: .default, handler: nil))
         guard let vc = self.window?.rootViewController as? UINavigationController else {return}
-        vc.presentViewController(alert, animated: true, completion: nil)
+        vc.present(alert, animated: true, completion: nil)
     }
     
-    private func handleNotificationIfNeeded(notification: UILocalNotification?) {
+    fileprivate func handleNotificationIfNeeded(_ notification: UILocalNotification?) {
         handleEventAboutToStartNotificationIfNeeded(notification)
         handleEventFeedbackReminderNotificationIfNeeded(notification)
         handleConventionNotificationIfNeeded(notification)
     }
     
-    private func handleConventionNotificationIfNeeded(notification: UILocalNotification?) {
+    fileprivate func handleConventionNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let vc = self.window?.rootViewController as? UINavigationController,
-            let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(ConventionFeedbackViewController)) as? ConventionFeedbackViewController
+            let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ConventionFeedbackViewController.self)) as? ConventionFeedbackViewController
         else {
                 return
         }
@@ -193,13 +194,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func handleEventAboutToStartNotificationIfNeeded(notification: UILocalNotification?) {
+    fileprivate func handleEventAboutToStartNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let eventId = userInfo[NotificationsSchedualer.EVENT_ABOUT_TO_START_INFO] as? String,
             let event = Convention.instance.events.getAll().filter({$0.id == eventId}).first,
             let vc = self.window?.rootViewController as? UINavigationController,
-            let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController
+            let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController
             else {
                 return
         }
@@ -208,13 +209,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.pushViewController(eventVc, animated: true)
     }
     
-    private func handleEventFeedbackReminderNotificationIfNeeded(notification: UILocalNotification?) {
+    fileprivate func handleEventFeedbackReminderNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let eventId = userInfo[NotificationsSchedualer.EVENT_FEEDBACK_REMINDER_INFO] as? String,
             let event = Convention.instance.events.getAll().filter({$0.id == eventId}).first,
             let vc = self.window?.rootViewController as? UINavigationController,
-            let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(EventViewController)) as? EventViewController
+            let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController
             else {
                 return
         }
@@ -224,32 +225,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.pushViewController(eventVc, animated: true)
     }
     
-    private func getAlertForNotification(notification: UILocalNotification) -> UIAlertController {
+    fileprivate func getAlertForNotification(_ notification: UILocalNotification) -> UIAlertController {
         // Using hardcoded alert title instead of the notification one, since iOS8 didn't have
         // notification title
         if isConventionFeedbackNotification(notification) {
-            let alert = UIAlertController(title: "עזור לנו להשתפר", message: notification.alertBody, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "מלא פידבק לכנס", style: .Default, handler: {action -> Void in
+            let alert = UIAlertController(title: "עזור לנו להשתפר", message: notification.alertBody, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "מלא פידבק לכנס", style: .default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification)
             }));
-            alert.addAction(UIAlertAction(title: "בטל", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "בטל", style: .cancel, handler: nil))
             return alert
         } else {
-            let alert = UIAlertController(title: "אירוע עומד להתחיל", message: notification.alertBody, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "פתח אירוע", style: .Default, handler: {action -> Void in
+            let alert = UIAlertController(title: "אירוע עומד להתחיל", message: notification.alertBody, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "פתח אירוע", style: .default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification)
             }));
-            alert.addAction(UIAlertAction(title: "בטל", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "בטל", style: .cancel, handler: nil))
             return alert
         }
     }
     
-    private func isConventionFeedbackNotification(notification: UILocalNotification) -> Bool {
+    fileprivate func isConventionFeedbackNotification(_ notification: UILocalNotification) -> Bool {
         
         return notification.userInfo?[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool == true
     }
     
-    private func categoryIdToName(category: String) -> String {
+    fileprivate func categoryIdToName(_ category: String) -> String {
         if category == NotificationHubInfo.CATEGORY_TEST {
             return "בדיקות"
         }

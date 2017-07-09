@@ -9,9 +9,9 @@
 import Foundation
 
 class Updates {
-    private static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug=icon2016";
-    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
-    private var updates: Array<Update> = [];
+    fileprivate static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug=icon2016";
+    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
+    fileprivate var updates: Array<Update> = [];
     
     init() {
         if let cachedUpdates = load() {
@@ -28,54 +28,59 @@ class Updates {
         save();
     }
     
-    func refresh(callback: ((success: Bool) -> Void)?) {
+    func refresh(_ callback: ((_ success: Bool) -> Void)?) {
         download({result in
             guard let updates = result else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    callback?(success: false)
+                DispatchQueue.main.async {
+                    callback?(false)
                 }
                 return;
             }
             
             let parsedUpdates = self.parse(updates)
-            let sortedUpdates = parsedUpdates.sort({$0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970})
+            let sortedUpdates = parsedUpdates.sorted(by: {$0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970})
             
             // Using main thread for syncronizing access to events
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.updates = sortedUpdates;
                 print("Downloaded updates: ", self.updates.count)
-                callback?(success: true)
+                callback?(true)
                 
                 // Persist the updated events in a background thread, so as not to block the UI
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
                     self.save()
                 }
             }
         });
     }
     
-    private func download(completion: (data: NSData?) -> Void) {
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration());
-        let url = NSURL(string: Updates.apiUrl)!;
+    fileprivate func download(_ completion: @escaping (_ data: Data?) -> Void) {
+        let session = URLSession(configuration: URLSessionConfiguration.default);
+        let url = URL(string: Updates.apiUrl)!;
         
-        session.dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
-            completion(data: data);
+        session.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+            completion(data);
         }).resume();
     }
     
-    private func parse(response: NSData) -> Array<Update> {
+    fileprivate func parse(_ response: Data) -> Array<Update> {
         
         var result = Array<Update>();
         
         guard let deserializedEvents =
-            try? NSJSONSerialization.JSONObjectWithData(response, options: []) as? NSArray,
-            updates = deserializedEvents
+            try? JSONSerialization.jsonObject(with: response, options: []) as? NSArray,
+            let updates = deserializedEvents
             else {
                 print("Failed to deserialize updates");
                 return result;
         }
         
-        for update in updates {
+        for rawUpdate in updates {
+            guard let update = rawUpdate as? Dictionary<String, AnyObject> else {
+                print("Got invalid update. Skipping");
+                continue;
+            }
+            
             guard let id = update["id"] as? String else {
                 print("Got update without ID. Skipping");
                 continue;
@@ -95,26 +100,26 @@ class Updates {
         return result
     }
     
-    private func parseDate(time: String) -> NSDate {
-        if let result = NSDate.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
+    fileprivate func parseDate(_ time: String) -> Date {
+        if let result = Date.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
             return result;
         }
         
-        return NSDate()
+        return Date()
     }
     
-    private func save() {
+    fileprivate func save() {
         let serializedUpdates = self.updates.map({$0.toJson()});
         
-        let json = try? NSJSONSerialization.dataWithJSONObject(serializedUpdates, options: NSJSONWritingOptions.PrettyPrinted);
-        json?.writeToFile(Updates.cacheFile, atomically: true);
+        let json = try? JSONSerialization.data(withJSONObject: serializedUpdates, options: JSONSerialization.WritingOptions.prettyPrinted);
+        try? json?.write(to: URL(fileURLWithPath: Updates.cacheFile), options: [.atomic]);
     }
     
-    private func load() -> Array<Update>? {
-        guard let storedUpdates = NSData(contentsOfFile: Updates.cacheFile) else {
+    fileprivate func load() -> Array<Update>? {
+        guard let storedUpdates = try? Data(contentsOf: URL(fileURLWithPath: Updates.cacheFile)) else {
             return nil;
         }
-        guard let updatesJson = try? NSJSONSerialization.JSONObjectWithData(storedUpdates, options: NSJSONReadingOptions.AllowFragments) else {
+        guard let updatesJson = try? JSONSerialization.jsonObject(with: storedUpdates, options: JSONSerialization.ReadingOptions.allowFragments) else {
             return nil;
         }
         guard let parsedUpdates = updatesJson as? [Dictionary<String, AnyObject>] else {

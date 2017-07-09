@@ -8,33 +8,33 @@
 
 class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    private var pageViewController: UIPageViewController!
-    private var viewControllers = Array<MapFloorViewController>()
-    private let areas = [
+    fileprivate var pageViewController: UIPageViewController!
+    fileprivate var viewControllers = Array<MapFloorViewController>()
+    fileprivate let areas = [
         MapArea(name: "מפת התמצאות", image: UIImage(named: "Floor1")!)
     ]
     
     // Not using the built in UIPageViewController page control since it's only supported for horizontal paging
-    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet fileprivate weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        let pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Vertical, options: nil);
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil);
         pageViewController.delegate = self;
         
         viewControllers = areas.map({area in
-            let mapAreaViewController = storyboard!.instantiateViewControllerWithIdentifier(String(MapFloorViewController)) as! MapFloorViewController;
+            let mapAreaViewController = storyboard!.instantiateViewController(withIdentifier: String(describing: MapFloorViewController.self)) as! MapFloorViewController;
             mapAreaViewController.area = area
             return mapAreaViewController
         })
         
         pageViewController.setViewControllers([viewControllers[0]],
-            direction: .Forward,
+            direction: .forward,
             animated: false,
             completion: {done in });
         
-        for (index, viewController) in viewControllers.enumerate() {
+        for (index, viewController) in viewControllers.enumerated() {
             viewController.index = index
         }
         
@@ -43,18 +43,18 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         addChildViewController(pageViewController)
         view.addSubview(pageViewController.view)
 
-        pageViewController.didMoveToParentViewController(self);
+        pageViewController.didMove(toParentViewController: self);
         self.pageViewController = pageViewController;
         
         // Since pageControl is only horizontal, transform it to be vertical
-        pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
+        pageControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2));
         
         if areas.count == 1 {
-            pageControl.hidden = true
+            pageControl.isHidden = true
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let vc = viewController as? MapFloorViewController {
             if vc.index == 0 {
                 return nil
@@ -65,7 +65,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let vc = viewController as? MapFloorViewController {
             if vc.index == viewControllers.count - 1 {
                 return nil
@@ -76,7 +76,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if !completed {
             return
         }

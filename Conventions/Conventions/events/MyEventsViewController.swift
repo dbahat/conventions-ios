@@ -10,12 +10,12 @@ import UIKit
 
 class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet private weak var noEventsLabel: UILabel!
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var tabBarIcon: UITabBarItem!
-    @IBOutlet private weak var dateFilterControl: DateFilterControl!
+    @IBOutlet fileprivate weak var noEventsLabel: UILabel!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var tabBarIcon: UITabBarItem!
+    @IBOutlet fileprivate weak var dateFilterControl: DateFilterControl!
     
-    private var myEvents: Array<ConventionEvent>?
+    fileprivate var myEvents: Array<ConventionEvent>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Adding to my events will trigger a badge icon to hint the user to click my events.
@@ -34,23 +34,23 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         tableView.reloadData()
     }
     
-    @IBAction func dateFilterWasTapped(sender: DateFilterControl) {
+    @IBAction func dateFilterWasTapped(_ sender: DateFilterControl) {
         reloadMyEvents()
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myEvents != nil ? myEvents!.count : 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(EventTableViewCell), forIndexPath: indexPath) as! EventTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventTableViewCell.self), for: indexPath) as! EventTableViewCell
         
         let event = myEvents![indexPath.row]
         cell.setEvent(event)
@@ -59,14 +59,14 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         return cell
     }
 
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let removeFromFavorite = UITableViewRowAction(style: .Normal, title: "הסר") { action, index in
+        let removeFromFavorite = UITableViewRowAction(style: .normal, title: "הסר") { action, index in
             tableView.setEditing(false, animated: true);
             if let event = self.myEvents?[index.row] {
                 event.attending = false;
                 self.reloadMyEvents();
-                tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic);
+                tableView.deleteRows(at: [index], with: UITableViewRowAnimation.automatic);
             }
         }
         let event = self.myEvents?[indexPath.row];
@@ -75,19 +75,19 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         return [removeFromFavorite];
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let event = myEvents?[indexPath.row] {
-            performSegueWithIdentifier("MyEventsToEventSegue", sender: event);
+            performSegue(withIdentifier: "MyEventsToEventSegue", sender: event);
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let eventViewController = segue.destinationViewController as! EventViewController;
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let eventViewController = segue.destination as! EventViewController;
         eventViewController.event = sender as! ConventionEvent;
     }
     
-    func changeFavoriteStateWasClicked(caller: EventTableViewCell) {
-        guard let indexPath = tableView.indexPathForCell(caller) else {
+    func changeFavoriteStateWasClicked(_ caller: EventTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: caller) else {
             return;
         }
         guard let event = myEvents?[indexPath.row] else {
@@ -96,20 +96,20 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         event.attending = false;
         reloadMyEvents();
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic);
     }
     
-    private func reloadMyEvents() {
+    fileprivate func reloadMyEvents() {
         myEvents = Convention.instance.events.getAll()
             .filter { event in event.attending && event.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970 }
-            .sort { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
+            .sorted { $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970};
         
         if (myEvents == nil || myEvents?.count == 0) {
-            tableView.hidden = true;
-            noEventsLabel.hidden = false;
+            tableView.isHidden = true;
+            noEventsLabel.isHidden = false;
         } else {
-            tableView.hidden = false;
-            noEventsLabel.hidden = true;
+            tableView.isHidden = false;
+            noEventsLabel.isHidden = true;
         }
     }
 }

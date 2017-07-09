@@ -9,37 +9,37 @@
 import UIKit
 
 protocol EventStateProtocol : class {
-    func changeFavoriteStateWasClicked(caller: EventView);
+    func changeFavoriteStateWasClicked(_ caller: EventView);
 }
 
 class EventView: UIView {
 
-    @IBOutlet private weak var startTime: UILabel!
-    @IBOutlet private weak var endTime: UILabel!
-    @IBOutlet private weak var title: UILabel!
-    @IBOutlet private weak var hallName: UILabel!
-    @IBOutlet private weak var lecturer: UILabel!
-    @IBOutlet private weak var timeLayout: UIView!
-    @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private weak var feedbackIcon: UIImageView!
-    @IBOutlet private weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var startTime: UILabel!
+    @IBOutlet fileprivate weak var endTime: UILabel!
+    @IBOutlet fileprivate weak var title: UILabel!
+    @IBOutlet fileprivate weak var hallName: UILabel!
+    @IBOutlet fileprivate weak var lecturer: UILabel!
+    @IBOutlet fileprivate weak var timeLayout: UIView!
+    @IBOutlet fileprivate weak var favoriteButton: UIButton!
+    @IBOutlet fileprivate weak var feedbackIcon: UIImageView!
+    @IBOutlet fileprivate weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
     
-    @IBOutlet private weak var titleAndDetailsContainer: UIView!
+    @IBOutlet fileprivate weak var titleAndDetailsContainer: UIView!
     weak var delegate: EventStateProtocol?;
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        let view = NSBundle.mainBundle().loadNibNamed(String(EventView), owner: self, options: nil)![0] as! UIView;
+        let view = Bundle.main.loadNibNamed(String(describing: EventView.self), owner: self, options: nil)![0] as! UIView;
         view.frame = self.bounds;
         addSubview(view);
     }
     
 
-    @IBAction func changeFavoriteStateButtonWasClicked(sender: UITapGestureRecognizer) {
+    @IBAction func changeFavoriteStateButtonWasClicked(_ sender: UITapGestureRecognizer) {
         delegate?.changeFavoriteStateWasClicked(self);
     }
     
-    func setEvent(event : ConventionEvent) {
+    func setEvent(_ event : ConventionEvent) {
         startTime.text = event.startTime.format("HH:mm");
         endTime.text = event.endTime.format("HH:mm");
         title.text = event.title;
@@ -48,14 +48,14 @@ class EventView: UIView {
         timeLayout.backgroundColor = event.color;
         
         let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
-        favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal);
+        favoriteButton.setImage(favoriteImage, for: UIControlState());
         
         if let textColor = event.textColor {
             startTime.textColor = textColor;
             endTime.textColor = textColor;
         }
         
-        let currentTime = NSDate()
+        let currentTime = Date()
         if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
             titleAndDetailsContainer.backgroundColor = Colors.eventEndedColor
         } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
@@ -65,7 +65,7 @@ class EventView: UIView {
         }
         
         if event.canFillFeedback() {
-            feedbackIcon.hidden = false
+            feedbackIcon.isHidden = false
             feedbackContainerWidthConstraint.constant = 26
             
             if event.didSubmitFeedback() {
@@ -76,15 +76,15 @@ class EventView: UIView {
                 let imageName = event.feedbackAnswers.count > 0 && !Convention.instance.isFeedbackSendingTimeOver()
                         ? "Feedback_email" // Mail icon to indicate the feedback is pending submission
                         : "Feedback_icon"
-                feedbackIcon.image = UIImage(named: imageName)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                feedbackIcon.image = UIImage(named: imageName)?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
                 
                 feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
                     ? Colors.eventUserNeedsToCompleteFeecbackButtonColor
-                    : UIColor.grayColor()
+                    : UIColor.gray
             }
             
         } else {
-            feedbackIcon.hidden = true
+            feedbackIcon.isHidden = true
             feedbackContainerWidthConstraint.constant = 0
         }
     }

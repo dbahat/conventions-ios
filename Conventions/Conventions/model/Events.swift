@@ -9,23 +9,23 @@
 import Foundation
 
 class Events {
-    private static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2016";
-    private static let fileName = Convention.name + "Events.json";
-    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "2_" + fileName;
+    fileprivate static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2016";
+    fileprivate static let fileName = Convention.name + "Events.json";
+    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "2_" + fileName;
     
-    private var events: Array<ConventionEvent> = [];
+    fileprivate var events: Array<ConventionEvent> = [];
     
     init(halls: Array<Hall>) {
-        guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+        guard let resourcePath = Bundle.main.resourcePath else {
             return;
         };
         
-        if let cachedEvents = NSData(contentsOfFile: Events.cacheFile) {
+        if let cachedEvents = try? Data(contentsOf: URL(fileURLWithPath: Events.cacheFile)) {
             if let parsedCachedEvents = parse(cachedEvents, halls: halls) {
                 events = parsedCachedEvents
                 print("Cached events: ", events.count)
             }
-        } else if let preInstalledEvents = NSData(contentsOfFile: resourcePath + "/" + Events.fileName) {
+        } else if let preInstalledEvents = try? Data(contentsOf: URL(fileURLWithPath: resourcePath + "/" + Events.fileName)) {
             if let parsedPreInstalledEvents = parse(preInstalledEvents, halls: halls) {
                 events = parsedPreInstalledEvents
                 print("Preinstalled events: ", events.count)
@@ -37,38 +37,38 @@ class Events {
         return events;
     }
     
-    func refresh(callback: ((success: Bool) -> Void)?) {
+    func refresh(_ callback: ((_ success: Bool) -> Void)?) {
         download({result in
             guard let events = result else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    callback?(success: false);
+                DispatchQueue.main.async {
+                    callback?(false);
                 }
                 return;
             }
             
             //result?.writeToFile(Events.cacheFile, atomically: true);
             let parsedEvents = SffEventsParser().parse(data: events)
-            if let serializedData = try? NSJSONSerialization.dataWithJSONObject(
-                self.events.map({$0.toJson()}),
-                options: NSJSONWritingOptions.PrettyPrinted) {
-                serializedData.writeToFile(Events.cacheFile, atomically: true)
+            if let serializedData = try? JSONSerialization.data(
+                withJSONObject: self.events.map({$0.toJson()}),
+                options: JSONSerialization.WritingOptions.prettyPrinted) {
+                try? serializedData.write(to: URL(fileURLWithPath: Events.cacheFile), options: [.atomic])
             }
             
             // Using main thread for syncronizing access to events
-            dispatch_async(dispatch_get_main_queue()) {
-                self.events = parsedEvents;
+            DispatchQueue.main.async {
+                self.events = parsedEvents!;
                 print("Downloaded events: ", self.events.count);
-                callback?(success: true);
+                callback?(true);
             }
         });
     }
     
-    private func parse(data: NSData, halls: Array<Hall>) -> Array<ConventionEvent>? {
+    fileprivate func parse(_ data: Data, halls: Array<Hall>) -> Array<ConventionEvent>? {
         var result = Array<ConventionEvent>()
         
         guard let deserializedEvents =
-            try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray,
-            parsedEvents = deserializedEvents
+            try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray,
+            let parsedEvents = deserializedEvents
             else {
                 print("Failed to deserialize events");
                 return result;
@@ -83,12 +83,12 @@ class Events {
         return result
     }
     
-    private func download(completion: (data: NSData?) -> Void) {
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration());
-        let url = NSURL(string: Events.eventsApiUrl)!;
+    fileprivate func download(_ completion: @escaping (_ data: Data?) -> Void) {
+        let session = URLSession(configuration: URLSessionConfiguration.default);
+        let url = URL(string: Events.eventsApiUrl)!;
         
-        session.dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
-            completion(data: data);
+        session.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+            completion(data);
         }).resume();
     }
 }

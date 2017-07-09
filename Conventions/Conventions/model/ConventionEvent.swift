@@ -14,7 +14,7 @@ class ConventionEvent {
     /*
      * An NSNotification event, fired when a user decides to attend an event
      */
-    static let AttendingWasSetEventName = "AttendingWasSetEventName"
+    static let AttendingWasSetEventName = Notification.Name("AttendingWasSetEventName")
     
     var id: String
     var serverId: Int
@@ -22,8 +22,8 @@ class ConventionEvent {
     var textColor: UIColor?
     var title: String
     var lecturer: String?
-    var startTime: NSDate
-    var endTime: NSDate
+    var startTime: Date
+    var endTime: Date
     var type: EventType
     var hall: Hall
     var images: Array<Int>?
@@ -31,16 +31,16 @@ class ConventionEvent {
     var category: String
     var price: Int
     var tags: Array<String>
-    var url: NSURL
+    var url: URL
     
     let feedbackQuestions: Array<FeedbackQuestion> = [
-        FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
-        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
-        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
+        FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .smiley),
+        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .smiley),
+        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .smiley),
+        FeedbackQuestion(question:"עוד משהו?", answerType: .text),
         ]
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: NSDate, endTime: NSDate, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: NSURL) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL) {
         self.id = id
         self.serverId = serverId
         self.color = color
@@ -58,7 +58,7 @@ class ConventionEvent {
         self.url = url
     }
     
-    static func parse(json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
+    static func parse(_ json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
         guard
             let id = json["id"] as? String,
             let serverId = json["serverId"] as? Int,
@@ -83,18 +83,18 @@ class ConventionEvent {
                                textColor: nil,
                                title: title,
                                lecturer: lecturer,
-                               startTime: NSDate(timeIntervalSince1970: startTime),
-                               endTime: NSDate(timeIntervalSince1970: endTime),
+                               startTime: Date(timeIntervalSince1970: startTime),
+                               endTime: Date(timeIntervalSince1970: endTime),
                                type: EventType(backgroundColor: nil, description: type),
                                hall: ConventionEvent.findHall(halls, hallName: hall),
                                description: description,
                                category: category,
                                price: price,
                                tags: tags,
-                               url: NSURL(string: url) ?? NSURL())
+                               url: URL(string: url)!)
     }
     
-    private static func findHall(halls: Array<Hall>, hallName: String) -> Hall {
+    fileprivate static func findHall(_ halls: Array<Hall>, hallName: String) -> Hall {
         if let hall = halls.filter({hall in hall.name == hallName}).first {
             return hall
         }
@@ -104,19 +104,20 @@ class ConventionEvent {
     
     func toJson() -> Dictionary<String, AnyObject> {
         return [
-            "id": self.id,
-            "serverId": self.serverId,
-            "title": self.title,
-            "lecturer": self.lecturer ?? "",
-            "startTime": self.startTime.timeIntervalSince1970,
-            "endTime": self.endTime.timeIntervalSince1970,
-            "type": self.type.description,
-            "hall": self.hall.name,
-            "description": self.description ?? "",
-            "category": self.category,
-            "price": self.price,
-            "tags": self.tags,
-            "url": self.url.absoluteString ?? ""]
+            "id": self.id as AnyObject,
+            "serverId": self.serverId as AnyObject,
+            "title": self.title as AnyObject,
+            "lecturer": (self.lecturer ?? "") as AnyObject,
+            "startTime": self.startTime.timeIntervalSince1970 as AnyObject,
+            "endTime": self.endTime.timeIntervalSince1970 as AnyObject,
+            "type": self.type.description as AnyObject,
+            "hall": self.hall.name as AnyObject,
+            "description": (self.description ?? "") as AnyObject,
+            "category": self.category as AnyObject,
+            "price": self.price as AnyObject,
+            "tags": self.tags as AnyObject,
+            "url": self.url.absoluteString as AnyObject
+        ]
     }
     
     var feedbackAnswers: Array<FeedbackAnswer> {
@@ -143,12 +144,12 @@ class ConventionEvent {
                 NotificationsSchedualer.scheduleEventAboutToStartNotification(self)
                 NotificationsSchedualer.scheduleEventFeedbackReminderNotification(self)
                 
-                NSNotificationCenter.defaultCenter().postNotificationName(ConventionEvent.AttendingWasSetEventName, object: self)
+                NotificationCenter.default.post(name: ConventionEvent.AttendingWasSetEventName, object: self)
                 
-                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("Favorites",
+                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Favorites",
                     action: newValue ? "Added" : "Remove",
                     label: "", value: NSNumber())
-                    .build() as [NSObject: AnyObject]);
+                    .build() as! [AnyHashable: Any]);
             } else {
                 NotificationsSchedualer.removeEventAboutToStartNotification(self)
                 NotificationsSchedualer.removeEventFeedbackReminderNotification(self)
@@ -170,8 +171,8 @@ class ConventionEvent {
         
         if let input = Convention.instance.eventsInputs.getInput(id) {
             // If the answer already exists, override it
-            if let existingAnswerIndex = input.feedbackUserInput.answers.indexOf({$0.questionText == answer.questionText}) {
-                input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
+            if let existingAnswerIndex = input.feedbackUserInput.answers.index(where: {$0.questionText == answer.questionText}) {
+                input.feedbackUserInput.answers.remove(at: existingAnswerIndex)
             }
             input.feedbackUserInput.answers.append(answer)
             Convention.instance.eventsInputs.save()
@@ -192,19 +193,19 @@ class ConventionEvent {
             return
         }
         
-        guard let existingAnswerIndex = input.feedbackUserInput.answers.indexOf({$0.questionText == question.question}) else {
+        guard let existingAnswerIndex = input.feedbackUserInput.answers.index(where: {$0.questionText == question.question}) else {
             // no existing answer means nothing to clear
             return
         }
         
-        input.feedbackUserInput.answers.removeAtIndex(existingAnswerIndex)
+        input.feedbackUserInput.answers.remove(at: existingAnswerIndex)
         Convention.instance.eventsInputs.save()
     }
     
-    func submitFeedback(callback: ((success: Bool) -> Void)?) {
+    func submitFeedback(_ callback: ((_ success: Bool) -> Void)?) {
         guard let input = Convention.instance.eventsInputs.getInput(id) else {
             // In case the user tries to submit empty feedback auto-fail the submission request
-            callback?(success: false)
+            callback?(false)
             return
         }
         
@@ -218,7 +219,7 @@ class ConventionEvent {
     
     func canFillFeedback() -> Bool {
         // Check if the event will end in 15 minutes or less
-        return NSDate().compare(endTime.addMinutes(-15)) == .OrderedDescending
+        return Date().compare(endTime.addMinutes(-15)) == .orderedDescending
     }
     
     func didSubmitFeedback() -> Bool {
