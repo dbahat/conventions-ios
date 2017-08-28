@@ -15,7 +15,7 @@ class UserInputs {
         fileprivate static let eventsStorageFile = NSHomeDirectory() + "/Documents/" + UserInputs.Events.eventsStorageFileName;
         
         // Maps eventId to the user input for that event
-        fileprivate var eventInputs = Dictionary<String, UserInput.ConventionEvent>();
+        fileprivate var eventInputs = Dictionary<String, UserInput.ConventionEventInput>();
         
         init() {
             // Try to load the cached user inputs upon init
@@ -24,11 +24,11 @@ class UserInputs {
             }
         }
         
-        func getInput(_ forEventId: String) -> UserInput.ConventionEvent? {
+        func getInput(_ forEventId: String) -> UserInput.ConventionEventInput? {
             return eventInputs[forEventId];
         }
         
-        func setInput(_ input: UserInput.ConventionEvent, forEventId: String) {
+        func setInput(_ input: UserInput.ConventionEventInput, forEventId: String) {
             eventInputs[forEventId] = input;
         }
         
@@ -39,7 +39,7 @@ class UserInputs {
             try? json?.write(to: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile), options: [.atomic]);
         }
         
-        fileprivate func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEvent>? {
+        fileprivate func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEventInput>? {
             guard let storedInputs = try? Data(contentsOf: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile)) else {
                 return nil;
             }
@@ -50,9 +50,9 @@ class UserInputs {
                 return nil;
             }
             
-            var result = Dictionary<String, UserInput.ConventionEvent>();
+            var result = Dictionary<String, UserInput.ConventionEventInput>();
             for userInput in userInputs {
-                userInput.forEach({input in result[input.0] = UserInput.ConventionEvent(json: input.1)})
+                userInput.forEach({input in result[input.0] = UserInput.ConventionEventInput(json: input.1)})
             }
             return result
         }

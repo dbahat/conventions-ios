@@ -24,21 +24,21 @@ class FeedbackQuestion {
     }
     
     enum AnswerType {
-        case smiley
-        case text
-        case multipleAnswer
-        case tableMultipleAnswer
+        case Smiley
+        case Text
+        case MultipleAnswer
+        case TableMultipleAnswer
         
         var defaultHeight: CGFloat {
             get {
                 switch self {
-                case .smiley:
+                case .Smiley:
                     return 102
-                case .text:
+                case .Text:
                     return 102
-                case .multipleAnswer:
+                case .MultipleAnswer:
                     return 60
-                case .tableMultipleAnswer:
+                case .TableMultipleAnswer:
                     return 68
                 }
             }

@@ -34,10 +34,10 @@ class ConventionEvent {
     var url: URL
     
     let feedbackQuestions: Array<FeedbackQuestion> = [
-        FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .smiley),
-        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .smiley),
-        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .text),
+        FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
+        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
+        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
+        FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
     init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL) {
@@ -161,7 +161,7 @@ class ConventionEvent {
                 return
             }
             
-            let input = UserInput.ConventionEvent(attending: newValue, feedbackUserInput: UserInput.Feedback())
+            let input = UserInput.ConventionEventInput(attending: newValue, feedbackUserInput: UserInput.Feedback())
             Convention.instance.eventsInputs.setInput(input, forEventId: id)
             Convention.instance.eventsInputs.save()
         }
@@ -181,7 +181,7 @@ class ConventionEvent {
         
         let feedback = UserInput.Feedback()
         feedback.answers.append(answer)
-        let input = UserInput.ConventionEvent(attending: false, feedbackUserInput: feedback)
+        let input = UserInput.ConventionEventInput(attending: false, feedbackUserInput: feedback)
         
         Convention.instance.eventsInputs.setInput(input, forEventId: id)
         Convention.instance.eventsInputs.save()
@@ -209,12 +209,11 @@ class ConventionEvent {
             return
         }
         
-        input.feedbackUserInput.submit("פידבק ל" + Convention.displayName + " עבור האירוע: " + title,
-                                       bodyOpening: String(format: "%@\n%@, %@\n\n",
-                                        title,
-                                        startTime.format("dd.MM.yyyy HH:mm"),
-                                        hall.name),
-                                       callback: callback)
+        Convention.instance.eventFeedbackForm.submit(
+            conventionName: Convention.displayName,
+            event: self,
+            answers: input.feedbackUserInput.answers,
+            callback: callback)
     }
     
     func canFillFeedback() -> Bool {

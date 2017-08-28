@@ -9,9 +9,9 @@
 import Foundation
 
 class Events {
-    fileprivate static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2016";
+    fileprivate static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2017";
     fileprivate static let fileName = Convention.name + "Events.json";
-    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "2_" + fileName;
+    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
     
     fileprivate var events: Array<ConventionEvent> = [];
     
@@ -46,7 +46,6 @@ class Events {
                 return;
             }
             
-            //result?.writeToFile(Events.cacheFile, atomically: true);
             let parsedEvents = SffEventsParser().parse(data: events)
             if let serializedData = try? JSONSerialization.data(
                 withJSONObject: self.events.map({$0.toJson()}),

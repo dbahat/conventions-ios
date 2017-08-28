@@ -86,7 +86,7 @@ class UserInput {
         }
     }
     
-    class ConventionEvent {
+    class ConventionEventInput {
         
         var attending: Bool
         var feedbackUserInput: UserInput.Feedback

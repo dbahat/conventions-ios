@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2016, month: 10, day: 18)
-    static let endDate = Date.from(year: 2016, month: 10, day: 20)
-    static let name = "Icon2016"
-    static let displayName = "פסטיבל אייקון 2016"
+    static let date = Date.from(year: 2017, month: 10, day: 8)
+    static let endDate = Date.from(year: 2017, month: 10, day: 10)
+    static let name = "Icon2017"
+    static let displayName = "פסטיבל אייקון 2017"
     static let mailbox = "feedback@iconfestival.org.il"
     
     // The APNS token. Set during app init, and saved here in case the user wish to change his push
@@ -28,6 +28,8 @@ class Convention {
     
     let feedback = UserInputs.ConventionInputs()
     let feedbackQuestions: Array<FeedbackQuestion>
+    
+    let eventFeedbackForm: SurveyForm.EventFeedback
     
     fileprivate init() {
         halls = [
@@ -59,21 +61,30 @@ class Convention {
         events = Events(halls: halls)
         
         feedbackQuestions = [
-            FeedbackQuestion(question:"גיל", answerType: .multipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
                 "פחות מ-12", "17–12", "25–18", "25+"
                 ]),
-            FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .smiley),
-            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .multipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .Smiley),
+            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
                 "כן", "לא"
                 ]),
-            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .tableMultipleAnswer, answersToSelectFrom: [
+            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
                 "האירוע התנגש עם אירוע אחר שהלכתי אילו",
                 "לא הצלחתי למצא את מקום האירוע",
                 "האירוע התרחש מוקדם או מאוחר מידי",
                 "סיבה אחרת",
                 ]),
-            FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .text)
+            FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
         ]
+        
+        eventFeedbackForm = SurveyForm.EventFeedback(
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdb34x3Nb_E3gQQ_SBZTVMsnro_VzlKwP__uK3YRVQj-s5qyA/formResponse")!,
+            conventionNameEntry: "entry.1882876736",
+            deviceIdEntry: "entry.312890800",
+            eventTitleEntry: "entry.1847107867",
+            eventTimeEntry: "entry.1648362575",
+            hallEntry: "entry.1510105148",
+            questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים דומים בעתיד?": "entry.1416969956", "עוד משהו?": "entry.1582215667"])
     }
     
     func findHallByName(_ name: String) -> Hall {
