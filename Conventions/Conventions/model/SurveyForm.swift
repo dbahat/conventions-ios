@@ -23,7 +23,7 @@ class SurveyForm {
     
     fileprivate func generatePostBody(answers: Array<FeedbackAnswer>) -> String {
         return answers.map({answer in
-            String(format: "%@=%@", findFormEntryId(questionText: answer.questionText), answer.getAnswer())
+            String(format: "%@=%@", findFormEntryId(questionText: answer.questionText), answer.getAnswer().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         }).joined(separator:"&")
     }
     

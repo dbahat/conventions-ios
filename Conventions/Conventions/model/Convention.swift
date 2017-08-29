@@ -30,6 +30,7 @@ class Convention {
     let feedbackQuestions: Array<FeedbackQuestion>
     
     let eventFeedbackForm: SurveyForm.EventFeedback
+    let conventionFeedbackForm: SurveyForm.Feedback
     
     fileprivate init() {
         halls = [
@@ -76,6 +77,12 @@ class Convention {
                 ]),
             FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
         ]
+        
+        conventionFeedbackForm = SurveyForm.Feedback(
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSe1lM51MKmn_g943DlKqdRJj_d6PWv8Y2ODf4sm9ALYwmPI8A/formResponse")!,
+            conventionNameEntry: "entry.1882876736",
+            deviceIdEntry: "entry.312890800",
+            questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
             url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdb34x3Nb_E3gQQ_SBZTVMsnro_VzlKwP__uK3YRVQj-s5qyA/formResponse")!,

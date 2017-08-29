@@ -99,18 +99,13 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         // Force close the keyboard
         view.endEditing(true)
         
-        Convention.instance.feedback.conventionInputs.submit("פידבק ל" + Convention.displayName,
-                                                             bodyOpening: "",
-                                                             callback:
-            {
-                success in
+        Convention.instance.conventionFeedbackForm.submit(conventionName: Convention.displayName, answers: userInputs.answers, callback: { success in
             
                 self.feedbackView.setFeedbackAsSent(success)
                 
                 if !success {
-                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
-                        .show();
-                    return;
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    return
                 }
                 
                 // Cancel the convention feedback reminder notifications (so the user won't see it again)
