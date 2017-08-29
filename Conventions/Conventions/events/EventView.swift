@@ -35,7 +35,7 @@ class EventView: UIView {
     }
     
 
-    @IBAction func changeFavoriteStateButtonWasClicked(_ sender: UITapGestureRecognizer) {
+    @IBAction func changeFavoriteStateButtonWasClicked(_ sender: UIButton) {
         delegate?.changeFavoriteStateWasClicked(self);
     }
     
