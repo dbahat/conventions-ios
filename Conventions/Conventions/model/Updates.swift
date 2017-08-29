@@ -9,7 +9,7 @@
 import Foundation
 
 class Updates {
-    fileprivate static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug=icon2016";
+    fileprivate static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug=icon2017";
     fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
     fileprivate var updates: Array<Update> = [];
     
