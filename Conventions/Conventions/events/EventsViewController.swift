@@ -165,39 +165,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         performSegue(withIdentifier: "EventsToEventSegue", sender: event);
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let timeSection = eventTimeSections[indexPath.section];
-        let event = eventsPerTimeSection[timeSection]?[indexPath.row];
-        
-        let addToFavorite = UITableViewRowAction(style: .normal, title: "הוסף") { action, index in
-            tableView.setEditing(false, animated: true);
-            let timeSection = self.eventTimeSections[index.section];
-            if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
-                event.attending = true;
-                TTGSnackbar(message: "האירוע התווסף לאירועים שלי", duration: TTGSnackbarDuration.short, superView: self.view).show();
-                // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
-                tableView.reloadData();
-            }
-        }
-        addToFavorite.backgroundColor = event?.color;
-        
-        let removeFromFavorite = UITableViewRowAction(style: .normal, title: "הסר") { action, index in
-            tableView.setEditing(false, animated: true);
-            let timeSection = self.eventTimeSections[index.section];
-            if let event = self.eventsPerTimeSection[timeSection]?[index.row] {
-                event.attending = false;
-                TTGSnackbar(message: "האירוע הוסר מהאירועים שלי", duration: TTGSnackbarDuration.short, superView: self.view).show();
-                // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
-                tableView.reloadData();
-            }
-        }
-        removeFromFavorite.backgroundColor = event?.color;
-        
-        return event?.attending == true ? [removeFromFavorite] : [addToFavorite];
-    }
-    
-    
     // MARK: - EventCellState Protocol
     
     func changeFavoriteStateWasClicked(_ caller: EventTableViewCell) {
