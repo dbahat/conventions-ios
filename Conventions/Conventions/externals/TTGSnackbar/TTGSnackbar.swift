@@ -430,7 +430,7 @@ open class TTGSnackbar: UIView {
             animations: {
                 () -> Void in
                 animationBlock?()
-                self.layoutIfNeeded()
+                self.superView?.layoutIfNeeded()
             }) {
                 (finished) -> Void in
                 self.dismissBlock?(self)
@@ -447,7 +447,6 @@ open class TTGSnackbar: UIView {
         switch animationType {
         case .fadeInFadeOut:
             topMarginConstraint?.constant = -TTGSnackbar.snackbarBottomMargin
-            self.layoutIfNeeded()
             self.alpha = 0.0
             animationBlock = {
                 self.alpha = 1.0
@@ -455,28 +454,28 @@ open class TTGSnackbar: UIView {
         case .slideFromTopBackToTop, .slideFromBottomToTop:
             // Init
             topMarginConstraint?.constant = -TTGSnackbar.snackbarHeight
-            self.layoutIfNeeded()
+            self.superview?.layoutIfNeeded()
             // Animation
             topMarginConstraint?.constant = TTGSnackbar.snackbarBottomMargin
         case .slideFromLeftToRight:
             // Init
             centerXConstraint?.constant = -superview!.bounds.width
             topMarginConstraint?.constant = -TTGSnackbar.snackbarBottomMargin
-            self.layoutIfNeeded()
+            self.superview?.layoutIfNeeded()
             // Animation
             centerXConstraint?.constant = 0
         case .slideFromRightToLeft:
             // Init
             centerXConstraint?.constant = superview!.bounds.width
             topMarginConstraint?.constant = -TTGSnackbar.snackbarBottomMargin
-            self.layoutIfNeeded()
+            self.superview?.layoutIfNeeded()
             // Animation
             centerXConstraint?.constant = 0
         case .flip:
             // Init
             topMarginConstraint?.constant = -TTGSnackbar.snackbarBottomMargin
             self.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 1, 0, 0)
-            self.layoutIfNeeded()
+            self.superview?.layoutIfNeeded()
             // Animation
             animationBlock = {
                 self.layer.transform = CATransform3DMakeRotation(0, 1, 0, 0)
@@ -490,7 +489,7 @@ open class TTGSnackbar: UIView {
             animations: {
                 () -> Void in
                 animationBlock?()
-                self.layoutIfNeeded()
+                self.superview?.layoutIfNeeded()
             }, completion: nil)
     }
     
