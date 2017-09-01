@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YKF-oi-L6D">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YKF-oi-L6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +23,9 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wEA-7E-5dI">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="554"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUM-PN-H3K" customClass="CardView" customModule="Conventions" customModuleProvider="target">
                                 <rect key="frame" x="5" y="0.0" width="365" height="52"/>
                                 <subviews>
@@ -107,14 +110,18 @@
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="PSg-uB-BHT" secondAttribute="bottom" id="1qd-LA-MIS"/>
                             <constraint firstItem="yXH-4s-zW2" firstAttribute="centerX" secondItem="tYJ-0M-xL8" secondAttribute="centerX" id="BJd-ez-1Pr"/>
+                            <constraint firstItem="wEA-7E-5dI" firstAttribute="width" secondItem="tYJ-0M-xL8" secondAttribute="width" id="BNf-Vw-v02"/>
                             <constraint firstAttribute="trailing" secondItem="PUg-8I-cRS" secondAttribute="trailing" constant="5" id="HxB-bS-6xT"/>
                             <constraint firstAttribute="trailing" secondItem="sUM-PN-H3K" secondAttribute="trailing" constant="5" id="Mzh-1E-i9x"/>
+                            <constraint firstItem="wEA-7E-5dI" firstAttribute="centerX" secondItem="tYJ-0M-xL8" secondAttribute="centerX" id="Tqa-bE-BJV"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="top" secondItem="sUM-PN-H3K" secondAttribute="bottom" constant="1" id="UIP-ve-Wm7"/>
                             <constraint firstItem="sUM-PN-H3K" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="YLY-0q-Plg"/>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="PUg-8I-cRS" secondAttribute="bottom" id="eKe-BD-OgF"/>
+                            <constraint firstItem="wEA-7E-5dI" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="iOq-7L-LM6"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="ihY-yI-UKn"/>
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="jfY-fu-2Nl"/>
                             <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" id="n70-ii-viN"/>
+                            <constraint firstItem="wEA-7E-5dI" firstAttribute="height" secondItem="tYJ-0M-xL8" secondAttribute="height" id="wIo-Dj-Otg"/>
                             <constraint firstItem="yXH-4s-zW2" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="x5q-0u-16M"/>
                             <constraint firstItem="sUM-PN-H3K" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="zUr-5A-azT"/>
                         </constraints>
@@ -332,7 +339,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -404,7 +411,7 @@
                         <viewControllerLayoutGuide type="top" id="EsY-8b-nMI"/>
                         <viewControllerLayoutGuide type="bottom" id="AR8-Ur-XwN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Cng-0T-jnZ">
+                    <view key="view" contentMode="scaleToFill" id="Cng-0T-jnZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -492,7 +499,7 @@
         <scene sceneID="RGF-bi-RzK">
             <objects>
                 <tableViewController id="d7m-yt-UrE" customClass="MoreInfoViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" sectionIndexMinimumDisplayRowCount="4" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GVT-VD-5f2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" sectionIndexMinimumDisplayRowCount="4" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GVT-VD-5f2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -503,7 +510,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WsT-U4-bCW" id="qiu-5k-J2x">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuFeedback" translatesAutoresizingMaskIntoConstraints="NO" id="1BZ-SV-8wP">
@@ -531,7 +538,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymZ-UR-4N6" id="UDq-Xd-TeO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuArrivalMethods" translatesAutoresizingMaskIntoConstraints="NO" id="KMG-Tt-m0V">
@@ -559,7 +566,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MXl-vC-37U" id="lVn-a8-2VY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuDiscounts" translatesAutoresizingMaskIntoConstraints="NO" id="H3n-oO-v3a">
@@ -587,7 +594,7 @@
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuAbout" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-CY-d9k">
@@ -615,7 +622,7 @@
                                         <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuSettings" translatesAutoresizingMaskIntoConstraints="NO" id="LbD-cL-YEC">
@@ -747,7 +754,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iva-po-brm" id="10o-yA-ZKS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4X-tM-6Eq" customClass="EventView" customModule="Conventions" customModuleProvider="target">
@@ -833,7 +840,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6s-rm-i6w" id="Ohh-if-itr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eew-d7-qrX" customClass="EventView" customModule="Conventions" customModuleProvider="target">
@@ -1527,6 +1534,7 @@
     </scenes>
     <resources>
         <image name="AboutLogo" width="153" height="60"/>
+        <image name="AppBackground" width="300" height="500"/>
         <image name="Floor1" width="460" height="651"/>
         <image name="MenuAbout" width="32" height="32"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>

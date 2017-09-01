@@ -11,13 +11,13 @@ import Foundation
 class Colors {
     static let colorAccent = UIColor(hexString: "#bf9200")
     static let toolbarBackground = UIColor(hexString: "#af7800")
-    static let eventTimeDefaultBackgroundColor = UIColor(hexString: "#E5EBF7")
-    static let eventTimeHeaderColor = UIColor(hexString: "#E5EBF7")
+    static let eventTimeDefaultBackgroundColor = UIColor.clear
+    static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = UIColor(hexString: "#af7800")
     static let buttonPressedColor = UIColor(hexString: "#d8ac00")
     static let eventEndedColor = UIColor(hexString: "#EBEBEB")
     static let eventRunningColor = UIColor(hexString: "#FEFFC9")
-    static let eventNotStartedColor = UIColor.white
+    static let eventNotStartedColor = UIColor.clear
     static let eventUserNeedsToCompleteFeecbackButtonColor = UIColor(hexString: "#7EC078")
     
 }

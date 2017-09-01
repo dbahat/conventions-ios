@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate {
+class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate, UIScrollViewDelegate {
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var noResultsFoundLabel: UILabel!
 
@@ -204,6 +204,20 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         edgesForExtendedLayout = UIRectEdge()
         
         view.backgroundColor = UIColor.white
+    }
+    
+    // MARK: - UIScrollView delegate
+    
+    // Needed so the events can be invisible when scrolled behind the sticky header.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for cell in tableView.visibleCells {
+            let hiddenFrameHeight = scrollView.contentOffset.y + navigationController!.navigationBar.frame.size.height - cell.frame.origin.y
+            if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
+                if let customCell = cell as? EventTableViewCell {
+                    customCell.maskCell(fromTop: hiddenFrameHeight)
+                }
+            }
+        }
     }
     
     // MARK: - Private methods
