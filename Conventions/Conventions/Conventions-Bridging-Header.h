@@ -4,5 +4,4 @@
 
 #import <Google/Analytics.h>
 #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-#import <MailCore/MailCore.h>
 #import "CCColorCube.h"

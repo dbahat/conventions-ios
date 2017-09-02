@@ -47,7 +47,6 @@
 		3B8D9FF01D1D9BA9005181DA /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FEF1D1D9BA9005181DA /* FeedbackView.swift */; };
 		3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF11D1DA068005181DA /* SmileyFeedbackQuestionCell.xib */; };
 		3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF31D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift */; };
-		3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */; };
 		3B8D9FFA1D27BCEF005181DA /* TextFeedbackQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D9FF91D27BCEF005181DA /* TextFeedbackQuestionCell.xib */; };
 		3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FFB1D27BEE3005181DA /* TextFeedbackQuestionCell.swift */; };
 		3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FFD1D27BFEC005181DA /* FeedbackQuestionCell.swift */; };
@@ -135,7 +134,6 @@
 		3B8D9FEF1D1D9BA9005181DA /* FeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		3B8D9FF11D1DA068005181DA /* SmileyFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmileyFeedbackQuestionCell.xib; sourceTree = "<group>"; };
 		3B8D9FF31D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileyFeedbackQuestionCell.swift; sourceTree = "<group>"; };
-		3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMailInfo.swift; sourceTree = "<group>"; };
 		3B8D9FF91D27BCEF005181DA /* TextFeedbackQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFeedbackQuestionCell.xib; sourceTree = "<group>"; };
 		3B8D9FFB1D27BEE3005181DA /* TextFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFeedbackQuestionCell.swift; sourceTree = "<group>"; };
 		3B8D9FFD1D27BFEC005181DA /* FeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackQuestionCell.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */,
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
-				3B8D9FF71D27B9F4005181DA /* FeedbackMailInfo.swift */,
 				3B014FB11D95A1AD0002DE8F /* Colors.swift */,
 				3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */,
 			);
@@ -614,7 +611,6 @@
 				3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */,
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
-				3B8D9FF81D27B9F4005181DA /* FeedbackMailInfo.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */,
 				3B0288781D99BA4D006E158C /* Updates.swift in Sources */,

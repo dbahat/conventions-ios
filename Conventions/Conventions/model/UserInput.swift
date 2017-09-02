@@ -40,50 +40,6 @@ class UserInput {
                 "answers": answers.map({$0.toJson()}) as AnyObject
             ]
         }
-        
-        func submit(_ title: String, bodyOpening: String, callback: ((_ success: Bool) -> Void)?) {
-            
-            let session = MCOSMTPSession();
-            session.hostname = "smtp.gmail.com"
-            session.port = 465
-            session.username = FeedbackMailInfo.mailbox
-            session.password = FeedbackMailInfo.password
-            session.connectionType = MCOConnectionType.TLS
-            
-            let builder = MCOMessageBuilder();
-            builder.header.from = MCOAddress(mailbox: FeedbackMailInfo.mailbox)
-            builder.header.to = [MCOAddress(mailbox: Convention.mailbox)]
-            builder.header.subject = "מייל אוטומטי -  " + title
-            
-            var formattedAnswers = bodyOpening + answers.map({
-                String(format: "%@\n%@", $0.questionText, $0.getAnswer())
-            }).joined(separator: "\n\t\n\t\n")
-            
-            // Attaching device id to mails to allow basic fraud detection
-            if let deviceId = UIDevice.current.identifierForVendor {
-                formattedAnswers.append(String(format: "\n\t\n\t\n\t\nDeviceId:\n%@", deviceId.uuidString))
-            }
-            
-            builder.textBody = formattedAnswers
-            
-            self.isSent = true
-            callback?(true)
-            let operation = session.sendOperation(with: builder.data());
-            operation?.start { error in
-                
-                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Feedback",
-                    action: "SendAttempt",
-                    label: error != nil ? "success" : "failure", value: NSNumber())
-                    .build() as! [AnyHashable: Any]);
-                
-                if error != nil {
-                    callback?(false)
-                } else {
-                    self.isSent = true
-                    callback?(true)
-                }
-            }
-        }
     }
     
     class ConventionEventInput {

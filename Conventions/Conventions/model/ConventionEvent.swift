@@ -215,6 +215,14 @@ class ConventionEvent {
             answers: input.feedbackUserInput.answers,
             callback: {success in
                 input.feedbackUserInput.isSent = success
+                
+                let telemetryEvent = GAIDictionaryBuilder.createEvent(
+                    withCategory: "Feedback",
+                    action: "SendAttempt",
+                    label: success ? "success" : "failure", value: NSNumber()).build() as! [AnyHashable: Any]
+                
+                GAI.sharedInstance().defaultTracker.send(telemetryEvent)
+                
                 callback?(success)
                 })
     }
