@@ -16,9 +16,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet fileprivate weak var lecturer: UILabel!
     @IBOutlet fileprivate weak var eventTitle: UILabel!
     @IBOutlet fileprivate weak var eventTypeAndCategory: UILabel!
-    @IBOutlet fileprivate weak var hallAndTime: UILabel!
+    @IBOutlet fileprivate weak var hall: UILabel!
+    @IBOutlet fileprivate weak var time: UILabel!
     @IBOutlet fileprivate weak var tags: UILabel!
     @IBOutlet fileprivate weak var prices: UILabel!
+    @IBOutlet fileprivate weak var titleAndEventTypeContainer: UIView!
     
     @IBOutlet fileprivate weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var eventDescriptionWebView: StaticContentWebView!
@@ -52,10 +54,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             feedbackViewHeightConstraint.constant = 0
         }
         
+        titleAndEventTypeContainer.layer.borderWidth = 2
+        titleAndEventTypeContainer.layer.borderColor = UIColor.black.cgColor
+        
         lecturer.text = event.lecturer
         eventTitle.text = event.title
         eventTypeAndCategory.text =  event.category + " - " + event.type.description
-        hallAndTime.text = event.hall.name + ", " + event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
+        hall.text = event.hall.name
+        time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
         prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price - 10)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")

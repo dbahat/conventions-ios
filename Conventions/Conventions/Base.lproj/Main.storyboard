@@ -173,13 +173,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8g-JM-D6V" userLabel="Title">
                                         <rect key="frame" x="20" y="20" width="335" height="66"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Type - Event Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNp-hP-p2k">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Type - Event Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNp-hP-p2k">
                                                 <rect key="frame" x="10" y="10" width="315" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event title" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-Dg-5UO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-Dg-5UO">
                                                 <rect key="frame" x="10" y="27" width="315" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -198,9 +198,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dze-UV-zhf" userLabel="Lecturer">
-                                        <rect key="frame" x="20" y="96" width="335" height="44"/>
+                                        <rect key="frame" x="20" y="96" width="335" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osb-kV-Cgw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osb-kV-Cgw">
                                                 <rect key="frame" x="10" y="10" width="315" height="24"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -212,28 +212,34 @@
                                         <constraints>
                                             <constraint firstItem="Osb-kV-Cgw" firstAttribute="leading" secondItem="dze-UV-zhf" secondAttribute="leading" constant="10" id="nnk-wD-9HM"/>
                                             <constraint firstAttribute="trailing" secondItem="Osb-kV-Cgw" secondAttribute="trailing" constant="10" id="vUn-f3-vwQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="Osb-kV-Cgw" secondAttribute="bottom" constant="10" id="wAN-j1-nSQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Osb-kV-Cgw" secondAttribute="bottom" id="wAN-j1-nSQ"/>
                                             <constraint firstItem="Osb-kV-Cgw" firstAttribute="top" secondItem="dze-UV-zhf" secondAttribute="top" constant="10" id="z2E-2U-qDh"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZL-9K-Xfi" userLabel="Hall">
-                                        <rect key="frame" x="20" y="140" width="335" height="79.5"/>
+                                        <rect key="frame" x="20" y="130" width="335" height="105.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hall and time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-mc-ttE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-mc-ttE">
                                                 <rect key="frame" x="10" y="5" width="315" height="20.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErG-zf-hsI">
+                                                <rect key="frame" x="10" y="30.5" width="315" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prices" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-Sz-3nI">
-                                                <rect key="frame" x="10" y="30.5" width="315" height="17"/>
+                                                <rect key="frame" x="10" y="56.5" width="315" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tags" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-U7-wWS">
-                                                <rect key="frame" x="10" y="52.5" width="315" height="17"/>
+                                                <rect key="frame" x="10" y="78.5" width="315" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -243,9 +249,12 @@
                                         <constraints>
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="0Ml-Il-fYs"/>
                                             <constraint firstAttribute="trailing" secondItem="CgD-mc-ttE" secondAttribute="trailing" constant="10" id="2DG-4Z-Ggk"/>
-                                            <constraint firstItem="zWb-Sz-3nI" firstAttribute="top" secondItem="CgD-mc-ttE" secondAttribute="bottom" constant="5" id="9OW-oP-ctb"/>
+                                            <constraint firstItem="ErG-zf-hsI" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="Byb-Ab-qjc"/>
+                                            <constraint firstItem="zWb-Sz-3nI" firstAttribute="top" secondItem="ErG-zf-hsI" secondAttribute="bottom" constant="5" id="Dmb-kE-Ab0"/>
                                             <constraint firstAttribute="trailing" secondItem="zWb-Sz-3nI" secondAttribute="trailing" constant="10" id="EaQ-Vo-4QF"/>
                                             <constraint firstItem="zWb-Sz-3nI" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="TF5-Gn-Ew6"/>
+                                            <constraint firstAttribute="trailing" secondItem="ErG-zf-hsI" secondAttribute="trailing" constant="10" id="UZh-lg-d78"/>
+                                            <constraint firstItem="ErG-zf-hsI" firstAttribute="top" secondItem="CgD-mc-ttE" secondAttribute="bottom" constant="5" id="Y8A-sw-P0H"/>
                                             <constraint firstItem="Mha-U7-wWS" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="adK-Ij-FKQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Mha-U7-wWS" secondAttribute="trailing" constant="10" id="erg-7b-hND"/>
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="top" constant="5" id="lQ5-WN-5kT"/>
@@ -254,14 +263,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="229.5" width="335" height="50"/>
+                                        <rect key="frame" x="20" y="245.5" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.78823529410000004" alpha="0.75053879310000005" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6OO-Xy-ohO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-i3-wiM">
-                                        <rect key="frame" x="20" y="289.5" width="335" height="220"/>
+                                        <rect key="frame" x="20" y="305.5" width="335" height="220"/>
                                         <subviews>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-bu-Mvg" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="315" height="200"/>
@@ -331,11 +340,13 @@
                         <outlet property="eventTypeAndCategory" destination="XNp-hP-p2k" id="viA-E9-ZzQ"/>
                         <outlet property="feedbackView" destination="9Ss-29-rjU" id="k0U-o7-HEF"/>
                         <outlet property="feedbackViewHeightConstraint" destination="6OO-Xy-ohO" id="9kV-rY-O4m"/>
-                        <outlet property="hallAndTime" destination="CgD-mc-ttE" id="vzd-dh-Afn"/>
+                        <outlet property="hall" destination="CgD-mc-ttE" id="EAH-8N-SQC"/>
                         <outlet property="image" destination="q76-A4-Mva" id="wAw-OJ-vDD"/>
                         <outlet property="lecturer" destination="Osb-kV-Cgw" id="oM5-eE-LBE"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>
+                        <outlet property="time" destination="ErG-zf-hsI" id="kCa-s2-v63"/>
+                        <outlet property="titleAndEventTypeContainer" destination="i8g-JM-D6V" id="5Gr-67-jBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwT-iS-kDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
