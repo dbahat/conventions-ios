@@ -101,6 +101,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         Convention.instance.conventionFeedbackForm.submit(conventionName: Convention.displayName, answers: userInputs.answers, callback: { success in
             
+                Convention.instance.feedback.conventionInputs.isSent = success
                 self.feedbackView.setFeedbackAsSent(success)
                 
                 if !success {

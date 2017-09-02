@@ -213,7 +213,10 @@ class ConventionEvent {
             conventionName: Convention.displayName,
             event: self,
             answers: input.feedbackUserInput.answers,
-            callback: callback)
+            callback: {success in
+                input.feedbackUserInput.isSent = success
+                callback?(success)
+                })
     }
     
     func canFillFeedback() -> Bool {
