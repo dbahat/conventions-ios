@@ -15,6 +15,6 @@ class UpdateTableViewCell: UITableViewCell {
         message.text = update.text
         
         message.backgroundColor = update.isNew
-            ? UIColor(hexString: "#fffdf7") : UIColor.white
+            ? UIColor.clear : UIColor.clear
     }
 }

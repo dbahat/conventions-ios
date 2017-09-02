@@ -311,13 +311,14 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
         tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), for: UIControlEvents.valueChanged)
+        tableViewController.refreshControl?.backgroundColor = Colors.buttonPressedColor
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)
     }
     
     fileprivate func addSearchController() {
         searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
-        searchController.searchBar.searchBarStyle = .default
+        searchController.searchBar.searchBarStyle = .minimal
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self
