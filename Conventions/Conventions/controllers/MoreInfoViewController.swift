@@ -20,6 +20,8 @@ class MoreInfoViewController : UITableViewController {
         
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
+        
+        tableView?.backgroundView = UIImageView(image: UIImage(named: "AppBackground"))
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
