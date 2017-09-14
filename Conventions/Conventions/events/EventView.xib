@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                                 <constraint firstAttribute="width" constant="20" id="8Si-uo-D0Q"/>
                                 <constraint firstAttribute="height" constant="20" id="Shn-LZ-XiJ"/>
                             </constraints>
-                            <state key="normal" image="EventAttending"/>
+                            <state key="normal" image="EventNotAttending"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event title" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUG-9m-Hr6">
                             <rect key="frame" x="8" y="8" width="289" height="21.5"/>
@@ -169,7 +169,7 @@
         <tapGestureRecognizer id="PAd-ob-HPP"/>
     </objects>
     <resources>
-        <image name="EventAttending" width="32" height="32"/>
+        <image name="EventNotAttending" width="36" height="36"/>
         <image name="Feedback_icon" width="24" height="24"/>
     </resources>
 </document>

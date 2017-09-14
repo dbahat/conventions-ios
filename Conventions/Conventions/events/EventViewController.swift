@@ -206,7 +206,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             return eventImage;
         }
         
-        return UIImage(named: "AppBackground")!
+        return UIImage(named: "Event_Default")!
     }
     
     fileprivate func refreshFavoriteBarIconImage() {

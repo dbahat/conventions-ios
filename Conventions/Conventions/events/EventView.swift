@@ -31,6 +31,10 @@ class EventView: UIView {
         super.init(coder: aDecoder);
         let view = Bundle.main.loadNibNamed(String(describing: EventView.self), owner: self, options: nil)![0] as! UIView;
         view.frame = self.bounds;
+        
+        // Allow dynamic changing of the favorite button color
+        favoriteButton.imageView?.image = favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        
         addSubview(view);
     }
     
@@ -46,9 +50,7 @@ class EventView: UIView {
         lecturer.text = event.lecturer;
         hallName.text = event.hall.name;
         timeLayout.backgroundColor = event.color;
-        
-        let favoriteImage = event.attending == true ? UIImage(named: "EventAttending") : UIImage(named: "EventNotAttending");
-        favoriteButton.setImage(favoriteImage, for: UIControlState());
+        favoriteButton.imageView?.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.black
         
         if let textColor = event.textColor {
             startTime.textColor = textColor;
