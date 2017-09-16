@@ -357,7 +357,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -447,7 +447,7 @@
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.65098039215686276" green="0.71372549019607845" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ozF-HT-Sa6" firstAttribute="top" secondItem="EsY-8b-nMI" secondAttribute="bottom" constant="20" id="8jy-MW-Xel"/>
                             <constraint firstAttribute="trailing" secondItem="ozF-HT-Sa6" secondAttribute="trailing" constant="-20" id="T9Y-Fp-aog"/>
@@ -1618,7 +1618,7 @@
     </scenes>
     <resources>
         <image name="AboutLogo" width="153" height="60"/>
-        <image name="AppBackground" width="300" height="500"/>
+        <image name="AppBackground" width="450" height="800"/>
         <image name="Floor1" width="460" height="651"/>
         <image name="MenuAbout" width="32" height="32"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
