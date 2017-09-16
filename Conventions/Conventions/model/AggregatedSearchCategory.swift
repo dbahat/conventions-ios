@@ -11,6 +11,7 @@ import Foundation
 enum AggregatedSearchCategory {
     case lectures
     case games
+    case workshops
     case shows
     case others
     
@@ -19,9 +20,11 @@ enum AggregatedSearchCategory {
         case .lectures:
             return ["הרצאה" ,"פאנל"]
         case .games:
-            return ["משחק שולחני" ,"משחק תפקידים חי" ,"מיוחד" ,"טורניר"]
+            return ["משחק שולחני" ,"משחק תפקידים חי" ,"משחק תפקידים לילדים", "מיוחד" ,"טורניר"]
         case .shows:
-            return ["הקרנה" ,"מופע"]
+            return ["הקרנה" ,"מופע", "מופע מוזיקלי", "הקרנה מונחית"]
+        case .workshops:
+            return ["סדנה"]
         case .others:
             return []
         }
@@ -31,7 +34,7 @@ enum AggregatedSearchCategory {
         if self == .others {
             return !AggregatedSearchCategory.lectures.containsCategory(eventCategory)
                 && !AggregatedSearchCategory.games.containsCategory(eventCategory)
-                && !AggregatedSearchCategory.shows.containsCategory(eventCategory)
+                && !AggregatedSearchCategory.workshops.containsCategory(eventCategory)
         }
         
         return categories.contains(eventCategory)

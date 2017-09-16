@@ -59,7 +59,7 @@ class SearchCategoriesView : UIView {
             searchCategories.append(AggregatedSearchCategory.games)
         }
         if showsSwitch.isOn {
-            searchCategories.append(AggregatedSearchCategory.shows)
+            searchCategories.append(AggregatedSearchCategory.workshops)
         }
         if othersSwitch.isOn {
             searchCategories.append(AggregatedSearchCategory.others)
