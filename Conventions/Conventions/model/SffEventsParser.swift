@@ -65,6 +65,10 @@ class SffEventsParser {
                 print("Event missing categories. Skipping. ID=", eventId);
                 continue;
             }
+            guard let availableTickets = event["available_tickets"] as? Int else {
+                print("Event missing available tickets. Skipping. ID=", eventId);
+                continue;
+            }
             
             var eventPrice = 0
             if let price = event["price"] as? String,
@@ -105,7 +109,8 @@ class SffEventsParser {
                 category: category.decodeHtmlSymbols() ?? category,
                 price: eventPrice,
                 tags: tags,
-                url: URL(string: (event["url"] as? String)!)!)
+                url: URL(string: (event["url"] as? String)!)!,
+                availableTickets: availableTickets)
             
             result.append(conventionEvent)
             

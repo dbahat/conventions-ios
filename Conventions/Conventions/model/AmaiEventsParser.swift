@@ -130,7 +130,8 @@ class AmaiEventsParser {
                     category: "",
                     price: 0,
                     tags: [],
-                    url: URL(string: "")!)
+                    url: URL(string: "")!,
+                    availableTickets: -1)
                 
                 result.append(conventionEvent);
                 internalEventNumber += 1;

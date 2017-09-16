@@ -28,6 +28,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet fileprivate weak var eventDescriptionContainer: UIView!
     @IBOutlet fileprivate weak var feedbackView: FeedbackView!
     @IBOutlet fileprivate weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var availableTickets: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price - 10)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
+        availableTickets.text = event.availableTickets > 0
+            ? String(format:"נותרו %d כרטיסים", event.availableTickets) : "לא נותרו כרטיסים"
         
         navigationItem.title = event.type.description
         
