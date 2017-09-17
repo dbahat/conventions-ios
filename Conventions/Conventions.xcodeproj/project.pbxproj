@@ -16,6 +16,9 @@
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
 		3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B16597F1C946E720074F1FF /* ZoomToPoint.swift */; };
+		3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */; };
+		3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */; };
+		3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */; };
 		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
 		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
 		3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */; };
@@ -101,6 +104,9 @@
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
 		3B16597F1C946E720074F1FF /* ZoomToPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomToPoint.swift; sourceTree = "<group>"; };
+		3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeforeConventionHomeContentView.xib; path = home/BeforeConventionHomeContentView.xib; sourceTree = "<group>"; };
+		3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeforeConventionHomeContentView.swift; path = home/BeforeConventionHomeContentView.swift; sourceTree = "<group>"; };
+		3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = home/HomeViewController.swift; sourceTree = "<group>"; };
 		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchCategoriesView.xib; path = events/SearchCategoriesView.xib; sourceTree = "<group>"; };
@@ -222,6 +228,16 @@
 			path = externals/ZoomToPoint;
 			sourceTree = "<group>";
 		};
+		3B17639A1F6D788B009F8F38 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */,
+				3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */,
+				3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */,
+			);
+			name = home;
+			sourceTree = "<group>";
+		};
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +322,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B17639A1F6D788B009F8F38 /* home */,
 				3B02887B1D9C4720006E158C /* Conventions.entitlements */,
 				3B8D9FEC1D1D4E4E005181DA /* feedback */,
 				3BB631061C89680800D54D3E /* controllers */,
@@ -524,6 +541,7 @@
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				3BF22D471D9EC5490090E8E6 /* DiscountsContent.html in Resources */,
 				3B4B4A801D36BD4B00943EF5 /* TableAnswerCell.xib in Resources */,
+				3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* FeedbackView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
@@ -612,6 +630,8 @@
 				3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */,
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
+				3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */,
+				3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */,
 				3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */,
 				3B0288781D99BA4D006E158C /* Updates.swift in Sources */,
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
