@@ -98,7 +98,7 @@ class Convention {
             eventTitleEntry: "entry.1847107867",
             eventTimeEntry: "entry.1648362575",
             hallEntry: "entry.1510105148",
-            questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים דומים בעתיד?": "entry.1416969956", "עוד משהו?": "entry.1582215667"])
+            questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים בנושאים דומים בעתיד?": "entry.1416969956", "עוד משהו?": "entry.1582215667"])
     }
     
     func findHallByName(_ name: String) -> Hall {
