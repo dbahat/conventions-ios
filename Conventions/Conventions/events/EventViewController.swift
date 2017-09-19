@@ -64,7 +64,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         hall.text = event.hall.name
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
-        prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price - 10)
+        prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price > 10 ? event.price - 10 : 0)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
         availableTickets.text = event.availableTickets > 0
             ? String(format:"נותרו %d כרטיסים", event.availableTickets) : "לא נותרו כרטיסים"
