@@ -244,6 +244,14 @@ class ConventionEvent {
         
         return input.feedbackUserInput.isSent
     }
+    
+    func hasStarted() -> Bool {
+        return startTime.timeIntervalSince1970 < Date.now().timeIntervalSince1970
+    }
+    
+    func hasEnded() -> Bool {
+        return endTime.timeIntervalSince1970 < Date.now().timeIntervalSince1970
+    }
 }
 
 extension Array where Element: FeedbackAnswer {

@@ -11,5 +11,7 @@ import Foundation
 protocol ConventionHomeContentViewProtocol : class {
     func navigateToEventsClicked()
     func navigateToUpdatesClicked()
+    func navigateToFavoritesClicked()
+    func navigateToFeedbackClicked()
     func navigateToEventClicked(event: ConventionEvent)
 }

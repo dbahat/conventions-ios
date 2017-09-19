@@ -10,6 +10,8 @@ import Foundation
 
 class AfterConventionHomeContentView : UIView {
     
+    weak var delegate: ConventionHomeContentViewProtocol?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         inflateNib(AfterConventionHomeContentView.self)
@@ -18,5 +20,9 @@ class AfterConventionHomeContentView : UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         inflateNib(AfterConventionHomeContentView.self)
+    }
+    
+    @IBAction func sendFeedbackButtonWasClicked(_ sender: Any) {
+        delegate?.navigateToFeedbackClicked()
     }
 }

@@ -19,30 +19,61 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         tabBarController?.navigationItem.title = ""
         
         homeContentContainer.subviews.forEach({ $0.removeFromSuperview() })
+        homeContentContainer.addSubview(createHomeContentView())
+    }
+    
+    private func createHomeContentView() -> UIView {
+        let currentFavoriteEvent = getCurrentFavoriteEvent()
         
         if (Date.now().timeIntervalSince1970 < Convention.date.timeIntervalSince1970) {
-            let homeContentView = BeforeConventionHomeContentView(frame: homeContentContainer.bounds)
-            homeContentView.delegate = self
-            homeContentView.setDates(start: Convention.date, end: Convention.endDate)
-            homeContentContainer.addSubview(homeContentView)
-        } else {
-            let upcomingEvents = Convention.instance.events.getAll()
-                .filter({$0.startTime.timeIntervalSince1970 > Date.now().timeIntervalSince1970})
-                .sorted(by: {$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
-            
-            let nextEventBatchStartTime = upcomingEvents.first?.startTime
-            let nextBatchUpcomingEvents = upcomingEvents
-                .filter({$0.startTime == nextEventBatchStartTime})
-                .sorted(by: {$0.hall.order < $1.hall.order})
-            
-            let homeContentView = DuringConventionNoFavoritesHomeContentView(frame: homeContentContainer.bounds)
-            homeContentView.delegate = self
-            homeContentView.setEvents(nextBatchUpcomingEvents)
-            homeContentContainer.addSubview(homeContentView)
-            
-            //let homeContentView = AfterConventionHomeContentView(frame: homeContentContainer.bounds)
-            //homeContentContainer.addSubview(homeContentView)
+            let contentView = BeforeConventionHomeContentView(frame: homeContentContainer.bounds)
+            contentView.delegate = self
+            return contentView
         }
+        if (!Convention.instance.events.getAll().contains(where: {!$0.hasStarted()}) && currentFavoriteEvent == nil) {
+            let contentView = AfterConventionHomeContentView(frame: homeContentContainer.bounds)
+            contentView.delegate = self
+            return contentView
+        }
+        
+        let upcomingFavoriteEvent = getUpcomingFavoriteEvent()
+        
+        if (currentFavoriteEvent == nil && upcomingFavoriteEvent == nil) {
+            let contentView = DuringConventionNoFavoritesHomeContentView(frame: homeContentContainer.bounds)
+            contentView.delegate = self
+            contentView.setEvents(getUpcomingEvents())
+            return contentView
+        }
+        
+        let contentView = DuringConventionWithFavoritesHomeContentView(frame: homeContentContainer.bounds)
+        contentView.delegate = self
+        contentView.currentFavoriteEvent = currentFavoriteEvent
+        contentView.upcomingFavoriteEvent = upcomingFavoriteEvent
+        return contentView
+    }
+    
+    private func getUpcomingEvents() -> Array<ConventionEvent> {
+        let upcomingEvents = Convention.instance.events.getAll()
+            .filter({$0.startTime.timeIntervalSince1970 >= Date.now().timeIntervalSince1970})
+            .sorted(by: {$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
+        
+        let nextEventBatchStartTime = upcomingEvents.first?.startTime
+        return upcomingEvents
+            .filter({$0.startTime == nextEventBatchStartTime})
+            .sorted(by: {$0.hall.order < $1.hall.order})
+    }
+    
+    private func getCurrentFavoriteEvent() -> ConventionEvent? {
+        return Convention.instance.events.getAll()
+            .filter({$0.attending && $0.hasStarted() && !$0.hasEnded()})
+            .first
+    }
+    
+    private func getUpcomingFavoriteEvent() -> ConventionEvent? {
+        return Convention.instance.events.getAll()
+            .sorted(by: {$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
+            .filter({$0.attending && !$0.hasStarted()})
+            .first
     }
     
     func navigateToUpdatesClicked() {
@@ -51,8 +82,18 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         }
     }
     
+    func navigateToFeedbackClicked() {
+        if let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ConventionFeedbackViewController.self)) as? ConventionFeedbackViewController {
+            navigationController?.pushViewController(feedbackVc, animated: true)
+        }
+    }
+    
     func navigateToEventsClicked() {
         tabBarController?.selectedIndex = 3
+    }
+    
+    func navigateToFavoritesClicked() {
+        tabBarController?.selectedIndex = 2
     }
     
     func navigateToEventClicked(event: ConventionEvent) {
