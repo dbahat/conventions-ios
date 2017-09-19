@@ -28,19 +28,16 @@ class EventView: UIView {
     weak var delegate: EventStateProtocol?;
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder);
-        let view = Bundle.main.loadNibNamed(String(describing: EventView.self), owner: self, options: nil)![0] as! UIView;
-        view.frame = self.bounds;
+        super.init(coder: aDecoder)
+        inflateNib(EventView.self)
         
         // Allow dynamic changing of the favorite button color
         favoriteButton.imageView?.image = favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        
-        addSubview(view);
     }
     
 
     @IBAction func changeFavoriteStateButtonWasClicked(_ sender: UIButton) {
-        delegate?.changeFavoriteStateWasClicked(self);
+        delegate?.changeFavoriteStateWasClicked(self)
     }
     
     func setEvent(_ event : ConventionEvent) {
