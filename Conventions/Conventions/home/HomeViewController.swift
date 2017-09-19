@@ -25,6 +25,23 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
             homeContentView.delegate = self
             homeContentView.setDates(start: Convention.date, end: Convention.endDate)
             homeContentContainer.addSubview(homeContentView)
+        } else {
+            let upcomingEvents = Convention.instance.events.getAll()
+                .filter({$0.startTime.timeIntervalSince1970 > Date.now().timeIntervalSince1970})
+                .sorted(by: {$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
+            
+            let nextEventBatchStartTime = upcomingEvents.first?.startTime
+            let nextBatchUpcomingEvents = upcomingEvents
+                .filter({$0.startTime == nextEventBatchStartTime})
+                .sorted(by: {$0.hall.order < $1.hall.order})
+            
+            let homeContentView = DuringConventionNoFavoritesHomeContentView(frame: homeContentContainer.bounds)
+            homeContentView.delegate = self
+            homeContentView.setEvents(nextBatchUpcomingEvents)
+            homeContentContainer.addSubview(homeContentView)
+            
+            //let homeContentView = AfterConventionHomeContentView(frame: homeContentContainer.bounds)
+            //homeContentContainer.addSubview(homeContentView)
         }
     }
     
@@ -36,5 +53,12 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     
     func navigateToEventsClicked() {
         tabBarController?.selectedIndex = 3
+    }
+    
+    func navigateToEventClicked(event: ConventionEvent) {
+        if let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController {
+            eventVc.event = event
+            navigationController?.pushViewController(eventVc, animated: true)
+        }
     }
 }

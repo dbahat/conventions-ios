@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol ConventionHomeContentViewProtocol : class {
-    func navigateToEventsClicked()
-    func navigateToUpdatesClicked()
-}
-
 class BeforeConventionHomeContentView : UIView {
     @IBOutlet private weak var conventionDatesLabel: UILabel!
     @IBOutlet private weak var remainingDaysLabel: UILabel!
@@ -21,18 +16,13 @@ class BeforeConventionHomeContentView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        let view = Bundle.main.loadNibNamed(String(describing: BeforeConventionHomeContentView.self), owner: self, options: nil)![0] as! UIView
-        view.frame = self.bounds
-        addSubview(view)
+        inflateNib(BeforeConventionHomeContentView.self)
     }
     
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        let view = Bundle.main.loadNibNamed(String(describing: BeforeConventionHomeContentView.self), owner: self, options: nil)![0] as! UIView
-        view.frame = self.bounds
-        addSubview(view)
+        inflateNib(BeforeConventionHomeContentView.self)
     }
     
     func setDates(start: Date, end: Date) {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DuringConventionNoFavoritesHomeContentView" customModule="Conventions" customModuleProvider="target">
+            <connections>
+                <outlet property="eventsTable" destination="KZk-vF-SEq" id="hCn-XK-TiQ"/>
+                <outlet property="titleLabel" destination="fDj-QS-diF" id="glw-oo-GI1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-eX-g27">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אירועים שמתחילים ב-11:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-QS-diF">
+                            <rect key="frame" x="8" y="8" width="359" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="fDj-QS-diF" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="top" constant="8" id="b1j-TW-7pI"/>
+                        <constraint firstItem="fDj-QS-diF" firstAttribute="leading" secondItem="ZTO-eX-g27" secondAttribute="leading" constant="8" id="dvh-0B-KMd"/>
+                        <constraint firstAttribute="trailing" secondItem="fDj-QS-diF" secondAttribute="trailing" constant="8" id="el7-TF-MF6"/>
+                        <constraint firstAttribute="bottom" secondItem="fDj-QS-diF" secondAttribute="bottom" constant="8" id="jWl-JR-Dkh"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-vF-SEq">
+                    <rect key="frame" x="0.0" y="40" width="375" height="587"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.35294117650000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="JYZ-RK-JWQ"/>
+                        <outlet property="delegate" destination="-1" id="q1B-vf-Nhx"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG">
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <state key="normal" title="לכל האירועים">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showAllEventsButtonWasClicked:" destination="-1" eventType="touchUpInside" id="jtk-UK-JVh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="KZk-vF-SEq" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="bottom" id="06t-V8-PoF"/>
+                <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" id="B8u-TK-w9W"/>
+                <constraint firstItem="KZk-vF-SEq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RO9-OO-BCt"/>
+                <constraint firstAttribute="trailing" secondItem="KZk-vF-SEq" secondAttribute="trailing" id="TRx-MH-CBr"/>
+                <constraint firstItem="ZTO-eX-g27" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wa2-4f-9ZJ"/>
+                <constraint firstItem="Yog-L5-8KG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gJE-TC-bAM"/>
+                <constraint firstItem="Yog-L5-8KG" firstAttribute="top" secondItem="KZk-vF-SEq" secondAttribute="bottom" id="hYl-29-9Rm"/>
+                <constraint firstAttribute="trailing" secondItem="Yog-L5-8KG" secondAttribute="trailing" id="rad-CO-Vbb"/>
+                <constraint firstItem="ZTO-eX-g27" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rav-lj-VtS"/>
+                <constraint firstAttribute="trailing" secondItem="ZTO-eX-g27" secondAttribute="trailing" id="xoe-Ng-2KQ"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
