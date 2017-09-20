@@ -234,7 +234,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="l8J-Dg-5UO" secondAttribute="bottom" constant="10" id="4yY-bb-EOG"/>
                                             <constraint firstItem="l8J-Dg-5UO" firstAttribute="leading" secondItem="i8g-JM-D6V" secondAttribute="leading" constant="10" id="Hav-sD-gi2"/>
@@ -256,7 +256,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80115840520000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Osb-kV-Cgw" firstAttribute="leading" secondItem="dze-UV-zhf" secondAttribute="leading" constant="10" id="nnk-wD-9HM"/>
                                             <constraint firstAttribute="trailing" secondItem="Osb-kV-Cgw" secondAttribute="trailing" constant="10" id="vUn-f3-vwQ"/>
@@ -299,7 +299,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80115840520000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="0Ml-Il-fYs"/>
                                             <constraint firstAttribute="trailing" secondItem="CgD-mc-ttE" secondAttribute="trailing" constant="10" id="2DG-4Z-Ggk"/>
@@ -337,7 +337,7 @@
                                                 </constraints>
                                             </webView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="B4w-bu-Mvg" firstAttribute="top" secondItem="u5k-i3-wiM" secondAttribute="top" constant="10" id="4VN-7O-FNr"/>
                                             <constraint firstAttribute="bottom" secondItem="B4w-bu-Mvg" secondAttribute="bottom" constant="10" id="Bww-dz-PA7"/>
@@ -415,7 +415,7 @@
         <scene sceneID="qe6-hS-6vh">
             <objects>
                 <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh9-EM-aNY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
