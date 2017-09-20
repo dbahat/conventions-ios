@@ -54,13 +54,15 @@ class EventView: UIView {
             endTime.textColor = textColor;
         }
         
-        let currentTime = Date()
+        titleAndDetailsContainer.backgroundColor = UIColor.clear
+        
+        let currentTime = Date.now()
         if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
-            titleAndDetailsContainer.backgroundColor = Colors.eventEndedColor
+            title.textColor = Colors.eventEndedColor
         } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
-            titleAndDetailsContainer.backgroundColor = Colors.eventRunningColor
+            title.textColor = Colors.eventRunningColor
         } else {
-            titleAndDetailsContainer.backgroundColor = Colors.eventNotStartedColor
+            title.textColor = Colors.eventNotStartedColor
         }
         
         if event.canFillFeedback() {
