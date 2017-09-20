@@ -37,7 +37,7 @@ class ConventionEvent {
     let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
         FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
-        FeedbackQuestion(question:"האם תרצה לבוא לאירועים דומים בעתיד?", answerType: .Smiley),
+        FeedbackQuestion(question:"האם תרצה לבוא לאירועים בנושאים דומים בעתיד?", answerType: .Smiley),
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
