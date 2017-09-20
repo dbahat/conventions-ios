@@ -309,9 +309,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // sticky section headers).
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl()
-        tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
+        tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), for: UIControlEvents.valueChanged)
-        tableViewController.refreshControl?.backgroundColor = Colors.buttonPressedColor
+        tableViewController.refreshControl?.backgroundColor = UIColor(hexString: "#A6B6B3")
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)
     }
