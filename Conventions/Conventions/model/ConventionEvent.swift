@@ -95,7 +95,7 @@ class ConventionEvent {
                                price: price,
                                tags: tags,
                                url: URL(string: url)!,
-                               availableTickets: -1)
+                               availableTickets: availableTickets)
     }
     
     fileprivate static func findHall(_ halls: Array<Hall>, hallName: String) -> Hall {
