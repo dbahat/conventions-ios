@@ -27,6 +27,7 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         
         if (Date.now().timeIntervalSince1970 < Convention.date.timeIntervalSince1970) {
             let contentView = BeforeConventionHomeContentView(frame: homeContentContainer.bounds)
+            contentView.setDates(start: Convention.date, end: Convention.endDate)
             contentView.delegate = self
             return contentView
         }
