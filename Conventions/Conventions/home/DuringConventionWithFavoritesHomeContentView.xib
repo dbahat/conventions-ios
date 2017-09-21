@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,7 +14,6 @@
                 <outlet property="currentEventHeightConstraint" destination="kgy-St-oMR" id="cnz-FF-GXK"/>
                 <outlet property="currentEventLabel" destination="hKb-Rw-aVI" id="VA1-iz-tTX"/>
                 <outlet property="upcomingEventHallLabel" destination="yNL-R3-6P7" id="Ddu-nz-PWV"/>
-                <outlet property="upcomingEventHeightConstraint" destination="BOp-AG-Y3K" id="2SE-2p-66l"/>
                 <outlet property="upcomingEventNameLabel" destination="Sr2-E8-lqd" id="Tx8-gu-fea"/>
                 <outlet property="upcomingEventTimeLabel" destination="bHP-fA-Sxr" id="I19-VO-3j2"/>
             </connections>
@@ -25,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-x0-CGl">
-                    <rect key="frame" x="0.0" y="408.5" width="375" height="54.5"/>
+                    <rect key="frame" x="0.0" y="411.5" width="375" height="54.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירועים שלי" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4v-fi-VsF">
                             <rect key="frame" x="8" y="8" width="359" height="38.5"/>
@@ -43,7 +42,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH">
-                    <rect key="frame" x="0.0" y="463" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="466" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="כעת: תחרות השירה" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-Rw-aVI">
                             <rect key="frame" x="8" y="8" width="359" height="28"/>
@@ -66,21 +65,21 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-lb-z29">
-                    <rect key="frame" x="0.0" y="507" width="375" height="120"/>
+                    <rect key="frame" x="0.0" y="510" width="375" height="117"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="בעוד דקה:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-fA-Sxr">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בעוד דקה:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-fA-Sxr">
                             <rect key="frame" x="8" y="8" width="359" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2D Musical" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr2-E8-lqd">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2D Musical" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr2-E8-lqd">
                             <rect key="frame" x="8" y="40" width="359" height="33.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="סנימטק 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-R3-6P7">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="סנימטק 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-R3-6P7">
                             <rect key="frame" x="8" y="81.5" width="359" height="27.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +91,6 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="bHP-fA-Sxr" secondAttribute="trailing" constant="8" id="3bK-en-G2i"/>
                         <constraint firstItem="Sr2-E8-lqd" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="4iA-N6-uvR"/>
-                        <constraint firstAttribute="height" constant="120" id="BOp-AG-Y3K"/>
                         <constraint firstAttribute="trailing" secondItem="yNL-R3-6P7" secondAttribute="trailing" constant="8" id="Hjj-KL-5Lg"/>
                         <constraint firstItem="bHP-fA-Sxr" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="Hzt-ag-TMU"/>
                         <constraint firstAttribute="trailing" secondItem="Sr2-E8-lqd" secondAttribute="trailing" constant="8" id="aOY-f7-nXZ"/>

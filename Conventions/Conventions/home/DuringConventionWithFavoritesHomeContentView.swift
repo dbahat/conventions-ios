@@ -17,7 +17,6 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     // keeping strong references to the constraints, since we change their active state dynamiclly, which
     // causes the strong ref kept from the view hirarchy to the constraint to drop.
     @IBOutlet private var currentEventHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private var upcomingEventHeightConstraint: NSLayoutConstraint!
     
     var currentFavoriteEvent: ConventionEvent? {
         didSet {
@@ -34,7 +33,6 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     var upcomingFavoriteEvent: ConventionEvent? {
         didSet {
             if let event = upcomingFavoriteEvent {
-                upcomingEventHeightConstraint.isActive = false
                 upcomingEventTimeLabel.text = String(format: "ב%@ בשעה %@"
                     , event.startTime.format("EEE")
                     , event.startTime.format("HH:mm"))
@@ -42,16 +40,12 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
                 upcomingEventHallLabel.text = event.hall.name
             } else {
                 if let currentEvent = currentFavoriteEvent {
-                    upcomingEventHeightConstraint.isActive = false
                     upcomingEventTimeLabel.text = "כעת:"
                     upcomingEventNameLabel.text = currentEvent.title
                     upcomingEventHallLabel.text = currentEvent.hall.name
                     
                     currentEventHeightConstraint.isActive = true
                     currentEventHeightConstraint.constant = 0
-                } else {
-                    upcomingEventHeightConstraint.isActive = true
-                    upcomingEventHeightConstraint.constant = 0
                 }
             }
         }
