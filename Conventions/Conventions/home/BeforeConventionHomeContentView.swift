@@ -27,7 +27,10 @@ class BeforeConventionHomeContentView : UIView {
     
     func setDates(start: Date, end: Date) {
         conventionDatesLabel.text = String(format: "%@ - %@", start.format("dd.MM.yyyy"), end.format("dd.MM.yyyy"))
-        if let numberOfDays = Calendar.current.dateComponents([.day], from: Date.now(), to: start).day {
+        if let numberOfDays = Calendar.current.dateComponents(
+            [.day],
+            from: Date.now().clearTimeComponent(),
+            to:start).day {
             remainingDaysLabel.text = formatRemainingDays(numberOfDays)
         }
     }
