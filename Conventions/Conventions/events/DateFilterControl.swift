@@ -10,7 +10,7 @@ import Foundation
 
 class DateFilterControl : UISegmentedControl {
     
-    fileprivate var toDate = Date()
+    fileprivate var toDate = Date.now()
     fileprivate let SecondsInDay : Double = 60 * 60 * 24
     
     var selectedDate: Date {

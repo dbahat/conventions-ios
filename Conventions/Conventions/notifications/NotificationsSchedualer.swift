@@ -109,7 +109,7 @@ class NotificationsSchedualer {
         }
         
         // Don't schdule a notification in the past
-        if (event.startTime.addMinutes(-5).timeIntervalSince1970 < Date().timeIntervalSince1970) {return;}
+        if (event.startTime.addMinutes(-5).timeIntervalSince1970 < Date.now().timeIntervalSince1970) {return;}
         
         let notification = UILocalNotification()
         notification.fireDate = event.startTime.addMinutes(-5)
@@ -138,7 +138,7 @@ class NotificationsSchedualer {
         }
         
         // Don't schdule a notification in the past
-        if (event.endTime.timeIntervalSince1970 < Date().timeIntervalSince1970) {return;}
+        if (event.endTime.timeIntervalSince1970 < Date.now().timeIntervalSince1970) {return;}
         
         // event about to start notification
         let notification = UILocalNotification()

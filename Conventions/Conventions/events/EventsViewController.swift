@@ -84,7 +84,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             return
         }
         
-        dateFilterControl.selectDate(Date())
+        dateFilterControl.selectDate(Date.now())
         calculateEventsAndTimeSections()
         tableView.reloadData()
         
@@ -92,7 +92,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // Dispatching to the next layout pass so the user will see the scroll animation
         tableView.layoutIfNeeded()
         DispatchQueue.main.async {
-            if let sectionIndex = self.getSectionIndex(forDate: Date()) {
+            if let sectionIndex = self.getSectionIndex(forDate: Date.now()) {
                 self.tableView.scrollToRow(
                     at: IndexPath(row: 0, section: sectionIndex),
                     at: .top,

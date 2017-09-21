@@ -124,7 +124,7 @@ class SffEventsParser {
             return result;
         }
         
-        return Date()
+        return Date.now()
     }
     
     fileprivate func parseEventDescription(_ eventDescription : String?) -> String? {

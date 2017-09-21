@@ -105,7 +105,7 @@ class Updates {
             return result;
         }
         
-        return Date()
+        return Date.now()
     }
     
     fileprivate func save() {

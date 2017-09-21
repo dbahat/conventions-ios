@@ -11,7 +11,7 @@ import Foundation
 class Update {
     var id: String = "";
     var text: String = "";
-    var date: Date = Date();
+    var date: Date = Date.now();
     var isNew = true;
     
     init(id: String, text: String, date: Date) {

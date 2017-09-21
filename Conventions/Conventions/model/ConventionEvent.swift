@@ -234,7 +234,7 @@ class ConventionEvent {
     
     func canFillFeedback() -> Bool {
         // Check if the event will end in 15 minutes or less
-        return Date().compare(endTime.addMinutes(-15)) == .orderedDescending
+        return Date.now().compare(endTime.addMinutes(-15)) == .orderedDescending
     }
     
     func didSubmitFeedback() -> Bool {
