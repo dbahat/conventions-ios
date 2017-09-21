@@ -106,12 +106,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         isActive = false
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        // Since we want the launch screen and homeViewController to show in portrait only, and all the 
-        // rest of the screens to support landscape, we configure the plist to allow portrait only, and
-        // override this definition here.
-        return UIInterfaceOrientationMask.all
-    }
     
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         
