@@ -766,21 +766,21 @@
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-FX-jAj" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36v-mf-1PU" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="284.5" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="364" width="375" height="254"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fIb-FX-jAj" firstAttribute="height" secondItem="lL7-48-hx3" secondAttribute="height" multiplier="0.5" id="6sv-1N-AML"/>
+                            <constraint firstItem="fIb-FX-jAj" firstAttribute="height" secondItem="lL7-48-hx3" secondAttribute="height" multiplier="0.45" id="6sv-1N-AML"/>
+                            <constraint firstItem="36v-mf-1PU" firstAttribute="top" secondItem="fIb-FX-jAj" secondAttribute="bottom" id="9FX-tr-9Kh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="36v-mf-1PU" secondAttribute="bottom" id="9I7-P4-go3"/>
                             <constraint firstAttribute="trailing" secondItem="36v-mf-1PU" secondAttribute="trailing" id="DmI-NW-d8d"/>
                             <constraint firstItem="1AA-4M-rpa" firstAttribute="centerX" secondItem="lL7-48-hx3" secondAttribute="centerX" id="Grq-yL-aYd"/>
-                            <constraint firstItem="36v-mf-1PU" firstAttribute="height" secondItem="lL7-48-hx3" secondAttribute="height" multiplier="0.5" id="LX8-HD-erS"/>
                             <constraint firstItem="fIb-FX-jAj" firstAttribute="leading" secondItem="lL7-48-hx3" secondAttribute="leading" id="e92-hQ-cjG"/>
                             <constraint firstItem="36v-mf-1PU" firstAttribute="leading" secondItem="lL7-48-hx3" secondAttribute="leading" id="i4D-Md-nDj"/>
                             <constraint firstItem="fIb-FX-jAj" firstAttribute="top" secondItem="lL7-48-hx3" secondAttribute="topMargin" id="kDQ-OT-IyT"/>
@@ -1436,27 +1436,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsP-80-ePU" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="361.5" width="343" height="200"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="alz-7G-3lx"/>
-                                        </constraints>
-                                    </webView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-pg-Cr5">
+                                        <rect key="frame" x="16" y="361.5" width="343" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="YsP-80-ePU" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" constant="16" id="8zx-fo-Sob"/>
+                                    <constraint firstAttribute="trailing" secondItem="rX4-pg-Cr5" secondAttribute="trailing" constant="16" id="7yd-PO-ZVN"/>
                                     <constraint firstItem="Xd8-xt-gOK" firstAttribute="top" secondItem="N5u-Zq-QbS" secondAttribute="bottom" constant="16" id="Eyu-W8-gF6"/>
-                                    <constraint firstItem="YsP-80-ePU" firstAttribute="top" secondItem="Vyk-Zm-Dij" secondAttribute="bottom" constant="5" id="KZC-C1-qDb"/>
-                                    <constraint firstAttribute="trailing" secondItem="YsP-80-ePU" secondAttribute="trailing" constant="16" id="RMl-m0-9dl"/>
                                     <constraint firstItem="Vyk-Zm-Dij" firstAttribute="top" secondItem="c5b-Z8-F5q" secondAttribute="bottom" constant="5" id="T3b-qa-FKC"/>
-                                    <constraint firstAttribute="bottom" secondItem="YsP-80-ePU" secondAttribute="bottom" id="XHH-aM-LUL"/>
                                     <constraint firstItem="Xd8-xt-gOK" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" constant="16" id="dYm-Zf-ehw"/>
+                                    <constraint firstItem="rX4-pg-Cr5" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" constant="16" id="dan-uJ-rwt"/>
                                     <constraint firstItem="c5b-Z8-F5q" firstAttribute="top" secondItem="Xd8-xt-gOK" secondAttribute="bottom" constant="10" id="fgN-Hg-Bs7"/>
                                     <constraint firstAttribute="trailing" secondItem="Vyk-Zm-Dij" secondAttribute="trailing" constant="16" id="hTP-YT-0z9"/>
+                                    <constraint firstAttribute="bottom" secondItem="rX4-pg-Cr5" secondAttribute="bottom" constant="16" id="iIv-WF-fzC"/>
                                     <constraint firstItem="N5u-Zq-QbS" firstAttribute="top" secondItem="WkB-52-18h" secondAttribute="top" constant="16" id="jlp-wE-8ge"/>
                                     <constraint firstAttribute="trailing" secondItem="Xd8-xt-gOK" secondAttribute="trailing" constant="16" id="kbP-uS-NgB"/>
                                     <constraint firstItem="N5u-Zq-QbS" firstAttribute="centerX" secondItem="WkB-52-18h" secondAttribute="centerX" id="qtk-EY-Irt"/>
+                                    <constraint firstItem="rX4-pg-Cr5" firstAttribute="top" secondItem="Vyk-Zm-Dij" secondAttribute="bottom" constant="5" id="rj5-Y2-oPt"/>
                                     <constraint firstAttribute="trailing" secondItem="c5b-Z8-F5q" secondAttribute="trailing" constant="16" id="typ-VN-Qfm"/>
                                 </constraints>
                             </scrollView>
@@ -1477,8 +1476,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
-                        <outlet property="aboutAppContentWebView" destination="YsP-80-ePU" id="DGa-eq-uPL"/>
-                        <outlet property="aboutAppContentWebViewHeightConstraint" destination="alz-7G-3lx" id="amJ-9J-JaX"/>
+                        <outlet property="aboutAppContentLabel" destination="rX4-pg-Cr5" id="LnY-bb-5Mb"/>
                         <outlet property="aboutAppVersionLabel" destination="Vyk-Zm-Dij" id="LEU-5A-Ccv"/>
                         <outlet property="aboutContentWebView" destination="Xd8-xt-gOK" id="JU6-cR-Iy0"/>
                         <outlet property="aboutContentWebViewHeightConstraint" destination="nSr-pH-Pfo" id="9SM-86-jmh"/>

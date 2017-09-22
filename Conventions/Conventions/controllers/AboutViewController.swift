@@ -11,12 +11,11 @@ import Foundation
 class AboutViewController : BaseViewController, UIWebViewDelegate {
     
     @IBOutlet fileprivate weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var aboutAppContentWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var aboutContentWebView: StaticContentWebView!
     @IBOutlet fileprivate weak var aboutAppVersionLabel: UILabel!
-    @IBOutlet fileprivate weak var aboutAppContentWebView: StaticContentWebView!
+    @IBOutlet fileprivate weak var aboutAppContentLabel: UILabel!
     
-    fileprivate let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. <br/>תודות: גליה בהט, דמיאן הופמן, חננאל לבנה, עמרי רוזנברג, תומר שלו."
+    fileprivate let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: אלי בויום, אניטה קרפל, גיא בכר, גליה בהט, חננאל לבנה, תומר שלו."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +32,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         aboutContentWebView.scrollView.isScrollEnabled = false
         aboutContentWebView.delegate = self
         
-        aboutAppContentWebView.setContent(aboutAppContent)
-        aboutAppContentWebView.scrollView.isScrollEnabled = false
-        aboutAppContentWebView.delegate = self
+        aboutAppContentLabel.text = aboutAppContent
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             aboutAppVersionLabel.text = "גרסה " + version
@@ -54,7 +51,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
             return
         }
         aboutContentWebView.setContent(aboutContent)
-        aboutAppContentWebView.setContent(aboutAppContent)
+        aboutAppContentLabel.text = aboutAppContent
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -63,7 +60,6 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         webView.sizeToFit()
         
         aboutContentWebViewHeightConstraint.constant = aboutContentWebView.frame.size.height
-        aboutAppContentWebViewHeightConstraint.constant = aboutAppContentWebView.frame.size.height
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
