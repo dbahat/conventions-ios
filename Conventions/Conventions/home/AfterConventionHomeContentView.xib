@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-WE-LXA">
-                    <rect key="frame" x="0.0" y="443.5" width="375" height="54.5"/>
+                <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-WE-LXA">
+                    <rect key="frame" x="0.0" y="424.5" width="375" height="54.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עזור לנו להשתפר" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jva-fr-GH2">
                             <rect key="frame" x="8" y="8" width="359" height="38.5"/>
@@ -33,51 +33,27 @@
                         <constraint firstAttribute="trailing" secondItem="jva-fr-GH2" secondAttribute="trailing" constant="8" id="hux-xb-aFM"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6Y-eC-6Vp">
-                    <rect key="frame" x="0.0" y="498" width="375" height="169"/>
+                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="s6Y-eC-6Vp">
+                    <rect key="frame" x="0.0" y="479" width="375" height="188"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-fB-jRy">
-                            <rect key="frame" x="20" y="8" width="335" height="148"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="148" id="zGr-JP-OMJ"/>
-                            </constraints>
-                            <state key="normal">
-                                <attributedString key="attributedTitle">
-                                    <fragment content="לשליחת">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="72" name=".ArialHebrewDeskInterface"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" metaFont="system" size="72"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="פידבק">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="72" name=".ArialHebrewDeskInterface"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </state>
-                            <connections>
-                                <action selector="sendFeedbackButtonWasClicked:" destination="-1" eventType="touchUpInside" id="rMb-0h-EqD"/>
-                            </connections>
-                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לשליחת פידבק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-Ja-3yP">
+                            <rect key="frame" x="24" y="8" width="327" height="172"/>
+                            <gestureRecognizers/>
+                            <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.64313725489999995" green="0.35294117650000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="ckv-fB-jRy" firstAttribute="top" secondItem="s6Y-eC-6Vp" secondAttribute="top" constant="8" id="Acc-Mf-3JM"/>
-                        <constraint firstItem="ckv-fB-jRy" firstAttribute="leading" secondItem="s6Y-eC-6Vp" secondAttribute="leading" constant="20" id="E6M-uK-wwz"/>
-                        <constraint firstAttribute="bottom" secondItem="ckv-fB-jRy" secondAttribute="bottom" constant="13" id="OWh-W9-bXg"/>
-                        <constraint firstAttribute="trailing" secondItem="ckv-fB-jRy" secondAttribute="trailing" constant="20" id="tIq-ix-dAa"/>
+                        <constraint firstAttribute="trailing" secondItem="nBU-Ja-3yP" secondAttribute="trailing" constant="24" id="BVK-hf-QdH"/>
+                        <constraint firstItem="nBU-Ja-3yP" firstAttribute="top" secondItem="s6Y-eC-6Vp" secondAttribute="top" constant="8" id="LXE-9o-l8N"/>
+                        <constraint firstAttribute="bottom" secondItem="nBU-Ja-3yP" secondAttribute="bottom" constant="8" id="ln6-Tu-HSN"/>
+                        <constraint firstItem="nBU-Ja-3yP" firstAttribute="leading" secondItem="s6Y-eC-6Vp" secondAttribute="leading" constant="24" id="rfF-Lg-HYS"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="8Hd-Yj-NgE" appends="YES" id="CEy-7b-2oX"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -91,5 +67,10 @@
                 <constraint firstItem="s6Y-eC-6Vp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gTT-bf-vIc"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="8Hd-Yj-NgE">
+            <connections>
+                <action selector="sendFeedbackButtonWasClicked:" destination="-1" id="eJB-ky-UAc"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

@@ -13,6 +13,8 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     @IBOutlet private weak var upcomingEventTimeLabel: UILabel!
     @IBOutlet private weak var upcomingEventNameLabel: UILabel!
     @IBOutlet private weak var upcomingEventHallLabel: UILabel!
+    @IBOutlet private weak var myEventsTitleLabel: UILabel!
+    @IBOutlet private weak var goToMyEventsButton: UIButton!
     
     // keeping strong references to the constraints, since we change their active state dynamiclly, which
     // causes the strong ref kept from the view hirarchy to the constraint to drop.
@@ -55,12 +57,36 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        inflateNib(DuringConventionWithFavoritesHomeContentView.self)
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        inflateNib(DuringConventionNoFavoritesHomeContentView.self)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        inflateNib(DuringConventionWithFavoritesHomeContentView.self)
+        
+        let screenRect = UIScreen.main.bounds
+
+        // Special handling for extra-small devices (e.g. iphone 4, ipad using iphone simulator
+        if (screenRect.height <= 480) {
+            currentEventLabel.font = UIFont.systemFont(ofSize: 10)
+            upcomingEventTimeLabel.font = UIFont.systemFont(ofSize: 10)
+            upcomingEventNameLabel.font = UIFont.boldSystemFont(ofSize: 11)
+            upcomingEventHallLabel.font = UIFont.systemFont(ofSize: 10)
+            myEventsTitleLabel.font = UIFont.systemFont(ofSize: 10)
+            goToMyEventsButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        } else if (screenRect.width <= 320) {
+            // More special handling for iphone 5
+            currentEventLabel.font = UIFont.systemFont(ofSize: 15)
+            upcomingEventTimeLabel.font = UIFont.systemFont(ofSize: 15)
+            upcomingEventNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            upcomingEventHallLabel.font = UIFont.systemFont(ofSize: 15)
+            myEventsTitleLabel.font = UIFont.systemFont(ofSize: 15)
+            goToMyEventsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        }
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {

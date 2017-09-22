@@ -24,24 +24,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-Dv-uh1">
-                                <rect key="frame" x="16" y="64" width="343" height="162"/>
+                                <rect key="frame" x="16" y="76" width="343" height="108"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
+                                <rect key="frame" x="12" y="196" width="351" height="349"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeFooter" translatesAutoresizingMaskIntoConstraints="NO" id="R0s-ly-gDT">
                                 <rect key="frame" x="0.0" y="569" width="375" height="49"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
-                                <rect key="frame" x="24" y="234" width="339" height="311"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.71372549019999998" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="R0s-ly-gDT" secondAttribute="bottom" id="Csm-iE-XeK"/>
-                            <constraint firstItem="287-1g-uPQ" firstAttribute="top" secondItem="K5e-Dv-uh1" secondAttribute="bottom" constant="8" id="EQG-eH-lad"/>
+                            <constraint firstItem="287-1g-uPQ" firstAttribute="top" secondItem="K5e-Dv-uh1" secondAttribute="bottom" constant="12" id="EQG-eH-lad"/>
                             <constraint firstAttribute="trailing" secondItem="287-1g-uPQ" secondAttribute="trailing" constant="12" id="K7v-hx-C8H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K5e-Dv-uh1" secondAttribute="trailing" id="WXc-iL-JCh"/>
-                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" id="Y7y-ER-6cM"/>
-                            <constraint firstItem="287-1g-uPQ" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" constant="24" id="frM-h2-iqG"/>
+                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" constant="12" id="Y7y-ER-6cM"/>
+                            <constraint firstItem="287-1g-uPQ" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" constant="12" id="frM-h2-iqG"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leadingMargin" id="hrq-Xx-Akw"/>
                             <constraint firstItem="R0s-ly-gDT" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" constant="24" id="jxl-1d-E3h"/>
                             <constraint firstItem="R0s-ly-gDT" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" id="rFA-t0-Oq1"/>
@@ -1679,7 +1679,7 @@
         <image name="AppBackground" width="450" height="800"/>
         <image name="Floor1" width="680" height="880"/>
         <image name="HomeFooter" width="341" height="49"/>
-        <image name="HomeLogo" width="495" height="162"/>
+        <image name="HomeLogo" width="330" height="108"/>
         <image name="MenuAbout" width="33" height="33"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>

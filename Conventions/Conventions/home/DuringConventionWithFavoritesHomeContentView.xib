@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="currentEventHeightConstraint" destination="kgy-St-oMR" id="cnz-FF-GXK"/>
                 <outlet property="currentEventLabel" destination="hKb-Rw-aVI" id="VA1-iz-tTX"/>
+                <outlet property="goToMyEventsButton" destination="iiY-kd-cdi" id="tot-dw-Tav"/>
+                <outlet property="myEventsTitleLabel" destination="a4v-fi-VsF" id="YWI-q0-oWs"/>
                 <outlet property="upcomingEventHallLabel" destination="yNL-R3-6P7" id="Ddu-nz-PWV"/>
                 <outlet property="upcomingEventNameLabel" destination="Sr2-E8-lqd" id="Tx8-gu-fea"/>
                 <outlet property="upcomingEventTimeLabel" destination="bHP-fA-Sxr" id="I19-VO-3j2"/>
@@ -128,6 +130,7 @@
                 <constraint firstAttribute="trailing" secondItem="iiY-kd-cdi" secondAttribute="trailing" id="hMb-ZQ-fih"/>
                 <constraint firstAttribute="trailing" secondItem="0HC-lb-z29" secondAttribute="trailing" id="isG-5U-RNG"/>
                 <constraint firstItem="0HC-lb-z29" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="bottom" id="jhY-Lt-5vo"/>
+                <constraint firstItem="GmR-x0-CGl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="kUc-eE-Th4"/>
                 <constraint firstItem="GmR-x0-CGl" firstAttribute="bottom" secondItem="bzd-on-DIH" secondAttribute="top" priority="999" id="mhb-EE-bmf"/>
                 <constraint firstItem="0HC-lb-z29" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r3U-kM-mzP"/>
             </constraints>
