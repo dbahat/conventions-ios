@@ -198,7 +198,11 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         submittedEventsTabledView.delegate = submittedEventsDataSource
         submittedEventsDataSource.referencingViewController = self
         
-        eventsToSubmitDataSource.events = Convention.instance.events.getAll().filter({($0.feedbackAnswers.count > 0 || $0.attending) && !$0.didSubmitFeedback() && !Convention.instance.isFeedbackSendingTimeOver()})
+        eventsToSubmitDataSource.events = Convention.instance.events.getAll().filter({
+            ($0.feedbackAnswers.count > 0 || $0.attending)
+            && $0.canFillFeedback()
+            && !$0.didSubmitFeedback()
+            && !Convention.instance.isFeedbackSendingTimeOver()})
         eventsToSubmitHeightConstraint.constant = CGFloat(102 * eventsToSubmitDataSource.events.count)
         eventsToSubmitTableView.dataSource = eventsToSubmitDataSource
         eventsToSubmitTableView.delegate = eventsToSubmitDataSource
