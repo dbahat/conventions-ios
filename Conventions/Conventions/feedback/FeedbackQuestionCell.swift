@@ -32,6 +32,8 @@ protocol FeedbackQuestionProtocol : class {
     // Allow disabling the interactions inside the question cell
     var enabled = true
     
+    var feedbackTextColor = UIColor.black
+    
     /* abstract */ func questionDidSet(_ question: FeedbackQuestion) {}
     
     /* abstract */ func setAnswer(_ answer: FeedbackAnswer) {}

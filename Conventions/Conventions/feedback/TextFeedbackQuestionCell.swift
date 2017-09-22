@@ -22,6 +22,13 @@ class TextFeedbackQuestionCell: FeedbackQuestionCell, UITextViewDelegate  {
         }
     }
     
+    override var feedbackTextColor: UIColor {
+        didSet {
+            questionLabel.textColor = feedbackTextColor
+            answerTextView.textColor = feedbackTextColor
+        }
+    }
+    
     override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
         answerTextView.delegate = self

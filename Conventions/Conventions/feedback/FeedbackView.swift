@@ -34,6 +34,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet fileprivate weak var headerView: UIView!
     @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
     
+    private var textColor = UIColor.black
+    
     fileprivate var questions: Array<FeedbackQuestion> = []
     fileprivate var answers: Array<FeedbackAnswer> = []
     fileprivate var isSent: Bool = false {
@@ -88,7 +90,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         addSubview(view);
         
         feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        feedbackIcon.tintColor = Colors.colorAccent
+        feedbackIcon.tintColor = UIColor.white
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.register(UINib(nibName: String(describing: SmileyFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SmileyFeedbackQuestionCell.self))
@@ -122,6 +124,10 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         }
         
         questionsTableView.reloadData()
+    }
+    
+    func setTextColor(_ color: UIColor) {
+        textColor = color
     }
     
     func removeAnsweredQuestions(_ answers: Array<FeedbackAnswer>) {
@@ -169,6 +175,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         let cell = questionsTableView.dequeueReusableCell(withIdentifier: cellId)! as! FeedbackQuestionCell
         cell.delegate = self
         cell.question = question
+        cell.feedbackTextColor = textColor
         
         // disable the question cell interactions if the feedback was already sent
         cell.enabled = !isSent

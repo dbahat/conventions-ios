@@ -23,6 +23,12 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         }
     }
     
+    override var feedbackTextColor: UIColor {
+        didSet {
+            questionLabel.textColor = feedbackTextColor
+        }
+    }
+    
     override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
     }

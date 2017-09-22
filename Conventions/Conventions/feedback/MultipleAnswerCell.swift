@@ -20,8 +20,10 @@ class MultipleAnswerCell : UICollectionViewCell {
     
     var answer: String? {
         didSet {
-            answerButton.setTitle(answer, for: UIControlState())
-            answerButton.setTitle(answer, for: UIControlState.selected)
+            answerButton.setTitle(answer, for: .normal)
+            answerButton.setTitle(answer, for: .selected)
+            answerButton.setTitleColor(Colors.buttonColor, for: .normal)
+            answerButton.setTitleColor(Colors.buttonPressedColor, for: .selected)
         }
     }
     

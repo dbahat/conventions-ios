@@ -1422,29 +1422,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="N5u-Zq-QbS">
-                                        <rect key="frame" x="149.5" y="16" width="76" height="30"/>
+                                        <rect key="frame" x="111" y="16" width="153" height="60"/>
                                     </imageView>
                                     <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-xt-gOK" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="62" width="343" height="200"/>
+                                        <rect key="frame" x="16" y="92" width="343" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="nSr-pH-Pfo"/>
                                         </constraints>
                                     </webView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
-                                        <rect key="frame" x="0.0" y="272" width="359" height="29"/>
+                                        <rect key="frame" x="0.0" y="302" width="359" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
-                                        <rect key="frame" x="0.0" y="306" width="359" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="336" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-pg-Cr5">
-                                        <rect key="frame" x="16" y="331.5" width="343" height="17"/>
+                                        <rect key="frame" x="16" y="361.5" width="343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1682,7 +1682,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AboutLogo" width="76" height="30"/>
+        <image name="AboutLogo" width="153" height="60"/>
         <image name="AppBackground" width="450" height="800"/>
         <image name="Event_Default" width="450" height="800"/>
         <image name="Floor1" width="680" height="880"/>
