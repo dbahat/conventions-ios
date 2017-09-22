@@ -35,8 +35,8 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     var upcomingFavoriteEvent: ConventionEvent? {
         didSet {
             if let event = upcomingFavoriteEvent {
-                upcomingEventTimeLabel.text = String(format: "ב%@ בשעה %@"
-                    , event.startTime.format("EEE")
+                upcomingEventTimeLabel.text = String(format: "%@בשעה %@"
+                    , isToday(event: event) ? "" : "ב" + event.startTime.format("EEE") + " "
                     , event.startTime.format("HH:mm"))
                 upcomingEventNameLabel.text = event.title
                 upcomingEventHallLabel.text = event.hall.name
@@ -109,5 +109,9 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     
     @IBAction func navigateToMyEventsWasClicked(_ sender: UIButton) {
         delegate?.navigateToFavoritesClicked()
+    }
+    
+    private func isToday(event: ConventionEvent) -> Bool {
+        return event.startTime.clearTimeComponent().timeIntervalSince1970 == Date.now().clearTimeComponent().timeIntervalSince1970
     }
 }
