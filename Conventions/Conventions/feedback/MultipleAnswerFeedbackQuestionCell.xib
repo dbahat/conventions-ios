@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,16 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="476" height="102"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cuL-fy-m4m" id="ZIY-oq-pbd">
-                <frame key="frameInset" width="476" height="101"/>
+                <rect key="frame" x="0.0" y="0.0" width="476" height="101.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="השאלה:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-QH-pHX">
+                        <rect key="frame" x="8" y="8" width="460" height="17"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="anC-fs-yjo">
+                        <rect key="frame" x="8" y="25" width="460" height="68.5"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="Aow-kS-Bnj" customClass="UICollectionViewRightAlignedLayout"/>
                     </collectionView>
@@ -30,12 +35,12 @@
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 <gestureRecognizers/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="aFy-QH-pHX" secondAttribute="trailing" priority="999" id="bda-qj-d6m"/>
+                    <constraint firstAttribute="trailing" secondItem="aFy-QH-pHX" secondAttribute="trailing" priority="999" constant="8" id="bda-qj-d6m"/>
                     <constraint firstItem="aFy-QH-pHX" firstAttribute="top" secondItem="ZIY-oq-pbd" secondAttribute="topMargin" id="n0X-NG-xt8"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="anC-fs-yjo" secondAttribute="trailing" id="p5g-Bu-vkS"/>
-                    <constraint firstItem="anC-fs-yjo" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leadingMargin" id="pSL-Co-YH8"/>
+                    <constraint firstAttribute="trailing" secondItem="anC-fs-yjo" secondAttribute="trailing" constant="8" id="p5g-Bu-vkS"/>
+                    <constraint firstItem="anC-fs-yjo" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leading" constant="8" id="pSL-Co-YH8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="anC-fs-yjo" secondAttribute="bottom" id="qxm-Do-wks"/>
-                    <constraint firstItem="aFy-QH-pHX" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leadingMargin" id="xIx-cJ-heV"/>
+                    <constraint firstItem="aFy-QH-pHX" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leading" constant="8" id="xIx-cJ-heV"/>
                     <constraint firstItem="anC-fs-yjo" firstAttribute="top" secondItem="aFy-QH-pHX" secondAttribute="bottom" id="xvI-ij-Ib0"/>
                 </constraints>
             </tableViewCellContentView>

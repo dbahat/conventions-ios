@@ -135,9 +135,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leadingMargin" constant="5" id="5fY-2w-Gto"/>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leading" constant="5" id="5fY-2w-Gto"/>
                                                 <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="topMargin" constant="5" id="Nnm-3F-XoF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="RWd-dD-fE6" secondAttribute="trailing" constant="5" id="lNK-0i-hzF"/>
+                                                <constraint firstAttribute="trailing" secondItem="RWd-dD-fE6" secondAttribute="trailing" constant="5" id="lNK-0i-hzF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="RWd-dD-fE6" secondAttribute="bottom" constant="5" id="ssd-Sj-SqV"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -205,14 +205,14 @@
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AU-0L-zpZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -873,8 +873,8 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="d4X-tM-6Eq" firstAttribute="top" secondItem="10o-yA-ZKS" secondAttribute="topMargin" constant="5" id="GdZ-LU-CjX"/>
-                                                                <constraint firstItem="d4X-tM-6Eq" firstAttribute="leading" secondItem="10o-yA-ZKS" secondAttribute="leadingMargin" constant="5" id="L7h-yN-cef"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="d4X-tM-6Eq" secondAttribute="trailing" constant="5" id="O68-M6-O0v"/>
+                                                                <constraint firstItem="d4X-tM-6Eq" firstAttribute="leading" secondItem="10o-yA-ZKS" secondAttribute="leading" constant="5" id="L7h-yN-cef"/>
+                                                                <constraint firstAttribute="trailing" secondItem="d4X-tM-6Eq" secondAttribute="trailing" constant="5" id="O68-M6-O0v"/>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="d4X-tM-6Eq" secondAttribute="bottom" constant="5" id="ozF-XI-eDe"/>
                                                             </constraints>
                                                             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -959,10 +959,10 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="eew-d7-qrX" secondAttribute="trailing" constant="5" id="3RF-jk-g2t"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eew-d7-qrX" secondAttribute="trailing" constant="5" id="3RF-jk-g2t"/>
                                                         <constraint firstItem="eew-d7-qrX" firstAttribute="top" secondItem="Ohh-if-itr" secondAttribute="topMargin" constant="5" id="72z-2q-JgR"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="eew-d7-qrX" secondAttribute="bottom" constant="5" id="EiT-zk-ZL8"/>
-                                                        <constraint firstItem="eew-d7-qrX" firstAttribute="leading" secondItem="Ohh-if-itr" secondAttribute="leadingMargin" constant="5" id="l2X-jK-bNg"/>
+                                                        <constraint firstItem="eew-d7-qrX" firstAttribute="leading" secondItem="Ohh-if-itr" secondAttribute="leading" constant="5" id="l2X-jK-bNg"/>
                                                     </constraints>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </tableViewCellContentView>
@@ -1702,6 +1702,6 @@
         <image name="MenuUpdates" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r01-Z4-ri2"/>
+        <segue reference="w1u-TZ-YLe"/>
     </inferredMetricsTieBreakers>
 </document>
