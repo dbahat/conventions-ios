@@ -26,7 +26,7 @@ class NotificationsSchedualer {
         }
         
         let notification = UILocalNotification()
-        notification.fireDate = Convention.endDate.addDays(1).addHours(10)
+        notification.fireDate = Convention.endDate.addHours(22)
         notification.timeZone = TimeZone.current
         if #available(iOS 8.2, *) {
             notification.alertTitle = "עזור לנו להשתפר"
@@ -51,12 +51,12 @@ class NotificationsSchedualer {
         }
         
         let notification = UILocalNotification()
-        notification.fireDate = Convention.endDate.addDays(10)
+        notification.fireDate = Convention.endDate.addDays(4)
         notification.timeZone = TimeZone.current
         if #available(iOS 8.2, *) {
             notification.alertTitle = "הזדמנות אחרונה להשפיע"
         }
-        notification.alertBody = String(format: "נהנתם ב%@? נשארו רק עוד 4 ימים לשליחת פידבק!", arguments: [Convention.displayName]);
+        notification.alertBody = String(format: "נהנתם ב%@? נשארו רק עוד 3 ימים לשליחת פידבק!", arguments: [Convention.displayName]);
         notification.alertAction = "מלא פידבק על הפסטיבל"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = [CONVENTION_FEEDBACK_LAST_CHANCE_INFO: true];

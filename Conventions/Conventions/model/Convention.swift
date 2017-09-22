@@ -110,11 +110,11 @@ class Convention {
     }
     
     func isFeedbackSendingTimeOver() -> Bool {
-        return Date.now().compare(Convention.endDate.addDays(14)) == .orderedDescending
+        return Date.now().compare(Convention.endDate.addDays(7)) == .orderedDescending
     }
     
     func canFillConventionFeedback() -> Bool {
-        return Date.now().compare(Convention.date.addDays(1)) == .orderedDescending
+        return Date.now().compare(Convention.date.addHours(2)) == .orderedDescending
     }
     
     // returns true iif the convention is current running
