@@ -1424,14 +1424,14 @@
                                             <constraint firstAttribute="height" constant="200" id="nSr-pH-Pfo"/>
                                         </constraints>
                                     </webView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
-                                        <rect key="frame" x="197.5" y="302" width="161.5" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
+                                        <rect key="frame" x="0.0" y="302" width="359" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
-                                        <rect key="frame" x="323.5" y="336" width="35.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
+                                        <rect key="frame" x="0.0" y="336" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1446,7 +1446,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rX4-pg-Cr5" secondAttribute="trailing" constant="16" id="7yd-PO-ZVN"/>
                                     <constraint firstItem="Xd8-xt-gOK" firstAttribute="top" secondItem="N5u-Zq-QbS" secondAttribute="bottom" constant="16" id="Eyu-W8-gF6"/>
+                                    <constraint firstItem="Vyk-Zm-Dij" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" id="R3a-dh-jhW"/>
                                     <constraint firstItem="Vyk-Zm-Dij" firstAttribute="top" secondItem="c5b-Z8-F5q" secondAttribute="bottom" constant="5" id="T3b-qa-FKC"/>
+                                    <constraint firstItem="c5b-Z8-F5q" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" id="X2M-sn-aZX"/>
                                     <constraint firstItem="Xd8-xt-gOK" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" constant="16" id="dYm-Zf-ehw"/>
                                     <constraint firstItem="rX4-pg-Cr5" firstAttribute="leading" secondItem="WkB-52-18h" secondAttribute="leading" constant="16" id="dan-uJ-rwt"/>
                                     <constraint firstItem="c5b-Z8-F5q" firstAttribute="top" secondItem="Xd8-xt-gOK" secondAttribute="bottom" constant="10" id="fgN-Hg-Bs7"/>
@@ -1566,8 +1568,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AHg-kF-Trf">
                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="554"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף אירוע לאירועים שלי ע&quot;י לחיצה על הכוכב בדף האירוע או ע&quot;י גרירתו ברשימת האירועים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-9t-HBx">
-                                <rect key="frame" x="16" y="237.5" width="343" height="79"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף אירוע לאירועים שלי ע&quot;י לחיצה על הכוכב בדף האירוע" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-9t-HBx">
+                                <rect key="frame" x="16" y="250.5" width="343" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
