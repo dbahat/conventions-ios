@@ -91,6 +91,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
+        // Disabled for this convention (as it's not needed)
+        //fadeInBackgroundImage()
+    }
+    
+    private func fadeInBackgroundImage() {
         // Loading the image only during viewDidAppear so as not to cause a delay when the ViewController
         // is opened when an event has a "heavy" image.
         let eventImage = getImage(String(event.serverId));
@@ -112,7 +117,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         super.viewWillTransition(to: size, with: coordinator)
         
         // Resize the image so it'll fit the screen width, but keep the same size ratio
-        image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
+        //image.image = resizeImage(getImage(String(event.serverId)), newWidth: size.width);
         
         // Re-evaluate the description, so the webView will resize
         if let eventDescription = event.description {

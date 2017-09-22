@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-Dv-uh1">
-                                <rect key="frame" x="16" y="76" width="343" height="108"/>
+                                <rect key="frame" x="16" y="76" width="343" height="98"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
-                                <rect key="frame" x="12" y="196" width="351" height="349"/>
+                                <rect key="frame" x="12" y="186" width="351" height="365"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeFooter" translatesAutoresizingMaskIntoConstraints="NO" id="R0s-ly-gDT">
-                                <rect key="frame" x="0.0" y="569" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="575" width="375" height="43"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.71372549019999998" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,6 +208,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
@@ -376,7 +379,11 @@
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="002-IK-1lJ"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="bottom" secondItem="9AU-0L-zpZ" secondAttribute="bottomMargin" id="40u-EZ-ZVH"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="6nN-SX-0JP"/>
+                            <constraint firstItem="4aF-wF-SxX" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="LJI-8s-sWQ"/>
+                            <constraint firstItem="4aF-wF-SxX" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" id="N4B-BV-RUs"/>
+                            <constraint firstItem="eex-RS-Ur4" firstAttribute="top" secondItem="4aF-wF-SxX" secondAttribute="bottom" id="SM2-sw-L18"/>
                             <constraint firstItem="Vsq-dg-4zG" firstAttribute="top" secondItem="dju-af-QrC" secondAttribute="bottom" id="U1M-bD-Ci0"/>
+                            <constraint firstAttribute="trailing" secondItem="4aF-wF-SxX" secondAttribute="trailing" id="h2g-xr-AZ6"/>
                             <constraint firstItem="q76-A4-Mva" firstAttribute="trailing" secondItem="9AU-0L-zpZ" secondAttribute="trailing" id="hnr-uM-us5"/>
                             <constraint firstItem="q76-A4-Mva" firstAttribute="leading" secondItem="9AU-0L-zpZ" secondAttribute="leading" id="qHI-Tm-yGz"/>
                         </constraints>
@@ -1415,29 +1422,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="N5u-Zq-QbS">
-                                        <rect key="frame" x="111" y="16" width="153" height="60"/>
+                                        <rect key="frame" x="149.5" y="16" width="76" height="30"/>
                                     </imageView>
                                     <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-xt-gOK" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="92" width="343" height="200"/>
+                                        <rect key="frame" x="16" y="62" width="343" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="nSr-pH-Pfo"/>
                                         </constraints>
                                     </webView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
-                                        <rect key="frame" x="0.0" y="302" width="359" height="29"/>
+                                        <rect key="frame" x="0.0" y="272" width="359" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
-                                        <rect key="frame" x="0.0" y="336" width="359" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="306" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-pg-Cr5">
-                                        <rect key="frame" x="16" y="361.5" width="343" height="17"/>
+                                        <rect key="frame" x="16" y="331.5" width="343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1675,11 +1682,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AboutLogo" width="153" height="60"/>
+        <image name="AboutLogo" width="76" height="30"/>
         <image name="AppBackground" width="450" height="800"/>
+        <image name="Event_Default" width="450" height="800"/>
         <image name="Floor1" width="680" height="880"/>
-        <image name="HomeFooter" width="341" height="49"/>
-        <image name="HomeLogo" width="330" height="108"/>
+        <image name="HomeFooter" width="300" height="43"/>
+        <image name="HomeLogo" width="300" height="98"/>
         <image name="MenuAbout" width="33" height="33"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>

@@ -108,7 +108,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         // sticky section headers).
         tableViewController.tableView = tableView
         tableViewController.refreshControl = UIRefreshControl()
-        tableViewController.refreshControl?.tintColor = UIColor(hexString: "#7a3d59")
+        tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), for: UIControlEvents.valueChanged)
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)

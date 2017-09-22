@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIh-Wj-aUp">
                         <rect key="frame" x="0.0" y="1" width="475" height="17"/>
-                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20371361301369864" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,17 +52,17 @@
                 <constraints>
                     <constraint firstItem="xIh-Wj-aUp" firstAttribute="bottom" secondItem="FBi-PR-kuN" secondAttribute="top" id="3Ji-DY-0b0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aZB-Ka-TTx" secondAttribute="bottom" id="Rkk-XF-JpG"/>
-                    <constraint firstItem="FBi-PR-kuN" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" id="XWr-Wb-pQ4"/>
-                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" id="apW-P0-WS2"/>
+                    <constraint firstItem="FBi-PR-kuN" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" id="XWr-Wb-pQ4"/>
+                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" id="apW-P0-WS2"/>
                     <constraint firstItem="FBi-PR-kuN" firstAttribute="bottom" secondItem="aZB-Ka-TTx" secondAttribute="top" id="fpF-Bt-w3K"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" id="lBj-IX-Sry"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="5tW-1v-PoE" secondAttribute="trailing" id="rrd-Wa-WhU"/>
+                    <constraint firstAttribute="trailing" secondItem="5tW-1v-PoE" secondAttribute="trailing" id="rrd-Wa-WhU"/>
                     <constraint firstItem="5tW-1v-PoE" firstAttribute="bottom" secondItem="xIh-Wj-aUp" secondAttribute="top" id="rwU-vJ-R3D"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="5tW-1v-PoE" secondAttribute="leading" id="uAo-Uk-TL5"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="xIh-Wj-aUp" secondAttribute="trailing" id="ug1-Hz-vSg"/>
+                    <constraint firstAttribute="leading" secondItem="5tW-1v-PoE" secondAttribute="leading" id="uAo-Uk-TL5"/>
+                    <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" id="ug1-Hz-vSg"/>
                     <constraint firstItem="5tW-1v-PoE" firstAttribute="top" secondItem="Bfc-7u-YCx" secondAttribute="topMargin" id="w3z-8j-kF0"/>
                     <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" id="yOM-W8-3Mx"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="FBi-PR-kuN" secondAttribute="trailing" id="ziJ-Bs-FWx"/>
+                    <constraint firstAttribute="trailing" secondItem="FBi-PR-kuN" secondAttribute="trailing" id="ziJ-Bs-FWx"/>
                 </constraints>
                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             </tableViewCellContentView>

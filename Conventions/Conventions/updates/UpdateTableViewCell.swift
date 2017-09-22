@@ -11,7 +11,7 @@ class UpdateTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var title: UILabel!
     
     func setUpdate(_ update: Update) {
-        title.text = update.date.format("dd.MM.yyyy HH:mm")
+        title.text = update.date.format("HH:mm dd.MM.yyyy")
         message.text = update.text
         
         message.backgroundColor = update.isNew
