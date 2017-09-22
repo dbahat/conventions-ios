@@ -12,6 +12,14 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     
     @IBOutlet weak var homeContentContainer: UIView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Setting the content view both here and in viewDidAppear since we don't want the user
+        // to see a flicker of the non-initialized screen while the app loads (observed on iphone 5c)
+        homeContentContainer.addSubview(createHomeContentView())
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
