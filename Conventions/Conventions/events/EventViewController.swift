@@ -66,9 +66,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price > 10 ? event.price - 10 : 0)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
-        availableTickets.text = event.availableTickets > 0
-            ? String(format:"נותרו %d כרטיסים", event.availableTickets) : "לא נותרו כרטיסים"
-        
+        updateAvailableTicketsText(availableTicketsCount: event.availableTickets)
         navigationItem.title = event.type.description
         
         eventDescriptionContainer.isHidden = event.description == ""
@@ -209,7 +207,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     
     // MARK: - private methods
     
-    fileprivate func getImage(_ serverEventId: String) -> UIImage {
+    private func getImage(_ serverEventId: String) -> UIImage {
         if let eventImage = UIImage(named: "Event_" + serverEventId) {
             return eventImage;
         }
@@ -217,11 +215,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         return UIImage(named: "Event_Default")!
     }
     
-    fileprivate func refreshFavoriteBarIconImage() {
+    private func refreshFavoriteBarIconImage() {
         navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "MenuAddedToFavorites") : UIImage(named: "MenuAddToFavorites");
     }
     
-    fileprivate func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
+    private func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = image.size.height / image.size.width
         let newHeight = newWidth * scale
@@ -231,5 +229,28 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+    
+    private func updateAvailableTicketsText(availableTicketsCount: Int) {
+        if (availableTicketsCount == 0) {
+            availableTickets.font = UIFont.boldSystemFont(ofSize: 15)
+            availableTickets.textColor = Colors.eventDetailsHighlightedTextColor
+        }
+        
+        // Not showing the exact amount of tickets since this info might be in-accurate, and we don't
+        // want to confuse people about the exact amount of available tickets.
+        switch availableTicketsCount {
+        case 0:
+            availableTickets.text = "אזלו הכרטיסים"
+            break;
+        case 1..<10:
+            availableTickets.text = "נותרו כרטיסים אחרונים"
+            break;
+        case 10..<30:
+            availableTickets.text = "נותרו מעט כרטיסים"
+            break;
+        default:
+            availableTickets.text = "יש כרטיסים"
+        }
     }
 }
