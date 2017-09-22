@@ -20,7 +20,7 @@ class EventView: UIView {
     @IBOutlet fileprivate weak var hallName: UILabel!
     @IBOutlet fileprivate weak var lecturer: UILabel!
     @IBOutlet fileprivate weak var timeLayout: UIView!
-    @IBOutlet fileprivate weak var favoriteButton: UIButton!
+    @IBOutlet fileprivate weak var favoriteButtonImage: UIImageView!
     @IBOutlet fileprivate weak var feedbackIcon: UIImageView!
     @IBOutlet fileprivate weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
     
@@ -30,9 +30,6 @@ class EventView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         inflateNib(EventView.self)
-        
-        // Allow dynamic changing of the favorite button color
-        favoriteButton.imageView?.image = favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
     }
     
 
@@ -47,7 +44,10 @@ class EventView: UIView {
         lecturer.text = event.lecturer;
         hallName.text = event.hall.name;
         timeLayout.backgroundColor = event.color;
-        favoriteButton.imageView?.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.black
+        
+        // Allow dynamic changing of the favorite button color
+        favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
+        favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.black
         
         if let textColor = event.textColor {
             startTime.textColor = textColor;
@@ -77,7 +77,7 @@ class EventView: UIView {
                 let imageName = event.feedbackAnswers.count > 0 && !Convention.instance.isFeedbackSendingTimeOver()
                         ? "Feedback_email" // Mail icon to indicate the feedback is pending submission
                         : "Feedback_icon"
-                feedbackIcon.image = UIImage(named: imageName)?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                feedbackIcon.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
                 
                 feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
                     ? Colors.eventUserNeedsToCompleteFeecbackButtonColor

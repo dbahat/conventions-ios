@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="Conventions" customModuleProvider="target">
             <connections>
                 <outlet property="endTime" destination="rMH-w8-RVL" id="juL-nB-KrC"/>
-                <outlet property="favoriteButton" destination="mFw-7c-klt" id="8p6-Wk-aHX"/>
+                <outlet property="favoriteButtonImage" destination="fK2-Tm-LDR" id="60D-U9-ZcX"/>
                 <outlet property="feedbackContainerWidthConstraint" destination="1WZ-dc-KFb" id="maC-MR-I8m"/>
                 <outlet property="feedbackIcon" destination="CNm-3L-gF8" id="ZZy-J2-OFj"/>
                 <outlet property="hallName" destination="r5w-m4-Yqp" id="6nA-U3-VJ1"/>
@@ -65,14 +65,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-fH-VhW">
                     <rect key="frame" x="0.0" y="0.0" width="305" height="667"/>
                     <subviews>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-7c-klt">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventNotAttending" translatesAutoresizingMaskIntoConstraints="NO" id="fK2-Tm-LDR">
                             <rect key="frame" x="5" y="323" width="20" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="20" id="8Si-uo-D0Q"/>
-                                <constraint firstAttribute="height" constant="20" id="Shn-LZ-XiJ"/>
+                                <constraint firstAttribute="height" constant="20" id="7wb-7L-8nD"/>
+                                <constraint firstAttribute="width" constant="20" id="Htt-Sg-x70"/>
                             </constraints>
-                            <state key="normal" image="EventNotAttending"/>
-                        </button>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event title" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUG-9m-Hr6">
                             <rect key="frame" x="8" y="8" width="289" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -128,13 +127,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="mFw-7c-klt" firstAttribute="centerY" secondItem="tZ3-fH-VhW" secondAttribute="centerY" id="BF0-g6-Vom"/>
                         <constraint firstAttribute="bottom" secondItem="oe7-bM-u99" secondAttribute="bottom" id="CiS-q3-m2F"/>
                         <constraint firstAttribute="trailing" secondItem="oe7-bM-u99" secondAttribute="trailing" id="CpA-iO-xxt"/>
                         <constraint firstAttribute="trailing" secondItem="QUG-9m-Hr6" secondAttribute="trailing" constant="8" id="JyG-bq-abh"/>
+                        <constraint firstItem="fK2-Tm-LDR" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" constant="5" id="SYZ-mi-aEm"/>
                         <constraint firstItem="oe7-bM-u99" firstAttribute="top" secondItem="QUG-9m-Hr6" secondAttribute="bottom" id="WLT-9d-D4h"/>
+                        <constraint firstItem="fK2-Tm-LDR" firstAttribute="centerY" secondItem="tZ3-fH-VhW" secondAttribute="centerY" id="ZMH-qE-MgN"/>
                         <constraint firstItem="QUG-9m-Hr6" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" constant="8" id="k56-rx-JBr"/>
-                        <constraint firstItem="mFw-7c-klt" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" constant="5" id="qy9-g6-V99"/>
                         <constraint firstItem="QUG-9m-Hr6" firstAttribute="top" secondItem="tZ3-fH-VhW" secondAttribute="top" constant="8" id="r4S-g9-3ru"/>
                         <constraint firstItem="oe7-bM-u99" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" id="trE-aH-xvg"/>
                     </constraints>
