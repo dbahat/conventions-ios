@@ -38,6 +38,11 @@ class Events {
     }
     
     func refresh(_ callback: ((_ success: Bool) -> Void)?) {
+        // Don't refresh events after the convention has ended
+        if (Convention.endDate.timeIntervalSince1970 < Date.now().clearTimeComponent().timeIntervalSince1970) {
+            callback?(true)
+        }
+        
         download({result in
             guard let events = result else {
                 DispatchQueue.main.async {
