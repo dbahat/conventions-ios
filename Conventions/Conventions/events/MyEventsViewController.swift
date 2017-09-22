@@ -15,7 +15,8 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     @IBOutlet fileprivate weak var tabBarIcon: UITabBarItem!
     @IBOutlet fileprivate weak var dateFilterControl: DateFilterControl!
     
-    fileprivate var myEvents: Array<ConventionEvent>?
+    var shouldScrollToCurrentDateAndTime = true
+    private var myEvents: Array<ConventionEvent>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,34 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         reloadMyEvents()
         tableView.reloadData()
+        
+        scrollToCurrentRunningEventsIfNeeded()
+    }
+    
+    private func scrollToCurrentRunningEventsIfNeeded() {
+        if !Convention.instance.isRunning() || !shouldScrollToCurrentDateAndTime {
+            return
+        }
+        
+        dateFilterControl.selectDate(Date.now())
+        reloadMyEvents()
+        tableView.reloadData()
+        
+        // If the convention is currently taking place, auto-scroll to the correct event.
+        // Dispatching to the next layout pass so the user will see the scroll animation
+        tableView.layoutIfNeeded()
+        DispatchQueue.main.async {
+
+            if let currentEventIndex = self.myEvents?.index(where: {$0.startTime.timeIntervalSince1970 >= Date.now().timeIntervalSince1970}) {
+                self.tableView.scrollToRow(
+                    at: IndexPath(row: currentEventIndex, section: 0),
+                    at: .top,
+                    animated: true)
+                
+                // only scroll once (or when set to scroll from externally)
+                self.shouldScrollToCurrentDateAndTime = false
+            }
+        }
     }
     
     @IBAction func dateFilterWasTapped(_ sender: DateFilterControl) {
@@ -94,9 +123,17 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             return;
         }
         
-        event.attending = false;
-        reloadMyEvents();
-        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic);
+        let alertController = UIAlertController(title: "אזהרה", message: "אתה עומד להסיר את האירוע מהאירועים שלי. האם אתה בטוח?", preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "בטל", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in }
+        let okAction = UIAlertAction(title: "אשר", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+
+            event.attending = false;
+            self.reloadMyEvents();
+            self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic);
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     fileprivate func reloadMyEvents() {

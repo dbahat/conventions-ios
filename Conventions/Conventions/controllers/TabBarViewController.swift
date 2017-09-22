@@ -27,6 +27,9 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         if let eventsVc = viewController as? EventsViewController {
             eventsVc.shouldScrollToCurrentDateAndTime = true
         }
+        if let myEventsVc = viewController as? MyEventsViewController {
+            myEventsVc.shouldScrollToCurrentDateAndTime = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
