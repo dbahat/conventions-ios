@@ -56,7 +56,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
         
         titleAndEventTypeContainer.layer.borderWidth = 2
-        titleAndEventTypeContainer.layer.borderColor = UIColor.black.cgColor
+        titleAndEventTypeContainer.layer.borderColor = UIColor.white.cgColor
         
         lecturer.text = event.lecturer
         eventTitle.text = event.title
