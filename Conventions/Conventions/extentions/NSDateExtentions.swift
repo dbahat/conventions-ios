@@ -37,10 +37,8 @@ extension Date {
     }
     
     func clearMinutesComponent() -> Date {
-        var components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
-        components.minute = 0
-        components.second = 0
-        return Date.gregorianCalendar.date(from: components)!
+        let components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
+        return Date.from(year: components.year!, month: components.month!, day: components.day!, hour: components.hour!, minute: 0)
     }
     
     func moveToNextRoundHour() -> Date {
@@ -51,11 +49,8 @@ extension Date {
     }
     
     func clearTimeComponent() -> Date! {
-        var components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
-        return Date.gregorianCalendar.date(from: components)!
+        let components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
+        return Date.from(year: components.year!, month: components.month!, day: components.day!)
     }
     
     static func from(year:Int, month:Int, day:Int) -> Date {
