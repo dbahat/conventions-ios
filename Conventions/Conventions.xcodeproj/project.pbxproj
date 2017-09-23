@@ -40,6 +40,7 @@
 		3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A9991C7A48C700C5BCE4 /* EventView.swift */; };
 		3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */; };
 		3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E0C761C933B2D004BF8AE /* LaunchScreen.storyboard */; };
+		3B664D841F76397B00A7D336 /* HTMLdecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B664D831F76391000A7D336 /* HTMLdecode.swift */; };
 		3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */; };
 		3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */; };
 		3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8664C71D4007DC00A504FC /* UserInput.swift */; };
@@ -138,6 +139,7 @@
 		3B55A9991C7A48C700C5BCE4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = events/EventView.swift; sourceTree = "<group>"; };
 		3B55A99B1C7A48DD00C5BCE4 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventView.xib; path = events/EventView.xib; sourceTree = "<group>"; };
 		3B5E0C771C933B2D004BF8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Conventions/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B664D831F76391000A7D336 /* HTMLdecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLdecode.swift; sourceTree = "<group>"; };
 		3B6AF9821C6FC1B8004B9DAD /* UIColorExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtentions.swift; path = extentions/UIColorExtentions.swift; sourceTree = "<group>"; };
 		3B6AF9841C6FC1D5004B9DAD /* NSDateExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtentions.swift; path = extentions/NSDateExtentions.swift; sourceTree = "<group>"; };
 		3B8664C71D4007DC00A504FC /* UserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInput.swift; path = model/UserInput.swift; sourceTree = "<group>"; };
@@ -290,6 +292,15 @@
 			path = externals/CCColorCube;
 			sourceTree = "<group>";
 		};
+		3B664D821F76391000A7D336 /* HtmlDecode */ = {
+			isa = PBXGroup;
+			children = (
+				3B664D831F76391000A7D336 /* HTMLdecode.swift */,
+			);
+			name = HtmlDecode;
+			path = externals/HtmlDecode;
+			sourceTree = "<group>";
+		};
 		3B6AF9811C6FC172004B9DAD /* extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +428,7 @@
 		3BA2D81B1C613BC8007A8A23 /* externals */ = {
 			isa = PBXGroup;
 			children = (
+				3B664D821F76391000A7D336 /* HtmlDecode */,
 				3B16597E1C946E320074F1FF /* ZoomToPoint */,
 				3B0800B11C81B72F00F406FD /* TTGSnackbar */,
 				3B4CEB461C7CF7F500AF041B /* CardView */,
@@ -636,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B664D841F76397B00A7D336 /* HTMLdecode.swift in Sources */,
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,

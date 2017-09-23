@@ -83,7 +83,7 @@ class SffEventsParser {
             }
             if let tagsObject = event["tags"] as? Dictionary<String, String> {
                 for tagString in tagsObject.values {
-                    tags.append(tagString.decodeHtmlSymbols() ?? tagString)
+                    tags.append(tagString.stringByDecodingHTMLEntities)
                 }
             }
             
@@ -97,8 +97,8 @@ class SffEventsParser {
                 serverId: Int(eventId) ?? 0,
                 color: Colors.eventTimeDefaultBackgroundColor,
                 textColor: nil,
-                title: title.decodeHtmlSymbols() ?? title,
-                lecturer: speaker.decodeHtmlSymbols() ?? speaker,
+                title: title.stringByDecodingHTMLEntities,
+                lecturer: speaker.stringByDecodingHTMLEntities,
                 startTime: parseDate(startTime),
                 endTime: parseDate(endTime),
                 type: EventType(
@@ -106,7 +106,7 @@ class SffEventsParser {
                     description: eventType),
                 hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
-                category: category.decodeHtmlSymbols() ?? category,
+                category: category.stringByDecodingHTMLEntities,
                 price: eventPrice,
                 tags: tags,
                 url: URL(string: (event["url"] as? String)!)!,
@@ -133,13 +133,6 @@ class SffEventsParser {
             .replace(pattern: "/img>", withTemplate: "/ximg>")?
             .replace(pattern: "<iframe", withTemplate: "<xiframe")?
             .replace(pattern: "iframe>", withTemplate: "xiframe>");
-    }
-}
-
-extension String {
-    func decodeHtmlSymbols() -> String? {
-        guard let data = data(using: .utf8) else { return nil }
-        return try? NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
     }
 }
 
