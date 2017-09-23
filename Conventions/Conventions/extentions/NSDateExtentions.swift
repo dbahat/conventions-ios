@@ -9,34 +9,38 @@
 import Foundation
 
 extension Date {
+    public static let timeZone = TimeZone(identifier: "Asia/Jerusalem")!
+    private static var gregorianCalendar = Calendar(identifier:Calendar.Identifier.gregorian) {
+        didSet {
+            Date.gregorianCalendar.timeZone = Date.timeZone
+        }
+    }
+    
     func format(_ dateFormat: String) -> String {
-        let dateFormatter = DateFormatter();
-        dateFormatter.dateFormat = dateFormat;
-        dateFormatter.locale = Locale(identifier: "iw-IL")
-        dateFormatter.timeZone = TimeZone.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.locale = Locale(identifier: "he-il")
+        dateFormatter.timeZone = Date.timeZone
         return dateFormatter.string(from: self);
     }
     
     func addDays(_ days: Int) -> Date {
-        let calendar = Calendar.autoupdatingCurrent
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: days, to: self, options: [])!;
+        return Date.gregorianCalendar.date(byAdding: .day, value: days, to: self, wrappingComponents: false)!
     }
     
     func addHours(_ hours: Int) -> Date {
-        let calendar = Calendar.autoupdatingCurrent
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.hour, value: hours, to: self, options: [])!;
+        return Date.gregorianCalendar.date(byAdding: .hour, value: hours, to: self, wrappingComponents: false)!
     }
     
     func addMinutes(_ minutes: Int) -> Date {
-        let calendar = Calendar.autoupdatingCurrent
-        return (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.minute, value: minutes, to: self, options: [])!;
+        return Date.gregorianCalendar.date(byAdding: .minute, value: minutes, to: self, wrappingComponents: false)!
     }
     
     func clearMinutesComponent() -> Date {
-        let gregorian = Calendar(identifier:Calendar.Identifier.gregorian)
-        let components = (gregorian as NSCalendar).components([.year, .month, .day, .hour], from: self)
-        (components as NSDateComponents).timeZone = TimeZone.current
-        return gregorian.date(from: components) ?? self
+        var components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
+        components.minute = 0
+        components.second = 0
+        return Date.gregorianCalendar.date(from: components)!
     }
     
     func moveToNextRoundHour() -> Date {
@@ -47,10 +51,11 @@ extension Date {
     }
     
     func clearTimeComponent() -> Date! {
-        let gregorian = Calendar(identifier:Calendar.Identifier.gregorian)
-        let components = (gregorian as NSCalendar).components([.year, .month, .day], from: self)
-        (components as NSDateComponents).timeZone = TimeZone(identifier: "GMT")
-        return gregorian.date(from: components)!
+        var components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return Date.gregorianCalendar.date(from: components)!
     }
     
     static func from(year:Int, month:Int, day:Int) -> Date {
@@ -64,11 +69,9 @@ extension Date {
         dateComponents.day = day
         dateComponents.hour = hour
         dateComponents.minute = minute
-        (dateComponents as NSDateComponents).timeZone = TimeZone(identifier: "GMT")
-        (dateComponents as NSDateComponents).calendar = Calendar(identifier:Calendar.Identifier.gregorian)
-        
-        let gregorian = Calendar(identifier:Calendar.Identifier.gregorian)
-        return gregorian.date(from: dateComponents)!
+        dateComponents.timeZone = Date.timeZone
+
+        return Date.gregorianCalendar.date(from: dateComponents)!
     }
     
     static func parse(_ date: String, dateFormat: String) -> Date? {

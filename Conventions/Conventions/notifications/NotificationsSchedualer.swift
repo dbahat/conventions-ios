@@ -27,7 +27,7 @@ class NotificationsSchedualer {
         
         let notification = UILocalNotification()
         notification.fireDate = Convention.endDate.addHours(22)
-        notification.timeZone = TimeZone.current
+        notification.timeZone = Date.timeZone
         if #available(iOS 8.2, *) {
             notification.alertTitle = "עזור לנו להשתפר"
         }
@@ -52,7 +52,7 @@ class NotificationsSchedualer {
         
         let notification = UILocalNotification()
         notification.fireDate = Convention.endDate.addDays(4)
-        notification.timeZone = TimeZone.current
+        notification.timeZone = Date.timeZone
         if #available(iOS 8.2, *) {
             notification.alertTitle = "הזדמנות אחרונה להשפיע"
         }
@@ -113,7 +113,7 @@ class NotificationsSchedualer {
         
         let notification = UILocalNotification()
         notification.fireDate = event.startTime.addMinutes(-5)
-        notification.timeZone = TimeZone.current
+        notification.timeZone = Date.timeZone
         if #available(iOS 8.2, *) {
             notification.alertTitle = "אירוע עומד להתחיל"
         }
@@ -143,7 +143,7 @@ class NotificationsSchedualer {
         // event about to start notification
         let notification = UILocalNotification()
         notification.fireDate = event.endTime.addMinutes(5)
-        notification.timeZone = TimeZone.current
+        notification.timeZone = Date.timeZone
         if #available(iOS 8.2, *) {
             notification.alertTitle = "עזור לנו להשתפר"
         }
