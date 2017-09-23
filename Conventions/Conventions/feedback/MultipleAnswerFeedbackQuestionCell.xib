@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="השאלה:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-QH-pHX">
-                        <rect key="frame" x="8" y="8" width="460" height="17"/>
+                        <rect key="frame" x="0.0" y="8" width="468" height="17"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="anC-fs-yjo">
-                        <rect key="frame" x="8" y="25" width="460" height="68.5"/>
+                        <rect key="frame" x="8" y="25" width="468" height="68.5"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="Aow-kS-Bnj" customClass="UICollectionViewRightAlignedLayout"/>
                     </collectionView>
@@ -37,10 +37,10 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="aFy-QH-pHX" secondAttribute="trailing" priority="999" constant="8" id="bda-qj-d6m"/>
                     <constraint firstItem="aFy-QH-pHX" firstAttribute="top" secondItem="ZIY-oq-pbd" secondAttribute="topMargin" id="n0X-NG-xt8"/>
-                    <constraint firstAttribute="trailing" secondItem="anC-fs-yjo" secondAttribute="trailing" constant="8" id="p5g-Bu-vkS"/>
+                    <constraint firstAttribute="trailing" secondItem="anC-fs-yjo" secondAttribute="trailing" id="p5g-Bu-vkS"/>
                     <constraint firstItem="anC-fs-yjo" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leading" constant="8" id="pSL-Co-YH8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="anC-fs-yjo" secondAttribute="bottom" id="qxm-Do-wks"/>
-                    <constraint firstItem="aFy-QH-pHX" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leading" constant="8" id="xIx-cJ-heV"/>
+                    <constraint firstItem="aFy-QH-pHX" firstAttribute="leading" secondItem="ZIY-oq-pbd" secondAttribute="leading" id="xIx-cJ-heV"/>
                     <constraint firstItem="anC-fs-yjo" firstAttribute="top" secondItem="aFy-QH-pHX" secondAttribute="bottom" id="xvI-ij-Ib0"/>
                 </constraints>
             </tableViewCellContentView>
