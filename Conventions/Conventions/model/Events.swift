@@ -9,11 +9,13 @@
 import Foundation
 
 class Events {
-    fileprivate static let eventsApiUrl = "https://api.sf-f.org.il/program/list_events.php?slug=icon2017";
-    fileprivate static let fileName = Convention.name + "Events.json";
-    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
+    private static let eventsApiUrl = URL(string: "https://api.sf-f.org.il/program/list_events.php?slug=icon2017")!;
+    private static let availableTicketsCacheLastRefreshTimeApi = URL(string: "https://api.sf-f.org.il/program/cache_get_last_updated.php?slug=icon2017&which=available_tickets")!
     
-    fileprivate var events: Array<ConventionEvent> = [];
+    private static let fileName = Convention.name + "Events.json";
+    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "2_" + fileName;
+    
+    private var events: Array<ConventionEvent> = [];
     
     init(halls: Array<Hall>) {
         guard let resourcePath = Bundle.main.resourcePath else {
@@ -43,31 +45,68 @@ class Events {
             callback?(true)
         }
         
-        download({result in
-            guard let events = result else {
+        URLSession.shared.dataTask(with: Events.eventsApiUrl, completionHandler:{(data, response, error) -> Void in
+            
+            guard let events = data else {
                 DispatchQueue.main.async {
                     callback?(false);
                 }
                 return;
             }
             
-            let parsedEvents = SffEventsParser().parse(data: events)
-            if let serializedData = try? JSONSerialization.data(
-                withJSONObject: self.events.map({$0.toJson()}),
-                options: JSONSerialization.WritingOptions.prettyPrinted) {
-                try? serializedData.write(to: URL(fileURLWithPath: Events.cacheFile), options: [.atomic])
-            }
-            
-            // Using main thread for syncronizing access to events
-            DispatchQueue.main.async {
-                self.events = parsedEvents!;
-                print("Downloaded events: ", self.events.count);
-                callback?(true);
-            }
-        });
+            URLSession.shared.dataTask(with: Events.availableTicketsCacheLastRefreshTimeApi, completionHandler:{(data, response, error) -> Void in
+                
+                guard let availableTicketsCallResponse = response as? HTTPURLResponse else {
+                    DispatchQueue.main.async {
+                        callback?(false);
+                    }
+                    return
+                }
+                
+                if (availableTicketsCallResponse.statusCode != 200) {
+                    DispatchQueue.main.async {
+                        callback?(false);
+                    }
+                    return
+                }
+                
+                guard
+                let availableTicketsLastModifiedString = availableTicketsCallResponse.allHeaderFields["Last-Modified"] as? String,
+                let availableTicketsLastModifiedDate = Date.parse(availableTicketsLastModifiedString, dateFormat: "EEE, dd MMM yyyy HH:mm:ss zzz")
+                else {
+                    print("failed to fetch tickets last modified value")
+                    
+                    DispatchQueue.main.async {
+                        callback?(false);
+                    }
+                    return
+                }
+                
+                guard let parsedEvents = SffEventsParser().parse(data: events) else {
+                    DispatchQueue.main.async {
+                        callback?(false);
+                    }
+                    return
+                }
+                parsedEvents.forEach({$0.availableTicketsLastModified = availableTicketsLastModifiedDate})
+                
+                if let serializedData = try? JSONSerialization.data(
+                    withJSONObject: parsedEvents.map({$0.toJson()}),
+                    options: JSONSerialization.WritingOptions.prettyPrinted) {
+                    try? serializedData.write(to: URL(fileURLWithPath: Events.cacheFile), options: [.atomic])
+                }
+                
+                // Using main thread for syncronizing access to events
+                DispatchQueue.main.async {
+                    self.events = parsedEvents;
+                    print("Downloaded events: ", self.events.count);
+                    callback?(true);
+                }
+            }).resume()
+        }).resume()
     }
     
-    fileprivate func parse(_ data: Data, halls: Array<Hall>) -> Array<ConventionEvent>? {
+    private func parse(_ data: Data, halls: Array<Hall>) -> Array<ConventionEvent>? {
         var result = Array<ConventionEvent>()
         
         guard let deserializedEvents =
@@ -85,14 +124,5 @@ class Events {
         }
         
         return result
-    }
-    
-    fileprivate func download(_ completion: @escaping (_ data: Data?) -> Void) {
-        let session = URLSession(configuration: URLSessionConfiguration.default);
-        let url = URL(string: Events.eventsApiUrl)!;
-        
-        session.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-            completion(data);
-        }).resume();
     }
 }

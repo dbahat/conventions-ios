@@ -34,6 +34,8 @@ class ConventionEvent {
     var url: URL
     var availableTickets: Int
     
+    var availableTicketsLastModified: Date?
+    
     let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
         FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
@@ -80,7 +82,7 @@ class ConventionEvent {
             return nil
         }
         
-        return ConventionEvent(id: id,
+        let event = ConventionEvent(id: id,
                                serverId: serverId,
                                color: Colors.eventTimeDefaultBackgroundColor,
                                textColor: nil,
@@ -96,6 +98,12 @@ class ConventionEvent {
                                tags: tags,
                                url: URL(string: url)!,
                                availableTickets: availableTickets)
+        
+        if let availableTicketsLastModified = json["availableTicketsLastModified"] as? Double {
+            event.availableTicketsLastModified = Date(timeIntervalSince1970: availableTicketsLastModified)
+        }
+        
+        return event
     }
     
     fileprivate static func findHall(_ halls: Array<Hall>, hallName: String) -> Hall {
@@ -121,7 +129,8 @@ class ConventionEvent {
             "price": self.price as AnyObject,
             "tags": self.tags as AnyObject,
             "url": self.url.absoluteString as AnyObject,
-            "availableTickets": self.availableTickets as AnyObject
+            "availableTickets": self.availableTickets as AnyObject,
+            "availableTicketsLastModified": self.availableTicketsLastModified?.timeIntervalSince1970 as AnyObject
         ]
     }
     

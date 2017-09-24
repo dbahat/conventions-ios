@@ -240,20 +240,24 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             availableTickets.textColor = Colors.eventDetailsHighlightedTextColor
         }
         
+        availableTickets.text = String(
+            format: "%@. %@",
+            getFormattedNumberOfTickets(availableTicketsCount),
+            event.availableTicketsLastModified == nil ? "" : "עודכן: " + event.availableTicketsLastModified!.format("HH:mm dd:MM:yyyy"))
+    }
+    
+    private func getFormattedNumberOfTickets(_ availableTicketsCount: Int) -> String {
         // Not showing the exact amount of tickets since this info might be in-accurate, and we don't
         // want to confuse people about the exact amount of available tickets.
         switch availableTicketsCount {
         case 0:
-            availableTickets.text = "אזלו הכרטיסים"
-            break;
+            return "אזלו הכרטיסים"
         case 1..<10:
-            availableTickets.text = "נותרו כרטיסים אחרונים"
-            break;
+            return "נותרו כרטיסים אחרונים"
         case 10..<30:
-            availableTickets.text = "נותרו מעט כרטיסים"
-            break;
+            return "נותרו מעט כרטיסים"
         default:
-            availableTickets.text = "יש כרטיסים"
+            return "יש כרטיסים"
         }
     }
 }
