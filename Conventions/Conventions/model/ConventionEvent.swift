@@ -16,6 +16,8 @@ class ConventionEvent {
      */
     static let AttendingWasSetEventName = Notification.Name("AttendingWasSetEventName")
     
+    private static let availableTicketsForEventUrl = "https://api.sf-f.org.il/program/available_tickets_per_event.php?slug=icon2017&id="
+    
     var id: String
     var serverId: Int
     var color: UIColor?
@@ -260,6 +262,52 @@ class ConventionEvent {
     
     func hasEnded() -> Bool {
         return endTime.timeIntervalSince1970 < Date.now().timeIntervalSince1970
+    }
+    
+    func refreshAvailableTickets(_ callback:((_ success: Bool) -> Void)?) {
+        let url = URL(string: ConventionEvent.availableTicketsForEventUrl + String(serverId))!
+        
+        URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
+            
+            guard
+                let availableTicketsCallResponse = response as? HTTPURLResponse,
+                let availableTicketsLastModifiedString = availableTicketsCallResponse.allHeaderFields["Last-Modified"] as? String,
+                let unwrappedData = data
+                
+                else {
+                    DispatchQueue.main.async {
+                        callback?(false)
+                    }
+                    return
+            }
+            
+            if (availableTicketsCallResponse.statusCode != 200) {
+                DispatchQueue.main.async {
+                    callback?(false)
+                }
+                return
+            }
+            
+            guard
+                let deserializedResult = try? JSONSerialization.jsonObject(with: unwrappedData, options: []) as? Dictionary<String, AnyObject>,
+                let result = deserializedResult
+                else {
+                    print("Failed to deserialize available tickets result");
+                    DispatchQueue.main.async {
+                        callback?(false)
+                    }
+                    return
+            }
+            
+            if let tickets = result["available_tickets"]  as? Int {
+                self.availableTickets = tickets
+            }
+            self.availableTicketsLastModified = Date.parse(availableTicketsLastModifiedString, dateFormat: "EEE, dd MMM yyyy HH:mm:ss zzz")
+            
+            DispatchQueue.main.async {
+                callback?(true)
+            }
+        }).resume()
     }
 }
 

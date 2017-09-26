@@ -15,4 +15,18 @@ extension UIView {
         view.frame = self.bounds
         addSubview(view)
     }
+    
+    func startRotate() {
+        let rotation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.fromValue = 0
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 2
+        rotation.isCumulative = true
+        rotation.repeatCount = .greatestFiniteMagnitude
+        layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
+    func stopRotate() {
+        layer.removeAnimation(forKey: "rotationAnimation")
+    }
 }

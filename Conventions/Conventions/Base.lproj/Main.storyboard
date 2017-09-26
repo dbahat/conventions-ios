@@ -267,7 +267,7 @@
                                             <constraint firstItem="Osb-kV-Cgw" firstAttribute="top" secondItem="dze-UV-zhf" secondAttribute="top" constant="10" id="z2E-2U-qDh"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZL-9K-Xfi" userLabel="Hall">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZL-9K-Xfi" userLabel="MetadataContainer">
                                         <rect key="frame" x="20" y="130" width="335" height="136.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-mc-ttE">
@@ -289,12 +289,34 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="available tickets" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDx-LA-DHn">
-                                                <rect key="frame" x="10" y="83.5" width="315" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="available tickets 11" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDx-LA-DHn">
+                                                <rect key="frame" x="213" y="83.5" width="112" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jI1-F9-v7a">
+                                                <rect key="frame" x="0.0" y="83.5" width="213" height="36"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="MenuUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="wZJ-Bb-HYE">
+                                                        <rect key="frame" x="189" y="0.0" width="14" height="14"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="HOu-pR-9eh"/>
+                                                            <constraint firstAttribute="width" constant="14" id="xzY-7L-1aI"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="wZJ-Bb-HYE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jI1-F9-v7a" secondAttribute="leading" priority="750" constant="10" id="0fn-56-vl4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wZJ-Bb-HYE" secondAttribute="trailing" constant="10" id="8oc-CU-7rX"/>
+                                                    <constraint firstItem="wZJ-Bb-HYE" firstAttribute="top" secondItem="jI1-F9-v7a" secondAttribute="top" id="gGb-2e-vmd"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="5Vl-Fl-geG" appends="YES" id="2gN-2q-ApS"/>
+                                                </connections>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tags" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-U7-wWS">
                                                 <rect key="frame" x="10" y="109.5" width="315" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -306,20 +328,23 @@
                                         <constraints>
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="0Ml-Il-fYs"/>
                                             <constraint firstAttribute="trailing" secondItem="CgD-mc-ttE" secondAttribute="trailing" constant="10" id="2DG-4Z-Ggk"/>
+                                            <constraint firstAttribute="trailing" secondItem="lDx-LA-DHn" secondAttribute="trailing" constant="10" id="36E-Ej-1yn"/>
                                             <constraint firstItem="ErG-zf-hsI" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="Byb-Ab-qjc"/>
                                             <constraint firstItem="zWb-Sz-3nI" firstAttribute="top" secondItem="ErG-zf-hsI" secondAttribute="bottom" constant="5" id="Dmb-kE-Ab0"/>
+                                            <constraint firstItem="jI1-F9-v7a" firstAttribute="top" secondItem="zWb-Sz-3nI" secondAttribute="bottom" constant="10" id="ELa-FM-fVx"/>
                                             <constraint firstAttribute="trailing" secondItem="zWb-Sz-3nI" secondAttribute="trailing" constant="10" id="EaQ-Vo-4QF"/>
+                                            <constraint firstItem="lDx-LA-DHn" firstAttribute="leading" secondItem="jI1-F9-v7a" secondAttribute="trailing" id="M63-Oj-1Tu"/>
                                             <constraint firstItem="Mha-U7-wWS" firstAttribute="top" secondItem="lDx-LA-DHn" secondAttribute="bottom" constant="10" id="QyR-La-tSv"/>
                                             <constraint firstItem="zWb-Sz-3nI" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="TF5-Gn-Ew6"/>
-                                            <constraint firstAttribute="trailing" secondItem="lDx-LA-DHn" secondAttribute="trailing" constant="10" id="UZJ-Cj-kcc"/>
                                             <constraint firstAttribute="trailing" secondItem="ErG-zf-hsI" secondAttribute="trailing" constant="10" id="UZh-lg-d78"/>
                                             <constraint firstAttribute="bottom" secondItem="Mha-U7-wWS" secondAttribute="bottom" constant="10" id="VNq-YH-AAq"/>
                                             <constraint firstItem="ErG-zf-hsI" firstAttribute="top" secondItem="CgD-mc-ttE" secondAttribute="bottom" constant="5" id="Y8A-sw-P0H"/>
                                             <constraint firstItem="Mha-U7-wWS" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="adK-Ij-FKQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Mha-U7-wWS" secondAttribute="trailing" constant="10" id="erg-7b-hND"/>
+                                            <constraint firstItem="jI1-F9-v7a" firstAttribute="bottom" secondItem="Mha-U7-wWS" secondAttribute="top" constant="10" id="lLw-FB-D5B"/>
                                             <constraint firstItem="CgD-mc-ttE" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="top" constant="5" id="lQ5-WN-5kT"/>
+                                            <constraint firstItem="jI1-F9-v7a" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" id="o94-Bo-MQa"/>
                                             <constraint firstItem="lDx-LA-DHn" firstAttribute="top" secondItem="zWb-Sz-3nI" secondAttribute="bottom" constant="10" id="vjt-QT-sUG"/>
-                                            <constraint firstItem="lDx-LA-DHn" firstAttribute="leading" secondItem="BZL-9K-Xfi" secondAttribute="leading" constant="10" id="wjq-AR-a4t"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
@@ -409,14 +434,20 @@
                         <outlet property="image" destination="q76-A4-Mva" id="wAw-OJ-vDD"/>
                         <outlet property="lecturer" destination="Osb-kV-Cgw" id="oM5-eE-LBE"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
+                        <outlet property="refreshAvailableTicketsButton" destination="wZJ-Bb-HYE" id="Xz3-XF-7pM"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>
                         <outlet property="time" destination="ErG-zf-hsI" id="kCa-s2-v63"/>
                         <outlet property="titleAndEventTypeContainer" destination="i8g-JM-D6V" id="5Gr-67-jBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwT-iS-kDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5Vl-Fl-geG">
+                    <connections>
+                        <action selector="refreshAvailableTicketsButtonWasClicked:" destination="euQ-tX-Zvn" id="Eoz-gw-e7U"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3260" y="-1031"/>
+            <point key="canvasLocation" x="3260" y="-1031.3343328335832"/>
         </scene>
         <!--Opening Navigation-->
         <scene sceneID="qe6-hS-6vh">

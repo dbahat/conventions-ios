@@ -22,6 +22,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet fileprivate weak var prices: UILabel!
     @IBOutlet fileprivate weak var titleAndEventTypeContainer: UIView!
     
+    @IBOutlet fileprivate weak var refreshAvailableTicketsButton: UIImageView!
     @IBOutlet fileprivate weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var eventDescriptionWebView: StaticContentWebView!
     @IBOutlet fileprivate weak var image: UIImageView!
@@ -83,6 +84,9 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
         
         refreshFavoriteBarIconImage()
+        
+        refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
+        refreshAvailableTicketsButton.tintColor = UIColor.white
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -134,6 +138,15 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
         TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: view)
             .show();
+    }
+    
+    @IBAction func refreshAvailableTicketsButtonWasClicked(_ sender: UITapGestureRecognizer) {
+        refreshAvailableTicketsButton.startRotate()
+        
+        event.refreshAvailableTickets({result in
+            self.refreshAvailableTicketsButton.stopRotate()
+            self.updateAvailableTicketsText(availableTicketsCount: self.event.availableTickets)
+        })
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -243,7 +256,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         availableTickets.text = String(
             format: "%@. %@",
             getFormattedNumberOfTickets(availableTicketsCount),
-            event.availableTicketsLastModified == nil ? "" : "עודכן: " + event.availableTicketsLastModified!.format("HH:mm dd:MM:yyyy"))
+            event.availableTicketsLastModified == nil ? "" : "עודכן: " + event.availableTicketsLastModified!.format(getAvailableTicketsLastModifiedFormet(event.availableTicketsLastModified!)))
+    }
+    
+    private func getAvailableTicketsLastModifiedFormet(_ date: Date) -> String {
+        return date.clearTimeComponent().timeIntervalSince1970 == Date.now().clearTimeComponent().timeIntervalSince1970 ? "HH:mm" : "HH:mm dd.MM.yyyy"
     }
     
     private func getFormattedNumberOfTickets(_ availableTicketsCount: Int) -> String {
