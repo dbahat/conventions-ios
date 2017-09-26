@@ -836,7 +836,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="96"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89B-Vf-QWt">
-                                <rect key="frame" x="0.0" y="275.5" width="375" height="117"/>
+                                <rect key="frame" x="0.0" y="172" width="375" height="117"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryt-7n-AMB">
                                         <rect key="frame" x="12" y="12" width="351" height="19.5"/>
@@ -875,8 +875,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="89B-Vf-QWt" firstAttribute="centerY" secondItem="ICJ-C2-oZR" secondAttribute="centerY" id="9b2-c6-mAk"/>
                             <constraint firstItem="89B-Vf-QWt" firstAttribute="centerX" secondItem="ICJ-C2-oZR" secondAttribute="centerX" id="Dvq-4Y-YiT"/>
+                            <constraint firstItem="89B-Vf-QWt" firstAttribute="top" secondItem="whS-x2-ubg" secondAttribute="bottom" constant="12" id="J9T-1n-vte"/>
                             <constraint firstItem="whS-x2-ubg" firstAttribute="top" secondItem="R54-oK-azA" secondAttribute="bottom" id="P9T-OI-Ny5"/>
                             <constraint firstItem="PlZ-8l-JLs" firstAttribute="top" secondItem="R54-oK-azA" secondAttribute="bottom" id="U5k-wG-yTF"/>
                             <constraint firstAttribute="trailing" secondItem="PlZ-8l-JLs" secondAttribute="trailing" id="VWx-Fl-chT"/>
