@@ -16,10 +16,6 @@ class Convention {
     static let displayName = "פסטיבל אייקון 2017"
     static let mailbox = "feedback@iconfestival.org.il"
     
-    // The APNS token. Set during app init, and saved here in case the user wish to change his push
-    // notifications topics (which requires re-registration)
-    static var deviceToken = Data()
-    
     var halls: Array<Hall>
     var events: Events
     var updates = Updates()
@@ -31,6 +27,8 @@ class Convention {
     
     let eventFeedbackForm: SurveyForm.EventFeedback
     let conventionFeedbackForm: SurveyForm.Feedback
+    
+    let notificationRegisterar: NotificationRegistrar
     
     fileprivate init() {
         halls = [
@@ -99,6 +97,8 @@ class Convention {
             eventTimeEntry: "entry.1648362575",
             hallEntry: "entry.1510105148",
             questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים בנושאים דומים בעתיד?": "entry.1416969956", "עוד משהו?": "entry.1582215667"])
+        
+        notificationRegisterar = NotificationRegistrar(settings: NotificationSettings.instance, events: events)
     }
     
     func findHallByName(_ name: String) -> Hall {

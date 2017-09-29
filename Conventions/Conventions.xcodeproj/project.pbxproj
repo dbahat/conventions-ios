@@ -12,6 +12,7 @@
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
 		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
+		3B049C7A1F7E7A880087FA9C /* NotificationRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -110,6 +111,7 @@
 		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3B0288791D9AF1CB006E158C /* DateFilterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilterControl.swift; path = events/DateFilterControl.swift; sourceTree = "<group>"; };
 		3B02887B1D9C4720006E158C /* Conventions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Conventions.entitlements; sourceTree = "<group>"; };
+		3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistrar.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */,
 				3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */,
 				3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */,
+				3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */,
 			);
 			path = notifications;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
 				3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
+				3B049C7A1F7E7A880087FA9C /* NotificationRegistrar.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
 				3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */,
 				3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */,

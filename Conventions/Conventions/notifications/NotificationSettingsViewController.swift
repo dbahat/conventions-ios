@@ -9,19 +9,19 @@
 import Foundation
 
 class NotificationSettingsViewController: BaseViewController {
-    @IBOutlet fileprivate weak var generalCategoryButton: UISwitch!
-    @IBOutlet fileprivate weak var eventsCategoryButton: UISwitch!
-    @IBOutlet fileprivate weak var cosplayCategoryButton: UISwitch!
-    @IBOutlet fileprivate weak var busCategoryButton: UISwitch!
-    @IBOutlet fileprivate weak var developerOptionsButton: UISwitch!
+    @IBOutlet private weak var generalCategoryButton: UISwitch!
+    @IBOutlet private weak var eventsCategoryButton: UISwitch!
+    @IBOutlet private weak var cosplayCategoryButton: UISwitch!
+    @IBOutlet private weak var busCategoryButton: UISwitch!
+    @IBOutlet private weak var developerOptionsButton: UISwitch!
     
-    @IBOutlet fileprivate weak var eventNotificationButton: UISwitch!
-    @IBOutlet fileprivate weak var feedbackNotificationButton: UISwitch!
+    @IBOutlet private weak var eventNotificationButton: UISwitch!
+    @IBOutlet private weak var feedbackNotificationButton: UISwitch!
     
-    @IBOutlet fileprivate weak var developerOptionsContainer: UIView!
-    @IBOutlet fileprivate weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var developerOptionsContainer: UIView!
+    @IBOutlet private weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
     
-    fileprivate var debugOptionsSwitchTapCount = 0
+    private var debugOptionsSwitchTapCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,11 @@ class NotificationSettingsViewController: BaseViewController {
         navigationItem.title = "הגדרות"
     }
     
-    @IBAction fileprivate func generalNotificationsTapped(_ sender: UISwitch) {
+    @IBAction private func generalNotificationsTapped(_ sender: UISwitch) {
         updateCategoryAndRegister(NotificationHubInfo.CATEGORY_GENERAL, sender: sender)
     }
     
-    @IBAction fileprivate func eventsNotificationsTapped(_ sender: UISwitch) {
+    @IBAction private func eventsNotificationsTapped(_ sender: UISwitch) {
         updateCategoryAndRegister(NotificationHubInfo.CATEGORY_EVENTS, sender: sender)
     }
     
@@ -42,7 +42,7 @@ class NotificationSettingsViewController: BaseViewController {
         updateCategoryAndRegister(NotificationHubInfo.CATEGORY_TEST, sender: sender)
     }
     
-    @IBAction fileprivate func beforeEventNotificationsTapped(_ sender: UISwitch) {
+    @IBAction private func beforeEventNotificationsTapped(_ sender: UISwitch) {
         NotificationSettings.instance.eventStartingReminder = sender.isOn
         
         let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
@@ -61,7 +61,7 @@ class NotificationSettingsViewController: BaseViewController {
             .build() as! [AnyHashable: Any]);
     }
 
-    @IBAction fileprivate func afterEventNotificationsTapped(_ sender: UISwitch) {
+    @IBAction private func afterEventNotificationsTapped(_ sender: UISwitch) {
         NotificationSettings.instance.eventFeedbackReminder = sender.isOn
 
         let favoriteEvents = Convention.instance.events.getAll().filter({$0.attending})
@@ -80,7 +80,7 @@ class NotificationSettingsViewController: BaseViewController {
             .build() as! [AnyHashable: Any]);
     }
 
-    @IBAction fileprivate func
+    @IBAction private func
         debugOptionsSwitchWasTapped(_ sender: UITapGestureRecognizer) {
             debugOptionsSwitchTapCount = debugOptionsSwitchTapCount + 1
             if debugOptionsSwitchTapCount == 7 {
@@ -91,7 +91,7 @@ class NotificationSettingsViewController: BaseViewController {
     }
     
     
-    fileprivate func initializeButtonsState() {
+    private func initializeButtonsState() {
         let registeredCategories = NotificationSettings.instance.categories
         generalCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
         eventsCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
@@ -109,20 +109,27 @@ class NotificationSettingsViewController: BaseViewController {
         }
     }
     
-    fileprivate func updateCategoryAndRegister(_ category: String, sender: UISwitch) {
+    private func updateCategoryAndRegister(_ category: String, sender: UISwitch) {
         let isOn = sender.isOn
         var currentCategories = NotificationSettings.instance.categories;
         
         if isOn {
+            // in case updating the category fails, we revert the switch to it's previous position.
+            // This will cause updateCategoryAndRegister() to be invoked again - if that happens,
+            // ignore the request.
+            if currentCategories.contains(category) {
+                return
+            }
             currentCategories.insert(category)
         } else {
+            if !currentCategories.contains(category) {
+                return
+            }
             currentCategories.remove(category)
         }
         
-        // Register the hub in an async manner not to block the UI
-        let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
-        hub?.registerNative(withDeviceToken: Convention.deviceToken as Data!, tags: currentCategories, completion: {error in
-            if error != nil {
+        Convention.instance.notificationRegisterar.register({success in
+            if !success {
                 // In case the async operation failed, revert the UI change and show an error indication
                 TTGSnackbar(message: "לא ניתן לשנות את ההגדרות. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.short, superView: self.view)
                     .show()
@@ -132,11 +139,13 @@ class NotificationSettingsViewController: BaseViewController {
                 NotificationSettings.instance.categories = currentCategories
             }
             
-            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Notifications",
-                action: isOn ? "CategoryAdded" : "CategoryRemoved",
-                label: category,
-                value: error != nil ? 1 : 0)
-                .build() as! [AnyHashable: Any]);
+            GAI.sharedInstance().defaultTracker.send(
+                GAIDictionaryBuilder.createEvent(
+                    withCategory: "Notifications",
+                    action: isOn ? "CategoryAdded" : "CategoryRemoved",
+                    label: category,
+                    value: success ? 1 : 0)
+                .build() as! [AnyHashable: Any])
         })
     }
 }

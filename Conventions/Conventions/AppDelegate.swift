@@ -116,13 +116,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Convention.deviceToken = deviceToken
-        let hub = SBNotificationHub(connectionString: NotificationHubInfo.CONNECTIONSTRING, notificationHubPath: NotificationHubInfo.NAME)
-        do {
-            try hub?.registerNative(withDeviceToken: deviceToken, tags: NotificationSettings.instance.categories)
-        } catch {
-            print("error registering to Azure notification hub ", error)
-        }
+        let registrar = Convention.instance.notificationRegisterar
+        registrar.deviceToken = deviceToken
+        registrar.register(nil)
     }
     
     fileprivate func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {

@@ -1208,7 +1208,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBD-Ag-ZJD" userLabel="Container view">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="התראות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-AS-YaN">
                                                 <rect key="frame" x="300" y="10" width="55" height="20.5"/>
@@ -1265,30 +1265,30 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0d-Z8-2Uk">
-                                                <rect key="frame" x="20" y="101.5" width="335" height="71"/>
+                                                <rect key="frame" x="20" y="101.5" width="335" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אירועים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awn-wU-7Jm">
-                                                        <rect key="frame" x="285" y="13.5" width="50" height="20.5"/>
+                                                        <rect key="frame" x="285" y="8" width="50" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2GO-fO-m2Y">
-                                                        <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                                        <rect key="frame" x="0.0" y="34.5" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="eventsNotificationsTapped:" destination="JZD-xw-s30" eventType="valueChanged" id="w91-I4-X2G"/>
                                                         </connections>
                                                     </switch>
                                                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mM-8k-cLS">
-                                                        <rect key="frame" x="0.0" y="70" width="335" height="1"/>
+                                                        <rect key="frame" x="0.0" y="99" width="335" height="1"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="fAr-Bv-7A7"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על עדכונים בתוכניה ואירועים" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-yD-BRz">
-                                                        <rect key="frame" x="60" y="39" width="275" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הצג התראות על עדכונים בתוכניה ואירועים. לקבלת התראות לאירועים ספציפים יש להוסיף אותם לרשימת האירועים שלי." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-yD-BRz">
+                                                        <rect key="frame" x="70" y="36.5" width="265" height="50.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1296,27 +1296,27 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" constant="60" id="AkQ-hq-44b"/>
+                                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" constant="70" id="AkQ-hq-44b"/>
                                                     <constraint firstAttribute="trailing" secondItem="5mM-8k-cLS" secondAttribute="trailing" id="EMg-X5-3AL"/>
+                                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="top" secondItem="awn-wU-7Jm" secondAttribute="bottom" constant="8" id="WSB-UE-H21"/>
                                                     <constraint firstItem="2GO-fO-m2Y" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="WWs-Hj-bwo"/>
-                                                    <constraint firstAttribute="height" constant="71" id="Wnb-oJ-CWa"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Wnb-oJ-CWa"/>
+                                                    <constraint firstItem="awn-wU-7Jm" firstAttribute="top" secondItem="I0d-Z8-2Uk" secondAttribute="top" constant="8" id="XzZ-lD-hz2"/>
                                                     <constraint firstAttribute="trailing" secondItem="awn-wU-7Jm" secondAttribute="trailing" id="YP2-lj-VEX"/>
                                                     <constraint firstItem="5mM-8k-cLS" firstAttribute="leading" secondItem="I0d-Z8-2Uk" secondAttribute="leading" id="ZnP-U5-Ted"/>
-                                                    <constraint firstItem="IBf-yD-BRz" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" constant="12" id="j6q-lU-Gfw"/>
                                                     <constraint firstItem="2GO-fO-m2Y" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" id="qBc-h5-1aP"/>
                                                     <constraint firstAttribute="bottom" secondItem="5mM-8k-cLS" secondAttribute="bottom" id="vzj-o6-u3z"/>
-                                                    <constraint firstItem="awn-wU-7Jm" firstAttribute="centerY" secondItem="I0d-Z8-2Uk" secondAttribute="centerY" constant="-12" id="ygi-db-L8o"/>
                                                     <constraint firstItem="IBf-yD-BRz" firstAttribute="trailing" secondItem="awn-wU-7Jm" secondAttribute="trailing" id="yud-tf-ReV"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="תזכורות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDu-E3-Ndz">
-                                                <rect key="frame" x="301.5" y="192.5" width="53.5" height="20.5"/>
+                                                <rect key="frame" x="301.5" y="221.5" width="53.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcB-4o-ZN3">
-                                                <rect key="frame" x="20" y="213" width="335" height="71"/>
+                                                <rect key="frame" x="20" y="242" width="335" height="71"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לפני שאירוע מתחיל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztu-Bk-D0l">
                                                         <rect key="frame" x="208" y="13.5" width="127" height="20.5"/>
@@ -1362,7 +1362,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-em-4Aj">
-                                                <rect key="frame" x="20" y="284" width="335" height="81"/>
+                                                <rect key="frame" x="20" y="313" width="335" height="81"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לאירוע" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgl-em-oeg">
                                                         <rect key="frame" x="246" y="13.5" width="89" height="20.5"/>
@@ -1407,7 +1407,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRu-m5-mO8">
-                                                <rect key="frame" x="20" y="365" width="335" height="132"/>
+                                                <rect key="frame" x="20" y="394" width="335" height="132"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אפשרויות מתקדמות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1B-8n-gjN">
                                                         <rect key="frame" x="203" y="20" width="132" height="20.5"/>
