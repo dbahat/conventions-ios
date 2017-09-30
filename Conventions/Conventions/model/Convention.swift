@@ -29,6 +29,7 @@ class Convention {
     let conventionFeedbackForm: SurveyForm.Feedback
     
     let notificationRegisterar: NotificationRegistrar
+    let secondHand = SecondHand()
     
     fileprivate init() {
         halls = [

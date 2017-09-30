@@ -20,7 +20,10 @@ class Colors {
     static let eventNotStartedColor = UIColor.white
     static let eventUserNeedsToCompleteFeecbackButtonColor = UIColor(hexString: "#ffca58")
     static let eventMarkedAsFavorite = UIColor(hexString: "#ffca58")
-    static let eventDetailsHighlightedTextColor = UIColor(hexString: "FEFFC9")
-    static let eventFeedbackBoxColor = UIColor(hexString: "c0a45a5b")
+    static let eventDetailsHighlightedTextColor = UIColor(hexString: "#FEFFC9")
+    static let eventFeedbackBoxColor = UIColor(hexString: "#a45a5b")
+    
+    static let secondHandClosedFormColor = UIColor(hexString: "#D2D3D5")
+    static let secondHandOpenFormColor = UIColor.white
     
 }

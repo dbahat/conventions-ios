@@ -13,6 +13,10 @@
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
 		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
 		3B049C7A1F7E7A880087FA9C /* NotificationRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */; };
+		3B049C7D1F7FBB250087FA9C /* SecondHandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */; };
+		3B049C7F1F7FBBB60087FA9C /* SecondHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7E1F7FBBB60087FA9C /* SecondHand.swift */; };
+		3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B049C801F7FDACF0087FA9C /* SecondHandFormHeaderView.xib */; };
+		3B049C831F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C821F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift */; };
 		3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */; };
 		3B0800B31C81B73D00F406FD /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */; };
 		3B114C401D30224C003C6167 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B114C3F1D30224C003C6167 /* UITextView.swift */; };
@@ -84,6 +88,8 @@
 		3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */; };
 		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
 		3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */; };
+		3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC755711F7FE67D005B051C /* SecondHandItemViewCell.xib */; };
+		3BC755741F7FE68B005B051C /* SecondHandItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC755731F7FE68B005B051C /* SecondHandItemViewCell.swift */; };
 		3BDA282F1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BDA282E1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib */; };
 		3BDA28311F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA28301F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift */; };
 		3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551511D96893800E91634 /* SearchCategoriesView.swift */; };
@@ -112,6 +118,10 @@
 		3B0288791D9AF1CB006E158C /* DateFilterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilterControl.swift; path = events/DateFilterControl.swift; sourceTree = "<group>"; };
 		3B02887B1D9C4720006E158C /* Conventions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Conventions.entitlements; sourceTree = "<group>"; };
 		3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistrar.swift; sourceTree = "<group>"; };
+		3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHandViewController.swift; sourceTree = "<group>"; };
+		3B049C7E1F7FBBB60087FA9C /* SecondHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHand.swift; sourceTree = "<group>"; };
+		3B049C801F7FDACF0087FA9C /* SecondHandFormHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondHandFormHeaderView.xib; sourceTree = "<group>"; };
+		3B049C821F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHandFormHeaderView.swift; sourceTree = "<group>"; };
 		3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		3B0800B21C81B73D00F406FD /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		3B114C3F1D30224C003C6167 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = extentions/UITextView.swift; sourceTree = "<group>"; };
@@ -187,6 +197,8 @@
 		3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmaiEventsParser.swift; path = model/AmaiEventsParser.swift; sourceTree = "<group>"; };
 		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
+		3BC755711F7FE67D005B051C /* SecondHandItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondHandItemViewCell.xib; sourceTree = "<group>"; };
+		3BC755731F7FE68B005B051C /* SecondHandItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHandItemViewCell.swift; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BDA282E1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DuringConventionWithFavoritesHomeContentView.xib; path = home/DuringConventionWithFavoritesHomeContentView.xib; sourceTree = "<group>"; };
 		3BDA28301F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DuringConventionWithFavoritesHomeContentView.swift; path = home/DuringConventionWithFavoritesHomeContentView.swift; sourceTree = "<group>"; };
@@ -230,6 +242,19 @@
 				91EE3412A5156C8021C08D64 /* Pods-Conventions.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B049C7B1F7EB4670087FA9C /* secondhand */ = {
+			isa = PBXGroup;
+			children = (
+				3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */,
+				3B049C7E1F7FBBB60087FA9C /* SecondHand.swift */,
+				3B049C801F7FDACF0087FA9C /* SecondHandFormHeaderView.xib */,
+				3B049C821F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift */,
+				3BC755711F7FE67D005B051C /* SecondHandItemViewCell.xib */,
+				3BC755731F7FE68B005B051C /* SecondHandItemViewCell.swift */,
+			);
+			path = secondhand;
 			sourceTree = "<group>";
 		};
 		3B0800B11C81B72F00F406FD /* TTGSnackbar */ = {
@@ -361,6 +386,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				3B049C7B1F7EB4670087FA9C /* secondhand */,
 				3B17639A1F6D788B009F8F38 /* home */,
 				3B02887B1D9C4720006E158C /* Conventions.entitlements */,
 				3B8D9FEC1D1D4E4E005181DA /* feedback */,
@@ -566,6 +592,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
@@ -587,6 +614,7 @@
 				3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */,
 				3BDA282F1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
+				3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */,
 				3BFE31061F6EC4DD00271F58 /* DuringConventionNoFavoritesHomeContentView.xib in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* FeedbackView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
@@ -678,6 +706,7 @@
 				3B6AF9831C6FC1B8004B9DAD /* UIColorExtentions.swift in Sources */,
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */,
+				3B049C831F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift in Sources */,
 				3BDA28311F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift in Sources */,
 				3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */,
 				3BFE31041F6EC00C00271F58 /* AfterConventionHomeContentView.swift in Sources */,
@@ -687,6 +716,7 @@
 				3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */,
 				3B523D4D1C660B1700D3D055 /* EventViewController.swift in Sources */,
 				3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */,
+				3BC755741F7FE68B005B051C /* SecondHandItemViewCell.swift in Sources */,
 				3BF22D361D9D9B3C0090E8E6 /* AboutViewController.swift in Sources */,
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
 				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
@@ -703,8 +733,10 @@
 				3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,
 				3B55A99A1C7A48C700C5BCE4 /* EventView.swift in Sources */,
+				3B049C7D1F7FBB250087FA9C /* SecondHandViewController.swift in Sources */,
 				3B8D9FE91D153A28005181DA /* FeedbackQuestion.swift in Sources */,
 				3BA2D80F1C5FE8EB007A8A23 /* Convention.swift in Sources */,
+				3B049C7F1F7FBBB60087FA9C /* SecondHand.swift in Sources */,
 				3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */,
 				3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */,
 				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,

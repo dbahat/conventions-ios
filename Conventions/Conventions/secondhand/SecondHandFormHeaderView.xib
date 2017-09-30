@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SecondHandFormHeaderView" customModule="Conventions" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="form 005" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qe7-Tr-AFC">
+                    <rect key="frame" x="280" y="322.5" width="75" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(closed)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfi-eD-rSO">
+                    <rect key="frame" x="205" y="322.5" width="67" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eix-wU-ndM">
+                    <rect key="frame" x="20" y="318.5" width="30" height="30"/>
+                    <state key="normal" title="מחק"/>
+                    <connections>
+                        <action selector="removeWasClicked:" destination="-2" eventType="touchUpInside" id="tjZ-Bl-2m1"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tfi-eD-rSO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eix-wU-ndM" secondAttribute="trailing" constant="5" id="7EK-2I-wDX"/>
+                <constraint firstItem="qe7-Tr-AFC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7LQ-UR-x4j"/>
+                <constraint firstItem="Tfi-eD-rSO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KpP-e0-7p5"/>
+                <constraint firstItem="qe7-Tr-AFC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="QbC-1H-OEj"/>
+                <constraint firstItem="Eix-wU-ndM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RqH-Gm-dm8"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qe7-Tr-AFC" secondAttribute="bottom" constant="20" id="WGQ-T6-FTI"/>
+                <constraint firstAttribute="trailing" secondItem="qe7-Tr-AFC" secondAttribute="trailing" constant="20" id="a8G-MZ-nnT"/>
+                <constraint firstItem="qe7-Tr-AFC" firstAttribute="leading" secondItem="Tfi-eD-rSO" secondAttribute="trailing" constant="8" id="qfm-p6-279"/>
+                <constraint firstItem="Eix-wU-ndM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="u6h-jT-rLv"/>
+            </constraints>
+            <connections>
+                <outlet property="formIdLabel" destination="qe7-Tr-AFC" id="rSc-Z0-z9f"/>
+                <outlet property="formStatusLabel" destination="Tfi-eD-rSO" id="avq-PS-D8U"/>
+            </connections>
+        </view>
+    </objects>
+</document>
