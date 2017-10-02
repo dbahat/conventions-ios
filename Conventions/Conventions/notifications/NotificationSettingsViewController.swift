@@ -128,7 +128,7 @@ class NotificationSettingsViewController: BaseViewController {
             currentCategories.remove(category)
         }
         
-        Convention.instance.notificationRegisterar.register({success in
+        Convention.instance.notificationRegisterar.register(categories: currentCategories, callback: {success in
             if !success {
                 // In case the async operation failed, revert the UI change and show an error indication
                 TTGSnackbar(message: "לא ניתן לשנות את ההגדרות. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.short, superView: self.view)

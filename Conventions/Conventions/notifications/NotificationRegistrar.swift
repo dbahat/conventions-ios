@@ -19,14 +19,14 @@ class NotificationRegistrar {
         self.events = events
     }
     
-    func register(_ callback: ((Bool) -> Void)?) {
+    func register(categories: Set<String>, callback: ((Bool) -> Void)?) {
         guard let token = deviceToken else {
             print("unable to register for push notifications - missing device token")
             callback?(false)
             return
         }
         
-        var tags = NotificationSettings.instance.categories
+        var tags = categories
         if tags.contains(NotificationHubInfo.CATEGORY_EVENTS) {
             tags = tags.union(events.getAll()
                 .filter({$0.attending})
@@ -43,5 +43,9 @@ class NotificationRegistrar {
         hub.registerNative(withDeviceToken: token, tags: tags, completion: {error in
             callback?(error == nil)
         })
+    }
+    
+    func register(_ callback: ((Bool) -> Void)?) {
+        register(categories: NotificationSettings.instance.categories, callback: callback)
     }
 }
