@@ -99,12 +99,12 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         let okAction = UIAlertAction(title: "הוסף", style: .default) { (result : UIAlertAction) -> Void in
             
             guard let formId = Int(alertController.textFields![0].text!) else {
-                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.tableView).show()
+                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
             }
             
             if formId < 0 || formId > 999 {
-                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.tableView).show()
+                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
             }
             
@@ -117,7 +117,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 if !success {
-                    TTGSnackbar(message: "לא ניתן להוסיף את הטופס", duration: TTGSnackbarDuration.middle, superView: self.tableView).show()
+                    TTGSnackbar(message: "לא ניתן להוסיף את הטופס", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                     return
                 }
                 
