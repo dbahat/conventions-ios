@@ -108,6 +108,11 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 return
             }
             
+            if self.forms.contains(where: {$0.id == formId}) {
+                TTGSnackbar(message: "הטופס כבר קיים ברשימה", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                return
+            }
+            
             let newForm = SecondHand.Form(id: formId)
             self.refreshIndicatorView.startAnimating()
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
