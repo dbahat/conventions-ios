@@ -22,7 +22,7 @@ class SecondHand {
     
     init() {
         if let cachedForms = try? Data(contentsOf: URL(fileURLWithPath: SecondHand.cacheFile)) {
-            if let forms = SecondHand.parse(cachedForms) {
+            if let forms = SecondHand.parse(model: cachedForms) {
                 self.forms = forms
             }
         }
@@ -36,7 +36,7 @@ class SecondHand {
         URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
             guard
                 let rawForms = data,
-                let forms = SecondHand.parse(rawForms)
+                let forms = SecondHand.parse(contract: rawForms)
                 else {
                     DispatchQueue.main.async {
                         callback?(false)
@@ -60,12 +60,24 @@ class SecondHand {
         }
     }
     
-    private static func parse(_ data: Data) -> Array<SecondHand.Form>? {
+    private static func parse(contract: Data) -> Array<SecondHand.Form>? {
         guard
-            let deserializedSecondHandData = try? JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, AnyObject>,
+            let deserializedSecondHandData = try? JSONSerialization.jsonObject(with: contract, options: []) as? Array<NSArray>,
+            let forms = deserializedSecondHandData
+            else {
+                print("Failed to deserialize second hand forms from contract")
+                return nil
+        }
+        
+        return forms.map({SecondHand.Form.parse(contract: $0)}).filter({$0 != nil}).map({$0!})
+    }
+    
+    private static func parse(model: Data) -> Array<SecondHand.Form>? {
+        guard
+            let deserializedSecondHandData = try? JSONSerialization.jsonObject(with: model, options: []) as? Dictionary<String, AnyObject>,
             let forms = deserializedSecondHandData?["forms"] as? Array<Dictionary<String, AnyObject>>
         else {
-                print("Failed to deserialize second hand forms")
+                print("Failed to deserialize second hand forms from model")
                 return nil
         }
         
