@@ -173,13 +173,13 @@ class ConventionEvent {
             
             if let input = Convention.instance.eventsInputs.getInput(id) {
                 input.attending = newValue
-                Convention.instance.eventsInputs.save()
-                return
+            } else {
+                let input = UserInput.ConventionEventInput(attending: newValue, feedbackUserInput: UserInput.Feedback())
+                Convention.instance.eventsInputs.setInput(input, forEventId: id)
             }
             
-            let input = UserInput.ConventionEventInput(attending: newValue, feedbackUserInput: UserInput.Feedback())
-            Convention.instance.eventsInputs.setInput(input, forEventId: id)
             Convention.instance.eventsInputs.save()
+            Convention.instance.notificationRegisterar.register(nil)
         }
     }
     
