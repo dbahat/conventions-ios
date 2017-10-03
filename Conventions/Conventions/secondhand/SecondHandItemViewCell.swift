@@ -17,6 +17,7 @@ class SecondHandItemViewCell: UITableViewCell {
         titleLabel.text = formatDescription(item: item) + formatType(item.type)
         statusLabel.text = formatStatus(item.status)
         titleLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+        idLabel.text = item.id
     }
     
     // Mark the cell with a clear color mask
