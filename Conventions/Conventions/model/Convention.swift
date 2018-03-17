@@ -10,11 +10,11 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2017, month: 10, day: 8)
-    static let endDate = Date.from(year: 2017, month: 10, day: 10)
-    static let name = "Icon2017"
-    static let displayName = "פסטיבל אייקון 2017"
-    static let mailbox = "feedback@iconfestival.org.il"
+    static let date = Date.from(year: 2018, month: 4, day: 3)
+    static let endDate = Date.from(year: 2018, month: 4, day: 4)
+    static let name = "Olamot2018"
+    static let displayName = "עולמות 2018"
+    static let mailbox = "info@olamot-con.org.il"
     
     var halls: Array<Hall>
     var events: Events
@@ -42,27 +42,12 @@ class Convention {
             Hall(name: "אשכול 4", order: 7),
             Hall(name: "אשכול 5", order: 8),
             Hall(name: "אשכול 6", order: 9),
-            Hall(name: "חדר סדנאות 1", order: 10),
-            Hall(name: "חדר סדנאות 2", order: 11),
-            Hall(name: "ארועים מיוחדים", order: 12),
-            Hall(name: "עירוני 1", order: 13),
-            Hall(name: "עירוני 2", order: 14),
-            Hall(name: "עירוני 3", order: 15),
-            Hall(name: "עירוני 4", order: 16),
-            Hall(name: "עירוני 5", order: 17),
-            Hall(name: "עירוני 6", order: 18),
-            Hall(name: "עירוני 7", order: 19),
-            Hall(name: "עירוני 8", order: 20),
-            Hall(name: "עירוני 9", order: 21),
-            Hall(name: "עירוני 10", order: 22),
-            Hall(name: "עירוני 11", order: 23),
-            Hall(name: "עירוני 12", order: 24),
-            Hall(name: "עירוני 13", order: 25),
-            Hall(name: "עירוני 14", order: 26),
-            Hall(name: "עירוני 15", order: 27),
-            Hall(name: "חדר ילדים", order: 28),
-            Hall(name: "אוהל מפגשים", order: 29),
-            Hall(name: "אירועי חוצות", order: 30)
+            Hall(name: "חדר סדנאות", order: 10),
+            Hall(name: "ארועים מיוחדים", order: 11),
+            Hall(name: "חדר ילדים", order: 12),
+            Hall(name: "חדר מפגשים", order: 13),
+            Hall(name: "אירועי חוצות", order: 14),
+            Hall(name: "אירועי חוצות 2", order: 15)
         ];
         
         events = Events(halls: halls)
@@ -85,13 +70,13 @@ class Convention {
         ]
         
         conventionFeedbackForm = SurveyForm.Feedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSe1lM51MKmn_g943DlKqdRJj_d6PWv8Y2ODf4sm9ALYwmPI8A/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfJOj3aZVn0rXMeVC3QQFEW-KqFQIDMZNgyFZZXJ12rGALv_Q/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
-            questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
+            questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהכנס?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdb34x3Nb_E3gQQ_SBZTVMsnro_VzlKwP__uK3YRVQj-s5qyA/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScgj-A0zvfZqKCTfyp3poGViDCJcFU8sESuKvbKJHlzX3-PBQ/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             eventTitleEntry: "entry.1847107867",
