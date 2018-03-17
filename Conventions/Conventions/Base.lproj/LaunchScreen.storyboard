@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ufq-SG-Pn6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ufq-SG-Pn6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,46 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Fnt-xz-7Oo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Rb-1lE">
-                                <rect key="frame" x="111" y="303.5" width="153" height="60"/>
+                                <rect key="frame" x="10" y="250.5" width="355" height="166"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.65098039220000004" green="0.71372549019999998" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fZh-Rb-1lE" secondAttribute="trailing" constant="10" id="Bul-zB-u9g"/>
                             <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerY" secondItem="tVN-O7-P6B" secondAttribute="centerY" id="CxB-9k-Mp2"/>
+                            <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="Fnt-xz-7Oo" secondAttribute="bottom" id="H5i-rE-GFE"/>
+                            <constraint firstAttribute="trailing" secondItem="Fnt-xz-7Oo" secondAttribute="trailing" id="Phv-VT-qhr"/>
+                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="10" id="goB-QL-U60"/>
                             <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="jVP-Qa-b49"/>
+                            <constraint firstItem="Fnt-xz-7Oo" firstAttribute="top" secondItem="B8I-4C-lAt" secondAttribute="bottom" id="kkY-hJ-klk"/>
+                            <constraint firstItem="Fnt-xz-7Oo" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" id="m5u-Jt-FlW"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="דף הבית" id="O8J-TO-KWV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1N-IJ-EYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="f64-5d-xas" userLabel="EventsRecognizer">
-                    <connections>
-                        <action selector="eventsWasTapped:" destination="Ufq-SG-Pn6" id="gUs-xN-aP1"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="EbF-mf-FLO" userLabel="ArrivalRecognizer">
-                    <connections>
-                        <action selector="arrivalMethodsWasTapped:" destination="Ufq-SG-Pn6" id="8ZY-l8-Eze"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="kjo-JQ-tn9" userLabel="MapRecognizer">
-                    <connections>
-                        <action selector="mapWasTapped:" destination="Ufq-SG-Pn6" id="YA2-yE-du8"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="FR8-Q4-MdO" userLabel="UpdatesRecognizer">
-                    <connections>
-                        <action selector="updatedWasTapped:" destination="Ufq-SG-Pn6" id="EUI-Gf-4zY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-836" y="0.0"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AboutLogo" width="153" height="60"/>
+        <image name="AboutLogo" width="442" height="166"/>
+        <image name="AppBackground" width="450" height="800"/>
     </resources>
 </document>

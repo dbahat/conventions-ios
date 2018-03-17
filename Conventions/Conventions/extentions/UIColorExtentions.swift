@@ -11,6 +11,10 @@ import UIKit
 
 extension UIColor {
     convenience init(hexString:String) {
+        self.init(hexString: hexString, alpha: 1)
+    }
+    
+    convenience init(hexString:String, alpha:Double) {
         let hexString:NSString = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) as NSString
         let scanner            = Scanner(string: hexString as String)
         
@@ -30,6 +34,6 @@ extension UIColor {
         let green = CGFloat(g) / 255.0
         let blue  = CGFloat(b) / 255.0
         
-        self.init(red:red, green:green, blue:blue, alpha:1)
+        self.init(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
 }

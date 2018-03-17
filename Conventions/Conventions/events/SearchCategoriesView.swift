@@ -15,7 +15,7 @@ protocol SearchCategoriesProtocol : class {
 class SearchCategoriesView : UIView {
     
     @IBOutlet fileprivate weak var lecturesSwitch: UISwitch!
-    @IBOutlet fileprivate weak var gamesSwitch: UISwitch!
+    @IBOutlet fileprivate weak var workshopsSwitch: UISwitch!
     @IBOutlet fileprivate weak var showsSwitch: UISwitch!
     @IBOutlet fileprivate weak var othersSwitch: UISwitch!
     
@@ -28,9 +28,14 @@ class SearchCategoriesView : UIView {
         addSubview(view);
         
         lecturesSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        gamesSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        workshopsSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         showsSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         othersSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
+        lecturesSwitch.onTintColor = Colors.colorAccent
+        workshopsSwitch.onTintColor = Colors.colorAccent
+        showsSwitch.onTintColor = Colors.colorAccent
+        othersSwitch.onTintColor = Colors.colorAccent
     }
     
     @IBAction fileprivate func lecturesWasTapped(_ sender: UITapGestureRecognizer) {
@@ -38,7 +43,7 @@ class SearchCategoriesView : UIView {
         filterSearchCategoriesChanged()
     }
     @IBAction fileprivate func gamesWasTapped(_ sender: UITapGestureRecognizer) {
-        gamesSwitch.setOn(!gamesSwitch.isOn, animated: true)
+        workshopsSwitch.setOn(!workshopsSwitch.isOn, animated: true)
         filterSearchCategoriesChanged()
     }
     @IBAction fileprivate func showsWasTapped(_ sender: UITapGestureRecognizer) {
@@ -55,11 +60,11 @@ class SearchCategoriesView : UIView {
         if lecturesSwitch.isOn {
             searchCategories.append(AggregatedSearchCategory.lectures)
         }
-        if gamesSwitch.isOn {
-            searchCategories.append(AggregatedSearchCategory.games)
+        if workshopsSwitch.isOn {
+            searchCategories.append(AggregatedSearchCategory.workshops)
         }
         if showsSwitch.isOn {
-            searchCategories.append(AggregatedSearchCategory.workshops)
+            searchCategories.append(AggregatedSearchCategory.shows)
         }
         if othersSwitch.isOn {
             searchCategories.append(AggregatedSearchCategory.others)

@@ -33,7 +33,7 @@ enum AggregatedSearchCategory {
     func containsCategory(_ eventCategory: String) -> Bool {
         if self == .others {
             return !AggregatedSearchCategory.lectures.containsCategory(eventCategory)
-                && !AggregatedSearchCategory.games.containsCategory(eventCategory)
+                && !AggregatedSearchCategory.shows.containsCategory(eventCategory)
                 && !AggregatedSearchCategory.workshops.containsCategory(eventCategory)
         }
         
