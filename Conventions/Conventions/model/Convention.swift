@@ -13,7 +13,7 @@ class Convention {
     static let date = Date.from(year: 2018, month: 4, day: 3)
     static let endDate = Date.from(year: 2018, month: 4, day: 4)
     static let name = "Olamot2018"
-    static let displayName = "עולמות 2018"
+    static let displayName = "כנס עולמות"
     static let mailbox = "info@olamot-con.org.il"
     
     var halls: Array<Hall>

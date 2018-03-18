@@ -64,7 +64,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         lecturer.text = event.lecturer
         eventTitle.text = event.title
-        eventTypeAndCategory.text =  event.category + " - " + event.type.description
+        eventTypeAndCategory.text =  event.category.isEmpty
+            ? event.type.description : event.category + " - " + event.type.description
         hall.text = event.hall.name
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
