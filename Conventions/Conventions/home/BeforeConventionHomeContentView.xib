@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,8 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-gk-Ubm">
-                    <rect key="frame" x="0.0" y="475" width="375" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-gk-Ubm" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="465" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="8.10.2017 - 10.10.2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-hE-C89">
                             <rect key="frame" x="8" y="8" width="359" height="24"/>
@@ -32,16 +32,42 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                     <constraints>
                         <constraint firstItem="YhF-hE-C89" firstAttribute="leading" secondItem="Nih-gk-Ubm" secondAttribute="leading" constant="8" id="E2G-pF-Cvx"/>
                         <constraint firstAttribute="bottom" secondItem="YhF-hE-C89" secondAttribute="bottom" constant="8" id="J03-aR-0CI"/>
                         <constraint firstAttribute="trailing" secondItem="YhF-hE-C89" secondAttribute="trailing" constant="8" id="WC6-Nz-lki"/>
                         <constraint firstItem="YhF-hE-C89" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="top" constant="8" id="aji-xX-73m"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Percent">
+                            <real key="value" value="0.29999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                            <real key="value" value="105"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
+                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                            <real key="value" value="-0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
+                            <real key="value" value="0.20000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Radius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50">
-                    <rect key="frame" x="0.0" y="515" width="375" height="100"/>
+                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="507" width="375" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="עוד 10 ימים!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-2s-bOd">
                             <rect key="frame" x="8" y="8" width="359" height="84"/>
@@ -51,32 +77,87 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.64313725489999995" green="0.35294117650000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="7vj-2s-bOd" secondAttribute="trailing" constant="8" id="Yv0-V5-Tzj"/>
                         <constraint firstAttribute="bottom" secondItem="7vj-2s-bOd" secondAttribute="bottom" constant="8" id="eQo-wD-vH3"/>
                         <constraint firstItem="7vj-2s-bOd" firstAttribute="leading" secondItem="3AY-nH-o50" secondAttribute="leading" constant="8" id="oQ4-7B-nNr"/>
                         <constraint firstItem="7vj-2s-bOd" firstAttribute="top" secondItem="3AY-nH-o50" secondAttribute="top" constant="8" id="yRk-yG-fi1"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                            <color key="value" red="0.24313725489999999" green="0.10980392160000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                            <real key="value" value="-1.1000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                            <real key="value" value="45"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Radius">
+                            <real key="value" value="500"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="MaskToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
+                            <real key="value" value="0.87"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o">
-                    <rect key="frame" x="0.0" y="631" width="179.5" height="36"/>
-                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                    <rect key="frame" x="8" y="623" width="163.5" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="עדכונים">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                            <real key="value" value="100"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                            <real key="value" value="0.69999999999999996"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToUpdatesWasCliced:" destination="-1" eventType="touchUpInside" id="wHk-Cf-Agm"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA">
-                    <rect key="frame" x="195.5" y="631" width="179.5" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                    <rect key="frame" x="203.5" y="623" width="163.5" height="36"/>
                     <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="תוכניה">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                            <real key="value" value="100"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                            <real key="value" value="0.69999999999999996"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToEventsWasClicked:" destination="-1" eventType="touchUpInside" id="acL-eC-Wmc"/>
                     </connections>
@@ -84,17 +165,17 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="eTU-Sd-xJA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-8" id="7oM-2f-fy0"/>
-                <constraint firstItem="wjk-hj-G4o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Eb-Bi-tQg"/>
-                <constraint firstAttribute="bottom" secondItem="wjk-hj-G4o" secondAttribute="bottom" id="959-vO-vLP"/>
-                <constraint firstItem="3AY-nH-o50" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="bottom" id="ECu-Um-KoH"/>
+                <constraint firstItem="eTU-Sd-xJA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="7oM-2f-fy0"/>
+                <constraint firstItem="wjk-hj-G4o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="8Eb-Bi-tQg"/>
+                <constraint firstAttribute="bottom" secondItem="wjk-hj-G4o" secondAttribute="bottom" constant="8" id="959-vO-vLP"/>
+                <constraint firstItem="3AY-nH-o50" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="bottom" constant="2" id="ECu-Um-KoH"/>
                 <constraint firstItem="Nih-gk-Ubm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="QW8-KG-NcE"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="top" secondItem="3AY-nH-o50" secondAttribute="bottom" constant="16" id="YuV-8s-G5J"/>
-                <constraint firstAttribute="trailing" secondItem="eTU-Sd-xJA" secondAttribute="trailing" id="ajG-89-64f"/>
-                <constraint firstItem="wjk-hj-G4o" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-8" id="eoa-9T-xeP"/>
+                <constraint firstAttribute="trailing" secondItem="eTU-Sd-xJA" secondAttribute="trailing" constant="8" id="ajG-89-64f"/>
+                <constraint firstItem="wjk-hj-G4o" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="eoa-9T-xeP"/>
                 <constraint firstAttribute="trailing" secondItem="Nih-gk-Ubm" secondAttribute="trailing" id="joh-ff-WdW"/>
                 <constraint firstItem="Nih-gk-Ubm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nW0-gk-HYA"/>
-                <constraint firstAttribute="bottom" secondItem="eTU-Sd-xJA" secondAttribute="bottom" id="rOR-Z1-y2z"/>
+                <constraint firstAttribute="bottom" secondItem="eTU-Sd-xJA" secondAttribute="bottom" constant="8" id="rOR-Z1-y2z"/>
                 <constraint firstItem="3AY-nH-o50" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umT-bK-ZcK"/>
                 <constraint firstAttribute="trailing" secondItem="3AY-nH-o50" secondAttribute="trailing" id="vh1-K8-kta"/>
             </constraints>
