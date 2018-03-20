@@ -34,7 +34,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet fileprivate weak var headerView: UIView!
     @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
     
-    private var textColor = UIColor.black
+    private var textColor = UIColor.white
     
     fileprivate var questions: Array<FeedbackQuestion> = []
     fileprivate var answers: Array<FeedbackAnswer> = []
@@ -49,7 +49,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             }
             
             sendButton.setTitle("הפידבק נשלח. תודה!", for: UIControlState())
-            sendButton.setTitleColor(UIColor.black, for: UIControlState())
+            sendButton.setTitleColor(UIColor.white, for: UIControlState())
             sendButton.isUserInteractionEnabled = false
         }
     }
@@ -115,7 +115,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         } else {
             if Convention.instance.isFeedbackSendingTimeOver() {
                 sendButton.setTitle("זמן שליחת הפידבק הסתיים", for: UIControlState())
-                sendButton.setTitleColor(UIColor.black, for: UIControlState())
+                sendButton.setTitleColor(UIColor.white, for: UIControlState())
                 sendButton.isUserInteractionEnabled = false
             } else {
                 // Disable the send button unless the user answers a question

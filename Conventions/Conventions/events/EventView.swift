@@ -47,7 +47,7 @@ class EventView: UIView {
         
         // Allow dynamic changing of the favorite button color
         favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
-        favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.black
+        favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.white
         
         if let textColor = event.textColor {
             startTime.textColor = textColor;
