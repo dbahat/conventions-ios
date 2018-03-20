@@ -38,7 +38,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
             aboutAppVersionLabel.text = "גרסה " + version
         }
         
-        navigationItem.title = "אודות הפסטיבל"
+        navigationItem.title = "אודות הכנס"
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

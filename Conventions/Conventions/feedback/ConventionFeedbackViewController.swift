@@ -55,7 +55,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         initializeEventsTableViews()
         
-        navigationItem.title = "פידבק לפסטיבל"
+        navigationItem.title = "לפסטיבל לכנס"
         submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControlState())
     }
     
