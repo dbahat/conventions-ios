@@ -75,6 +75,7 @@
 		3BABAE0F205EF94E004D01AA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE0E205EF94E004D01AA /* GradientView.swift */; };
 		3BABAE11206047CA004D01AA /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE10206047CA004D01AA /* RadialGradientLayer.swift */; };
 		3BABAE1320604970004D01AA /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE1220604970004D01AA /* RadialGradientView.swift */; };
+		3BABAE18206195D0004D01AA /* AttributedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE17206195CF004D01AA /* AttributedViews.swift */; };
 		3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */; };
 		3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */; };
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
@@ -187,6 +188,7 @@
 		3BABAE0E205EF94E004D01AA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3BABAE10206047CA004D01AA /* RadialGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientLayer.swift; sourceTree = "<group>"; };
 		3BABAE1220604970004D01AA /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
+		3BABAE17206195CF004D01AA /* AttributedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedViews.swift; sourceTree = "<group>"; };
 		3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
 		3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsSchedualer.swift; sourceTree = "<group>"; };
 		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -480,6 +482,7 @@
 				3BABAE0E205EF94E004D01AA /* GradientView.swift */,
 				3BABAE10206047CA004D01AA /* RadialGradientLayer.swift */,
 				3BABAE1220604970004D01AA /* RadialGradientView.swift */,
+				3BABAE17206195CF004D01AA /* AttributedViews.swift */,
 			);
 			path = gradient;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BABAE18206195D0004D01AA /* AttributedViews.swift in Sources */,
 				3B664D841F76397B00A7D336 /* HTMLdecode.swift in Sources */,
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,

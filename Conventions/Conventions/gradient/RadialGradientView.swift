@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RadialGradientView : UIView {
+class RadialGradientView : UITableView {
     
     @IBInspectable var FirstColor: UIColor = UIColor.clear {
         didSet {

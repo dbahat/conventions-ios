@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,94 +25,199 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-x0-CGl">
-                    <rect key="frame" x="0.0" y="411.5" width="375" height="54.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwY-JI-MeU" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="399.5" width="375" height="219.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירועים שלי" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4v-fi-VsF">
-                            <rect key="frame" x="8" y="8" width="359" height="38.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tr-0s-eMB" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-x0-CGl" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירועים שלי" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4v-fi-VsF">
+                                            <rect key="frame" x="8" y="8" width="359" height="38.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="a4v-fi-VsF" secondAttribute="bottom" constant="8" id="2vU-B5-1Xl"/>
+                                        <constraint firstItem="a4v-fi-VsF" firstAttribute="leading" secondItem="GmR-x0-CGl" secondAttribute="leading" constant="8" id="vsz-IG-lYJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="a4v-fi-VsF" secondAttribute="trailing" constant="8" id="yVK-Oc-HZf"/>
+                                        <constraint firstItem="a4v-fi-VsF" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="top" constant="8" id="zZP-2k-35Y"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
+                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                                            <real key="value" value="-0.10000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
+                                            <real key="value" value="0.20000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                                            <real key="value" value="105"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="56.5" width="375" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="כעת: תחרות השירה" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-Rw-aVI">
+                                            <rect key="frame" x="8" y="8" width="359" height="28"/>
+                                            <gestureRecognizers/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="hKb-Rw-aVI" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="top" constant="8" id="5M8-Ru-dUz"/>
+                                        <constraint firstItem="hKb-Rw-aVI" firstAttribute="leading" secondItem="bzd-on-DIH" secondAttribute="leading" constant="8" id="ScM-ux-8ti"/>
+                                        <constraint firstAttribute="bottom" secondItem="hKb-Rw-aVI" secondAttribute="bottom" priority="999" constant="8" id="b2k-i1-dNM"/>
+                                        <constraint firstAttribute="trailing" secondItem="hKb-Rw-aVI" secondAttribute="trailing" constant="8" id="f8Z-p2-7Rn"/>
+                                        <constraint firstAttribute="height" constant="44" id="kgy-St-oMR"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                            <color key="value" red="0.24313725489999999" green="0.10980392160000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
+                                            <real key="value" value="0.87"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="aC8-9d-gxs" appends="YES" id="eW8-DV-3R3"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-lb-z29" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="102.5" width="375" height="117"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בעוד דקה:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-fA-Sxr">
+                                            <rect key="frame" x="8" y="8" width="359" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2D Musical" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr2-E8-lqd">
+                                            <rect key="frame" x="8" y="40" width="359" height="33.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="סנימטק 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-R3-6P7">
+                                            <rect key="frame" x="8" y="81.5" width="359" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bHP-fA-Sxr" secondAttribute="trailing" constant="8" id="3bK-en-G2i"/>
+                                        <constraint firstItem="Sr2-E8-lqd" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="4iA-N6-uvR"/>
+                                        <constraint firstAttribute="trailing" secondItem="yNL-R3-6P7" secondAttribute="trailing" constant="8" id="Hjj-KL-5Lg"/>
+                                        <constraint firstItem="bHP-fA-Sxr" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="Hzt-ag-TMU"/>
+                                        <constraint firstAttribute="trailing" secondItem="Sr2-E8-lqd" secondAttribute="trailing" constant="8" id="aOY-f7-nXZ"/>
+                                        <constraint firstItem="bHP-fA-Sxr" firstAttribute="top" secondItem="0HC-lb-z29" secondAttribute="top" constant="8" id="dCh-fI-dF6"/>
+                                        <constraint firstItem="Sr2-E8-lqd" firstAttribute="top" secondItem="bHP-fA-Sxr" secondAttribute="bottom" priority="999" constant="8" id="mMC-Hl-i46"/>
+                                        <constraint firstItem="yNL-R3-6P7" firstAttribute="top" secondItem="Sr2-E8-lqd" secondAttribute="bottom" constant="8" id="mZp-sl-EjL"/>
+                                        <constraint firstItem="yNL-R3-6P7" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="nO5-9k-Hyc"/>
+                                        <constraint firstAttribute="bottom" secondItem="yNL-R3-6P7" secondAttribute="bottom" constant="8" id="uU6-Wq-UeZ"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                            <color key="value" red="0.30196078430000001" green="0.30196078430000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
+                                            <real key="value" value="0.87"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="9it-wn-moo" appends="YES" id="F0E-2u-Uea"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="0HC-lb-z29" secondAttribute="trailing" id="04x-o5-A0j"/>
+                                <constraint firstAttribute="trailing" secondItem="GmR-x0-CGl" secondAttribute="trailing" id="76l-4F-DVT"/>
+                                <constraint firstItem="0HC-lb-z29" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="bottom" constant="2" id="Cbg-ss-g8a"/>
+                                <constraint firstItem="bzd-on-DIH" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="XPU-82-3YD"/>
+                                <constraint firstAttribute="bottom" secondItem="0HC-lb-z29" secondAttribute="bottom" id="bZR-nV-p61"/>
+                                <constraint firstItem="0HC-lb-z29" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="dwJ-nT-Z0e"/>
+                                <constraint firstItem="GmR-x0-CGl" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="o2G-UH-gJl"/>
+                                <constraint firstItem="bzd-on-DIH" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="bottom" constant="2" id="qN9-iD-cby"/>
+                                <constraint firstItem="GmR-x0-CGl" firstAttribute="top" secondItem="1Tr-0s-eMB" secondAttribute="top" id="rtE-Nt-qyj"/>
+                                <constraint firstAttribute="trailing" secondItem="bzd-on-DIH" secondAttribute="trailing" id="tiQ-Dd-qu4"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="Radius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="a4v-fi-VsF" secondAttribute="bottom" constant="8" id="2vU-B5-1Xl"/>
-                        <constraint firstItem="a4v-fi-VsF" firstAttribute="leading" secondItem="GmR-x0-CGl" secondAttribute="leading" constant="8" id="vsz-IG-lYJ"/>
-                        <constraint firstAttribute="trailing" secondItem="a4v-fi-VsF" secondAttribute="trailing" constant="8" id="yVK-Oc-HZf"/>
-                        <constraint firstItem="a4v-fi-VsF" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="top" constant="8" id="zZP-2k-35Y"/>
+                        <constraint firstItem="1Tr-0s-eMB" firstAttribute="leading" secondItem="BwY-JI-MeU" secondAttribute="leading" id="1YP-g1-moC"/>
+                        <constraint firstAttribute="bottom" secondItem="1Tr-0s-eMB" secondAttribute="bottom" id="1kk-0m-MHd"/>
+                        <constraint firstItem="1Tr-0s-eMB" firstAttribute="top" secondItem="BwY-JI-MeU" secondAttribute="top" id="JCt-hU-vR3"/>
+                        <constraint firstAttribute="trailing" secondItem="1Tr-0s-eMB" secondAttribute="trailing" id="MFY-Sj-gO7"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="ShadowColor">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOpacity">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetWidth">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetHeight">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH">
-                    <rect key="frame" x="0.0" y="466" width="375" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="כעת: תחרות השירה" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-Rw-aVI">
-                            <rect key="frame" x="8" y="8" width="359" height="28"/>
-                            <gestureRecognizers/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.64313725489999995" green="0.35294117650000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="hKb-Rw-aVI" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="top" constant="8" id="5M8-Ru-dUz"/>
-                        <constraint firstItem="hKb-Rw-aVI" firstAttribute="leading" secondItem="bzd-on-DIH" secondAttribute="leading" constant="8" id="ScM-ux-8ti"/>
-                        <constraint firstAttribute="bottom" secondItem="hKb-Rw-aVI" secondAttribute="bottom" priority="999" constant="8" id="b2k-i1-dNM"/>
-                        <constraint firstAttribute="trailing" secondItem="hKb-Rw-aVI" secondAttribute="trailing" constant="8" id="f8Z-p2-7Rn"/>
-                        <constraint firstAttribute="height" constant="44" id="kgy-St-oMR"/>
-                    </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="aC8-9d-gxs" appends="YES" id="eW8-DV-3R3"/>
-                    </connections>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-lb-z29">
-                    <rect key="frame" x="0.0" y="510" width="375" height="117"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בעוד דקה:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-fA-Sxr">
-                            <rect key="frame" x="8" y="8" width="359" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2D Musical" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr2-E8-lqd">
-                            <rect key="frame" x="8" y="40" width="359" height="33.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="סנימטק 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-R3-6P7">
-                            <rect key="frame" x="8" y="81.5" width="359" height="27.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.5607843137254902" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="bHP-fA-Sxr" secondAttribute="trailing" constant="8" id="3bK-en-G2i"/>
-                        <constraint firstItem="Sr2-E8-lqd" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="4iA-N6-uvR"/>
-                        <constraint firstAttribute="trailing" secondItem="yNL-R3-6P7" secondAttribute="trailing" constant="8" id="Hjj-KL-5Lg"/>
-                        <constraint firstItem="bHP-fA-Sxr" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="Hzt-ag-TMU"/>
-                        <constraint firstAttribute="trailing" secondItem="Sr2-E8-lqd" secondAttribute="trailing" constant="8" id="aOY-f7-nXZ"/>
-                        <constraint firstItem="bHP-fA-Sxr" firstAttribute="top" secondItem="0HC-lb-z29" secondAttribute="top" constant="8" id="dCh-fI-dF6"/>
-                        <constraint firstItem="Sr2-E8-lqd" firstAttribute="top" secondItem="bHP-fA-Sxr" secondAttribute="bottom" priority="999" constant="8" id="mMC-Hl-i46"/>
-                        <constraint firstItem="yNL-R3-6P7" firstAttribute="top" secondItem="Sr2-E8-lqd" secondAttribute="bottom" constant="8" id="mZp-sl-EjL"/>
-                        <constraint firstItem="yNL-R3-6P7" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="nO5-9k-Hyc"/>
-                        <constraint firstAttribute="bottom" secondItem="yNL-R3-6P7" secondAttribute="bottom" constant="8" id="uU6-Wq-UeZ"/>
-                    </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="9it-wn-moo" appends="YES" id="F0E-2u-Uea"/>
-                    </connections>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="עבור לאירועים שלי">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
+                            <real key="value" value="0.69999999999999996"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
+                            <real key="value" value="100"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToMyEventsWasClicked:" destination="-1" eventType="touchUpInside" id="kiv-i9-giW"/>
                     </connections>
@@ -121,18 +226,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="iiY-kd-cdi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3ch-xN-e3Q"/>
-                <constraint firstItem="GmR-x0-CGl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Pr-mm-FLJ"/>
+                <constraint firstItem="BwY-JI-MeU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="Kt5-0a-qkR"/>
                 <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" id="OlY-NI-9bC"/>
-                <constraint firstItem="bzd-on-DIH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QB2-Bw-lr8"/>
-                <constraint firstAttribute="trailing" secondItem="bzd-on-DIH" secondAttribute="trailing" id="TFQ-kw-b3v"/>
-                <constraint firstAttribute="trailing" secondItem="GmR-x0-CGl" secondAttribute="trailing" id="Tpx-n9-Ch3"/>
-                <constraint firstItem="iiY-kd-cdi" firstAttribute="top" secondItem="0HC-lb-z29" secondAttribute="bottom" id="Vss-0w-e5M"/>
+                <constraint firstItem="BwY-JI-MeU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UJk-EU-lwR"/>
+                <constraint firstItem="iiY-kd-cdi" firstAttribute="top" secondItem="BwY-JI-MeU" secondAttribute="bottom" constant="8" id="gPB-Qs-i0X"/>
                 <constraint firstAttribute="trailing" secondItem="iiY-kd-cdi" secondAttribute="trailing" id="hMb-ZQ-fih"/>
-                <constraint firstAttribute="trailing" secondItem="0HC-lb-z29" secondAttribute="trailing" id="isG-5U-RNG"/>
-                <constraint firstItem="0HC-lb-z29" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="bottom" id="jhY-Lt-5vo"/>
-                <constraint firstItem="GmR-x0-CGl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="kUc-eE-Th4"/>
-                <constraint firstItem="GmR-x0-CGl" firstAttribute="bottom" secondItem="bzd-on-DIH" secondAttribute="top" priority="999" id="mhb-EE-bmf"/>
-                <constraint firstItem="0HC-lb-z29" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r3U-kM-mzP"/>
+                <constraint firstAttribute="trailing" secondItem="BwY-JI-MeU" secondAttribute="trailing" id="ygn-Zw-jrk"/>
             </constraints>
         </view>
         <tapGestureRecognizer id="aC8-9d-gxs">
