@@ -22,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOy-fb-Q3w" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="465" width="375" height="142"/>
+                    <rect key="frame" x="8" y="381.5" width="359" height="225.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-j0-EjT" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="225.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-gk-Ubm" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="8.10.2017 - 10.10.2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-hE-C89">
-                                            <rect key="frame" x="8" y="8" width="359" height="24"/>
+                                            <rect key="frame" x="8" y="8" width="343" height="24"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,10 +73,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="42" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="42" width="359" height="183.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="עוד 10 ימים!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-2s-bOd">
-                                            <rect key="frame" x="8" y="8" width="359" height="84"/>
+                                            <rect key="frame" x="8" y="8" width="343" height="167.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -229,8 +229,8 @@
                 <constraint firstItem="eTU-Sd-xJA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="7oM-2f-fy0"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="8Eb-Bi-tQg"/>
                 <constraint firstAttribute="bottom" secondItem="wjk-hj-G4o" secondAttribute="bottom" constant="8" id="959-vO-vLP"/>
-                <constraint firstAttribute="trailing" secondItem="mOy-fb-Q3w" secondAttribute="trailing" id="En3-kD-y0h"/>
-                <constraint firstItem="mOy-fb-Q3w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="X2G-jg-0Ma"/>
+                <constraint firstAttribute="trailing" secondItem="mOy-fb-Q3w" secondAttribute="trailing" constant="8" id="En3-kD-y0h"/>
+                <constraint firstItem="mOy-fb-Q3w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="X2G-jg-0Ma"/>
                 <constraint firstAttribute="trailing" secondItem="eTU-Sd-xJA" secondAttribute="trailing" constant="8" id="ajG-89-64f"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="top" secondItem="mOy-fb-Q3w" secondAttribute="bottom" constant="16" id="bpR-3X-VWs"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="eoa-9T-xeP"/>
