@@ -165,7 +165,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.refresh), for: UIControlEvents.valueChanged)
-        tableViewController.refreshControl?.backgroundColor = UIColor(hexString: "#A6B6B3")
+        tableViewController.refreshControl?.backgroundColor = Colors.colorAccent
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)
     }
