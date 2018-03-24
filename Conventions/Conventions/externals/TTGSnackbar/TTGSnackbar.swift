@@ -420,7 +420,7 @@ open class TTGSnackbar: UIView {
             centerXConstraint?.constant = -superview!.bounds.width
         case .flip:
             animationBlock = {
-                self.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 1, 0, 0)
+                self.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi / 2), 1, 0, 0)
             }
         }
         
@@ -474,7 +474,7 @@ open class TTGSnackbar: UIView {
         case .flip:
             // Init
             topMarginConstraint?.constant = -TTGSnackbar.snackbarBottomMargin
-            self.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 1, 0, 0)
+            self.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi / 2), 1, 0, 0)
             self.superview?.layoutIfNeeded()
             // Animation
             animationBlock = {

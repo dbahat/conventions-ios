@@ -47,7 +47,7 @@ class Updates {
                 callback?(true)
                 
                 // Persist the updated events in a background thread, so as not to block the UI
-                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+                DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                     self.save()
                 }
             }

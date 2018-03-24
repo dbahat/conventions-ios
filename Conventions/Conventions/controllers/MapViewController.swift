@@ -47,7 +47,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         self.pageViewController = pageViewController;
         
         // Since pageControl is only horizontal, transform it to be vertical
-        pageControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2));
+        pageControl.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2));
         
         if areas.count == 1 {
             pageControl.isHidden = true

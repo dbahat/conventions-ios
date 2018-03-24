@@ -196,7 +196,7 @@ extension String {
         
         let regex = try? NSRegularExpression(pattern: unwrappedPattern, options: NSRegularExpression.Options.caseInsensitive);
         
-        return regex?.stringByReplacingMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: unwrappedTemplate);
+        return regex?.stringByReplacingMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: unwrappedTemplate);
     }
 }
 
