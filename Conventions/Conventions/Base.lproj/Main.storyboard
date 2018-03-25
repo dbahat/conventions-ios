@@ -41,10 +41,12 @@
                             <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" constant="12" id="JJx-aN-IhX"/>
                             <constraint firstAttribute="trailing" secondItem="287-1g-uPQ" secondAttribute="trailing" constant="12" id="K7v-hx-C8H"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" id="Knf-DH-8J7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K5e-Dv-uh1" secondAttribute="trailing" id="WXc-iL-JCh"/>
+                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="height" relation="lessThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="height" multiplier="0.4" id="PQd-Bt-PWm"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="K5e-Dv-uh1" secondAttribute="trailing" id="WXc-iL-JCh"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" constant="12" id="Y7y-ER-6cM"/>
+                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="centerX" secondItem="R6L-gR-sYf" secondAttribute="centerX" id="ePY-K3-8ax"/>
                             <constraint firstItem="287-1g-uPQ" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" constant="12" id="frM-h2-iqG"/>
-                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leadingMargin" id="hrq-Xx-Akw"/>
+                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="leadingMargin" id="hrq-Xx-Akw"/>
                             <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="Cmf-sb-utp" secondAttribute="bottom" id="iUg-RA-CX4"/>
                             <constraint firstAttribute="trailing" secondItem="Cmf-sb-utp" secondAttribute="trailing" id="sLL-4G-IT3"/>
                         </constraints>
