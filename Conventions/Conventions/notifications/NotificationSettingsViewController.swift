@@ -9,10 +9,10 @@
 import Foundation
 
 class NotificationSettingsViewController: BaseViewController {
-    @IBOutlet private weak var generalCategoryButton: UISwitch!
-    @IBOutlet private weak var eventsCategoryButton: UISwitch!
-    @IBOutlet private weak var cosplayCategoryButton: UISwitch!
-    @IBOutlet private weak var busCategoryButton: UISwitch!
+//    @IBOutlet private weak var generalCategoryButton: UISwitch!
+//    @IBOutlet private weak var eventsCategoryButton: UISwitch!
+//    @IBOutlet private weak var cosplayCategoryButton: UISwitch!
+//    @IBOutlet private weak var busCategoryButton: UISwitch!
     @IBOutlet private weak var developerOptionsButton: UISwitch!
     
     @IBOutlet private weak var eventNotificationButton: UISwitch!
@@ -93,8 +93,8 @@ class NotificationSettingsViewController: BaseViewController {
     
     private func initializeButtonsState() {
         let registeredCategories = NotificationSettings.instance.categories
-        generalCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
-        eventsCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
+//        generalCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
+//        eventsCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
         developerOptionsButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
         
         eventNotificationButton.isOn = NotificationSettings.instance.eventStartingReminder
