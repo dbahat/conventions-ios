@@ -989,7 +989,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                         <connections>
-                                                            <outlet property="eventView" destination="d4X-tM-6Eq" id="psT-uV-dfw"/>
+                                                            <outlet property="eventView" destination="d4X-tM-6Eq" id="yJA-Le-iXc"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -1064,12 +1064,24 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J6s-rm-i6w" id="Ohh-if-itr">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZf-g0-c3W" customClass="EventView" customModule="Conventions" customModuleProvider="target">
+                                                            <rect key="frame" x="5" y="5" width="365" height="92"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="JZf-g0-c3W" secondAttribute="bottom" constant="5" id="Jp8-pA-3kP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JZf-g0-c3W" secondAttribute="trailing" constant="5" id="hpU-8L-ZIt"/>
+                                                        <constraint firstItem="JZf-g0-c3W" firstAttribute="leading" secondItem="Ohh-if-itr" secondAttribute="leading" constant="5" id="rqe-Ji-kxV"/>
+                                                        <constraint firstItem="JZf-g0-c3W" firstAttribute="top" secondItem="Ohh-if-itr" secondAttribute="top" constant="5" id="vj3-2x-8j4"/>
+                                                    </constraints>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 <connections>
-                                                    <outlet property="eventView" destination="eew-d7-qrX" id="stn-Qg-ycp"/>
+                                                    <outlet property="eventView" destination="JZf-g0-c3W" id="Grq-nS-Zba"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

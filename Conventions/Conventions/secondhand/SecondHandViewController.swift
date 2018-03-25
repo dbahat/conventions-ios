@@ -39,6 +39,8 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableView.estimatedRowHeight = 70
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        refreshIndicatorView.color = Colors.colorAccent
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +71,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
     func removeWasClicked(formId: Int) {
         if let formIndex = forms.index(where: {$0.id == formId}) {
             Convention.instance.secondHand.forms.remove(at: formIndex)
-            tableView.reloadData()
+            tableView.deleteSections(IndexSet(integer: formIndex), with: .automatic)
             noItemsFoundLabel.isHidden = forms.count > 0
             tableView.isHidden = forms.count == 0
         }
@@ -127,7 +129,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 }
                 
                 Convention.instance.secondHand.forms.append(newForm)
-                self.tableView.reloadData()
+                self.tableView.insertSections(IndexSet(integer: self.forms.count - 1), with: .automatic)
                 
                 self.noItemsFoundLabel.isHidden = self.forms.count > 0
                 self.tableView.isHidden = self.forms.count == 0

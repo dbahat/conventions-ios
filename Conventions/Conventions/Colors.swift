@@ -15,7 +15,7 @@ class Colors {
     static let teal = UIColor(hexString: "#88FCF9")
     
     static let colorAccent = Colors.darkRed
-    static let eventTimeDefaultBackgroundColor = Colors.darkRed
+    static let eventTimeDefaultBackgroundColor = Colors.darkRed.withAlphaComponent(0.6)
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = UIColor.white
     static let buttonPressedColor = UIColor(hexString: "#41937d")
