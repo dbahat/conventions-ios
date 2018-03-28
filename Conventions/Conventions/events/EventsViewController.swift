@@ -21,7 +21,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     // screen's view controller (e.g. snackbarView)
     fileprivate let tableViewController = UITableViewController()
     
-    fileprivate var enabledCategories: Array<AggregatedSearchCategory> = [.lectures, .games, .workshops, .others]
+    fileprivate var enabledCategories: Array<AggregatedSearchCategory> = [.lectures, .shows, .workshops, .others]
     
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
