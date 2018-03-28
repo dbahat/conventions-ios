@@ -97,7 +97,6 @@
 		3BDA28311F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA28301F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift */; };
 		3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551511D96893800E91634 /* SearchCategoriesView.swift */; };
 		3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */; };
-		3BE9DD77205D791C001F7E5C /* Olamot2018Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE9DD76205D791B001F7E5C /* Olamot2018Events.json */; };
 		3BF22D341D9D93700090E8E6 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */; };
 		3BF22D361D9D9B3C0090E8E6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */; };
 		3BF22D3C1D9DA9470090E8E6 /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D3B1D9DA9470090E8E6 /* DiscountsViewController.swift */; };
@@ -211,7 +210,6 @@
 		3BDA28301F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DuringConventionWithFavoritesHomeContentView.swift; path = home/DuringConventionWithFavoritesHomeContentView.swift; sourceTree = "<group>"; };
 		3BE551511D96893800E91634 /* SearchCategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCategoriesView.swift; path = events/SearchCategoriesView.swift; sourceTree = "<group>"; };
 		3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedSearchCategory.swift; path = model/AggregatedSearchCategory.swift; sourceTree = "<group>"; };
-		3BE9DD76205D791B001F7E5C /* Olamot2018Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Olamot2018Events.json; sourceTree = "<group>"; };
 		3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3BF22D3B1D9DA9470090E8E6 /* DiscountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				3BE9DD76205D791B001F7E5C /* Olamot2018Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -619,7 +616,6 @@
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
-				3BE9DD77205D791C001F7E5C /* Olamot2018Events.json in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,

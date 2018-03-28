@@ -71,7 +71,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price > 10 ? event.price - 10 : 0)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
-        updateAvailableTicketsText(availableTicketsCount: event.availableTickets)
+        
+        if let availableTicketsCount = event.availableTickets {
+            updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
+        } else {
+            availableTickets.removeFromSuperview()
+            refreshAvailableTicketsButton.removeFromSuperview()
+        }
+        
         navigationItem.title = event.type.description
         
         eventDescriptionContainer.isHidden = event.description == ""
@@ -146,7 +153,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         event.refreshAvailableTickets({result in
             self.refreshAvailableTicketsButton.stopRotate()
-            self.updateAvailableTicketsText(availableTicketsCount: self.event.availableTickets)
+            guard let availableTicketsCount = self.event.availableTickets else {
+                return
+            }
+            self.updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
         })
     }
     
@@ -249,6 +259,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     private func updateAvailableTicketsText(availableTicketsCount: Int) {
+        
         if (availableTicketsCount == 0) {
             availableTickets.font = UIFont.boldSystemFont(ofSize: 15)
             availableTickets.textColor = Colors.eventDetailsHighlightedTextColor

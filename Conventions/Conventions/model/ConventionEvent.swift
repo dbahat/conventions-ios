@@ -34,7 +34,7 @@ class ConventionEvent {
     var price: Int
     var tags: Array<String>
     var url: URL
-    var availableTickets: Int
+    var availableTickets: Int?
     
     var availableTicketsLastModified: Date?
     
@@ -45,7 +45,7 @@ class ConventionEvent {
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL, availableTickets: Int) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL, availableTickets: Int?) {
         self.id = id
         self.serverId = serverId
         self.color = color
@@ -79,7 +79,7 @@ class ConventionEvent {
             let price = json["price"] as? Int,
             let tags = json["tags"] as? Array<String>,
             let url = json["url"] as? String,
-            let availableTickets = json["availableTickets"] as? Int
+            let availableTickets = json["availableTickets"] as? Int?
         else {
             return nil
         }
@@ -299,7 +299,8 @@ class ConventionEvent {
                     return
             }
             
-            if let tickets = result["available_tickets"]  as? Int {
+            if let tickets = result["available_tickets"]  as? Int
+            {
                 self.availableTickets = tickets
             }
             self.availableTicketsLastModified = Date.parse(availableTicketsLastModifiedString, dateFormat: "EEE, dd MMM yyyy HH:mm:ss zzz")

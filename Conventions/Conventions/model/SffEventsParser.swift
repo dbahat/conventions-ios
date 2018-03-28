@@ -65,10 +65,9 @@ class SffEventsParser {
                 print("Event missing categories. Skipping. ID=", eventId);
                 continue;
             }
-            guard let availableTickets = event["available_tickets"] as? Int else {
-                print("Event missing available tickets. Skipping. ID=", eventId);
-                continue;
-            }
+            // Current API returns ticket_limit = 0 even for events that dont require tickets.
+            // We identify such events according to the ticket_limit property - if it's missing, the event is public.
+            let availableTickets = event["ticket_limit"] as? String != nil ?event["available_tickets"] as? Int : nil
             
             var eventPrice = 0
             if let price = event["price"] as? String,
