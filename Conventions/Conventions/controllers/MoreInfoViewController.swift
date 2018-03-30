@@ -14,10 +14,6 @@ class MoreInfoViewController : UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: NSStringFromClass(type(of: self)))
-        tracker?.send(GAIDictionaryBuilder.createScreenView().build() as! [AnyHashable: Any])
-        
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
         

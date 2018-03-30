@@ -8,6 +8,7 @@
 
 import Foundation
 import SafariServices
+import Firebase
 
 class IconKidsViewController: BaseViewController {
     private let iconKidsUrl = URL(string: "http://www.cinema.co.il/news/new.aspx?0r9VQ=MHD")!
@@ -17,13 +18,10 @@ class IconKidsViewController: BaseViewController {
     }
     
     @IBAction func openIconKidsWebsiteWasClicked(_ sender: UIButton) {
-        GAI.sharedInstance().defaultTracker.send(
-            GAIDictionaryBuilder.createEvent(
-                withCategory: "IconKids",
-                action: "OpenWebsiteClicked",
-                label: "",
-                value:  0).build() as! [AnyHashable : Any]!)
-        
+        Analytics.logEvent("IconKids", parameters: [
+            "name": "OpenWebsiteClicked" as NSObject
+            ])
+      
         if #available(iOS 9.0, *) {
             present(SFSafariViewController(url: iconKidsUrl), animated: true, completion: nil)
         } else {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate, UIScrollViewDelegate {
     @IBOutlet fileprivate weak var tableView: UITableView!
@@ -283,11 +284,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             
-            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "PullToRefresh",
-                                                                                      action: "RefreshProgramme",
-                                                                                      label: "",
-                                                                                      value: success ? 1 : 0)
-                .build() as! [AnyHashable : Any]!);
+            Analytics.logEvent("PullToRefresh", parameters: [
+                "name": "RefreshProgramme" as NSObject,
+                "success": success as NSObject
+                ])
             
             if (!success) {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show();

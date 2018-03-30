@@ -16,6 +16,28 @@ class NotificationSettings {
     fileprivate static let CONVENTION_FEEDBACK_LAST_CHANCE_REMINDER = Convention.name + "_ConventionFeedbackLastChanceReminder"
     fileprivate static let DEVELOPER_OPTIONS = "DeveloperOptions"
     
+    enum Category {
+        case general
+        case events
+        case emergency
+        case test
+            
+        func toString() -> String {
+            switch self {
+            case .general:
+                return Convention.name.lowercased() + "_general"
+            case .events:
+                return Convention.name.lowercased() + "_events"
+            case .emergency:
+                return Convention.name.lowercased() + "_emergency"
+            case .test:
+                return Convention.name.lowercased() + "_test"
+            }
+        }
+    }
+        
+    private static let DEFAULT_CATEGORIES = [Category.general, Category.events, Category.emergency]
+    
     static let instance = NotificationSettings()
     
     let preferences = UserDefaults.standard
@@ -25,7 +47,7 @@ class NotificationSettings {
             if let storedValue = preferences.stringArray(forKey: NotificationSettings.CATEGORIES) {
                 return Set(storedValue)
             }
-            return Set(NotificationHubInfo.DEFAULT_CATEGORIES)
+            return Set(NotificationSettings.DEFAULT_CATEGORIES.map({$0.toString()}))
         }
         set {
             preferences.set(Array(newValue), forKey:NotificationSettings.CATEGORIES)

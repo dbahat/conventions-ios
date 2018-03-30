@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var generalCategoryButton: UISwitch!
@@ -31,15 +32,15 @@ class NotificationSettingsViewController: BaseViewController {
     }
     
     @IBAction private func generalNotificationsTapped(_ sender: UISwitch) {
-        updateCategoryAndRegister(NotificationHubInfo.CATEGORY_GENERAL, sender: sender)
+        updateCategoryAndRegister(NotificationSettings.Category.general.toString(), sender: sender)
     }
     
     @IBAction private func eventsNotificationsTapped(_ sender: UISwitch) {
-        updateCategoryAndRegister(NotificationHubInfo.CATEGORY_EVENTS, sender: sender)
+        updateCategoryAndRegister(NotificationSettings.Category.events.toString(), sender: sender)
     }
     
     @IBAction func developerOptionsTapped(_ sender: UISwitch) {
-        updateCategoryAndRegister(NotificationHubInfo.CATEGORY_TEST, sender: sender)
+        updateCategoryAndRegister(NotificationSettings.Category.test.toString(), sender: sender)
     }
     
     @IBAction private func beforeEventNotificationsTapped(_ sender: UISwitch) {
@@ -54,11 +55,10 @@ class NotificationSettingsViewController: BaseViewController {
             }
         }
         
-        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Notifications",
-            action: sender.isOn ? "PreferenceSelected" : "PreferenceDeselected",
-            label: Convention.name.lowercased() + "_event_starting_reminder",
-            value: NSNumber())
-            .build() as! [AnyHashable: Any]);
+        Analytics.logEvent("Notifications", parameters: [
+            "name": sender.isOn ? "PreferenceSelected" : "PreferenceDeselected" as NSObject,
+            "label": Convention.name.lowercased() + "_event_starting_reminder" as NSObject
+            ])
     }
 
     @IBAction private func afterEventNotificationsTapped(_ sender: UISwitch) {
@@ -73,11 +73,10 @@ class NotificationSettingsViewController: BaseViewController {
             }
         }
         
-        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Notifications",
-            action: sender.isOn ? "PreferenceSelected" : "PreferenceDeselected",
-            label: Convention.name.lowercased() + "_event_feedback_reminder",
-            value: NSNumber())
-            .build() as! [AnyHashable: Any]);
+        Analytics.logEvent("Notifications", parameters: [
+            "name": sender.isOn ? "PreferenceSelected" : "PreferenceDeselected" as NSObject,
+            "label": Convention.name.lowercased() + "_event_feedback_reminder" as NSObject
+            ])
     }
 
     @IBAction private func
@@ -93,9 +92,9 @@ class NotificationSettingsViewController: BaseViewController {
     
     private func initializeButtonsState() {
         let registeredCategories = NotificationSettings.instance.categories
-        generalCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_GENERAL)
-        eventsCategoryButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_EVENTS)
-        developerOptionsButton.isOn = registeredCategories.contains(NotificationHubInfo.CATEGORY_TEST)
+        generalCategoryButton.isOn = registeredCategories.contains(NotificationSettings.Category.general.toString())
+        eventsCategoryButton.isOn = registeredCategories.contains(NotificationSettings.Category.events.toString())
+        developerOptionsButton.isOn = registeredCategories.contains(NotificationSettings.Category.test.toString())
         
         eventNotificationButton.isOn = NotificationSettings.instance.eventStartingReminder
         feedbackNotificationButton.isOn = NotificationSettings.instance.eventFeedbackReminder
@@ -112,40 +111,18 @@ class NotificationSettingsViewController: BaseViewController {
     private func updateCategoryAndRegister(_ category: String, sender: UISwitch) {
         let isOn = sender.isOn
         var currentCategories = NotificationSettings.instance.categories;
-        
+
         if isOn {
-            // in case updating the category fails, we revert the switch to it's previous position.
-            // This will cause updateCategoryAndRegister() to be invoked again - if that happens,
-            // ignore the request.
-            if currentCategories.contains(category) {
-                return
-            }
             currentCategories.insert(category)
+            Messaging.messaging().subscribe(toTopic: category)
         } else {
-            if !currentCategories.contains(category) {
-                return
-            }
             currentCategories.remove(category)
+            Messaging.messaging().unsubscribe(fromTopic: category)
         }
-        
-        Convention.instance.notificationRegisterar.register(categories: currentCategories, callback: {success in
-            if !success {
-                // In case the async operation failed, revert the UI change and show an error indication
-                TTGSnackbar(message: "לא ניתן לשנות את ההגדרות. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.short, superView: self.view)
-                    .show()
-                sender.setOn(!isOn, animated: true)
-            } else {
-                // after a succesful registration in the hub, persist the new categories
-                NotificationSettings.instance.categories = currentCategories
-            }
-            
-            GAI.sharedInstance().defaultTracker.send(
-                GAIDictionaryBuilder.createEvent(
-                    withCategory: "Notifications",
-                    action: isOn ? "CategoryAdded" : "CategoryRemoved",
-                    label: category,
-                    value: success ? 1 : 0)
-                .build() as! [AnyHashable: Any])
-        })
+
+        NotificationSettings.instance.categories = currentCategories
+        Analytics.logEvent("Notifications", parameters: [
+            "name": isOn ? "CategoryAdded" : "CategoryRemoved" as NSObject
+            ])
     }
 }

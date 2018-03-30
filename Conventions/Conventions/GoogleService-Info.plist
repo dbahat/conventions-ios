@@ -2,25 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TRACKING_ID</key>
-	<string>UA-65293055-2</string>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>377234495790-11qk70872sstae5i1a130ee45249n4kd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.377234495790-11qk70872sstae5i1a130ee45249n4kd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCUMPkU4yMv8Qx14NmoLlg5H9pQeEW1qhA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>377234495790</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>SF-F.Conventions</string>
-	<key>IS_ADS_ENABLED</key>
-	<false/>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<true/>
-	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
-	<key>IS_GCM_ENABLED</key>
-	<false/>
-	<key>IS_SIGNIN_ENABLED</key>
-	<false/>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:458203975509:ios:e65303962248c05e</string>
 	<key>PROJECT_ID</key>
 	<string>sff-conventions</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sff-conventions.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:377234495790:ios:73d53dc58fd754b4</string>
+	<key>DATABASE_URL</key>
+	<string>https://sff-conventions.firebaseio.com</string>
 </dict>
 </plist>

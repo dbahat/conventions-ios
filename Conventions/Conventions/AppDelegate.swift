@@ -8,9 +8,11 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
+        
         UITabBar.appearance().tintColor = Colors.colorAccent
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
@@ -33,14 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Configure tracker from GoogleService-Info.plist.
-        var configureError:NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
-        
-        // Optional: configure GAI options.
-        let gai = GAI.sharedInstance()
-        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
+//        var configureError:NSError?
+//        GGLContext.sharedInstance().configureWithError(&configureError)
+//        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
+//        
+//        // Optional: configure GAI options.
+//        let gai = GAI.sharedInstance()
+//        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+//        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
         
         // Initiate an async refresh to the updates when opening the app. Events will be refeshed
         // anyways since the EventsViewController is the initial screen.
@@ -64,9 +68,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let settings = UIUserNotificationSettings(types: [.sound , .alert , .badge], categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-        UIApplication.shared.registerForRemoteNotifications()
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+        for category in NotificationSettings.instance.categories {
+            Messaging.messaging().subscribe(toTopic: category)
+        }
         
         return true;
     }
@@ -113,12 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // notifications settings were registered (and the user gave his concent)
         NotificationsSchedualer.scheduleConventionFeedbackIfNeeded()
         NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let registrar = Convention.instance.notificationRegisterar
-        registrar.deviceToken = deviceToken
-        registrar.register(nil)
     }
     
     fileprivate func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {
@@ -241,10 +255,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func categoryIdToName(_ category: String) -> String {
-        if category == NotificationHubInfo.CATEGORY_TEST {
+        if category == NotificationSettings.Category.test.toString() {
             return "בדיקות"
         }
-        if category == NotificationHubInfo.CATEGORY_EVENTS {
+        if category == NotificationSettings.Category.events.toString() {
             return "אירועים"
         }
         

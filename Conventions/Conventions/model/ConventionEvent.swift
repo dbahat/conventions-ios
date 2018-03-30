@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class ConventionEvent {
     
@@ -162,13 +163,14 @@ class ConventionEvent {
                 
                 NotificationCenter.default.post(name: ConventionEvent.AttendingWasSetEventName, object: self)
                 
-                GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Favorites",
-                    action: newValue ? "Added" : "Remove",
-                    label: "", value: NSNumber())
-                    .build() as! [AnyHashable: Any]);
+                Analytics.logEvent("Favorites", parameters: [
+                    "name": newValue ? "Added" : "Remove" as NSObject
+                    ])
+                Messaging.messaging().subscribe(toTopic: "event_" + serverId.description)
             } else {
                 NotificationsSchedualer.removeEventAboutToStartNotification(self)
                 NotificationsSchedualer.removeEventFeedbackReminderNotification(self)
+                Messaging.messaging().unsubscribe(fromTopic: "event_" + serverId.description)
             }
             
             if let input = Convention.instance.eventsInputs.getInput(id) {
@@ -179,7 +181,6 @@ class ConventionEvent {
             }
             
             Convention.instance.eventsInputs.save()
-            Convention.instance.notificationRegisterar.register(nil)
         }
     }
     
@@ -232,12 +233,10 @@ class ConventionEvent {
             callback: {success in
                 input.feedbackUserInput.isSent = success
                 
-                let telemetryEvent = GAIDictionaryBuilder.createEvent(
-                    withCategory: "Feedback",
-                    action: "SendAttempt",
-                    label: success ? "success" : "failure", value: NSNumber()).build() as! [AnyHashable: Any]
-                
-                GAI.sharedInstance().defaultTracker.send(telemetryEvent)
+                Analytics.logEvent("Feedback", parameters: [
+                    "name": newValue ? "Added" : "Remove" as NSObject,
+                    "success", success
+                    ])
                 
                 callback?(success)
                 })

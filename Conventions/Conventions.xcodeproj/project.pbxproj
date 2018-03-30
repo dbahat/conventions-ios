@@ -12,7 +12,7 @@
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
 		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
-		3B049C7A1F7E7A880087FA9C /* NotificationRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */; };
+		3B02C2882066BA66005E2139 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B02C2872066BA66005E2139 /* UserNotifications.framework */; };
 		3B049C7D1F7FBB250087FA9C /* SecondHandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */; };
 		3B049C7F1F7FBBB60087FA9C /* SecondHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7E1F7FBBB60087FA9C /* SecondHand.swift */; };
 		3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B049C801F7FDACF0087FA9C /* SecondHandFormHeaderView.xib */; };
@@ -24,7 +24,6 @@
 		3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */; };
 		3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */; };
 		3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */; };
-		3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */; };
 		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
 		3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
@@ -76,7 +75,6 @@
 		3BABAE11206047CA004D01AA /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE10206047CA004D01AA /* RadialGradientLayer.swift */; };
 		3BABAE1320604970004D01AA /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE1220604970004D01AA /* RadialGradientView.swift */; };
 		3BABAE18206195D0004D01AA /* AttributedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAE17206195CF004D01AA /* AttributedViews.swift */; };
-		3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */; };
 		3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */; };
 		3BB2A9351C84DF39003DCF98 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2A9341C84DF39003DCF98 /* Podfile */; };
 		3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */; };
@@ -121,7 +119,7 @@
 		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
 		3B0288791D9AF1CB006E158C /* DateFilterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilterControl.swift; path = events/DateFilterControl.swift; sourceTree = "<group>"; };
 		3B02887B1D9C4720006E158C /* Conventions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Conventions.entitlements; sourceTree = "<group>"; };
-		3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistrar.swift; sourceTree = "<group>"; };
+		3B02C2872066BA66005E2139 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHandViewController.swift; sourceTree = "<group>"; };
 		3B049C7E1F7FBBB60087FA9C /* SecondHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHand.swift; sourceTree = "<group>"; };
 		3B049C801F7FDACF0087FA9C /* SecondHandFormHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondHandFormHeaderView.xib; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeforeConventionHomeContentView.xib; path = home/BeforeConventionHomeContentView.xib; sourceTree = "<group>"; };
 		3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeforeConventionHomeContentView.swift; path = home/BeforeConventionHomeContentView.swift; sourceTree = "<group>"; };
 		3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = home/HomeViewController.swift; sourceTree = "<group>"; };
-		3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchCategoriesView.xib; path = events/SearchCategoriesView.xib; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
@@ -189,7 +186,6 @@
 		3BABAE10206047CA004D01AA /* RadialGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientLayer.swift; sourceTree = "<group>"; };
 		3BABAE1220604970004D01AA /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		3BABAE17206195CF004D01AA /* AttributedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedViews.swift; sourceTree = "<group>"; };
-		3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHubInfo.swift; sourceTree = "<group>"; };
 		3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsSchedualer.swift; sourceTree = "<group>"; };
 		3BB2A9341C84DF39003DCF98 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -235,7 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1A68641D099211000F4414 /* WindowsAzureMessaging.framework in Frameworks */,
+				3B02C2882066BA66005E2139 /* UserNotifications.framework in Frameworks */,
 				05F2A6A0FC33F04938D5EE0A /* libPods-Conventions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,10 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				3B2FD5161D5A65B30009139A /* NotificationSettings.swift */,
-				3BADBDE11D55DEA5002227CB /* NotificationHubInfo.swift */,
 				3BADBDE21D55DEA5002227CB /* NotificationsSchedualer.swift */,
 				3B05C11E1D57B2B500C590FF /* NotificationSettingsViewController.swift */,
-				3B049C791F7E7A880087FA9C /* NotificationRegistrar.swift */,
 			);
 			path = notifications;
 			sourceTree = "<group>";
@@ -538,7 +532,7 @@
 		3FE5F9B9B9C4572652184568 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B1A68631D099211000F4414 /* WindowsAzureMessaging.framework */,
+				3B02C2872066BA66005E2139 /* UserNotifications.framework */,
 				9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */,
 			);
 			name = Frameworks;
@@ -747,7 +741,6 @@
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
 				3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
-				3B049C7A1F7E7A880087FA9C /* NotificationRegistrar.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
 				3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */,
 				3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */,
@@ -766,7 +759,6 @@
 				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,
 				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
 				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
-				3BADBDE31D55DEA5002227CB /* NotificationHubInfo.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */,
 				3BA2AFF41F7AD65A005EC4D4 /* IconKidsViewController.swift in Sources */,

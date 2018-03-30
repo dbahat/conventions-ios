@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
@@ -104,12 +105,11 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
             Convention.instance.feedback.conventionInputs.isSent = success
             self.feedbackView.setFeedbackAsSent(success)
             
-            let telemetryEvent = GAIDictionaryBuilder.createEvent(
-                withCategory: "ConventionFeedback",
-                action: "SendAttempt",
-                label: success ? "success" : "failure", value: NSNumber()).build() as! [AnyHashable: Any]
             
-            GAI.sharedInstance().defaultTracker.send(telemetryEvent)
+            Analytics.logEvent("ConventionFeedback", parameters: [
+                "name": "SendAttempt" as NSObject,
+                "full_text": success ? "success" : "failure" as NSObject
+                ])
             
             if !success {
                 TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view).show()

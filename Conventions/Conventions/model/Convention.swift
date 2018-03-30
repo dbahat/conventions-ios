@@ -28,7 +28,6 @@ class Convention {
     let eventFeedbackForm: SurveyForm.EventFeedback
     let conventionFeedbackForm: SurveyForm.Feedback
     
-    let notificationRegisterar: NotificationRegistrar
     let secondHand = SecondHand()
     
     fileprivate init() {
@@ -83,8 +82,6 @@ class Convention {
             eventTimeEntry: "entry.1648362575",
             hallEntry: "entry.1510105148",
             questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים בנושאים דומים בעתיד?": "entry.1416969956", "עוד משהו?": "entry.1582215667"])
-        
-        notificationRegisterar = NotificationRegistrar(settings: NotificationSettings.instance, events: events)
     }
     
     func findHallByName(_ name: String) -> Hall {

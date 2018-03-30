@@ -6,6 +6,8 @@
 //  Copyright © 2016 Amai. All rights reserved.
 //
 
+import Firebase
+
 class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     fileprivate let updateCellTopLayoutSize: CGFloat = 19
@@ -83,11 +85,10 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         Convention.instance.updates.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
             
-            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "PullToRefresh",
-                action: "RefreshUpdates",
-                label: "",
-                value: success ? 1 : 0)
-                .build() as! [AnyHashable: Any]);
+            Analytics.logEvent("PullToRefresh", parameters: [
+                "name": "RefreshUpdates" as NSObject,
+                "success": success as NSObject
+                ])
             
             if !success {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()

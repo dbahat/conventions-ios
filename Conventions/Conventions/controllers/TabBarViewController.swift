@@ -33,13 +33,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        
-        // Send an event that the screen was visited. Not taken from BaseViewController since we derive from UITabBarController.
-        // Not adding a new base since we probebly won't have more UITabBarController.
-        let tracker = GAI.sharedInstance().defaultTracker;
-        tracker?.set(kGAIScreenName, value: NSStringFromClass(type(of: self)));
-        tracker?.send(GAIDictionaryBuilder.createScreenView().build() as! [AnyHashable: Any]);
+        super.viewWillAppear(animated)
         
         // Unhide the nav bar in case it was hidden (e.g. by the HomeViewController)
         navigationController?.setNavigationBarHidden(false, animated: false);
