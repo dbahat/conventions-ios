@@ -234,8 +234,7 @@ class ConventionEvent {
                 input.feedbackUserInput.isSent = success
                 
                 Analytics.logEvent("Feedback", parameters: [
-                    "name": newValue ? "Added" : "Remove" as NSObject,
-                    "success", success
+                    "submit": success
                     ])
                 
                 callback?(success)
