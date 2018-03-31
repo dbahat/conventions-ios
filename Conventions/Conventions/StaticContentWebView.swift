@@ -20,8 +20,8 @@ class StaticContentWebView : UIWebView {
         
         // Remove all hardcoded color attributes in the text
         let colorlessContent = rightAlignedContent?.replace(pattern: "color:", withTemplate: "")
-        
+                
         // Change the font, disable re-size during orientation change and align the text to the right
-        loadHTMLString(String(format: "<body style=\"font: -apple-system-body; color:"+color+"\"><div dir='rtl' style='-webkit-text-size-adjust: none; font-size: 14px;'>%@</div></body>", colorlessContent ?? ""), baseURL: nil)
+        loadHTMLString(String(format: "<body style=\"font: -apple-system-body; color:"+color+"\"><div dir='rtl' style='-webkit-text-size-adjust: none; font-size: 14px;'>%@</div></body>", colorlessContent ?? ""), baseURL: Bundle.main.bundleURL)
     }
 }

@@ -25,7 +25,7 @@ class DiscountsViewController: BaseViewController, UIWebViewDelegate {
         contentWebView.setContent(aboutContent)
         contentWebView.delegate = self
         
-        navigationItem.title = "מבצעים והנחות"
+        navigationItem.title = "הנחות במסעדות"
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
