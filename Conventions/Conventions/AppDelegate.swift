@@ -10,6 +10,9 @@ import UIKit
 import GoogleMaps
 import Firebase
 import UserNotifications
+import Fabric
+import Crashlytics
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -27,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        Fabric.with([Crashlytics.self])
         
         UITabBar.appearance().tintColor = Colors.colorAccent
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")

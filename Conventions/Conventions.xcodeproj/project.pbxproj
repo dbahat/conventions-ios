@@ -551,6 +551,7 @@
 				3BA2D7ED1C554ED3007A8A23 /* Resources */,
 				60B639C380704B7995146E28 /* [CP] Embed Pods Frameworks */,
 				D500C3782777E063BE8E2E5E /* [CP] Copy Pods Resources */,
+				3B25AB08206FCAAE00B92790 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -638,6 +639,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3B25AB08206FCAAE00B92790 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 87a84355fd9de50dfe5217f1e360f8918347aaf9 4aeca73f1cd33ec32b491b1cc6bdf515d6e1b2fd3b83047467ea3cb0051a6fdf";
+		};
 		60B639C380704B7995146E28 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -908,8 +923,9 @@
 				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -937,7 +953,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

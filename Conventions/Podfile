@@ -5,4 +5,6 @@ target "Conventions" do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'UICollectionViewRightAlignedLayout'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
