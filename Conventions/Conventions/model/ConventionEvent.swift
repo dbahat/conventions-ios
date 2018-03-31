@@ -166,11 +166,11 @@ class ConventionEvent {
                 Analytics.logEvent("Favorites", parameters: [
                     "name": newValue ? "Added" : "Remove" as NSObject
                     ])
-                Messaging.messaging().subscribe(toTopic: "event_" + serverId.description)
+                Messaging.messaging().subscribe(toTopic: Convention.name.lowercased() + "_event_" + serverId.description)
             } else {
                 NotificationsSchedualer.removeEventAboutToStartNotification(self)
                 NotificationsSchedualer.removeEventFeedbackReminderNotification(self)
-                Messaging.messaging().unsubscribe(fromTopic: "event_" + serverId.description)
+                Messaging.messaging().unsubscribe(fromTopic: Convention.name.lowercased() + "event_" + serverId.description)
             }
             
             if let input = Convention.instance.eventsInputs.getInput(id) {

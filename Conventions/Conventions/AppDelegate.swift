@@ -35,20 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // started in iOS9, and we want to support previous iOS versions.
             UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         }
-        
-        // Configure tracker from GoogleService-Info.plist.
-//        var configureError:NSError?
-//        GGLContext.sharedInstance().configureWithError(&configureError)
-//        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
-//        
-//        // Optional: configure GAI options.
-//        let gai = GAI.sharedInstance()
-//        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
-//        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
-        
-        // Initiate an async refresh to the updates when opening the app. Events will be refeshed
-        // anyways since the EventsViewController is the initial screen.
+
+        // Initiate an async refresh to the updates when opening the app.
         Convention.instance.updates.refresh(nil)
+        Convention.instance.events.refresh(nil)
         
         if let options = launchOptions {
             // In case we were launched due to user clicking a notification, handle the notification
@@ -137,10 +127,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     fileprivate func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {
         guard let rawMessage = userInfo["aps"] as? [String: Any],
-            let message = rawMessage["alert"] as? String else {
+            let alert = rawMessage["alert"] as? [String: Any],
+            let message = alert["body"] as? String else {
             return;
         }
-        let category = userInfo["category"] as? String ?? ""
+        let category = userInfo["topic"] as? String ?? ""
         let id = userInfo["id"] as? String ?? ""
         
         // When the app isn't active we want to allow iOS to show the notification, and only present it
