@@ -526,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRH-kk-Qxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="1432"/>
+            <point key="canvasLocation" x="-1358" y="2595"/>
         </scene>
         <!--מפה-->
         <scene sceneID="LSe-EK-Bna">
@@ -537,19 +537,26 @@
                         <viewControllerLayoutGuide type="bottom" id="AR8-Ur-XwN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cng-0T-jnZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="q7N-j7-c4C">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ozF-HT-Sa6">
-                                <rect key="frame" x="324" y="40" width="71" height="37"/>
+                                <rect key="frame" x="324" y="84" width="71" height="37"/>
                                 <color key="pageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.69460856914520264" green="0.74090921878814697" blue="0.7213248610496521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ozF-HT-Sa6" firstAttribute="top" secondItem="EsY-8b-nMI" secondAttribute="bottom" constant="20" id="8jy-MW-Xel"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="top" secondItem="EsY-8b-nMI" secondAttribute="bottom" id="NKB-OD-gXb"/>
+                            <constraint firstAttribute="trailing" secondItem="q7N-j7-c4C" secondAttribute="trailing" id="OCo-tc-m0a"/>
                             <constraint firstAttribute="trailing" secondItem="ozF-HT-Sa6" secondAttribute="trailing" constant="-20" id="T9Y-Fp-aog"/>
+                            <constraint firstItem="AR8-Ur-XwN" firstAttribute="top" secondItem="q7N-j7-c4C" secondAttribute="bottom" id="t17-Fc-EI7"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="leading" secondItem="Cng-0T-jnZ" secondAttribute="leading" id="yzs-3b-P4a"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -660,8 +667,37 @@
                                             <segue destination="9cX-Hv-YPC" kind="show" id="aGf-Ge-H0X"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KMD-CV-ysY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wg3-yw-SiI">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wg3-yw-SiI" id="58p-a2-Lz1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="32U-qN-Fk5">
+                                                    <rect key="frame" x="326" y="5.5" width="33" height="33"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עדכונים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFH-M4-fNm">
+                                                    <rect key="frame" x="265.5" y="11.5" width="50.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="32U-qN-Fk5" secondAttribute="trailing" id="HSQ-8C-nPh"/>
+                                                <constraint firstItem="32U-qN-Fk5" firstAttribute="leading" secondItem="lFH-M4-fNm" secondAttribute="trailing" constant="10" id="ai0-gt-liI"/>
+                                                <constraint firstItem="lFH-M4-fNm" firstAttribute="centerY" secondItem="58p-a2-Lz1" secondAttribute="centerY" id="iNS-nJ-P9H"/>
+                                                <constraint firstItem="32U-qN-Fk5" firstAttribute="centerY" secondItem="58p-a2-Lz1" secondAttribute="centerY" id="qho-aA-A8D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="6s1-WB-npc" kind="show" id="77m-8Y-bc5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KMD-CV-ysY">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMD-CV-ysY" id="OzB-7u-Ncg">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -690,7 +726,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ymZ-UR-4N6">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymZ-UR-4N6" id="UDq-Xd-TeO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -719,7 +755,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -748,7 +784,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1736,7 +1772,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="d7m-yt-UrE" kind="relationship" relationship="viewControllers" id="CWe-4m-hpw"/>
-                        <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="xtM-T8-tVM"/>
+                        <segue destination="fiD-sP-JMw" kind="relationship" relationship="viewControllers" id="iEh-sS-OyG"/>
                         <segue destination="dzP-YM-jGI" kind="relationship" relationship="viewControllers" id="LBC-aV-hE4"/>
                         <segue destination="V0r-ed-Jpb" kind="relationship" relationship="viewControllers" id="78f-1n-N4m"/>
                         <segue destination="5Em-fL-kDu" kind="relationship" relationship="viewControllers" id="2WU-xd-oUs"/>
@@ -1871,7 +1907,7 @@
         <image name="AboutLogo" width="442" height="166"/>
         <image name="AppBackground" width="450" height="800"/>
         <image name="Event_Default" width="450" height="800"/>
-        <image name="Floor1" width="680" height="880"/>
+        <image name="Floor1" width="660" height="816"/>
         <image name="HomeLogo" width="448" height="216"/>
         <image name="IconKids" width="309" height="96"/>
         <image name="MenuAbout" width="33" height="33"/>
