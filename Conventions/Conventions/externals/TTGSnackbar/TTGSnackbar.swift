@@ -106,42 +106,42 @@ open class TTGSnackbar: UIView {
     }
     
     /// Message text color. Default is white.
-    open dynamic var messageTextColor: UIColor = UIColor.white {
+    @objc open dynamic var messageTextColor: UIColor = UIColor.white {
         didSet {
             self.messageLabel.textColor = messageTextColor
         }
     }
     
     /// Message text font. Default is Bold system font (14).
-    open dynamic var messageTextFont: UIFont = UIFont.boldSystemFont(ofSize: 14) {
+    @objc open dynamic var messageTextFont: UIFont = UIFont.boldSystemFont(ofSize: 14) {
         didSet {
             self.messageLabel.font = messageTextFont
         }
     }
     
     /// Message text alignment. Default is left
-    open dynamic var messageTextAlign: NSTextAlignment = .left {
+    @objc open dynamic var messageTextAlign: NSTextAlignment = .left {
         didSet {
             self.messageLabel.textAlignment = messageTextAlign
         }
     }
     
     /// Action button title.
-    open dynamic var actionText: String = "" {
+    @objc open dynamic var actionText: String = "" {
         didSet {
             self.actionButton.setTitle(actionText, for: UIControlState())
         }
     }
     
     /// Action button title color. Default is white.
-    open dynamic var actionTextColor: UIColor = UIColor.white {
+    @objc open dynamic var actionTextColor: UIColor = UIColor.white {
         didSet {
             actionButton.setTitleColor(actionTextColor, for: UIControlState())
         }
     }
     
     /// Action text font. Default is Bold system font (14).
-    open dynamic var actionTextFont: UIFont = UIFont.boldSystemFont(ofSize: 14) {
+    @objc open dynamic var actionTextFont: UIFont = UIFont.boldSystemFont(ofSize: 14) {
         didSet {
             self.actionButton.titleLabel?.font = actionTextFont
         }
@@ -277,7 +277,7 @@ open class TTGSnackbar: UIView {
     /**
      Dismiss the snackbar manually.
      */
-    open func dismiss() {
+    @objc open func dismiss() {
         // On main thread
         DispatchQueue.main.async {
             () -> Void in
@@ -496,7 +496,7 @@ open class TTGSnackbar: UIView {
     /**
      Action button.
      */
-    func doAction() {
+    @objc func doAction() {
         // Call action block first
         actionBlock?(self)
         

@@ -274,7 +274,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     }
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
-    func refresh() {
+    @objc func refresh() {
         
         if searchController.isActive {
             tableViewController.refreshControl?.endRefreshing()

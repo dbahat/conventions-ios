@@ -134,7 +134,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     }
     
     // Resize the screen to be at the height minus the keyboard, so that the keyboard won't hide the user's feedback
-    func keyboardFrameWillChange(_ notification: Notification) {
+    @objc func keyboardFrameWillChange(_ notification: Notification) {
         let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
         let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
         

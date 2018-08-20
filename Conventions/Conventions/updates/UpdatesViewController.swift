@@ -70,14 +70,14 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         let updateText = Convention.instance.updates.getAll()[indexPath.row].text;
-        let attrText = NSAttributedString(string: updateText, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)])
+        let attrText = NSAttributedString(string: updateText, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)])
         return attrText.boundingRect(with: CGSize(width: self.tableView.frame.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize
     }
     
     // MARK: - Private methods
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
-    func refresh()
+    @objc func refresh()
     {
         // Mark all current updates as old so new events will appear with different UI
         Convention.instance.updates.markAllAsRead()

@@ -39,7 +39,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         navigationController?.setNavigationBarHidden(false, animated: false);
     }
     
-    func eventAttendanceWasSet(_ notification: Notification) {
+    @objc func eventAttendanceWasSet(_ notification: Notification) {
         // Whenever an event attance is set, show a badge in the favorites screen icon to give the user
         // a visual indication on what happened.
         //

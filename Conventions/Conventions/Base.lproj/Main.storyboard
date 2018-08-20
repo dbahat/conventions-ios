@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YKF-oi-L6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YKF-oi-L6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -875,23 +875,23 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89B-Vf-QWt">
-                                <rect key="frame" x="0.0" y="128" width="375" height="117"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="231"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryt-7n-AMB">
-                                        <rect key="frame" x="12" y="12" width="351" height="19.5"/>
+                                        <rect key="frame" x="12" y="12" width="351" height="95.5"/>
                                         <string key="text">מתחם הילדים החדש של פסטיבל אייקון מתארח בסינמטק תל אביב! בכל בוקר יפעל בלובי החדש של הסינמטק מתחם הפעלות חינמי הכולל סדנת יצירה, "ממלכת קרטוניה" - מבוך בתים גמדיים מקרטון, ופינת ניסויים מדעיים.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מגוון סדנאות קולנוע לילדים וסרטים מדובבים יתקיימו באולמות הסינמטק. את הכרטיסים אליהם ניתן לרכוש באתר ובקופות הסינמטק." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-9I-en7">
-                                        <rect key="frame" x="12" y="43.5" width="351" height="19.5"/>
+                                        <rect key="frame" x="12" y="119.5" width="351" height="57.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb0-C4-8uj">
-                                        <rect key="frame" x="115.5" y="75" width="143" height="30"/>
+                                        <rect key="frame" x="115.5" y="189" width="143" height="30"/>
                                         <state key="normal" title="לפרטים ורכישת כרטיסים"/>
                                         <connections>
                                             <action selector="openIconKidsWebsiteWasClicked:" destination="dEu-wn-C7U" eventType="touchUpInside" id="Pcz-sL-pWA"/>

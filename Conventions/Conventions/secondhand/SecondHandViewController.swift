@@ -77,7 +77,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         }
     }
     
-    func refresh() {
+    @objc func refresh() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Convention.instance.secondHand.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
