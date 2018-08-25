@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,28 +20,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-A5-JUs" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-A5-JUs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sb2-Em-jjH" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sb2-Em-jjH">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-eX-g27" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-eX-g27">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אירועים שמתחילים ב-11:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-QS-diF">
-                                            <rect key="frame" x="8" y="8" width="359" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                                            <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="fDj-QS-diF" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="top" constant="8" id="b1j-TW-7pI"/>
-                                        <constraint firstItem="fDj-QS-diF" firstAttribute="leading" secondItem="ZTO-eX-g27" secondAttribute="leading" constant="8" id="dvh-0B-KMd"/>
-                                        <constraint firstAttribute="trailing" secondItem="fDj-QS-diF" secondAttribute="trailing" constant="8" id="el7-TF-MF6"/>
-                                        <constraint firstAttribute="bottom" secondItem="fDj-QS-diF" secondAttribute="bottom" constant="8" id="jWl-JR-Dkh"/>
+                                        <constraint firstItem="fDj-QS-diF" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="top" id="b1j-TW-7pI"/>
+                                        <constraint firstItem="fDj-QS-diF" firstAttribute="leading" secondItem="ZTO-eX-g27" secondAttribute="leading" id="dvh-0B-KMd"/>
+                                        <constraint firstAttribute="trailing" secondItem="fDj-QS-diF" secondAttribute="trailing" id="el7-TF-MF6"/>
+                                        <constraint firstAttribute="bottom" secondItem="fDj-QS-diF" secondAttribute="bottom" id="jWl-JR-Dkh"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
@@ -64,9 +65,9 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-vF-SEq" customClass="RadialGradientTableView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="42" width="375" height="577"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-vF-SEq">
+                                    <rect key="frame" x="0.0" y="24" width="375" height="603"/>
+                                    <color key="backgroundColor" red="0.53333333329999999" green="0.34509803919999998" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     <userDefinedRuntimeAttributes>
@@ -92,7 +93,7 @@
                                 <constraint firstAttribute="trailing" secondItem="KZk-vF-SEq" secondAttribute="trailing" id="5XC-Eh-5zD"/>
                                 <constraint firstItem="ZTO-eX-g27" firstAttribute="leading" secondItem="sb2-Em-jjH" secondAttribute="leading" id="Kmk-HI-TJK"/>
                                 <constraint firstAttribute="bottom" secondItem="KZk-vF-SEq" secondAttribute="bottom" id="aSc-iP-tpW"/>
-                                <constraint firstItem="KZk-vF-SEq" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="bottom" constant="2" id="feI-KI-u3i"/>
+                                <constraint firstItem="KZk-vF-SEq" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="bottom" id="feI-KI-u3i"/>
                                 <constraint firstItem="ZTO-eX-g27" firstAttribute="top" secondItem="sb2-Em-jjH" secondAttribute="top" id="hHc-VO-9Qi"/>
                                 <constraint firstAttribute="trailing" secondItem="ZTO-eX-g27" secondAttribute="trailing" id="z7Z-DW-SPT"/>
                             </constraints>
@@ -125,12 +126,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG">
                     <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="לכל האירועים">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
@@ -154,7 +155,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" id="B8u-TK-w9W"/>
-                <constraint firstItem="Yog-L5-8KG" firstAttribute="top" secondItem="Hcj-A5-JUs" secondAttribute="bottom" constant="8" id="BcB-K3-r1Q"/>
+                <constraint firstItem="Yog-L5-8KG" firstAttribute="top" secondItem="Hcj-A5-JUs" secondAttribute="bottom" id="BcB-K3-r1Q"/>
                 <constraint firstAttribute="trailing" secondItem="Hcj-A5-JUs" secondAttribute="trailing" id="bDE-OU-UKh"/>
                 <constraint firstItem="Yog-L5-8KG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gJE-TC-bAM"/>
                 <constraint firstItem="Hcj-A5-JUs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mkv-hz-sqn"/>

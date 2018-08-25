@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,23 +25,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwY-JI-MeU" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="399.5" width="375" height="219.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwY-JI-MeU">
+                    <rect key="frame" x="0.0" y="411.5" width="375" height="215.5"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tr-0s-eMB" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tr-0s-eMB">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-x0-CGl" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-x0-CGl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירועים שלי" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4v-fi-VsF">
                                             <rect key="frame" x="8" y="8" width="359" height="38.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="a4v-fi-VsF" secondAttribute="bottom" constant="8" id="2vU-B5-1Xl"/>
                                         <constraint firstItem="a4v-fi-VsF" firstAttribute="leading" secondItem="GmR-x0-CGl" secondAttribute="leading" constant="8" id="vsz-IG-lYJ"/>
@@ -69,18 +69,18 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="56.5" width="375" height="44"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH">
+                                    <rect key="frame" x="0.0" y="54.5" width="375" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="כעת: תחרות השירה" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-Rw-aVI">
                                             <rect key="frame" x="8" y="8" width="359" height="28"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.76862745099999996" green="0.63137254899999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.38431372549999998" green="0.1764705882" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="hKb-Rw-aVI" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="top" constant="8" id="5M8-Ru-dUz"/>
                                         <constraint firstItem="hKb-Rw-aVI" firstAttribute="leading" secondItem="bzd-on-DIH" secondAttribute="leading" constant="8" id="ScM-ux-8ti"/>
@@ -103,8 +103,8 @@
                                         <outletCollection property="gestureRecognizers" destination="aC8-9d-gxs" appends="YES" id="eW8-DV-3R3"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-lb-z29" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="102.5" width="375" height="117"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HC-lb-z29">
+                                    <rect key="frame" x="0.0" y="98.5" width="375" height="117"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בעוד דקה:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-fA-Sxr">
                                             <rect key="frame" x="8" y="8" width="359" height="24"/>
@@ -125,7 +125,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.53333333333333333" green="0.34509803921568627" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="bHP-fA-Sxr" secondAttribute="trailing" constant="8" id="3bK-en-G2i"/>
@@ -159,12 +159,12 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="0HC-lb-z29" secondAttribute="trailing" id="04x-o5-A0j"/>
                                 <constraint firstAttribute="trailing" secondItem="GmR-x0-CGl" secondAttribute="trailing" id="76l-4F-DVT"/>
-                                <constraint firstItem="0HC-lb-z29" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="bottom" constant="2" id="Cbg-ss-g8a"/>
+                                <constraint firstItem="0HC-lb-z29" firstAttribute="top" secondItem="bzd-on-DIH" secondAttribute="bottom" id="Cbg-ss-g8a"/>
                                 <constraint firstItem="bzd-on-DIH" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="XPU-82-3YD"/>
                                 <constraint firstAttribute="bottom" secondItem="0HC-lb-z29" secondAttribute="bottom" id="bZR-nV-p61"/>
                                 <constraint firstItem="0HC-lb-z29" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="dwJ-nT-Z0e"/>
                                 <constraint firstItem="GmR-x0-CGl" firstAttribute="leading" secondItem="1Tr-0s-eMB" secondAttribute="leading" id="o2G-UH-gJl"/>
-                                <constraint firstItem="bzd-on-DIH" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="bottom" constant="2" id="qN9-iD-cby"/>
+                                <constraint firstItem="bzd-on-DIH" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="bottom" id="qN9-iD-cby"/>
                                 <constraint firstItem="GmR-x0-CGl" firstAttribute="top" secondItem="1Tr-0s-eMB" secondAttribute="top" id="rtE-Nt-qyj"/>
                                 <constraint firstAttribute="trailing" secondItem="bzd-on-DIH" secondAttribute="trailing" id="tiQ-Dd-qu4"/>
                             </constraints>
@@ -197,12 +197,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
                     <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="עבור לאירועים שלי">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
@@ -229,7 +229,7 @@
                 <constraint firstItem="BwY-JI-MeU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="Kt5-0a-qkR"/>
                 <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" id="OlY-NI-9bC"/>
                 <constraint firstItem="BwY-JI-MeU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UJk-EU-lwR"/>
-                <constraint firstItem="iiY-kd-cdi" firstAttribute="top" secondItem="BwY-JI-MeU" secondAttribute="bottom" constant="8" id="gPB-Qs-i0X"/>
+                <constraint firstItem="iiY-kd-cdi" firstAttribute="top" secondItem="BwY-JI-MeU" secondAttribute="bottom" id="gPB-Qs-i0X"/>
                 <constraint firstAttribute="trailing" secondItem="iiY-kd-cdi" secondAttribute="trailing" id="hMb-ZQ-fih"/>
                 <constraint firstAttribute="trailing" secondItem="BwY-JI-MeU" secondAttribute="trailing" id="ygn-Zw-jrk"/>
             </constraints>

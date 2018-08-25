@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,24 +21,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOy-fb-Q3w" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
-                    <rect key="frame" x="8" y="310" width="359" height="297"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOy-fb-Q3w">
+                    <rect key="frame" x="8" y="312" width="359" height="295"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-j0-EjT" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="297"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="295"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-gk-Ubm" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-gk-Ubm">
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="8.10.2017 - 10.10.2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-hE-C89">
                                             <rect key="frame" x="8" y="8" width="343" height="24"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.65098039215686276" green="0.90980392156862744" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.011764705882352941" green="0.46666666666666667" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="YhF-hE-C89" firstAttribute="leading" secondItem="Nih-gk-Ubm" secondAttribute="leading" constant="8" id="E2G-pF-Cvx"/>
                                         <constraint firstAttribute="bottom" secondItem="YhF-hE-C89" secondAttribute="bottom" constant="8" id="J03-aR-0CI"/>
@@ -72,8 +72,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="42" width="359" height="255"/>
+                                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50">
+                                    <rect key="frame" x="0.0" y="40" width="359" height="255"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="עוד 10 ימים!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-2s-bOd">
                                             <rect key="frame" x="8" y="8" width="343" height="239"/>
@@ -83,7 +83,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.53333333333333333" green="0.34509803921568627" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="7vj-2s-bOd" secondAttribute="trailing" constant="8" id="Yv0-V5-Tzj"/>
                                         <constraint firstAttribute="bottom" secondItem="7vj-2s-bOd" secondAttribute="bottom" constant="8" id="eQo-wD-vH3"/>
@@ -124,14 +124,14 @@
                                 <constraint firstAttribute="trailing" secondItem="3AY-nH-o50" secondAttribute="trailing" id="2eh-80-VlG"/>
                                 <constraint firstItem="Nih-gk-Ubm" firstAttribute="top" secondItem="jHV-j0-EjT" secondAttribute="top" id="GEP-zt-ZXs"/>
                                 <constraint firstItem="3AY-nH-o50" firstAttribute="leading" secondItem="jHV-j0-EjT" secondAttribute="leading" id="YE5-E5-af3"/>
-                                <constraint firstItem="3AY-nH-o50" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="bottom" constant="2" id="aQR-4Q-pUx"/>
+                                <constraint firstItem="3AY-nH-o50" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="bottom" id="aQR-4Q-pUx"/>
                                 <constraint firstAttribute="trailing" secondItem="Nih-gk-Ubm" secondAttribute="trailing" id="cta-f6-POB"/>
                                 <constraint firstItem="Nih-gk-Ubm" firstAttribute="leading" secondItem="jHV-j0-EjT" secondAttribute="leading" id="dUJ-4U-h6s"/>
                                 <constraint firstAttribute="bottom" secondItem="3AY-nH-o50" secondAttribute="bottom" id="shy-t3-ixW"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                    <real key="value" value="20"/>
+                                    <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="ShadowColor">
                                     <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,12 +173,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o">
                     <rect key="frame" x="8" y="623" width="163.5" height="36"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="עדכונים">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
@@ -198,12 +198,12 @@
                         <action selector="navigateToUpdatesWasCliced:" destination="-1" eventType="touchUpInside" id="wHk-Cf-Agm"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA">
                     <rect key="frame" x="203.5" y="623" width="163.5" height="36"/>
-                    <color key="backgroundColor" red="0.28627450980000002" green="0.36470588240000001" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="תוכניה">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">

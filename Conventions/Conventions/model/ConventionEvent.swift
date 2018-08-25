@@ -46,7 +46,7 @@ class ConventionEvent {
         FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
         ]
     
-    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL, availableTickets: Int?) {
+    init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL) {
         self.id = id
         self.serverId = serverId
         self.color = color
@@ -62,7 +62,6 @@ class ConventionEvent {
         self.price = price
         self.tags = tags
         self.url = url
-        self.availableTickets = availableTickets
     }
     
     static func parse(_ json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
@@ -79,8 +78,7 @@ class ConventionEvent {
             let category = json["category"] as? String,
             let price = json["price"] as? Int,
             let tags = json["tags"] as? Array<String>,
-            let url = json["url"] as? String,
-            let availableTickets = json["availableTickets"] as? Int?
+            let url = json["url"] as? String
         else {
             return nil
         }
@@ -99,9 +97,11 @@ class ConventionEvent {
                                category: category,
                                price: price,
                                tags: tags,
-                               url: URL(string: url)!,
-                               availableTickets: availableTickets)
+                               url: URL(string: url)!)
         
+        if let availableTickets = json["availableTickets"] as? Int? {
+            event.availableTickets = availableTickets
+        }
         if let availableTicketsLastModified = json["availableTicketsLastModified"] as? Double {
             event.availableTicketsLastModified = Date(timeIntervalSince1970: availableTicketsLastModified)
         }

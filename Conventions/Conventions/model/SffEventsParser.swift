@@ -108,8 +108,9 @@ class SffEventsParser {
                 category: category.stringByDecodingHTMLEntities,
                 price: eventPrice,
                 tags: tags,
-                url: URL(string: (event["url"] as? String)!)!,
-                availableTickets: availableTickets)
+                url: URL(string: (event["url"] as? String)!)!)
+            
+            conventionEvent.availableTickets = availableTickets
             
             result.append(conventionEvent)
             

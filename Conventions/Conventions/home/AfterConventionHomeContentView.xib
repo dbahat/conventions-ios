@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,23 +15,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQ1-DO-L4e" customClass="ShadowedView" customModule="Conventions" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="422.5" width="375" height="244.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQ1-DO-L4e">
+                    <rect key="frame" x="0.0" y="424.5" width="375" height="242.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9er-mV-dYf" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="244.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="242.5"/>
                             <subviews>
-                                <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-WE-LXA" customClass="GradientView" customModule="Conventions" customModuleProvider="target">
+                                <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-WE-LXA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עזרו לנו להשתפר" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jva-fr-GH2">
                                             <rect key="frame" x="8" y="8" width="359" height="38.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="jva-fr-GH2" firstAttribute="leading" secondItem="JTa-WE-LXA" secondAttribute="leading" constant="8" id="8un-vs-b99"/>
                                         <constraint firstAttribute="bottom" secondItem="jva-fr-GH2" secondAttribute="bottom" constant="8" id="FO2-bv-ydo"/>
@@ -59,8 +59,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="s6Y-eC-6Vp" customClass="RadialGradientView" customModule="Conventions" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="56.5" width="375" height="188"/>
+                                <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="s6Y-eC-6Vp">
+                                    <rect key="frame" x="0.0" y="54.5" width="375" height="188"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לשליחת פידבק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-Ja-3yP">
                                             <rect key="frame" x="24" y="8" width="327" height="172"/>
@@ -70,7 +70,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.53333333329999999" green="0.34509803919999998" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="nBU-Ja-3yP" secondAttribute="trailing" constant="24" id="BVK-hf-QdH"/>
                                         <constraint firstItem="nBU-Ja-3yP" firstAttribute="top" secondItem="s6Y-eC-6Vp" secondAttribute="top" constant="8" id="LXE-9o-l8N"/>
@@ -98,14 +98,14 @@
                                 <constraint firstAttribute="bottom" secondItem="s6Y-eC-6Vp" secondAttribute="bottom" id="56e-Ie-j74"/>
                                 <constraint firstItem="JTa-WE-LXA" firstAttribute="leading" secondItem="9er-mV-dYf" secondAttribute="leading" id="EEE-lF-uOg"/>
                                 <constraint firstItem="s6Y-eC-6Vp" firstAttribute="leading" secondItem="9er-mV-dYf" secondAttribute="leading" id="KQk-Cc-3k9"/>
-                                <constraint firstItem="s6Y-eC-6Vp" firstAttribute="top" secondItem="JTa-WE-LXA" secondAttribute="bottom" constant="2" id="KfA-Ll-9vb"/>
+                                <constraint firstItem="s6Y-eC-6Vp" firstAttribute="top" secondItem="JTa-WE-LXA" secondAttribute="bottom" id="KfA-Ll-9vb"/>
                                 <constraint firstItem="JTa-WE-LXA" firstAttribute="top" secondItem="9er-mV-dYf" secondAttribute="top" id="eGW-rj-0Kz"/>
                                 <constraint firstAttribute="trailing" secondItem="JTa-WE-LXA" secondAttribute="trailing" id="mBn-HM-i9Z"/>
                                 <constraint firstAttribute="trailing" secondItem="s6Y-eC-6Vp" secondAttribute="trailing" id="yo7-np-Gyh"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                    <real key="value" value="20"/>
+                                    <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
