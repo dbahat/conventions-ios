@@ -1,5 +1,5 @@
 //
-//  Hall.swift
+//  Place.swift
 //  Conventions
 //
 //  Created by David Bahat on 2/1/16.
@@ -8,11 +8,16 @@
 
 import Foundation
 
-class Hall : Place {
-    var order: Int;
+class Hall {
+    var name: String
+    var order: Int
+    
+    convenience init(name: String) {
+        self.init(name: name, order: 999)
+    }
     
     init(name: String, order: Int) {
-        self.order = order;
-        super.init(name: name);
+        self.name = name
+        self.order = order
     }
 }

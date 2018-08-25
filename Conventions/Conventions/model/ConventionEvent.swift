@@ -114,7 +114,7 @@ class ConventionEvent {
             return hall
         }
         
-        return Hall(name: hallName, order: 100)
+        return Hall(name: hallName)
     }
     
     func toJson() -> Dictionary<String, AnyObject> {

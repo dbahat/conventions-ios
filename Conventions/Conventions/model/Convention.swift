@@ -30,23 +30,55 @@ class Convention {
     let secondHand = SecondHand()
     
     fileprivate init() {
+        // The hall order affects the order the events are shown in the programme. Order was selected based on the convention website.
         halls = [
-            Hall(name: "סינמטק 1", order: 1),
-            Hall(name: "סינמטק 2", order: 2),
-            Hall(name: "סינמטק 5", order: 3),
-            Hall(name: "אשכול 1", order: 4),
-            Hall(name: "אשכול 2", order: 5),
-            Hall(name: "אשכול 3", order: 6),
-            Hall(name: "אשכול 4", order: 7),
-            Hall(name: "אשכול 5", order: 8),
-            Hall(name: "אשכול 6", order: 9),
-            Hall(name: "חדר סדנאות", order: 10),
-            Hall(name: "ארועים מיוחדים", order: 11),
-            Hall(name: "חדר ילדים", order: 12),
-            Hall(name: "חדר מפגשים", order: 13),
-            Hall(name: "אירועי חוצות", order: 14),
-            Hall(name: "אירועי חוצות 2", order: 15)
+            Hall(name: "סינמטק 1"),
+            Hall(name: "סינמטק 2"),
+            Hall(name: "סינמטק 5"),
+            
+            Hall(name: "אשכול 1"),
+            Hall(name: "אשכול 2"),
+            Hall(name: "אשכול 3"),
+            Hall(name: "אשכול 4"),
+            Hall(name: "אשכול 5"),
+            Hall(name: "אשכול 6"),
+            
+            Hall(name: "חדר מפגשים"),
+            Hall(name: "סדנאות 1"),
+            Hall(name: "סדנאות 2"),
+            Hall(name: "חדר ילדים"),
+            Hall(name: "אירועי חוצות"),
+            Hall(name: "אירועי חוצות 2"),
+            Hall(name: "מיניאטורות 1"),
+            Hall(name: "מיניאטורות: הדגמות"),
+            
+            Hall(name: "ארועים מיוחדים"),
+            
+            Hall(name: "עירוני 1"),
+            Hall(name: "עירוני 2"),
+            Hall(name: "עירוני 3"),
+            Hall(name: "עירוני 4"),
+            Hall(name: "עירוני 5"),
+            
+            Hall(name: "אוהל 1"),
+            Hall(name: "אוהל 2"),
+            Hall(name: "אוהל 3"),
+            Hall(name: "אוהל 4"),
+            Hall(name: "אוהל 5"),
+            Hall(name: "אוהל 6"),
+            Hall(name: "אוהל 7"),
+            Hall(name: "אוהל 8"),
+            
+            Hall(name: "ארטמיס 1"),
+            Hall(name: "ארטמיס 2"),
+            Hall(name: "חדר בריחה"),
+            
+            Hall(name: "חדר סדנאות")
         ];
+        
+        halls.enumerated().forEach { (index, hall) in
+            hall.order = index
+        }
         
         events = Events(halls: halls)
         
@@ -88,7 +120,7 @@ class Convention {
             return hall
         }
         print("Couldn't find hall ", name, ". Using default hall.");
-        return Hall(name: name, order: 999)
+        return Hall(name: name)
     }
     
     func isFeedbackSendingTimeOver() -> Bool {

@@ -164,7 +164,7 @@ class AmaiEventsParser {
             return hall;
         }
         
-        return Hall(name: "", order: 100);
+        return Hall(name: "");
     }
 
     func appendTimeToConventionDate(_ time: String!) -> Date! {

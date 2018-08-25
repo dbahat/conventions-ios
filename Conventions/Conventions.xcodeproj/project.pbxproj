@@ -67,8 +67,7 @@
 		3BA2D80F1C5FE8EB007A8A23 /* Convention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D80E1C5FE8EB007A8A23 /* Convention.swift */; };
 		3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8101C5FEB69007A8A23 /* ConventionEvent.swift */; };
 		3BA2D8131C5FEDF5007A8A23 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8121C5FEDF5007A8A23 /* EventType.swift */; };
-		3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8141C5FEE7B007A8A23 /* Place.swift */; };
-		3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8161C5FEE97007A8A23 /* Hall.swift */; };
+		3BA2D8151C5FEE7B007A8A23 /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8141C5FEE7B007A8A23 /* Hall.swift */; };
 		3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */; };
 		3BA2D81F1C64E862007A8A23 /* EventListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */; };
 		3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */; };
@@ -180,8 +179,7 @@
 		3BA2D80E1C5FE8EB007A8A23 /* Convention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convention.swift; path = model/Convention.swift; sourceTree = "<group>"; };
 		3BA2D8101C5FEB69007A8A23 /* ConventionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionEvent.swift; path = model/ConventionEvent.swift; sourceTree = "<group>"; };
 		3BA2D8121C5FEDF5007A8A23 /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventType.swift; path = model/EventType.swift; sourceTree = "<group>"; };
-		3BA2D8141C5FEE7B007A8A23 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = model/Place.swift; sourceTree = "<group>"; };
-		3BA2D8161C5FEE97007A8A23 /* Hall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hall.swift; path = model/Hall.swift; sourceTree = "<group>"; };
+		3BA2D8141C5FEE7B007A8A23 /* Hall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hall.swift; path = model/Hall.swift; sourceTree = "<group>"; };
 		3BA2D8191C5FF51D007A8A23 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = events/EventTableViewCell.swift; sourceTree = "<group>"; };
 		3BA2D81E1C64E862007A8A23 /* EventListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListHeaderView.swift; path = events/EventListHeaderView.swift; sourceTree = "<group>"; };
 		3BA2D8201C64E893007A8A23 /* EventListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListHeaderView.xib; path = events/EventListHeaderView.xib; sourceTree = "<group>"; };
@@ -428,8 +426,7 @@
 				3BA2D80E1C5FE8EB007A8A23 /* Convention.swift */,
 				3BA2D8101C5FEB69007A8A23 /* ConventionEvent.swift */,
 				3BA2D8121C5FEDF5007A8A23 /* EventType.swift */,
-				3BA2D8141C5FEE7B007A8A23 /* Place.swift */,
-				3BA2D8161C5FEE97007A8A23 /* Hall.swift */,
+				3BA2D8141C5FEE7B007A8A23 /* Hall.swift */,
 				3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */,
 				3BB631241C8ADC0B00D54D3E /* Events.swift */,
 				3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */,
@@ -764,8 +761,7 @@
 				3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */,
 				3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */,
 				3BC5E70F1C8E1DBD00AA3C76 /* MapFloorViewController.swift in Sources */,
-				3BA2D8171C5FEE97007A8A23 /* Hall.swift in Sources */,
-				3BA2D8151C5FEE7B007A8A23 /* Place.swift in Sources */,
+				3BA2D8151C5FEE7B007A8A23 /* Hall.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */,
 				3BA2AFF41F7AD65A005EC4D4 /* IconKidsViewController.swift in Sources */,
