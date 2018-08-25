@@ -9,23 +9,32 @@
 import Foundation
 
 class Colors {
-    static let black = UIColor(hexString: "#000F18")
-    static let darkRed = UIColor(hexString: "#8D3347")
-    static let semiTransperentRed = UIColor(hexString: "#350213", alpha: 0.5)
-    static let teal = UIColor(hexString: "#88FCF9")
+    static let white = UIColor(hexString: "#FFFFFF")
+    static let yellow = UIColor(hexString: "#FCB614")
+    static let orange = UIColor(hexString: "#EF5225")
+    static let green1 = UIColor(hexString: "#037759")
+    static let green2 = UIColor(hexString: "#009676")
+    static let green3 = UIColor(hexString: "#49BB8E")
+    static let green4 = UIColor(hexString: "#5BC1AA")
+    static let green5 = UIColor(hexString: "#A6E8D7")
+    static let purple1 = UIColor(hexString: "#4D2875")
+    static let purple2 = UIColor(hexString: "#622D8F")
+    static let purple3 = UIColor(hexString: "#76489C")
+    static let purple4 = UIColor(hexString: "#8858A3")
+    static let purple5 = UIColor(hexString: "#C4A1DB")
     
-    static let colorAccent = Colors.darkRed
-    static let eventTimeDefaultBackgroundColor = Colors.darkRed.withAlphaComponent(0.6)
+    static let colorAccent = Colors.orange
+    static let eventTimeDefaultBackgroundColor = Colors.orange
     static let eventTimeHeaderColor = UIColor.clear
-    static let buttonColor = UIColor.white
-    static let buttonPressedColor = UIColor(hexString: "#41937d")
-    static let eventEndedColor = UIColor(hexString: "#FFFFFF", alpha: 0.4)
-    static let eventRunningColor = Colors.teal
-    static let eventNotStartedColor = UIColor.white
+    static let buttonColor = Colors.green1
+    static let buttonPressedColor = Colors.green5
+    static let eventEndedColor = Colors.purple1
+    static let eventRunningColor = Colors.purple3
+    static let eventNotStartedColor = Colors.purple4
     static let eventUserNeedsToCompleteFeecbackButtonColor = UIColor(hexString: "#ffca58")
     static let eventMarkedAsFavorite = UIColor(hexString: "#ffca58")
     static let eventDetailsHighlightedTextColor = UIColor(hexString: "#FEFFC9")
-    static let eventFeedbackBoxColor = Colors.semiTransperentRed
+    static let eventFeedbackBoxColor = Colors.purple1
     
     static let secondHandClosedFormColor = UIColor(hexString: "#D2D3D5")
     static let secondHandOpenFormColor = UIColor.white
