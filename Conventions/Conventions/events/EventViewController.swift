@@ -36,7 +36,6 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         if event.canFillFeedback() {
             feedbackView.backgroundColor = Colors.eventFeedbackBoxColor
-            feedbackView.setTextColor(UIColor.white)
             
             feedbackView.delegate = self
             feedbackView.setFeedback(questions: event.feedbackQuestions,

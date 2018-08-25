@@ -34,7 +34,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet fileprivate weak var headerView: UIView!
     @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
     
-    private var textColor = UIColor.white
+    private var textColor = Colors.feedbackTextColor
     
     fileprivate var questions: Array<FeedbackQuestion> = []
     fileprivate var answers: Array<FeedbackAnswer> = []
@@ -98,8 +98,9 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         questionsTableView.register(UINib(nibName: String(describing: MultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MultipleAnswerFeedbackQuestionCell.self))
         questionsTableView.register(UINib(nibName: String(describing: TableMultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableMultipleAnswerFeedbackQuestionCell.self))
         
-        changeStateButton.setTitleColor(Colors.buttonColor, for: UIControlState())
-        sendButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+        changeStateButton.setTitleColor(Colors.feedbackButtonsColor, for: UIControlState())
+        sendButton.setTitleColor(Colors.feedbackButtonsColor, for: UIControlState())
+        titleLabel.textColor = textColor
     }
     
     func setFeedback(questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
@@ -124,10 +125,6 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         }
         
         questionsTableView.reloadData()
-    }
-    
-    func setTextColor(_ color: UIColor) {
-        textColor = color
     }
     
     func removeAnsweredQuestions(_ answers: Array<FeedbackAnswer>) {

@@ -79,6 +79,6 @@ extension Date {
     static func now() -> Date {
         return Date
             // uncomment for testing date dependent components (e.g. the homeViewController)
-            .from(year: 2018, month: 9, day: 25, hour: 13, minute: 0)
+            .from(year: 2018, month: 9, day: 29, hour: 13, minute: 0)
     }
 }
