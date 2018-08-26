@@ -125,21 +125,22 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
-                                <rect key="frame" x="0.0" y="156" width="375" height="462"/>
+                                <rect key="frame" x="45" y="156" width="320" height="462"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="92"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OXO-rt-127" id="MYl-BU-zg9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="16" width="365" height="60"/>
+                                                    <rect key="frame" x="5" y="16" width="310" height="60"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </view>
@@ -185,8 +186,8 @@
                             <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="PUg-8I-cRS" secondAttribute="bottom" id="eKe-BD-OgF"/>
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="iOq-7L-LM6"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="ihY-yI-UKn"/>
-                            <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="jfY-fu-2Nl"/>
-                            <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" id="n70-ii-viN"/>
+                            <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="45" id="jfY-fu-2Nl"/>
+                            <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" constant="10" id="n70-ii-viN"/>
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="height" secondItem="tYJ-0M-xL8" secondAttribute="height" id="wIo-Dj-Otg"/>
                             <constraint firstItem="yXH-4s-zW2" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="x5q-0u-16M"/>
                             <constraint firstItem="sUM-PN-H3K" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" id="zUr-5A-azT"/>
@@ -216,14 +217,14 @@
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AU-0L-zpZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -414,7 +415,7 @@
                                     <constraint firstItem="dze-UV-zhf" firstAttribute="bottom" secondItem="BZL-9K-Xfi" secondAttribute="top" id="ed8-sY-Njq"/>
                                     <constraint firstAttribute="trailing" secondItem="9Ss-29-rjU" secondAttribute="trailing" constant="20" id="fpV-Zj-Qxf"/>
                                     <constraint firstItem="9Ss-29-rjU" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="bottom" constant="10" id="frz-4H-fpM"/>
-                                    <constraint firstAttribute="bottom" secondItem="u5k-i3-wiM" secondAttribute="bottom" id="g5T-sy-9aA"/>
+                                    <constraint firstAttribute="bottom" secondItem="u5k-i3-wiM" secondAttribute="bottom" constant="20" id="g5T-sy-9aA"/>
                                     <constraint firstAttribute="trailing" secondItem="q76-A4-Mva" secondAttribute="trailing" id="qfS-es-ohE"/>
                                     <constraint firstAttribute="trailing" secondItem="4Mk-2g-684" secondAttribute="trailing" constant="20" id="tA9-pi-s1C"/>
                                     <constraint firstItem="4Mk-2g-684" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="xYh-43-tfd"/>
@@ -1880,19 +1881,21 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-5U-iw3">
-                                <rect key="frame" x="0.0" y="53" width="375" height="501"/>
+                                <rect key="frame" x="45" y="53" width="320" height="501"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="c6F-Vv-NRJ" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="102"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6F-Vv-NRJ" id="ZcJ-IC-VUv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1U-A7-VX0" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="365" height="92"/>
+                                                    <rect key="frame" x="5" y="5" width="310" height="92"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -1920,12 +1923,12 @@
                         <constraints>
                             <constraint firstItem="4T8-O5-cGp" firstAttribute="top" secondItem="R2k-5U-iw3" secondAttribute="bottom" id="3uQ-mh-ZsI"/>
                             <constraint firstAttribute="trailing" secondItem="c2k-yU-iwa" secondAttribute="trailing" id="5gW-4G-f1T"/>
-                            <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="8Gk-OS-KIT"/>
+                            <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" constant="45" id="8Gk-OS-KIT"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="width" secondItem="syY-rg-AlJ" secondAttribute="width" id="Fzn-K3-0eR"/>
                             <constraint firstItem="c2k-yU-iwa" firstAttribute="top" secondItem="syY-rg-AlJ" secondAttribute="topMargin" id="Skb-gg-Sgu"/>
                             <constraint firstItem="c2k-yU-iwa" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="ahB-RA-woi"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="centerX" secondItem="syY-rg-AlJ" secondAttribute="centerX" id="jpm-Qa-LIM"/>
-                            <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" id="k05-vD-CUC"/>
+                            <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" constant="10" id="k05-vD-CUC"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="top" secondItem="c2k-yU-iwa" secondAttribute="bottom" constant="1" id="ljr-Od-qEO"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="centerY" secondItem="syY-rg-AlJ" secondAttribute="centerY" id="lpY-72-BA8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EBg-9t-HBx" secondAttribute="trailing" id="n30-kg-q1a"/>
@@ -1976,6 +1979,6 @@
         <image name="MenuUpdates" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w1u-TZ-YLe"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
 </document>

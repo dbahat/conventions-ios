@@ -311,7 +311,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), for: UIControlEvents.valueChanged)
-        tableViewController.refreshControl?.backgroundColor = Colors.colorAccent
+        tableViewController.refreshControl?.backgroundColor = UIColor.clear
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)
     }

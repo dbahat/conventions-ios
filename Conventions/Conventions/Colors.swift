@@ -33,10 +33,12 @@ class Colors {
     static let eventEndedColor = Colors.purple1
     static let eventRunningColor = Colors.purple3
     static let eventNotStartedColor = Colors.purple4
-    static let eventUserNeedsToCompleteFeecbackButtonColor = UIColor(hexString: "#ffca58")
-    static let eventMarkedAsFavorite = UIColor(hexString: "#ffca58")
+    static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
+    static let eventMarkedAsFavorite = Colors.white
+    static let eventNotMarkedAsFavorite = Colors.green1
     static let eventDetailsHighlightedTextColor = UIColor(hexString: "#FEFFC9")
     static let eventFeedbackBoxColor = Colors.purple1
+    static let eventSeperatorColor = Colors.green4
     
     static let secondHandClosedFormColor = UIColor(hexString: "#D2D3D5")
     static let secondHandOpenFormColor = UIColor.white

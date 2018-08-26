@@ -14,17 +14,18 @@ protocol EventStateProtocol : class {
 
 class EventView: UIView {
 
-    @IBOutlet fileprivate weak var startTime: UILabel!
-    @IBOutlet fileprivate weak var endTime: UILabel!
-    @IBOutlet fileprivate weak var title: UILabel!
-    @IBOutlet fileprivate weak var hallName: UILabel!
-    @IBOutlet fileprivate weak var lecturer: UILabel!
-    @IBOutlet fileprivate weak var timeLayout: UIView!
-    @IBOutlet fileprivate weak var favoriteButtonImage: UIImageView!
-    @IBOutlet fileprivate weak var feedbackIcon: UIImageView!
-    @IBOutlet fileprivate weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var startTime: UILabel!
+    @IBOutlet private weak var endTime: UILabel!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var hallName: UILabel!
+    @IBOutlet private weak var lecturer: UILabel!
+    @IBOutlet private weak var timeLayout: UIView!
+    @IBOutlet private weak var favoriteButtonImage: UIImageView!
+    @IBOutlet private weak var feedbackIcon: UIImageView!
+    @IBOutlet private weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var seperator: UIView!
     
-    @IBOutlet fileprivate weak var titleAndDetailsContainer: UIView!
+    @IBOutlet private weak var titleAndDetailsContainer: UIView!
     weak var delegate: EventStateProtocol?;
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,16 +39,17 @@ class EventView: UIView {
     }
     
     func setEvent(_ event : ConventionEvent) {
-        startTime.text = event.startTime.format("HH:mm");
-        endTime.text = event.endTime.format("HH:mm");
-        title.text = event.title;
-        lecturer.text = event.lecturer;
-        hallName.text = event.hall.name;
-        timeLayout.backgroundColor = event.color;
+        startTime.text = event.startTime.format("HH:mm")
+        endTime.text = event.endTime.format("HH:mm")
+        title.text = event.title
+        lecturer.text = event.lecturer
+        hallName.text = event.hall.name
+        timeLayout.backgroundColor = event.color
+        seperator.backgroundColor = Colors.eventSeperatorColor
         
         // Allow dynamic changing of the favorite button color
         favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
-        favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : UIColor.white
+        favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : Colors.eventNotMarkedAsFavorite
         
         if let textColor = event.textColor {
             startTime.textColor = textColor;
