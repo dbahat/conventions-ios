@@ -717,37 +717,8 @@
                                             <segue destination="6s1-WB-npc" kind="show" id="77m-8Y-bc5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KMD-CV-ysY">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMD-CV-ysY" id="OzB-7u-Ncg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuSecondHand" translatesAutoresizingMaskIntoConstraints="NO" id="oGb-D7-Qyi">
-                                                    <rect key="frame" x="323" y="4" width="36" height="36"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="יד שנייה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-ya-GE9">
-                                                    <rect key="frame" x="259.5" y="11.5" width="54" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="oGb-D7-Qyi" firstAttribute="centerY" secondItem="OzB-7u-Ncg" secondAttribute="centerY" id="HIM-1O-qPB"/>
-                                                <constraint firstItem="P8h-ya-GE9" firstAttribute="centerY" secondItem="OzB-7u-Ncg" secondAttribute="centerY" id="MMZ-Uf-9Jt"/>
-                                                <constraint firstItem="oGb-D7-Qyi" firstAttribute="leading" secondItem="P8h-ya-GE9" secondAttribute="trailing" constant="10" id="nmf-PR-CkL"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oGb-D7-Qyi" secondAttribute="trailing" id="osO-Y3-07i"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="bvG-fg-abK" kind="show" id="nCH-UD-j9h"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ymZ-UR-4N6">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymZ-UR-4N6" id="UDq-Xd-TeO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -776,7 +747,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ApD-mf-uH8">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ApD-mf-uH8" id="dpN-2x-PTI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -805,7 +776,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
-                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -834,7 +805,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -876,81 +847,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUa-Nz-xQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126" y="1798"/>
-        </scene>
-        <!--Icon Kids View Controller-->
-        <scene sceneID="2wZ-Qi-S4m">
-            <objects>
-                <viewController id="dEu-wn-C7U" customClass="IconKidsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="R54-oK-azA"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bty-6m-mqZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ICJ-C2-oZR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PlZ-8l-JLs">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconKids" translatesAutoresizingMaskIntoConstraints="NO" id="whS-x2-ubg">
-                                <rect key="frame" x="0.0" y="20" width="375" height="96"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89B-Vf-QWt">
-                                <rect key="frame" x="0.0" y="128" width="375" height="231"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryt-7n-AMB">
-                                        <rect key="frame" x="12" y="12" width="351" height="95.5"/>
-                                        <string key="text">מתחם הילדים החדש של פסטיבל אייקון מתארח בסינמטק תל אביב! בכל בוקר יפעל בלובי החדש של הסינמטק מתחם הפעלות חינמי הכולל סדנת יצירה, "ממלכת קרטוניה" - מבוך בתים גמדיים מקרטון, ופינת ניסויים מדעיים.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מגוון סדנאות קולנוע לילדים וסרטים מדובבים יתקיימו באולמות הסינמטק. את הכרטיסים אליהם ניתן לרכוש באתר ובקופות הסינמטק." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-9I-en7">
-                                        <rect key="frame" x="12" y="119.5" width="351" height="57.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb0-C4-8uj">
-                                        <rect key="frame" x="115.5" y="189" width="143" height="30"/>
-                                        <state key="normal" title="לפרטים ורכישת כרטיסים"/>
-                                        <connections>
-                                            <action selector="openIconKidsWebsiteWasClicked:" destination="dEu-wn-C7U" eventType="touchUpInside" id="Pcz-sL-pWA"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3oc-9I-en7" secondAttribute="trailing" constant="12" id="1Km-qT-eTq"/>
-                                    <constraint firstItem="Ryt-7n-AMB" firstAttribute="top" secondItem="89B-Vf-QWt" secondAttribute="top" constant="12" id="1Wu-g4-dwo"/>
-                                    <constraint firstItem="3oc-9I-en7" firstAttribute="leading" secondItem="89B-Vf-QWt" secondAttribute="leading" constant="12" id="3bB-ai-UYZ"/>
-                                    <constraint firstItem="Ryt-7n-AMB" firstAttribute="leading" secondItem="89B-Vf-QWt" secondAttribute="leading" constant="12" id="Jg7-N8-ErS"/>
-                                    <constraint firstItem="Yb0-C4-8uj" firstAttribute="top" secondItem="3oc-9I-en7" secondAttribute="bottom" constant="12" id="SFB-MP-Ohd"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yb0-C4-8uj" secondAttribute="bottom" constant="12" id="e2t-0E-JFt"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ryt-7n-AMB" secondAttribute="trailing" constant="12" id="kOh-hV-JIb"/>
-                                    <constraint firstItem="Yb0-C4-8uj" firstAttribute="centerX" secondItem="89B-Vf-QWt" secondAttribute="centerX" id="txE-hh-kSc"/>
-                                    <constraint firstItem="3oc-9I-en7" firstAttribute="top" secondItem="Ryt-7n-AMB" secondAttribute="bottom" constant="12" id="wt2-sI-Gii"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="89B-Vf-QWt" firstAttribute="centerX" secondItem="ICJ-C2-oZR" secondAttribute="centerX" id="Dvq-4Y-YiT"/>
-                            <constraint firstItem="89B-Vf-QWt" firstAttribute="top" secondItem="whS-x2-ubg" secondAttribute="bottom" constant="12" id="J9T-1n-vte"/>
-                            <constraint firstItem="whS-x2-ubg" firstAttribute="top" secondItem="R54-oK-azA" secondAttribute="bottom" id="P9T-OI-Ny5"/>
-                            <constraint firstItem="PlZ-8l-JLs" firstAttribute="top" secondItem="R54-oK-azA" secondAttribute="bottom" id="U5k-wG-yTF"/>
-                            <constraint firstAttribute="trailing" secondItem="PlZ-8l-JLs" secondAttribute="trailing" id="VWx-Fl-chT"/>
-                            <constraint firstAttribute="trailing" secondItem="whS-x2-ubg" secondAttribute="trailing" id="We0-1E-fkv"/>
-                            <constraint firstItem="whS-x2-ubg" firstAttribute="leading" secondItem="ICJ-C2-oZR" secondAttribute="leading" id="h8u-WE-spP"/>
-                            <constraint firstItem="PlZ-8l-JLs" firstAttribute="leading" secondItem="ICJ-C2-oZR" secondAttribute="leading" id="k5w-7c-ags"/>
-                            <constraint firstItem="89B-Vf-QWt" firstAttribute="width" secondItem="ICJ-C2-oZR" secondAttribute="width" id="qBT-fo-UJY"/>
-                            <constraint firstItem="Bty-6m-mqZ" firstAttribute="top" secondItem="PlZ-8l-JLs" secondAttribute="bottom" id="tOo-Wv-po4"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uSf-73-Wmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2980" y="2595"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
@@ -1747,14 +1643,14 @@
                         <viewControllerLayoutGuide type="bottom" id="ihe-X7-wup"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="S7y-MD-COc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4Bd-3f-Nta">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-lL-8mQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -1764,13 +1660,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף את הטפסים שקיבלת במסירת הפריטים לדוכן יד שנייה כדי לראות את מצב הפריטים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMI-1I-W7Z">
-                                <rect key="frame" x="20" y="262" width="335" height="79"/>
+                                <rect key="frame" x="20" y="294" width="335" height="79"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i2o-Cv-EM4">
-                                <rect key="frame" x="177.5" y="16" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="36" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1962,7 +1858,6 @@
         <image name="Floor1" width="660" height="816"/>
         <image name="HomeFooter" width="450" height="65"/>
         <image name="HomeLogo" width="450" height="148"/>
-        <image name="IconKids" width="309" height="96"/>
         <image name="MenuAbout" width="33" height="33"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
@@ -1974,7 +1869,6 @@
         <image name="MenuMap" width="33" height="33"/>
         <image name="MenuMoreOptions" width="33" height="33"/>
         <image name="MenuOpenUsingMaps" width="23" height="23"/>
-        <image name="MenuSecondHand" width="36" height="36"/>
         <image name="MenuSettings" width="33" height="33"/>
         <image name="MenuUpdates" width="33" height="33"/>
     </resources>
