@@ -24,6 +24,7 @@ class Colors {
     static let purple5 = UIColor(hexString: "#C4A1DB")
     
     static let colorAccent = Colors.orange
+    static let datePickerColor = Colors.green1
     static let eventTimeDefaultBackgroundColor = Colors.orange
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = Colors.green1

@@ -30,7 +30,7 @@ class DateFilterControl : UISegmentedControl {
         // By default select the last segment to support RTL
         selectedSegmentIndex = numberOfSegments - 1
         
-        tintColor = Colors.colorAccent
+        tintColor = Colors.datePickerColor
     }
     
     func selectDate(_ date: Date) {
