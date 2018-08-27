@@ -60,7 +60,6 @@
 		3B8D9FFC1D27BEE3005181DA /* TextFeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FFB1D27BEE3005181DA /* TextFeedbackQuestionCell.swift */; };
 		3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D9FFD1D27BFEC005181DA /* FeedbackQuestionCell.swift */; };
 		3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B981D091C65E5A800F31009 /* MyEventsViewController.swift */; };
-		3BA2AFF41F7AD65A005EC4D4 /* IconKidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2AFF31F7AD65A005EC4D4 /* IconKidsViewController.swift */; };
 		3BA2D7F31C554ED3007A8A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */; };
 		3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7F81C554ED3007A8A23 /* Main.storyboard */; };
 		3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */; };
@@ -170,7 +169,6 @@
 		3B8D9FFB1D27BEE3005181DA /* TextFeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFeedbackQuestionCell.swift; sourceTree = "<group>"; };
 		3B8D9FFD1D27BFEC005181DA /* FeedbackQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackQuestionCell.swift; sourceTree = "<group>"; };
 		3B981D091C65E5A800F31009 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsViewController.swift; path = events/MyEventsViewController.swift; sourceTree = "<group>"; };
-		3BA2AFF31F7AD65A005EC4D4 /* IconKidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconKidsViewController.swift; sourceTree = "<group>"; };
 		3BA2D7EF1C554ED3007A8A23 /* Conventions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BA2D7F91C554ED3007A8A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -504,7 +502,6 @@
 				3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */,
 				3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */,
 				3BF22D3B1D9DA9470090E8E6 /* DiscountsViewController.swift */,
-				3BA2AFF31F7AD65A005EC4D4 /* IconKidsViewController.swift */,
 			);
 			name = controllers;
 			path = Conventions/controllers;
@@ -764,7 +761,6 @@
 				3BA2D8151C5FEE7B007A8A23 /* Hall.swift in Sources */,
 				3B4CEB581C7CF8DA00AF041B /* CCLocalMaximum.m in Sources */,
 				3B8D9FFE1D27BFEC005181DA /* FeedbackQuestionCell.swift in Sources */,
-				3BA2AFF41F7AD65A005EC4D4 /* IconKidsViewController.swift in Sources */,
 				3BF4724C1D6CC5090066AD35 /* MapArea.swift in Sources */,
 				3B1659801C946E720074F1FF /* ZoomToPoint.swift in Sources */,
 				3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */,
