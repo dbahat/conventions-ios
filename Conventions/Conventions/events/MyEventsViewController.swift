@@ -22,6 +22,8 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         super.viewDidLoad()
         
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
+        
+        noEventsLabel.textColor = Colors.eventNotStartedColor
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -32,10 +32,10 @@ class SearchCategoriesView : UIView {
         showsSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         othersSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
-        lecturesSwitch.onTintColor = Colors.colorAccent
-        workshopsSwitch.onTintColor = Colors.colorAccent
-        showsSwitch.onTintColor = Colors.colorAccent
-        othersSwitch.onTintColor = Colors.colorAccent
+        lecturesSwitch.onTintColor = Colors.switchButtonsColor
+        workshopsSwitch.onTintColor = Colors.switchButtonsColor
+        showsSwitch.onTintColor = Colors.switchButtonsColor
+        othersSwitch.onTintColor = Colors.switchButtonsColor
     }
     
     @IBAction fileprivate func lecturesWasTapped(_ sender: UITapGestureRecognizer) {

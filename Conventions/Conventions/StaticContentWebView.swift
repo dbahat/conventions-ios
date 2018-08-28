@@ -11,7 +11,7 @@ import Foundation
 class StaticContentWebView : UIWebView {
  
     func setContent(_ content: String) {
-        setContent(content, color: "#FFFFFF")
+        setContent(content, color: "#4D2875")
     }
     
     func setContent(_ content: String, color: String) {

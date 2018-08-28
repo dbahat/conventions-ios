@@ -12,12 +12,21 @@ import Firebase
 class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var generalCategoryButton: UISwitch!
     @IBOutlet private weak var eventsCategoryButton: UISwitch!
-    @IBOutlet private weak var cosplayCategoryButton: UISwitch!
-    @IBOutlet private weak var busCategoryButton: UISwitch!
     @IBOutlet private weak var developerOptionsButton: UISwitch!
     
     @IBOutlet private weak var eventNotificationButton: UISwitch!
     @IBOutlet private weak var feedbackNotificationButton: UISwitch!
+    
+    @IBOutlet private weak var generalTitleLabel: UILabel!
+    @IBOutlet private weak var eventsTitleLabel: UILabel!
+    @IBOutlet private weak var generalMessageLabel: UILabel!
+    @IBOutlet private weak var eventsMessageLabel: UILabel!
+    @IBOutlet private weak var beforeEventStartsTitleLabel: UILabel!
+    @IBOutlet private weak var beforeEventStartsMessageLabel: UILabel!
+    @IBOutlet private weak var eventFeedbackTitleLabel: UILabel!
+    @IBOutlet private weak var eventMessageLabel: UILabel!
+    @IBOutlet private weak var testTitleLabel: UILabel!
+    @IBOutlet private weak var testMessageLabel: UILabel!
     
     @IBOutlet private weak var developerOptionsContainer: UIView!
     @IBOutlet private weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
@@ -29,6 +38,23 @@ class NotificationSettingsViewController: BaseViewController {
         
         initializeButtonsState()
         navigationItem.title = "הגדרות"
+        
+        generalCategoryButton.onTintColor = Colors.switchButtonsColor
+        eventsCategoryButton.onTintColor = Colors.switchButtonsColor
+        developerOptionsButton.onTintColor = Colors.switchButtonsColor
+        eventNotificationButton.onTintColor = Colors.switchButtonsColor
+        feedbackNotificationButton.onTintColor = Colors.switchButtonsColor
+        
+        generalTitleLabel.textColor = Colors.textColor
+        generalMessageLabel.textColor = Colors.textColor
+        eventsTitleLabel.textColor = Colors.textColor
+        eventsMessageLabel.textColor = Colors.textColor
+        beforeEventStartsTitleLabel.textColor = Colors.textColor
+        beforeEventStartsMessageLabel.textColor = Colors.textColor
+        eventFeedbackTitleLabel.textColor = Colors.textColor
+        eventMessageLabel.textColor = Colors.textColor
+        testTitleLabel.textColor = Colors.textColor
+        testMessageLabel.textColor = Colors.textColor
     }
     
     @IBAction private func generalNotificationsTapped(_ sender: UISwitch) {

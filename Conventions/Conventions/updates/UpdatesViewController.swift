@@ -25,17 +25,14 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         
         tableView.register(UINib(nibName: String(describing: UpdateTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: UpdateTableViewCell.self))
         
-        if Convention.instance.updates.getAll().count > 0 {
-            noUpdatesFoundLabel.isHidden = true
-        }
+        noUpdatesFoundLabel.textColor = Colors.textColor
+        noUpdatesFoundLabel.isHidden = Convention.instance.updates.getAll().count > 0
         
         addRefreshControl()
         
         Convention.instance.updates.refresh({success in
-            if Convention.instance.updates.getAll().count == 0 {
-                self.noUpdatesFoundLabel.isHidden = false
-            }
             
+            self.noUpdatesFoundLabel.isHidden = Convention.instance.updates.getAll().count > 0
             self.tableView.reloadData()
         })
     }
@@ -95,9 +92,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
                 return
             }
             
-            if Convention.instance.updates.getAll().count == 0 {
-                self.noUpdatesFoundLabel.isHidden = false
-            }
+            self.noUpdatesFoundLabel.isHidden = Convention.instance.updates.getAll().count > 0
             
             self.tableView.reloadData()
         });

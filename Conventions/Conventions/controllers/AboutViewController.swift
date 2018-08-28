@@ -10,10 +10,11 @@ import Foundation
 
 class AboutViewController : BaseViewController, UIWebViewDelegate {
     
-    @IBOutlet fileprivate weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var aboutContentWebView: StaticContentWebView!
-    @IBOutlet fileprivate weak var aboutAppVersionLabel: UILabel!
-    @IBOutlet fileprivate weak var aboutAppContentLabel: UILabel!
+    @IBOutlet private weak var aboutContentWebViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var aboutContentWebView: StaticContentWebView!
+    @IBOutlet private weak var aboutAppVersionLabel: UILabel!
+    @IBOutlet private weak var aboutAppContentLabel: UILabel!
+    @IBOutlet private weak var aboutAppTitleLabel: UILabel!
     
     private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור כנס עולמות. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: אלי בויום, גיא בכר, גליה בהט, נאור טביב, קסם ברקוביץ."
  
@@ -33,9 +34,12 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
         aboutContentWebView.delegate = self
         
         aboutAppContentLabel.text = aboutAppContent
+        aboutAppContentLabel.textColor = Colors.textColor
+        aboutAppTitleLabel.textColor = Colors.textColor
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             aboutAppVersionLabel.text = "גרסה " + version
+            aboutAppVersionLabel.textColor = Colors.textColor
         }
         
         navigationItem.title = "אודות הכנס"

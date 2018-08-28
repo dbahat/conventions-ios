@@ -24,6 +24,8 @@ class Colors {
     static let purple5 = UIColor(hexString: "#C4A1DB")
     
     static let colorAccent = Colors.orange
+    static let textColor = Colors.purple1
+    static let switchButtonsColor = Colors.green1
     static let datePickerColor = Colors.green1
     static let eventTimeDefaultBackgroundColor = Colors.orange
     static let eventTimeHeaderColor = UIColor.clear
@@ -33,7 +35,7 @@ class Colors {
     static let buttonPressedColor = Colors.green5
     static let eventEndedColor = Colors.purple1
     static let eventRunningColor = Colors.purple3
-    static let eventNotStartedColor = Colors.purple4
+    static let eventNotStartedColor = Colors.textColor
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
     static let eventMarkedAsFavorite = Colors.white
     static let eventNotMarkedAsFavorite = Colors.green1

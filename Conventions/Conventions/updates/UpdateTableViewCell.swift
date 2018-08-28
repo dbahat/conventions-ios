@@ -7,14 +7,17 @@
 //
 
 class UpdateTableViewCell: UITableViewCell {
-    @IBOutlet fileprivate weak var message: UITextView!
-    @IBOutlet fileprivate weak var title: UILabel!
+    @IBOutlet private weak var message: UITextView!
+    @IBOutlet private weak var title: UILabel!
     
     func setUpdate(_ update: Update) {
         title.text = update.date.format("HH:mm dd.MM.yyyy")
-        message.text = update.text
+        title.textColor = Colors.white
+        title.backgroundColor = Colors.purple1
         
-        message.backgroundColor = update.isNew
-            ? UIColor.clear : UIColor.clear
+        message.text = update.text
+        message.textColor = Colors.textColor
+        
+        message.backgroundColor = update.isNew ? UIColor.clear : UIColor.clear
     }
 }
