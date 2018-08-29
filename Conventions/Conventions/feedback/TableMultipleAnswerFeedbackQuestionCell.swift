@@ -26,6 +26,7 @@ class TableMultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UITableVie
     
     override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
+        questionLabel.textColor = feedbackTextColor
         
         questionsTableView.register(UINib(nibName: String(describing: TableAnswerCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableAnswerCell.self))
         questionsTableView.delegate = self

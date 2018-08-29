@@ -32,7 +32,7 @@ protocol FeedbackQuestionProtocol : class {
     // Allow disabling the interactions inside the question cell
     var enabled = true
     
-    var feedbackTextColor = UIColor.white
+    var feedbackTextColor = Colors.textColor
     
     /* abstract */ func questionDidSet(_ question: FeedbackQuestion) {}
     

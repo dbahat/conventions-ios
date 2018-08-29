@@ -30,9 +30,9 @@ class Colors {
     static let eventTimeDefaultBackgroundColor = Colors.orange
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = Colors.green1
-    static let feedbackButtonsColor = Colors.white
-    static let feedbackTextColor = Colors.purple5
-    static let buttonPressedColor = Colors.green5
+    static let eventFeedbackButtonsColor = Colors.white
+    static let eventFeedbackTextColor = Colors.purple5
+    static let buttonPressedColor = Colors.purple3
     static let eventEndedColor = Colors.purple1
     static let eventRunningColor = Colors.purple3
     static let eventNotStartedColor = Colors.textColor

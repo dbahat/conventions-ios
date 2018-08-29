@@ -11,25 +11,31 @@ import Firebase
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
-    @IBOutlet fileprivate weak var filledEventsFeedbackLabel: UILabel!
-    @IBOutlet fileprivate weak var seperatorView: UIView!
-    @IBOutlet fileprivate weak var sendAllFeedbackDescriptionLabel: UILabel!
-    @IBOutlet fileprivate weak var sendFeedbackContainer: UIView!
-    @IBOutlet fileprivate weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var feedbackView: FeedbackView!
-    @IBOutlet fileprivate weak var feedbackViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var submittedEventsTabledView: UITableView!
-    @IBOutlet fileprivate weak var submittedEventsTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var eventsToSubmitTableView: UITableView!
-    @IBOutlet fileprivate weak var eventsToSubmitHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var filledEventsFeedbackLabel: UILabel!
+    @IBOutlet private weak var seperatorView: UIView!
+    @IBOutlet private weak var sendAllFeedbackDescriptionLabel: UILabel!
+    @IBOutlet private weak var sendFeedbackContainer: UIView!
+    @IBOutlet private weak var sendFeedbackContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var feedbackView: FeedbackView!
+    @IBOutlet private weak var feedbackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var submittedEventsTabledView: UITableView!
+    @IBOutlet private weak var submittedEventsTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var eventsToSubmitTableView: UITableView!
+    @IBOutlet private weak var eventsToSubmitHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet fileprivate weak var submitAllFeedbacksButtonIndicator: UIActivityIndicatorView!
-    @IBOutlet fileprivate weak var submitAllFeedbacksButton: UIButton!
+    @IBOutlet private weak var submitAllFeedbacksButtonIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var submitAllFeedbacksButton: UIButton!
     
-    fileprivate let submittedEventsDataSource = EventsTableDataSource()
-    fileprivate let eventsToSubmitDataSource = EventsTableDataSource()
+    @IBOutlet private weak var fillEventFeedbackTitleLabel: UILabel!
+    @IBOutlet private weak var fillEventFeedbackMessageLabel: UILabel!
+    @IBOutlet private weak var filledFeedbacksTitleLabel: UILabel!
+    @IBOutlet private weak var conventionFeedbackTitleLabel: UILabel!
+    @IBOutlet private weak var generalFeedbackTitleLabel: UILabel!
     
-    fileprivate var userInputs: UserInput.Feedback {
+    private let submittedEventsDataSource = EventsTableDataSource()
+    private let eventsToSubmitDataSource = EventsTableDataSource()
+    
+    private var userInputs: UserInput.Feedback {
         get {
             return Convention.instance.feedback.conventionInputs
         }
@@ -40,6 +46,8 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         feedbackView.delegate = self
         feedbackView.setHeaderHidden(true)
+        feedbackView.textColor = Colors.textColor
+        feedbackView.buttonColor = Colors.buttonColor
         
         feedbackView.setFeedback(
             questions: Convention.instance.feedbackQuestions,
@@ -58,6 +66,12 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         
         navigationItem.title = "פידבק לפסטיבל"
         submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+    
+        fillEventFeedbackTitleLabel.textColor = Colors.textColor
+        fillEventFeedbackMessageLabel.textColor = Colors.textColor
+        filledFeedbacksTitleLabel.textColor = Colors.textColor
+        conventionFeedbackTitleLabel.textColor = Colors.textColor
+        generalFeedbackTitleLabel.textColor = Colors.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

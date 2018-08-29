@@ -34,7 +34,18 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet fileprivate weak var headerView: UIView!
     @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
     
-    private var textColor = Colors.feedbackTextColor
+    var textColor = Colors.textColor {
+        didSet {
+            titleLabel.textColor = textColor
+            questionsTableView.reloadData()
+        }
+    }
+    var buttonColor = Colors.buttonColor {
+        didSet {
+            changeStateButton.setTitleColor(buttonColor, for: UIControlState())
+            sendButton.setTitleColor(buttonColor, for: UIControlState())
+        }
+    }
     
     fileprivate var questions: Array<FeedbackQuestion> = []
     fileprivate var answers: Array<FeedbackAnswer> = []
@@ -98,8 +109,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         questionsTableView.register(UINib(nibName: String(describing: MultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MultipleAnswerFeedbackQuestionCell.self))
         questionsTableView.register(UINib(nibName: String(describing: TableMultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableMultipleAnswerFeedbackQuestionCell.self))
         
-        changeStateButton.setTitleColor(Colors.feedbackButtonsColor, for: UIControlState())
-        sendButton.setTitleColor(Colors.feedbackButtonsColor, for: UIControlState())
+        changeStateButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+        sendButton.setTitleColor(Colors.buttonColor, for: UIControlState())
         titleLabel.textColor = textColor
     }
     

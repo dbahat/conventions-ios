@@ -24,6 +24,7 @@ class MultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UICollectionVie
     
     override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
+        questionLabel.textColor = feedbackTextColor
         
         multipleAnswersCollectionView.delegate = self
         multipleAnswersCollectionView.dataSource = self
