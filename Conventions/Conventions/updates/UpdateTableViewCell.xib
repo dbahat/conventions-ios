@@ -53,15 +53,23 @@
                     <constraint firstItem="xIh-Wj-aUp" firstAttribute="bottom" secondItem="FBi-PR-kuN" secondAttribute="top" id="3Ji-DY-0b0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aZB-Ka-TTx" secondAttribute="bottom" id="Rkk-XF-JpG"/>
                     <constraint firstItem="FBi-PR-kuN" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="XWr-Wb-pQ4"/>
-                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="apW-P0-WS2"/>
+                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="apW-P0-WS2">
+                        <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                    </constraint>
                     <constraint firstItem="FBi-PR-kuN" firstAttribute="bottom" secondItem="aZB-Ka-TTx" secondAttribute="top" id="fpF-Bt-w3K"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" constant="55" id="lBj-IX-Sry"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" constant="55" id="lBj-IX-Sry">
+                        <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                    </constraint>
                     <constraint firstAttribute="trailing" secondItem="5tW-1v-PoE" secondAttribute="trailing" constant="55" id="rrd-Wa-WhU"/>
                     <constraint firstItem="5tW-1v-PoE" firstAttribute="bottom" secondItem="xIh-Wj-aUp" secondAttribute="top" id="rwU-vJ-R3D"/>
                     <constraint firstItem="5tW-1v-PoE" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="uAo-Uk-TL5"/>
-                    <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" constant="55" id="ug1-Hz-vSg"/>
+                    <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" constant="55" id="ug1-Hz-vSg">
+                        <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                    </constraint>
                     <constraint firstItem="5tW-1v-PoE" firstAttribute="top" secondItem="Bfc-7u-YCx" secondAttribute="topMargin" id="w3z-8j-kF0"/>
-                    <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" constant="55" id="yOM-W8-3Mx"/>
+                    <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" constant="55" id="yOM-W8-3Mx">
+                        <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                    </constraint>
                     <constraint firstAttribute="trailing" secondItem="FBi-PR-kuN" secondAttribute="trailing" constant="55" id="ziJ-Bs-FWx"/>
                 </constraints>
                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
