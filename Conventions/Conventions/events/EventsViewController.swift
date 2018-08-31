@@ -39,9 +39,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         addRefreshController()
         addSearchController()
         
-        // Make initial model calculation when the view loads
-        calculateEventsAndTimeSections()
-        
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         searchCategoriesLayout.delegate = self
         
@@ -53,8 +50,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // Initial loading of the table. Done here so we can auto-scroll to the first position, leaving the search bar control hidden
         calculateEventsAndTimeSections()
         tableView.reloadData()
-        if eventTimeSections.count > 0 {
-            // reset the scroll state when changing days for better user experiance
+        if eventTimeSections.count > 0 && UIDevice.current.userInterfaceIdiom == .phone {
+            // Hide the search bar during page initial load.
+            // Disabled for tablets since on iOS 11 tablets this seems to distort the UI.
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
