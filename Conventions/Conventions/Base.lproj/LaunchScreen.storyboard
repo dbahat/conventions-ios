@@ -26,17 +26,15 @@
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.71372549019999998" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Rb-1lE">
-                                <rect key="frame" x="10" y="259.5" width="355" height="148"/>
+                                <rect key="frame" x="-37.5" y="259.5" width="450" height="148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fZh-Rb-1lE" secondAttribute="trailing" constant="10" id="Bul-zB-u9g"/>
                             <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerY" secondItem="tVN-O7-P6B" secondAttribute="centerY" id="CxB-9k-Mp2"/>
                             <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="Fnt-xz-7Oo" secondAttribute="bottom" id="H5i-rE-GFE"/>
                             <constraint firstAttribute="trailing" secondItem="Fnt-xz-7Oo" secondAttribute="trailing" id="Phv-VT-qhr"/>
-                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="10" id="goB-QL-U60"/>
                             <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerX" secondItem="tVN-O7-P6B" secondAttribute="centerX" id="jVP-Qa-b49"/>
                             <constraint firstItem="Fnt-xz-7Oo" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" id="m5u-Jt-FlW"/>
                             <constraint firstItem="Fnt-xz-7Oo" firstAttribute="top" secondItem="tVN-O7-P6B" secondAttribute="top" id="rtv-KS-WKD"/>

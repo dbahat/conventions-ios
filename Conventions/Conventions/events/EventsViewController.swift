@@ -318,6 +318,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.barStyle = .black
+        searchController.searchBar.tintColor = Colors.purple1
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self
