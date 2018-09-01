@@ -19,58 +19,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="475" height="176.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tW-1v-PoE" userLabel="Seperator">
-                        <rect key="frame" x="55" y="11" width="365" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="jvy-qq-yDR"/>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIh-Wj-aUp">
-                        <rect key="frame" x="55" y="1" width="365" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIh-Wj-aUp">
+                        <rect key="frame" x="55" y="0.0" width="365" height="17"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20371361301369864" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBi-PR-kuN" userLabel="Seperator">
-                        <rect key="frame" x="55" y="18" width="365" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="obi-FA-33o"/>
-                        </constraints>
-                    </view>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="aZB-Ka-TTx">
-                        <rect key="frame" x="75" y="19" width="325" height="157"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="aZB-Ka-TTx">
+                        <rect key="frame" x="75" y="17" width="325" height="73.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ea.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="bottom" secondItem="FBi-PR-kuN" secondAttribute="top" id="3Ji-DY-0b0"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="aZB-Ka-TTx" secondAttribute="bottom" id="Rkk-XF-JpG"/>
-                    <constraint firstItem="FBi-PR-kuN" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="XWr-Wb-pQ4"/>
+                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="top" secondItem="Bfc-7u-YCx" secondAttribute="top" id="1w0-f2-bsW"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="aZB-Ka-TTx" secondAttribute="bottom" id="Rkk-XF-JpG"/>
                     <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="apW-P0-WS2">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstItem="FBi-PR-kuN" firstAttribute="bottom" secondItem="aZB-Ka-TTx" secondAttribute="top" id="fpF-Bt-w3K"/>
+                    <constraint firstItem="aZB-Ka-TTx" firstAttribute="top" secondItem="xIh-Wj-aUp" secondAttribute="bottom" id="eoD-XN-lE9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" constant="55" id="lBj-IX-Sry">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstAttribute="trailing" secondItem="5tW-1v-PoE" secondAttribute="trailing" constant="55" id="rrd-Wa-WhU"/>
-                    <constraint firstItem="5tW-1v-PoE" firstAttribute="bottom" secondItem="xIh-Wj-aUp" secondAttribute="top" id="rwU-vJ-R3D"/>
-                    <constraint firstItem="5tW-1v-PoE" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="uAo-Uk-TL5"/>
                     <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" constant="55" id="ug1-Hz-vSg">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstItem="5tW-1v-PoE" firstAttribute="top" secondItem="Bfc-7u-YCx" secondAttribute="topMargin" id="w3z-8j-kF0"/>
                     <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" constant="55" id="yOM-W8-3Mx">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstAttribute="trailing" secondItem="FBi-PR-kuN" secondAttribute="trailing" constant="55" id="ziJ-Bs-FWx"/>
                 </constraints>
                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             </tableViewCellContentView>

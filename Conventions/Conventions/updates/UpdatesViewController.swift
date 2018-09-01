@@ -9,9 +9,6 @@
 import Firebase
 
 class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
-
-    fileprivate let updateCellTopLayoutSize: CGFloat = 19
-    fileprivate let updateCellMargins: CGFloat = 20
     
     @IBOutlet fileprivate weak var noUpdatesFoundLabel: UILabel!
     @IBOutlet fileprivate weak var tableView: UITableView!
@@ -29,6 +26,10 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         noUpdatesFoundLabel.isHidden = Convention.instance.updates.getAll().count > 0
         
         addRefreshControl()
+        
+        // Sets iOS to auto-calculate the size of each cell based on it's content.
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 55 // guesstimated initial size per cell. Actual size will be calculated at runtime.
         
         Convention.instance.updates.refresh({success in
             
@@ -62,13 +63,6 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         cell.setUpdate(Convention.instance.updates.getAll()[indexPath.row])
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        let updateText = Convention.instance.updates.getAll()[indexPath.row].text;
-        let attrText = NSAttributedString(string: updateText, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)])
-        return attrText.boundingRect(with: CGSize(width: self.tableView.frame.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil).height + updateCellMargins + updateCellTopLayoutSize
     }
     
     // MARK: - Private methods
