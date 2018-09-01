@@ -23,9 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var isActive = true
     
     // The message we got in a remote notification. Needed in case we get push notification while in background
-    fileprivate var remoteNotificationMessage: String = ""
-    fileprivate var remoteNotificationCategory: String = ""
-    fileprivate var remoteNotificationId: String = ""
+    private var remoteNotificationMessage: String = ""
+    private var remoteNotificationCategory: String = ""
+    private var remoteNotificationId: String = ""
+    
+    private var webViewCache: StaticContentWebView?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -43,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Initiate an async refresh to the updates when opening the app.
         Convention.instance.updates.refresh(nil)
         Convention.instance.events.refresh(nil)
+        
+        loadWebViewCache()
         
         if let options = launchOptions {
             // In case we were launched due to user clicking a notification, handle the notification
@@ -129,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
     }
     
-    fileprivate func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {
+    private func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {
         guard let rawMessage = userInfo["aps"] as? [String: Any],
             let alert = rawMessage["alert"] as? [String: Any],
             let message = alert["body"] as? String else {
@@ -157,7 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         showNotificationPopup(message, category: category)
     }
     
-    fileprivate func showNotificationPopup(_ message: String, category: String) {
+    private func showNotificationPopup(_ message: String, category: String) {
         
         let alert = UIAlertController(title: categoryIdToName(category), message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "שנה הגדרות", style: .default, handler: {action in
@@ -171,13 +175,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         vc.present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func handleNotificationIfNeeded(_ notification: UILocalNotification?) {
+    private func handleNotificationIfNeeded(_ notification: UILocalNotification?) {
         handleEventAboutToStartNotificationIfNeeded(notification)
         handleEventFeedbackReminderNotificationIfNeeded(notification)
         handleConventionNotificationIfNeeded(notification)
     }
     
-    fileprivate func handleConventionNotificationIfNeeded(_ notification: UILocalNotification?) {
+    private func handleConventionNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let vc = self.window?.rootViewController as? UINavigationController,
@@ -193,7 +197,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    fileprivate func handleEventAboutToStartNotificationIfNeeded(_ notification: UILocalNotification?) {
+    private func handleEventAboutToStartNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let eventId = userInfo[NotificationsSchedualer.EVENT_ABOUT_TO_START_INFO] as? String,
@@ -208,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         vc.pushViewController(eventVc, animated: true)
     }
     
-    fileprivate func handleEventFeedbackReminderNotificationIfNeeded(_ notification: UILocalNotification?) {
+    private func handleEventFeedbackReminderNotificationIfNeeded(_ notification: UILocalNotification?) {
         guard
             let userInfo = notification?.userInfo,
             let eventId = userInfo[NotificationsSchedualer.EVENT_FEEDBACK_REMINDER_INFO] as? String,
@@ -224,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         vc.pushViewController(eventVc, animated: true)
     }
     
-    fileprivate func getAlertForNotification(_ notification: UILocalNotification) -> UIAlertController {
+    private func getAlertForNotification(_ notification: UILocalNotification) -> UIAlertController {
         // Using hardcoded alert title instead of the notification one, since iOS8 didn't have
         // notification title
         if isConventionFeedbackNotification(notification) {
@@ -244,12 +248,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    fileprivate func isConventionFeedbackNotification(_ notification: UILocalNotification) -> Bool {
+    private func isConventionFeedbackNotification(_ notification: UILocalNotification) -> Bool {
         
         return notification.userInfo?[NotificationsSchedualer.CONVENTION_FEEDBACK_INFO] as? Bool == true
     }
     
-    fileprivate func categoryIdToName(_ category: String) -> String {
+    private func categoryIdToName(_ category: String) -> String {
         if category == NotificationSettings.Category.test.toString() {
             return "בדיקות"
         }
@@ -258,6 +262,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         return "התראה"
+    }
+    
+    // Needed since initial loading of a webView is 'heavy', and if done in a lazy manner causes the user to see an empty webview for a few seconds.
+    // This happens only once, regardless of the webView instance created.
+    // To resolve this, create a dummy instance which isn't used anywhere, and will handle the initial loading time (at the cost of extra memory).
+    // Future refactoring can dismiss this webView once loaded to save memory.
+    private func loadWebViewCache() {
+        if
+            let resourcePath = Bundle.main.resourcePath,
+            let aboutContent = try? String(contentsOfFile: resourcePath + "/AboutContent.html") {
+            
+            webViewCache = StaticContentWebView(frame: CGRect.zero)
+            webViewCache?.setContent(aboutContent)
+        }
     }
 }
 
