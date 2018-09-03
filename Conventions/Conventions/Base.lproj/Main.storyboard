@@ -140,7 +140,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="45" y="16" width="305" height="60"/>
+                                                    <rect key="frame" x="45" y="16" width="309" height="60"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </view>
@@ -757,8 +757,39 @@
                                             <segue destination="5MY-oK-WFf" kind="show" id="ipm-Y1-NvQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QVW-dq-g3z">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QVW-dq-g3z" id="18W-fz-aCk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuIconKids" translatesAutoresizingMaskIntoConstraints="NO" id="uc8-5s-Xsl">
+                                                    <rect key="frame" x="283" y="4" width="36" height="36"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מתחם הילדים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkI-R7-OEE">
+                                                    <rect key="frame" x="181.5" y="11.5" width="91.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uc8-5s-Xsl" firstAttribute="centerY" secondItem="18W-fz-aCk" secondAttribute="centerY" id="1O9-YU-CKB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uc8-5s-Xsl" secondAttribute="trailing" constant="40" id="D4x-mK-XEg">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="90"/>
+                                                </constraint>
+                                                <constraint firstItem="uc8-5s-Xsl" firstAttribute="leading" secondItem="UkI-R7-OEE" secondAttribute="trailing" constant="10" id="Ogo-WQ-TJj"/>
+                                                <constraint firstItem="UkI-R7-OEE" firstAttribute="centerY" secondItem="18W-fz-aCk" secondAttribute="centerY" id="juJ-rP-PWj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="F00-sY-M1f" kind="show" id="2h3-yE-DJt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -789,7 +820,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -830,12 +861,14 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="המשך" image="MenuMoreOptions" id="HM1-yO-Pgj"/>
                     <connections>
+                        <outlet property="IconKidsImage" destination="uc8-5s-Xsl" id="Mtn-H4-q47"/>
                         <outlet property="aboutImage" destination="YxL-CY-d9k" id="Gwr-IP-fem"/>
                         <outlet property="aboutLabel" destination="uXN-ka-OQx" id="hZP-EO-m6d"/>
                         <outlet property="arrivalMethodsImage" destination="KMG-Tt-m0V" id="Aug-8Q-2Mf"/>
                         <outlet property="arrivalMethodsLabel" destination="Vjd-fE-UaL" id="KOo-Et-YPA"/>
                         <outlet property="feedbackImage" destination="1BZ-SV-8wP" id="rAW-bB-AZh"/>
                         <outlet property="feedbackLabel" destination="eIS-ua-5Nd" id="WuB-1T-BTa"/>
+                        <outlet property="iconKidsLabel" destination="UkI-R7-OEE" id="Axe-TY-ggA"/>
                         <outlet property="settingsImage" destination="LbD-cL-YEC" id="QAy-MB-S8H"/>
                         <outlet property="settingsLabel" destination="enb-ZG-euh" id="zyU-jk-WEf"/>
                         <outlet property="updatesImage" destination="32U-qN-Fk5" id="CeG-4i-Osa"/>
@@ -845,6 +878,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUa-Nz-xQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126" y="1798"/>
+        </scene>
+        <!--Icon Kids View Controller-->
+        <scene sceneID="Sgj-Le-k0K">
+            <objects>
+                <viewController id="F00-sY-M1f" customClass="IconKidsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2WS-aC-UK1"/>
+                        <viewControllerLayoutGuide type="bottom" id="iWf-M1-PCp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wmt-t8-wuN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="rLz-Ly-3xW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpu-E8-vae" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
+                                <rect key="frame" x="55" y="72" width="265" height="587"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kpu-E8-vae" firstAttribute="top" secondItem="2WS-aC-UK1" secondAttribute="bottom" constant="8" id="07X-8t-pGA"/>
+                            <constraint firstAttribute="trailing" secondItem="Kpu-E8-vae" secondAttribute="trailing" constant="55" id="5Y5-x0-Tcf">
+                                <variation key="heightClass=regular-widthClass=regular" constant="105"/>
+                            </constraint>
+                            <constraint firstItem="iWf-M1-PCp" firstAttribute="top" secondItem="Kpu-E8-vae" secondAttribute="bottom" constant="8" id="BjP-HQ-QCY"/>
+                            <constraint firstItem="rLz-Ly-3xW" firstAttribute="top" secondItem="2WS-aC-UK1" secondAttribute="bottom" id="C2y-Xd-bKt"/>
+                            <constraint firstItem="rLz-Ly-3xW" firstAttribute="leading" secondItem="wmt-t8-wuN" secondAttribute="leading" id="HRM-a2-6Hd"/>
+                            <constraint firstItem="iWf-M1-PCp" firstAttribute="top" secondItem="rLz-Ly-3xW" secondAttribute="bottom" id="Ha7-7h-2bR"/>
+                            <constraint firstAttribute="trailing" secondItem="rLz-Ly-3xW" secondAttribute="trailing" id="VEy-t5-1uc"/>
+                            <constraint firstItem="Kpu-E8-vae" firstAttribute="leading" secondItem="wmt-t8-wuN" secondAttribute="leading" constant="55" id="lFb-fd-EAg">
+                                <variation key="heightClass=regular-widthClass=regular" constant="105"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentWebView" destination="Kpu-E8-vae" id="qZX-aU-i7v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YfK-VH-481" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3141" y="2591"/>
         </scene>
         <!--דרכי הגעה-->
         <scene sceneID="wh3-5J-Plj">
@@ -1908,6 +1985,7 @@
         <image name="MenuEventListWithStar" width="33" height="33"/>
         <image name="MenuFeedback" width="33" height="33"/>
         <image name="MenuHome" width="32" height="32"/>
+        <image name="MenuIconKids" width="36" height="36"/>
         <image name="MenuMap" width="33" height="33"/>
         <image name="MenuMoreOptions" width="33" height="33"/>
         <image name="MenuOpenUsingMaps" width="23" height="23"/>
