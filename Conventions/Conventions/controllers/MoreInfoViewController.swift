@@ -17,6 +17,7 @@ class MoreInfoViewController : UITableViewController {
     @IBOutlet private weak var feedbackImage: UIImageView!
     @IBOutlet private weak var updatesImage: UIImageView!
     @IBOutlet private weak var IconKidsImage: UIImageView!
+    @IBOutlet private weak var secondHandImage: UIImageView!
     
     @IBOutlet private weak var feedbackLabel: UILabel!
     @IBOutlet private weak var settingsLabel: UILabel!
@@ -24,6 +25,7 @@ class MoreInfoViewController : UITableViewController {
     @IBOutlet private weak var arrivalMethodsLabel: UILabel!
     @IBOutlet private weak var updatesLabel: UILabel!
     @IBOutlet private weak var iconKidsLabel: UILabel!
+    @IBOutlet private weak var secondHandLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,6 +43,7 @@ class MoreInfoViewController : UITableViewController {
         adjustImageView(arrivalMethodsImage)
         adjustImageView(updatesImage)
         adjustImageView(IconKidsImage)
+        adjustImageView(secondHandImage)
         
         feedbackLabel.textColor = Colors.textColor
         settingsLabel.textColor = Colors.textColor
@@ -48,6 +51,7 @@ class MoreInfoViewController : UITableViewController {
         arrivalMethodsLabel.textColor = Colors.textColor
         updatesLabel.textColor = Colors.textColor
         iconKidsLabel.textColor = Colors.textColor
+        secondHandLabel.textColor = Colors.textColor
     }
     
     private func adjustImageView(_ imageView: UIImageView) {

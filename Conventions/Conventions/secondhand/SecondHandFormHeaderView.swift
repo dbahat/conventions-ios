@@ -22,10 +22,10 @@ class SecondHandFormHeaderView: UITableViewHeaderFooterView {
         didSet {
             if let unwrapped = form {
                 formIdLabel.text = "טופס מספר " + String(unwrapped.id)
-                formStatusLabel.text = unwrapped.closed ? "(סגור)" : ""
+                formStatusLabel.text = unwrapped.status.isClosed() ? "(סגור)" : ""
             
-                formIdLabel.textColor = unwrapped.closed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
-                formStatusLabel.textColor = unwrapped.closed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+                formIdLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+                formStatusLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
             }
         }
     }

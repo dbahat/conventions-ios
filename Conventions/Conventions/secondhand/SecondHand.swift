@@ -9,11 +9,10 @@
 import Foundation
 
 class SecondHand {
-
+    private static let refreshUrl = "https://api.sf-f.org.il/yad2/form?formId="
     private static let fileName = Convention.name + "SecondHand.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
-    
-    private let refreshUrl = "https://calm-dawn-51174.herokuapp.com/getMultipleItemsByForm?itemFormIds="
+
     var forms: Array<SecondHand.Form> = [] {
         didSet {
             self.save()
@@ -21,22 +20,23 @@ class SecondHand {
     }
     
     init() {
-        if let cachedForms = try? Data(contentsOf: URL(fileURLWithPath: SecondHand.cacheFile)) {
-            if let forms = SecondHand.parse(model: cachedForms) {
-                self.forms = forms
-            }
+        let jsonDecoder = JSONDecoder()
+        if
+            let cachedForms = try? Data(contentsOf: URL(fileURLWithPath: SecondHand.cacheFile)),
+            let forms = try? jsonDecoder.decode(Array<SecondHand.Form>.self, from: cachedForms) {
+            self.forms = forms
         }
     }
-        
-    func refresh(_ callback: ((Bool) -> Void)?) {
-
-        let formIds = forms.map({String($0.id)}).joined(separator: ",")
-        let url = URL(string: refreshUrl + formIds)!
+    
+    func refresh(formId: Int, _ callback: ((Bool) -> Void)?) {
+        let url = URL(string: SecondHand.refreshUrl + String(formId))!
         
         URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
+            let decoder = JSONDecoder()
+            
             guard
-                let rawForms = data,
-                let forms = SecondHand.parse(contract: rawForms)
+                let jsonData = data,
+                let forms = try? decoder.decode(Array<Form>.self, from: jsonData)
                 else {
                     DispatchQueue.main.async {
                         callback?(false)
@@ -45,239 +45,91 @@ class SecondHand {
             }
             
             DispatchQueue.main.async {
-                self.forms = forms
-                callback?(true)
-            }
-        }).resume()
-        
-    }
-    
-    func save() {
-        if let serializedData = try? JSONSerialization.data(
-            withJSONObject: toJson(),
-            options: JSONSerialization.WritingOptions.prettyPrinted) {
-            try? serializedData.write(to: URL(fileURLWithPath: SecondHand.cacheFile), options: [.atomic])
-        }
-    }
-    
-    private static func parse(contract: Data) -> Array<SecondHand.Form>? {
-        guard
-            let deserializedSecondHandData = try? JSONSerialization.jsonObject(with: contract, options: []) as? Array<NSArray>,
-            let forms = deserializedSecondHandData
-            else {
-                print("Failed to deserialize second hand forms from contract")
-                return nil
-        }
-        
-        return forms.map({SecondHand.Form.parse(contract: $0)}).filter({$0 != nil}).map({$0!})
-    }
-    
-    private static func parse(model: Data) -> Array<SecondHand.Form>? {
-        guard
-            let deserializedSecondHandData = try? JSONSerialization.jsonObject(with: model, options: []) as? Dictionary<String, AnyObject>,
-            let forms = deserializedSecondHandData?["forms"] as? Array<Dictionary<String, AnyObject>>
-        else {
-                print("Failed to deserialize second hand forms from model")
-                return nil
-        }
-        
-        return forms.map({SecondHand.Form.parse(json: $0)}).filter({$0 != nil}).map({$0!})
-    }
-    
-    private func toJson() -> Dictionary<String, AnyObject> {
-        return [
-            "forms": forms.map({$0.toJson()}) as AnyObject
-        ]
-    }
-    
-    class Form {
-        private let refreshUrl = "https://calm-dawn-51174.herokuapp.com/getAllItemsByForm?itemFormId="
-     
-        var id: Int
-        var items: Array<SecondHand.Item> = []
-        var closed = false
-        
-        init(id: Int) {
-            self.id = id
-        }
-        
-        func refresh(_ callback: ((Bool) -> Void)?) {
-            let url = URL(string: refreshUrl + String(id))!
-            
-            URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
-                guard
-                    let rawItems = data,
-                    let form = SecondHand.Form.parse(contractData: rawItems)
-                else {
-                    DispatchQueue.main.async {
-                        callback?(false)
-                    }
+                if (forms.count == 0) {
+                    callback?(false)
                     return
                 }
                 
-                DispatchQueue.main.async {
-                    self.id = form.id
-                    self.items = form.items
-                    self.closed = form.closed
-                    
-                    callback?(true)
+                // Remove the form if it already existed
+                if let formToRemove = self.forms.index(where: ({$0.id == formId})) {
+                    self.forms.remove(at: formToRemove)
                 }
-            }).resume()
-        }
-        
-        static func parse(contract: NSArray) -> SecondHand.Form? {
-            var result: Array<SecondHand.Item> = []
-            
-            for rawItem in contract {
-                guard let item = rawItem as? Dictionary<String, AnyObject> else {
-                    print("Got invalid second hand item. Skipping")
-                    continue
-                }
+                self.forms.append(forms.first!)
+                self.save()
+                print("downloaded form " + String(formId))
                 
-                result.append(SecondHand.Item(
-                    id: item["formId"] as? String ?? "",
-                    type: (item["itemCategory"] as? String ?? "").stringByDecodingHTMLEntities,
-                    price: item["price"] as? Int,
-                    number: item["formItemNumber"] as? Int,
-                    status: Item.Status.parse(item["itemStatus"] as? String ?? ""),
-                    formClosed: ((item["formStatus"] as? String ?? "") == "closed"),
-                    description: (item["itemDescription"] as? String ?? "").stringByDecodingHTMLEntities,
-                    formId:Int(item["formNumber"] as? String ?? "0")))
+                callback?(true)
             }
-            
-            if result.count == 0 {
-                return nil
-            }
-            
-            let form = SecondHand.Form(id: result.first!.formId!)
-            form.items = result
-            form.closed = result.first!.formClosed ?? false
-            return form
-        }
+        }).resume()
+    }
+    
+    private var numRefresh = 0
+    private var totalSuccess = true
         
-        static func parse(contractData: Data) -> SecondHand.Form? {
-            guard let deserializedItems =
-                try? JSONSerialization.jsonObject(with: contractData, options: []) as? NSArray,
-                let items = deserializedItems
-                else {
-                    print("Failed to deserialize second hand items")
-                    return nil
-            }
+    func refresh(_ callback: ((Bool) -> Void)?) {
+        // since there's currently no API to refresh multiple forms, send a request per form
+        for form in forms {
+            numRefresh = 0
+            totalSuccess = true
             
-            return SecondHand.Form.parse(contract: items)
-        }
-        
-        static func parse(json: Dictionary<String, AnyObject>) -> SecondHand.Form? {
-            guard
-                let formId = json["id"] as? Int,
-                let closed = json["closed"] as? Bool,
-                let rawItems = json["items"] as? Array<Dictionary<String, AnyObject>>
-                else {
-                    print("Got invalid second hand form. Skipping")
-                    return nil
-            }
-            
-            let form = SecondHand.Form(id: formId)
-            form.closed = closed
-            form.items = rawItems
-                .map({SecondHand.Item.parse(json: $0)})
-                .filter {$0 != nil}
-                .map {$0!}
-            
-            return form
-        }
-        
-        func toJson() -> Dictionary<String, AnyObject> {
-            return [
-                "id": id as AnyObject,
-                "closed": closed as AnyObject,
-                "items": items.map({$0.toJson()}) as AnyObject,
-            ]
+            refresh(formId: form.id, {success in
+                // Assumes this callback is invoked on the UI thread, so no need for synctonization
+                self.numRefresh += 1
+                self.totalSuccess = self.totalSuccess && success
+                
+                if (self.numRefresh >= self.forms.count) {
+                    callback?(self.totalSuccess)
+                }
+            })
         }
     }
     
-    class Item {
-        let id: String
-        let type: String
-        let description: String
-        let price: Int?
-        let number: Int?
+    func save() {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        try? encoder.encode(self.forms).write(to: URL(fileURLWithPath: SecondHand.cacheFile), options: [.atomic])
+    }
+    
+    struct Form : Codable {
+        let id: Int
         let status: Status
+        let items: Array<SecondHand.Item>
         
-        // Note - Form related info is represented in the server contract due to technical reasons.
-        // In the model we store the data on the Form object. Keeping these two members here without
-        // serializing them just since we don't currently do any model/contract object seperation.
-        let formClosed: Bool?
-        let formId: Int?
-        
-        enum Status {
-            case sold
-            case notSold
-            case missing
+        struct Status :Codable {
+            let id: Int
+            let text: String
             
-            func format() -> String {
-                switch self {
-                case .sold:
-                    return "sold"
-                case .missing:
-                    return "missing"
-                default:
-                    return "notSold"
-                }
-            }
-            
-            static func parse(_ string: String) -> Status {
-                switch string {
-                case "sold":
-                    return .sold
-                case "missing":
-                    return .missing
-                default:
-                    return .notSold
-                }
+            func isClosed() -> Bool {
+                return id == 3
             }
         }
-
-        convenience init(id: String, type: String, price: Int?, number: Int?, status: Status, description: String) {
-            self.init(id: id, type: type, price: price, number: number, status: status, formClosed: nil, description: description, formId: nil)
-        }
+    }
+    
+    struct Item : Codable {
+        let id: Int
+        let formId: Int
+        let indexInForm: Int
+        let description: String
+        let price: Int
+        let status: Status
+        let category: Category
         
-        init(id: String, type: String, price: Int?, number: Int?, status: Status, formClosed: Bool?, description: String, formId: Int?) {
-            self.id = id
-            self.type = type
-            self.price = price
-            self.status = status
-            self.number = number
-            self.formClosed = formClosed
-            self.description = description
-            self.formId = formId
-        }
-        
-        static func parse(json: Dictionary<String, AnyObject>) -> SecondHand.Item? {
-            guard
-                let id = json["id"] as? String,
-                let type = json["type"] as? String,
-                let price = json["price"] as? Int,
-                let status = json["status"] as? String,
-                let number = json["number"] as? Int,
-                let description = json["description"] as? String
-            else {
-                    print("Got invalid second hand form. Skipping")
-                    return nil
-            }
+        struct Status : Codable {
+            let id: Id
+            let text: String
             
-            return SecondHand.Item(id: id, type: type, price: price, number: number, status: Status.parse(status), description: description)
+            enum Id : Int, Codable {
+                case ready = 1
+                case created
+                case sold
+                case missing
+                case withdrawn
+            }
         }
         
-        func toJson() -> Dictionary<String, AnyObject> {
-            return [
-                "id": id as AnyObject,
-                "type": type as AnyObject,
-                "price": (price ?? 0) as AnyObject,
-                "status": status.format() as AnyObject,
-                "number": (number ?? 0) as AnyObject,
-                "description": description as AnyObject
-            ]
+        struct Category : Codable {
+            let id: Int
+            let text: String
         }
     }
 }

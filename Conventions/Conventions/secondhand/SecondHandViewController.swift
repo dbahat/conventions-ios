@@ -20,7 +20,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
     
     var forms: Array<SecondHand.Form> {
         get {
-            return Convention.instance.secondHand.forms
+            return Convention.instance.secondHand.forms.sorted(by: {$0.id < $1.id})
         }
     }
     
@@ -32,6 +32,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         
         addRefreshController()
         
+        noItemsFoundLabel.textColor = Colors.textColor
         noItemsFoundLabel.isHidden = forms.count > 0
         tableView.isHidden = forms.count == 0
         
@@ -63,7 +64,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SecondHandItemViewCell.self)) as! SecondHandItemViewCell
         let form = forms[indexPath.section]
         let item = form.items[indexPath.row]
-        cell.bind(item: item, isFormClosed: form.closed)
+        cell.bind(item: item, isFormClosed: form.status.isClosed())
         
         return cell
     }
@@ -115,11 +116,10 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 return
             }
             
-            let newForm = SecondHand.Form(id: formId)
             self.refreshIndicatorView.startAnimating()
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
-            newForm.refresh({success in
+            Convention.instance.secondHand.refresh(formId: formId, {success in
                 self.refreshIndicatorView.stopAnimating()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
@@ -128,7 +128,6 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                     return
                 }
                 
-                Convention.instance.secondHand.forms.append(newForm)
                 self.tableView.insertSections(IndexSet(integer: self.forms.count - 1), with: .automatic)
                 
                 self.noItemsFoundLabel.isHidden = self.forms.count > 0
@@ -167,7 +166,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.refresh), for: UIControlEvents.valueChanged)
-        tableViewController.refreshControl?.backgroundColor = Colors.colorAccent
+        tableViewController.refreshControl?.backgroundColor = UIColor.clear
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)
     }

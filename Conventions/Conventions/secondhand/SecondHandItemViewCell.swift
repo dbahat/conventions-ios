@@ -14,10 +14,13 @@ class SecondHandItemViewCell: UITableViewCell {
     @IBOutlet private weak var idLabel: UILabel!
     
     func bind(item: SecondHand.Item, isFormClosed: Bool) {
-        titleLabel.text = formatDescription(item: item) + formatType(item.type)
-        statusLabel.text = formatStatus(item.status)
+        titleLabel.text = formatDescription(item: item) + " (" + item.category.text + ")"
+        statusLabel.text = item.status.text
         titleLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
-        idLabel.text = item.id
+        statusLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+        idLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+        
+        idLabel.text = String.init(format: "%03d/%02d", item.formId, item.id)
     }
     
     // Mark the cell with a clear color mask
@@ -31,7 +34,7 @@ class SecondHandItemViewCell: UITableViewCell {
     }
     
     private func formatDescription(item: SecondHand.Item) -> String {
-        return item.description.isEmpty ? "פריט " + String(item.number ?? 1) : item.description
+        return item.description.isEmpty ? "פריט " + String(item.indexInForm) : item.description
     }
     
     private func visibilityMask(withLocation location: CGFloat) -> CAGradientLayer {
@@ -41,16 +44,5 @@ class SecondHandItemViewCell: UITableViewCell {
         let num = location as NSNumber
         mask.locations = [num, num]
         return mask
-    }
-    
-    private func formatStatus(_ status: SecondHand.Item.Status) -> String {
-        switch status {
-        case .sold:
-            return "נמכר"
-        case .missing:
-            return "חסר"
-        default:
-            return "לא נמכר"
-        }
     }
 }

@@ -43,7 +43,7 @@ class Colors {
     static let eventFeedbackBoxColor = Colors.purple1
     static let eventSeperatorColor = Colors.green4
     
-    static let secondHandClosedFormColor = UIColor(hexString: "#D2D3D5")
-    static let secondHandOpenFormColor = UIColor.white
+    static let secondHandClosedFormColor = Colors.green1
+    static let secondHandOpenFormColor = Colors.purple1
     
 }
