@@ -12,14 +12,19 @@ class SecondHandItemViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var idLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
     
     func bind(item: SecondHand.Item, isFormClosed: Bool) {
         titleLabel.text = formatDescription(item: item) + " (" + item.category.text + ")"
         statusLabel.text = item.status.text
-        titleLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
-        statusLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
-        idLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
         
+        let textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+        titleLabel.textColor = textColor
+        statusLabel.textColor = textColor
+        idLabel.textColor = textColor
+        priceLabel.textColor = textColor
+        
+        priceLabel.text = String.init(format: "%d ש״ח", item.price)
         idLabel.text = String.init(format: "%03d/%02d", item.formId, item.indexInForm)
     }
     

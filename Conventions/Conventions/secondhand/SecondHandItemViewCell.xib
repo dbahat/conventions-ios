@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-Qs-yFw">
-                        <rect key="frame" x="20" y="5" width="335" height="17"/>
+                        <rect key="frame" x="330.5" y="5" width="24.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,14 +36,22 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1de-vc-GpF">
+                        <rect key="frame" x="20" y="5" width="28.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="mJk-Qs-yFw" firstAttribute="top" secondItem="7ia-ae-kCR" secondAttribute="top" constant="5" id="2KL-FK-J6P"/>
-                    <constraint firstItem="mJk-Qs-yFw" firstAttribute="leading" secondItem="7ia-ae-kCR" secondAttribute="leading" constant="20" id="32Y-K1-tdy"/>
+                    <constraint firstItem="1de-vc-GpF" firstAttribute="top" secondItem="7ia-ae-kCR" secondAttribute="top" constant="5" id="6lR-wD-4ZT"/>
+                    <constraint firstItem="mJk-Qs-yFw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1de-vc-GpF" secondAttribute="trailing" constant="20" id="IdG-1F-6g6"/>
                     <constraint firstItem="fbb-2r-zBj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3pG-Td-okh" secondAttribute="trailing" constant="10" id="OO8-tw-Sz3"/>
                     <constraint firstAttribute="trailing" secondItem="mJk-Qs-yFw" secondAttribute="trailing" constant="20" id="eNU-xZ-71u"/>
                     <constraint firstAttribute="trailing" secondItem="fbb-2r-zBj" secondAttribute="trailing" constant="20" id="f9K-zm-mkE"/>
+                    <constraint firstItem="1de-vc-GpF" firstAttribute="leading" secondItem="7ia-ae-kCR" secondAttribute="leading" constant="20" id="fZ0-ik-Ht2"/>
                     <constraint firstItem="fbb-2r-zBj" firstAttribute="top" secondItem="mJk-Qs-yFw" secondAttribute="bottom" constant="10" id="iZd-nu-rkJ"/>
                     <constraint firstAttribute="bottom" secondItem="fbb-2r-zBj" secondAttribute="bottom" constant="5" id="jAk-qe-ZBv"/>
                     <constraint firstItem="3pG-Td-okh" firstAttribute="top" secondItem="fbb-2r-zBj" secondAttribute="top" id="w1b-Ej-ver"/>
@@ -53,6 +61,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="idLabel" destination="fbb-2r-zBj" id="ubA-aN-Z8n"/>
+                <outlet property="priceLabel" destination="1de-vc-GpF" id="ban-At-yXr"/>
                 <outlet property="statusLabel" destination="3pG-Td-okh" id="TjM-sv-1Cw"/>
                 <outlet property="titleLabel" destination="mJk-Qs-yFw" id="V0K-9d-qc4"/>
             </connections>
