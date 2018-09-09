@@ -43,7 +43,6 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         
         refreshIndicatorView.color = Colors.colorAccent
         
-        self.tableViewController.refreshControl?.beginRefreshing()
         refresh(force: false)
     }
     
