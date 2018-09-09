@@ -20,7 +20,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
     
     var forms: Array<SecondHand.Form> {
         get {
-            return Convention.instance.secondHand.forms.sorted(by: {$0.id < $1.id})
+            return Convention.instance.secondHand.forms
         }
     }
     
@@ -42,6 +42,9 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableView.rowHeight = UITableViewAutomaticDimension
         
         refreshIndicatorView.color = Colors.colorAccent
+        
+        self.tableViewController.refreshControl?.beginRefreshing()
+        refresh(force: false)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,16 +74,20 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
     
     func removeWasClicked(formId: Int) {
         if let formIndex = forms.index(where: {$0.id == formId}) {
-            Convention.instance.secondHand.forms.remove(at: formIndex)
+            Convention.instance.secondHand.remove(formId: formId)
             tableView.deleteSections(IndexSet(integer: formIndex), with: .automatic)
             noItemsFoundLabel.isHidden = forms.count > 0
             tableView.isHidden = forms.count == 0
         }
     }
     
-    @objc func refresh() {
+    @objc func userPulledToRefresh() {
+        refresh(force: true)
+    }
+    
+    private func refresh(force: Bool) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Convention.instance.secondHand.refresh({success in
+        Convention.instance.secondHand.refresh(force: force, {success in
             self.tableViewController.refreshControl?.endRefreshing()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
@@ -165,7 +172,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
-        tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.refresh), for: UIControlEvents.valueChanged)
+        tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.userPulledToRefresh), for: UIControlEvents.valueChanged)
         tableViewController.refreshControl?.backgroundColor = UIColor.clear
         addChildViewController(tableViewController)
         tableViewController.didMove(toParentViewController: self)

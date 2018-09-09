@@ -20,7 +20,7 @@ class SecondHandItemViewCell: UITableViewCell {
         statusLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
         idLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
         
-        idLabel.text = String.init(format: "%03d/%02d", item.formId, item.id)
+        idLabel.text = String.init(format: "%03d/%02d", item.formId, item.indexInForm)
     }
     
     // Mark the cell with a clear color mask

@@ -13,18 +13,23 @@ class SecondHand {
     private static let fileName = Convention.name + "SecondHand.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
 
-    var forms: Array<SecondHand.Form> = [] {
-        didSet {
-            self.save()
+    // Used to count the number of downloaded forms during refresh
+    private var numRefresh = 0
+    private var totalSuccess = true
+    
+    var cache = Cache(forms: [], lastRefresh: nil)
+    var forms: Array<SecondHand.Form> {
+        get {
+            return cache.forms
         }
     }
     
     init() {
         let jsonDecoder = JSONDecoder()
         if
-            let cachedForms = try? Data(contentsOf: URL(fileURLWithPath: SecondHand.cacheFile)),
-            let forms = try? jsonDecoder.decode(Array<SecondHand.Form>.self, from: cachedForms) {
-            self.forms = forms
+            let cacheJson = try? Data(contentsOf: URL(fileURLWithPath: SecondHand.cacheFile)),
+            let cache = try? jsonDecoder.decode(Cache.self, from: cacheJson) {
+            self.cache = cache
         }
     }
     
@@ -32,11 +37,10 @@ class SecondHand {
         let url = URL(string: SecondHand.refreshUrl + String(formId))!
         
         URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
-            let decoder = JSONDecoder()
-            
+
             guard
                 let jsonData = data,
-                let forms = try? decoder.decode(Array<Form>.self, from: jsonData)
+                let forms = try? JSONDecoder().decode(Array<Form>.self, from: jsonData)
                 else {
                     DispatchQueue.main.async {
                         callback?(false)
@@ -52,9 +56,12 @@ class SecondHand {
                 
                 // Remove the form if it already existed
                 if let formToRemove = self.forms.index(where: ({$0.id == formId})) {
-                    self.forms.remove(at: formToRemove)
+                    self.cache.forms[formToRemove] = forms.first!
+                } else {
+                    self.cache.forms.append(forms.first!)
                 }
-                self.forms.append(forms.first!)
+
+                self.cache.lastRefresh = Date.now()
                 self.save()
                 print("downloaded form " + String(formId))
                 
@@ -62,11 +69,17 @@ class SecondHand {
             }
         }).resume()
     }
-    
-    private var numRefresh = 0
-    private var totalSuccess = true
         
-    func refresh(_ callback: ((Bool) -> Void)?) {
+    func refresh(force: Bool, _ callback: ((Bool) -> Void)?) {
+        
+        if let lastRefresh = cache.lastRefresh {
+            if !force && lastRefresh.addMinutes(1) >= Date.now() {
+                print("Second hand cache was already updated less then an hour ago. Skipping refresh")
+                callback?(true)
+                return
+            }
+        }
+        
         // since there's currently no API to refresh multiple forms, send a request per form
         for form in forms {
             numRefresh = 0
@@ -84,10 +97,22 @@ class SecondHand {
         }
     }
     
-    func save() {
+    func remove(formId: Int) {
+        if let formIndex = forms.index(where: {$0.id == formId}) {
+            cache.forms.remove(at: formIndex)
+            save()
+        }
+    }
+    
+    private func save() {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        try? encoder.encode(self.forms).write(to: URL(fileURLWithPath: SecondHand.cacheFile), options: [.atomic])
+        try? encoder.encode(self.cache).write(to: URL(fileURLWithPath: SecondHand.cacheFile), options: [.atomic])
+    }
+    
+    struct Cache : Codable {
+        var forms: Array<SecondHand.Form>
+        var lastRefresh: Date?
     }
     
     struct Form : Codable {
