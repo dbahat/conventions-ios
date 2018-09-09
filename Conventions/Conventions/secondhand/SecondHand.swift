@@ -73,7 +73,7 @@ class SecondHand {
     func refresh(force: Bool, _ callback: ((Bool) -> Void)?) {
         
         if let lastRefresh = cache.lastRefresh {
-            if !force && lastRefresh.addMinutes(1) >= Date.now() {
+            if !force && lastRefresh.addHours(1) >= Date.now() {
                 print("Second hand cache was already updated less then an hour ago. Skipping refresh")
                 callback?(true)
                 return
