@@ -15,7 +15,7 @@ class SecondHandItemViewCell: UITableViewCell {
     @IBOutlet private weak var priceLabel: UILabel!
     
     func bind(item: SecondHand.Item, isFormClosed: Bool) {
-        titleLabel.text = formatDescription(item: item) + " (" + item.category.text + ")"
+        titleLabel.text = formatDescription(item: item).stringByDecodingHTMLEntities + " (" + item.category.text + ")"
         statusLabel.text = item.status.text
         
         let textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
