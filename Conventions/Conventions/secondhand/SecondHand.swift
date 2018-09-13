@@ -144,11 +144,11 @@ class SecondHand {
             let text: String
             
             enum Id : Int, Codable {
-                case ready = 1
-                case created
+                case created = 1
+                case ready
                 case sold
                 case missing
-                case withdrawn
+                case returned
             }
         }
         
