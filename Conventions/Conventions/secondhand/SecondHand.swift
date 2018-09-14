@@ -9,13 +9,9 @@
 import Foundation
 
 class SecondHand {
-    private static let refreshUrl = "https://api.sf-f.org.il/yad2/form?formId="
+    private static let refreshUrl = "https://api.sf-f.org.il/yad2/form?formIds="
     private static let fileName = Convention.name + "SecondHand.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
-
-    // Used to count the number of downloaded forms during refresh
-    private var numRefresh = 0
-    private var totalSuccess = true
     
     var cache = Cache(forms: [], lastRefresh: nil)
     var forms: Array<SecondHand.Form> {
@@ -33,8 +29,12 @@ class SecondHand {
         }
     }
     
-    func refresh(formId: Int, _ callback: ((Bool) -> Void)?) {
-        let url = URL(string: SecondHand.refreshUrl + String(formId))!
+    func refresh(formIds: Array<Int>, _ callback: ((Bool) -> Void)?) {
+        let formIdsString = formIds
+            .map{String($0)}
+            .joined(separator: ",")
+        
+        let url = URL(string: SecondHand.refreshUrl + formIdsString)!
         
         URLSession.shared.dataTask(with: url, completionHandler:{(data, response, error) -> Void in
 
@@ -49,25 +49,33 @@ class SecondHand {
             }
             
             DispatchQueue.main.async {
+                // The server returns an empty array if no matching forms were found
                 if (forms.count == 0) {
                     callback?(false)
                     return
                 }
                 
-                // Remove the form if it already existed
-                if let formToRemove = self.forms.index(where: ({$0.id == formId})) {
-                    self.cache.forms[formToRemove] = forms.first!
-                } else {
-                    self.cache.forms.append(forms.first!)
+                for form in forms {
+                    print("downloaded form " + String(form.id))
+                    
+                    // Remove the form if it already existed
+                    if let formToRemove = self.forms.index(where: ({$0.id == form.id})) {
+                        self.cache.forms[formToRemove] = form
+                    } else {
+                        self.cache.forms.append(form)
+                    }
                 }
 
                 self.cache.lastRefresh = Date.now()
                 self.save()
-                print("downloaded form " + String(formId))
                 
                 callback?(true)
             }
         }).resume()
+    }
+    
+    func refresh(formId: Int, _ callback: ((Bool) -> Void)?) {
+        refresh(formIds: [formId], callback)
     }
         
     func refresh(force: Bool, _ callback: ((Bool) -> Void)?) {
@@ -80,21 +88,7 @@ class SecondHand {
             }
         }
         
-        // since there's currently no API to refresh multiple forms, send a request per form
-        for form in forms {
-            numRefresh = 0
-            totalSuccess = true
-            
-            refresh(formId: form.id, {success in
-                // Assumes this callback is invoked on the UI thread, so no need for synctonization
-                self.numRefresh += 1
-                self.totalSuccess = self.totalSuccess && success
-                
-                if (self.numRefresh >= self.forms.count) {
-                    callback?(self.totalSuccess)
-                }
-            })
-        }
+        refresh(formIds: forms.map({$0.id}), callback)
     }
     
     func remove(formId: Int) {
