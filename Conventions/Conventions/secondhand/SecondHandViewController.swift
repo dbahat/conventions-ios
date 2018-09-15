@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class SecondHandViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, SecondHandFormProtocol, UIScrollViewDelegate {
     
@@ -90,6 +91,11 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
             self.tableViewController.refreshControl?.endRefreshing()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
+            Analytics.logEvent("SecondHand", parameters: [
+                "name": "PullToRefresh" as NSObject,
+                "success": success as NSObject
+                ])
+            
             if (!success) {
                 TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
@@ -128,6 +134,12 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
             Convention.instance.secondHand.refresh(formId: formId, {success in
                 self.refreshIndicatorView.stopAnimating()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                Analytics.logEvent("SecondHand", parameters: [
+                    "name": "AddForm" as NSObject,
+                    "formId": formId as NSObject,
+                    "success": success as NSObject
+                    ])
                 
                 if !success {
                     TTGSnackbar(message: "לא ניתן להוסיף את הטופס", duration: TTGSnackbarDuration.middle, superView: self.view).show()
