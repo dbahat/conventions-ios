@@ -24,8 +24,6 @@
 		3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */; };
 		3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */; };
 		3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */; };
-		3B25AB14206FE11800B92790 /* bbb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B25AB13206FE11800B92790 /* bbb.png */; };
-		3B25AB18206FE1A500B92790 /* cofix.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B25AB17206FE1A400B92790 /* cofix.png */; };
 		3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5161D5A65B30009139A /* NotificationSettings.swift */; };
 		3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */; };
 		3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */; };
@@ -110,6 +108,10 @@
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
 		A455E73F2131B70D00C40DFE /* Icon2018Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A455E73D2131B66100C40DFE /* Icon2018Events.json */; };
+		A4B78E112156A752003835D5 /* icon2018_bbb_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B78E0D2156A752003835D5 /* icon2018_bbb_logo.png */; };
+		A4B78E122156A752003835D5 /* icon2018_iceberg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B78E0E2156A752003835D5 /* icon2018_iceberg_logo.png */; };
+		A4B78E132156A752003835D5 /* icon2018_suduch_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B78E0F2156A752003835D5 /* icon2018_suduch_logo.png */; };
+		A4B78E142156A752003835D5 /* icon2018_b12_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B78E102156A752003835D5 /* icon2018_b12_logo.png */; };
 		A4E2F7B5213DAD84007E3904 /* IconKidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* IconKidsViewController.swift */; };
 		A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */ = {isa = PBXBuildFile; fileRef = A4E2F7B6213DB7CB007E3904 /* IconKids.html */; };
 /* End PBXBuildFile section */
@@ -133,8 +135,6 @@
 		3B17639B1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeforeConventionHomeContentView.xib; path = home/BeforeConventionHomeContentView.xib; sourceTree = "<group>"; };
 		3B17639D1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeforeConventionHomeContentView.swift; path = home/BeforeConventionHomeContentView.swift; sourceTree = "<group>"; };
 		3B17639F1F6DB52B009F8F38 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = home/HomeViewController.swift; sourceTree = "<group>"; };
-		3B25AB13206FE11800B92790 /* bbb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bbb.png; sourceTree = "<group>"; };
-		3B25AB17206FE1A400B92790 /* cofix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cofix.png; sourceTree = "<group>"; };
 		3B2FD5161D5A65B30009139A /* NotificationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchCategoriesView.xib; path = events/SearchCategoriesView.xib; sourceTree = "<group>"; };
 		3B3DEFBA1C78EF88006AD9B9 /* UserInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInputs.swift; path = model/UserInputs.swift; sourceTree = "<group>"; };
@@ -226,6 +226,10 @@
 		91EE3412A5156C8021C08D64 /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A455E73D2131B66100C40DFE /* Icon2018Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icon2018Events.json; sourceTree = "<group>"; };
+		A4B78E0D2156A752003835D5 /* icon2018_bbb_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2018_bbb_logo.png; sourceTree = "<group>"; };
+		A4B78E0E2156A752003835D5 /* icon2018_iceberg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2018_iceberg_logo.png; sourceTree = "<group>"; };
+		A4B78E0F2156A752003835D5 /* icon2018_suduch_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2018_suduch_logo.png; sourceTree = "<group>"; };
+		A4B78E102156A752003835D5 /* icon2018_b12_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2018_b12_logo.png; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* IconKidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconKidsViewController.swift; sourceTree = "<group>"; };
 		A4E2F7B6213DB7CB007E3904 /* IconKids.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IconKids.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -525,9 +529,11 @@
 		3BF22D411D9EC5490090E8E6 /* htmls */ = {
 			isa = PBXGroup;
 			children = (
+				A4B78E102156A752003835D5 /* icon2018_b12_logo.png */,
+				A4B78E0D2156A752003835D5 /* icon2018_bbb_logo.png */,
+				A4B78E0E2156A752003835D5 /* icon2018_iceberg_logo.png */,
+				A4B78E0F2156A752003835D5 /* icon2018_suduch_logo.png */,
 				A4E2F7B6213DB7CB007E3904 /* IconKids.html */,
-				3B25AB17206FE1A400B92790 /* cofix.png */,
-				3B25AB13206FE11800B92790 /* bbb.png */,
 				3BF22D421D9EC5490090E8E6 /* AboutContent.html */,
 				3BF22D431D9EC5490090E8E6 /* ArrivalMethodsContent.html */,
 				3BF22D441D9EC5490090E8E6 /* DiscountsContent.html */,
@@ -612,11 +618,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B78E142156A752003835D5 /* icon2018_b12_logo.png in Resources */,
 				A455E73F2131B70D00C40DFE /* Icon2018Events.json in Resources */,
 				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
-				3B25AB18206FE1A500B92790 /* cofix.png in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
+				A4B78E122156A752003835D5 /* icon2018_iceberg_logo.png in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
@@ -631,14 +638,15 @@
 				3B8D9FFA1D27BCEF005181DA /* TextFeedbackQuestionCell.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */,
-				3B25AB14206FE11800B92790 /* bbb.png in Resources */,
 				3BF22D471D9EC5490090E8E6 /* DiscountsContent.html in Resources */,
 				3B4B4A801D36BD4B00943EF5 /* TableAnswerCell.xib in Resources */,
 				3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */,
 				3BDA282F1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
+				A4B78E132156A752003835D5 /* icon2018_suduch_logo.png in Resources */,
 				3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */,
 				3BFE31061F6EC4DD00271F58 /* DuringConventionNoFavoritesHomeContentView.xib in Resources */,
+				A4B78E112156A752003835D5 /* icon2018_bbb_logo.png in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* FeedbackView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
 			);

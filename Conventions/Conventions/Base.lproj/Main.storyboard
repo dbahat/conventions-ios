@@ -819,8 +819,39 @@
                                             <segue destination="F00-sY-M1f" kind="show" id="2h3-yE-DJt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="klR-Dx-gUK">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="klR-Dx-gUK" id="8kI-EL-BiM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuDiscounts" translatesAutoresizingMaskIntoConstraints="NO" id="lKl-kG-kS4">
+                                                    <rect key="frame" x="286" y="5.5" width="33" height="33"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הטבות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpW-Wm-FjB">
+                                                    <rect key="frame" x="231" y="11.5" width="45" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lKl-kG-kS4" secondAttribute="trailing" constant="40" id="Ebf-MU-RmL">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="90"/>
+                                                </constraint>
+                                                <constraint firstItem="lKl-kG-kS4" firstAttribute="leading" secondItem="ZpW-Wm-FjB" secondAttribute="trailing" constant="10" id="KHQ-0T-gpe"/>
+                                                <constraint firstItem="ZpW-Wm-FjB" firstAttribute="centerY" secondItem="8kI-EL-BiM" secondAttribute="centerY" id="YIW-7e-6uE"/>
+                                                <constraint firstItem="lKl-kG-kS4" firstAttribute="centerY" secondItem="8kI-EL-BiM" secondAttribute="centerY" id="lMI-qe-1ic"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="9zD-oq-szF" kind="show" id="APp-ue-Jh9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -851,7 +882,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="308" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -897,6 +928,8 @@
                         <outlet property="aboutLabel" destination="uXN-ka-OQx" id="hZP-EO-m6d"/>
                         <outlet property="arrivalMethodsImage" destination="KMG-Tt-m0V" id="Aug-8Q-2Mf"/>
                         <outlet property="arrivalMethodsLabel" destination="Vjd-fE-UaL" id="KOo-Et-YPA"/>
+                        <outlet property="discountdImage" destination="lKl-kG-kS4" id="PC7-qf-KTl"/>
+                        <outlet property="discountsLabel" destination="ZpW-Wm-FjB" id="JeZ-hI-oSn"/>
                         <outlet property="feedbackImage" destination="1BZ-SV-8wP" id="rAW-bB-AZh"/>
                         <outlet property="feedbackLabel" destination="eIS-ua-5Nd" id="WuB-1T-BTa"/>
                         <outlet property="iconKidsLabel" destination="UkI-R7-OEE" id="Axe-TY-ggA"/>
@@ -1751,14 +1784,14 @@
                         <viewControllerLayoutGuide type="bottom" id="jZf-vN-y2g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bRF-fB-Gjv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-cr-MmH">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
                             </imageView>
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnZ-Ol-Grb" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                <rect key="frame" x="55" y="20" width="265" height="647"/>
+                                <rect key="frame" x="55" y="0.0" width="265" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -1767,10 +1800,14 @@
                             <constraint firstItem="FY6-cr-MmH" firstAttribute="centerX" secondItem="bRF-fB-Gjv" secondAttribute="centerX" id="71a-8d-Uk6"/>
                             <constraint firstItem="FY6-cr-MmH" firstAttribute="height" secondItem="bRF-fB-Gjv" secondAttribute="height" id="DGi-Bl-io0"/>
                             <constraint firstItem="jZf-vN-y2g" firstAttribute="top" secondItem="gnZ-Ol-Grb" secondAttribute="bottom" id="KRF-E7-tVp"/>
-                            <constraint firstAttribute="trailing" secondItem="gnZ-Ol-Grb" secondAttribute="trailing" constant="55" id="OHm-op-JMQ"/>
+                            <constraint firstAttribute="trailing" secondItem="gnZ-Ol-Grb" secondAttribute="trailing" constant="55" id="OHm-op-JMQ">
+                                <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                            </constraint>
                             <constraint firstItem="gnZ-Ol-Grb" firstAttribute="top" secondItem="bRF-fB-Gjv" secondAttribute="topMargin" id="dct-da-kmI"/>
                             <constraint firstItem="FY6-cr-MmH" firstAttribute="centerY" secondItem="bRF-fB-Gjv" secondAttribute="centerY" id="llZ-lB-Baf"/>
-                            <constraint firstItem="gnZ-Ol-Grb" firstAttribute="leading" secondItem="bRF-fB-Gjv" secondAttribute="leading" constant="55" id="rVS-np-dlD"/>
+                            <constraint firstItem="gnZ-Ol-Grb" firstAttribute="leading" secondItem="bRF-fB-Gjv" secondAttribute="leading" constant="55" id="rVS-np-dlD">
+                                <variation key="heightClass=regular-widthClass=regular" constant="95"/>
+                            </constraint>
                             <constraint firstItem="FY6-cr-MmH" firstAttribute="width" secondItem="bRF-fB-Gjv" secondAttribute="width" id="s6j-Di-6ne"/>
                         </constraints>
                     </view>
@@ -2022,6 +2059,7 @@
         <image name="MenuAbout" width="33" height="33"/>
         <image name="MenuAddToFavorites" width="33" height="33"/>
         <image name="MenuArrivalMethods" width="33" height="33"/>
+        <image name="MenuDiscounts" width="33" height="33"/>
         <image name="MenuEventList" width="33" height="33"/>
         <image name="MenuEventListWithStar" width="33" height="33"/>
         <image name="MenuFeedback" width="33" height="33"/>
