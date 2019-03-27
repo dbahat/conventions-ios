@@ -164,7 +164,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         case .collapsed:
             return headerView.frame.size.height + 2 * paddingSize
         case .expended:
-            return paddingSize + headerViewHeightConstraint.constant + 2 * paddingSize + questions.height + footerHeight + paddingSize
+            let size = paddingSize + headerViewHeightConstraint.constant + 2 * paddingSize
+            return size + questions.height + footerHeight + paddingSize
         }
     }
     

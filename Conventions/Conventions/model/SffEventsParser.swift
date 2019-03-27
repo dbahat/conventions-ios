@@ -27,7 +27,7 @@ class SffEventsParser {
                 continue;
             }
             
-            guard let eventId = event["id"] as? String else {
+            guard let eventId = event["id"] as? Int else {
                 print("Got event without ID. Skipping");
                 continue;
             }
@@ -61,10 +61,10 @@ class SffEventsParser {
                 print("Event missing categories. Skipping. ID=", eventId);
                 continue;
             }
-            guard let category = categories.firstObject as? String else {
-                print("Event missing categories. Skipping. ID=", eventId);
-                continue;
-            }
+//            guard let category = categories.firstObject as? String else {
+//                print("Event missing categories. Skipping. ID=", eventId);
+//                continue;
+//            }
             // Current API returns ticket_limit = 0 even for events that dont require tickets.
             // We identify such events according to the ticket_limit property - if it's missing, the event is public.
             let availableTickets = event["ticket_limit"] as? String != nil ?event["available_tickets"] as? Int : nil
@@ -92,8 +92,8 @@ class SffEventsParser {
             }
             
             let conventionEvent = ConventionEvent(
-                id: eventId,
-                serverId: Int(eventId) ?? 0,
+                id: String(eventId),
+                serverId: eventId,
                 color: Colors.eventTimeDefaultBackgroundColor,
                 textColor: nil,
                 title: title.stringByDecodingHTMLEntities,
@@ -105,7 +105,7 @@ class SffEventsParser {
                     description: eventType),
                 hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
-                category: category.stringByDecodingHTMLEntities,
+                category: "",//category.stringByDecodingHTMLEntities,
                 price: eventPrice,
                 tags: tags,
                 url: URL(string: (event["url"] as? String)!)!)
