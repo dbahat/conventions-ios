@@ -45,7 +45,8 @@ class Events {
             callback?(true)
         }
         
-        URLSession.shared.dataTask(with: Events.eventsApiUrl, completionHandler:{(data, response, error) -> Void in
+        let request = URLRequest(url: Events.eventsApiUrl, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
+        URLSession.shared.dataTask(with: request, completionHandler:{(data, response, error) -> Void in
             
             guard let events = data else {
                 DispatchQueue.main.async {
@@ -54,7 +55,8 @@ class Events {
                 return;
             }
             
-            URLSession.shared.dataTask(with: Events.availableTicketsCacheLastRefreshTimeApi, completionHandler:{(data, response, error) -> Void in
+            let request = URLRequest(url: Events.availableTicketsCacheLastRefreshTimeApi, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
+            URLSession.shared.dataTask(with: request, completionHandler:{(data, response, error) -> Void in
                 
                 guard let availableTicketsCallResponse = response as? HTTPURLResponse else {
                     DispatchQueue.main.async {
@@ -109,9 +111,7 @@ class Events {
     private func parse(_ data: Data, halls: Array<Hall>) -> Array<ConventionEvent>? {
         var result = Array<ConventionEvent>()
         
-        guard let deserializedEvents =
-            try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray,
-            let parsedEvents = deserializedEvents
+        guard let parsedEvents = deserialize(data) as? NSArray
             else {
                 print("Failed to deserialize events");
                 return result;
@@ -124,5 +124,14 @@ class Events {
         }
         
         return result
+    }
+    
+    private func deserialize(_ data: Data) -> Any? {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: [])
+        } catch {
+            print("json error: \(error.localizedDescription)")
+            return nil
+        }
     }
 }

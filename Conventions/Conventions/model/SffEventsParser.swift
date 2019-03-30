@@ -27,7 +27,7 @@ class SffEventsParser {
                 continue;
             }
             
-            guard let eventId = event["id"] as? Int else {
+            guard let eventId = event["id"] as? String else {
                 print("Got event without ID. Skipping");
                 continue;
             }
@@ -57,10 +57,6 @@ class SffEventsParser {
                 continue;
             }
             
-            guard let categories = event["categories"] as? NSArray else {
-                print("Event missing categories. Skipping. ID=", eventId);
-                continue;
-            }
 //            guard let category = categories.firstObject as? String else {
 //                print("Event missing categories. Skipping. ID=", eventId);
 //                continue;
@@ -92,8 +88,8 @@ class SffEventsParser {
             }
             
             let conventionEvent = ConventionEvent(
-                id: String(eventId),
-                serverId: eventId,
+                id: eventId,
+                serverId: Int(eventId) ?? 0,
                 color: Colors.eventTimeDefaultBackgroundColor,
                 textColor: nil,
                 title: title.stringByDecodingHTMLEntities,
@@ -120,7 +116,9 @@ class SffEventsParser {
     }
     
     fileprivate func parseDate(_ time: String) -> Date {
-        if let result = Date.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
+        // Needed since current API wrongly reports the timezone as GMT instead of GMT+3
+        let fixedTime = time.replacingOccurrences(of: "+00:00", with: "+03:00")
+        if let result = Date.parse(fixedTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
             return result;
         }
         
