@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCategoriesView" customModule="Conventions" customModuleProvider="target">
             <connections>
+                <outlet property="lecturesLabel" destination="qd3-dc-bVz" id="VQr-NE-iOT"/>
                 <outlet property="lecturesSwitch" destination="MhS-oZ-Hii" id="lwd-iA-r5D"/>
+                <outlet property="othersLabel" destination="viA-3y-Zps" id="AeZ-1c-GhP"/>
                 <outlet property="othersSwitch" destination="9rs-k3-5ag" id="CRK-6J-BN7"/>
+                <outlet property="showsLabel" destination="Lcn-IK-HmW" id="hgi-fK-u0C"/>
                 <outlet property="showsSwitch" destination="UxP-Uh-Fbj" id="vD0-U1-nfJ"/>
+                <outlet property="workshopsLabel" destination="bfU-3Y-pA5" id="Pm2-zk-kor"/>
                 <outlet property="workshopsSwitch" destination="ihm-io-Vxe" id="NTn-Mb-1Ar"/>
             </connections>
         </placeholder>

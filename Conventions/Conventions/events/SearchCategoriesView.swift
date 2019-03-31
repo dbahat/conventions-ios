@@ -14,10 +14,14 @@ protocol SearchCategoriesProtocol : class {
 
 class SearchCategoriesView : UIView {
     
-    @IBOutlet fileprivate weak var lecturesSwitch: UISwitch!
-    @IBOutlet fileprivate weak var workshopsSwitch: UISwitch!
-    @IBOutlet fileprivate weak var showsSwitch: UISwitch!
-    @IBOutlet fileprivate weak var othersSwitch: UISwitch!
+    @IBOutlet private weak var lecturesSwitch: UISwitch!
+    @IBOutlet private weak var workshopsSwitch: UISwitch!
+    @IBOutlet private weak var showsSwitch: UISwitch!
+    @IBOutlet private weak var othersSwitch: UISwitch!
+    @IBOutlet private weak var lecturesLabel: UILabel!
+    @IBOutlet private weak var workshopsLabel: UILabel!
+    @IBOutlet private weak var showsLabel: UILabel!
+    @IBOutlet private weak var othersLabel: UILabel!
     
     weak var delegate: SearchCategoriesProtocol?
     
@@ -36,6 +40,11 @@ class SearchCategoriesView : UIView {
         workshopsSwitch.onTintColor = Colors.switchButtonsColor
         showsSwitch.onTintColor = Colors.switchButtonsColor
         othersSwitch.onTintColor = Colors.switchButtonsColor
+        
+        lecturesLabel.textColor = Colors.textColor
+        workshopsLabel.textColor = Colors.textColor
+        showsLabel.textColor = Colors.textColor
+        othersLabel.textColor = Colors.textColor
     }
     
     @IBAction fileprivate func lecturesWasTapped(_ sender: UITapGestureRecognizer) {
