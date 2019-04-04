@@ -13,6 +13,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
     
+    @IBOutlet fileprivate weak var eventTitleBoxBoarderView: UIView!
     @IBOutlet fileprivate weak var lecturer: UILabel!
     @IBOutlet fileprivate weak var eventTitle: UILabel!
     @IBOutlet fileprivate weak var eventTypeAndCategory: UILabel!
@@ -21,6 +22,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet fileprivate weak var tags: UILabel!
     @IBOutlet fileprivate weak var prices: UILabel!
     @IBOutlet fileprivate weak var titleAndEventTypeContainer: UIView!
+    @IBOutlet fileprivate weak var lecturerContainer: UIView!
+    @IBOutlet fileprivate weak var metadataContainer: UIView!
     
     @IBOutlet fileprivate weak var refreshAvailableTicketsButton: UIImageView!
     @IBOutlet fileprivate weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
@@ -60,17 +63,30 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             feedbackViewHeightConstraint.constant = 0
         }
         
-        //titleAndEventTypeContainer.layer.borderWidth = 2
-        //titleAndEventTypeContainer.layer.borderColor = UIColor.white.cgColor
+        lecturer.textColor = Colors.textColor
+        eventTitle.textColor = Colors.textColor
+        eventTypeAndCategory.textColor = Colors.textColor
+        hall.textColor = Colors.textColor
+        time.textColor = Colors.textColor
+        prices.textColor = Colors.textColor
+        tags.textColor = Colors.textColor
+        
+        
+        titleAndEventTypeContainer.backgroundColor = Colors.eventTitleBackground
+        eventTitleBoxBoarderView.backgroundColor = Colors.eventTitleBoarderColor
+        lecturerContainer.backgroundColor = Colors.eventDetailsBoxColor
+        metadataContainer.backgroundColor = Colors.eventDetailsBoxColor
         
         lecturer.text = event.lecturer
         eventTitle.text = event.title
         eventTypeAndCategory.text =  event.category.isEmpty
             ? event.type.description : event.category + " - " + event.type.description
         hall.text = event.hall.name
-        time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         
-        prices.text = String(format: "מחיר: %d, תעריף עמותות מארגנות: %d", event.price, event.price > 10 ? event.price - 10 : 0)
+        time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
+        time.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
         
         if let availableTicketsCount = event.availableTickets {
@@ -83,19 +99,20 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         navigationItem.title = event.type.description
         
         eventDescriptionContainer.isHidden = event.description == ""
+        eventDescriptionContainer.backgroundColor = Colors.eventDetailsBoxColor
         
         eventDescriptionWebView.isOpaque = false
         eventDescriptionWebView.delegate = self
         eventDescriptionWebView.scrollView.isScrollEnabled = false
         
         if let eventDescription = event.description {
-            eventDescriptionWebView.setContent(eventDescription, color: "#ffffff")
+            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
         }
         
         refreshFavoriteBarIconImage()
         
         refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
-        refreshAvailableTicketsButton.tintColor = UIColor.white
+        refreshAvailableTicketsButton.tintColor = Colors.textColor
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -264,6 +281,9 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         if (availableTicketsCount == 0) {
             availableTickets.font = UIFont.boldSystemFont(ofSize: 15)
             availableTickets.textColor = Colors.eventDetailsHighlightedTextColor
+        } else {
+            availableTickets.font = UIFont.systemFont(ofSize: 15)
+            availableTickets.textColor = Colors.textColor
         }
         
         availableTickets.text = String(

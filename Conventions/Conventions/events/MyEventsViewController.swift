@@ -114,7 +114,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let eventViewController = segue.destination as! EventViewController;
-        eventViewController.event = sender as! ConventionEvent;
+        eventViewController.event = (sender as! ConventionEvent);
     }
     
     func changeFavoriteStateWasClicked(_ caller: EventTableViewCell) {

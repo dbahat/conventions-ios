@@ -186,7 +186,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let eventViewController = segue.destination as? EventViewController;
-        eventViewController?.event = sender as! ConventionEvent;
+        eventViewController?.event = (sender as! ConventionEvent);
     }
     
     // MARK: - Search Controller delegate
@@ -318,7 +318,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.barStyle = .black
-        searchController.searchBar.tintColor = Colors.purple1
+        searchController.searchBar.tintColor = Colors.colorAccent
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self

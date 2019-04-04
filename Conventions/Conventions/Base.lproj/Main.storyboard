@@ -453,12 +453,15 @@
                         <outlet property="eventDescriptionWebView" destination="B4w-bu-Mvg" id="9q9-iP-lSv"/>
                         <outlet property="eventDescriptionWebViewHeightConstraint" destination="BGW-sw-Ff6" id="xJF-h6-Ns1"/>
                         <outlet property="eventTitle" destination="l8J-Dg-5UO" id="fFc-70-r3e"/>
+                        <outlet property="eventTitleBoxBoarderView" destination="4Mk-2g-684" id="sGq-ZQ-h6x"/>
                         <outlet property="eventTypeAndCategory" destination="XNp-hP-p2k" id="viA-E9-ZzQ"/>
                         <outlet property="feedbackView" destination="9Ss-29-rjU" id="k0U-o7-HEF"/>
                         <outlet property="feedbackViewHeightConstraint" destination="6OO-Xy-ohO" id="9kV-rY-O4m"/>
                         <outlet property="hall" destination="CgD-mc-ttE" id="EAH-8N-SQC"/>
                         <outlet property="image" destination="q76-A4-Mva" id="wAw-OJ-vDD"/>
                         <outlet property="lecturer" destination="Osb-kV-Cgw" id="oM5-eE-LBE"/>
+                        <outlet property="lecturerContainer" destination="dze-UV-zhf" id="44F-0T-h6u"/>
+                        <outlet property="metadataContainer" destination="BZL-9K-Xfi" id="4be-ut-aQg"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
                         <outlet property="refreshAvailableTicketsButton" destination="wZJ-Bb-HYE" id="Xz3-XF-7pM"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>

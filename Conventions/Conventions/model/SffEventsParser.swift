@@ -57,14 +57,6 @@ class SffEventsParser {
                 continue;
             }
             
-//            guard let category = categories.firstObject as? String else {
-//                print("Event missing categories. Skipping. ID=", eventId);
-//                continue;
-//            }
-            // Current API returns ticket_limit = 0 even for events that dont require tickets.
-            // We identify such events according to the ticket_limit property - if it's missing, the event is public.
-            let availableTickets = event["ticket_limit"] as? String != nil ?event["available_tickets"] as? Int : nil
-            
             var eventPrice = 0
             if let price = event["price"] as? String,
                 let intPrice = Int(price) {
@@ -101,12 +93,17 @@ class SffEventsParser {
                     description: eventType),
                 hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
-                category: "",//category.stringByDecodingHTMLEntities,
+                category: "", // Optional parameter. Kept in the ctor for backwards compatability.
                 price: eventPrice,
                 tags: tags,
                 url: URL(string: (event["url"] as? String)!)!)
             
-            conventionEvent.availableTickets = availableTickets
+            if let availableTickets = event["available_tickets"] as? String {
+                conventionEvent.availableTickets = Int(availableTickets)
+            }
+            if let category = event["categories"]?.firstObject as? String {
+                conventionEvent.category = category
+            }
             
             result.append(conventionEvent)
             
@@ -116,9 +113,7 @@ class SffEventsParser {
     }
     
     fileprivate func parseDate(_ time: String) -> Date {
-        // Needed since current API wrongly reports the timezone as GMT instead of GMT+3
-        let fixedTime = time.replacingOccurrences(of: "+00:00", with: "+03:00")
-        if let result = Date.parse(fixedTime, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
+        if let result = Date.parse(time, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
             return result;
         }
         

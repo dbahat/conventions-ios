@@ -42,6 +42,9 @@ class Colors {
     static let eventDetailsHighlightedTextColor = Colors.olamot2019_blue
     static let eventFeedbackBoxColor = Colors.olamot2019_yellow3
     static let eventSeperatorColor = UIColor.black
+    static let eventDetailsBoxColor = Colors.olamot2019_yellow2
+    static let eventTitleBackground = Colors.olamot2019_brown4
+    static let eventTitleBoarderColor = UIColor.black
     
     static let secondHandClosedFormColor = Colors.olamot2019_grey2
     static let secondHandOpenFormColor = UIColor.black
