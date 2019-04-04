@@ -16,7 +16,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
     @IBOutlet private weak var aboutAppContentLabel: UILabel!
     @IBOutlet private weak var aboutAppTitleLabel: UILabel!
     
-    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: איתמר ריינר, אלי בויום, גליה בהט, יריב יערי."
+    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: איתמר ריינר, אלי בויום, גליה בהט."
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
             aboutAppVersionLabel.textColor = Colors.textColor
         }
         
-        navigationItem.title = "אודות הפסטיבל"
+        navigationItem.title = "אודות הכנס"
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
