@@ -25,6 +25,7 @@ class Colors {
     
     static let colorAccent = Colors.olamot2019_blue
     static let textColor = UIColor.black
+    
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.colorAccent
     static let eventTimeDefaultBackgroundColor = Colors.olamot2019_yellow1
@@ -33,20 +34,31 @@ class Colors {
     static let eventFeedbackButtonsColor = Colors.olamot2019_blue
     static let eventFeedbackTextColor = UIColor.black
     static let buttonPressedColor = Colors.olamot2019_blue2
+    
+    // Events colors
     static let eventEndedColor = Colors.olamot2019_grey2
     static let eventRunningColor = Colors.olamot2019_blue
     static let eventNotStartedColor = UIColor.black
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
     static let eventMarkedAsFavorite = Colors.olamot2019_blue
     static let eventNotMarkedAsFavorite = Colors.olamot2019_brown4
-    static let eventDetailsHighlightedTextColor = Colors.olamot2019_blue
-    static let eventFeedbackBoxColor = Colors.olamot2019_yellow3
     static let eventSeperatorColor = UIColor.black
+    
+    // Event colors
     static let eventDetailsBoxColor = Colors.olamot2019_yellow2
     static let eventTitleBackground = Colors.olamot2019_brown4
     static let eventTitleBoarderColor = UIColor.black
+    static let eventDetailsHighlightedTextColor = Colors.olamot2019_blue
+    static let eventFeedbackBoxColor = Colors.olamot2019_yellow3
     
+    // SecondHand colors
     static let secondHandClosedFormColor = Colors.olamot2019_grey2
     static let secondHandOpenFormColor = UIColor.black
     
+    // Home colors
+    static let homeButtonsColor = Colors.olamot2019_blue
+    static let homeCurrentEventColor = Colors.olamot2019_yellow2
+    static let homeNextEventColor = Colors.olamot2019_yellow1
+    static let homeTimeTextColor = UIColor.white
+    static let homeTimeBoxContainerColor = UIColor.black
 }

@@ -15,6 +15,9 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     @IBOutlet private weak var upcomingEventHallLabel: UILabel!
     @IBOutlet private weak var myEventsTitleLabel: UILabel!
     @IBOutlet private weak var goToMyEventsButton: UIButton!
+    @IBOutlet private weak var titleContainer: UIView!
+    @IBOutlet private weak var currentEventContainer: UIView!
+    @IBOutlet private weak var nextEventContainer: UIView!
     
     // keeping strong references to the constraints, since we change their active state dynamiclly, which
     // causes the strong ref kept from the view hirarchy to the constraint to drop.
@@ -87,6 +90,18 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
             myEventsTitleLabel.font = UIFont.systemFont(ofSize: 15)
             goToMyEventsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         }
+        
+        goToMyEventsButton.backgroundColor = Colors.homeButtonsColor
+        titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        currentEventContainer.backgroundColor = Colors.homeCurrentEventColor
+        nextEventContainer.backgroundColor = Colors.homeNextEventColor
+        
+        goToMyEventsButton.setTitleColor(Colors.homeTimeTextColor, for: .normal)
+        myEventsTitleLabel.textColor = Colors.homeTimeTextColor
+        currentEventLabel.textColor = Colors.textColor
+        upcomingEventTimeLabel.textColor = Colors.textColor
+        upcomingEventHallLabel.textColor = Colors.textColor
+        upcomingEventNameLabel.textColor = Colors.textColor
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {

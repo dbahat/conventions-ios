@@ -11,18 +11,35 @@ import Foundation
 class BeforeConventionHomeContentView : UIView {
     @IBOutlet private weak var conventionDatesLabel: UILabel!
     @IBOutlet private weak var remainingDaysLabel: UILabel!
+    @IBOutlet private weak var timeBoxContainer: UIView!
+    @IBOutlet private weak var mainContentContainer: UIView!
+    @IBOutlet private weak var updatesButtonContainer: UIButton!
+    @IBOutlet private weak var eventsButtonContainer: UIButton!
     
     weak var delegate: ConventionHomeContentViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        inflateNib(BeforeConventionHomeContentView.self)
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         inflateNib(BeforeConventionHomeContentView.self)
+        
+        eventsButtonContainer.backgroundColor = Colors.homeButtonsColor
+        updatesButtonContainer.backgroundColor = Colors.homeButtonsColor
+        mainContentContainer.backgroundColor = Colors.homeNextEventColor
+        timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        remainingDaysLabel.textColor = Colors.textColor
+        conventionDatesLabel.textColor = Colors.homeTimeTextColor
+        eventsButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
+        updatesButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
     }
     
     func setDates(start: Date, end: Date) {

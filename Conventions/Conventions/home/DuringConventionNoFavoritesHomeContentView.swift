@@ -11,6 +11,8 @@ import Foundation
 class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var eventsTable: UITableView!
+    @IBOutlet private weak var titleContainer: UIView!
+    @IBOutlet private weak var goToEventsButton: UIButton!
     
     private let cellIdentifer = "cellIdentifer"
     private var events : Array<ConventionEvent> = []
@@ -19,15 +21,26 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        inflateNib(DuringConventionNoFavoritesHomeContentView.self)
-        
-        eventsTable.estimatedRowHeight = 30
-        eventsTable.rowHeight = UITableViewAutomaticDimension
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         inflateNib(DuringConventionNoFavoritesHomeContentView.self)
+        
+        eventsTable.estimatedRowHeight = 30
+        eventsTable.rowHeight = UITableViewAutomaticDimension
+        
+        titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        titleLabel.textColor = Colors.homeTimeTextColor
+        goToEventsButton.backgroundColor = Colors.homeButtonsColor
+        goToEventsButton.setTitleColor(Colors.homeTimeTextColor, for: .normal)
+        eventsTable.backgroundColor = Colors.homeNextEventColor
+        eventsTable.separatorColor = Colors.textColor
     }
     
     @IBAction private func showAllEventsButtonWasClicked(_ sender: UIButton) {
@@ -62,7 +75,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     private func bind(_ cell: UITableViewCell, event: ConventionEvent) -> UITableViewCell {
         cell.textLabel?.text = event.title
         cell.textLabel?.textAlignment = .right
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.textColor = Colors.textColor
         cell.textLabel?.font.withSize(18)
         cell.textLabel?.numberOfLines = 2
         cell.backgroundColor = UIColor.clear
