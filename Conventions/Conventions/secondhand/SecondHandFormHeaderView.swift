@@ -15,6 +15,8 @@ protocol SecondHandFormProtocol : class {
 class SecondHandFormHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private weak var formIdLabel: UILabel!
     @IBOutlet private weak var formStatusLabel: UILabel!
+    @IBOutlet weak var removeButton: UIButton!
+    
     
     weak var delegate: SecondHandFormProtocol?
     
@@ -26,6 +28,7 @@ class SecondHandFormHeaderView: UITableViewHeaderFooterView {
             
                 formIdLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
                 formStatusLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
+                removeButton.setTitleColor(Colors.buttonColor, for: .normal)
             }
         }
     }

@@ -20,6 +20,7 @@ class SecondHand {
         }
     }
     
+    
     init() {
         let jsonDecoder = JSONDecoder()
         if
