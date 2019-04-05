@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UISearchResultsUpdating, UISearchControllerDelegate, UIScrollViewDelegate {
+class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UIScrollViewDelegate, UISearchBarDelegate {
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var noResultsFoundLabel: UILabel!
 
@@ -24,7 +24,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     fileprivate var enabledCategories: Array<AggregatedSearchCategory> = [.lectures, .shows, .workshops, .others]
     
-    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     @IBOutlet fileprivate weak var dateFilterControl: DateFilterControl!
     
@@ -37,7 +37,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         self.tableView.register(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(describing: EventListHeaderView.self))
         
         addRefreshController()
-        addSearchController()
+        initializeSearchBar()
         
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         searchCategoriesLayout.delegate = self
@@ -63,14 +63,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         // redraw the table when navigating in/out of the view, in case the model changed
         calculateEventsAndTimeSections()
         tableView.reloadData()
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        DispatchQueue.main.async {
-            // Disabling search during orientation/size changes since the search control seem to have issues when orientation changes 
-            // (suddenly appearing in the wrong position).
-            self.searchController.isActive = false
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -116,14 +108,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     func filterSearchCategoriesChanged(_ enabledCategories: Array<AggregatedSearchCategory>) {
         self.enabledCategories = enabledCategories
 
-        calculateEventsAndTimeSections()
-        tableView.reloadData()
-    }
-    
-    
-    // MARK: - UISearchResultsUpdating
-    
-    func updateSearchResults(for searchController: UISearchController) {
         calculateEventsAndTimeSections()
         tableView.reloadData()
     }
@@ -189,22 +173,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         eventViewController?.event = (sender as! ConventionEvent);
     }
     
-    // MARK: - Search Controller delegate
-    
-    func willPresentSearchController(_ searchController: UISearchController) {
-        tabBarController?.tabBar.isHidden = true
-        edgesForExtendedLayout = .bottom // needed otherwise a gap is left where the empty tab bar was
-        
-        view.backgroundColor = Colors.eventEndedColor
-    }
-    
-    func willDismissSearchController(_ searchController: UISearchController) {
-        self.tabBarController?.tabBar.isHidden = false
-        edgesForExtendedLayout = UIRectEdge()
-        
-        view.backgroundColor = UIColor.white
-    }
-    
     // MARK: - UIScrollView delegate
     
     // Needed so the events can be invisible when scrolled behind the sticky header.
@@ -240,7 +208,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         })
         
         var textFilteredEvents = dailyEventsFilteredByCategory
-        if let searchText = searchController.searchBar.text, searchController.isActive && searchText != "" {
+        if let searchText = searchBar.text, searchText != "" {
             textFilteredEvents = textFilteredEvents.filter({event in
                 if let lecturer = event.lecturer, lecturer.contains(searchText) {
                     return true
@@ -273,11 +241,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private
     @objc func refresh() {
-        
-        if searchController.isActive {
-            tableViewController.refreshControl?.endRefreshing()
-            return
-        }
         
         Convention.instance.events.refresh({success in
             self.tableViewController.refreshControl?.endRefreshing()
@@ -314,16 +277,12 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableViewController.didMove(toParentViewController: self)
     }
     
-    fileprivate func addSearchController() {
-        searchController.searchBar.barTintColor = Colors.eventTimeHeaderColor
-        searchController.searchBar.searchBarStyle = .minimal
-        searchController.searchBar.barStyle = .black
-        searchController.searchBar.tintColor = Colors.colorAccent
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.delegate = self
-        
-        tableView.tableHeaderView = searchController.searchBar
+    fileprivate func initializeSearchBar() {
+        searchBar.barTintColor = Colors.eventTimeHeaderColor
+        searchBar.searchBarStyle = .minimal
+        searchBar.barStyle = .black
+        searchBar.tintColor = Colors.colorAccent
+        searchBar.delegate = self
     }
     
     fileprivate func getSectionIndex(forDate: Date) -> Int? {
