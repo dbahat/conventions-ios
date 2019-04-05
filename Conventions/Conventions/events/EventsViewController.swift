@@ -255,6 +255,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 return;
             }
             
+            self.calculateEventsAndTimeSections()
             self.tableView.reloadData();
         });
     }

@@ -113,7 +113,7 @@ import Foundation
                 case .positive:
                     return "(:"
                 case .veryPositive:
-                    return "D:"
+                    return ":D"
                 }
             }
             
@@ -123,13 +123,14 @@ import Foundation
                 }
                 
                 switch unwrappedValue {
-                case ":(":
+                case "|:":
                     return .negetive
-                case ":)":
+                case "(:":
                     return .positive
                 case ":D":
                     return .veryPositive
                 default:
+                    print("unidentified answer type while parsing: " + unwrappedValue)
                     return nil
                 }
             }
