@@ -52,6 +52,8 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         if areas.count == 1 {
             pageControl.isHidden = true
         }
+        
+        view.backgroundColor = Colors.mapBackgroundColor
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

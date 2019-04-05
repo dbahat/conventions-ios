@@ -23,7 +23,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fnt-xz-7Oo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.71372549019999998" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.96078431372549022" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Rb-1lE">
                                 <rect key="frame" x="8" y="259.5" width="359" height="148"/>
@@ -32,8 +32,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="leading" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="8" id="2HD-Lr-O8w"/>
-                            <constraint firstAttribute="trailing" secondItem="fZh-Rb-1lE" secondAttribute="trailing" constant="8" id="8il-uf-ryV"/>
+                            <constraint firstItem="fZh-Rb-1lE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVN-O7-P6B" secondAttribute="leading" constant="8" id="2HD-Lr-O8w"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fZh-Rb-1lE" secondAttribute="trailing" constant="8" id="8il-uf-ryV"/>
                             <constraint firstItem="fZh-Rb-1lE" firstAttribute="centerY" secondItem="tVN-O7-P6B" secondAttribute="centerY" id="CxB-9k-Mp2"/>
                             <constraint firstItem="xu0-uG-8Ng" firstAttribute="top" secondItem="Fnt-xz-7Oo" secondAttribute="bottom" id="H5i-rE-GFE"/>
                             <constraint firstAttribute="trailing" secondItem="Fnt-xz-7Oo" secondAttribute="trailing" id="Phv-VT-qhr"/>

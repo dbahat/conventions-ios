@@ -34,6 +34,7 @@ class Colors {
     static let eventFeedbackButtonsColor = Colors.olamot2019_blue
     static let eventFeedbackTextColor = UIColor.black
     static let buttonPressedColor = Colors.olamot2019_blue2
+    static let mapBackgroundColor = Colors.olamot2019_yellow5
     
     // Events colors
     static let eventEndedColor = Colors.olamot2019_grey2
