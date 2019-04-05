@@ -48,32 +48,6 @@
                                         <constraint firstAttribute="trailing" secondItem="YhF-hE-C89" secondAttribute="trailing" constant="8" id="WC6-Nz-lki"/>
                                         <constraint firstItem="YhF-hE-C89" firstAttribute="top" secondItem="Nih-gk-Ubm" secondAttribute="top" constant="8" id="aji-xX-73m"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Percent">
-                                            <real key="value" value="0.29999999999999999"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                                            <real key="value" value="105"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
-                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                                            <real key="value" value="-0.10000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
-                                            <real key="value" value="0.20000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                            <real key="value" value="0.0"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3AY-nH-o50">
                                     <rect key="frame" x="0.0" y="40" width="359" height="255"/>
@@ -93,33 +67,6 @@
                                         <constraint firstItem="7vj-2s-bOd" firstAttribute="leading" secondItem="3AY-nH-o50" secondAttribute="leading" constant="8" id="oQ4-7B-nNr"/>
                                         <constraint firstItem="7vj-2s-bOd" firstAttribute="top" secondItem="3AY-nH-o50" secondAttribute="top" constant="8" id="yRk-yG-fi1"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                            <color key="value" red="0.24313725489999999" green="0.10980392160000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
-                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                                            <real key="value" value="-1.1000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
-                                            <real key="value" value="0.0"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                                            <real key="value" value="45"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                            <real key="value" value="500"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="MaskToBounds" value="YES"/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
-                                            <real key="value" value="0.87"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -132,23 +79,6 @@
                                 <constraint firstItem="Nih-gk-Ubm" firstAttribute="leading" secondItem="jHV-j0-EjT" secondAttribute="leading" id="dUJ-4U-h6s"/>
                                 <constraint firstAttribute="bottom" secondItem="3AY-nH-o50" secondAttribute="bottom" id="shy-t3-ixW"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="ShadowColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="ShadowOpacity">
-                                    <real key="value" value="0.10000000000000001"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetWidth">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetHeight">
-                                    <integer key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -158,23 +88,6 @@
                         <constraint firstItem="jHV-j0-EjT" firstAttribute="leading" secondItem="mOy-fb-Q3w" secondAttribute="leading" id="dAx-cY-JfN"/>
                         <constraint firstAttribute="trailing" secondItem="jHV-j0-EjT" secondAttribute="trailing" id="w9U-Yj-x6e"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                            <real key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="ShadowColor">
-                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOpacity">
-                            <real key="value" value="0.10000000000000001"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetWidth">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetHeight">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o">
                     <rect key="frame" x="8" y="623" width="163.5" height="36"/>
@@ -183,20 +96,6 @@
                     <state key="normal" title="עדכונים">
                         <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                            <real key="value" value="100"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                            <real key="value" value="0.69999999999999996"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToUpdatesWasCliced:" destination="-1" eventType="touchUpInside" id="wHk-Cf-Agm"/>
                     </connections>
@@ -208,20 +107,6 @@
                     <state key="normal" title="תוכניה">
                         <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                            <real key="value" value="100"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                            <real key="value" value="0.69999999999999996"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToEventsWasClicked:" destination="-1" eventType="touchUpInside" id="acL-eC-Wmc"/>
                     </connections>

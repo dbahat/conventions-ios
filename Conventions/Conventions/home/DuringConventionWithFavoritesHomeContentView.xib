@@ -51,26 +51,6 @@
                                         <constraint firstAttribute="trailing" secondItem="a4v-fi-VsF" secondAttribute="trailing" constant="8" id="yVK-Oc-HZf"/>
                                         <constraint firstItem="a4v-fi-VsF" firstAttribute="top" secondItem="GmR-x0-CGl" secondAttribute="top" constant="8" id="zZP-2k-35Y"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="ThirdColor">
-                                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                                            <real key="value" value="-0.10000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="SecondTransition">
-                                            <real key="value" value="0.20000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                                            <real key="value" value="105"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-on-DIH">
                                     <rect key="frame" x="0.0" y="54.5" width="375" height="44"/>
@@ -91,17 +71,6 @@
                                         <constraint firstAttribute="trailing" secondItem="hKb-Rw-aVI" secondAttribute="trailing" constant="8" id="f8Z-p2-7Rn"/>
                                         <constraint firstAttribute="height" constant="44" id="kgy-St-oMR"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                            <color key="value" red="0.24313725489999999" green="0.10980392160000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
-                                            <real key="value" value="0.87"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="aC8-9d-gxs" appends="YES" id="eW8-DV-3R3"/>
                                     </connections>
@@ -142,17 +111,6 @@
                                         <constraint firstItem="yNL-R3-6P7" firstAttribute="leading" secondItem="0HC-lb-z29" secondAttribute="leading" constant="8" id="nO5-9k-Hyc"/>
                                         <constraint firstAttribute="bottom" secondItem="yNL-R3-6P7" secondAttribute="bottom" constant="8" id="uU6-Wq-UeZ"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                            <color key="value" red="0.0" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                            <color key="value" red="0.30196078430000001" green="0.30196078430000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Transition">
-                                            <real key="value" value="0.87"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="9it-wn-moo" appends="YES" id="F0E-2u-Uea"/>
                                     </connections>
@@ -171,11 +129,6 @@
                                 <constraint firstItem="GmR-x0-CGl" firstAttribute="top" secondItem="1Tr-0s-eMB" secondAttribute="top" id="rtE-Nt-qyj"/>
                                 <constraint firstAttribute="trailing" secondItem="bzd-on-DIH" secondAttribute="trailing" id="tiQ-Dd-qu4"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="Radius">
-                                    <real key="value" value="20"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -185,20 +138,6 @@
                         <constraint firstItem="1Tr-0s-eMB" firstAttribute="top" secondItem="BwY-JI-MeU" secondAttribute="top" id="JCt-hU-vR3"/>
                         <constraint firstAttribute="trailing" secondItem="1Tr-0s-eMB" secondAttribute="trailing" id="MFY-Sj-gO7"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="ShadowColor">
-                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOpacity">
-                            <real key="value" value="0.10000000000000001"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetWidth">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="ShadowOffsetHeight">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
                     <rect key="frame" x="0.0" y="611" width="375" height="40"/>
@@ -207,20 +146,6 @@
                     <state key="normal" title="עבור לאירועים שלי">
                         <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                            <color key="value" red="0.054901960780000002" green="0.20000000000000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                            <color key="value" red="0.0" green="0.058823529409999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="FirstTransition">
-                            <real key="value" value="0.69999999999999996"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="Angle">
-                            <real key="value" value="100"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="navigateToMyEventsWasClicked:" destination="-1" eventType="touchUpInside" id="kiv-i9-giW"/>
                     </connections>
