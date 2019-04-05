@@ -187,6 +187,13 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         }
     }
     
+    // MARK: - UISearchBar delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        calculateEventsAndTimeSections()
+        tableView.reloadData()
+    }
+    
     // MARK: - Private methods
     
     fileprivate func calculateEventsAndTimeSections() {

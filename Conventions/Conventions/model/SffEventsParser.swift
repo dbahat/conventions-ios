@@ -63,17 +63,6 @@ class SffEventsParser {
                 eventPrice = intPrice
             }
             
-            // Tags are returned as an object: {1: "tag1", 2: "tag2"} or a string: "tag1"
-            var tags: Array<String> = []
-            if let tag = event["tags"] as? String {
-                tags.append(tag)
-            }
-            if let tagsObject = event["tags"] as? Dictionary<String, String> {
-                for tagString in tagsObject.values {
-                    tags.append(tagString.stringByDecodingHTMLEntities)
-                }
-            }
-            
             var speaker = ""
             if let speakers = event["speakers"] as? NSArray {
                 speaker = speakers.count > 0 ? speakers.componentsJoined(by: ",") : ""
@@ -95,7 +84,7 @@ class SffEventsParser {
                 description: parseEventDescription(description),
                 category: "", // Optional parameter. Kept in the ctor for backwards compatability.
                 price: eventPrice,
-                tags: tags,
+                tags: [],
                 url: URL(string: (event["url"] as? String)!)!)
             
             if let availableTickets = event["available_tickets"] as? String {
@@ -103,6 +92,9 @@ class SffEventsParser {
             }
             if let category = event["categories"]?.firstObject as? String {
                 conventionEvent.category = category
+            }
+            if let tags = event["tags"] as? Array<String> {
+                conventionEvent.tags = tags
             }
             
             result.append(conventionEvent)
