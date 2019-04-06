@@ -196,15 +196,9 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     // MARK: - Private methods
     
-    fileprivate func calculateEventsAndTimeSections() {
-        var result = Dictionary<Date, Array<ConventionEvent>>()
-        
-        let eventsForSelectedDate =
-            Convention.instance.events.getAll()
-                .filter({$0.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970})
-        
-        let dailyEventsFilteredByCategory = eventsForSelectedDate.filter({event in
-
+    private func applyFiltersForEvents(_ events: Array<ConventionEvent>) -> Array<ConventionEvent> {
+        let dailyEventsFilteredByCategory = events.filter({event in
+            
             for enabledCategory in enabledCategories {
                 if enabledCategory.containsCategory(event.type.description) {
                     return true
@@ -226,7 +220,19 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             })
         }
         
-        for event in textFilteredEvents {
+        return textFilteredEvents
+    }
+    
+    fileprivate func calculateEventsAndTimeSections() {
+        var result = Dictionary<Date, Array<ConventionEvent>>()
+        
+        let eventsForSelectedDate =
+            Convention.instance.events.getAll()
+                .filter({$0.startTime.clearTimeComponent() == dateFilterControl.selectedDate})
+        
+        let filteredEvents = applyFiltersForEvents(eventsForSelectedDate)
+        
+        for event in filteredEvents {
 
             let roundedEventTime = event.startTime.clearMinutesComponent()
             if (result[roundedEventTime as Date] == nil) {
@@ -241,9 +247,21 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         }
         
         eventsPerTimeSection = result;
-        eventTimeSections = eventsPerTimeSection.keys.sorted(by: {$0.timeIntervalSince1970 < $1.timeIntervalSince1970});
+        eventTimeSections = eventsPerTimeSection.keys.sorted(by: {$0 < $1});
         
         noResultsFoundLabel.isHidden = eventsPerTimeSection.count > 0
+        
+        let numberOfEventsPerDay = Dictionary(grouping: Convention.instance.events.getAll(), by: { $0.startTime.clearTimeComponent() })
+            .sorted(by: { (current, other) -> Bool in
+                current.key > other.key
+            })
+            .map({ applyFiltersForEvents($0.value).count })
+
+        if let searchText = searchBar.text, searchText != "" {
+            dateFilterControl.updateNumberOfResultsPerSegment(numberOfEventsPerDay)
+        } else {
+            dateFilterControl.resetNumberOfResults()
+        }
     }
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private

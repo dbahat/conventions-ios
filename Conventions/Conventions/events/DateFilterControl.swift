@@ -10,8 +10,9 @@ import Foundation
 
 class DateFilterControl : UISegmentedControl {
     
-    fileprivate var toDate = Date.now()
-    fileprivate let SecondsInDay : Double = 60 * 60 * 24
+    private var toDate = Date.now()
+    private let SecondsInDay : Double = 60 * 60 * 24
+    private var segmentTitles : Array<String>?
     
     var selectedDate: Date {
         get {
@@ -23,14 +24,32 @@ class DateFilterControl : UISegmentedControl {
         self.toDate = toDate.clearTimeComponent()
         
         removeAllSegments()
+        segmentTitles = []
         for i in 0...getNumberOfDays(fromDate: fromDate.clearTimeComponent(), toDate: self.toDate) {
-            insertSegment(withTitle: toDate.addDays(-i).format("EEE (dd.MM)"), at: i, animated: false)
+            let segmentTitle = toDate.addDays(-i).format("EEE (dd.MM)")
+            insertSegment(withTitle: segmentTitle , at: i, animated: false)
+            segmentTitles?.append(segmentTitle)
         }
         
         // By default select the last segment to support RTL
         selectedSegmentIndex = numberOfSegments - 1
         
         tintColor = Colors.datePickerColor
+    }
+    
+    func updateNumberOfResultsPerSegment(_ resultsPerSegment: Array<Int>) {
+        for i in 0...numberOfSegments-1 {
+            let currentTitle = segmentTitles?[i] ?? ""
+            let newTitle = String(format: "%@ (%d אירועים)", currentTitle, resultsPerSegment[i])
+            setTitle(newTitle, forSegmentAt: i)
+        }
+    }
+    
+    func resetNumberOfResults() {
+        for i in 0...numberOfSegments-1 {
+            let currentTitle = segmentTitles?[i] ?? ""
+            setTitle(currentTitle, forSegmentAt: i)
+        }
     }
     
     func selectDate(_ date: Date) {
