@@ -62,4 +62,7 @@ class Colors {
     static let homeNextEventColor = Colors.olamot2019_yellow1
     static let homeTimeTextColor = UIColor.white
     static let homeTimeBoxContainerColor = UIColor.black
+    
+    // Updates colors
+    static let updateTimeBackground = Colors.olamot2019_yellow1
 }

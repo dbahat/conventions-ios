@@ -13,7 +13,7 @@ class UpdateTableViewCell: UITableViewCell {
     func setUpdate(_ update: Update) {
         title.text = update.date.format("HH:mm dd.MM.yyyy")
         title.textColor = Colors.textColor
-        title.backgroundColor = Colors.olamot2019_grey1
+        title.backgroundColor = Colors.updateTimeBackground
         
         message.text = update.text
         message.textColor = Colors.textColor

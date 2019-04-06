@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,14 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIh-Wj-aUp">
-                        <rect key="frame" x="55" y="0.0" width="365" height="17"/>
+                        <rect key="frame" x="0.0" y="0.0" width="475" height="17"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20371361301369864" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="aZB-Ka-TTx">
-                        <rect key="frame" x="75" y="17" width="325" height="73.5"/>
+                        <rect key="frame" x="28" y="17" width="419" height="54.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -37,17 +36,17 @@
                 <constraints>
                     <constraint firstItem="xIh-Wj-aUp" firstAttribute="top" secondItem="Bfc-7u-YCx" secondAttribute="top" id="1w0-f2-bsW"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="aZB-Ka-TTx" secondAttribute="bottom" id="Rkk-XF-JpG"/>
-                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" constant="55" id="apW-P0-WS2">
+                    <constraint firstItem="xIh-Wj-aUp" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leading" id="apW-P0-WS2">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
                     <constraint firstItem="aZB-Ka-TTx" firstAttribute="top" secondItem="xIh-Wj-aUp" secondAttribute="bottom" id="eoD-XN-lE9"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" constant="55" id="lBj-IX-Sry">
+                    <constraint firstAttribute="trailingMargin" secondItem="aZB-Ka-TTx" secondAttribute="trailing" constant="8" id="lBj-IX-Sry">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" constant="55" id="ug1-Hz-vSg">
+                    <constraint firstAttribute="trailing" secondItem="xIh-Wj-aUp" secondAttribute="trailing" id="ug1-Hz-vSg">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
-                    <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" constant="55" id="yOM-W8-3Mx">
+                    <constraint firstItem="aZB-Ka-TTx" firstAttribute="leading" secondItem="Bfc-7u-YCx" secondAttribute="leadingMargin" constant="8" id="yOM-W8-3Mx">
                         <variation key="heightClass=regular-widthClass=regular" constant="95"/>
                     </constraint>
                 </constraints>
