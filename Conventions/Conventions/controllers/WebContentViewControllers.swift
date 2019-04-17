@@ -8,15 +8,15 @@
 
 import Foundation
 
-class IconKidsViewController: BaseViewController, UIWebViewDelegate {
+class WebContentViewController: BaseViewController, UIWebViewDelegate {
     
     @IBOutlet private weak var contentWebView: StaticContentWebView!
     
     override func viewDidLoad() {
         guard
             let resourcePath = Bundle.main.resourcePath,
-            let webContent = try? String(contentsOfFile: resourcePath + "/IconKids.html") else {
-            return
+            let webContent = try? String(contentsOfFile: resourcePath + getWebPageName()) else {
+                return
         }
         
         contentWebView.setContent(webContent)
@@ -31,5 +31,27 @@ class IconKidsViewController: BaseViewController, UIWebViewDelegate {
         }
         
         return true
+    }
+    
+    func getWebPageName() -> String {
+        return ""
+    }
+}
+
+class IconKidsViewController: WebContentViewController {
+    override func getWebPageName() -> String {
+        return "/IconKids.html"
+    }
+}
+
+class DiscountsViewController: WebContentViewController {
+    override func getWebPageName() -> String {
+        return "/DiscountsContent.html"
+    }
+}
+
+class AccessabilityViewController: WebContentViewController {
+    override func getWebPageName() -> String {
+        return "/AccessabilityContent.html"
     }
 }
