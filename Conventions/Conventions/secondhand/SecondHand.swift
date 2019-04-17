@@ -31,6 +31,12 @@ class SecondHand {
     }
     
     func refresh(formIds: Array<Int>, _ callback: ((Bool) -> Void)?) {
+        
+        if formIds.count == 0 {
+            callback?(true)
+            return
+        }
+        
         let formIdsString = formIds
             .map{String($0)}
             .joined(separator: ",")
