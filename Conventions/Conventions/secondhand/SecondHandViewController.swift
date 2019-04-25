@@ -118,7 +118,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 return
             }
             
-            if formId < 0 || formId > 999 {
+            if formId < 0 {
                 TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
             }

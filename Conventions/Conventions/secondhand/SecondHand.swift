@@ -150,6 +150,7 @@ class SecondHand {
                 case sold
                 case missing
                 case returned
+                case other
             }
         }
         
