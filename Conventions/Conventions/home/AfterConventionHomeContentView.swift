@@ -32,7 +32,7 @@ class AfterConventionHomeContentView : UIView {
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         contentContainer.backgroundColor = Colors.homeNextEventColor
         titleLabel.textColor = Colors.homeTimeTextColor
-        sendFeedbackLabel.textColor = Colors.textColor
+        sendFeedbackLabel.textColor = Colors.homeMainLabelTextColor
     }
     
     @IBAction func sendFeedbackButtonWasClicked(_ sender: Any) {

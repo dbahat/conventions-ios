@@ -100,7 +100,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         myEventsTitleLabel.textColor = Colors.homeTimeTextColor
         currentEventLabel.textColor = Colors.textColor
         upcomingEventTimeLabel.textColor = Colors.textColor
-        upcomingEventHallLabel.textColor = Colors.textColor
+        upcomingEventHallLabel.textColor = Colors.homeMainLabelTextColor
         upcomingEventNameLabel.textColor = Colors.textColor
     }
     

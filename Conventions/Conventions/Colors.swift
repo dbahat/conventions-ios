@@ -23,17 +23,26 @@ class Colors {
     static let olamot2019_yellow5 = UIColor(hexString: "#fff5e3")
     static let olamot2019_blue2 = UIColor(hexString: "#259BF7")
     
-    static let colorAccent = Colors.olamot2019_blue
+    static let icon2019_blue = UIColor(hexString: "#1C1868")
+    static let icon2019_violet1 = UIColor(hexString: "#574ACE")
+    static let icon2019_violet2 = UIColor(hexString: "#8543ff")
+    static let icon2019_pink1 = UIColor(hexString: "#D643FF")
+    static let icon2019_pink2 = UIColor(hexString: "#fcd6e5")
+    static let icon2019_cyan1 = UIColor(hexString: "#69B2f9")
+    static let icon2019_cyan2 = UIColor(hexString: "#A1E2ff")
+
+    
+    static let colorAccent = Colors.icon2019_pink1
     static let textColor = UIColor.black
     
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.colorAccent
     static let eventTimeDefaultBackgroundColor = Colors.olamot2019_yellow1
     static let eventTimeHeaderColor = UIColor.clear
-    static let buttonColor = Colors.olamot2019_blue
+    static let buttonColor = Colors.icon2019_violet2
     static let eventFeedbackButtonsColor = Colors.olamot2019_blue
     static let eventFeedbackTextColor = UIColor.black
-    static let buttonPressedColor = Colors.olamot2019_grey1
+    static let buttonPressedColor = Colors.icon2019_pink1
     static let mapBackgroundColor = Colors.olamot2019_yellow5
     
     // Events colors
@@ -57,11 +66,12 @@ class Colors {
     static let secondHandOpenFormColor = UIColor.black
     
     // Home colors
-    static let homeButtonsColor = Colors.olamot2019_blue
-    static let homeCurrentEventColor = Colors.olamot2019_yellow2
-    static let homeNextEventColor = Colors.olamot2019_yellow1
-    static let homeTimeTextColor = UIColor.white
-    static let homeTimeBoxContainerColor = UIColor.black
+    static let homeButtonsColor = Colors.icon2019_violet2
+    static let homeCurrentEventColor = Colors.icon2019_cyan2
+    static let homeNextEventColor = Colors.icon2019_violet1
+    static let homeTimeTextColor = UIColor.black
+    static let homeMainLabelTextColor = UIColor.white
+    static let homeTimeBoxContainerColor = Colors.icon2019_pink2
     
     // Updates colors
     static let updateTimeBackground = Colors.olamot2019_yellow1

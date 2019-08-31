@@ -36,7 +36,7 @@ class BeforeConventionHomeContentView : UIView {
         updatesButtonContainer.backgroundColor = Colors.homeButtonsColor
         mainContentContainer.backgroundColor = Colors.homeNextEventColor
         timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
-        remainingDaysLabel.textColor = Colors.textColor
+        remainingDaysLabel.textColor = Colors.homeMainLabelTextColor
         conventionDatesLabel.textColor = Colors.homeTimeTextColor
         eventsButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
         updatesButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
