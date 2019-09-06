@@ -37,7 +37,7 @@ class Colors {
     
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.colorAccent
-    static let eventTimeDefaultBackgroundColor = Colors.olamot2019_yellow1
+    static let eventTimeDefaultBackgroundColor = Colors.icon2019_violet2
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = Colors.icon2019_violet2
 
@@ -49,8 +49,8 @@ class Colors {
     static let eventRunningColor = Colors.olamot2019_blue
     static let eventNotStartedColor = UIColor.black
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
-    static let eventMarkedAsFavorite = Colors.olamot2019_blue
-    static let eventNotMarkedAsFavorite = Colors.olamot2019_brown4
+    static let eventMarkedAsFavorite = UIColor.white
+    static let eventNotMarkedAsFavorite = Colors.icon2019_violet1
     static let eventSeperatorColor = UIColor.black
     
     // Event colors
