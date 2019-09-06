@@ -227,7 +227,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Event_Default" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
@@ -2045,9 +2045,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AboutLogo" width="450.5" height="148"/>
+        <image name="AboutLogo" width="225.5" height="90.5"/>
         <image name="AppBackground" width="450.5" height="800.5"/>
-        <image name="Event_Default" width="450.5" height="800.5"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
         <image name="HomeImage" width="450.5" height="203"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>

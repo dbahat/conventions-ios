@@ -38,7 +38,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         titleLabel.textColor = Colors.homeTimeTextColor
         goToEventsButton.backgroundColor = Colors.homeButtonsColor
-        goToEventsButton.setTitleColor(Colors.homeTimeTextColor, for: .normal)
+        goToEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         eventsTable.backgroundColor = Colors.homeNextEventColor
         eventsTable.separatorColor = Colors.textColor
     }
@@ -75,7 +75,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     private func bind(_ cell: UITableViewCell, event: ConventionEvent) -> UITableViewCell {
         cell.textLabel?.text = event.title
         cell.textLabel?.textAlignment = .right
-        cell.textLabel?.textColor = Colors.textColor
+        cell.textLabel?.textColor = Colors.homeMainLabelTextColor
         cell.textLabel?.font.withSize(18)
         cell.textLabel?.numberOfLines = 2
         cell.backgroundColor = UIColor.clear

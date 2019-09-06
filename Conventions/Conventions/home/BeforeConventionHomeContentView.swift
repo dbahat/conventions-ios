@@ -38,8 +38,8 @@ class BeforeConventionHomeContentView : UIView {
         timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         remainingDaysLabel.textColor = Colors.homeMainLabelTextColor
         conventionDatesLabel.textColor = Colors.homeTimeTextColor
-        eventsButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
-        updatesButtonContainer.setTitleColor(Colors.homeTimeTextColor, for: .normal)
+        eventsButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
+        updatesButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
     }
     
     func setDates(start: Date, end: Date) {
