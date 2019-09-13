@@ -98,11 +98,11 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     }
     
     func navigateToEventsClicked() {
-        tabBarController?.selectedIndex = 3
+        tabBarController?.selectedIndex = 2
     }
     
     func navigateToFavoritesClicked() {
-        tabBarController?.selectedIndex = 2
+        tabBarController?.selectedIndex = 1
     }
     
     func navigateToEventClicked(event: ConventionEvent) {
