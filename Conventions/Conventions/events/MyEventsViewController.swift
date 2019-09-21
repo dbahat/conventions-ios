@@ -138,6 +138,51 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func importEventsWasClicked(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "ייבוא אירועים מאתר אייקון", message: "הכנס את שם המשתמש והסיסמה שלך באתר אייקון", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "בטל", style: .cancel) { (result : UIAlertAction) -> Void in }
+        let okAction = UIAlertAction(title: "ייבא", style: .default) { (result : UIAlertAction) -> Void in
+            guard let user = alertController.textFields![0].text else {
+                TTGSnackbar(message: "שם משתמש לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                return
+            }
+            guard let password = alertController.textFields![1].text else {
+                TTGSnackbar(message: "סיסמה לא תקינה", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                return
+            }
+            
+            UserTicketsRetriever().retrieve(user: user, password: password, callback: {result in
+                guard let importedEvents = result else {
+                    TTGSnackbar(message: "ייבוא האירועים נכשל", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    return
+                }
+                
+                let foundImportedEvents = Convention.instance.events.getAll().filter({event in importedEvents.eventIds.contains(event.serverId)})
+                for event in foundImportedEvents {
+                    event.attending = true
+                }
+                TTGSnackbar(message: String(format: "user id %@, events %d", importedEvents.userId, foundImportedEvents.count),
+                            duration: TTGSnackbarDuration.middle,
+                            superView: self.view
+                    ).show()
+            })
+        }
+        alertController.addTextField(configurationHandler: {textField in
+            textField.textAlignment = .right
+            textField.placeholder = "שם משתמש"
+            textField.keyboardType = .emailAddress
+        })
+        alertController.addTextField(configurationHandler: {textField in
+            textField.isSecureTextEntry=true
+            textField.textAlignment = .right
+            textField.placeholder = "סיסמה"
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     fileprivate func reloadMyEvents() {
         myEvents = Convention.instance.events.getAll()
             .filter { event in event.attending && event.startTime.clearTimeComponent().timeIntervalSince1970 == dateFilterControl.selectedDate.timeIntervalSince1970 }

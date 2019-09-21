@@ -1988,7 +1988,13 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" tag="100" title="האירועים שלי" image="MenuEventListWithStar" id="gTS-3I-WYL"/>
-                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg"/>
+                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg">
+                        <barButtonItem key="rightBarButtonItem" title="ייבא אירועים" id="M6i-eM-Jig">
+                            <connections>
+                                <action selector="importEventsWasClicked:" destination="dzP-YM-jGI" id="FhO-eV-vLq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateFilterControl" destination="Sun-ht-wg0" id="kHT-bA-j0N"/>
