@@ -12,6 +12,10 @@ class Tickets {
     var userId: String
     var eventIds: Array<Int>
     
+    convenience init() {
+        self.init(userId: "", eventIds: [])
+    }
+    
     init(userId: String, eventIds: Array<Int>) {
         self.userId = userId
         self.eventIds = eventIds

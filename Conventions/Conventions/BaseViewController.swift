@@ -15,12 +15,13 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Set the tab bar (which is also in the navigation controller) to have the title / button of the 
-        // current tab. Only setting right button since left is reserved for back.
-        tabBarController?.navigationItem.title = navigationItem.title;
-        tabBarController?.navigationItem.rightBarButtonItem = navigationItem.rightBarButtonItem;
+        // current tab.
+        tabBarController?.navigationItem.title = navigationItem.title
+        tabBarController?.navigationItem.rightBarButtonItem = navigationItem.rightBarButtonItem
+        tabBarController?.navigationItem.leftBarButtonItem = navigationItem.leftBarButtonItem
         
         // Hide the navigation bar on the root view controller (this is done by default only when the
         // root view controller doesn't have a name, but we want it named for the default back button).
-        navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first == self, animated: false);
+        navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first == self, animated: false)
     }
 }

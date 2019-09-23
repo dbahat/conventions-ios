@@ -10,10 +10,10 @@ import UIKit
 
 class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet fileprivate weak var noEventsLabel: UILabel!
-    @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet fileprivate weak var tabBarIcon: UITabBarItem!
-    @IBOutlet fileprivate weak var dateFilterControl: DateFilterControl!
+    @IBOutlet private weak var noEventsLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tabBarIcon: UITabBarItem!
+    @IBOutlet private weak var dateFilterControl: DateFilterControl!
     
     var shouldScrollToCurrentDateAndTime = true
     private var myEvents: Array<ConventionEvent>?
@@ -139,22 +139,33 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     }
     
     @IBAction func importEventsWasClicked(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "ייבוא אירועים מאתר אייקון", message: "הכנס את שם המשתמש והסיסמה שלך באתר אייקון", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "הוספת אירועים מאתר אייקון", message: "הכנס שם משתמש וסיסמא לאתר אייקון על מנת להוסיף את האירועים להם קנית כרטיסים מראש ולהציג את מספר המשתמש שלך.", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "בטל", style: .cancel) { (result : UIAlertAction) -> Void in }
-        let okAction = UIAlertAction(title: "ייבא", style: .default) { (result : UIAlertAction) -> Void in
-            guard let user = alertController.textFields![0].text else {
-                TTGSnackbar(message: "שם משתמש לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
-                return
-            }
-            guard let password = alertController.textFields![1].text else {
-                TTGSnackbar(message: "סיסמה לא תקינה", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+        let okAction = UIAlertAction(title: "הוסף", style: .default) { (result : UIAlertAction) -> Void in
+            guard
+                let user = alertController.textFields![0].text,
+                let password = alertController.textFields![1].text
+            else {
                 return
             }
             
-            UserTicketsRetriever().retrieve(user: user, password: password, callback: {result in
-                guard let importedEvents = result else {
-                    TTGSnackbar(message: "ייבוא האירועים נכשל", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+            if (user.isEmpty || !user.contains("@")) {
+                TTGSnackbar(message: "שם משתמש לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                return
+            }
+            
+            UserTicketsRetriever().retrieve(user: user, password: password, callback: {(importedEvents, error) in
+                if let failureReason = error {
+                    switch failureReason {
+                    case .badPassword:
+                        TTGSnackbar(message: "שם משתמש או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    case .badUsername:
+                        TTGSnackbar(message: "שם משתמש לא חוקי", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    case .unknown:
+                        TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    }
+                    
                     return
                 }
                 
@@ -162,10 +173,30 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 for event in foundImportedEvents {
                     event.attending = true
                 }
-                TTGSnackbar(message: String(format: "user id %@, events %d", importedEvents.userId, foundImportedEvents.count),
-                            duration: TTGSnackbarDuration.middle,
-                            superView: self.view
-                    ).show()
+                self.reloadMyEvents()
+                
+                var numberOfAddedEventsMessgae: String
+                if importedEvents.eventIds.count == 1 {
+                    numberOfAddedEventsMessgae = "נוסף אירוע אחד"
+                } else if importedEvents.eventIds.count == 0 {
+                    numberOfAddedEventsMessgae = "לא נוספו אירועים"
+                } else {
+                    numberOfAddedEventsMessgae = String(format: "נוספו %@ אירועים.\n\n", importedEvents.eventIds.count)
+                }
+                
+                UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
+                
+                let message =
+                    numberOfAddedEventsMessgae + "\n\n" +
+                    String(format: "מספר המשתמש שלך הוא \n%@\n\n",importedEvents.userId)
+                    + "הצג את מספר המשתמש שלך בקופות עבור איסוף מהיר של הכרטיסים.\n ניתן לגשת למספר ע״י לחיצה על הכפתור ׳מספר משתמש׳ בפינה השמאלית העליונה של המסך"
+                let alertController = UIAlertController(title: nil,
+                                                        message: message,
+                                                        preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
             })
         }
         alertController.addTextField(configurationHandler: {textField in
@@ -181,6 +212,21 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showUserIdWasClicked(_ sender: UIBarButtonItem) {
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            // in case there's no user ID set yet, show the import events dialog
+            importEventsWasClicked(sender)
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil,
+                                                message: String(format: "מספר המשתמש שלך הוא \n\n%@",userId),
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     fileprivate func reloadMyEvents() {

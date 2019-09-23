@@ -34,6 +34,8 @@ class MoreInfoViewController : UITableViewController {
         
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        tabBarController?.navigationItem.leftBarButtonItem = nil
         
         let imageView = UIImageView(image: UIImage(named: "AppBackground"))
         imageView.contentMode = .scaleAspectFill
