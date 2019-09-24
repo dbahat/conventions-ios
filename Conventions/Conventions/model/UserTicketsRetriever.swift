@@ -27,19 +27,21 @@ class UserTicketsRetriever {
                 let unwrappedData = data,
                 let tickets = self.deserialize(unwrappedData)
             else {
-                callback?(Tickets(), error)
+                callback?(Tickets(), error ?? .unknown)
                 return;
             }
+            
+            let intTickets = tickets.filter({Int($0) != nil}).map({Int($0)!})
             
             self.postRequest(url: UserTicketsRetriever.userIdApi, body: requestBody, completionHandler: { (data, error) in
                 guard
                     let unwrappedData = data,
                     let userId = String(data: unwrappedData, encoding: .utf8)
                 else {
-                    callback?(Tickets(userId: "", eventIds: tickets), error)
+                    callback?(Tickets(userId: "", eventIds: intTickets), error)
                     return;
                 }
-                callback?(Tickets(userId: userId, eventIds: tickets), error)
+                callback?(Tickets(userId: userId, eventIds: intTickets), error)
             })
         })
     }
@@ -75,9 +77,9 @@ class UserTicketsRetriever {
         }).resume();
     }
     
-    private func deserialize(_ data: Data) -> Array<Int>? {
+    private func deserialize(_ data: Data) -> Array<String>? {
         do {
-            return try JSONSerialization.jsonObject(with: data, options: []) as? Array<Int>
+            return try JSONSerialization.jsonObject(with: data, options: []) as? Array<String>
         } catch {
             print("json error: \(error.localizedDescription)")
             return nil
