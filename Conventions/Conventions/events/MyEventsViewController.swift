@@ -181,13 +181,13 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 } else if importedEvents.eventIds.count == 0 {
                     numberOfAddedEventsMessgae = "לא נוספו אירועים"
                 } else {
-                    numberOfAddedEventsMessgae = String(format: "נוספו %@ אירועים.\n\n", importedEvents.eventIds.count)
+                    numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", importedEvents.eventIds.count)
                 }
                 
                 UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
                 
                 let message =
-                    numberOfAddedEventsMessgae + "\n\n" +
+                    numberOfAddedEventsMessgae + "\n" +
                     String(format: "מספר המשתמש שלך הוא \n%@\n\n",importedEvents.userId)
                     + "הצג את מספר המשתמש שלך בקופות עבור איסוף מהיר של הכרטיסים.\n ניתן לגשת למספר ע״י לחיצה על הכפתור ׳מספר משתמש׳ בפינה השמאלית העליונה של המסך"
                 let alertController = UIAlertController(title: nil,
