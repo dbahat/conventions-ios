@@ -169,19 +169,20 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                     return
                 }
                 
-                let foundImportedEvents = Convention.instance.events.getAll().filter({event in importedEvents.eventIds.contains(event.serverId)})
-                for event in foundImportedEvents {
+                let newlyImportedEvents = Convention.instance.events.getAll()
+                    .filter({event in importedEvents.eventIds.contains(event.serverId) && !event.attending})
+                for event in newlyImportedEvents {
                     event.attending = true
                 }
                 self.reloadMyEvents()
                 
                 var numberOfAddedEventsMessgae: String
-                if importedEvents.eventIds.count == 1 {
+                if newlyImportedEvents.count == 1 {
                     numberOfAddedEventsMessgae = "נוסף אירוע אחד"
-                } else if importedEvents.eventIds.count == 0 {
+                } else if newlyImportedEvents.count == 0 {
                     numberOfAddedEventsMessgae = "לא נוספו אירועים"
                 } else {
-                    numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", importedEvents.eventIds.count)
+                    numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", newlyImportedEvents.count)
                 }
                 
                 UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
