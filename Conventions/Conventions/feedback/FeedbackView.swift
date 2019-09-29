@@ -46,6 +46,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             sendButton.setTitleColor(buttonColor, for: UIControlState())
         }
     }
+    var answerButtonsColor = Colors.buttonColor
+    var answerButtonsPressedColor = Colors.buttonPressedColor
     
     fileprivate var questions: Array<FeedbackQuestion> = []
     fileprivate var answers: Array<FeedbackAnswer> = []
@@ -185,6 +187,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         cell.delegate = self
         cell.question = question
         cell.feedbackTextColor = textColor
+        cell.feedbackAnswerColor = answerButtonsColor
+        cell.feedbackAnswerPressedColor = answerButtonsPressedColor
         
         // disable the question cell interactions if the feedback was already sent
         cell.enabled = !isSent

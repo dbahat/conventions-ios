@@ -91,29 +91,39 @@ import Foundation
         }
         
         enum SmileyType {
+            case veryNegetive
             case negetive
+            case neutral
             case positive
             case veryPositive
             
             func getImage() -> UIImage {
                 switch self {
+                case .veryNegetive:
+                    return UIImage(named: "Feedback_very_negetive")!.withRenderingMode(.alwaysTemplate)
                 case .negetive:
-                    return UIImage(named: "Feedback_negetive_selected")!
+                    return UIImage(named: "Feedback_negetive")!.withRenderingMode(.alwaysTemplate)
+                case .neutral:
+                    return UIImage(named: "Feedback_neutral")!.withRenderingMode(.alwaysTemplate)
                 case .positive:
-                    return UIImage(named: "Feedback_positive_selected")!
+                    return UIImage(named: "Feedback_positive")!.withRenderingMode(.alwaysTemplate)
                 case .veryPositive:
-                    return UIImage(named: "Feedback_very_positive_selected")!
+                    return UIImage(named: "Feedback_very_positive")!.withRenderingMode(.alwaysTemplate)
                 }
             }
             
             func description() -> String {
                 switch self {
+                case .veryNegetive:
+                    return "☹️"
                 case .negetive:
-                    return "|:"
+                    return "🙁"
+                case .neutral:
+                    return "😐"
                 case .positive:
-                    return "(:"
+                    return "🙂"
                 case .veryPositive:
-                    return ":D"
+                    return "😃"
                 }
             }
             
@@ -123,11 +133,15 @@ import Foundation
                 }
                 
                 switch unwrappedValue {
-                case "|:":
+                case "☹️":
+                    return .veryNegetive
+                case "🙁":
                     return .negetive
-                case "(:":
+                case "😐":
+                    return .neutral
+                case "🙂":
                     return .positive
-                case ":D":
+                case "😃":
                     return .veryPositive
                 default:
                     print("unidentified answer type while parsing: " + unwrappedValue)

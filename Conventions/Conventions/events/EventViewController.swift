@@ -46,6 +46,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
             feedbackView.buttonColor = Colors.eventFeedbackButtonsColor
+            feedbackView.answerButtonsColor = UIColor.white
+            feedbackView.answerButtonsPressedColor = Colors.buttonColor
             
             if (event.didSubmitFeedback()) {
                 feedbackView.state = .collapsed

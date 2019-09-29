@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,10 +35,9 @@
                                     <constraint firstAttribute="height" constant="50" id="PT6-k7-cCD"/>
                                     <constraint firstAttribute="width" constant="50" id="fM8-ba-PMC"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Feedback_negetive"/>
-                                <state key="selected" backgroundImage="Feedback_negetive_selected"/>
+                                <state key="normal" image="Feedback_very_negetive"/>
                                 <connections>
-                                    <action selector="negetiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="fN4-98-wSL"/>
+                                    <action selector="veryNegetiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="4y6-YN-gEN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DQ-pE-eQB">
@@ -48,10 +46,9 @@
                                     <constraint firstAttribute="width" constant="50" id="KlI-2W-kb7"/>
                                     <constraint firstAttribute="height" constant="50" id="qrZ-PR-VKw"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Feedback_positive"/>
-                                <state key="selected" backgroundImage="Feedback_positive_selected"/>
+                                <state key="normal" image="Feedback_negetive"/>
                                 <connections>
-                                    <action selector="positiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="zJZ-KE-z32"/>
+                                    <action selector="negetiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="BvH-Cu-DR8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="374-Yf-I7b">
@@ -60,10 +57,31 @@
                                     <constraint firstAttribute="width" constant="50" id="PXW-qR-3rQ"/>
                                     <constraint firstAttribute="height" constant="50" id="Szy-hC-yiX"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Feedback_very_positive"/>
-                                <state key="selected" backgroundImage="Feedback_very_positive_selected"/>
+                                <state key="normal" image="Feedback_neutral"/>
                                 <connections>
-                                    <action selector="veryPositiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="Mup-Id-2Fr"/>
+                                    <action selector="neutralWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="Dma-nF-2sR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRW-aQ-XXW">
+                                <rect key="frame" x="200" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="832-9M-H86"/>
+                                    <constraint firstAttribute="height" constant="50" id="uD7-ip-Nvf"/>
+                                </constraints>
+                                <state key="normal" image="Feedback_positive"/>
+                                <connections>
+                                    <action selector="positiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="S1p-lq-aSl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q9-7k-Z2x">
+                                <rect key="frame" x="130" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QjJ-3q-EeU"/>
+                                    <constraint firstAttribute="width" constant="50" id="Zhe-EK-suQ"/>
+                                </constraints>
+                                <state key="normal" image="Feedback_very_positive"/>
+                                <connections>
+                                    <action selector="veryPositiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="h7D-eY-b9J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,7 +89,11 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9wG-2f-9l2" secondAttribute="trailing" id="6Ig-XQ-JKG"/>
+                            <constraint firstItem="uRW-aQ-XXW" firstAttribute="top" secondItem="rhm-v7-4Ez" secondAttribute="top" constant="10" id="9es-3t-fan"/>
+                            <constraint firstItem="2q9-7k-Z2x" firstAttribute="top" secondItem="rhm-v7-4Ez" secondAttribute="top" constant="10" id="9uV-Na-b3G"/>
                             <constraint firstItem="9wG-2f-9l2" firstAttribute="top" secondItem="rhm-v7-4Ez" secondAttribute="top" constant="10" id="Nq6-56-YIy"/>
+                            <constraint firstItem="374-Yf-I7b" firstAttribute="leading" secondItem="uRW-aQ-XXW" secondAttribute="trailing" constant="20" id="Nui-2U-6w4"/>
+                            <constraint firstItem="uRW-aQ-XXW" firstAttribute="leading" secondItem="2q9-7k-Z2x" secondAttribute="trailing" constant="20" id="Q9C-4L-8Hg"/>
                             <constraint firstItem="1DQ-pE-eQB" firstAttribute="leading" secondItem="374-Yf-I7b" secondAttribute="trailing" constant="20" id="QFy-HI-yn1"/>
                             <constraint firstItem="9wG-2f-9l2" firstAttribute="leading" secondItem="1DQ-pE-eQB" secondAttribute="trailing" constant="20" id="Sjw-Kh-gnu"/>
                             <constraint firstItem="1DQ-pE-eQB" firstAttribute="top" secondItem="rhm-v7-4Ez" secondAttribute="top" constant="10" id="cmD-g2-7kG"/>
@@ -94,20 +116,21 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <connections>
-                <outlet property="negetiveFeedbackButton" destination="9wG-2f-9l2" id="aAj-uh-b4B"/>
-                <outlet property="positiveFeedbackButton" destination="1DQ-pE-eQB" id="gNl-yL-Sw6"/>
+                <outlet property="negetiveFeedbackButton" destination="1DQ-pE-eQB" id="S7Q-4r-DTc"/>
+                <outlet property="neutralFeedbackButton" destination="374-Yf-I7b" id="rTX-6u-gW8"/>
+                <outlet property="positiveFeedbackButton" destination="uRW-aQ-XXW" id="AfP-li-Ikz"/>
                 <outlet property="questionLabel" destination="Ksj-yR-mbO" id="RF3-5c-KDD"/>
-                <outlet property="veryPositiveFeedbackButton" destination="374-Yf-I7b" id="NNN-Bp-jmj"/>
+                <outlet property="veryNegetiveFeedbackButton" destination="9wG-2f-9l2" id="kop-xl-K8g"/>
+                <outlet property="veryPositiveFeedbackButton" destination="2q9-7k-Z2x" id="wun-f2-zLX"/>
             </connections>
             <point key="canvasLocation" x="258" y="-131"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Feedback_negetive" width="36" height="36"/>
-        <image name="Feedback_negetive_selected" width="36" height="36"/>
-        <image name="Feedback_positive" width="36" height="36"/>
-        <image name="Feedback_positive_selected" width="36" height="36"/>
-        <image name="Feedback_very_positive" width="36" height="36"/>
-        <image name="Feedback_very_positive_selected" width="36" height="36"/>
+        <image name="Feedback_negetive" width="72" height="72"/>
+        <image name="Feedback_neutral" width="72" height="72"/>
+        <image name="Feedback_positive" width="72" height="72"/>
+        <image name="Feedback_very_negetive" width="72" height="72"/>
+        <image name="Feedback_very_positive" width="72" height="72"/>
     </resources>
 </document>

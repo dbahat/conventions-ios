@@ -10,22 +10,34 @@ import Foundation
 
 class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     
-    @IBOutlet fileprivate weak var questionLabel: UILabel!
-    @IBOutlet fileprivate weak var positiveFeedbackButton: UIButton!
-    @IBOutlet fileprivate weak var negetiveFeedbackButton: UIButton!
-    @IBOutlet fileprivate weak var veryPositiveFeedbackButton: UIButton!
+    @IBOutlet private weak var questionLabel: UILabel!
+    @IBOutlet private weak var positiveFeedbackButton: UIButton!
+    @IBOutlet private weak var negetiveFeedbackButton: UIButton!
+    @IBOutlet private weak var veryPositiveFeedbackButton: UIButton!
+    @IBOutlet private weak var neutralFeedbackButton: UIButton!
+    @IBOutlet private weak var veryNegetiveFeedbackButton: UIButton!
     
     override var enabled: Bool {
         didSet {
-            positiveFeedbackButton.isUserInteractionEnabled = enabled
-            negetiveFeedbackButton.isUserInteractionEnabled = enabled
-            veryPositiveFeedbackButton.isUserInteractionEnabled = enabled
+            for button in getButtons() {
+                button.isUserInteractionEnabled = enabled
+            }
         }
     }
     
     override var feedbackTextColor: UIColor {
         didSet {
             questionLabel.textColor = feedbackTextColor
+        }
+    }
+    
+    override var feedbackAnswerColor : UIColor {
+        didSet {
+            for button in getButtons() {
+                let image = button.image(for: .normal)?.withRenderingMode(.alwaysTemplate)
+                button.setImage(image, for: .normal)
+                button.tintColor = feedbackAnswerColor
+            }
         }
     }
     
@@ -41,20 +53,31 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         setState(smilyAnswer.answer)
     }
     
-    @IBAction fileprivate func veryPositiveWasClicked(_ sender: UIButton) {
+    @IBAction private func veryPositiveWasClicked(_ sender: UIButton) {
         resetState(button: sender, newState: .veryPositive)
     }
-    @IBAction fileprivate func positiveWasClicked(_ sender: UIButton) {
+    @IBAction private func positiveWasClicked(_ sender: UIButton) {
         resetState(button: sender, newState: .positive)
     }
-    @IBAction fileprivate func negetiveWasClicked(_ sender: UIButton) {
+    @IBAction private func negetiveWasClicked(_ sender: UIButton) {
         resetState(button: sender, newState: .negetive)
     }
+    @IBAction private func veryNegetiveWasClicked(_ sender: UIButton) {
+        resetState(button: sender, newState: .veryNegetive)
+    }
+    @IBAction private func neutralWasClicked(_ sender: UIButton) {
+        resetState(button: sender, newState: .neutral)
+    }
     
-    fileprivate func resetState(button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
+    private func getButtons() -> [UIButton] {
+        return [positiveFeedbackButton, negetiveFeedbackButton, veryPositiveFeedbackButton, veryNegetiveFeedbackButton, neutralFeedbackButton]
+    }
+    
+    private func resetState(button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
         // In case the user clicked on an already selected button, clear the selection
         if button.isSelected {
             button.isSelected = false
+            button.tintColor = feedbackAnswerColor
             if let unwrappedQuestion = question {
                 delegate?.questionCleared(unwrappedQuestion)
             }
@@ -64,23 +87,33 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         setState(newState)
     }
     
-    fileprivate func setState(_ newState: FeedbackAnswer.Smiley.SmileyType) {
-        negetiveFeedbackButton.isSelected = false
-        positiveFeedbackButton.isSelected = false
-        veryPositiveFeedbackButton.isSelected = false
-        
-        switch newState {
-        case .negetive:
-            negetiveFeedbackButton.isSelected = true
-            break;
-        case .positive:
-            positiveFeedbackButton.isSelected = true
-            break;
-        case .veryPositive:
-            veryPositiveFeedbackButton.isSelected = true
-            break;
+    private func setState(_ newState: FeedbackAnswer.Smiley.SmileyType) {
+        for button in getButtons() {
+            button.tintColor = feedbackAnswerColor
+            button.isSelected = false
         }
         
+        let button = getButton(forState: newState)
+        let image = newState.getImage()
+        button.setImage(image, for: .selected)
+        button.isSelected = true
+        button.tintColor = feedbackAnswerPressedColor
+        
         delegate?.questionWasAnswered(FeedbackAnswer.Smiley(questionText: question!.question, answer: newState))
+    }
+    
+    private func getButton(forState: FeedbackAnswer.Smiley.SmileyType) -> UIButton {
+        switch forState {
+        case .veryNegetive:
+            return veryNegetiveFeedbackButton
+        case .negetive:
+            return negetiveFeedbackButton
+        case .neutral:
+            return neutralFeedbackButton
+        case .positive:
+            return positiveFeedbackButton
+        case .veryPositive:
+            return veryPositiveFeedbackButton
+        }
     }
 }

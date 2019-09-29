@@ -28,7 +28,7 @@ class Colors {
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = Colors.icon2019_violet2
 
-    static let buttonPressedColor = Colors.icon2019_pink1
+    static let buttonPressedColor = Colors.icon2019_pink2
     static let mapBackgroundColor = UIColor.clear
     
     // Events colors

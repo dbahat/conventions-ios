@@ -74,6 +74,7 @@ class EventView: UIView {
             if event.didSubmitFeedback() {
                 feedbackIcon.image = event.feedbackAnswers.getFeedbackWeightedRating()?.answer.getImage()
                     ?? UIImage(named: "Feedback_icon_yellow")
+                feedbackIcon.tintColor = Colors.buttonPressedColor
             } else {
                 
                 let imageName = event.feedbackAnswers.count > 0 && !Convention.instance.isFeedbackSendingTimeOver()
