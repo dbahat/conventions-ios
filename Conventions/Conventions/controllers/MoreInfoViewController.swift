@@ -69,11 +69,6 @@ class MoreInfoViewController : UITableViewController {
             return 0
         }
         
-        // Hide the discounts page until they are approved for the current convention
-        if indexPath.row == 4 {
-            return 0
-        }
-        
         return 44
     }
 }
