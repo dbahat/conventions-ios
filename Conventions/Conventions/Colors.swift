@@ -65,4 +65,8 @@ class Colors {
     // Updates colors
     static let updateTimeBackground = Colors.icon2019_violet2
     static let updateTimeTextColor = UIColor.white
+    
+    // Map colors
+    static let mapIndicatorColor = Colors.icon2019_violet1
+    static let mapIndicatorSelectedColor = Colors.icon2019_pink2
 }
