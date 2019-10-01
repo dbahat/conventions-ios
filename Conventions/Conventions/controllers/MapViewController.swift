@@ -18,7 +18,7 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         MapArea(name: "עירוני - קומה 1", image: UIImage(named: "Ironi_floor1")!),
         MapArea(name: "אשכול - קומה 2", image: UIImage(named: "Eshkol_floor2")!),
         MapArea(name: "אשכול - קומה 1", image: UIImage(named: "Eshkol_floor1")!),
-        MapArea(name: "מפת מתחם", image: UIImage(named: "Overview")!)
+        MapArea(name: "מפת המתחם", image: UIImage(named: "Overview")!)
     ]
     
     // Not using the built in UIPageViewController page control since it's only supported for horizontal paging
