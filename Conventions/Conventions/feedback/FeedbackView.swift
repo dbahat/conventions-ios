@@ -131,7 +131,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     
     private func updateMoreFeedbackLink() {
         let moreFeedbackText = "רוצה להרחיב? לתת משוב נוסף? לחץ כאן"
-        let moreFeedbackAttributedString = NSMutableAttributedString(string: moreFeedbackText , attributes: [.foregroundColor:textColor])
+        let moreFeedbackAttributedString = NSMutableAttributedString(string: moreFeedbackText , attributes: [.foregroundColor:textColor, .font: UIFont.systemFont(ofSize: 14)])
         let range = NSString(string: moreFeedbackText).range(of: "כאן")
         let url = event == nil ? urlFotAdditionalConventionFeedback : urlFotAdditionalEventFeedback
         moreFeedbackAttributedString.addAttribute(.link, value: url, range: range)
