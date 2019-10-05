@@ -79,6 +79,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         lecturerContainer.backgroundColor = Colors.eventDetailsBoxColor
         metadataContainer.backgroundColor = Colors.eventDetailsBoxColor
         
+        feedbackView.event = event
         lecturer.text = event.lecturer
         eventTitle.text = event.title
         eventTypeAndCategory.text =  event.category.isEmpty

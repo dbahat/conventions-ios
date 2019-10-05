@@ -41,9 +41,9 @@ class ConventionEvent {
     
     let feedbackQuestions: Array<FeedbackQuestion> = [
         FeedbackQuestion(question:"האם נהנית באירוע?", answerType: .Smiley),
-        FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
-        FeedbackQuestion(question:"האם תרצה לבוא לאירועים בנושאים דומים בעתיד?", answerType: .Smiley),
-        FeedbackQuestion(question:"עוד משהו?", answerType: .Text),
+        //FeedbackQuestion(question:"ההנחיה באירוע היתה:", answerType: .Smiley),
+        //FeedbackQuestion(question:"האם תרצה לבוא לאירועים בנושאים דומים בעתיד?", answerType: .Smiley),
+        FeedbackQuestion(question:"נשמח לדעת למה", answerType: .Text),
         ]
     
     init(id:String, serverId:Int, color: UIColor?, textColor: UIColor?, title: String, lecturer: String?, startTime: Date, endTime: Date, type: EventType, hall: Hall, description: String?, category: String, price: Int, tags: Array<String>, url: URL) {

@@ -19,25 +19,30 @@ protocol FeedbackViewProtocol : class {
     func sendFeedbackWasClicked()
 }
 
-class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol {
+class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, FeedbackQuestionProtocol, UITextViewDelegate {
     
-    @IBOutlet fileprivate weak var feedbackIconContainerWidth: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var feedbackIcon: UIImageView!
-    @IBOutlet fileprivate weak var changeStateButton: UIButton!
-    @IBOutlet fileprivate weak var sendButton: UIButton!
-    @IBOutlet fileprivate weak var questionsTableView: UITableView!
-    @IBOutlet fileprivate weak var titleLabel: UILabel!
-    @IBOutlet fileprivate weak var questionsTableHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var footerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet fileprivate weak var footerView: UIView!
-    @IBOutlet fileprivate weak var sendMailIndicator: UIActivityIndicatorView!
-    @IBOutlet fileprivate weak var headerView: UIView!
-    @IBOutlet fileprivate weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var feedbackIconContainerWidth: NSLayoutConstraint!
+    @IBOutlet private weak var feedbackIcon: UIImageView!
+    @IBOutlet private weak var changeStateButton: UIButton!
+    @IBOutlet private weak var sendButton: UIButton!
+    @IBOutlet private weak var questionsTableView: UITableView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var questionsTableHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var footerView: UIView!
+    @IBOutlet private weak var sendMailIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var moreInfoFeedbackTextView: UITextView!
+    
+    private let urlFotAdditionalEventFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqH12zcrWijR56WbQsu1w6HtMSAOT3UG2mefNJr0ubLMPEbg/viewform?usp=pp_url")!
+    private let urlFotAdditionalConventionFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScAhC6xcSDmexSAMyVnGIEApiRC0jUBXVfvAxv2E9wvLoZeHg/viewform")!
     
     var textColor = Colors.textColor {
         didSet {
             titleLabel.textColor = textColor
             questionsTableView.reloadData()
+            updateMoreFeedbackLink()
         }
     }
     var buttonColor = Colors.buttonColor {
@@ -48,10 +53,15 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     }
     var answerButtonsColor = Colors.buttonColor
     var answerButtonsPressedColor = Colors.buttonPressedColor
+    var event: ConventionEvent? {
+        didSet {
+            updateMoreFeedbackLink()
+        }
+    }
     
-    fileprivate var questions: Array<FeedbackQuestion> = []
-    fileprivate var answers: Array<FeedbackAnswer> = []
-    fileprivate var isSent: Bool = false {
+    private var questions: Array<FeedbackQuestion> = []
+    private var answers: Array<FeedbackAnswer> = []
+    private var isSent: Bool = false {
         didSet {
             if !isSent {
                 return
@@ -69,9 +79,9 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     
     weak var delegate: FeedbackViewProtocol?
     
-    fileprivate let headerHeight = CGFloat(30)
-    fileprivate let footerHeight = CGFloat(31)
-    fileprivate let paddingSize = CGFloat(10)
+    private let headerHeight = CGFloat(30)
+    private let footerHeight = CGFloat(67)
+    private let paddingSize = CGFloat(10)
     
     var state: State = State.collapsed {
         didSet {
@@ -114,6 +124,37 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         changeStateButton.setTitleColor(Colors.buttonColor, for: UIControlState())
         sendButton.setTitleColor(Colors.buttonColor, for: UIControlState())
         titleLabel.textColor = textColor
+        moreInfoFeedbackTextView.textColor = textColor
+        
+        updateMoreFeedbackLink()
+    }
+    
+    private func updateMoreFeedbackLink() {
+        let moreFeedbackText = "רוצה להרחיב? לתת משוב נוסף? לחץ כאן"
+        let moreFeedbackAttributedString = NSMutableAttributedString(string: moreFeedbackText , attributes: [.foregroundColor:textColor])
+        let range = NSString(string: moreFeedbackText).range(of: "כאן")
+        let url = event == nil ? urlFotAdditionalConventionFeedback : urlFotAdditionalEventFeedback
+        moreFeedbackAttributedString.addAttribute(.link, value: url, range: range)
+        
+        moreInfoFeedbackTextView.attributedText = moreFeedbackAttributedString
+        
+        moreInfoFeedbackTextView.delegate = self
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if event == nil {
+            UIApplication.shared.openURL(URL)
+            return false
+        }
+        
+        let items = ["entry.1572016508": event?.title, "entry.1917108492": event?.lecturer, "entry.10889808": event?.hall.name, "entry.1131737302": event?.startTime.format("dd.MM.yyyy HH:mm")]
+        
+        var components = URLComponents(url: URL, resolvingAgainstBaseURL: true)
+        components?.queryItems = items.map({URLQueryItem(name: $0.key, value: $0.value)})
+        if let urlWithPrefilledFields = components?.url {
+            UIApplication.shared.openURL(urlWithPrefilledFields)
+        }
+        return false
     }
     
     func setFeedback(questions: Array<FeedbackQuestion>, answers: Array<FeedbackAnswer>, isSent: Bool) {
