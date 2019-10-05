@@ -83,19 +83,19 @@ class Convention {
         events = Events(halls: halls)
         
         feedbackQuestions = [
-            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
-                "פחות מ-12", "17–12", "25–18", "+25"
-                ]),
+//            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
+//                "פחות מ-12", "17–12", "25–18", "+25"
+//                ]),
             FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .Smiley),
-            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
-                "כן", "לא"
-                ]),
-            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
-                "האירוע התנגש עם אירוע אחר שהלכתי אילו",
-                "לא הצלחתי למצא את מקום האירוע",
-                "האירוע התרחש מוקדם או מאוחר מידי",
-                "סיבה אחרת",
-                ]),
+//            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
+//                "כן", "לא"
+//                ]),
+//            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
+//                "האירוע התנגש עם אירוע אחר שהלכתי אילו",
+//                "לא הצלחתי למצא את מקום האירוע",
+//                "האירוע התרחש מוקדם או מאוחר מידי",
+//                "סיבה אחרת",
+//                ]),
             FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
         ]
         
