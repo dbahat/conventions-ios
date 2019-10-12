@@ -139,7 +139,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     }
     
     @IBAction func importEventsWasClicked(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "הוספת אירועים מאתר אייקון", message: "הכנס שם משתמש וסיסמא לאתר אייקון על מנת להוסיף את האירועים להם קנית כרטיסים מראש ולהציג את מספר המשתמש שלך.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "הוספת אירועים מאתר אייקון", message: "הכנס אימייל וסיסמא לאתר אייקון על מנת להוסיף את האירועים להם קנית כרטיסים מראש ולהציג את מספר המשתמש שלך.", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "בטל", style: .cancel) { (result : UIAlertAction) -> Void in }
         let okAction = UIAlertAction(title: "הוסף", style: .default) { (result : UIAlertAction) -> Void in
@@ -151,7 +151,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             }
             
             if (user.isEmpty || !user.contains("@")) {
-                TTGSnackbar(message: "שם משתמש לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "אימייל לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                 return
             }
             
@@ -159,9 +159,9 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 if let failureReason = error {
                     switch failureReason {
                     case .badPassword:
-                        TTGSnackbar(message: "שם משתמש או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                        TTGSnackbar(message: "אימייל או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                     case .badUsername:
-                        TTGSnackbar(message: "שם משתמש לא חוקי", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                        TTGSnackbar(message: "אימייל לא נמצא במערכת", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                     case .unknown:
                         TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
                     }
