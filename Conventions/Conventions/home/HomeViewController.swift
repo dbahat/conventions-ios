@@ -86,9 +86,11 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     }
     
     func navigateToUpdatesClicked() {
-        if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: UpdatesViewController.self)) as? UpdatesViewController {
-            navigationController?.pushViewController(updatesVc, animated: true)
-        }
+        // Since for icon2020 updates was placed in the main bar instead of the map screen
+        tabBarController?.selectedIndex = 1
+//        if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: UpdatesViewController.self)) as? UpdatesViewController {
+//            navigationController?.pushViewController(updatesVc, animated: true)
+//        }
     }
     
     func navigateToFeedbackClicked() {

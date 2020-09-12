@@ -46,7 +46,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
             feedbackView.buttonColor = Colors.eventFeedbackButtonsColor
-            feedbackView.answerButtonsColor = UIColor.white
+            feedbackView.answerButtonsColor = Colors.eventFeedbackAnswersButtonsColor
             feedbackView.answerButtonsPressedColor = Colors.buttonColor
             
             if (event.didSubmitFeedback()) {

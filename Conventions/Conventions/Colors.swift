@@ -26,8 +26,11 @@ class Colors {
     static let eventTimeDefaultBackgroundColor = Colors.icon2020_dark_red
     static let eventTimeHeaderColor = UIColor.clear
     static let buttonColor = Colors.icon2020_red
-
     static let buttonPressedColor = Colors.icon2020_dark_red
+    
+    static let feedbackButtonColor = Colors.icon2020_dark_red
+    static let feedbackButtonPressedColor = Colors.icon2020_red
+    
     static let mapBackgroundColor = UIColor.clear
     
     // Events colors
@@ -45,8 +48,9 @@ class Colors {
     static let eventTitleBoarderColor = Colors.icon2020_dark_red
     static let eventTitleTextColor = UIColor.white
     static let eventDetailsHighlightedTextColor = UIColor.white
-    static let eventFeedbackBoxColor = Colors.icon2020_dark_red
+    static let eventFeedbackBoxColor = Colors.icon2020_blue
     static let eventFeedbackButtonsColor = UIColor.white
+    static let eventFeedbackAnswersButtonsColor = Colors.icon2020_teal
     static let eventFeedbackTextColor = UIColor.white
     
     // SecondHand colors

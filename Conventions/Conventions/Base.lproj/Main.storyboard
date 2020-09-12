@@ -218,14 +218,14 @@
                         <viewControllerLayoutGuide type="bottom" id="eex-RS-Ur4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AU-0L-zpZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -939,16 +939,16 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4X-tM-6Eq" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                                    <rect key="frame" x="5" y="16" width="345" height="70"/>
+                                                                    <rect key="frame" x="5" y="5" width="345" height="92"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="d4X-tM-6Eq" firstAttribute="top" secondItem="10o-yA-ZKS" secondAttribute="topMargin" constant="5" id="GdZ-LU-CjX"/>
+                                                                <constraint firstAttribute="bottom" secondItem="d4X-tM-6Eq" secondAttribute="bottom" constant="5" id="DTZ-VT-U8h"/>
                                                                 <constraint firstItem="d4X-tM-6Eq" firstAttribute="leading" secondItem="10o-yA-ZKS" secondAttribute="leading" constant="5" id="L7h-yN-cef"/>
                                                                 <constraint firstAttribute="trailing" secondItem="d4X-tM-6Eq" secondAttribute="trailing" constant="5" id="O68-M6-O0v"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="d4X-tM-6Eq" secondAttribute="bottom" constant="5" id="ozF-XI-eDe"/>
+                                                                <constraint firstItem="d4X-tM-6Eq" firstAttribute="top" secondItem="10o-yA-ZKS" secondAttribute="top" constant="5" id="bL5-Xz-rOg"/>
                                                             </constraints>
                                                             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                         </tableViewCellContentView>
@@ -1905,7 +1905,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="w1u-TZ-YLe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="300" height="128.5"/>

@@ -51,8 +51,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             sendButton.setTitleColor(buttonColor, for: UIControl.State())
         }
     }
-    var answerButtonsColor = Colors.buttonColor
-    var answerButtonsPressedColor = Colors.buttonPressedColor
+    var answerButtonsColor = Colors.feedbackButtonColor
+    var answerButtonsPressedColor = Colors.feedbackButtonPressedColor
     var event: ConventionEvent? {
         didSet {
             updateMoreFeedbackLink()
