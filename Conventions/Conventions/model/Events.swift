@@ -9,8 +9,8 @@
 import Foundation
 
 class Events {
-    private static let eventsApiUrl = URL(string: "https://api.sf-f.org.il/program/list_events.php?slug=icon2019")!;
-    private static let availableTicketsCacheLastRefreshTimeApi = URL(string: "https://api.sf-f.org.il/program/cache_get_last_updated.php?slug=icon2019&which=available_tickets")!
+    private static let eventsApiUrl = URL(string: "https://api.sf-f.org.il/program/list_events.php?slug=icon2020")!;
+    private static let availableTicketsCacheLastRefreshTimeApi = URL(string: "https://api.sf-f.org.il/program/cache_get_last_updated.php?slug=icon2020&which=available_tickets")!
     
     private static let fileName = Convention.name + "Events.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;

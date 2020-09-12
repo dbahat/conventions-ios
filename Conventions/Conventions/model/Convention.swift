@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2019, month: 10, day: 15)
-    static let endDate = Date.from(year: 2019, month: 10, day: 17)
-    static let name = "Icon2019"
-    static let displayName = "פסטיבל אייקון 2019"
+    static let date = Date.from(year: 2020, month: 10, day: 5)
+    static let endDate = Date.from(year: 2020, month: 10, day: 8)
+    static let name = "Icon2020"
+    static let displayName = "פסטיבל אייקון 2020"
     
     var halls: Array<Hall>
     var events: Events
@@ -83,30 +83,18 @@ class Convention {
         events = Events(halls: halls)
         
         feedbackQuestions = [
-//            FeedbackQuestion(question:"גיל", answerType: .MultipleAnswer, answersToSelectFrom: [
-//                "פחות מ-12", "17–12", "25–18", "+25"
-//                ]),
             FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .Smiley),
-//            FeedbackQuestion(question:"האם המפה והשילוט היו ברורים ושימושיים?", answerType: .MultipleAnswer, answersToSelectFrom: [
-//                "כן", "לא"
-//                ]),
-//            FeedbackQuestion(question: "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?", answerType: .TableMultipleAnswer, answersToSelectFrom: [
-//                "האירוע התנגש עם אירוע אחר שהלכתי אילו",
-//                "לא הצלחתי למצא את מקום האירוע",
-//                "האירוע התרחש מוקדם או מאוחר מידי",
-//                "סיבה אחרת",
-//                ]),
             FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
         ]
         
         conventionFeedbackForm = SurveyForm.Feedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScbDYud3x8OfSd-53GY11TrRJVWqdxI6_2wT3DbAEIe1IJ_fg/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSf-zkgmGqL7TLejddzsWX_zA1eMz721kvZoYdKm9N_WAuUOPQ/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfraYvfQm83clQrqyQ_F9QGK2Qv5-fXQRilMClSiV0EB5-EKA/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSecoPbHneUr2fZre9eXv00vjan_muNejb9VwJ_9UV2PFv4DJg/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             eventTitleEntry: "entry.1847107867",

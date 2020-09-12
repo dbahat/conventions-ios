@@ -92,7 +92,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
         tags.text = "תגיות: " + event.tags.joined(separator: ", ")
         
-        if let availableTicketsCount = event.availableTickets {
+        if let availableTicketsCount = event.availableTickets, availableTicketsCount >= 0 {
             updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
         } else {
             availableTickets.removeFromSuperview()
