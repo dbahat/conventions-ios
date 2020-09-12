@@ -35,8 +35,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet private weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var moreInfoFeedbackTextView: UITextView!
     
-    private let urlFotAdditionalEventFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqH12zcrWijR56WbQsu1w6HtMSAOT3UG2mefNJr0ubLMPEbg/viewform?usp=pp_url")!
-    private let urlFotAdditionalConventionFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScAhC6xcSDmexSAMyVnGIEApiRC0jUBXVfvAxv2E9wvLoZeHg/viewform")!
+    private let urlForAdditionalEventFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqH12zcrWijR56WbQsu1w6HtMSAOT3UG2mefNJr0ubLMPEbg/viewform?usp=pp_url")!
+    private let urlForAdditionalConventionFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScAhC6xcSDmexSAMyVnGIEApiRC0jUBXVfvAxv2E9wvLoZeHg/viewform")!
     
     var textColor = Colors.textColor {
         didSet {
@@ -133,7 +133,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         let moreFeedbackText = "רוצה להרחיב? לתת משוב נוסף? לחץ כאן"
         let moreFeedbackAttributedString = NSMutableAttributedString(string: moreFeedbackText , attributes: [.foregroundColor:textColor, .font: UIFont.systemFont(ofSize: 14)])
         let range = NSString(string: moreFeedbackText).range(of: "כאן")
-        let url = event == nil ? urlFotAdditionalConventionFeedback : urlFotAdditionalEventFeedback
+        let url = event == nil ? urlForAdditionalConventionFeedback : urlForAdditionalEventFeedback
         moreFeedbackAttributedString.addAttribute(.link, value: url, range: range)
         
         moreInfoFeedbackTextView.attributedText = moreFeedbackAttributedString
