@@ -65,7 +65,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         initializeEventsTableViews()
         
         navigationItem.title = "פידבק לכנס"
-        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControl.State())
     
         fillEventFeedbackTitleLabel.textColor = Colors.textColor
         fillEventFeedbackMessageLabel.textColor = Colors.textColor
@@ -77,7 +77,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ConventionFeedbackViewController.keyboardFrameWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ConventionFeedbackViewController.keyboardFrameWillChange(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -91,7 +91,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     
     func feedbackProvided(_ feedback: FeedbackAnswer) {
         // If the answer already exists, override it
-        if let existingAnswerIndex = userInputs.answers.index(where: {$0.questionText == feedback.questionText}) {
+        if let existingAnswerIndex = userInputs.answers.firstIndex(where: {$0.questionText == feedback.questionText}) {
             userInputs.answers.remove(at: existingAnswerIndex)
         }
         userInputs.answers.append(feedback)
@@ -101,7 +101,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     }
     
     func feedbackCleared(_ feedback: FeedbackQuestion) {
-        guard let existingAnswerIndex = userInputs.answers.index(where: {$0.questionText == feedback.question}) else {
+        guard let existingAnswerIndex = userInputs.answers.firstIndex(where: {$0.questionText == feedback.question}) else {
             // no existing answer means nothing to clear
             return
         }
@@ -149,12 +149,12 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     
     // Resize the screen to be at the height minus the keyboard, so that the keyboard won't hide the user's feedback
     @objc func keyboardFrameWillChange(_ notification: Notification) {
-        let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
-        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
+        let keyboardBeginFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIResponder.keyboardFrameBeginUserInfoKey)! as AnyObject).cgRectValue
+        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIResponder.keyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
         
-        let animationCurve = UIViewAnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)! as AnyObject).intValue)
+        let animationCurve = UIView.AnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey: UIResponder.keyboardAnimationCurveUserInfoKey)! as AnyObject).intValue)
         
-        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
+        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey: UIResponder.keyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(animationDuration)

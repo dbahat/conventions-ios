@@ -29,7 +29,7 @@ class AmaiEventsParser {
         var specialEvents = Dictionary<Int, Array<ConventionEvent>>();
         var eventIdToDescription = Dictionary<Int, String>();
         
-        guard let deserializedEvents = try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray else {
+        guard let deserializedEvents = ((try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray) as NSArray??) else {
             print("Failed to deserialize cached events");
             return result;
         }

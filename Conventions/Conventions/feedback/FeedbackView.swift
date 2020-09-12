@@ -47,8 +47,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     }
     var buttonColor = Colors.buttonColor {
         didSet {
-            changeStateButton.setTitleColor(buttonColor, for: UIControlState())
-            sendButton.setTitleColor(buttonColor, for: UIControlState())
+            changeStateButton.setTitleColor(buttonColor, for: UIControl.State())
+            sendButton.setTitleColor(buttonColor, for: UIControl.State())
         }
     }
     var answerButtonsColor = Colors.buttonColor
@@ -71,8 +71,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
                 feedbackIcon.image = rating.answer.getImage()
             }
             
-            sendButton.setTitle("הפידבק נשלח. תודה!", for: UIControlState())
-            sendButton.setTitleColor(UIColor.white, for: UIControlState())
+            sendButton.setTitle("הפידבק נשלח. תודה!", for: UIControl.State())
+            sendButton.setTitleColor(UIColor.white, for: UIControl.State())
             sendButton.isUserInteractionEnabled = false
         }
     }
@@ -90,7 +90,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
                 footerView.isHidden = false
                 footerHeightConstraint.constant = footerHeight
                 questionsTableHeightConstraint.constant = questions.height
-                changeStateButton.setTitle("הסתר",for: UIControlState())
+                changeStateButton.setTitle("הסתר",for: UIControl.State())
                 titleLabel.text = "פידבק"
                 feedbackIconContainerWidth.constant = 0
                 
@@ -98,7 +98,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
                 footerView.isHidden = true
                 footerHeightConstraint.constant = 0
                 questionsTableHeightConstraint.constant = 0
-                changeStateButton.setTitle(isSent ? "הצג פידבק" : "מלא פידבק",for: UIControlState())
+                changeStateButton.setTitle(isSent ? "הצג פידבק" : "מלא פידבק",for: UIControl.State())
                 titleLabel.text = getCollapsedTitleLabel()
                 feedbackIconContainerWidth.constant = 38
             }
@@ -112,7 +112,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         view.frame = self.bounds
         addSubview(view);
         
-        feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         feedbackIcon.tintColor = UIColor.white
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
@@ -121,8 +121,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         questionsTableView.register(UINib(nibName: String(describing: MultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MultipleAnswerFeedbackQuestionCell.self))
         questionsTableView.register(UINib(nibName: String(describing: TableMultipleAnswerFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TableMultipleAnswerFeedbackQuestionCell.self))
         
-        changeStateButton.setTitleColor(Colors.buttonColor, for: UIControlState())
-        sendButton.setTitleColor(Colors.buttonColor, for: UIControlState())
+        changeStateButton.setTitleColor(Colors.buttonColor, for: UIControl.State())
+        sendButton.setTitleColor(Colors.buttonColor, for: UIControl.State())
         titleLabel.textColor = textColor
         moreInfoFeedbackTextView.textColor = textColor
         
@@ -169,8 +169,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             })
         } else {
             if Convention.instance.isFeedbackSendingTimeOver() {
-                sendButton.setTitle("זמן שליחת הפידבק הסתיים", for: UIControlState())
-                sendButton.setTitleColor(UIColor.white, for: UIControlState())
+                sendButton.setTitle("זמן שליחת הפידבק הסתיים", for: UIControl.State())
+                sendButton.setTitleColor(UIColor.white, for: UIControl.State())
                 sendButton.isUserInteractionEnabled = false
             } else {
                 // Disable the send button unless the user answers a question
@@ -198,7 +198,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         }
         
         questions = answeredQuestions
-        questionsTableView.deleteRows(at: indexesToUpdate, with: UITableViewRowAnimation.automatic)
+        questionsTableView.deleteRows(at: indexesToUpdate, with: UITableView.RowAnimation.automatic)
         questionsTableHeightConstraint.constant = questions.height
     }
     

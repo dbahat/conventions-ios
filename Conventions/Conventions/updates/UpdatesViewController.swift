@@ -28,7 +28,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         addRefreshControl()
         
         // Sets iOS to auto-calculate the size of each cell based on it's content.
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 55 // guesstimated initial size per cell. Actual size will be calculated at runtime.
         
         Convention.instance.updates.refresh({success in
@@ -99,8 +99,8 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         tableViewController.tableView = tableView
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
-        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), for: UIControlEvents.valueChanged)
-        addChildViewController(tableViewController)
-        tableViewController.didMove(toParentViewController: self)
+        tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), for: UIControl.Event.valueChanged)
+        addChild(tableViewController)
+        tableViewController.didMove(toParent: self)
     }
 }

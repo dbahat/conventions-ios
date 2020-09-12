@@ -66,7 +66,7 @@ class SecondHand {
                     print("downloaded form " + String(form.id))
                     
                     // Remove the form if it already existed
-                    if let formToRemove = self.forms.index(where: ({$0.id == form.id})) {
+                    if let formToRemove = self.forms.firstIndex(where: ({$0.id == form.id})) {
                         self.cache.forms[formToRemove] = form
                     } else {
                         self.cache.forms.append(form)
@@ -99,7 +99,7 @@ class SecondHand {
     }
     
     func remove(formId: Int) {
-        if let formIndex = forms.index(where: {$0.id == formId}) {
+        if let formIndex = forms.firstIndex(where: {$0.id == formId}) {
             cache.forms.remove(at: formIndex)
             save()
         }

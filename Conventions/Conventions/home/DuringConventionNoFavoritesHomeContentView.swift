@@ -33,7 +33,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         inflateNib(DuringConventionNoFavoritesHomeContentView.self)
         
         eventsTable.estimatedRowHeight = 30
-        eventsTable.rowHeight = UITableViewAutomaticDimension
+        eventsTable.rowHeight = UITableView.automaticDimension
         
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         titleLabel.textColor = Colors.homeTimeTextColor
@@ -69,7 +69,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
             return bind(cell, event: events[indexPath.row])
         }
         
-        return bind(UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifer), event:events[indexPath.row])
+        return bind(UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifer), event:events[indexPath.row])
     }
     
     private func bind(_ cell: UITableViewCell, event: ConventionEvent) -> UITableViewCell {

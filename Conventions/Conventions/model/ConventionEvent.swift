@@ -188,7 +188,7 @@ class ConventionEvent {
         
         if let input = Convention.instance.eventsInputs.getInput(id) {
             // If the answer already exists, override it
-            if let existingAnswerIndex = input.feedbackUserInput.answers.index(where: {$0.questionText == answer.questionText}) {
+            if let existingAnswerIndex = input.feedbackUserInput.answers.firstIndex(where: {$0.questionText == answer.questionText}) {
                 input.feedbackUserInput.answers.remove(at: existingAnswerIndex)
             }
             input.feedbackUserInput.answers.append(answer)
@@ -210,7 +210,7 @@ class ConventionEvent {
             return
         }
         
-        guard let existingAnswerIndex = input.feedbackUserInput.answers.index(where: {$0.questionText == question.question}) else {
+        guard let existingAnswerIndex = input.feedbackUserInput.answers.firstIndex(where: {$0.questionText == question.question}) else {
             // no existing answer means nothing to clear
             return
         }
@@ -287,7 +287,7 @@ class ConventionEvent {
             }
             
             guard
-                let deserializedResult = try? JSONSerialization.jsonObject(with: unwrappedData, options: []) as? Dictionary<String, AnyObject>,
+                let deserializedResult = ((try? JSONSerialization.jsonObject(with: unwrappedData, options: []) as? Dictionary<String, AnyObject>) as Dictionary<String, AnyObject>??),
                 let result = deserializedResult
                 else {
                     print("Failed to deserialize available tickets result");

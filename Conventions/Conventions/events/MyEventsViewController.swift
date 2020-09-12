@@ -53,7 +53,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         tableView.layoutIfNeeded()
         DispatchQueue.main.async {
 
-            if let currentEventIndex = self.myEvents?.index(where: {$0.startTime.timeIntervalSince1970 >= Date.now().timeIntervalSince1970}) {
+            if let currentEventIndex = self.myEvents?.firstIndex(where: {$0.startTime.timeIntervalSince1970 >= Date.now().timeIntervalSince1970}) {
                 self.tableView.scrollToRow(
                     at: IndexPath(row: currentEventIndex, section: 0),
                     at: .top,
@@ -97,7 +97,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             if let event = self.myEvents?[index.row] {
                 event.attending = false;
                 self.reloadMyEvents();
-                tableView.deleteRows(at: [index], with: UITableViewRowAnimation.automatic);
+                tableView.deleteRows(at: [index], with: UITableView.RowAnimation.automatic);
             }
         }
         let event = self.myEvents?[indexPath.row];
@@ -125,13 +125,13 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             return;
         }
         
-        let alertController = UIAlertController(title: "אזהרה", message: "אתה עומד להסיר את האירוע מהאירועים שלי. האם אתה בטוח?", preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: "בטל", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in }
-        let okAction = UIAlertAction(title: "אשר", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: "אזהרה", message: "אתה עומד להסיר את האירוע מהאירועים שלי. האם אתה בטוח?", preferredStyle: UIAlertController.Style.alert)
+        let cancelAction = UIAlertAction(title: "בטל", style: UIAlertAction.Style.cancel) { (result : UIAlertAction) -> Void in }
+        let okAction = UIAlertAction(title: "אשר", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
 
             event.attending = false;
             self.reloadMyEvents();
-            self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic);
+            self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic);
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)

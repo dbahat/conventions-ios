@@ -41,7 +41,7 @@ class TableMultipleAnswerFeedbackQuestionCell : FeedbackQuestionCell, UITableVie
     }
     
     override func setAnswer(_ answer: FeedbackAnswer) {
-        if let answerIndex = answersToSelectFrom.index(where: {$0 == answer.getAnswer()}) {
+        if let answerIndex = answersToSelectFrom.firstIndex(where: {$0 == answer.getAnswer()}) {
             selectedAnswerIndex = IndexPath(row: answerIndex, section: 0)
         }
     }

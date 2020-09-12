@@ -68,7 +68,7 @@ class Updates {
         var result = Array<Update>();
         
         guard let deserializedEvents =
-            try? JSONSerialization.jsonObject(with: response, options: []) as? NSArray,
+            ((try? JSONSerialization.jsonObject(with: response, options: []) as? NSArray) as NSArray??),
             let updates = deserializedEvents
             else {
                 print("Failed to deserialize updates");
@@ -112,7 +112,7 @@ class Updates {
         let serializedUpdates = self.updates.map({$0.toJson()});
         
         let json = try? JSONSerialization.data(withJSONObject: serializedUpdates, options: JSONSerialization.WritingOptions.prettyPrinted);
-        try? json?.write(to: URL(fileURLWithPath: Updates.cacheFile), options: [.atomic]);
+        ((try? json?.write(to: URL(fileURLWithPath: Updates.cacheFile), options: [.atomic])) as ()??);
     }
     
     fileprivate func load() -> Array<Update>? {

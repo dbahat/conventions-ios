@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     private var webViewCache: StaticContentWebView?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
@@ -52,13 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // In case we were launched due to user clicking a notification, handle the notification
             // now (e.g. navigate to a specific page, show the notification in a larger popup...).
             // Dispatching the task to the message queue so the UI will finish it's init first.
-            if let localNotification = options[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification {
+            if let localNotification = options[UIApplication.LaunchOptionsKey.localNotification] as? UILocalNotification {
                 DispatchQueue.main.async {
                     self.handleNotificationIfNeeded(localNotification)
                 }
             }
             
-            if let remoteNotification = options[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
+            if let remoteNotification = options[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
                 DispatchQueue.main.async {
                     // In case we got opened from a remove notification, also navigate to the updates page
                     self.showPushNotificationPopup(remoteNotification, shouldNavigateToUpdates: true)

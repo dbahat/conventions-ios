@@ -14,7 +14,7 @@ class SffEventsParser {
         var result = Array<ConventionEvent>();
         
         guard let deserializedEvents =
-            try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray,
+            ((try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray) as NSArray??),
             let events = deserializedEvents
         else {
             print("Failed to deserialize events");

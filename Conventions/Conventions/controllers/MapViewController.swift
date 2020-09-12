@@ -47,10 +47,10 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
         
         pageViewController.dataSource = self
         
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         view.addSubview(pageViewController.view)
 
-        pageViewController.didMove(toParentViewController: self);
+        pageViewController.didMove(toParent: self);
         self.pageViewController = pageViewController;
         
         // Since pageControl is only horizontal, transform it to be vertical

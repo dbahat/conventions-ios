@@ -129,14 +129,14 @@ open class TTGSnackbar: UIView {
     /// Action button title.
     @objc open dynamic var actionText: String = "" {
         didSet {
-            self.actionButton.setTitle(actionText, for: UIControlState())
+            self.actionButton.setTitle(actionText, for: UIControl.State())
         }
     }
     
     /// Action button title color. Default is white.
     @objc open dynamic var actionTextColor: UIColor = UIColor.white {
         didSet {
-            actionButton.setTitleColor(actionTextColor, for: UIControlState())
+            actionButton.setTitleColor(actionTextColor, for: UIControl.State())
         }
     }
     
@@ -252,16 +252,16 @@ open class TTGSnackbar: UIView {
             superView.addSubview(self)
             
             // Snackbar height constraint
-            let heightConstraint: NSLayoutConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: TTGSnackbar.snackbarHeight)
+            let heightConstraint: NSLayoutConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: TTGSnackbar.snackbarHeight)
             
             // Snackbar width constraint
-            let widthConstraint: NSLayoutConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: superView.bounds.width - 2 * TTGSnackbar.snackbarHorizonMargin)
+            let widthConstraint: NSLayoutConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: superView.bounds.width - 2 * TTGSnackbar.snackbarHorizonMargin)
             
             // Center X constraint
-            centerXConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+            centerXConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: superView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
             
             // Bottom margin constraint
-            topMarginConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+            topMarginConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: superview, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
             
             // Add constraints
             self.addConstraint(heightConstraint)
@@ -312,9 +312,9 @@ open class TTGSnackbar: UIView {
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.backgroundColor = UIColor.clear
         actionButton.titleLabel?.font = actionTextFont
-        actionButton.setTitle(actionText, for: UIControlState())
-        actionButton.setTitleColor(UIColor.white, for: UIControlState())
-        actionButton.addTarget(self, action: #selector(TTGSnackbar.doAction), for: UIControlEvents.touchUpInside)
+        actionButton.setTitle(actionText, for: UIControl.State())
+        actionButton.setTitleColor(UIColor.white, for: UIControl.State())
+        actionButton.addTarget(self, action: #selector(TTGSnackbar.doAction), for: UIControl.Event.touchUpInside)
         self.addSubview(actionButton)
         
         seperateView = UIView()
@@ -322,7 +322,7 @@ open class TTGSnackbar: UIView {
         seperateView.backgroundColor = UIColor.gray
         self.addSubview(seperateView)
         
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+        activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.white)
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.stopAnimating()
         self.addSubview(activityIndicatorView)
@@ -330,41 +330,41 @@ open class TTGSnackbar: UIView {
         // Add constraints
         let hConstraints: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "H:[messageLabel]-snackbarHorizonMargin-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: ["snackbarHorizonMargin": 10],
-            views: ["messageLabel": messageLabel, "seperateView": seperateView, "actionButn": actionButton])
+            views: ["messageLabel": messageLabel!, "seperateView": seperateView!, "actionButn": actionButton!])
         
         let vConstraintsForMessageLabel: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-[messageLabel]-|",
-            options: NSLayoutFormatOptions(rawValue: 10),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 10),
             metrics: nil,
             views: ["messageLabel": messageLabel])
         
         let vConstraintsForSeperateView: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-[seperateView]-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: nil,
             views: ["seperateView": seperateView])
         
         let vConstraintsForActionButton: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-[actionButton]-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: nil,
             views: ["actionButton": actionButton])
         
         actionButtonWidthConstraint = NSLayoutConstraint.init(
-            item: actionButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal,
-            toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: TTGSnackbar.snackbarActionButtonWidth)
+            item: actionButton, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: TTGSnackbar.snackbarActionButtonWidth)
         
         let vConstraintsForActivityIndicatorView: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-(2)-[activityIndicatorView]-(2)-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: nil,
             views: ["activityIndicatorView": activityIndicatorView])
         
         let hConstraintsForActivityIndicatorView: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "H:[activityIndicatorView(activityIndicatorWidth)]-(2)-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
+            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: ["activityIndicatorWidth": TTGSnackbar.snackbarHeight - 4],
             views: ["activityIndicatorView": activityIndicatorView])
         
@@ -426,7 +426,7 @@ open class TTGSnackbar: UIView {
         
         self.setNeedsLayout()
         UIView.animate(withDuration: TTGSnackbar.snackbarAnimationDuration,
-            delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.2, options: UIViewAnimationOptions.curveEaseIn,
+            delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.2, options: UIView.AnimationOptions.curveEaseIn,
             animations: {
                 () -> Void in
                 animationBlock?()
@@ -485,7 +485,7 @@ open class TTGSnackbar: UIView {
         self.setNeedsLayout()
         
         UIView.animate(withDuration: TTGSnackbar.snackbarAnimationDuration,
-            delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5, options: UIViewAnimationOptions(),
+            delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5, options: UIView.AnimationOptions(),
             animations: {
                 () -> Void in
                 animationBlock?()

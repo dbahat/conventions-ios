@@ -36,7 +36,7 @@ class UserInputs {
             let serilizableInputs = eventInputs.map({input in [input.0: input.1.toJson()]});
             
             let json = try? JSONSerialization.data(withJSONObject: serilizableInputs, options: JSONSerialization.WritingOptions.prettyPrinted);
-            try? json?.write(to: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile), options: [.atomic]);
+            ((try? json?.write(to: URL(fileURLWithPath: UserInputs.Events.eventsStorageFile), options: [.atomic])) as ()??);
         }
         
         fileprivate func loadEventFeedbacks() -> Dictionary<String, UserInput.ConventionEventInput>? {
@@ -72,7 +72,7 @@ class UserInputs {
         
         func save() {
             let json = try? JSONSerialization.data(withJSONObject: conventionInputs.toJson(), options: JSONSerialization.WritingOptions.prettyPrinted);
-            try? json?.write(to: URL(fileURLWithPath: UserInputs.ConventionInputs.conventionStorageFile), options: [.atomic]);
+            ((try? json?.write(to: URL(fileURLWithPath: UserInputs.ConventionInputs.conventionStorageFile), options: [.atomic])) as ()??);
         }
         
         fileprivate func loadConventionFeedback() -> UserInput.Feedback? {

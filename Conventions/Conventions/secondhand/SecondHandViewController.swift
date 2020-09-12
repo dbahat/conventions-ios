@@ -39,8 +39,8 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         
         tableView.estimatedSectionHeaderHeight = 70
         tableView.estimatedRowHeight = 70
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         refreshIndicatorView.color = Colors.colorAccent
         
@@ -73,7 +73,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
     }
     
     func removeWasClicked(formId: Int) {
-        if let formIndex = forms.index(where: {$0.id == formId}) {
+        if let formIndex = forms.firstIndex(where: {$0.id == formId}) {
             Convention.instance.secondHand.remove(formId: formId)
             tableView.deleteSections(IndexSet(integer: formIndex), with: .automatic)
             noItemsFoundLabel.isHidden = forms.count > 0
@@ -183,9 +183,9 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableViewController.tableView = tableView;
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
-        tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.userPulledToRefresh), for: UIControlEvents.valueChanged)
+        tableViewController.refreshControl?.addTarget(self, action: #selector(SecondHandViewController.userPulledToRefresh), for: UIControl.Event.valueChanged)
         tableViewController.refreshControl?.backgroundColor = UIColor.clear
-        addChildViewController(tableViewController)
-        tableViewController.didMove(toParentViewController: self)
+        addChild(tableViewController)
+        tableViewController.didMove(toParent: self)
     }
 }
