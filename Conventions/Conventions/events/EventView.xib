@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-wK-gf8">
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-wK-gf8" userLabel="TimeBoxContainer">
                     <rect key="frame" x="250" y="0.0" width="70" height="472"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V75-pZ-Hax">
@@ -62,7 +60,7 @@
                         <constraint firstItem="V75-pZ-Hax" firstAttribute="centerX" secondItem="7xQ-wK-gf8" secondAttribute="centerX" id="x5N-Bs-GbT"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-fH-VhW">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-fH-VhW" userLabel="TitleContainer">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="472"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventNotAttending" translatesAutoresizingMaskIntoConstraints="NO" id="fK2-Tm-LDR">
@@ -138,7 +136,7 @@
                         <constraint firstItem="oe7-bM-u99" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" id="trE-aH-xvg"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-aV-DvI">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-aV-DvI" userLabel="FavButton">
                     <rect key="frame" x="0.0" y="215" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5N6-sC-cSn"/>
@@ -174,6 +172,7 @@
                 <constraint firstAttribute="bottom" secondItem="tZ3-fH-VhW" secondAttribute="bottom" constant="8" id="iNM-ba-4jH"/>
                 <constraint firstAttribute="bottom" secondItem="7xQ-wK-gf8" secondAttribute="bottom" constant="8" id="ziR-B2-pH7"/>
             </constraints>
+            <point key="canvasLocation" x="131" y="155"/>
         </view>
         <tapGestureRecognizer id="PAd-ob-HPP"/>
     </objects>
