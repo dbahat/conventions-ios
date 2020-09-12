@@ -19,15 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-sb-utp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-sb-utp">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" red="0.9882352941176471" green="0.71372549019607845" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-Dv-uh1">
-                                <rect key="frame" x="16" y="56" width="343" height="203"/>
+                                <rect key="frame" x="16" y="56" width="343" height="153"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
-                                <rect key="frame" x="12" y="271" width="351" height="347"/>
+                                <rect key="frame" x="12" y="221" width="351" height="397"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axt-QF-84t">
@@ -221,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-wF-SxX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
@@ -1526,29 +1526,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="N5u-Zq-QbS">
-                                        <rect key="frame" x="10" y="16" width="355" height="203"/>
+                                        <rect key="frame" x="37.5" y="16" width="300" height="128.5"/>
                                     </imageView>
                                     <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-xt-gOK" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="235" width="327" height="200"/>
+                                        <rect key="frame" x="24" y="160.5" width="327" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="nSr-pH-Pfo"/>
                                         </constraints>
                                     </webView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
-                                        <rect key="frame" x="8" y="445" width="343" height="29"/>
+                                        <rect key="frame" x="8" y="370.5" width="343" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
-                                        <rect key="frame" x="8" y="479" width="343" height="20.5"/>
+                                        <rect key="frame" x="8" y="404.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-pg-Cr5">
-                                        <rect key="frame" x="8" y="504.5" width="343" height="17"/>
+                                        <rect key="frame" x="8" y="430" width="343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1908,10 +1908,11 @@
         <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="AboutLogo" width="450.5" height="203"/>
-        <image name="AppBackground" width="450.5" height="800.5"/>
+        <image name="AboutLogo" width="300" height="128.5"/>
+        <image name="AppBackground" width="300" height="533"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
-        <image name="HomeImage" width="450.5" height="203"/>
+        <image name="HomeBackground" width="300" height="533"/>
+        <image name="HomeImage" width="450" height="153"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuArrivalMethods" width="33.333332061767578" height="33.333332061767578"/>

@@ -32,6 +32,9 @@ class MoreInfoViewController : UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Since not extending BaseViewController
+        self.view.backgroundColor = Colors.backgroundColor
+        
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
         tabBarController?.navigationItem.rightBarButtonItem = nil

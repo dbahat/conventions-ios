@@ -66,8 +66,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
         
         lecturer.textColor = Colors.textColor
-        eventTitle.textColor = Colors.textColor
-        eventTypeAndCategory.textColor = Colors.textColor
+        eventTitle.textColor = Colors.eventTitleTextColor
+        eventTypeAndCategory.textColor = Colors.eventTitleTextColor
         hall.textColor = Colors.textColor
         time.textColor = Colors.textColor
         prices.textColor = Colors.textColor

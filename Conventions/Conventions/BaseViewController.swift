@@ -23,5 +23,7 @@ class BaseViewController: UIViewController {
         // Hide the navigation bar on the root view controller (this is done by default only when the
         // root view controller doesn't have a name, but we want it named for the default back button).
         navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first == self, animated: false)
+        
+        self.view.backgroundColor = Colors.backgroundColor
     }
 }
