@@ -123,10 +123,9 @@
                                     <constraint firstAttribute="height" constant="39" id="U3Y-sa-qOs"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
                                 <rect key="frame" x="8" y="136" width="359" height="482"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -137,29 +136,26 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="359" height="92"/>
+                                        <rect key="frame" x="0.0" y="72" width="359" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OXO-rt-127" id="MYl-BU-zg9">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="16" width="346" height="60"/>
+                                                    <rect key="frame" x="5" y="5" width="349" height="92"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leading" constant="8" id="5fY-2w-Gto"/>
-                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="topMargin" constant="5" id="Nnm-3F-XoF"/>
+                                                <constraint firstAttribute="bottom" secondItem="RWd-dD-fE6" secondAttribute="bottom" constant="5" id="3Tm-Zo-SKP"/>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leading" constant="5" id="5fY-2w-Gto"/>
                                                 <constraint firstAttribute="trailing" secondItem="RWd-dD-fE6" secondAttribute="trailing" constant="5" id="lNK-0i-hzF"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="RWd-dD-fE6" secondAttribute="bottom" constant="5" id="ssd-Sj-SqV"/>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="top" constant="5" id="rxs-SZ-WEY"/>
                                             </constraints>
-                                            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <connections>
                                             <outlet property="eventView" destination="RWd-dD-fE6" id="tQD-4E-ApV"/>
                                         </connections>
@@ -548,7 +544,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" id="Gkw-hq-pVW"/>
+                    <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" selectedImage="MenuUpdates" id="Gkw-hq-pVW"/>
                     <navigationItem key="navigationItem" title="עדכונים" id="cYx-Db-2Ie"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -713,37 +709,8 @@
                                             <segue destination="9cX-Hv-YPC" kind="show" id="aGf-Ge-H0X"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wg3-yw-SiI">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wg3-yw-SiI" id="58p-a2-Lz1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="32U-qN-Fk5">
-                                                    <rect key="frame" x="318" y="5.5" width="33" height="33"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עדכונים" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFH-M4-fNm">
-                                                    <rect key="frame" x="257.5" y="12" width="50.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="32U-qN-Fk5" secondAttribute="trailing" constant="8" id="HSQ-8C-nPh"/>
-                                                <constraint firstItem="32U-qN-Fk5" firstAttribute="leading" secondItem="lFH-M4-fNm" secondAttribute="trailing" constant="10" id="ai0-gt-liI"/>
-                                                <constraint firstItem="lFH-M4-fNm" firstAttribute="centerY" secondItem="58p-a2-Lz1" secondAttribute="centerY" id="iNS-nJ-P9H"/>
-                                                <constraint firstItem="32U-qN-Fk5" firstAttribute="centerY" secondItem="58p-a2-Lz1" secondAttribute="centerY" id="qho-aA-A8D"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="6s1-WB-npc" kind="show" id="77m-8Y-bc5"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -772,7 +739,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -817,8 +784,6 @@
                         <outlet property="feedbackLabel" destination="eIS-ua-5Nd" id="WuB-1T-BTa"/>
                         <outlet property="settingsImage" destination="LbD-cL-YEC" id="QAy-MB-S8H"/>
                         <outlet property="settingsLabel" destination="enb-ZG-euh" id="zyU-jk-WEf"/>
-                        <outlet property="updatesImage" destination="32U-qN-Fk5" id="CeG-4i-Osa"/>
-                        <outlet property="updatesLabel" destination="lFH-M4-fNm" id="8nV-rG-XHc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUa-Nz-xQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1145,6 +1110,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="lRM-pE-C2z"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="conventionFeedbackTitleLabel" destination="uWh-41-boP" id="HA2-kY-Xv8"/>
@@ -1511,6 +1477,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="v4a-EK-rZy"/>
                     <connections>
                         <outlet property="beforeEventStartsMessageLabel" destination="IKI-w7-yLT" id="sqj-11-qYb"/>
                         <outlet property="beforeEventStartsTitleLabel" destination="Ztu-Bk-D0l" id="71z-s7-X8m"/>
@@ -1622,6 +1589,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="DxG-oo-xWK"/>
                     <connections>
                         <outlet property="aboutAppContentLabel" destination="rX4-pg-Cr5" id="LnY-bb-5Mb"/>
                         <outlet property="aboutAppTitleLabel" destination="c5b-Z8-F5q" id="QYe-vm-7ei"/>
@@ -1763,6 +1731,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="d7m-yt-UrE" kind="relationship" relationship="viewControllers" id="CWe-4m-hpw"/>
+                        <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="SPu-Pc-PRt"/>
                         <segue destination="dzP-YM-jGI" kind="relationship" relationship="viewControllers" id="LBC-aV-hE4"/>
                         <segue destination="V0r-ed-Jpb" kind="relationship" relationship="viewControllers" id="78f-1n-N4m"/>
                         <segue destination="5Em-fL-kDu" kind="relationship" relationship="viewControllers" id="2WU-xd-oUs"/>
@@ -1880,18 +1849,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" tag="100" title="האירועים שלי" image="MenuEventListWithStar" id="gTS-3I-WYL"/>
-                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg">
-                        <barButtonItem key="leftBarButtonItem" title="מספר משתמש" id="mzp-QB-Imo">
-                            <connections>
-                                <action selector="showUserIdWasClicked:" destination="dzP-YM-jGI" id="MBR-F0-bSC"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="ייבא אירועים" id="M6i-eM-Jig">
-                            <connections>
-                                <action selector="importEventsWasClicked:" destination="dzP-YM-jGI" id="FhO-eV-vLq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateFilterControl" destination="Sun-ht-wg0" id="kHT-bA-j0N"/>
@@ -1947,7 +1905,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r01-Z4-ri2"/>
+        <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="450.5" height="203"/>
