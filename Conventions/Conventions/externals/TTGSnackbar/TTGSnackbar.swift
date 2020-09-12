@@ -58,19 +58,19 @@ open class TTGSnackbar: UIView {
     // MARK: Class property.
     
     /// Animation duration.
-    fileprivate static let snackbarAnimationDuration: TimeInterval = 0.3
+    private static let snackbarAnimationDuration: TimeInterval = 0.3
     
     /// Snackbar height.
-    fileprivate static let snackbarHeight: CGFloat = 44
+    private static let snackbarHeight: CGFloat = 44
     
     /// Snackbar margin to the bottom of screen.
-    fileprivate static let snackbarBottomMargin: CGFloat = 0
+    private static let snackbarBottomMargin: CGFloat = 0
     
     /// Snackbar margin to the left and right.
-    fileprivate static let snackbarHorizonMargin: CGFloat = 0
+    private static let snackbarHorizonMargin: CGFloat = 0
     
     /// Snackbar action button width.
-    fileprivate static let snackbarActionButtonWidth: CGFloat = 64
+    private static let snackbarActionButtonWidth: CGFloat = 64
     
     // MARK: -
     // MARK: Typealias
@@ -80,6 +80,22 @@ open class TTGSnackbar: UIView {
     
     /// Dismiss callback closure definition.
     public typealias TTGDismissBlock = (_ snackbar:TTGSnackbar) -> Void
+    
+    // MARK: -
+    // MARK: Private property.
+    
+    private var messageLabel = UILabel()
+    private var seperateView = UIView()
+    private var actionButton = UIButton()
+    private var activityIndicatorView = UIActivityIndicatorView()
+    
+    /// Timer to dismiss the snackbar.
+    private var dismissTimer: Timer? = nil
+    
+    // Constraints.
+    private var centerXConstraint: NSLayoutConstraint? = nil
+    private var topMarginConstraint: NSLayoutConstraint? = nil
+    private var actionButtonWidthConstraint: NSLayoutConstraint? = nil
     
     // MARK: -
     // MARK: Public property.
@@ -146,22 +162,7 @@ open class TTGSnackbar: UIView {
             self.actionButton.titleLabel?.font = actionTextFont
         }
     }
-    
-    // MARK: -
-    // MARK: Private property.
-    
-    fileprivate var messageLabel: UILabel!
-    fileprivate var seperateView: UIView!
-    fileprivate var actionButton: UIButton!
-    fileprivate var activityIndicatorView: UIActivityIndicatorView!
-    
-    /// Timer to dismiss the snackbar.
-    fileprivate var dismissTimer: Timer? = nil
-    
-    // Constraints.
-    fileprivate var centerXConstraint: NSLayoutConstraint? = nil
-    fileprivate var topMarginConstraint: NSLayoutConstraint? = nil
-    fileprivate var actionButtonWidthConstraint: NSLayoutConstraint? = nil
+
     
     // MARK: -
     // MARK: Init
@@ -291,7 +292,7 @@ open class TTGSnackbar: UIView {
     /**
     Init configuration.
     */
-    fileprivate func configure() {
+    private func configure() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.init(white: 0, alpha: 0.8)
         self.layer.cornerRadius = 4
@@ -332,7 +333,7 @@ open class TTGSnackbar: UIView {
             withVisualFormat: "H:[messageLabel]-snackbarHorizonMargin-|",
             options: NSLayoutConstraint.FormatOptions(rawValue: 0),
             metrics: ["snackbarHorizonMargin": 10],
-            views: ["messageLabel": messageLabel!, "seperateView": seperateView!, "actionButn": actionButton!])
+            views: ["messageLabel": messageLabel, "seperateView": seperateView, "actionButn": actionButton])
         
         let vConstraintsForMessageLabel: [NSLayoutConstraint] = NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-[messageLabel]-|",
@@ -380,7 +381,7 @@ open class TTGSnackbar: UIView {
     /**
      Invalid the dismiss timer.
      */
-    fileprivate func invalidDismissTimer() {
+    private func invalidDismissTimer() {
         dismissTimer?.invalidate()
         dismissTimer = nil
     }
@@ -390,7 +391,7 @@ open class TTGSnackbar: UIView {
      
      - parameter animated: If dismiss with animation.
      */
-    fileprivate func dismissAnimated(_ animated: Bool) {
+    private func dismissAnimated(_ animated: Bool) {
         invalidDismissTimer()
         activityIndicatorView.stopAnimating()
         
@@ -441,7 +442,7 @@ open class TTGSnackbar: UIView {
     /**
      Show.
      */
-    fileprivate func showWithAnimation() {
+    private func showWithAnimation() {
         var animationBlock: (() -> Void)? = nil
         
         switch animationType {
