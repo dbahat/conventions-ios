@@ -194,6 +194,10 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     // MARK: - Private methods
     
     private func applyFiltersForEvents(_ events: Array<ConventionEvent>) -> Array<ConventionEvent> {
