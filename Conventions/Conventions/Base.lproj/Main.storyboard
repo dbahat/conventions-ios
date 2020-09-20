@@ -690,8 +690,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuFeedback" translatesAutoresizingMaskIntoConstraints="NO" id="1BZ-SV-8wP">
                                                     <rect key="frame" x="318" y="5.5" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לכנס" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-ua-5Nd">
-                                                    <rect key="frame" x="231" y="12" width="77" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לפסטיבל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-ua-5Nd">
+                                                    <rect key="frame" x="204.5" y="12" width="103.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -719,8 +719,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuAbout" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-CY-d9k">
                                                     <rect key="frame" x="318" y="5.5" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות הכנס" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXN-ka-OQx">
-                                                    <rect key="frame" x="232" y="12" width="76" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות הפסטיבל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXN-ka-OQx">
+                                                    <rect key="frame" x="205" y="12" width="103" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1052,7 +1052,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הכנס" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הפסטיבל" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
                                         <rect key="frame" x="65" y="388" width="300" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

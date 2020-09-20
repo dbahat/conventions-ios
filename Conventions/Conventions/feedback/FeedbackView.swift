@@ -35,8 +35,8 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     @IBOutlet private weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var moreInfoFeedbackTextView: UITextView!
     
-    private let urlForAdditionalEventFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqH12zcrWijR56WbQsu1w6HtMSAOT3UG2mefNJr0ubLMPEbg/viewform?usp=pp_url")!
-    private let urlForAdditionalConventionFeedback = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScAhC6xcSDmexSAMyVnGIEApiRC0jUBXVfvAxv2E9wvLoZeHg/viewform")!
+    private let urlForAdditionalEventFeedback = URL(string: "https://docs.google.com/forms/d/1qLklELbgNMi9c4KXVz8IVUznb4KK7_DmDM6irmtcujA/viewform")!
+    private let urlForAdditionalConventionFeedback = URL(string: "https://docs.google.com/forms/d/1MAqMB8vRxOULJ4-aqj8uIutFrIUQMbpD7hCjQJEuKPg/viewform")!
     
     var textColor = Colors.textColor {
         didSet {

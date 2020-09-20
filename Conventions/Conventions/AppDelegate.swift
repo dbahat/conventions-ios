@@ -233,7 +233,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // notification title
         if isConventionFeedbackNotification(notification) {
             let alert = UIAlertController(title: "עזור לנו להשתפר", message: notification.alertBody, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "מלא פידבק לכנס", style: .default, handler: {action -> Void in
+            alert.addAction(UIAlertAction(title: "מלא פידבק לספטיבל", style: .default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification)
             }));
             alert.addAction(UIAlertAction(title: "בטל", style: .cancel, handler: nil))
