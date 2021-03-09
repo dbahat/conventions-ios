@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,10 +25,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-Dv-uh1">
-                                <rect key="frame" x="16" y="56" width="343" height="203"/>
+                                <rect key="frame" x="16" y="56" width="343" height="106"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
-                                <rect key="frame" x="12" y="271" width="351" height="347"/>
+                                <rect key="frame" x="12" y="174" width="351" height="444"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axt-QF-84t">
@@ -1766,7 +1767,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-yU-iwa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-ht-wg0" customClass="DateFilterControl" customModule="Conventions" customModuleProvider="target">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-ht-wg0" customClass="DateFilterControl" customModule="Conventions" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                         <segments>
                                             <segment title="יום ה' (20.10)"/>
@@ -1774,6 +1775,7 @@
                                             <segment title="יום ג' (18.10)"/>
                                         </segments>
                                         <color key="tintColor" red="0.25490196079999999" green="0.57647058819999997" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="selectedSegmentTintColor" systemColor="systemOrangeColor"/>
                                         <connections>
                                             <action selector="dateFilterTapped:" destination="V0r-ed-Jpb" eventType="valueChanged" id="mvS-Fy-jEV"/>
                                             <action selector="dateFilterWasTapped:" destination="dzP-YM-jGI" eventType="valueChanged" id="oIe-y7-NNY"/>
@@ -1905,14 +1907,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="300" height="128.5"/>
-        <image name="AppBackground" width="450.5" height="800.5"/>
+        <image name="AppBackground" width="300" height="533"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
-        <image name="HomeBackground" width="450.5" height="800.5"/>
-        <image name="HomeImage" width="450.5" height="203"/>
+        <image name="HomeBackground" width="300" height="533"/>
+        <image name="HomeImage" width="300" height="106"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuArrivalMethods" width="33.333332061767578" height="33.333332061767578"/>
@@ -1925,5 +1927,8 @@
         <image name="MenuOpenUsingMaps" width="23.333333969116211" height="23"/>
         <image name="MenuSettings" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuUpdates" width="33.333332061767578" height="33.333332061767578"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

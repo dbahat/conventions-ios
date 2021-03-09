@@ -34,7 +34,11 @@ class DateFilterControl : UISegmentedControl {
         // By default select the last segment to support RTL
         selectedSegmentIndex = numberOfSegments - 1
         
-        tintColor = Colors.datePickerColor
+        if #available(iOS 13.0, *) {
+            selectedSegmentTintColor = Colors.datePickerColor
+        } else {
+            tintColor = Colors.datePickerColor
+        }
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.textColor]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
