@@ -46,6 +46,8 @@ class EventView: UIView {
         hallName.text = event.hall.name
         timeLayout.backgroundColor = event.color
         seperator.backgroundColor = Colors.eventSeperatorColor
+        lecturer.textColor = Colors.textColor
+        hallName.textColor = Colors.textColor
         
         // Allow dynamic changing of the favorite button color
         favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)

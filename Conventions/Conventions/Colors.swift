@@ -8,69 +8,71 @@
 
 import Foundation
 
-class Colors {    
+class Colors {
     
-    static let icon2020_blue = UIColor(hexString: "#0A125B")
-    static let icon2020_teal = UIColor(hexString: "#6AB1C3")
-    static let icon2020_beige = UIColor(hexString: "#DDE9CC")
-    static let icon2020_red = UIColor(hexString: "#DD2428")
-    static let icon2020_dark_red = UIColor(hexString: "#7F171F")
-    static let icon2020_green = UIColor(hexString: "#7EA39F")
+    static let olamot2021_red1 = UIColor(hexString: "#2C0000")
+    static let olamot2021_red2 = UIColor(hexString: "#710101")
+    static let olamot2021_red3 = UIColor(hexString: "#9E2214")
+    static let olamot2021_grey1 = UIColor(hexString: "#D5D5D5")
+    static let olamot2021_grey2 = UIColor(hexString: "#707070")
+    static let olamot2021_grey3 = UIColor(hexString: "#3F3E39")
+    static let olamot2021_yellow1 = UIColor(hexString: "#F49519")
+    static let olamot2021_yellow2 = UIColor(hexString: "#FBB03B")
     
-    static let colorAccent = Colors.icon2020_red
-    static let textColor = UIColor.black
-    static let backgroundColor = Colors.icon2020_green
+    static let colorAccent = Colors.olamot2021_yellow2
+    static let textColor = UIColor.white
+    static let backgroundColor = UIColor.clear
     
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.colorAccent
-    static let eventTimeDefaultBackgroundColor = Colors.icon2020_dark_red
+    static let eventTimeDefaultBackgroundColor = Colors.olamot2021_grey3
     static let eventTimeHeaderColor = UIColor.clear
-    static let buttonColor = Colors.icon2020_red
-    static let buttonPressedColor = Colors.icon2020_dark_red
+    static let buttonColor = Colors.olamot2021_yellow2
+    static let buttonPressedColor = Colors.olamot2021_yellow1
     
-    static let feedbackButtonColor = Colors.icon2020_dark_red
-    static let feedbackButtonPressedColor = Colors.icon2020_red
+    static let feedbackButtonColor = Colors.buttonColor
+    static let feedbackButtonPressedColor = Colors.buttonPressedColor
     
     static let mapBackgroundColor = UIColor.clear
     
     // Events colors
-    static let eventEndedColor = Colors.icon2020_beige
-    static let eventRunningColor = Colors.icon2020_blue
-    static let eventNotStartedColor = UIColor.black
+    static let eventEndedColor = Colors.olamot2021_grey1
+    static let eventRunningColor = Colors.olamot2021_yellow2
+    static let eventNotStartedColor = UIColor.white
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
-    static let eventMarkedAsFavorite = Colors.icon2020_red
-    static let eventNotMarkedAsFavorite = Colors.icon2020_dark_red
+    static let eventMarkedAsFavorite = Colors.olamot2021_yellow2
+    static let eventNotMarkedAsFavorite = UIColor.white
     static let eventSeperatorColor = UIColor.black
     
     // Event colors
-    static let eventDetailsBoxColor = Colors.icon2020_beige
-    static let eventTitleBackground = Colors.icon2020_dark_red
-    static let eventTitleBoarderColor = Colors.icon2020_dark_red
+    static let eventDetailsBoxColor = Colors.olamot2021_red2
+    static let eventTitleBackground = Colors.olamot2021_grey3
+    static let eventTitleBoarderColor = UIColor.white
     static let eventTitleTextColor = UIColor.white
     static let eventDetailsHighlightedTextColor = UIColor.white
-    static let eventFeedbackBoxColor = Colors.icon2020_blue
+    static let eventFeedbackBoxColor = Colors.olamot2021_grey3
     static let eventFeedbackButtonsColor = UIColor.white
-    static let eventFeedbackAnswersButtonsColor = Colors.icon2020_teal
+    static let eventFeedbackAnswersButtonsColor = Colors.olamot2021_yellow1
     static let eventFeedbackTextColor = UIColor.white
     
     // SecondHand colors
-    static let secondHandClosedFormColor = Colors.icon2020_blue
+    static let secondHandClosedFormColor = UIColor.clear
     static let secondHandOpenFormColor = UIColor.black
     
     // Home colors
     static let homeButtonsColor = Colors.buttonColor
     static let homeButtonsTextColor = UIColor.white
-    static let homeCurrentEventColor = Colors.icon2020_red
-    static let homeNextEventColor = Colors.icon2020_beige
+    static let homeCurrentEventColor = Colors.olamot2021_grey2
+    static let homeNextEventColor = Colors.olamot2021_grey1
     static let homeTimeTextColor = UIColor.white
     static let homeMainLabelTextColor = UIColor.black
-    static let homeTimeBoxContainerColor = Colors.icon2020_dark_red
+    static let homeTimeBoxContainerColor = Colors.olamot2021_grey3
     
     // Updates colors
-    static let updateTimeBackground = Colors.icon2020_dark_red
+    static let updateTimeBackground = Colors.olamot2021_grey3
     static let updateTimeTextColor = UIColor.white
     
     // Map colors
-    static let mapIndicatorColor = Colors.icon2020_blue
-    static let mapIndicatorSelectedColor = Colors.icon2020_blue
+    static let mapIndicatorColor = UIColor.clear
+    static let mapIndicatorSelectedColor = UIColor.clear
 }

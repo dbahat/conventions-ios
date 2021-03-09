@@ -1,16 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "olamot2021_background.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon2020_background.png",
+      "filename" : "olamot2021_background-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon2020_background-1.png",
+      "filename" : "olamot2021_background-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -55,6 +55,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             // Disabled for tablets since on iOS 11 tablets this seems to distort the UI.
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
+        noResultsFoundLabel.textColor = Colors.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,10 +125,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: EventListHeaderView.self)) as! EventListHeaderView;
         headerView.time.text = getSectionName(section: section);
-        
         return headerView;
     }
     

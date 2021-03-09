@@ -35,7 +35,7 @@ class DateFilterControl : UISegmentedControl {
         selectedSegmentIndex = numberOfSegments - 1
         
         tintColor = Colors.datePickerColor
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.textColor]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
     }

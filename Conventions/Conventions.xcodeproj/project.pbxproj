@@ -108,8 +108,8 @@
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
-		A4524987250CEDB0000CCAF5 /* Icon2020Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A4524986250CEDB0000CCAF5 /* Icon2020Events.json */; };
 		A45B18952342096E008457B9 /* shnizel-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A45B18942342096E008457B9 /* shnizel-logo.png */; };
+		A465D2FD25F803030034C9C6 /* olamot2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A465D2FC25F803030034C9C6 /* olamot2021Events.json */; };
 		A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A493499322678C8100B4B805 /* AccessabilityContent.html */; };
 		A4DEC1B72257D1CF0051EF9B /* joya-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B42257D1CF0051EF9B /* joya-logo.png */; };
 		A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */; };
@@ -227,8 +227,8 @@
 		9EE33EE47A018AB1F6602C95 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
-		A4524986250CEDB0000CCAF5 /* Icon2020Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icon2020Events.json; sourceTree = "<group>"; };
 		A45B18942342096E008457B9 /* shnizel-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shnizel-logo.png"; sourceTree = "<group>"; };
+		A465D2FC25F803030034C9C6 /* olamot2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = olamot2021Events.json; sourceTree = "<group>"; };
 		A493499322678C8100B4B805 /* AccessabilityContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AccessabilityContent.html; sourceTree = "<group>"; };
 		A4DEC1B42257D1CF0051EF9B /* joya-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joya-logo.png"; sourceTree = "<group>"; };
 		A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbb-logo.png"; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				A4524986250CEDB0000CCAF5 /* Icon2020Events.json */,
+				A465D2FC25F803030034C9C6 /* olamot2021Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -624,6 +624,7 @@
 				A4DEC1B72257D1CF0051EF9B /* joya-logo.png in Resources */,
 				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
+				A465D2FD25F803030034C9C6 /* olamot2021Events.json in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
@@ -633,7 +634,6 @@
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
-				A4524987250CEDB0000CCAF5 /* Icon2020Events.json in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
 				3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */,
@@ -863,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -914,7 +914,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

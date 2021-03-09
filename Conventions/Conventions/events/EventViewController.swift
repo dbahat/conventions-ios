@@ -109,7 +109,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         eventDescriptionWebView.scrollView.isScrollEnabled = false
         
         if let eventDescription = event.description {
-            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
+            eventDescriptionWebView.setContent(eventDescription, color: "#ffffff")
         }
         
         refreshFavoriteBarIconImage()

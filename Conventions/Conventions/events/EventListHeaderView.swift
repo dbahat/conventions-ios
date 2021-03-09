@@ -16,7 +16,8 @@ class EventListHeaderView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        containerView.backgroundColor = Colors.eventTimeHeaderColor
+        self.backgroundView = UIView()
+        self.backgroundView?.backgroundColor = Colors.eventTimeHeaderColor
         time.textColor = Colors.textColor
     }
 }
