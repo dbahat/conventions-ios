@@ -27,27 +27,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-Dv-uh1">
                                 <rect key="frame" x="16" y="56" width="343" height="106"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
-                                <rect key="frame" x="12" y="174" width="351" height="444"/>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="287-1g-uPQ">
+                                <rect key="frame" x="12" y="174" width="351" height="305"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axt-QF-84t">
-                                <rect key="frame" x="12" y="618" width="351" height="0.0"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="HomeFooter" translatesAutoresizingMaskIntoConstraints="NO" id="axt-QF-84t">
+                                <rect key="frame" x="43.5" y="479" width="288" height="139"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="6fG-P8-jNl"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="axt-QF-84t" firstAttribute="centerX" secondItem="R6L-gR-sYf" secondAttribute="centerX" id="0jt-bK-PtZ"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" id="7YJ-Nz-Xxy"/>
+                            <constraint firstItem="axt-QF-84t" firstAttribute="height" relation="lessThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="height" multiplier="0.224919" id="Alc-vK-aiN"/>
                             <constraint firstItem="287-1g-uPQ" firstAttribute="top" secondItem="K5e-Dv-uh1" secondAttribute="bottom" constant="12" id="EQG-eH-lad"/>
                             <constraint firstAttribute="trailing" secondItem="287-1g-uPQ" secondAttribute="trailing" constant="12" id="K7v-hx-C8H"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" id="Knf-DH-8J7"/>
-                            <constraint firstItem="axt-QF-84t" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" constant="12" id="Lpo-6i-hbX"/>
                             <constraint firstItem="axt-QF-84t" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" id="OiY-Fy-4o7"/>
-                            <constraint firstAttribute="trailing" secondItem="axt-QF-84t" secondAttribute="trailing" constant="12" id="POL-9o-syN"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="height" relation="lessThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="height" multiplier="0.4" id="PQd-Bt-PWm"/>
                             <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="axt-QF-84t" secondAttribute="bottom" id="Tgu-3X-Qee"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K5e-Dv-uh1" secondAttribute="trailing" id="WXc-iL-JCh"/>
@@ -1914,6 +1911,7 @@
         <image name="AppBackground" width="300" height="533"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
         <image name="HomeBackground" width="300" height="533"/>
+        <image name="HomeFooter" width="288" height="139"/>
         <image name="HomeImage" width="300" height="106"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
