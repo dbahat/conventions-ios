@@ -20,6 +20,7 @@ class Colors {
     static let olamot2021_yellow2 = UIColor(hexString: "#FBB03B")
     
     static let colorAccent = Colors.olamot2021_yellow2
+    static let tabBarSelectedTabColor = Colors.olamot2021_red2
     static let textColor = UIColor.white
     static let backgroundColor = UIColor.clear
     
@@ -30,8 +31,8 @@ class Colors {
     static let buttonColor = Colors.olamot2021_yellow2
     static let buttonPressedColor = Colors.olamot2021_yellow1
     
-    static let feedbackButtonColor = Colors.buttonColor
-    static let feedbackButtonPressedColor = Colors.buttonPressedColor
+    static let feedbackButtonColor = Colors.olamot2021_grey1
+    static let feedbackButtonPressedColor = Colors.buttonColor
     
     static let mapBackgroundColor = UIColor.clear
     
@@ -51,8 +52,8 @@ class Colors {
     static let eventTitleTextColor = UIColor.white
     static let eventDetailsHighlightedTextColor = UIColor.white
     static let eventFeedbackBoxColor = Colors.olamot2021_grey3
-    static let eventFeedbackButtonsColor = UIColor.white
-    static let eventFeedbackAnswersButtonsColor = Colors.olamot2021_yellow1
+    static let eventFeedbackButtonsColor = Colors.feedbackButtonColor
+    static let eventFeedbackAnswersButtonsColor = Colors.feedbackButtonColor
     static let eventFeedbackTextColor = UIColor.white
     
     // SecondHand colors

@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
-        UITabBar.appearance().tintColor = Colors.colorAccent
+        UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
             // Forcing the app to left-to-right layout, since automatic changing of layout direction only
