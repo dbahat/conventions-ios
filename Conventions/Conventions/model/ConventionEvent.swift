@@ -137,6 +137,25 @@ class ConventionEvent {
         ]
     }
     
+    var directWatchAvailable: Bool {
+        get {
+            return directWatchUrl != nil
+        }
+    }
+    
+    var directWatchUrl: URL? {
+        switch hall.name {
+        case "אשכול 1":
+            return URL(string: "https://olamot2021.virtualcon.org.il/%D7%90%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%9B%D7%9F/hall1/")
+        case "אשכול 2":
+            return URL(string: "https://olamot2021.virtualcon.org.il/%D7%90%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%9B%D7%9F/hall2/")
+        case "אשכול 3":
+            return URL(string: "https://olamot2021.virtualcon.org.il/%D7%90%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%9B%D7%9F/hall3/")
+        default:
+            return nil
+        }
+    }
+    
     var feedbackAnswers: Array<FeedbackAnswer> {
         get {
             guard let input = Convention.instance.eventsInputs.getInput(id) else {
@@ -239,6 +258,10 @@ class ConventionEvent {
                 
                 callback?(success)
                 })
+    }
+    
+    func isEventAvailable() -> Bool {
+        return startTime.timeIntervalSince1970 <= Date.now().timeIntervalSince1970 && endTime.timeIntervalSince1970 >= Date.now().timeIntervalSince1970
     }
     
     func canFillFeedback() -> Bool {

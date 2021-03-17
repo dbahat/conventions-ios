@@ -33,6 +33,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     @IBOutlet fileprivate weak var feedbackView: FeedbackView!
     @IBOutlet fileprivate weak var feedbackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var availableTickets: UILabel!
+    @IBOutlet weak var OpenEventContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var openEventLabel: UILabel!
+    @IBOutlet weak var OpenEventButton: UIButton!
+    @IBOutlet weak var openEventConatiner: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +120,18 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
         refreshAvailableTicketsButton.tintColor = Colors.textColor
+        
+        if event.directWatchAvailable && event.isEventAvailable() {
+            OpenEventContainerHeightConstraint.constant = 50
+            openEventLabel.textColor = Colors.textColor
+            OpenEventButton.setTitleColor(Colors.buttonColor, for: .normal)
+            OpenEventButton.setTitleColor(Colors.buttonPressedColor, for: .selected)
+            openEventConatiner.backgroundColor = Colors.eventOpenEventConatinerColor
+        } else {
+            OpenEventContainerHeightConstraint.constant = 0
+            openEventLabel.isHidden = true
+            OpenEventButton.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -179,6 +195,13 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             }
             self.updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
         })
+    }
+    
+    @IBAction func OpenEventButtonWasClicked(_ sender: UIButton) {
+        guard let url = event.directWatchUrl else {
+            return
+        }
+        UIApplication.shared.openURL(url)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

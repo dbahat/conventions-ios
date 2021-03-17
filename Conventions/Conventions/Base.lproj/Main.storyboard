@@ -373,15 +373,42 @@
                                             <constraint firstItem="lDx-LA-DHn" firstAttribute="top" secondItem="zWb-Sz-3nI" secondAttribute="bottom" constant="10" id="vjt-QT-sUG"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5x5-ZT-IMi" userLabel="OpenEventContainer">
                                         <rect key="frame" x="20" y="267.5" width="335" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ניתן לצפות באירוע זה בשידור ישיר." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCr-Xe-9IO">
+                                                <rect key="frame" x="5" y="0.0" width="325" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AJ-Is-iwM">
+                                                <rect key="frame" x="128" y="21" width="79" height="30"/>
+                                                <state key="normal" title="לצפיה באירוע"/>
+                                                <connections>
+                                                    <action selector="OpenEventButtonWasClicked:" destination="euQ-tX-Zvn" eventType="touchUpInside" id="Zpd-VR-Xcw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstItem="2AJ-Is-iwM" firstAttribute="top" secondItem="fCr-Xe-9IO" secondAttribute="bottom" id="B5A-Pw-oMe"/>
+                                            <constraint firstAttribute="trailing" secondItem="fCr-Xe-9IO" secondAttribute="trailing" constant="5" id="CUH-WT-OB4"/>
+                                            <constraint firstItem="fCr-Xe-9IO" firstAttribute="leading" secondItem="5x5-ZT-IMi" secondAttribute="leading" constant="5" id="aMd-MA-nwm"/>
+                                            <constraint firstItem="fCr-Xe-9IO" firstAttribute="top" secondItem="5x5-ZT-IMi" secondAttribute="top" id="i39-7q-HxB"/>
+                                            <constraint firstAttribute="height" constant="50" id="n81-oU-AXF"/>
+                                            <constraint firstItem="2AJ-Is-iwM" firstAttribute="centerX" secondItem="5x5-ZT-IMi" secondAttribute="centerX" id="vjh-ho-CkD"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="327.5" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.20784313725490194" green="0.0078431372549019607" blue="0.074509803921568626" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6OO-Xy-ohO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-i3-wiM">
-                                        <rect key="frame" x="20" y="327.5" width="335" height="220"/>
+                                        <rect key="frame" x="20" y="387.5" width="335" height="220"/>
                                         <subviews>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-bu-Mvg" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="315" height="200"/>
@@ -405,8 +432,10 @@
                                     <constraint firstAttribute="trailing" secondItem="dze-UV-zhf" secondAttribute="trailing" constant="20" id="67d-jn-zsn"/>
                                     <constraint firstItem="q76-A4-Mva" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" id="7wE-EU-I9m"/>
                                     <constraint firstItem="9Ss-29-rjU" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="GIy-YG-t5C"/>
+                                    <constraint firstAttribute="trailing" secondItem="5x5-ZT-IMi" secondAttribute="trailing" constant="20" id="LQO-jP-Sv7"/>
                                     <constraint firstAttribute="trailing" secondItem="BZL-9K-Xfi" secondAttribute="trailing" constant="20" id="LSJ-cB-299"/>
                                     <constraint firstItem="q76-A4-Mva" firstAttribute="top" secondItem="Vsq-dg-4zG" secondAttribute="top" id="Nlf-8D-GK7"/>
+                                    <constraint firstItem="5x5-ZT-IMi" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="PkJ-gR-gtn"/>
                                     <constraint firstItem="u5k-i3-wiM" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="VbM-4r-dL8"/>
                                     <constraint firstItem="u5k-i3-wiM" firstAttribute="top" secondItem="9Ss-29-rjU" secondAttribute="bottom" constant="10" id="Wg4-4T-2uc"/>
                                     <constraint firstAttribute="trailing" secondItem="u5k-i3-wiM" secondAttribute="trailing" constant="20" id="aPB-VT-bXQ"/>
@@ -416,10 +445,11 @@
                                     <constraint firstItem="BZL-9K-Xfi" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="e1X-Zp-gQA"/>
                                     <constraint firstItem="dze-UV-zhf" firstAttribute="bottom" secondItem="BZL-9K-Xfi" secondAttribute="top" id="ed8-sY-Njq"/>
                                     <constraint firstAttribute="trailing" secondItem="9Ss-29-rjU" secondAttribute="trailing" constant="20" id="fpV-Zj-Qxf"/>
-                                    <constraint firstItem="9Ss-29-rjU" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="bottom" constant="10" id="frz-4H-fpM"/>
                                     <constraint firstAttribute="bottom" secondItem="u5k-i3-wiM" secondAttribute="bottom" constant="20" id="g5T-sy-9aA"/>
+                                    <constraint firstItem="9Ss-29-rjU" firstAttribute="top" secondItem="5x5-ZT-IMi" secondAttribute="bottom" constant="10" id="p5a-zi-lXl"/>
                                     <constraint firstAttribute="trailing" secondItem="q76-A4-Mva" secondAttribute="trailing" id="qfS-es-ohE"/>
                                     <constraint firstAttribute="trailing" secondItem="4Mk-2g-684" secondAttribute="trailing" constant="20" id="tA9-pi-s1C"/>
+                                    <constraint firstItem="5x5-ZT-IMi" firstAttribute="top" secondItem="BZL-9K-Xfi" secondAttribute="bottom" constant="10" id="uvc-hE-MgN"/>
                                     <constraint firstItem="4Mk-2g-684" firstAttribute="leading" secondItem="Vsq-dg-4zG" secondAttribute="leading" constant="20" id="xYh-43-tfd"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -448,6 +478,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="OpenEventButton" destination="2AJ-Is-iwM" id="BWh-FR-AZ6"/>
+                        <outlet property="OpenEventContainerHeightConstraint" destination="n81-oU-AXF" id="IjN-rD-FMT"/>
                         <outlet property="availableTickets" destination="lDx-LA-DHn" id="6uA-pv-X6d"/>
                         <outlet property="eventDescriptionContainer" destination="u5k-i3-wiM" id="hNO-Pk-2l6"/>
                         <outlet property="eventDescriptionWebView" destination="B4w-bu-Mvg" id="9q9-iP-lSv"/>
@@ -462,6 +494,8 @@
                         <outlet property="lecturer" destination="Osb-kV-Cgw" id="oM5-eE-LBE"/>
                         <outlet property="lecturerContainer" destination="dze-UV-zhf" id="44F-0T-h6u"/>
                         <outlet property="metadataContainer" destination="BZL-9K-Xfi" id="4be-ut-aQg"/>
+                        <outlet property="openEventConatiner" destination="5x5-ZT-IMi" id="tSJ-LS-aRP"/>
+                        <outlet property="openEventLabel" destination="fCr-Xe-9IO" id="WAn-bZ-vgA"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
                         <outlet property="refreshAvailableTicketsButton" destination="wZJ-Bb-HYE" id="Xz3-XF-7pM"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>
@@ -1925,6 +1959,9 @@
         <image name="MenuOpenUsingMaps" width="23.333333969116211" height="23"/>
         <image name="MenuSettings" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuUpdates" width="33.333332061767578" height="33.333332061767578"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

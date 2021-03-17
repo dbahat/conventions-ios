@@ -44,6 +44,7 @@ class Colors {
     static let eventMarkedAsFavorite = Colors.olamot2021_yellow2
     static let eventNotMarkedAsFavorite = UIColor.white
     static let eventSeperatorColor = UIColor.black
+    static let eventOpenEventConatinerColor = Colors.olamot2021_grey2
     
     // Event colors
     static let eventDetailsBoxColor = Colors.olamot2021_red2

@@ -27,7 +27,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         didSet {
             if let event = currentFavoriteEvent {
                 currentEventHeightConstraint.isActive = false
-                currentEventLabel.text = "כעת: " + event.title
+                currentEventLabel.text = String(format: "כעת: %@%@", event.title, event.directWatchAvailable ? "\nלחץ לצפיה באירוע!" : "")
             } else {
                 currentEventHeightConstraint.isActive = true
                 currentEventHeightConstraint.constant = 0
@@ -47,7 +47,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
                 if let currentEvent = currentFavoriteEvent {
                     upcomingEventTimeLabel.text = "כעת:"
                     upcomingEventNameLabel.text = currentEvent.title
-                    upcomingEventHallLabel.text = currentEvent.hall.name
+                    upcomingEventHallLabel.text = String(format: "%@%@", currentEvent.hall.name, currentEvent.directWatchAvailable ? "\nלחץ לצפיה באירוע!" : "")
                     
                     currentEventHeightConstraint.isActive = true
                     currentEventHeightConstraint.constant = 0
