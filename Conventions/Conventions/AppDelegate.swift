@@ -106,6 +106,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         showPushNotificationPopup(userInfo, shouldNavigateToUpdates: false /* so we won't interupt the user */)
     }
     
+    @available(iOS 10, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        showPushNotificationPopup(userInfo, shouldNavigateToUpdates: false)
+        completionHandler()
+    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         isActive = true
         
