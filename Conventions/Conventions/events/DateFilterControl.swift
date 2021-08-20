@@ -26,7 +26,11 @@ class DateFilterControl : UISegmentedControl {
         removeAllSegments()
         segmentTitles = []
         for i in 0...getNumberOfDays(fromDate: fromDate.clearTimeComponent(), toDate: self.toDate) {
-            let segmentTitle = toDate.addDays(-i).format("EEE (dd.MM)")
+            let date = toDate.addDays(-i)
+            if isWeekend(date) {
+                continue
+            }
+            let segmentTitle = date.format("EEE (dd.MM)")
             insertSegment(withTitle: segmentTitle , at: i, animated: false)
             segmentTitles?.append(segmentTitle)
         }
@@ -72,7 +76,11 @@ class DateFilterControl : UISegmentedControl {
     }
     
     // returns the number of days between 2 NSDates, rounded up
-    fileprivate func getNumberOfDays(fromDate: Date, toDate: Date) -> Int {
+    private func getNumberOfDays(fromDate: Date, toDate: Date) -> Int {
         return Int(ceil((toDate.timeIntervalSince1970 - fromDate.timeIntervalSince1970) / SecondsInDay))
+    }
+    
+    private func isWeekend(_ date: Date) -> Bool {
+        return Calendar.current.component(.weekday, from: date) == 6 || Calendar.current.component(.weekday, from: date) == 7
     }
 }
