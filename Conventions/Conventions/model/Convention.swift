@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2021, month: 3, day: 29)
-    static let endDate = Date.from(year: 2021, month: 4, day: 1)
-    static let name = "olamot2021"
-    static let displayName = "כנס עולמות 2021"
+    static let date = Date.from(year: 2021, month: 9, day: 22)
+    static let endDate = Date.from(year: 2021, month: 9, day: 26)
+    static let name = "icon2021"
+    static let displayName = "פסטיבל אייקון 2021"
     
     var halls: Array<Hall>
     var events: Events
@@ -88,13 +88,13 @@ class Convention {
         ]
         
         conventionFeedbackForm = SurveyForm.Feedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScGwP6Tj_3ax6X0UZAJVrG9BtDVLF69aU9y8UaKfuXVaYBu6A/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdUrN2YEaonwI-AvlCKnKxt9D1DovWNM6bZNQpysDK6t4ClWA/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSf-gAJ_0cJHws4B5LZ-lujqaklYePE_MsiqNOz_yf18Xfnrpg/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfoz56q8nlspshth17qkkFkTxbgjCAXrIgirPemZPk7ZWvwsw/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             eventTitleEntry: "entry.1847107867",

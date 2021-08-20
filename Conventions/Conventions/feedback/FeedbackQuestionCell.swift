@@ -33,7 +33,7 @@ protocol FeedbackQuestionProtocol : class {
     var enabled = true
     
     var feedbackTextColor = Colors.textColor
-    var feedbackAnswerColor = Colors.feedbackButtonColor
+    var feedbackAnswerColor = Colors.feedbackButtonColorConvetion
     var feedbackAnswerPressedColor = Colors.feedbackButtonPressedColor
     
     /* abstract */ func questionDidSet(_ question: FeedbackQuestion) {}

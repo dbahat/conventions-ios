@@ -46,8 +46,7 @@ class EventView: UIView {
         hallName.text = event.hall.name
         timeLayout.backgroundColor = event.color
         seperator.backgroundColor = Colors.eventSeperatorColor
-        lecturer.textColor = Colors.textColor
-        hallName.textColor = Colors.textColor
+
         
         // Allow dynamic changing of the favorite button color
         favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
@@ -60,14 +59,10 @@ class EventView: UIView {
         
         titleAndDetailsContainer.backgroundColor = UIColor.clear
         
-        let currentTime = Date.now()
-        if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
-            title.textColor = Colors.eventEndedColor
-        } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
-            title.textColor = Colors.eventRunningColor
-        } else {
-            title.textColor = Colors.eventNotStartedColor
-        }
+        let dateBasedColor = calculateEventColor(event: event)
+        title.textColor = dateBasedColor
+        lecturer.textColor = dateBasedColor
+        hallName.textColor = dateBasedColor
         
         if event.canFillFeedback() {
             feedbackIcon.isHidden = false
@@ -86,12 +81,23 @@ class EventView: UIView {
                 
                 feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
                     ? Colors.eventUserNeedsToCompleteFeecbackButtonColor
-                    : UIColor.gray
+                    : dateBasedColor
             }
             
         } else {
             feedbackIcon.isHidden = true
             feedbackContainerWidthConstraint.constant = 0
+        }
+    }
+    
+    private func calculateEventColor(event: ConventionEvent) -> UIColor {
+        let currentTime = Date.now()
+        if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
+            return Colors.eventEndedColor
+        } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
+            return Colors.eventRunningColor
+        } else {
+            return Colors.eventNotStartedColor
         }
     }
 

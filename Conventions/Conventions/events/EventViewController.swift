@@ -49,9 +49,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                                      answers: event.feedbackAnswers,
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
-            feedbackView.buttonColor = Colors.eventFeedbackButtonsColor
-            feedbackView.answerButtonsColor = Colors.eventFeedbackAnswersButtonsColor
-            feedbackView.answerButtonsPressedColor = Colors.buttonColor
+            feedbackView.buttonColor = Colors.feedbackButtonColorEvent
+            feedbackView.answerButtonsColor = Colors.feedbackButtonColorEvent
+            feedbackView.linkColor = Colors.feedbackLinksColorEvent
+            feedbackView.answerButtonsPressedColor = Colors.feedbackButtonPressedColor
             
             if (event.didSubmitFeedback()) {
                 feedbackView.state = .collapsed
@@ -113,7 +114,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         eventDescriptionWebView.scrollView.isScrollEnabled = false
         
         if let eventDescription = event.description {
-            eventDescriptionWebView.setContent(eventDescription, color: "#ffffff")
+            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
         }
         
         refreshFavoriteBarIconImage()

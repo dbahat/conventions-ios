@@ -51,8 +51,9 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             sendButton.setTitleColor(buttonColor, for: UIControl.State())
         }
     }
-    var answerButtonsColor = Colors.feedbackButtonColor
+    var answerButtonsColor = Colors.feedbackButtonColorConvetion
     var answerButtonsPressedColor = Colors.feedbackButtonPressedColor
+    var linkColor = Colors.feedbackButtonColorConvetion
     var event: ConventionEvent? {
         didSet {
             updateMoreFeedbackLink()
@@ -113,7 +114,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         addSubview(view);
         
         feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        feedbackIcon.tintColor = UIColor.white
+        feedbackIcon.tintColor = Colors.buttonColor
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.register(UINib(nibName: String(describing: SmileyFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SmileyFeedbackQuestionCell.self))
@@ -132,11 +133,13 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     private func updateMoreFeedbackLink() {
         let moreFeedbackText = "רוצה להרחיב? לתת משוב נוסף? לחץ כאן"
         let moreFeedbackAttributedString = NSMutableAttributedString(string: moreFeedbackText , attributes: [.foregroundColor:textColor, .font: UIFont.systemFont(ofSize: 14)])
-        let range = NSString(string: moreFeedbackText).range(of: "כאן")
         let url = event == nil ? urlForAdditionalConventionFeedback : urlForAdditionalEventFeedback
-        moreFeedbackAttributedString.addAttribute(.link, value: url, range: range)
+        moreFeedbackAttributedString.addAttribute(.link, value: url, range: NSRange(location: 0, length: moreFeedbackText.count))
         
         moreInfoFeedbackTextView.attributedText = moreFeedbackAttributedString
+        
+        moreInfoFeedbackTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: linkColor,
+                                                       NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
         
         moreInfoFeedbackTextView.delegate = self
     }

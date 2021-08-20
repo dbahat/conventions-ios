@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "olamot2021_knights.png",
+      "filename" : "icon2021_home_bottom-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "olamot2021_knights-1.png",
+      "filename" : "icon2021_home_bottom-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "olamot2021_knights-2.png",
+      "filename" : "icon2021_home_bottom.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
