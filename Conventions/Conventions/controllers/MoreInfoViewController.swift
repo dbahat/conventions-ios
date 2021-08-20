@@ -47,7 +47,7 @@ class MoreInfoViewController : UITableViewController {
         adjustImageView(settingsImage)
         adjustImageView(aboutImage)
         adjustImageView(feedbackImage)
-        //adjustImageView(arrivalMethodsImage)
+        adjustImageView(arrivalMethodsImage)
 //        adjustImageView(updatesImage)
         //adjustImageView(secondHandImage)
         //adjustImageView(discountdImage)
@@ -55,7 +55,7 @@ class MoreInfoViewController : UITableViewController {
         feedbackLabel.textColor = Colors.textColor
         settingsLabel.textColor = Colors.textColor
         aboutLabel.textColor = Colors.textColor
-        //arrivalMethodsLabel.textColor = Colors.textColor
+        arrivalMethodsLabel.textColor = Colors.textColor
 //        updatesLabel.textColor = Colors.textColor
         //secondHandLabel.textColor = Colors.textColor
         //discountsLabel.textColor = Colors.textColor
