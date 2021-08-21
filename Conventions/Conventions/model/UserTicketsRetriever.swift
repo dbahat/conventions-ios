@@ -9,20 +9,21 @@
 import Foundation
 
 class UserTicketsRetriever {
-    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/events_per_user.php?slug=olamot2021")!;
-    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/get_user_id.php?slug=olamot2021")!;
+    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/events_per_user.php?slug=olamot2021")!
+    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/get_user_id.php?slug=olamot2021")!
+    private static let qrApi = URL(string: "https://api.sf-f.org.il/cons/qr/login")!
     
     enum Error {
         case badUsername,badPassword,unknown
     }
     
     func retrieve(user: String, password: String, callback: ((_ result: Tickets, _ error: Error?) -> Void)?) {
-
+        
         let escapedUser = user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let requestBody = String(format: "email=%@&pass=%@", escapedUser, escapedPassword).data(using: .utf8)
         
-        postRequest(url: UserTicketsRetriever.userTicketsApi, body: requestBody, completionHandler: { (data, error) in
+        sendRequest(url: UserTicketsRetriever.userTicketsApi, method: "POST", body: requestBody, completionHandler: { (data, error) in
             guard
                 let unwrappedData = data,
                 let tickets = self.deserialize(unwrappedData)
@@ -30,25 +31,36 @@ class UserTicketsRetriever {
                 callback?(Tickets(), error ?? .unknown)
                 return;
             }
-            
+
             let intTickets = tickets.filter({Int($0) != nil}).map({Int($0)!})
-            
-            self.postRequest(url: UserTicketsRetriever.userIdApi, body: requestBody, completionHandler: { (data, error) in
+
+            self.sendRequest(url: UserTicketsRetriever.userIdApi, method: "POST", body: requestBody, completionHandler: { (data, error) in
                 guard
                     let unwrappedData = data,
                     let userId = String(data: unwrappedData, encoding: .utf8)
                 else {
-                    callback?(Tickets(userId: "", eventIds: intTickets), error)
+                    callback?(Tickets(), error)
                     return;
                 }
-                callback?(Tickets(userId: userId, eventIds: intTickets), error)
+                
+                let qrApi = UserTicketsRetriever.qrApi.appendingPathComponent(user)
+                self.sendRequest(url: qrApi, method: "GET", body: nil, completionHandler: { (data, error) in
+                    guard
+                        let qrData = data
+                    else {
+                        callback?(Tickets(userId: userId, eventIds: intTickets, qrData: nil), error)
+                        return;
+                    }
+                    
+                    callback?(Tickets(userId: userId, eventIds: intTickets, qrData: qrData), error)
+                })
             })
         })
     }
     
-    private func postRequest(url: URL, body: Data?, completionHandler: @escaping (_ data: Data?, _ error: Error?) -> Void) {
+    private func sendRequest(url: URL, method: String, body: Data?, completionHandler: @escaping (_ data: Data?, _ error: Error?) -> Void) {
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = method
         request.httpBody = body
         
         URLSession.shared.dataTask(with:request , completionHandler:{(data, response, error) -> Void in

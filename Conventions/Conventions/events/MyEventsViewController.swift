@@ -188,15 +188,33 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
                 
                 let message =
-                    numberOfAddedEventsMessgae + "\n" +
-                    String(format: "מספר המשתמש שלך הוא \n%@\n\n",importedEvents.userId)
-                    + "הצג את מספר המשתמש שלך בקופות עבור איסוף מהיר של הכרטיסים.\n ניתן לגשת למספר ע״י לחיצה על הכפתור ׳מספר משתמש׳ בפינה השמאלית העליונה של המסך"
+                    numberOfAddedEventsMessgae + "\n"
+                    + "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים.\n ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך"
                 let alertController = UIAlertController(title: nil,
                                                         message: message,
-                                                        preferredStyle: .alert)
+                                                        preferredStyle: .actionSheet)
                 
+                if let qrData = importedEvents.qrData {
+                    UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
+                    
+                    let image = UIImage(data: qrData)
+                    let imageAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@"), style: .default) { (result : UIAlertAction) -> Void in }
+                    imageAction.setValue(image?.withRenderingMode(.alwaysOriginal), forKey: "image")
+                    alertController.addAction(imageAction)
+                }
+                
+                let usageIdAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@", importedEvents.userId), style: .default) { (result : UIAlertAction) -> Void in }
+                alertController.addAction(usageIdAction)
+
                 let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
                 alertController.addAction(okAction)
+                
+                if let popover = alertController.popoverPresentationController {
+                    popover.sourceView = self.view 
+                    popover.sourceRect = self.view.bounds
+                    popover.permittedArrowDirections = []
+
+                }
                 self.present(alertController, animated: true, completion: nil)
             })
         }
@@ -215,7 +233,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func showUserIdWasClicked(_ sender: UIBarButtonItem) {
+    @IBAction func showQrWasClicked(_ sender: UIBarButtonItem) {
         guard let userId = UserDefaults.standard.string(forKey: "userId") else {
             // in case there's no user ID set yet, show the import events dialog
             importEventsWasClicked(sender)
@@ -223,10 +241,26 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         }
         
         let alertController = UIAlertController(title: nil,
-                                                message: String(format: "מספר המשתמש שלך הוא \n\n%@",userId),
-                                                preferredStyle: .alert)
+                                                message: String(format: "מספר המשתמש שלך הוא %@",userId),
+                                                preferredStyle: .actionSheet)
+        
+        if let qrData = UserDefaults.standard.data(forKey: "qrData") {
+            let image = UIImage(data: qrData)
+            let imageAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@"), style: .default) { (result : UIAlertAction) -> Void in }
+            imageAction.setValue(image?.withRenderingMode(.alwaysOriginal), forKey: "image")
+            alertController.addAction(imageAction)
+        }
+        
         let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
         alertController.addAction(okAction)
+        
+        if let popover = alertController.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.sourceRect = self.view.bounds
+            popover.permittedArrowDirections = []
+
+        }
+        
         self.present(alertController, animated: true, completion: nil)
     }
     

@@ -11,13 +11,15 @@ import Foundation
 class Tickets {
     var userId: String
     var eventIds: Array<Int>
+    var qrData: Data?
     
     convenience init() {
-        self.init(userId: "", eventIds: [])
+        self.init(userId: "", eventIds: [], qrData: nil)
     }
     
-    init(userId: String, eventIds: Array<Int>) {
+    init(userId: String, eventIds: Array<Int>, qrData: Data?) {
         self.userId = userId
         self.eventIds = eventIds
+        self.qrData = qrData
     }
 }

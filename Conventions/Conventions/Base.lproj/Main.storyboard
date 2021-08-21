@@ -1819,8 +1819,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AHg-kF-Trf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף אירוע לאירועים שלי ע&quot;י לחיצה על הכוכב בדף האירוע" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-9t-HBx">
-                                <rect key="frame" x="56" y="260.5" width="263" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הוסף אירוע לאירועים שלי ע&quot;י לחיצה על הכוכב בדף האירוע, או ע״י ייבוא מאתר אייקון בעזרת הכפתור ייבא כרטיסים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-9t-HBx">
+                                <rect key="frame" x="56" y="234.5" width="263" height="105.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1913,7 +1913,18 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" tag="100" title="האירועים שלי" image="MenuEventListWithStar" id="gTS-3I-WYL"/>
-                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg"/>
+                    <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg">
+                        <barButtonItem key="leftBarButtonItem" title="הצג QR" id="o1K-Oe-mHX">
+                            <connections>
+                                <action selector="showQrWasClicked:" destination="dzP-YM-jGI" id="76b-cV-0Gy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="ייבא כרטיסים" id="KKz-75-ZTL">
+                            <connections>
+                                <action selector="importEventsWasClicked:" destination="dzP-YM-jGI" id="ZCk-P2-keU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateFilterControl" destination="Sun-ht-wg0" id="kHT-bA-j0N"/>
