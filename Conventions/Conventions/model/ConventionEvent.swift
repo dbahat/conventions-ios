@@ -17,7 +17,7 @@ class ConventionEvent {
      */
     static let AttendingWasSetEventName = Notification.Name("AttendingWasSetEventName")
     
-    private static let availableTicketsForEventUrl = "https://api.sf-f.org.il/program/available_tickets_per_event.php?slug=olamot2021&id="
+    private static let availableTicketsForEventUrl = "https://api.sf-f.org.il/program/available_tickets_per_event.php?slug="+Convention.name+"&id="
     
     var id: String
     var serverId: Int

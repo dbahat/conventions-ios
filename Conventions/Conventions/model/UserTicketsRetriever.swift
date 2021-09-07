@@ -9,8 +9,8 @@
 import Foundation
 
 class UserTicketsRetriever {
-    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/events_per_user.php?slug=olamot2021")!
-    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/get_user_id.php?slug=olamot2021")!
+    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/events_per_user.php?slug=" + Convention.name)!
+    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/get_user_id.php?slug=" + Convention.name)!
     private static let qrApi = URL(string: "https://api.sf-f.org.il/cons/qr/login")!
     
     enum Error {
