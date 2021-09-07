@@ -13,10 +13,11 @@ class DateFilterControl : UISegmentedControl {
     private var toDate = Date.now()
     private let SecondsInDay : Double = 60 * 60 * 24
     private var segmentTitles : Array<String>?
+    private var segmentDates : Array<Date> = []
     
     var selectedDate: Date {
         get {
-            return toDate.addDays(-selectedSegmentIndex)
+            return segmentDates[selectedSegmentIndex]
         }
     }
     
@@ -25,6 +26,7 @@ class DateFilterControl : UISegmentedControl {
         
         removeAllSegments()
         segmentTitles = []
+        segmentDates = []
         for i in 0...getNumberOfDays(fromDate: fromDate.clearTimeComponent(), toDate: self.toDate) {
             let date = toDate.addDays(-i)
             if isWeekend(date) {
@@ -33,6 +35,7 @@ class DateFilterControl : UISegmentedControl {
             let segmentTitle = date.format("EEE (dd.MM)")
             insertSegment(withTitle: segmentTitle , at: i, animated: false)
             segmentTitles?.append(segmentTitle)
+            segmentDates.append(date)
         }
         
         // By default select the last segment to support RTL
