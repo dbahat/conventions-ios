@@ -46,18 +46,18 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
     @IBAction func navigateWithExternalAppWasClicked(_ sender: UIBarButtonItem) {
         if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
             let url = String(format: "waze://?ll=%f,%f&navigate=yes", arguments: [latitude, longitude]);
-            UIApplication.shared.openURL(URL(string: url)!);
+            UIApplication.shared.open(URL(string: url)!, options: [:]) { (success) in }
             return;
         }
         
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
             let url = String(format: "comgooglemaps://?center=%f,%f&zoom=16&views=traffic", arguments: [latitude, longitude]);
-            UIApplication.shared.openURL(URL(string: url)!);
+            UIApplication.shared.open(URL(string: url)!, options: [:]) { (success) in }
             return;
         }
         
         let url = String(format: "http://maps.apple.com/?ll=%f,%f", arguments: [latitude, longitude]);
-        UIApplication.shared.openURL(URL(string: url)!);
+        UIApplication.shared.open(URL(string: url)!, options: [:]) { (success) in }
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
@@ -70,7 +70,7 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
                 return false
             }
             
-            UIApplication.shared.openURL(request.url!)
+            UIApplication.shared.open(request.url!, options: [:]) { (success) in }
             return false
         }
         return true

@@ -109,12 +109,12 @@
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A45B18952342096E008457B9 /* shnizel-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A45B18942342096E008457B9 /* shnizel-logo.png */; };
-		A47E1BD926E7ADC300A90239 /* icon2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A47E1BD826E7ADC300A90239 /* icon2021Events.json */; };
 		A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A493499322678C8100B4B805 /* AccessabilityContent.html */; };
 		A4DEC1B72257D1CF0051EF9B /* joya-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B42257D1CF0051EF9B /* joya-logo.png */; };
 		A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */; };
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
 		A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */ = {isa = PBXBuildFile; fileRef = A4E2F7B6213DB7CB007E3904 /* IconKids.html */; };
+		A4FD09F026EB77E50016C65E /* 1_icon2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,12 +228,12 @@
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A45B18942342096E008457B9 /* shnizel-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shnizel-logo.png"; sourceTree = "<group>"; };
-		A47E1BD826E7ADC300A90239 /* icon2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon2021Events.json; sourceTree = "<group>"; };
 		A493499322678C8100B4B805 /* AccessabilityContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AccessabilityContent.html; sourceTree = "<group>"; };
 		A4DEC1B42257D1CF0051EF9B /* joya-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joya-logo.png"; sourceTree = "<group>"; };
 		A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbb-logo.png"; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
 		A4E2F7B6213DB7CB007E3904 /* IconKids.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IconKids.html; sourceTree = "<group>"; };
+		A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1_icon2021Events.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,7 +309,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				A47E1BD826E7ADC300A90239 /* icon2021Events.json */,
+				A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -583,7 +583,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = Amai;
 				TargetAttributes = {
 					3BA2D7EE1C554ED3007A8A23 = {
@@ -630,9 +630,9 @@
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
-				A47E1BD926E7ADC300A90239 /* icon2021Events.json in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
+				A4FD09F026EB77E50016C65E /* 1_icon2021Events.json in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
@@ -839,6 +839,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -863,7 +864,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -896,6 +897,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -914,7 +916,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -933,6 +935,7 @@
 				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 49;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
@@ -941,8 +944,9 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Conventions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
@@ -963,6 +967,7 @@
 				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -970,8 +975,9 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Conventions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";

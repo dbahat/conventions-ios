@@ -60,7 +60,7 @@ class Convention {
             Hall(name: "עירוני 4"),
             Hall(name: "עירוני 5"),
             Hall(name: "עירוני 6"),
-            Hall(name: "עירוני 7"),
+            Hall(name: "עירוני 7 (וירטואלי)"),
             Hall(name: "עירוני 8 (וירטואלי)"),
             Hall(name: "עירוני 9 (וירטואלי)"),
             
