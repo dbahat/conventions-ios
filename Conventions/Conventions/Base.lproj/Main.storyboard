@@ -799,8 +799,37 @@
                                             <segue destination="uiV-2P-ExO" kind="show" id="oas-sD-Isl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HSf-cn-nJs">
                                         <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSf-cn-nJs" id="CMG-Ms-3L4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuAccessability" translatesAutoresizingMaskIntoConstraints="NO" id="NaW-3z-0hE">
+                                                    <rect key="frame" x="318" y="5.5" width="33" height="33"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="נגישות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhC-y1-kmJ">
+                                                    <rect key="frame" x="264" y="12" width="44" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WhC-y1-kmJ" firstAttribute="centerY" secondItem="CMG-Ms-3L4" secondAttribute="centerY" id="2q0-kz-AzJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NaW-3z-0hE" secondAttribute="trailing" constant="8" id="4Hj-RI-fTL"/>
+                                                <constraint firstItem="NaW-3z-0hE" firstAttribute="centerY" secondItem="CMG-Ms-3L4" secondAttribute="centerY" id="95n-u5-Z8E"/>
+                                                <constraint firstItem="NaW-3z-0hE" firstAttribute="leading" secondItem="WhC-y1-kmJ" secondAttribute="trailing" constant="10" id="S5c-CV-nzu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="KjF-zB-Rvp" kind="show" id="gXI-6z-yEc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1951,10 +1980,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xWH-wO-mD2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRH-VT-yrT" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="359" height="651"/>
+                                <rect key="frame" x="8" y="52" width="359" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </webView>
                         </subviews>
@@ -1970,6 +1999,7 @@
                             <constraint firstAttribute="trailing" secondItem="mRH-VT-yrT" secondAttribute="trailing" constant="8" id="zL2-DB-7hz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="baK-fy-ZcR"/>
                     <connections>
                         <outlet property="contentWebView" destination="mRH-VT-yrT" id="Kkv-2m-CXG"/>
                     </connections>
@@ -1990,6 +2020,7 @@
         <image name="HomeFooter" width="261" height="102"/>
         <image name="HomeImage" width="300" height="135"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="MenuAccessability" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuArrivalMethods" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuEventList" width="33.333332061767578" height="33.333332061767578"/>
