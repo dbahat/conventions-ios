@@ -14,6 +14,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tabBarIcon: UITabBarItem!
     @IBOutlet private weak var dateFilterControl: DateFilterControl!
+    @IBOutlet private weak var progressBarView: UIView!
     
     var shouldScrollToCurrentDateAndTime = true
     private var myEvents: Array<ConventionEvent>?
@@ -35,6 +36,8 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         reloadMyEvents()
         tableView.reloadData()
+        progressBarView.isHidden = true
+        progressBarView.backgroundColor = Colors.icon2021_blue3
         
         scrollToCurrentRunningEventsIfNeeded()
     }
@@ -155,7 +158,14 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 return
             }
             
+            // TODO: Begin progress bar
+            self.progressBarView.isHidden = false
+            
             UserTicketsRetriever().retrieve(user: user, password: password, callback: {(importedEvents, error) in
+                
+                // TODO: End progress bar
+                self.progressBarView.isHidden = true
+                
                 if let failureReason = error {
                     switch failureReason {
                     case .badPassword:
@@ -178,44 +188,36 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 
                 var numberOfAddedEventsMessgae: String
                 if newlyImportedEvents.count == 1 {
-                    numberOfAddedEventsMessgae = "נוסף אירוע אחד"
+                    numberOfAddedEventsMessgae = "נוסף אירוע אחד."
                 } else if newlyImportedEvents.count == 0 {
-                    numberOfAddedEventsMessgae = "לא נוספו אירועים"
+                    numberOfAddedEventsMessgae = "לא נוספו אירועים."
                 } else {
                     numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", newlyImportedEvents.count)
                 }
                 
                 UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
-                
+                                
                 let message =
-                    numberOfAddedEventsMessgae + "\n"
-                    + "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים.\n ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך"
-                let alertController = UIAlertController(title: nil,
-                                                        message: message,
-                                                        preferredStyle: .actionSheet)
+                    numberOfAddedEventsMessgae + "\nהצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
+                controller.topLabel = message
+                controller.bottomLabel = String(format: "מספר המשתמש שלך הוא %@.", importedEvents.userId) + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
+
+                controller.modalPresentationStyle = .formSheet
+                if let popover = controller.popoverPresentationController {
+                    popover.sourceView = self.view
+                    popover.sourceRect = self.view.bounds
+                    popover.permittedArrowDirections = []
+                }
                 
                 if let qrData = importedEvents.qrData {
                     UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
-                    
-                    let image = UIImage(data: qrData)
-                    let imageAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@"), style: .default) { (result : UIAlertAction) -> Void in }
-                    imageAction.setValue(image?.withRenderingMode(.alwaysOriginal), forKey: "image")
-                    alertController.addAction(imageAction)
+                    controller.image = UIImage(data: qrData)
                 }
                 
-                let usageIdAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@", importedEvents.userId), style: .default) { (result : UIAlertAction) -> Void in }
-                alertController.addAction(usageIdAction)
-
-                let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
-                alertController.addAction(okAction)
-                
-                if let popover = alertController.popoverPresentationController {
-                    popover.sourceView = self.view 
-                    popover.sourceRect = self.view.bounds
-                    popover.permittedArrowDirections = []
-
-                }
-                self.present(alertController, animated: true, completion: nil)
+                self.present(controller, animated: true, completion: nil)
             })
         }
         alertController.addTextField(configurationHandler: {textField in
@@ -240,28 +242,24 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             return
         }
         
-        let alertController = UIAlertController(title: nil,
-                                                message: String(format: "מספר המשתמש שלך הוא %@",userId),
-                                                preferredStyle: .actionSheet)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
+        controller.topLabel = String(format: "מספר המשתמש שלך הוא %@",userId)
+        controller.bottomLabel = "ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
         
         if let qrData = UserDefaults.standard.data(forKey: "qrData") {
-            let image = UIImage(data: qrData)
-            let imageAction = UIAlertAction(title: String(format: "מספר המשתמש שלך הוא %@"), style: .default) { (result : UIAlertAction) -> Void in }
-            imageAction.setValue(image?.withRenderingMode(.alwaysOriginal), forKey: "image")
-            alertController.addAction(imageAction)
+            controller.image = UIImage(data: qrData)
         }
-        
-        let okAction = UIAlertAction(title: "אישור", style: .cancel) { (result : UIAlertAction) -> Void in }
-        alertController.addAction(okAction)
-        
-        if let popover = alertController.popoverPresentationController {
+
+        controller.modalPresentationStyle = .formSheet
+        if let popover = controller.popoverPresentationController {
             popover.sourceView = self.view
             popover.sourceRect = self.view.bounds
             popover.permittedArrowDirections = []
 
         }
         
-        self.present(alertController, animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
     }
     
     fileprivate func reloadMyEvents() {

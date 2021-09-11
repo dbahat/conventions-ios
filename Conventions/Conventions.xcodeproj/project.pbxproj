@@ -115,6 +115,9 @@
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
 		A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */ = {isa = PBXBuildFile; fileRef = A4E2F7B6213DB7CB007E3904 /* IconKids.html */; };
 		A4FD09F026EB77E50016C65E /* 1_icon2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */; };
+		A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */; };
+		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
+		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +237,9 @@
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
 		A4E2F7B6213DB7CB007E3904 /* IconKids.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IconKids.html; sourceTree = "<group>"; };
 		A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1_icon2021Events.json; sourceTree = "<group>"; };
+		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
+		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
+		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +473,9 @@
 				3BE551511D96893800E91634 /* SearchCategoriesView.swift */,
 				3B36B7EC1D9680EB00F8EB49 /* SearchCategoriesView.xib */,
 				3B0288791D9AF1CB006E158C /* DateFilterControl.swift */,
+				A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */,
+				A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */,
+				A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */,
 			);
 			name = events;
 			sourceTree = "<group>";
@@ -651,6 +660,7 @@
 				3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */,
 				3BFE31061F6EC4DD00271F58 /* DuringConventionNoFavoritesHomeContentView.xib in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* FeedbackView.xib in Resources */,
+				A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */,
 				3BA2D7FA1C554ED3007A8A23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,6 +769,7 @@
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
 				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
 				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,
+				A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */,
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
 				3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
@@ -788,6 +799,7 @@
 				3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */,
 				3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */,
 				3B3DEFBB1C78EF88006AD9B9 /* UserInputs.swift in Sources */,
+				A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */,
 				3B6AF9851C6FC1D5004B9DAD /* NSDateExtentions.swift in Sources */,
 				3BA2D8131C5FEDF5007A8A23 /* EventType.swift in Sources */,
 				3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */,
