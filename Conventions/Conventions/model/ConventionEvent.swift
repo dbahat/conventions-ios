@@ -36,6 +36,12 @@ class ConventionEvent {
     var tags: Array<String>
     var url: URL
     var availableTickets: Int?
+    var isVirtual: Bool
+    var shouldMarkAsVirtual: Bool {
+        get {
+            return isVirtual || hall.name.contains("וירטואלי")
+        }
+    }
     
     var availableTicketsLastModified: Date?
     
@@ -62,6 +68,7 @@ class ConventionEvent {
         self.price = price
         self.tags = tags
         self.url = url
+        self.isVirtual = false
     }
     
     static func parse(_ json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
@@ -105,6 +112,9 @@ class ConventionEvent {
         if let availableTicketsLastModified = json["availableTicketsLastModified"] as? Double {
             event.availableTicketsLastModified = Date(timeIntervalSince1970: availableTicketsLastModified)
         }
+        if let isVirtual = json["is_virtual"] as? Bool {
+            event.isVirtual = isVirtual
+        }
         
         return event
     }
@@ -133,7 +143,8 @@ class ConventionEvent {
             "tags": self.tags as AnyObject,
             "url": self.url.absoluteString as AnyObject,
             "availableTickets": self.availableTickets as AnyObject,
-            "availableTicketsLastModified": self.availableTicketsLastModified?.timeIntervalSince1970 as AnyObject
+            "availableTicketsLastModified": self.availableTicketsLastModified?.timeIntervalSince1970 as AnyObject,
+            "is_virtual": self.isVirtual as AnyObject
         ]
     }
     

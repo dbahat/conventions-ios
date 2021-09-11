@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +16,7 @@
                 <outlet property="hallName" destination="r5w-m4-Yqp" id="6nA-U3-VJ1"/>
                 <outlet property="lecturer" destination="0DF-YK-F5U" id="YbP-zH-Q1J"/>
                 <outlet property="seperator" destination="rva-RA-k6p" id="PtK-AU-5GY"/>
+                <outlet property="standAndEndTimeSeperator" destination="LXB-Ar-l3o" id="1uo-if-YP0"/>
                 <outlet property="startTime" destination="V75-pZ-Hax" id="6pP-Yo-hFg"/>
                 <outlet property="timeLayout" destination="7xQ-wK-gf8" id="fl3-lD-dXA"/>
                 <outlet property="title" destination="QUG-9m-Hr6" id="ccB-Fe-ta6"/>
@@ -136,7 +137,7 @@
                         <constraint firstItem="oe7-bM-u99" firstAttribute="leading" secondItem="tZ3-fH-VhW" secondAttribute="leading" id="trE-aH-xvg"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-aV-DvI" userLabel="FavButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-aV-DvI" userLabel="FavButton">
                     <rect key="frame" x="0.0" y="215" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5N6-sC-cSn"/>

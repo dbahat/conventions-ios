@@ -96,6 +96,9 @@ class SffEventsParser {
             if let tags = event["tags"] as? Array<String> {
                 conventionEvent.tags = tags
             }
+            if let isVirtual = event["is_virtual"] as? Bool {
+                conventionEvent.isVirtual = isVirtual
+            }
             
             result.append(conventionEvent)
             

@@ -24,6 +24,7 @@ class EventView: UIView {
     @IBOutlet private weak var feedbackIcon: UIImageView!
     @IBOutlet private weak var feedbackContainerWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var seperator: UIView!
+    @IBOutlet private weak var standAndEndTimeSeperator: UILabel!
     
     @IBOutlet private weak var titleAndDetailsContainer: UIView!
     weak var delegate: EventStateProtocol?;
@@ -44,7 +45,7 @@ class EventView: UIView {
         title.text = event.title
         lecturer.text = event.lecturer
         hallName.text = event.hall.name
-        timeLayout.backgroundColor = event.color
+        timeLayout.backgroundColor = event.shouldMarkAsVirtual ? Colors.eventTimeboxColorVirtual : event.color
         seperator.backgroundColor = Colors.eventSeperatorColor
 
         
@@ -55,6 +56,11 @@ class EventView: UIView {
         if let textColor = event.textColor {
             startTime.textColor = textColor;
             endTime.textColor = textColor;
+            standAndEndTimeSeperator.textColor = textColor
+        } else {
+            startTime.textColor = event.shouldMarkAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
+            endTime.textColor = event.shouldMarkAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
+            standAndEndTimeSeperator.textColor = event.shouldMarkAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
         }
         
         titleAndDetailsContainer.backgroundColor = UIColor.clear

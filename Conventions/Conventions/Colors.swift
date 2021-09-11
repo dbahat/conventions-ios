@@ -17,6 +17,7 @@ class Colors {
     static let icon2021_yellow2 = UIColor(hexString: "#ed9928")
     static let icon2021_yellow3 = UIColor(hexString: "#e7b865")
     static let black = UIColor.black
+    static let white = UIColor.white
     
     static let colorAccent = Colors.icon2021_yellow1
     static let tabBarSelectedTabColor = Colors.buttonPressedColor
@@ -48,6 +49,9 @@ class Colors {
     static let eventNotMarkedAsFavorite = Colors.icon2021_yellow1
     static let eventSeperatorColor = UIColor.black
     static let eventOpenEventConatinerColor = Colors.icon2021_yellow1
+    static let eventTimeboxColorVirtual = Colors.icon2021_yellow3
+    static let eventTimeboxTextColor = Colors.white
+    static let eventTimeboxTextColorVirtual = Colors.black
     
     // Event colors
     static let eventDetailsBoxColor = Colors.icon2021_yellow3
