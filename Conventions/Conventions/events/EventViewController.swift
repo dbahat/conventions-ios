@@ -87,7 +87,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         feedbackView.event = event
         lecturer.text = event.lecturer
         eventTitle.text = event.title
-        eventTypeAndCategory.text =  event.type.description + " - אירוע " + (event.shouldMarkAsVirtual ? "ווירטואלי" : "פיזי")
+        eventTypeAndCategory.text =  event.type.description + " - אירוע " + (event.shouldMarkAsVirtual ? "וירטואלי" : "פיזי")
         hall.text = event.hall.name
         
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
