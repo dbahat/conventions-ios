@@ -158,12 +158,10 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 return
             }
             
-            // TODO: Begin progress bar
             self.progressBarView.isHidden = false
             
             UserTicketsRetriever().retrieve(user: user, password: password, callback: {(importedEvents, error) in
                 
-                // TODO: End progress bar
                 self.progressBarView.isHidden = true
                 
                 if let failureReason = error {
