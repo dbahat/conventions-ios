@@ -201,7 +201,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         guard let url = event.directWatchUrl else {
             return
         }
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url, options: [:]) { (success) in }
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -233,7 +233,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                 }
             }
             
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url, options: [:]) { (success) in }
             return false
         }
         return true

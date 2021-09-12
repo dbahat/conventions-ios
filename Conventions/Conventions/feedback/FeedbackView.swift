@@ -146,7 +146,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         if event == nil {
-            UIApplication.shared.openURL(URL)
+            UIApplication.shared.open(URL, options: [:]) { (success) in }
             return false
         }
         
@@ -155,7 +155,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         var components = URLComponents(url: URL, resolvingAgainstBaseURL: true)
         components?.queryItems = items.map({URLQueryItem(name: $0.key, value: $0.value)})
         if let urlWithPrefilledFields = components?.url {
-            UIApplication.shared.openURL(urlWithPrefilledFields)
+            UIApplication.shared.open(urlWithPrefilledFields, options: [:]) { (success) in }
         }
         return false
     }

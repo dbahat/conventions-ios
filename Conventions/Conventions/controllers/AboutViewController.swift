@@ -68,7 +68,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         if navigationType == UIWebView.NavigationType.linkClicked {
-            UIApplication.shared.openURL(request.url!)
+            UIApplication.shared.open(request.url!, options: [:]) { (success) in }
             return false
         }
         return true
