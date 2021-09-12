@@ -19,5 +19,8 @@ class ImportedTicketsView : UIView {
         let view = Bundle.main.loadNibNamed(String(describing: ImportedTicketsView.self), owner: self, options: nil)![0] as! UIView;
         view.frame = self.bounds;
         addSubview(view);
+        
+        topLabel.textColor = Colors.textColor
+        bottomLabel.textColor = Colors.textColor
     }
 }

@@ -870,6 +870,8 @@
                     <connections>
                         <outlet property="aboutImage" destination="YxL-CY-d9k" id="Gwr-IP-fem"/>
                         <outlet property="aboutLabel" destination="uXN-ka-OQx" id="hZP-EO-m6d"/>
+                        <outlet property="accessabilityImage" destination="NaW-3z-0hE" id="Med-j6-4gf"/>
+                        <outlet property="accessabilityLabel" destination="WhC-y1-kmJ" id="rDG-yH-bhM"/>
                         <outlet property="arrivalMethodsImage" destination="CDX-G4-qW8" id="S5Y-W2-N8a"/>
                         <outlet property="arrivalMethodsLabel" destination="M2W-CS-al3" id="XzH-UI-fKa"/>
                         <outlet property="feedbackImage" destination="1BZ-SV-8wP" id="rAW-bB-AZh"/>
@@ -1571,6 +1573,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="v4a-EK-rZy"/>
                     <connections>
+                        <outlet property="alertsLabel" destination="qJ4-AS-YaN" id="5x7-LN-Nzt"/>
                         <outlet property="beforeEventStartsMessageLabel" destination="IKI-w7-yLT" id="sqj-11-qYb"/>
                         <outlet property="beforeEventStartsTitleLabel" destination="Ztu-Bk-D0l" id="71z-s7-X8m"/>
                         <outlet property="developerOptionsButton" destination="JKA-kw-ELj" id="1d1-DJ-qdE"/>
@@ -1586,6 +1589,7 @@
                         <outlet property="generalCategoryButton" destination="9LB-zO-nUf" id="yA6-Q0-LAB"/>
                         <outlet property="generalMessageLabel" destination="CyV-eM-C0o" id="MaZ-qJ-RXp"/>
                         <outlet property="generalTitleLabel" destination="0Uj-jo-coj" id="iny-Ds-Ly7"/>
+                        <outlet property="remindersLabel" destination="pDu-E3-Ndz" id="GR1-9o-IKJ"/>
                         <outlet property="testMessageLabel" destination="1rH-jP-KRs" id="0ue-af-k14"/>
                         <outlet property="testTitleLabel" destination="jNr-rk-7UK" id="Bpg-iY-4iw"/>
                     </connections>
@@ -1982,6 +1986,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateFilterControl" destination="Sun-ht-wg0" id="kHT-bA-j0N"/>
+                        <outlet property="importingTicketsLabel" destination="QKI-uB-hoE" id="6UW-FK-Zzl"/>
                         <outlet property="noEventsLabel" destination="EBg-9t-HBx" id="7Bb-ZI-aLe"/>
                         <outlet property="progressBarView" destination="zpp-Si-MgC" id="1ua-9l-JZP"/>
                         <outlet property="tabBarIcon" destination="gTS-3I-WYL" id="yoc-ad-naT"/>

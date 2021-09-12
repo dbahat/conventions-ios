@@ -15,6 +15,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     @IBOutlet private weak var tabBarIcon: UITabBarItem!
     @IBOutlet private weak var dateFilterControl: DateFilterControl!
     @IBOutlet private weak var progressBarView: UIView!
+    @IBOutlet private weak var importingTicketsLabel: UILabel!
     
     var shouldScrollToCurrentDateAndTime = true
     private var myEvents: Array<ConventionEvent>?
@@ -38,6 +39,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         tableView.reloadData()
         progressBarView.isHidden = true
         progressBarView.backgroundColor = Colors.icon2021_blue3
+        importingTicketsLabel.textColor = Colors.textColor
         
         scrollToCurrentRunningEventsIfNeeded()
     }
