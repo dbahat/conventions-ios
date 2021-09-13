@@ -37,9 +37,11 @@ class ConventionEvent {
     var url: URL
     var availableTickets: Int?
     var isVirtual: Bool
+    
+    // Needed due to legacy issues with the isVirtual flag
     var shouldMarkAsVirtual: Bool {
         get {
-            return isVirtual || hall.name.contains("וירטואלי")
+            return isVirtual
         }
     }
     
@@ -157,9 +159,9 @@ class ConventionEvent {
     var directWatchUrl: URL? {
         switch hall.name {
         case "אשכול 3 (וירטואלי)":
-            return URL(string: "https://olamot2021.virtualcon.org.il/%D7%90%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%9B%D7%9F/hall1/")
+            return URL(string: "https://icon2021.virtualcon.org.il/room-a")
         case "אשכול 4 (וירטואלי)":
-            return URL(string: "https://olamot2021.virtualcon.org.il/%D7%90%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%9B%D7%9F/hall2/")
+            return URL(string: "https://icon2021.virtualcon.org.il/room-b")
         default:
             return nil
         }
