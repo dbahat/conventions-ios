@@ -114,7 +114,7 @@
 		A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */; };
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
 		A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */ = {isa = PBXBuildFile; fileRef = A4E2F7B6213DB7CB007E3904 /* IconKids.html */; };
-		A4FD09F026EB77E50016C65E /* 1_icon2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */; };
+		A4FD09F026EB77E50016C65E /* icon2021Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FD09EF26EB77E50016C65E /* icon2021Events.json */; };
 		A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */; };
 		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
@@ -236,7 +236,7 @@
 		A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbb-logo.png"; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
 		A4E2F7B6213DB7CB007E3904 /* IconKids.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IconKids.html; sourceTree = "<group>"; };
-		A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1_icon2021Events.json; sourceTree = "<group>"; };
+		A4FD09EF26EB77E50016C65E /* icon2021Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon2021Events.json; sourceTree = "<group>"; };
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
 		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
 		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				A4FD09EF26EB77E50016C65E /* 1_icon2021Events.json */,
+				A4FD09EF26EB77E50016C65E /* icon2021Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
-				A4FD09F026EB77E50016C65E /* 1_icon2021Events.json in Resources */,
+				A4FD09F026EB77E50016C65E /* icon2021Events.json in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
@@ -949,7 +949,7 @@
 				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
@@ -960,7 +960,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 9.0;
+				MARKETING_VERSION = 9.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";
@@ -981,7 +981,7 @@
 				CODE_SIGN_ENTITLEMENTS = Conventions/Conventions.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = RSX72H9CGZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -991,7 +991,7 @@
 				INFOPLIST_FILE = Conventions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 9.0;
+				MARKETING_VERSION = 9.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
 				PRODUCT_NAME = Conventions;
 				PROVISIONING_PROFILE = "";

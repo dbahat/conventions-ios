@@ -23,8 +23,8 @@ class UserTicketsRetriever {
     
     func retrieve(user: String, password: String, callback: ((_ result: Tickets, _ error: Error?) -> Void)?) {
         
-        let escapedUser = user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let escapedUser = user.addingPercentEncoding(withAllowedCharacters: .letters)!
+        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .letters)!
         let requestBody = String(format: "grant_type=password&client_id=%@&client_secret=%@&username=%@&password=%@", UserTicketsRetriever.clientId, UserTicketsRetriever.clientSecret, escapedUser, escapedPassword)
         
         sendRequest(url: UserTicketsRetriever.getTokenApi, method: "POST", body: requestBody.data(using: .utf8), completionHandler: { (data, error) in
