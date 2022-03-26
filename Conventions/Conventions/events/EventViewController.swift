@@ -87,14 +87,19 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         feedbackView.event = event
         lecturer.text = event.lecturer
         eventTitle.text = event.title
-        eventTypeAndCategory.text =  event.type.description + " - אירוע " + (event.shouldMarkAsVirtual ? "וירטואלי" : "פיזי")
+        eventTypeAndCategory.text =  event.type.description + " - אירוע " + event.deliveryMethod
         hall.text = event.hall.name
         
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         time.font = UIFont.boldSystemFont(ofSize: 15)
         
         prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
-        tags.text = "תגיות: " + event.tags.joined(separator: ", ")
+        tags.text = String(format: "%@\n\n%@",
+                           // Using the tags textView to add the disclamer to avoid having to alter the existing UI layout constraints.
+                           // Ideally this disclamer should have it's own textView.
+                           getEventTypeDisclamer(),
+                           "תגיות: " + event.tags.joined(separator: ", ")
+                           )
         
         if let availableTicketsCount = event.availableTickets, availableTicketsCount >= 0 {
             updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
@@ -335,5 +340,17 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         default:
             return "יש כרטיסים"
         }
+    }
+    
+    private func getEventTypeDisclamer() -> String {
+        if event.isVirtual && event.isHybrid {
+            return "האירוע יועבר באופן וירטואלי, ובנוסף לכך יוקרן באולם במתחם הפיזי. הכניסה לאולם ההקרנה מותנית ברכישת כרטיס ככל אירוע פיזי אחר."
+        } else if event.isVirtual {
+            return "האירוע יועבר באופן וירטואלי בלבד."
+        } else if event.isHybrid {
+            return "האירוע יועבר באופן פיזי ובנוסף לכך ישודר בשידור חי לאתר השידורים."
+        }
+            
+        return "האירוע יועבר באופן פיזי בלבד."
     }
 }

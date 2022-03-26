@@ -38,10 +38,30 @@ class ConventionEvent {
     var availableTickets: Int?
     var isVirtual: Bool
     
+    var isHybrid: Bool {
+        get {
+            // Olamot 2022 - Since the server doesn't return hybrid events indication, base it on hardcoded hall names.
+            // Future refactoring should move this logic to a server (to avoid app updates if halls change)
+            return hall.name == "אשכול 2" || hall.name == "אשכול 3" || hall.name == "אשכול 4 (וירטואלי)"
+        }
+    }
+    
     // Needed due to legacy issues with the isVirtual flag
     var shouldMarkAsVirtual: Bool {
         get {
             return isVirtual
+        }
+    }
+    
+    var deliveryMethod: String {
+        get {
+            if isHybrid {
+                return "היברידי"
+            } else if isVirtual {
+                return "וירטואלי"
+            }
+            
+            return "פיזי"
         }
     }
     
