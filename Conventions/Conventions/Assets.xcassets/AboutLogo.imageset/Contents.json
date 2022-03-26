@@ -5,12 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "icon2021_title_nav-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon2021_title_nav.png",
+      "filename" : "Homescreen_Title.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

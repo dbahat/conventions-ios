@@ -33,7 +33,7 @@ class SurveyForm {
         request.httpBody = postBody.data(using: .utf8)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
+            guard let _ = data, error == nil else {
                 DispatchQueue.main.async {
                     callback?(false)
                 }
@@ -41,26 +41,6 @@ class SurveyForm {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                DispatchQueue.main.async {
-                    callback?(false)
-                }
-                return
-            }
-            
-            guard let responseString = String(data: data, encoding: .utf8) else {
-                DispatchQueue.main.async {
-                    callback?(false)
-                }
-                return
-            }
-            
-            // Check if the form was sent successfully
-            // Unfortunately, even for unsuccessful send we get a 200 response, so we need to check the output.
-            // There is no indication of error messages, but the "form was sent" message has class "freebirdFormviewerViewResponseConfirmationMessage"
-            // in case of a new form and "ss-resp-message" in case of an old form so we check if one of them exists (the success message itself is localized so we can't check its text).
-            if (!responseString.contains("freebirdFormviewerViewResponseConfirmationMessage")
-                && !responseString.contains("ss-resp-message")) {
-                
                 DispatchQueue.main.async {
                     callback?(false)
                 }

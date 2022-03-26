@@ -156,12 +156,15 @@ class ConventionEvent {
         }
     }
     
+    
     var directWatchUrl: URL? {
         switch hall.name {
-        case "אשכול 3 (וירטואלי)":
-            return URL(string: "https://icon2021.virtualcon.org.il/room-a")
+        case "אשכול 2":
+            return URL(string: "https://olamot2022.virtualcon.org.il/room-a")
+        case "אשכול 3":
+            return URL(string: "https://olamot2022.virtualcon.org.il/room-b")
         case "אשכול 4 (וירטואלי)":
-            return URL(string: "https://icon2021.virtualcon.org.il/room-b")
+            return URL(string: "https://olamot2022.virtualcon.org.il/room-c")
         default:
             return nil
         }

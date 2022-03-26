@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2021, month: 9, day: 22)
-    static let endDate = Date.from(year: 2021, month: 9, day: 26)
-    static let name = "icon2021"
-    static let displayName = "פסטיבל אייקון 2021"
+    static let date = Date.from(year: 2022, month: 4, day: 19)
+    static let endDate = Date.from(year: 2022, month: 4, day: 20)
+    static let name = "olamot2022"
+    static let displayName = "כנס עולמות 2022"
     
     var halls: Array<Hall>
     var events: Events
@@ -38,14 +38,13 @@ class Convention {
             
             Hall(name: "אשכול 1"),
             Hall(name: "אשכול 2"),
-            Hall(name: "אשכול 3 (וירטואלי)"),
+            Hall(name: "אשכול 3"),
             Hall(name: "אשכול 4 (וירטואלי)"),
             Hall(name: "אשכול 5"),
             Hall(name: "אשכול 6"),
             
             Hall(name: "מפגשים"),
-            Hall(name: "סדנאות 1"),
-            Hall(name: "סדנאות 2"),
+            Hall(name: "סדנאות"),
             Hall(name: "ילדים"),
             Hall(name: "אירועי חוצות"),
             Hall(name: "אירועי חוצות 2"),
@@ -92,13 +91,13 @@ class Convention {
         ]
         
         conventionFeedbackForm = SurveyForm.Feedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdUrN2YEaonwI-AvlCKnKxt9D1DovWNM6bZNQpysDK6t4ClWA/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfZGzaYKDdJe3iOS0EsWWnIeDvtWhKc6e5BXIY8eGHyggneyQ/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfoz56q8nlspshth17qkkFkTxbgjCAXrIgirPemZPk7ZWvwsw/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdVCHOLBCXjNlVEBVDudeUwKneksjqZPLoRrc-ktiPHmLqmmg/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             eventTitleEntry: "entry.1847107867",
