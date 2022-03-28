@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FirebaseApp.configure()
         
+        UITabBar.appearance().unselectedItemTintColor = Colors.tabBarUnselectedTabColor
         UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {

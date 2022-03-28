@@ -45,7 +45,7 @@ class MoreInfoViewController : UITableViewController {
         tabBarController?.navigationItem.leftBarButtonItem = nil
         
         let imageView = UIImageView(image: UIImage(named: "AppBackground"))
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         tableView?.backgroundView = imageView
         
         adjustImageView(settingsImage)

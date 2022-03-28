@@ -22,7 +22,8 @@ class Colors {
     static let white = UIColor.white
     
     static let colorAccent = Colors.olamot2022_rust
-    static let tabBarSelectedTabColor = Colors.buttonPressedColor
+    static let tabBarSelectedTabColor = Colors.olamot2022_rust
+    static let tabBarUnselectedTabColor = Colors.black
     static let textColor = UIColor.black
     static let backgroundColor = UIColor.clear
     

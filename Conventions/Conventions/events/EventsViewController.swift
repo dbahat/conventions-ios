@@ -302,8 +302,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(EventsViewController.refresh), for: UIControl.Event.valueChanged)
         tableViewController.refreshControl?.backgroundColor = UIColor.clear
-        addChild(tableViewController)
-        tableViewController.didMove(toParent: self)
     }
     
     fileprivate func initializeSearchBar() {
