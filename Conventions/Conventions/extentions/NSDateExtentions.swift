@@ -73,6 +73,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = TimeZone(identifier: "GMT")
+        dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter.date(from: date)
     }
     
