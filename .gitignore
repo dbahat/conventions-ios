@@ -65,3 +65,4 @@ fastlane/screenshots
 Conventions/Podfile.lock
 Conventions/Pods
 Conventions/Conventions.xcworkspace
+.idea

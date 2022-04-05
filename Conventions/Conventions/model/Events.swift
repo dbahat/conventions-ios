@@ -123,6 +123,8 @@ class Events {
             }
         }
         
+        print("parsed events: ", result.count);
+        
         return result
     }
     

@@ -79,8 +79,8 @@ class ConventionEvent {
             let price = json["price"] as? Int,
             let tags = json["tags"] as? Array<String>,
             let url = json["url"] as? String,
-            let presentationMode = json["presentationMode"] as? EventType.PredentationMode,
-            let presentationLocation = json["presentationLocation"] as? EventType.PredentationLocation
+            let presentationMode = json["presentationMode"] as? String,
+            let presentationLocation = json["presentationLocation"] as? String
         else {
             return nil
         }
@@ -95,7 +95,8 @@ class ConventionEvent {
                                endTime: Date(timeIntervalSince1970: endTime),
                                     type: EventType(backgroundColor: nil,
                                                     description: type,
-                                                    presentation: EventType.Presentation(mode: presentationMode, location: presentationLocation)),
+                                                    presentation: EventType.Presentation(mode: EventType.PredentationMode(rawValue: presentationMode)!,
+                                                                                         location: EventType.PredentationLocation(rawValue: presentationLocation)!)),
                                hall: ConventionEvent.findHall(halls, hallName: hall),
                                description: description,
                                category: category,
