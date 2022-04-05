@@ -86,7 +86,7 @@ class Convention {
         events = Events(halls: halls)
         
         feedbackQuestions = [
-            FeedbackQuestion(question:"באיזו מידה נהנית מהפסטיבל?", answerType: .Smiley),
+            FeedbackQuestion(question:"באיזו מידה נהנית מהכנס?", answerType: .Smiley),
             FeedbackQuestion(question: "הצעות לשיפור ונושאים לשימור", answerType: .Text)
         ]
         
@@ -94,7 +94,7 @@ class Convention {
             url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfZGzaYKDdJe3iOS0EsWWnIeDvtWhKc6e5BXIY8eGHyggneyQ/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
-            questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהפסטיבל?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
+            questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהכנס?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
             url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdVCHOLBCXjNlVEBVDudeUwKneksjqZPLoRrc-ktiPHmLqmmg/formResponse")!,

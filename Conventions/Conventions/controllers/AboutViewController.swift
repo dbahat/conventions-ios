@@ -42,7 +42,7 @@ class AboutViewController : BaseViewController, UIWebViewDelegate {
             aboutAppVersionLabel.textColor = Colors.textColor
         }
         
-        navigationItem.title = "אודות הפסטיבל"
+        navigationItem.title = "אודות הכנס"
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -755,8 +755,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuFeedback" translatesAutoresizingMaskIntoConstraints="NO" id="1BZ-SV-8wP">
                                                     <rect key="frame" x="318" y="5.5" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לפסטיבל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-ua-5Nd">
-                                                    <rect key="frame" x="204.5" y="12" width="103.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לכנס" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-ua-5Nd">
+                                                    <rect key="frame" x="231.5" y="12" width="76.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -813,8 +813,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuAbout" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-CY-d9k">
                                                     <rect key="frame" x="318" y="5.5" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות הפסטיבל" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXN-ka-OQx">
-                                                    <rect key="frame" x="205" y="12" width="103" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות הכנס" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXN-ka-OQx">
+                                                    <rect key="frame" x="232" y="12" width="76" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1178,7 +1178,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הפסטיבל" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק על הכנס" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-41-boP">
                                         <rect key="frame" x="65" y="388" width="300" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1276,7 +1276,7 @@
             </objects>
             <point key="canvasLocation" x="2465" y="2595"/>
         </scene>
-        <!--Notification Settings View Controller-->
+        <!--הגדרות-->
         <scene sceneID="fSN-iB-Rya">
             <objects>
                 <viewController storyboardIdentifier="NotificationSettingsViewController" id="JZD-xw-s30" customClass="NotificationSettingsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
@@ -1614,7 +1614,7 @@
                             <constraint firstItem="RoK-xZ-E6v" firstAttribute="centerY" secondItem="Q2J-WM-w3M" secondAttribute="centerY" id="mX7-HG-sm0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="v4a-EK-rZy"/>
+                    <navigationItem key="navigationItem" title="הגדרות" id="v4a-EK-rZy"/>
                     <connections>
                         <outlet property="alertsLabel" destination="qJ4-AS-YaN" id="5x7-LN-Nzt"/>
                         <outlet property="beforeEventStartsMessageLabel" destination="IKI-w7-yLT" id="sqj-11-qYb"/>
@@ -1646,7 +1646,7 @@
             </objects>
             <point key="canvasLocation" x="-470" y="2596"/>
         </scene>
-        <!--About View Controller-->
+        <!--אודות-->
         <scene sceneID="hm9-Kp-XK3">
             <objects>
                 <viewController id="uiV-2P-ExO" customClass="AboutViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
@@ -1727,7 +1727,7 @@
                             <constraint firstItem="DZl-ci-c5x" firstAttribute="width" secondItem="Dit-Ro-IYl" secondAttribute="width" id="vMD-BL-ul4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DxG-oo-xWK"/>
+                    <navigationItem key="navigationItem" title="אודות" id="DxG-oo-xWK"/>
                     <connections>
                         <outlet property="aboutAppContentLabel" destination="rX4-pg-Cr5" id="LnY-bb-5Mb"/>
                         <outlet property="aboutAppTitleLabel" destination="c5b-Z8-F5q" id="QYe-vm-7ei"/>
@@ -2090,7 +2090,7 @@
             </objects>
             <point key="canvasLocation" x="-4486" y="2589"/>
         </scene>
-        <!--Accessability View Controller-->
+        <!--נגישות-->
         <scene sceneID="yjM-5V-xIn">
             <objects>
                 <viewController id="KjF-zB-Rvp" customClass="AccessabilityViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
@@ -2122,7 +2122,7 @@
                             <constraint firstAttribute="trailing" secondItem="mRH-VT-yrT" secondAttribute="trailing" constant="8" id="zL2-DB-7hz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="baK-fy-ZcR"/>
+                    <navigationItem key="navigationItem" title="נגישות" id="baK-fy-ZcR"/>
                     <connections>
                         <outlet property="contentWebView" destination="mRH-VT-yrT" id="Kkv-2m-CXG"/>
                     </connections>
