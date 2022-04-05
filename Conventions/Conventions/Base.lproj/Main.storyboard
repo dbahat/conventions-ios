@@ -222,7 +222,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -991,7 +991,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Pkx-cc-u9m">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Pkx-cc-u9m">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S4-nS-Wyp">
@@ -1200,10 +1200,10 @@
                             <constraint firstAttribute="trailing" secondItem="9S4-nS-Wyp" secondAttribute="trailing" id="zBs-Pr-hZe"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="lRM-pE-C2z"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="contentView" destination="9S4-nS-Wyp" id="DcP-B4-ih1"/>
                         <outlet property="conventionFeedbackTitleLabel" destination="uWh-41-boP" id="HA2-kY-Xv8"/>
                         <outlet property="eventsToSubmitHeightConstraint" destination="1GP-IU-Pcs" id="2Kf-No-Q41"/>
                         <outlet property="eventsToSubmitTableView" destination="RHH-cB-LNw" id="Im5-s4-5ff"/>
@@ -2074,7 +2074,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="w1u-TZ-YLe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="300.33334350585938" height="135.33332824707031"/>

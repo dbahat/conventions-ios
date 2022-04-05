@@ -11,6 +11,7 @@ import Firebase
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var filledEventsFeedbackLabel: UILabel!
     @IBOutlet private weak var seperatorView: UIView!
     @IBOutlet private weak var sendAllFeedbackDescriptionLabel: UILabel!
@@ -126,7 +127,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
                 ])
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.contentView).show()
                 return
             }
             
@@ -186,7 +187,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         for event in eventsToSubmitDataSource.events {
             event.submitFeedback({success in
                 if !success {
-                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.contentView)
                         .show();
                     return
                 }

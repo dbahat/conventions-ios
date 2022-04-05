@@ -37,7 +37,7 @@ class Colors {
     static let feedbackButtonPressedColor = Colors.olamot2022_rust
     
     static let feedbackButtonColorEvent = Colors.olamot2022_yellow2
-    static let feedbackButtonColorConvetion = Colors.olamot2022_yellow3
+    static let feedbackButtonColorConvetion = Colors.olamot2022_yellow2
     static let feedbackLinksColorEvent = Colors.feedbackButtonColorEvent
     static let feedbackLinksColorConvention = Colors.feedbackButtonColorConvetion
     
