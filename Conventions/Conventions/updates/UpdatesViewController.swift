@@ -12,6 +12,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
     
     @IBOutlet fileprivate weak var noUpdatesFoundLabel: UILabel!
     @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet private weak var toastView: UIView!
     
     // Keeping the tableController as a child so we'll be able to add other subviews to the current
     // screen's view controller (e.g. snackbarView)
@@ -82,7 +83,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
                 ])
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             

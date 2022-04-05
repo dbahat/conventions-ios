@@ -16,6 +16,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     @IBOutlet private weak var dateFilterControl: DateFilterControl!
     @IBOutlet private weak var progressBarView: UIView!
     @IBOutlet private weak var importingTicketsLabel: UILabel!
+    @IBOutlet private weak var toastView: UIView!
     
     var shouldScrollToCurrentDateAndTime = true
     private var myEvents: Array<ConventionEvent>?
@@ -156,7 +157,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             }
             
             if (user.isEmpty || !user.contains("@")) {
-                TTGSnackbar(message: "אימייל לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "אימייל לא תקין", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
@@ -169,11 +170,11 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 if let failureReason = error {
                     switch failureReason {
                     case .badPassword:
-                        TTGSnackbar(message: "אימייל או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                        TTGSnackbar(message: "אימייל או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                     case .badUsername:
-                        TTGSnackbar(message: "אימייל לא נמצא במערכת", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                        TTGSnackbar(message: "אימייל לא נמצא במערכת", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                     case .unknown:
-                        TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                        TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                     }
                     
                     return

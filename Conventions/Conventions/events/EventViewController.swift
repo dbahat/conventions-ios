@@ -13,7 +13,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
     
-    @IBOutlet weak var eventContentView: UIScrollView!
+    @IBOutlet private weak var toastView: UIView!
     @IBOutlet fileprivate weak var eventTitleBoxBoarderView: UIView!
     @IBOutlet fileprivate weak var lecturer: UILabel!
     @IBOutlet fileprivate weak var eventTitle: UILabel!
@@ -198,7 +198,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         refreshFavoriteBarIconImage();
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: eventContentView)
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: toastView)
             .show();
     }
     
@@ -284,7 +284,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                 isSent: self.event.didSubmitFeedback())
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.eventContentView)
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.toastView)
                     .show();
             }
             

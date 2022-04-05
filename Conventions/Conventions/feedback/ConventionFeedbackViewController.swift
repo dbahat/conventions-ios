@@ -32,6 +32,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
     @IBOutlet private weak var filledFeedbacksTitleLabel: UILabel!
     @IBOutlet private weak var conventionFeedbackTitleLabel: UILabel!
     @IBOutlet private weak var generalFeedbackTitleLabel: UILabel!
+    @IBOutlet private weak var toastView: UIView!
     
     private let submittedEventsDataSource = EventsTableDataSource()
     private let eventsToSubmitDataSource = EventsTableDataSource()
@@ -127,7 +128,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
                 ])
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.contentView).show()
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
@@ -187,7 +188,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         for event in eventsToSubmitDataSource.events {
             event.submitFeedback({success in
                 if !success {
-                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.contentView)
+                    TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.toastView)
                         .show();
                     return
                 }

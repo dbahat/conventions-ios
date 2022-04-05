@@ -12,7 +12,8 @@ import Firebase
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UIScrollViewDelegate, UISearchBarDelegate {
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var noResultsFoundLabel: UILabel!
-
+    @IBOutlet private weak var toastBar: UIView!
+    
     fileprivate var eventsPerTimeSection: Dictionary<Date, Array<ConventionEvent>> = [:]
     fileprivate var eventTimeSections: Array<Date> = []
     
@@ -159,7 +160,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         event.attending = !event.attending;
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: view).show();
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: toastBar).show();
         
         // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
         tableView.reloadData();
@@ -279,7 +280,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 ])
             
             if (!success) {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show();
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastBar).show();
                 return;
             }
             
