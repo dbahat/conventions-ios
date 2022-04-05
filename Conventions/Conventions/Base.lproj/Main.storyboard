@@ -479,6 +479,7 @@
                         <outlet property="OpenEventButton" destination="2AJ-Is-iwM" id="BWh-FR-AZ6"/>
                         <outlet property="OpenEventContainerHeightConstraint" destination="n81-oU-AXF" id="IjN-rD-FMT"/>
                         <outlet property="availableTickets" destination="lDx-LA-DHn" id="6uA-pv-X6d"/>
+                        <outlet property="eventContentView" destination="Vsq-dg-4zG" id="tTu-MQ-CED"/>
                         <outlet property="eventDescriptionContainer" destination="u5k-i3-wiM" id="hNO-Pk-2l6"/>
                         <outlet property="eventDescriptionWebView" destination="B4w-bu-Mvg" id="9q9-iP-lSv"/>
                         <outlet property="eventDescriptionWebViewHeightConstraint" destination="BGW-sw-Ff6" id="xJF-h6-Ns1"/>

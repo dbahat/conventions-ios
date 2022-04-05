@@ -56,6 +56,11 @@ class SffEventsParser {
                 print("Event missing location. Skipping. ID=", eventId, " name=", title);
                 continue;
             }
+            guard
+                let presentation = parsePresentation(event) else {
+                print("Event missing virtual/physical properties. Skipping. ID=", eventId, " name=", title);
+                continue;
+            }
             
             var eventPrice = 0
             if let price = event["price"] as? String,
@@ -68,6 +73,7 @@ class SffEventsParser {
                 speaker = speakers.count > 0 ? speakers.componentsJoined(by: ",") : ""
             }
             
+            
             let conventionEvent = ConventionEvent(
                 id: eventId,
                 serverId: Int(eventId) ?? 0,
@@ -79,7 +85,9 @@ class SffEventsParser {
                 endTime: parseDate(endTime),
                 type: EventType(
                     backgroundColor: nil,
-                    description: eventType),
+                    description: eventType,
+                    presentation: presentation
+                ),
                 hall: Convention.instance.findHallByName(hallName),
                 description: parseEventDescription(description),
                 category: "", // Optional parameter. Kept in the ctor for backwards compatability.
@@ -96,15 +104,30 @@ class SffEventsParser {
             if let tags = event["tags"] as? Array<String> {
                 conventionEvent.tags = tags
             }
-            if let isVirtual = event["is_virtual"] as? Bool {
-                conventionEvent.isVirtual = isVirtual
-            }
             
             result.append(conventionEvent)
             
         }
         
         return result;
+    }
+    
+    private func parsePresentation(_ event: Dictionary<String, AnyObject>) -> EventType.Presentation? {
+        guard
+            let hasPhysical = event["has_physical"] as? Bool,
+            let hasVirtual = event["has_virtual"] as? Bool,
+            let isInhouse = event["is_inhouse"] as? Bool
+        else {
+            return nil
+        }
+        
+        if !hasPhysical && !hasVirtual {
+            return nil
+        }
+        
+        return EventType.Presentation(mode: hasPhysical && hasVirtual ? .Hybrid : (hasVirtual ? .Virtual : .Physical),
+                                      location: isInhouse ? .Indoors : .Virtual
+        )
     }
     
     fileprivate func parseDate(_ time: String) -> Date {

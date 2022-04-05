@@ -59,7 +59,7 @@ class Colors {
     // Event colors
     static let eventDetailsBoxColor = UIColor.clear
     static let eventTitleBackground = Colors.olamot2022_brown1
-    static let eventTitleBoarderColor = UIColor.clear
+    static let eventTitleBoarderColor = Colors.olamot2022_rust
     static let eventTitleTextColor = UIColor.white
     static let eventDetailsHighlightedTextColor = UIColor.white
     static let eventFeedbackBoxColor = Colors.olamot2022_brown2

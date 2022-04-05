@@ -124,7 +124,9 @@ class AmaiEventsParser {
                     endTime: appendTimeToConventionDate(endTime),
                     type: EventType(
                         backgroundColor: color,
-                        description: event["categories-text"]?["name"] as? String ?? ""),
+                        description: event["categories-text"]?["name"] as? String ?? "",
+                        presentation: EventType.Presentation(mode: .Physical, location: .Indoors)
+                    ),
                     hall: findHallByName(halls, hallName: hallName),
                     description: parseEventDescription(description),
                     category: "",

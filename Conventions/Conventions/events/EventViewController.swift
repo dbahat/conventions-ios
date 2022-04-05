@@ -13,6 +13,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
     
+    @IBOutlet weak var eventContentView: UIScrollView!
     @IBOutlet fileprivate weak var eventTitleBoxBoarderView: UIView!
     @IBOutlet fileprivate weak var lecturer: UILabel!
     @IBOutlet fileprivate weak var eventTitle: UILabel!
@@ -87,7 +88,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         feedbackView.event = event
         lecturer.text = event.lecturer
         eventTitle.text = event.title
-        eventTypeAndCategory.text =  event.type.description + " - אירוע " + event.deliveryMethod
+        eventTypeAndCategory.text =  event.type.description + " - אירוע " + formatPredentationMode(event.type.presentation.mode)
         hall.text = event.hall.name
         
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
@@ -150,6 +151,17 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         //fadeInBackgroundImage()
     }
     
+    private func formatPredentationMode(_ mode: EventType.PredentationMode) -> String {
+        switch mode {
+        case .Hybrid:
+            return "היברידי"
+        case .Virtual:
+            return "וירטואלי"
+        case .Physical:
+            return "פיזי"
+        }
+    }
+    
     private func fadeInBackgroundImage() {
         // Loading the image only during viewDidAppear so as not to cause a delay when the ViewController
         // is opened when an event has a "heavy" image.
@@ -186,7 +198,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         refreshFavoriteBarIconImage();
         
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
-        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: view)
+        TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: eventContentView)
             .show();
     }
     
@@ -272,7 +284,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
                 isSent: self.event.didSubmitFeedback())
             
             if !success {
-                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.view)
+                TTGSnackbar(message: "לא ניתן לשלוח את הפידבק. נסה שנית מאוחר יותר", duration: TTGSnackbarDuration.middle, superView: self.eventContentView)
                     .show();
             }
             
@@ -343,14 +355,15 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     private func getEventTypeDisclamer() -> String {
-        if event.isVirtual && event.isHybrid {
-            return "האירוע יועבר באופן וירטואלי, ובנוסף לכך יוקרן באולם במתחם הפיזי. הכניסה לאולם ההקרנה מותנית ברכישת כרטיס ככל אירוע פיזי אחר."
-        } else if event.isVirtual {
+        switch event.type.presentation.mode {
+        case .Physical:
+            return "האירוע יועבר באופן פיזי בלבד."
+        case .Virtual:
             return "האירוע יועבר באופן וירטואלי בלבד."
-        } else if event.isHybrid {
-            return "האירוע יועבר באופן פיזי ובנוסף לכך ישודר בשידור חי לאתר השידורים."
+        case .Hybrid:
+            return event.type.presentation.location == .Indoors
+                ? "האירוע יועבר באופן פיזי ובנוסף לכך ישודר בשידור חי לאתר השידורים."
+                : "האירוע יועבר באופן וירטואלי, ובנוסף לכך יוקרן באולם במתחם הפיזי. הכניסה לאולם ההקרנה מותנית ברכישת כרטיס ככל אירוע פיזי אחר."
         }
-            
-        return "האירוע יועבר באופן פיזי בלבד."
     }
 }

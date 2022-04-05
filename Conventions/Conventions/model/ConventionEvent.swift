@@ -36,34 +36,6 @@ class ConventionEvent {
     var tags: Array<String>
     var url: URL
     var availableTickets: Int?
-    var isVirtual: Bool
-    
-    var isHybrid: Bool {
-        get {
-            // Olamot 2022 - Since the server doesn't return hybrid events indication, base it on hardcoded hall names.
-            // Future refactoring should move this logic to a server (to avoid app updates if halls change)
-            return hall.name == "אשכול 2" || hall.name == "אשכול 3" || hall.name == "אשכול 4 (וירטואלי)"
-        }
-    }
-    
-    // Needed due to legacy issues with the isVirtual flag
-    var shouldMarkAsVirtual: Bool {
-        get {
-            return isVirtual
-        }
-    }
-    
-    var deliveryMethod: String {
-        get {
-            if isHybrid {
-                return "היברידי"
-            } else if isVirtual {
-                return "וירטואלי"
-            }
-            
-            return "פיזי"
-        }
-    }
     
     var availableTicketsLastModified: Date?
     
@@ -90,7 +62,6 @@ class ConventionEvent {
         self.price = price
         self.tags = tags
         self.url = url
-        self.isVirtual = false
     }
     
     static func parse(_ json: Dictionary<String, AnyObject>, halls: Array<Hall>) -> ConventionEvent? {
@@ -107,7 +78,9 @@ class ConventionEvent {
             let category = json["category"] as? String,
             let price = json["price"] as? Int,
             let tags = json["tags"] as? Array<String>,
-            let url = json["url"] as? String
+            let url = json["url"] as? String,
+            let presentationMode = json["presentationMode"] as? EventType.PredentationMode,
+            let presentationLocation = json["presentationLocation"] as? EventType.PredentationLocation
         else {
             return nil
         }
@@ -120,7 +93,9 @@ class ConventionEvent {
                                lecturer: lecturer,
                                startTime: Date(timeIntervalSince1970: startTime),
                                endTime: Date(timeIntervalSince1970: endTime),
-                               type: EventType(backgroundColor: nil, description: type),
+                                    type: EventType(backgroundColor: nil,
+                                                    description: type,
+                                                    presentation: EventType.Presentation(mode: presentationMode, location: presentationLocation)),
                                hall: ConventionEvent.findHall(halls, hallName: hall),
                                description: description,
                                category: category,
@@ -133,9 +108,6 @@ class ConventionEvent {
         }
         if let availableTicketsLastModified = json["availableTicketsLastModified"] as? Double {
             event.availableTicketsLastModified = Date(timeIntervalSince1970: availableTicketsLastModified)
-        }
-        if let isVirtual = json["is_virtual"] as? Bool {
-            event.isVirtual = isVirtual
         }
         
         return event
@@ -166,7 +138,8 @@ class ConventionEvent {
             "url": self.url.absoluteString as AnyObject,
             "availableTickets": self.availableTickets as AnyObject,
             "availableTicketsLastModified": self.availableTicketsLastModified?.timeIntervalSince1970 as AnyObject,
-            "is_virtual": self.isVirtual as AnyObject
+            "presentationMode": self.type.presentation.mode.rawValue as AnyObject,
+            "presentationLocation": self.type.presentation.location.rawValue as AnyObject,
         ]
     }
     
