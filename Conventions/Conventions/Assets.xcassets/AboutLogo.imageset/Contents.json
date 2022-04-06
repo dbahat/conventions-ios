@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "olamot2022_title.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "olamot2022_title-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Homescreen_Title.png",
+      "filename" : "olamot2022_title-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
