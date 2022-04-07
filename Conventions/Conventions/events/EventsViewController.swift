@@ -47,24 +47,21 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         Convention.instance.events.refresh({success in
             self.tableView.reloadData()
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // Initial loading of the table. Done here so we can auto-scroll to the first position, leaving the search bar control hidden
+        // Drawing the table here and not viewDidLoad, since the layout cycle needs to complete before we draw the cells
         calculateEventsAndTimeSections()
         tableView.reloadData()
+        
         if eventTimeSections.count > 0 && UIDevice.current.userInterfaceIdiom == .phone {
             // Hide the search bar during page initial load.
             // Disabled for tablets since on iOS 11 tablets this seems to distort the UI.
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
         noResultsFoundLabel.textColor = Colors.textColor
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // redraw the table when navigating in/out of the view, in case the model changed
-        calculateEventsAndTimeSections()
-        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -162,8 +159,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         let message = event.attending == true ? "האירוע התווסף לאירועים שלי" : "האירוע הוסר מהאירועים שלי";
         TTGSnackbar(message: message, duration: TTGSnackbarDuration.short, superView: toastBar).show();
         
-        // Reloading all data, since there might be a need to update the indicator in multiple cells (e.g. for multi-hour event)
-        tableView.reloadData();
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - Navigation
@@ -311,6 +307,15 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchBar.barStyle = .black
         searchBar.tintColor = Colors.colorAccent
         searchBar.delegate = self
+        searchBar.semanticContentAttribute = .forceRightToLeft
+        
+        var searchTextField: UITextField
+        if #available(iOS 13.0, *) {
+            searchTextField = searchBar.searchTextField
+        } else {
+             searchTextField = searchBar.value(forKey: "searchField") as! UITextField
+        }
+        searchTextField.textAlignment = .right
     }
     
     fileprivate func getSectionIndex(forDate: Date) -> Int? {
