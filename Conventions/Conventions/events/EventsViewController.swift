@@ -308,6 +308,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchBar.tintColor = Colors.colorAccent
         searchBar.delegate = self
         searchBar.semanticContentAttribute = .forceRightToLeft
+        searchBar.endEditing(true)
         
         var searchTextField: UITextField
         if #available(iOS 13.0, *) {

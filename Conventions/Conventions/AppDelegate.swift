@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UITabBar.appearance().unselectedItemTintColor = Colors.tabBarUnselectedTabColor
         UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
+        self.window!.tintColor = Colors.colorAccent
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
             // Forcing the app to left-to-right layout, since automatic changing of layout direction only
