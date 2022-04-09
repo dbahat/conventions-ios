@@ -122,26 +122,26 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
-                                <rect key="frame" x="8" y="136" width="359" height="482"/>
+                                <rect key="frame" x="16" y="136" width="343" height="482"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="BCR-Pw-EUd">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="OXO-rt-127" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88.5" width="359" height="102"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="343" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OXO-rt-127" id="MYl-BU-zg9">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="349" height="92"/>
+                                                    <rect key="frame" x="5" y="5" width="333" height="92"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -193,8 +193,8 @@
                             <constraint firstItem="QXR-6U-4hy" firstAttribute="top" secondItem="BWT-Xb-iHc" secondAttribute="bottom" id="iKK-lK-Qgo"/>
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="iOq-7L-LM6"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="ihY-yI-UKn"/>
-                            <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="8" id="jfY-fu-2Nl"/>
-                            <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" constant="8" id="n70-ii-viN"/>
+                            <constraint firstItem="PSg-uB-BHT" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="16" id="jfY-fu-2Nl"/>
+                            <constraint firstAttribute="trailing" secondItem="PSg-uB-BHT" secondAttribute="trailing" constant="16" id="n70-ii-viN"/>
                             <constraint firstItem="BWT-Xb-iHc" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="uAf-aH-C48"/>
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="height" secondItem="tYJ-0M-xL8" secondAttribute="height" id="wIo-Dj-Otg"/>
                             <constraint firstItem="yXH-4s-zW2" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="x5q-0u-16M"/>
@@ -234,7 +234,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -466,7 +466,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </scrollView>
                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zc5-Tg-41f">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1928,21 +1928,21 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-5U-iw3">
-                                <rect key="frame" x="8" y="97" width="359" height="521"/>
+                                <rect key="frame" x="16" y="97" width="343" height="521"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" id="c6F-Vv-NRJ" customClass="EventTableViewCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="359" height="102"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="343" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6F-Vv-NRJ" id="ZcJ-IC-VUv">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1U-A7-VX0" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="349" height="92"/>
+                                                    <rect key="frame" x="5" y="5" width="333" height="92"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -2002,14 +2002,14 @@
                             <constraint firstItem="zpp-Si-MgC" firstAttribute="centerX" secondItem="syY-rg-AlJ" secondAttribute="centerX" id="5Ta-4k-lyh"/>
                             <constraint firstItem="4T8-O5-cGp" firstAttribute="top" secondItem="EFN-Pp-Nwj" secondAttribute="bottom" id="5ff-Az-7bi"/>
                             <constraint firstAttribute="trailing" secondItem="c2k-yU-iwa" secondAttribute="trailing" id="5gW-4G-f1T"/>
-                            <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" constant="8" id="8Gk-OS-KIT"/>
+                            <constraint firstItem="R2k-5U-iw3" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" constant="16" id="8Gk-OS-KIT"/>
                             <constraint firstItem="EFN-Pp-Nwj" firstAttribute="top" secondItem="qOZ-2u-GFq" secondAttribute="bottom" id="BgL-Vj-f8x"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="width" secondItem="syY-rg-AlJ" secondAttribute="width" id="Fzn-K3-0eR"/>
                             <constraint firstItem="c2k-yU-iwa" firstAttribute="top" secondItem="syY-rg-AlJ" secondAttribute="topMargin" id="Skb-gg-Sgu"/>
                             <constraint firstItem="zpp-Si-MgC" firstAttribute="centerY" secondItem="syY-rg-AlJ" secondAttribute="centerY" id="XLl-31-o5h"/>
                             <constraint firstItem="c2k-yU-iwa" firstAttribute="leading" secondItem="syY-rg-AlJ" secondAttribute="leading" id="ahB-RA-woi"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="centerX" secondItem="syY-rg-AlJ" secondAttribute="centerX" id="jpm-Qa-LIM"/>
-                            <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" constant="8" id="k05-vD-CUC"/>
+                            <constraint firstAttribute="trailing" secondItem="R2k-5U-iw3" secondAttribute="trailing" constant="16" id="k05-vD-CUC"/>
                             <constraint firstItem="R2k-5U-iw3" firstAttribute="top" secondItem="c2k-yU-iwa" secondAttribute="bottom" constant="1" id="ljr-Od-qEO"/>
                             <constraint firstItem="AHg-kF-Trf" firstAttribute="centerY" secondItem="syY-rg-AlJ" secondAttribute="centerY" id="lpY-72-BA8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EBg-9t-HBx" secondAttribute="trailing" constant="40" id="n30-kg-q1a"/>
@@ -2133,7 +2133,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w1u-TZ-YLe"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="300" height="135"/>

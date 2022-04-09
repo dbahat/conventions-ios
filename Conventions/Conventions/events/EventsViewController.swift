@@ -135,6 +135,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         let event = eventsPerTimeSection[timeSection]![indexPath.row]
         cell.setEvent(event)
         cell.delegate = self
+        // Needed in case the dequeued cell was masked by the stickey header
+        cell.maskCell(fromTop: 0)
 
         return cell;
     }

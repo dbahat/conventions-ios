@@ -222,8 +222,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        // Reset the webView before calling sizeToFit(), which will only increase it's size
-        webView.frame.size.height = 1.0
+        // sizeToFit() can only increase the webview size
         webView.sizeToFit()
         
         // Update the height constraint so the rest of the layout will also align to the new height
