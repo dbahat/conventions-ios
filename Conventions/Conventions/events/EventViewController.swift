@@ -8,11 +8,12 @@
 
 import UIKit
 
-class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate {
+class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate, UIScrollViewDelegate {
 
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
     
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var toastView: UIView!
     @IBOutlet fileprivate weak var eventTitleBoxBoarderView: UIView!
     @IBOutlet fileprivate weak var lecturer: UILabel!
@@ -118,10 +119,6 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         eventDescriptionWebView.delegate = self
         eventDescriptionWebView.scrollView.isScrollEnabled = false
         
-        if let eventDescription = event.description {
-            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
-        }
-        
         refreshFavoriteBarIconImage()
         
         refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
@@ -138,6 +135,18 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             openEventLabel.isHidden = true
             OpenEventButton.isHidden = true
         }
+        
+        if let eventDescription = event.description {
+            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
+            
+            // Set a very high initial height to the webview.
+            // This causes a scrollbar to appear until the user attempt to scroll, at which time it'll shrink-to-size.
+            // Needed since we don't know when will the webView exacly finish loading (webViewDidFinishLoad isn't fired on some iPhones).
+            eventDescriptionWebView.frame.size.height = self.view.frame.size.height
+            eventDescriptionWebViewHeightConstraint.constant = eventDescriptionWebView.frame.size.height
+        }
+        
+        scrollView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -221,14 +230,6 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         UIApplication.shared.open(url, options: [:]) { (success) in }
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        // sizeToFit() can only increase the webview size
-        webView.sizeToFit()
-        
-        // Update the height constraint so the rest of the layout will also align to the new height
-        eventDescriptionWebViewHeightConstraint.constant = webView.frame.size.height
-    }
-    
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         if navigationType == UIWebView.NavigationType.linkClicked {
             
@@ -256,6 +257,12 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     // MARK: - EventFeedbackViewProtocol
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        // Needed since on some iPhones webViewDidFinisLoad event isn't invoked at all (e.g. iPhone 12 pro-max, iOS 15.3.1).
+        // This will trigger a short bounce animation if no scroll is needed.
+        resizeWebviewToFitContent()
+    }
     
     func feedbackViewHeightDidChange(_ newHeight: CGFloat) {
         feedbackViewHeightConstraint.constant = newHeight
@@ -293,6 +300,15 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     }
     
     // MARK: - private methods
+    
+    private func resizeWebviewToFitContent() {
+        eventDescriptionWebView.frame.size.height = 1.0
+        // sizeToFit() can only increase the webview size
+        eventDescriptionWebView.sizeToFit()
+        
+        // Update the height constraint so the rest of the layout will also align to the new height
+        eventDescriptionWebViewHeightConstraint.constant = eventDescriptionWebView.frame.size.height
+    }
     
     private func getImage(_ serverEventId: String) -> UIImage {
         if let eventImage = UIImage(named: "Event_" + serverEventId) {

@@ -519,6 +519,7 @@
                         <outlet property="openEventLabel" destination="fCr-Xe-9IO" id="WAn-bZ-vgA"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
                         <outlet property="refreshAvailableTicketsButton" destination="wZJ-Bb-HYE" id="Xz3-XF-7pM"/>
+                        <outlet property="scrollView" destination="Vsq-dg-4zG" id="ah3-77-fPb"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>
                         <outlet property="time" destination="ErG-zf-hsI" id="kCa-s2-v63"/>
                         <outlet property="titleAndEventTypeContainer" destination="i8g-JM-D6V" id="5Gr-67-jBJ"/>
