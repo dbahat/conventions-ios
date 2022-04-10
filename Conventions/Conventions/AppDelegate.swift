@@ -84,6 +84,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             Messaging.messaging().subscribe(toTopic: category)
         }
         
+        // Before iOS 15, defaut tab bar / navigation bar appearance for extended edges apps was different.
+        // Set up iOS 13+ to behave as close as possible to iOS 15 (it can't be identical, so don't apply the same on iOS 15, which looks better)
+        if #unavailable(iOS 15.0) {
+            if #available(iOS 13.0, *) {
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithTransparentBackground()
+                UITabBar.appearance().standardAppearance = tabBarAppearance
+                
+                let navBarAppearance = UINavigationBarAppearance()
+                navBarAppearance.configureWithTransparentBackground()
+                UINavigationBar.appearance().standardAppearance = navBarAppearance
+            }
+        }
+        
         return true;
     }
     
