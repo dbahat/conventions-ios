@@ -109,10 +109,11 @@
 		A40D606527EF818900348D65 /* olamot2022Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A40D606427EF818900348D65 /* olamot2022Events.json */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
-		A45B18952342096E008457B9 /* shnizel-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A45B18942342096E008457B9 /* shnizel-logo.png */; };
+		A46AEFE1280AB25B00B2BFD2 /* discounts_memphis.png in Resources */ = {isa = PBXBuildFile; fileRef = A46AEFDD280AB25A00B2BFD2 /* discounts_memphis.png */; };
+		A46AEFE2280AB25B00B2BFD2 /* discounts_suduch.png in Resources */ = {isa = PBXBuildFile; fileRef = A46AEFDE280AB25A00B2BFD2 /* discounts_suduch.png */; };
+		A46AEFE3280AB25B00B2BFD2 /* discounts_tlab.png in Resources */ = {isa = PBXBuildFile; fileRef = A46AEFDF280AB25B00B2BFD2 /* discounts_tlab.png */; };
+		A46AEFE4280AB25B00B2BFD2 /* discounts_aroma.png in Resources */ = {isa = PBXBuildFile; fileRef = A46AEFE0280AB25B00B2BFD2 /* discounts_aroma.png */; };
 		A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A493499322678C8100B4B805 /* AccessabilityContent.html */; };
-		A4DEC1B72257D1CF0051EF9B /* joya-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B42257D1CF0051EF9B /* joya-logo.png */; };
-		A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */; };
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
 		A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */ = {isa = PBXBuildFile; fileRef = A4E2F7B6213DB7CB007E3904 /* IconKids.html */; };
 		A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */; };
@@ -231,10 +232,11 @@
 		A40D606427EF818900348D65 /* olamot2022Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = olamot2022Events.json; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
-		A45B18942342096E008457B9 /* shnizel-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shnizel-logo.png"; sourceTree = "<group>"; };
+		A46AEFDD280AB25A00B2BFD2 /* discounts_memphis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discounts_memphis.png; sourceTree = "<group>"; };
+		A46AEFDE280AB25A00B2BFD2 /* discounts_suduch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discounts_suduch.png; sourceTree = "<group>"; };
+		A46AEFDF280AB25B00B2BFD2 /* discounts_tlab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discounts_tlab.png; sourceTree = "<group>"; };
+		A46AEFE0280AB25B00B2BFD2 /* discounts_aroma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discounts_aroma.png; sourceTree = "<group>"; };
 		A493499322678C8100B4B805 /* AccessabilityContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AccessabilityContent.html; sourceTree = "<group>"; };
-		A4DEC1B42257D1CF0051EF9B /* joya-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joya-logo.png"; sourceTree = "<group>"; };
-		A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbb-logo.png"; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
 		A4E2F7B6213DB7CB007E3904 /* IconKids.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IconKids.html; sourceTree = "<group>"; };
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
@@ -541,10 +543,11 @@
 		3BF22D411D9EC5490090E8E6 /* htmls */ = {
 			isa = PBXGroup;
 			children = (
-				A45B18942342096E008457B9 /* shnizel-logo.png */,
+				A46AEFE0280AB25B00B2BFD2 /* discounts_aroma.png */,
+				A46AEFDD280AB25A00B2BFD2 /* discounts_memphis.png */,
+				A46AEFDE280AB25A00B2BFD2 /* discounts_suduch.png */,
+				A46AEFDF280AB25B00B2BFD2 /* discounts_tlab.png */,
 				A493499322678C8100B4B805 /* AccessabilityContent.html */,
-				A4DEC1B62257D1CF0051EF9B /* bbb-logo.png */,
-				A4DEC1B42257D1CF0051EF9B /* joya-logo.png */,
 				A4E2F7B6213DB7CB007E3904 /* IconKids.html */,
 				3BF22D421D9EC5490090E8E6 /* AboutContent.html */,
 				3BF22D431D9EC5490090E8E6 /* ArrivalMethodsContent.html */,
@@ -631,16 +634,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4DEC1B72257D1CF0051EF9B /* joya-logo.png in Resources */,
+				A46AEFE1280AB25B00B2BFD2 /* discounts_memphis.png in Resources */,
 				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
+				A46AEFE3280AB25B00B2BFD2 /* discounts_tlab.png in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				A40D606527EF818900348D65 /* olamot2022Events.json in Resources */,
-				A4DEC1B92257D1CF0051EF9B /* bbb-logo.png in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
+				A46AEFE4280AB25B00B2BFD2 /* discounts_aroma.png in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
@@ -648,6 +652,7 @@
 				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
 				3B4B4A721D3415B300943EF5 /* MultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BFE31021F6EBC5B00271F58 /* AfterConventionHomeContentView.xib in Resources */,
+				A46AEFE2280AB25B00B2BFD2 /* discounts_suduch.png in Resources */,
 				3B8D9FFA1D27BCEF005181DA /* TextFeedbackQuestionCell.xib in Resources */,
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */,
@@ -657,7 +662,6 @@
 				3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */,
 				3BDA282F1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib in Resources */,
 				3BB631211C89839400D54D3E /* UpdateTableViewCell.xib in Resources */,
-				A45B18952342096E008457B9 /* shnizel-logo.png in Resources */,
 				3B049C811F7FDACF0087FA9C /* SecondHandFormHeaderView.xib in Resources */,
 				3BFE31061F6EC4DD00271F58 /* DuringConventionNoFavoritesHomeContentView.xib in Resources */,
 				3B8D9FEE1D1D4E9C005181DA /* FeedbackView.xib in Resources */,
