@@ -622,10 +622,10 @@
             </objects>
             <point key="canvasLocation" x="-1358" y="2595"/>
         </scene>
-        <!--מפה-->
+        <!--מפת המתחם-->
         <scene sceneID="LSe-EK-Bna">
             <objects>
-                <viewController id="fiD-sP-JMw" customClass="MapViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="fiD-sP-JMw" customClass="MapViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EsY-8b-nMI"/>
                         <viewControllerLayoutGuide type="bottom" id="AR8-Ur-XwN"/>
@@ -639,7 +639,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ozF-HT-Sa6">
-                                <rect key="frame" x="244.5" y="20" width="150.5" height="26"/>
+                                <rect key="frame" x="244.5" y="64" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -647,30 +647,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ozF-HT-Sa6" firstAttribute="top" secondItem="EsY-8b-nMI" secondAttribute="bottom" constant="20" id="8jy-MW-Xel"/>
-                            <constraint firstItem="q7N-j7-c4C" firstAttribute="top" secondItem="EsY-8b-nMI" secondAttribute="bottom" id="NKB-OD-gXb"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="centerX" secondItem="Cng-0T-jnZ" secondAttribute="centerX" id="Ajd-X0-dzs"/>
                             <constraint firstAttribute="trailing" secondItem="q7N-j7-c4C" secondAttribute="trailing" id="OCo-tc-m0a"/>
                             <constraint firstAttribute="trailing" secondItem="ozF-HT-Sa6" secondAttribute="trailing" constant="-20" id="T9Y-Fp-aog"/>
-                            <constraint firstItem="AR8-Ur-XwN" firstAttribute="top" secondItem="q7N-j7-c4C" secondAttribute="bottom" id="t17-Fc-EI7"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="height" secondItem="Cng-0T-jnZ" secondAttribute="height" id="Wkv-Q4-9gf"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="centerY" secondItem="Cng-0T-jnZ" secondAttribute="centerY" id="a8b-yW-KjX"/>
+                            <constraint firstItem="q7N-j7-c4C" firstAttribute="width" secondItem="Cng-0T-jnZ" secondAttribute="width" id="iIM-L2-R95"/>
                             <constraint firstItem="q7N-j7-c4C" firstAttribute="leading" secondItem="Cng-0T-jnZ" secondAttribute="leading" id="yzs-3b-P4a"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="מפה" image="MenuMap" id="rxg-Sj-KVZ"/>
-                    <navigationItem key="navigationItem" title="מפה" id="c9g-k1-xt3">
-                        <barButtonItem key="leftBarButtonItem" title="לעירוני" id="2Qq-SB-GRx">
-                            <connections>
-                                <action selector="navigateToIroniWasPressed:" destination="fiD-sP-JMw" id="MD3-Xq-xqo"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="לאשכול" id="bTi-IN-Ek6">
-                            <connections>
-                                <action selector="navigateToEshkolWasPressed:" destination="fiD-sP-JMw" id="Hmz-5i-xDm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="מפת המתחם" id="c9g-k1-xt3"/>
                     <connections>
-                        <outlet property="navigateToEshkolBarItem" destination="bTi-IN-Ek6" id="Nrh-v9-du9"/>
-                        <outlet property="navigateToIroniBarItem" destination="2Qq-SB-GRx" id="Tyn-FK-v9h"/>
                         <outlet property="pageControl" destination="ozF-HT-Sa6" id="UBy-E6-t0G"/>
                     </connections>
                 </viewController>
@@ -775,8 +763,37 @@
                                             <segue destination="9cX-Hv-YPC" kind="show" id="aGf-Ge-H0X"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dZ1-qf-rMs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hd6-jq-k58">
                                         <rect key="frame" x="0.0" y="88.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hd6-jq-k58" id="OE3-0X-Ukp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuMap" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-8S-bo5">
+                                                    <rect key="frame" x="318" y="5.5" width="33" height="33"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מפת המתחם" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4n-hL-yGd">
+                                                    <rect key="frame" x="221" y="12" width="87" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rdh-8S-bo5" firstAttribute="leading" secondItem="T4n-hL-yGd" secondAttribute="trailing" constant="10" id="0dU-Ns-LCO"/>
+                                                <constraint firstItem="rdh-8S-bo5" firstAttribute="centerY" secondItem="OE3-0X-Ukp" secondAttribute="centerY" id="mEX-F8-Oe4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rdh-8S-bo5" secondAttribute="trailing" constant="8" id="yMn-5Y-v3U"/>
+                                                <constraint firstItem="T4n-hL-yGd" firstAttribute="centerY" secondItem="OE3-0X-Ukp" secondAttribute="centerY" id="zo3-gS-oOT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="fiD-sP-JMw" kind="show" id="cbc-rq-eI2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dZ1-qf-rMs">
+                                        <rect key="frame" x="0.0" y="132.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZ1-qf-rMs" id="maK-AQ-gpc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -805,7 +822,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
-                                        <rect key="frame" x="0.0" y="132.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="176.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -834,7 +851,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HSf-cn-nJs">
-                                        <rect key="frame" x="0.0" y="176.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSf-cn-nJs" id="CMG-Ms-3L4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -863,7 +880,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="220.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="264.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -909,6 +926,8 @@
                         <outlet property="arrivalMethodsLabel" destination="M2W-CS-al3" id="XzH-UI-fKa"/>
                         <outlet property="feedbackImage" destination="1BZ-SV-8wP" id="rAW-bB-AZh"/>
                         <outlet property="feedbackLabel" destination="eIS-ua-5Nd" id="WuB-1T-BTa"/>
+                        <outlet property="mapImage" destination="rdh-8S-bo5" id="vRd-cH-wj6"/>
+                        <outlet property="mapLabel" destination="T4n-hL-yGd" id="r6A-Tg-FgO"/>
                         <outlet property="settingsImage" destination="LbD-cL-YEC" id="QAy-MB-S8H"/>
                         <outlet property="settingsLabel" destination="enb-ZG-euh" id="zyU-jk-WEf"/>
                     </connections>
@@ -1872,6 +1891,7 @@
                         <segue destination="6s1-WB-npc" kind="relationship" relationship="viewControllers" id="SPu-Pc-PRt"/>
                         <segue destination="dzP-YM-jGI" kind="relationship" relationship="viewControllers" id="LBC-aV-hE4"/>
                         <segue destination="V0r-ed-Jpb" kind="relationship" relationship="viewControllers" id="78f-1n-N4m"/>
+                        <segue destination="fiD-sP-JMw" kind="relationship" relationship="viewControllers" id="O9w-Oy-Cnr"/>
                         <segue destination="5Em-fL-kDu" kind="relationship" relationship="viewControllers" id="2WU-xd-oUs"/>
                     </connections>
                 </tabBarController>
@@ -2134,6 +2154,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="cbc-rq-eI2"/>
         <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -14,10 +14,10 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
     private var pageViewController: UIPageViewController!
     private var viewControllers = Array<MapFloorViewController>()
     private let areas = [
-        MapArea(name: "עירוני - קומה 2", image: UIImage(named: "Ironi_floor2")!),
-        MapArea(name: "עירוני - קומה 1", image: UIImage(named: "Ironi_floor1")!),
-        MapArea(name: "אשכול - קומה 2", image: UIImage(named: "Eshkol_floor2")!),
-        MapArea(name: "אשכול - קומה 1", image: UIImage(named: "Eshkol_floor1")!),
+//        MapArea(name: "עירוני - קומה 2", image: UIImage(named: "Ironi_floor2")!),
+//        MapArea(name: "עירוני - קומה 1", image: UIImage(named: "Ironi_floor1")!),
+//        MapArea(name: "אשכול - קומה 2", image: UIImage(named: "Eshkol_floor2")!),
+//        MapArea(name: "אשכול - קומה 1", image: UIImage(named: "Eshkol_floor1")!),
         MapArea(name: "מפת המתחם", image: UIImage(named: "Overview")!)
     ]
     
