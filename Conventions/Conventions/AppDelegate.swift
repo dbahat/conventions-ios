@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Current app state (forground or background). Needed to know how to handle incoming notifications.
     var isActive = true
     
+    var currentAuthorizationFlow: OIDExternalUserAgentSession?
+    
     // The message we got in a remote notification. Needed in case we get push notification while in background
     private var remoteNotificationMessage: String = ""
     private var remoteNotificationCategory: String = ""
@@ -152,6 +154,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // notifications settings were registered (and the user gave his concent)
         NotificationsSchedualer.scheduleConventionFeedbackIfNeeded()
         NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        if let authorizationFlow = self.currentAuthorizationFlow, authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+            self.currentAuthorizationFlow = nil
+            return true
+        }
+
+        return false
     }
     
     private func showPushNotificationPopup(_ userInfo: [AnyHashable: Any], shouldNavigateToUpdates: Bool) {

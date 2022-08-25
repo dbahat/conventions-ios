@@ -25,6 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>SF-F.Conventions</string>
 				<string>fb1443838229254090</string>
 				<string>fbauth2</string>
 			</array>

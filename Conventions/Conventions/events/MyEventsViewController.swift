@@ -145,95 +145,58 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     }
     
     @IBAction func importEventsWasClicked(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "הוספת אירועים מאתר אייקון", message: "הכנס אימייל וסיסמא לאתר אייקון על מנת להוסיף את האירועים להם קנית כרטיסים מראש ולהציג את מספר המשתמש שלך.", preferredStyle: .alert)
+
+        self.progressBarView.isHidden = false
         
-        let cancelAction = UIAlertAction(title: "בטל", style: .cancel) { (result : UIAlertAction) -> Void in }
-        let okAction = UIAlertAction(title: "הוסף", style: .default) { (result : UIAlertAction) -> Void in
-            guard
-                let user = alertController.textFields![0].text,
-                let password = alertController.textFields![1].text
-            else {
+        UserTicketsRetriever().retrieve(caller: self, callback: {(importedEvents, error) in
+            
+            self.progressBarView.isHidden = true
+            
+            if error != nil {
+                TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
-            if (user.isEmpty || !user.contains("@")) {
-                TTGSnackbar(message: "אימייל לא תקין", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
-                return
+            let newlyImportedEvents = Convention.instance.events.getAll()
+                .filter({event in importedEvents.eventIds.contains(event.serverId) && !event.attending})
+            for event in newlyImportedEvents {
+                event.attending = true
+            }
+            self.reloadMyEvents()
+            
+            var numberOfAddedEventsMessgae: String
+            if newlyImportedEvents.count == 1 {
+                numberOfAddedEventsMessgae = "נוסף אירוע אחד."
+            } else if newlyImportedEvents.count == 0 {
+                numberOfAddedEventsMessgae = "לא נוספו אירועים."
+            } else {
+                numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", newlyImportedEvents.count)
             }
             
-            self.progressBarView.isHidden = false
+            UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
+                            
+            let message =
+                numberOfAddedEventsMessgae + "\nהצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
+            controller.topLabel = message
+            controller.bottomLabel = String(format: "מספר המשתמש שלך הוא %@.", importedEvents.userId) + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
+
+            controller.modalPresentationStyle = .formSheet
+            if let popover = controller.popoverPresentationController {
+                popover.sourceView = self.view
+                popover.sourceRect = self.view.bounds
+                popover.permittedArrowDirections = []
+            }
             
-            UserTicketsRetriever().retrieve(user: user, password: password, callback: {(importedEvents, error) in
-                
-                self.progressBarView.isHidden = true
-                
-                if let failureReason = error {
-                    switch failureReason {
-                    case .badPassword:
-                        TTGSnackbar(message: "אימייל או סיסמה לא נכונים", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
-                    case .badUsername:
-                        TTGSnackbar(message: "אימייל לא נמצא במערכת", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
-                    case .unknown:
-                        TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
-                    }
-                    
-                    return
-                }
-                
-                let newlyImportedEvents = Convention.instance.events.getAll()
-                    .filter({event in importedEvents.eventIds.contains(event.serverId) && !event.attending})
-                for event in newlyImportedEvents {
-                    event.attending = true
-                }
-                self.reloadMyEvents()
-                
-                var numberOfAddedEventsMessgae: String
-                if newlyImportedEvents.count == 1 {
-                    numberOfAddedEventsMessgae = "נוסף אירוע אחד."
-                } else if newlyImportedEvents.count == 0 {
-                    numberOfAddedEventsMessgae = "לא נוספו אירועים."
-                } else {
-                    numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", newlyImportedEvents.count)
-                }
-                
-                UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
-                                
-                let message =
-                    numberOfAddedEventsMessgae + "\nהצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
-
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
-                controller.topLabel = message
-                controller.bottomLabel = String(format: "מספר המשתמש שלך הוא %@.", importedEvents.userId) + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
-
-                controller.modalPresentationStyle = .formSheet
-                if let popover = controller.popoverPresentationController {
-                    popover.sourceView = self.view
-                    popover.sourceRect = self.view.bounds
-                    popover.permittedArrowDirections = []
-                }
-                
-                if let qrData = importedEvents.qrData {
-                    UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
-                    controller.image = UIImage(data: qrData)
-                }
-                
-                self.present(controller, animated: true, completion: nil)
-            })
-        }
-        alertController.addTextField(configurationHandler: {textField in
-            textField.textAlignment = .right
-            textField.placeholder = "שם משתמש"
-            textField.keyboardType = .emailAddress
+            if let qrData = importedEvents.qrData {
+                UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
+                controller.image = UIImage(data: qrData)
+            }
+            
+            self.present(controller, animated: true, completion: nil)
         })
-        alertController.addTextField(configurationHandler: {textField in
-            textField.isSecureTextEntry=true
-            textField.textAlignment = .right
-            textField.placeholder = "סיסמה"
-        })
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func showQrWasClicked(_ sender: UIBarButtonItem) {
