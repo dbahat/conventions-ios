@@ -14,10 +14,12 @@ class ImportedTicketsViewController: UIViewController {
     var topLabel: String?
     var bottomLabel: String?
     var image: UIImage?
+    var onLogoutClicked: (() -> Void)?
     
     override func viewDidLoad() {
         importedTickets.topLabel.text = topLabel
         importedTickets.bottomLabel.text = bottomLabel
         importedTickets.image.image = image
+        importedTickets.onLogoutClicked = onLogoutClicked
     }
 }
