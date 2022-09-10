@@ -8,9 +8,9 @@
 
 import Foundation
 
-class WebContentViewController: BaseViewController, UIWebViewDelegate {
+class WebContentViewController: BaseViewController {
     
-    @IBOutlet private weak var contentWebView: StaticContentWebView!
+    @IBOutlet private weak var contentTextView: UITextView!
     
     override func viewDidLoad() {
         guard
@@ -19,28 +19,11 @@ class WebContentViewController: BaseViewController, UIWebViewDelegate {
                 return
         }
         
-        contentWebView.setContent(webContent)
-        contentWebView.scrollView.isScrollEnabled = true
-        contentWebView.delegate = self
-    }
-    
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        if navigationType == UIWebView.NavigationType.linkClicked {
-            UIApplication.shared.open(request.url!, options: [:]) { (success) in }
-            return false
-        }
-        
-        return true
+        contentTextView.attributedText = webContent.htmlAttributedString()
     }
     
     func getWebPageName() -> String {
         return ""
-    }
-}
-
-class IconKidsViewController: WebContentViewController {
-    override func getWebPageName() -> String {
-        return "/IconKids.html"
     }
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate, UITextViewDelegate {
+class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewDelegate {
 
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
@@ -180,32 +180,6 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
             return
         }
         UIApplication.shared.open(url, options: [:]) { (success) in }
-    }
-    
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        if navigationType == UIWebView.NavigationType.linkClicked {
-            
-            guard let url = request.url else {
-                return true;
-            }
-            
-            // In case the URL clicked points to another event, navigate to it in the App instead of
-            // in a browser
-            if let eventToNavigateTo = Convention.instance.events.getAll().filter({event in
-                // Comparing paths and not the full URLs, since the host portion differs due to redirects
-                event.url.path == url.path
-            }).first {
-                if let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController {
-                    eventVc.event = eventToNavigateTo
-                    navigationController?.pushViewController(eventVc, animated: true)
-                    return false
-                }
-            }
-            
-            UIApplication.shared.open(url, options: [:]) { (success) in }
-            return false
-        }
-        return true
     }
     
     // MARK: - EventFeedbackViewProtocol

@@ -95,7 +95,6 @@
 		3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */; };
 		3BF22D341D9D93700090E8E6 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */; };
 		3BF22D361D9D9B3C0090E8E6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */; };
-		3BF22D3E1D9E7CC60090E8E6 /* StaticContentWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */; };
 		3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BF22D421D9EC5490090E8E6 /* AboutContent.html */; };
 		3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BF22D431D9EC5490090E8E6 /* ArrivalMethodsContent.html */; };
 		3BF22D471D9EC5490090E8E6 /* DiscountsContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BF22D441D9EC5490090E8E6 /* DiscountsContent.html */; };
@@ -217,7 +216,6 @@
 		3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedSearchCategory.swift; path = model/AggregatedSearchCategory.swift; sourceTree = "<group>"; };
 		3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticContentWebView.swift; sourceTree = "<group>"; };
 		3BF22D421D9EC5490090E8E6 /* AboutContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutContent.html; sourceTree = "<group>"; };
 		3BF22D431D9EC5490090E8E6 /* ArrivalMethodsContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ArrivalMethodsContent.html; sourceTree = "<group>"; };
 		3BF22D441D9EC5490090E8E6 /* DiscountsContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DiscountsContent.html; sourceTree = "<group>"; };
@@ -434,7 +432,6 @@
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 				3B014FB11D95A1AD0002DE8F /* Colors.swift */,
-				3BF22D3D1D9E7CC60090E8E6 /* StaticContentWebView.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -741,7 +738,6 @@
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
-				3BF22D3E1D9E7CC60090E8E6 /* StaticContentWebView.swift in Sources */,
 				3BF22D341D9D93700090E8E6 /* MoreInfoViewController.swift in Sources */,
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,

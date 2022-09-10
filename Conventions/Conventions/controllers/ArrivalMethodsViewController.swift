@@ -9,13 +9,13 @@
 import UIKit
 import GoogleMaps
 
-class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
+class ArrivalMethodsViewController: BaseViewController {
     
     fileprivate let latitude = 32.0707265;
     fileprivate let longitude = 34.7845003;
 
     @IBOutlet fileprivate weak var mapView: GMSMapView!
-    @IBOutlet fileprivate weak var directionsWebView: StaticContentWebView!
+    @IBOutlet private weak var directionsTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,7 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
                 return;
         }
         
-        directionsWebView.setContent(directions)
-        directionsWebView.delegate = self
-        directionsWebView.scrollView.bounces = false
+        directionsTextView.attributedText = directions.htmlAttributedString()
     }
 
     @IBAction func navigateWithExternalAppWasClicked(_ sender: UIBarButtonItem) {
@@ -58,21 +56,5 @@ class ArrivalMethodsViewController: BaseViewController, UIWebViewDelegate {
         
         let url = String(format: "http://maps.apple.com/?ll=%f,%f", arguments: [latitude, longitude]);
         UIApplication.shared.open(URL(string: url)!, options: [:]) { (success) in }
-    }
-    
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        if navigationType == UIWebView.NavigationType.linkClicked {
-            
-            if (request.url! == URL(string: "http://2016.iconfestival.org.il/info/discounts/")) {
-                if let discountsVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DiscountsViewController.self)) as? DiscountsViewController {
-                    navigationController?.pushViewController(discountsVc, animated: true)
-                }
-                return false
-            }
-            
-            UIApplication.shared.open(request.url!, options: [:]) { (success) in }
-            return false
-        }
-        return true
     }
 }

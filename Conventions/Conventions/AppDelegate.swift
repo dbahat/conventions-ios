@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private var remoteNotificationMessage: String = ""
     private var remoteNotificationCategory: String = ""
     private var remoteNotificationId: String = ""
-    
-    private var webViewCache: StaticContentWebView?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -47,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Initiate an async refresh to the updates when opening the app.
         Convention.instance.updates.refresh(nil)
         Convention.instance.events.refresh(nil)
-        
-        loadWebViewCache()
         
         if let options = launchOptions {
             // In case we were launched due to user clicking a notification, handle the notification
@@ -297,20 +293,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         return "התראה"
-    }
-    
-    // Needed since initial loading of a webView is 'heavy', and if done in a lazy manner causes the user to see an empty webview for a few seconds.
-    // This happens only once, regardless of the webView instance created.
-    // To resolve this, create a dummy instance which isn't used anywhere, and will handle the initial loading time (at the cost of extra memory).
-    // Future refactoring can dismiss this webView once loaded to save memory.
-    private func loadWebViewCache() {
-        if
-            let resourcePath = Bundle.main.resourcePath,
-            let aboutContent = try? String(contentsOfFile: resourcePath + "/AboutContent.html") {
-            
-            webViewCache = StaticContentWebView(frame: CGRect.zero)
-            webViewCache?.setContent(aboutContent)
-        }
     }
 }
 
