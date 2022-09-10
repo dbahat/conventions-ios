@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2022, month: 4, day: 19)
-    static let endDate = Date.from(year: 2022, month: 4, day: 20)
-    static let name = "olamot2022"
-    static let displayName = "כנס עולמות 2022"
+    static let date = Date.from(year: 2022, month: 10, day: 11)
+    static let endDate = Date.from(year: 2022, month: 10, day: 13)
+    static let name = "icon2022"
+    static let displayName = "פסטיבל אייקון 2022"
     
     var halls: Array<Hall>
     var events: Events
@@ -39,14 +39,15 @@ class Convention {
             Hall(name: "אשכול 1"),
             Hall(name: "אשכול 2"),
             Hall(name: "אשכול 3"),
-            Hall(name: "אשכול 4 (וירטואלי)"),
+            Hall(name: "אשכול 4"),
             Hall(name: "אשכול 5"),
             Hall(name: "אשכול 6"),
             
             Hall(name: "מפגשים"),
             Hall(name: "סדנאות"),
             Hall(name: "ילדים"),
-            Hall(name: "אירועי חוצות"),
+            Hall(name: "חוצות"),
+            Hall(name: "הזירה"),
             Hall(name: "אירועי חוצות 2"),
             Hall(name: "מיניאטורות 1"),
             Hall(name: "מיניאטורות: הדגמות"),
@@ -59,9 +60,9 @@ class Convention {
             Hall(name: "עירוני 4"),
             Hall(name: "עירוני 5"),
             Hall(name: "עירוני 6"),
-            Hall(name: "עירוני 7 (וירטואלי)"),
-            Hall(name: "עירוני 8 (וירטואלי)"),
-            Hall(name: "עירוני 9 (וירטואלי)"),
+            Hall(name: "עירוני 7"),
+            Hall(name: "עירוני 8"),
+            Hall(name: "עירוני 9"),
             
             Hall(name: "אוהל 1"),
             Hall(name: "אוהל 2"),
@@ -71,12 +72,15 @@ class Convention {
             Hall(name: "אוהל 6"),
             Hall(name: "אוהל 7"),
             Hall(name: "אוהל 8"),
+            Hall(name: "אוהל 20 טבעי"),
             
             Hall(name: "ארטמיס 1"),
             Hall(name: "ארטמיס 2"),
             Hall(name: "חדר בריחה"),
             
-            Hall(name: "חדר סדנאות")
+            Hall(name: "חדר סדנאות"),
+            Hall(name: "משחקי קופסה 1"),
+            Hall(name: "משחקי קופסה 2")
         ];
         
         halls.enumerated().forEach { (index, hall) in
@@ -91,13 +95,13 @@ class Convention {
         ]
         
         conventionFeedbackForm = SurveyForm.Feedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfZGzaYKDdJe3iOS0EsWWnIeDvtWhKc6e5BXIY8eGHyggneyQ/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdwefudcwQye8_91qW9wzocvVOYMFsrZyPG6P7_79qBCat57Q/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהכנס?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
-            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdVCHOLBCXjNlVEBVDudeUwKneksjqZPLoRrc-ktiPHmLqmmg/formResponse")!,
+            url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeIsX_1PjmOJrsk5468qphLsYh_1DVgx39bLh4y0v2KFZfn2w/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
             eventTitleEntry: "entry.1847107867",

@@ -121,10 +121,6 @@ class SffEventsParser {
             return nil
         }
         
-        if !hasPhysical && !hasVirtual {
-            return nil
-        }
-        
         return EventType.Presentation(mode: hasPhysical && hasVirtual ? .Hybrid : (hasVirtual ? .Virtual : .Physical),
                                       location: isInhouse ? .Indoors : .Virtual
         )
