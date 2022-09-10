@@ -137,7 +137,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
         
         if let eventDescription = event.description {
-            eventDescriptionWebView.setContent(eventDescription, color: "#000000")
+            eventDescriptionWebView.setContent(eventDescription)
             
             // Set a very high initial height to the webview.
             // This causes a scrollbar to appear until the user attempt to scroll, at which time it'll shrink-to-size.

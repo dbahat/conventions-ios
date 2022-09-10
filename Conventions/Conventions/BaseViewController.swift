@@ -24,6 +24,10 @@ class BaseViewController: UIViewController {
         // root view controller doesn't have a name, but we want it named for the default back button).
         navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first == self, animated: false)
         
+        navigationController?.navigationBar.barTintColor = Colors.textColor
+        navigationController?.navigationBar.tintColor = Colors.textColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : Colors.textColor]
+
         self.view.backgroundColor = Colors.backgroundColor
     }
 }
