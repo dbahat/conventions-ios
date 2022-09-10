@@ -58,9 +58,9 @@ class Colors {
     
     // Event colors
     static let eventDetailsBoxColor = UIColor.clear
-    static let eventTitleBackground = Colors.black
+    static let eventTitleBackground = Colors.icon2022_green1
     static let eventTitleBoarderColor = Colors.icon2022_green1
-    static let eventTitleTextColor = UIColor.white
+    static let eventTitleTextColor = UIColor.black
     static let eventDetailsHighlightedTextColor = Colors.icon2022_red2
     static let eventFeedbackBoxColor = Colors.icon2022_gray2
     //static let eventFeedbackButtonsColor = Colors.feedbackButtonColor

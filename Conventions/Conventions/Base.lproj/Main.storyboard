@@ -419,22 +419,21 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-i3-wiM">
-                                        <rect key="frame" x="20" y="387.5" width="335" height="220"/>
+                                        <rect key="frame" x="20" y="387.5" width="335" height="40.5"/>
                                         <subviews>
-                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-bu-Mvg" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10" width="315" height="200"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="BGW-sw-Ff6"/>
-                                                </constraints>
-                                            </webView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="תוכן האירוע" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWr-2H-E0j">
+                                                <rect key="frame" x="10" y="10" width="315" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0039215686269999999" green="0.58823529409999997" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="B4w-bu-Mvg" firstAttribute="top" secondItem="u5k-i3-wiM" secondAttribute="top" constant="10" id="4VN-7O-FNr"/>
-                                            <constraint firstAttribute="bottom" secondItem="B4w-bu-Mvg" secondAttribute="bottom" constant="10" id="Bww-dz-PA7"/>
-                                            <constraint firstItem="B4w-bu-Mvg" firstAttribute="leading" secondItem="u5k-i3-wiM" secondAttribute="leading" constant="10" id="H54-OQ-XKp"/>
-                                            <constraint firstAttribute="trailing" secondItem="B4w-bu-Mvg" secondAttribute="trailing" constant="10" id="NlI-Ch-LcV"/>
+                                            <constraint firstAttribute="trailing" secondItem="HWr-2H-E0j" secondAttribute="trailing" constant="10" id="7WP-Sg-fQC"/>
+                                            <constraint firstAttribute="bottom" secondItem="HWr-2H-E0j" secondAttribute="bottom" constant="10" id="KMc-E7-5dA"/>
+                                            <constraint firstItem="HWr-2H-E0j" firstAttribute="leading" secondItem="u5k-i3-wiM" secondAttribute="leading" constant="10" id="ncW-oJ-VCd"/>
+                                            <constraint firstItem="HWr-2H-E0j" firstAttribute="top" secondItem="u5k-i3-wiM" secondAttribute="top" constant="10" id="yAM-DH-Y4N"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -503,8 +502,7 @@
                         <outlet property="OpenEventContainerHeightConstraint" destination="n81-oU-AXF" id="IjN-rD-FMT"/>
                         <outlet property="availableTickets" destination="lDx-LA-DHn" id="6uA-pv-X6d"/>
                         <outlet property="eventDescriptionContainer" destination="u5k-i3-wiM" id="hNO-Pk-2l6"/>
-                        <outlet property="eventDescriptionWebView" destination="B4w-bu-Mvg" id="9q9-iP-lSv"/>
-                        <outlet property="eventDescriptionWebViewHeightConstraint" destination="BGW-sw-Ff6" id="xJF-h6-Ns1"/>
+                        <outlet property="eventDescriptionLabel" destination="HWr-2H-E0j" id="7Jg-CJ-KOT"/>
                         <outlet property="eventTitle" destination="l8J-Dg-5UO" id="fFc-70-r3e"/>
                         <outlet property="eventTitleBoxBoarderView" destination="4Mk-2g-684" id="sGq-ZQ-h6x"/>
                         <outlet property="eventTypeAndCategory" destination="XNp-hP-p2k" id="viA-E9-ZzQ"/>
@@ -519,7 +517,6 @@
                         <outlet property="openEventLabel" destination="fCr-Xe-9IO" id="WAn-bZ-vgA"/>
                         <outlet property="prices" destination="zWb-Sz-3nI" id="Xg6-Rh-h8h"/>
                         <outlet property="refreshAvailableTicketsButton" destination="wZJ-Bb-HYE" id="Xz3-XF-7pM"/>
-                        <outlet property="scrollView" destination="Vsq-dg-4zG" id="ah3-77-fPb"/>
                         <outlet property="tags" destination="Mha-U7-wWS" id="8ZX-ll-Ena"/>
                         <outlet property="time" destination="ErG-zf-hsI" id="kCa-s2-v63"/>
                         <outlet property="titleAndEventTypeContainer" destination="i8g-JM-D6V" id="5Gr-67-jBJ"/>
@@ -1716,29 +1713,29 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="N5u-Zq-QbS">
-                                        <rect key="frame" x="37.5" y="16" width="300" height="135"/>
+                                        <rect key="frame" x="16.5" y="16" width="342" height="166.5"/>
                                     </imageView>
                                     <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-xt-gOK" customClass="StaticContentWebView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="167" width="311" height="200"/>
+                                        <rect key="frame" x="32" y="198.5" width="311" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="nSr-pH-Pfo"/>
                                         </constraints>
                                     </webView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אודות האפליקציה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Z8-F5q">
-                                        <rect key="frame" x="8" y="377" width="335" height="29"/>
+                                        <rect key="frame" x="8" y="408.5" width="335" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="גרסה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-Zm-Dij">
-                                        <rect key="frame" x="8" y="411" width="335" height="20.5"/>
+                                        <rect key="frame" x="8" y="442.5" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-pg-Cr5">
-                                        <rect key="frame" x="8" y="436.5" width="335" height="17"/>
+                                        <rect key="frame" x="8" y="468" width="335" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2187,12 +2184,12 @@
         <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="AboutLogo" width="300" height="135"/>
-        <image name="AppBackground" width="275" height="485.5"/>
+        <image name="AboutLogo" width="341.66665649414062" height="166.66667175292969"/>
+        <image name="AppBackground" width="300" height="533.33331298828125"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
-        <image name="HomeBackground" width="275" height="485.5"/>
+        <image name="HomeBackground" width="300" height="533.33331298828125"/>
         <image name="HomeFooter" width="300" height="111"/>
-        <image name="HomeImage" width="300" height="135"/>
+        <image name="HomeImage" width="300.33334350585938" height="135.33332824707031"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAccessability" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
