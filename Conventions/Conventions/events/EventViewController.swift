@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate {
+class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDelegate, UITextViewDelegate {
 
     var event: ConventionEvent!
     var feedbackViewOpen: Bool = false
@@ -28,7 +28,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
     
     @IBOutlet fileprivate weak var refreshAvailableTicketsButton: UIImageView!
 
-    @IBOutlet private weak var eventDescriptionLabel: UILabel!
+    @IBOutlet private weak var eventDescriptionTextView: UITextView!
     
     @IBOutlet fileprivate weak var image: UIImageView!
     @IBOutlet fileprivate weak var eventDescriptionContainer: UIView!
@@ -114,7 +114,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         
         eventDescriptionContainer.isHidden = event.description == ""
         eventDescriptionContainer.backgroundColor = Colors.eventDetailsBoxColor
-        eventDescriptionLabel.textColor = Colors.icon2022_green1
+        eventDescriptionTextView.textColor = Colors.icon2022_green1
+        eventDescriptionTextView.delegate = self
         refreshFavoriteBarIconImage()
         
         refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
@@ -133,7 +134,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UIWebViewDe
         }
         
         if let eventDescription = event.description {
-            eventDescriptionLabel.attributedText = eventDescription.htmlAttributedString()
+            eventDescriptionTextView.attributedText = eventDescription.htmlAttributedString()
         }
     }
     

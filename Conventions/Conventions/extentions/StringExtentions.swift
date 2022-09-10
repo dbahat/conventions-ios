@@ -25,7 +25,6 @@ extension String {
           </head>
           <body>
             <div dir='rtl' style='-webkit-text-size-adjust: none;'>
-                <a href="www.ynet.co.il">hello world</a>
                 \(self)
             </div>
           </body>

@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UITabBar.appearance().unselectedItemTintColor = Colors.tabBarUnselectedTabColor
         UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
+        UITextView.appearance().linkTextAttributes = [ .foregroundColor: Colors.icon2022_red1 ]
+
         self.window!.tintColor = Colors.black
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
         if #available(iOS 9.0, *) {
