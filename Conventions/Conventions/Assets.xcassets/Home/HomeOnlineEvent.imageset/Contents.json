@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "olamot2022_map-2.png",
+      "filename" : "baseline_videocam_white_48 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "olamot2022_map-1.png",
+      "filename" : "baseline_videocam_white_48 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "olamot2022_map.png",
+      "filename" : "baseline_videocam_white_48.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

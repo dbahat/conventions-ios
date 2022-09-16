@@ -74,8 +74,8 @@ class Colors {
     // Home colors
     static let homeButtonsColor = Colors.icon2022_red1
     static let homeButtonsTextColor = UIColor.black
-    static let homeCurrentEventColor = Colors.icon2022_green1
-    static let homeNextEventColor = Colors.icon2022_green2
+    static let homeCurrentEventColor = UIColor.clear
+    static let homeNextEventColor = UIColor.clear
     static let homeTimeTextColor = UIColor.white
     static let homeMainLabelTextColor = UIColor.white
     static let homeTimeBoxContainerColor = Colors.icon2022_gray2

@@ -9,49 +9,66 @@
 import Foundation
 
 class DuringConventionWithFavoritesHomeContentView : UIView {
-    @IBOutlet private weak var currentEventLabel: UILabel!
-    @IBOutlet private weak var upcomingEventTimeLabel: UILabel!
-    @IBOutlet private weak var upcomingEventNameLabel: UILabel!
-    @IBOutlet private weak var upcomingEventHallLabel: UILabel!
-    @IBOutlet private weak var myEventsTitleLabel: UILabel!
-    @IBOutlet private weak var goToMyEventsButton: UIButton!
-    @IBOutlet private weak var titleContainer: UIView!
-    @IBOutlet private weak var currentEventContainer: UIView!
-    @IBOutlet private weak var nextEventContainer: UIView!
     
-    // keeping strong references to the constraints, since we change their active state dynamiclly, which
-    // causes the strong ref kept from the view hirarchy to the constraint to drop.
-    @IBOutlet private var currentEventHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var currentEventContainer: UIView!
+    @IBOutlet weak var currentEventContainerHeight: NSLayoutConstraint!
+    @IBOutlet weak var currentEventHeader: UIView!
+    @IBOutlet weak var currentEventHeaderTitle: UILabel!
+    @IBOutlet weak var currentEventTitle: UILabel!
+    @IBOutlet weak var currentEventHall: UILabel!
+    @IBOutlet weak var currentEventImage: UIImageView!
+    @IBOutlet weak var currentEventImageWidth: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var upcomingEventContainer: UIView!
+    @IBOutlet weak var upcomingEventHeight: NSLayoutConstraint!
+    @IBOutlet weak var upcomingEventHeader: UIView!
+    @IBOutlet weak var upcomingEventHeaderTitle: UILabel!
+    @IBOutlet weak var upcomingEventTitle: UILabel!
+    @IBOutlet weak var upcomingEventHall: UILabel!
+    @IBOutlet weak var upcomingEventTime: UILabel!
+    @IBOutlet weak var upcomingEventImage: UIImageView!
+    @IBOutlet weak var upcomingEventImageWidth: NSLayoutConstraint!
+    
+    @IBOutlet private weak var goToMyEventsButton: UIButton!
     
     var currentFavoriteEvent: ConventionEvent? {
         didSet {
             if let event = currentFavoriteEvent {
-                currentEventHeightConstraint.isActive = false
-                currentEventLabel.text = String(format: "כעת: %@%@", event.title, event.directWatchAvailable ? "\nלחץ לצפיה באירוע!" : "")
+                setVisible(currentEventContainerHeight, visible: true)
+                currentEventTitle.text = event.title
+                currentEventHall.text = event.hall.name
+                setVisible(currentEventImageWidth, visible: event.directWatchAvailable)
+                currentEventContainer.isHidden = false
             } else {
-                currentEventHeightConstraint.isActive = true
-                currentEventHeightConstraint.constant = 0
+                setVisible(currentEventContainerHeight, visible: false)
+                currentEventContainer.isHidden = true
             }
+        }
+    }
+    
+    private func setVisible(_ height: NSLayoutConstraint, visible: Bool) {
+        height.isActive = !visible
+        if !visible {
+            height.constant = 0
         }
     }
     
     var upcomingFavoriteEvent: ConventionEvent? {
         didSet {
             if let event = upcomingFavoriteEvent {
-                upcomingEventTimeLabel.text = String(format: "%@בשעה %@"
+                setVisible(upcomingEventHeight, visible: true)
+                setVisible(upcomingEventImageWidth, visible: event.directWatchAvailable)
+
+                upcomingEventTime.text = String(format: "%@בשעה %@"
                     , isToday(event: event) ? "" : "ב" + event.startTime.format("EEE") + " "
                     , event.startTime.format("HH:mm"))
-                upcomingEventNameLabel.text = event.title
-                upcomingEventHallLabel.text = event.hall.name
+                upcomingEventTitle.text = event.title
+                upcomingEventHall.text = event.hall.name
+                upcomingEventContainer.isHidden = false
             } else {
-                if let currentEvent = currentFavoriteEvent {
-                    upcomingEventTimeLabel.text = "כעת:"
-                    upcomingEventNameLabel.text = currentEvent.title
-                    upcomingEventHallLabel.text = String(format: "%@%@", currentEvent.hall.name, currentEvent.directWatchAvailable ? "\nלחץ לצפיה באירוע!" : "")
-                    
-                    currentEventHeightConstraint.isActive = true
-                    currentEventHeightConstraint.constant = 0
-                }
+                setVisible(upcomingEventHeight, visible: false)
+                upcomingEventContainer.isHidden = true
             }
         }
     }
@@ -72,36 +89,30 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         inflateNib(DuringConventionWithFavoritesHomeContentView.self)
         
         let screenRect = UIScreen.main.bounds
-
-        // Special handling for extra-small devices (e.g. iphone 4, ipad using iphone simulator
-        if (screenRect.height <= 480) {
-            currentEventLabel.font = UIFont.systemFont(ofSize: 10)
-            upcomingEventTimeLabel.font = UIFont.systemFont(ofSize: 10)
-            upcomingEventNameLabel.font = UIFont.boldSystemFont(ofSize: 11)
-            upcomingEventHallLabel.font = UIFont.systemFont(ofSize: 10)
-            myEventsTitleLabel.font = UIFont.systemFont(ofSize: 10)
-            goToMyEventsButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        } else if (screenRect.width <= 320) {
-            // More special handling for iphone 5
-            currentEventLabel.font = UIFont.systemFont(ofSize: 15)
-            upcomingEventTimeLabel.font = UIFont.systemFont(ofSize: 15)
-            upcomingEventNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
-            upcomingEventHallLabel.font = UIFont.systemFont(ofSize: 15)
-            myEventsTitleLabel.font = UIFont.systemFont(ofSize: 15)
-            goToMyEventsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        }
         
         goToMyEventsButton.backgroundColor = Colors.homeButtonsColor
-        titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
-        currentEventContainer.backgroundColor = Colors.homeCurrentEventColor
-        nextEventContainer.backgroundColor = Colors.homeNextEventColor
+
+        currentEventContainer.layer.borderWidth = 1
+        currentEventContainer.layer.borderColor = Colors.icon2022_green1.cgColor
+        upcomingEventContainer.layer.borderWidth = 1
+        upcomingEventContainer.layer.borderColor = Colors.white.cgColor
         
         goToMyEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
-        myEventsTitleLabel.textColor = Colors.homeTimeTextColor
-        currentEventLabel.textColor = Colors.homeTimeTextColor
-        upcomingEventTimeLabel.textColor = Colors.homeMainLabelTextColor
-        upcomingEventHallLabel.textColor = Colors.homeMainLabelTextColor
-        upcomingEventNameLabel.textColor = Colors.homeMainLabelTextColor
+        
+        currentEventTitle.textColor = Colors.icon2022_green1
+        currentEventHall.textColor = Colors.icon2022_green1
+        currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
+        currentEventImage.tintColor = Colors.icon2022_green1
+        
+        upcomingEventTime.textColor = Colors.homeMainLabelTextColor
+        upcomingEventHall.textColor = Colors.homeMainLabelTextColor
+        upcomingEventTitle.textColor = Colors.homeMainLabelTextColor
+        
+        currentEventHeaderTitle.textColor = Colors.black
+        upcomingEventHeaderTitle.textColor = Colors.black
+        
+        currentEventHeader.backgroundColor = Colors.icon2022_green1
+        upcomingEventHeader.backgroundColor = Colors.white
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {
