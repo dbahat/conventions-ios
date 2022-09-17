@@ -20,12 +20,22 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         homeContentContainer.addSubview(createHomeContentView())
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
         
+        homeContentContainer.subviews.forEach({ $0.removeFromSuperview() })
+        homeContentContainer.addSubview(createHomeContentView())
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Reloading the page both in ViewWillAppear and DidAppear since some parts of the layout (e.g. Current/Next event) are better
+        // replaced during WillAppear (so there won't be a flicker), while some (like the Go to favorites button) requires screen layout to complete
+        // for the contraints to peoperly take effect.
         homeContentContainer.subviews.forEach({ $0.removeFromSuperview() })
         homeContentContainer.addSubview(createHomeContentView())
     }
@@ -86,11 +96,7 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     }
     
     func navigateToUpdatesClicked() {
-        // Since for icon2020 updates was placed in the main bar instead of the map screen
         tabBarController?.selectedIndex = 1
-//        if let updatesVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: UpdatesViewController.self)) as? UpdatesViewController {
-//            navigationController?.pushViewController(updatesVc, animated: true)
-//        }
     }
     
     func navigateToFeedbackClicked() {

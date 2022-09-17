@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    func htmlAttributedString() -> NSAttributedString? {
+    func htmlAttributedString(color: UIColor = UIColor.white) -> NSAttributedString? {
         let htmlTemplate = """
         <!doctype html>
         <html>
@@ -18,7 +18,7 @@ extension String {
               body {
                 font-family: -apple-system;
                 font-size: 14px;
-                color: white;
+                color: \(color.hexString);
                 line-height: 1.4;
               }
             </style>

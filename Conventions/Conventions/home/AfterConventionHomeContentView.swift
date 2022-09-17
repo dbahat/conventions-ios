@@ -15,6 +15,7 @@ class AfterConventionHomeContentView : UIView {
     @IBOutlet private weak var titleContainer: UIView!
     @IBOutlet private weak var contentContainer: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var container: RoundedView!
     @IBOutlet private weak var sendFeedbackLabel: UILabel!
     
     override init(frame: CGRect) {
@@ -32,7 +33,10 @@ class AfterConventionHomeContentView : UIView {
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         contentContainer.backgroundColor = Colors.homeNextEventColor
         titleLabel.textColor = Colors.homeTimeTextColor
-        sendFeedbackLabel.textColor = Colors.homeMainLabelTextColor
+        sendFeedbackLabel.textColor = Colors.icon2022_green1
+        
+        container.layer.borderWidth = 1
+        container.layer.borderColor = Colors.icon2022_green1.cgColor
     }
     
     @IBAction func sendFeedbackButtonWasClicked(_ sender: Any) {

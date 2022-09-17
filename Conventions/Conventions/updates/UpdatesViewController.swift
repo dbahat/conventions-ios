@@ -23,7 +23,7 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         
         tableView.register(UINib(nibName: String(describing: UpdateTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: UpdateTableViewCell.self))
         
-        noUpdatesFoundLabel.textColor = Colors.textColor
+        noUpdatesFoundLabel.textColor = Colors.icon2022_green1
         noUpdatesFoundLabel.isHidden = Convention.instance.updates.getAll().count > 0
         
         addRefreshControl()

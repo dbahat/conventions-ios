@@ -46,7 +46,9 @@ class EventView: UIView {
         lecturer.text = event.lecturer
         hallName.text = event.hall.name
         let designedAsVirtual = event.type.presentation.designedAsVirtual()
-        timeLayout.backgroundColor = designedAsVirtual ? Colors.eventTimeboxColorVirtual : event.color
+        timeLayout.backgroundColor = designedAsVirtual ? Colors.eventTimeboxColorVirtual : UIColor.clear
+        timeLayout.layer.borderWidth = 1
+        timeLayout.layer.borderColor = calculateEventColor(event: event).cgColor
         seperator.backgroundColor = Colors.eventSeperatorColor
 
         
@@ -59,9 +61,9 @@ class EventView: UIView {
             endTime.textColor = textColor;
             standAndEndTimeSeperator.textColor = textColor
         } else {
-            startTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
-            endTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
-            standAndEndTimeSeperator.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
+            startTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : calculateEventColor(event: event)
+            endTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : calculateEventColor(event: event)
+            standAndEndTimeSeperator.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : calculateEventColor(event: event)
         }
         
         titleAndDetailsContainer.backgroundColor = UIColor.clear

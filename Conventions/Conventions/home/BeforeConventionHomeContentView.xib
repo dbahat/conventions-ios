@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeforeConventionHomeContentView" customModule="Conventions" customModuleProvider="target">
             <connections>
+                <outlet property="container" destination="jHV-j0-EjT" id="Xra-f2-QGY"/>
                 <outlet property="conventionDatesLabel" destination="YhF-hE-C89" id="WYI-nZ-07R"/>
                 <outlet property="eventsButtonContainer" destination="eTU-Sd-xJA" id="zbu-u5-RNt"/>
                 <outlet property="mainContentContainer" destination="3AY-nH-o50" id="X3g-FQ-5Ex"/>
@@ -25,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOy-fb-Q3w">
-                    <rect key="frame" x="8" y="312" width="359" height="295"/>
+                    <rect key="frame" x="8" y="282" width="359" height="295"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-j0-EjT" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="359" height="295"/>
@@ -89,8 +88,8 @@
                         <constraint firstAttribute="trailing" secondItem="jHV-j0-EjT" secondAttribute="trailing" id="w9U-Yj-x6e"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o">
-                    <rect key="frame" x="8" y="623" width="163.5" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-hj-G4o">
+                    <rect key="frame" x="8" y="593" width="163.5" height="36"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="עדכונים">
@@ -100,8 +99,8 @@
                         <action selector="navigateToUpdatesWasCliced:" destination="-1" eventType="touchUpInside" id="wHk-Cf-Agm"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA">
-                    <rect key="frame" x="203.5" y="623" width="163.5" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-Sd-xJA">
+                    <rect key="frame" x="203.5" y="593" width="163.5" height="36"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="תוכניה">
@@ -116,15 +115,16 @@
             <constraints>
                 <constraint firstItem="eTU-Sd-xJA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="7oM-2f-fy0"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="8Eb-Bi-tQg"/>
-                <constraint firstAttribute="bottom" secondItem="wjk-hj-G4o" secondAttribute="bottom" constant="8" id="959-vO-vLP"/>
+                <constraint firstAttribute="bottom" secondItem="wjk-hj-G4o" secondAttribute="bottom" constant="38" id="959-vO-vLP"/>
                 <constraint firstAttribute="trailing" secondItem="mOy-fb-Q3w" secondAttribute="trailing" constant="8" id="En3-kD-y0h"/>
                 <constraint firstItem="mOy-fb-Q3w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="X2G-jg-0Ma"/>
                 <constraint firstAttribute="trailing" secondItem="eTU-Sd-xJA" secondAttribute="trailing" constant="8" id="ajG-89-64f"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="top" secondItem="mOy-fb-Q3w" secondAttribute="bottom" constant="16" id="bpR-3X-VWs"/>
                 <constraint firstItem="wjk-hj-G4o" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="eoa-9T-xeP"/>
                 <constraint firstItem="mOy-fb-Q3w" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="jCY-AD-VoK"/>
-                <constraint firstAttribute="bottom" secondItem="eTU-Sd-xJA" secondAttribute="bottom" constant="8" id="rOR-Z1-y2z"/>
+                <constraint firstAttribute="bottom" secondItem="eTU-Sd-xJA" secondAttribute="bottom" constant="38" id="rOR-Z1-y2z"/>
             </constraints>
+            <point key="canvasLocation" x="137" y="22"/>
         </view>
     </objects>
 </document>

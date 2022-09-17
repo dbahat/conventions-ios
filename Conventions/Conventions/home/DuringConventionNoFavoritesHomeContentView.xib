@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-A5-JUs">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sb2-Em-jjH">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-eX-g27">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -47,10 +45,9 @@
                                     </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-vF-SEq">
-                                    <rect key="frame" x="0.0" y="40" width="375" height="571"/>
-                                    <color key="backgroundColor" red="0.53333333329999999" green="0.34509803919999998" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <rect key="frame" x="0.0" y="40" width="375" height="527"/>
                                     <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="JYZ-RK-JWQ"/>
                                         <outlet property="delegate" destination="-1" id="q1B-vf-Nhx"/>
@@ -62,7 +59,7 @@
                                 <constraint firstItem="KZk-vF-SEq" firstAttribute="leading" secondItem="sb2-Em-jjH" secondAttribute="leading" id="0oH-Yq-yt9"/>
                                 <constraint firstAttribute="trailing" secondItem="KZk-vF-SEq" secondAttribute="trailing" id="5XC-Eh-5zD"/>
                                 <constraint firstItem="ZTO-eX-g27" firstAttribute="leading" secondItem="sb2-Em-jjH" secondAttribute="leading" id="Kmk-HI-TJK"/>
-                                <constraint firstAttribute="bottom" secondItem="KZk-vF-SEq" secondAttribute="bottom" id="aSc-iP-tpW"/>
+                                <constraint firstAttribute="bottom" secondItem="KZk-vF-SEq" secondAttribute="bottom" constant="30" id="aSc-iP-tpW"/>
                                 <constraint firstItem="KZk-vF-SEq" firstAttribute="top" secondItem="ZTO-eX-g27" secondAttribute="bottom" id="feI-KI-u3i"/>
                                 <constraint firstItem="ZTO-eX-g27" firstAttribute="top" secondItem="sb2-Em-jjH" secondAttribute="top" id="hHc-VO-9Qi"/>
                                 <constraint firstAttribute="trailing" secondItem="ZTO-eX-g27" secondAttribute="trailing" id="z7Z-DW-SPT"/>
@@ -77,8 +74,8 @@
                         <constraint firstAttribute="trailing" secondItem="sb2-Em-jjH" secondAttribute="trailing" id="yRb-VU-YrI"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG">
-                    <rect key="frame" x="0.0" y="611" width="375" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG">
+                    <rect key="frame" x="0.0" y="597" width="375" height="40"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="לכל האירועים">
@@ -91,7 +88,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" constant="16" id="B8u-TK-w9W"/>
+                <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" constant="30" id="B8u-TK-w9W"/>
                 <constraint firstItem="Yog-L5-8KG" firstAttribute="top" secondItem="Hcj-A5-JUs" secondAttribute="bottom" id="BcB-K3-r1Q"/>
                 <constraint firstAttribute="trailing" secondItem="Hcj-A5-JUs" secondAttribute="trailing" id="bDE-OU-UKh"/>
                 <constraint firstItem="Yog-L5-8KG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gJE-TC-bAM"/>
@@ -99,6 +96,7 @@
                 <constraint firstAttribute="trailing" secondItem="Yog-L5-8KG" secondAttribute="trailing" id="rad-CO-Vbb"/>
                 <constraint firstItem="Hcj-A5-JUs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wJG-Tv-ZqP"/>
             </constraints>
+            <point key="canvasLocation" x="136" y="21"/>
         </view>
     </objects>
 </document>

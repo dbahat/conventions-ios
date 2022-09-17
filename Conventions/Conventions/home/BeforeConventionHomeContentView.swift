@@ -14,6 +14,7 @@ class BeforeConventionHomeContentView : UIView {
     @IBOutlet private weak var timeBoxContainer: UIView!
     @IBOutlet private weak var mainContentContainer: UIView!
     @IBOutlet private weak var updatesButtonContainer: UIButton!
+    @IBOutlet private weak var container: RoundedView!
     @IBOutlet private weak var eventsButtonContainer: UIButton!
     
     weak var delegate: ConventionHomeContentViewProtocol?
@@ -36,10 +37,13 @@ class BeforeConventionHomeContentView : UIView {
         updatesButtonContainer.backgroundColor = Colors.homeButtonsColor
         mainContentContainer.backgroundColor = Colors.homeNextEventColor
         timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
-        remainingDaysLabel.textColor = Colors.homeMainLabelTextColor
+        remainingDaysLabel.textColor = Colors.icon2022_green1
         conventionDatesLabel.textColor = Colors.homeTimeTextColor
         eventsButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         updatesButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
+        
+        container.layer.borderWidth = 1
+        container.layer.borderColor = Colors.icon2022_green1.cgColor
     }
     
     func setDates(start: Date, end: Date) {

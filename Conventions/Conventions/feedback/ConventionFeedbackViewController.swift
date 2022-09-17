@@ -50,6 +50,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         feedbackView.setHeaderHidden(true)
         feedbackView.textColor = Colors.textColor
         feedbackView.buttonColor = Colors.buttonColor
+        feedbackView.linkColor = Colors.feedbackLinksColorConvention
         
         feedbackView.setFeedback(
             questions: Convention.instance.feedbackQuestions,

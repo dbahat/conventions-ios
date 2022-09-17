@@ -40,7 +40,10 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         goToEventsButton.backgroundColor = Colors.homeButtonsColor
         goToEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         eventsTable.backgroundColor = Colors.homeNextEventColor
-        eventsTable.separatorColor = Colors.textColor
+        eventsTable.separatorColor = Colors.icon2022_green1
+        
+        eventsTable.layer.borderWidth = 1
+        eventsTable.layer.borderColor = Colors.icon2022_green1.cgColor
     }
     
     @IBAction private func showAllEventsButtonWasClicked(_ sender: UIButton) {
@@ -75,15 +78,26 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     private func bind(_ cell: UITableViewCell, event: ConventionEvent) -> UITableViewCell {
         cell.textLabel?.text = event.title
         cell.textLabel?.textAlignment = .right
-        cell.textLabel?.textColor = Colors.homeMainLabelTextColor
+        cell.textLabel?.textColor = Colors.icon2022_green1
         cell.textLabel?.font.withSize(18)
         cell.textLabel?.numberOfLines = 2
         cell.backgroundColor = UIColor.clear
+        
+        if event.directWatchAvailable {
+            cell.imageView?.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
+            cell.tintColor = Colors.icon2022_green1
+        } else {
+            cell.imageView?.image = nil
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.navigateToEventClicked(event: events[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

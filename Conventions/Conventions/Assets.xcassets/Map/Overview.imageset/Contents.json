@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon2022_title 2.png",
+      "filename" : "icon2022_map 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon2022_title 1.png",
+      "filename" : "icon2022_map 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon2022_title.png",
+      "filename" : "icon2022_map.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
