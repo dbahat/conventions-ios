@@ -108,7 +108,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
                            "תגיות: " + event.tags.joined(separator: ", ")
                            )
         
-        if let availableTicketsCount = event.availableTickets, availableTicketsCount >= 0 {
+        if let availableTicketsCount = event.availableTickets, availableTicketsCount >= 0, event.isTicketless == false {
             updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
         } else {
             availableTickets.removeFromSuperview()
@@ -133,6 +133,8 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             OpenEventButton.setTitleColor(Colors.buttonColor, for: .normal)
             OpenEventButton.setTitleColor(Colors.buttonPressedColor, for: .selected)
             openEventConatiner.backgroundColor = Colors.eventOpenEventConatinerColor
+            openEventConatiner.layer.borderWidth = 1
+            openEventConatiner.layer.borderColor = Colors.white.cgColor
         } else {
             OpenEventContainerHeightConstraint.constant = 0
             openEventLabel.isHidden = true

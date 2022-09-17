@@ -104,6 +104,12 @@ class SffEventsParser {
             if let tags = event["tags"] as? Array<String> {
                 conventionEvent.tags = tags
             }
+            if let virtualUrl = event["virtual_url"] as? String {
+                conventionEvent.virtualUrl = virtualUrl
+            }
+            if let isTicketless = event["is_ticketless"] as? Bool {
+                conventionEvent.isTicketless = isTicketless
+            }
             
             result.append(conventionEvent)
             

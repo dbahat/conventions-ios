@@ -36,6 +36,8 @@ class ConventionEvent {
     var tags: Array<String>
     var url: URL
     var availableTickets: Int?
+    var virtualUrl: String?
+    var isTicketless = false
     
     var availableTicketsLastModified: Date?
     
@@ -110,6 +112,12 @@ class ConventionEvent {
         if let availableTicketsLastModified = json["availableTicketsLastModified"] as? Double {
             event.availableTicketsLastModified = Date(timeIntervalSince1970: availableTicketsLastModified)
         }
+        if let virtualUrl = json["virtualUrl"] as? String {
+            event.virtualUrl = virtualUrl
+        }
+        if let isTicketless = json["isTicketless"] as? Bool {
+            event.isTicketless = isTicketless
+        }
         
         return event
     }
@@ -141,6 +149,8 @@ class ConventionEvent {
             "availableTicketsLastModified": self.availableTicketsLastModified?.timeIntervalSince1970 as AnyObject,
             "presentationMode": self.type.presentation.mode.rawValue as AnyObject,
             "presentationLocation": self.type.presentation.location.rawValue as AnyObject,
+            "virtualUrl": (self.virtualUrl ?? "") as AnyObject,
+            "isTicketless": self.isTicketless as AnyObject
         ]
     }
     
@@ -152,14 +162,9 @@ class ConventionEvent {
     
     
     var directWatchUrl: URL? {
-        switch hall.name {
-        case "אשכול 2":
-            return URL(string: "https://olamot2022.virtualcon.org.il/room-a")
-        case "אשכול 3":
-            return URL(string: "https://olamot2022.virtualcon.org.il/room-b")
-        case "אשכול 4 (וירטואלי)":
-            return URL(string: "https://olamot2022.virtualcon.org.il/room-c")
-        default:
+        if let unwrapped = virtualUrl, unwrapped != "" {
+            return URL(string: unwrapped)
+        } else {
             return nil
         }
     }

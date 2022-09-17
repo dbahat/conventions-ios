@@ -51,7 +51,7 @@ class Colors {
     static let eventMarkedAsFavorite = Colors.icon2022_red1
     static let eventNotMarkedAsFavorite = Colors.icon2022_gray3
     static let eventSeperatorColor = Colors.icon2022_gray2
-    static let eventOpenEventConatinerColor = Colors.icon2022_gray3
+    static let eventOpenEventConatinerColor = UIColor.clear
     static let eventTimeboxColorVirtual = Colors.icon2022_gray1
     static let eventTimeboxTextColor = Colors.icon2022_green1
     static let eventTimeboxTextColorVirtual = Colors.icon2022_green1
