@@ -88,6 +88,7 @@ class UserTicketsRetriever {
     
     private func fetchTicketsAndQr(token: String?, email: String, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
         self.sendRequest(url: UserTicketsRetriever.userTicketsApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
+            if error != nil {callback(Tickets(), error)}
             guard
                 let unwrappedData = data,
                 let tickets = self.deserialize(unwrappedData)
@@ -99,6 +100,7 @@ class UserTicketsRetriever {
             let intTickets = tickets.filter({Int($0) != nil}).map({Int($0)!})
 
             self.sendRequest(url: UserTicketsRetriever.userIdApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
+                if error != nil {callback(Tickets(), error)}
                 guard
                     let unwrappedData = data,
                     let userId = String(data: unwrappedData, encoding: .utf8)
@@ -109,10 +111,11 @@ class UserTicketsRetriever {
                 
                 let qrApi = UserTicketsRetriever.qrApi.appendingPathComponent(email)
                 self.sendRequest(url: qrApi, method: "GET", body: nil, completionHandler: { (data, error) in
+                    if error != nil {callback(Tickets(), error)}
                     guard
                         let qrData = data
                     else {
-                        callback(Tickets(userId: userId, eventIds: intTickets, qrData: nil, email: email), error)
+                        callback(Tickets(), error)
                         return;
                     }
                     
@@ -140,8 +143,21 @@ class UserTicketsRetriever {
         
         session.dataTask(with:request , completionHandler:{(data, response, error) -> Void in
             DispatchQueue.main.async {
-                if let httpResponse = response as? HTTPURLResponse, (httpResponse.statusCode != 200) || (error != nil) {
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completionHandler(nil, NSError())
+                    return
+                }
+                if httpResponse.statusCode != 200 && httpResponse.statusCode != 400 {
+                    completionHandler(nil, NSError(domain:"", code:httpResponse.statusCode, userInfo:nil))
+                    return
+                }
+                if error != nil {
                     completionHandler(nil, error)
+                    return
+                }
+                if httpResponse.statusCode == 400 {
+                    completionHandler("".data(using: .utf8), nil)
+                    return
                 }
                 
                 completionHandler(data, nil)

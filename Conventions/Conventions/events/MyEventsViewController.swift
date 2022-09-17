@@ -182,7 +182,12 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
             controller.topLabel = message
-            controller.bottomLabel = String(format: "משתמש : %@ : מספר %@", importedEvents.email ,importedEvents.userId) + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
+            
+            var topLabelMessage = "משתמש : \(importedEvents.email)"
+            if importedEvents.userId != "" {
+                topLabelMessage = topLabelMessage + " : מספר \(importedEvents.userId)"
+            }
+            controller.bottomLabel = topLabelMessage + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
             controller.onLogoutClicked = {
                 self.logout()
                 controller.dismiss(animated: true)
@@ -221,7 +226,11 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
-        controller.topLabel = String(format: "משתמש : %@ : מספר %@", email, userId)
+        var topLabelMessage = "משתמש : \(email)"
+        if userId != "" {
+            topLabelMessage = topLabelMessage + " : מספר \(userId)"
+        }
+        controller.topLabel = topLabelMessage
         controller.bottomLabel = "ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
         controller.onLogoutClicked = {
             self.logout()
