@@ -22,8 +22,7 @@ class UserTicketsRetriever {
         
         if
             let data = UserDefaults.standard.object(forKey: "AuthState") as? Data,
-            // Using deprecated unarchiveObject() call due to https://github.com/openid/AppAuth-iOS/issues/479
-            let authState = NSKeyedUnarchiver.unarchiveObject(with: data) as? OIDAuthState {
+            let authState = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OIDAuthState.self, from: data) {
                 authState.performAction(freshTokens: {accessToken, idToken, error in
                     if
                             let unwrappedToken = idToken,
