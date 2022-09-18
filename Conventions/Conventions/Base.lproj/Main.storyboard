@@ -853,37 +853,8 @@
                                             <segue destination="5MY-oK-WFf" kind="show" id="ob3-7F-Gyu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Vs4-vT-T6F">
-                                        <rect key="frame" x="0.0" y="226" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vs4-vT-T6F" id="9fq-bR-1FN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuDiscounts" translatesAutoresizingMaskIntoConstraints="NO" id="293-3l-Ouj">
-                                                    <rect key="frame" x="318" y="5.5" width="33" height="33"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הטבות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFI-3W-Gdv">
-                                                    <rect key="frame" x="263" y="12" width="45" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="293-3l-Ouj" firstAttribute="centerY" secondItem="9fq-bR-1FN" secondAttribute="centerY" id="5Wd-lM-XdW"/>
-                                                <constraint firstItem="293-3l-Ouj" firstAttribute="leading" secondItem="YFI-3W-Gdv" secondAttribute="trailing" constant="10" id="Ajx-VU-giq"/>
-                                                <constraint firstItem="YFI-3W-Gdv" firstAttribute="centerY" secondItem="9fq-bR-1FN" secondAttribute="centerY" id="F06-90-TRC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="293-3l-Ouj" secondAttribute="trailing" constant="8" id="p8R-eP-ZdC"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="9zD-oq-szF" kind="show" id="VvJ-Cm-dRJ"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aY3-GE-I9t">
-                                        <rect key="frame" x="0.0" y="270" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="226" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aY3-GE-I9t" id="LYL-5v-w5S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -912,7 +883,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HSf-cn-nJs">
-                                        <rect key="frame" x="0.0" y="314" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="270" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSf-cn-nJs" id="CMG-Ms-3L4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -941,7 +912,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cKb-na-6ST">
-                                        <rect key="frame" x="0.0" y="358" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="314" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKb-na-6ST" id="eph-vH-D0L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -985,8 +956,6 @@
                         <outlet property="accessabilityLabel" destination="WhC-y1-kmJ" id="rDG-yH-bhM"/>
                         <outlet property="arrivalMethodsImage" destination="CDX-G4-qW8" id="S5Y-W2-N8a"/>
                         <outlet property="arrivalMethodsLabel" destination="M2W-CS-al3" id="XzH-UI-fKa"/>
-                        <outlet property="discountdImage" destination="293-3l-Ouj" id="Sfe-P7-GVV"/>
-                        <outlet property="discountsLabel" destination="YFI-3W-Gdv" id="PbD-gh-BR5"/>
                         <outlet property="feedbackImage" destination="1BZ-SV-8wP" id="rAW-bB-AZh"/>
                         <outlet property="feedbackLabel" destination="eIS-ua-5Nd" id="WuB-1T-BTa"/>
                         <outlet property="mapImage" destination="rdh-8S-bo5" id="vRd-cH-wj6"/>
@@ -1807,7 +1776,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KMa-Ed-pHq">
-                                <rect key="frame" x="16" y="52" width="343" height="607"/>
+                                <rect key="frame" x="16" y="8" width="343" height="651"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -2204,7 +2173,6 @@
         <image name="MenuAccessability" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuAddToFavorites" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuArrivalMethods" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="MenuDiscounts" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuEventList" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuEventListWithStar" width="33.333332061767578" height="33.333332061767578"/>
         <image name="MenuFeedback" width="33.333332061767578" height="33.333332061767578"/>

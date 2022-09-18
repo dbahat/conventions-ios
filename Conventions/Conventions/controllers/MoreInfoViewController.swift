@@ -58,7 +58,7 @@ class MoreInfoViewController : UITableViewController {
         adjustImageView(mapImage)
 //        adjustImageView(updatesImage)
         adjustImageView(secondHandImage)
-        adjustImageView(discountdImage)
+//        adjustImageView(discountdImage)
         
         feedbackLabel.textColor = Colors.textColor
         settingsLabel.textColor = Colors.textColor
@@ -68,7 +68,7 @@ class MoreInfoViewController : UITableViewController {
         mapLabel.textColor = Colors.textColor
 //        updatesLabel.textColor = Colors.textColor
         secondHandLabel.textColor = Colors.textColor
-        discountsLabel.textColor = Colors.textColor
+//        discountsLabel.textColor = Colors.textColor
     }
     
     private func adjustImageView(_ imageView: UIImageView) {

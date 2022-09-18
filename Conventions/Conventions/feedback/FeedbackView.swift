@@ -53,7 +53,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     }
     var answerButtonsColor = Colors.feedbackButtonColorConvetion
     var answerButtonsPressedColor = Colors.feedbackButtonPressedColor
-    var linkColor = Colors.feedbackButtonColorConvetion
+    var linkColor = Colors.feedbackLinksColorConvention
     var event: ConventionEvent? {
         didSet {
             updateMoreFeedbackLink()
