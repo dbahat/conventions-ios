@@ -103,6 +103,8 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         currentEventHall.textColor = Colors.icon2022_green1
         currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         currentEventImage.tintColor = Colors.icon2022_green1
+        upcomingEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
+        upcomingEventImage.tintColor = Colors.white
         
         upcomingEventTime.textColor = Colors.homeMainLabelTextColor
         upcomingEventHall.textColor = Colors.homeMainLabelTextColor

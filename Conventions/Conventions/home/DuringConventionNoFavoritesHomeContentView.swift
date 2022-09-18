@@ -79,7 +79,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         cell.textLabel?.text = event.title
         cell.textLabel?.textAlignment = .right
         cell.textLabel?.textColor = Colors.icon2022_green1
-        cell.textLabel?.font.withSize(18)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         cell.textLabel?.numberOfLines = 2
         cell.backgroundColor = UIColor.clear
         

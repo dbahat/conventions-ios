@@ -63,13 +63,13 @@
                                     <rect key="frame" x="1" y="49.5" width="357" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-Lu-plq">
-                                            <rect key="frame" x="124" y="14" width="225" height="38.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <rect key="frame" x="118.5" y="14" width="230.5" height="38.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="HomeOnlineEvent" translatesAutoresizingMaskIntoConstraints="NO" id="XO7-qV-t08">
-                                            <rect key="frame" x="8" y="8" width="48" height="38"/>
+                                            <rect key="frame" x="8" y="8" width="31.5" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="38" id="4Ct-6u-mIN"/>
                                                 <constraint firstAttribute="height" constant="38" id="Nac-FC-NPv"/>
@@ -134,10 +134,10 @@
                             <rect key="frame" x="0.0" y="164.5" width="359" height="188.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFk-si-Hb0">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="86"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירוע הבא" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-6k-MlM">
-                                            <rect key="frame" x="0.0" y="8" width="359" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="8" width="359" height="70"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -152,16 +152,16 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUH-sl-zq9">
-                                    <rect key="frame" x="1" y="87.5" width="357" height="100"/>
+                                    <rect key="frame" x="1" y="100" width="357" height="87.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-8u-4fh">
-                                            <rect key="frame" x="124" y="14" width="225" height="38.5"/>
+                                            <rect key="frame" x="49" y="14" width="300" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="HomeOnlineEvent" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-um-Y0e">
-                                            <rect key="frame" x="8" y="8" width="48" height="38"/>
+                                            <rect key="frame" x="8" y="8" width="31.5" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="38" id="KsC-kf-EFy"/>
                                                 <constraint firstAttribute="height" constant="38" id="qw5-F8-Car"/>
@@ -173,13 +173,13 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="בעוד 46 דקות" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-AD-mWC">
-                                            <rect key="frame" x="260" y="66.5" width="89" height="19.5"/>
+                                            <rect key="frame" x="260" y="54" width="89" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="באשכול 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-WS-RDI">
-                                            <rect key="frame" x="8" y="54" width="61.5" height="32"/>
+                                            <rect key="frame" x="8" y="54" width="61.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -259,7 +259,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="HomeOnlineEvent" width="48" height="48"/>
+        <image name="HomeOnlineEvent" width="31.5" height="26"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
