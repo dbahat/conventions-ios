@@ -128,7 +128,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         refreshAvailableTicketsButton.tintColor = Colors.icon2022_green1
         
         if event.directWatchAvailable && event.isEventAvailable() {
-            OpenEventContainerHeightConstraint.constant = 50
+            OpenEventContainerHeightConstraint.constant = 66
             openEventLabel.textColor = Colors.textColor
             OpenEventButton.setTitleColor(Colors.buttonColor, for: .normal)
             OpenEventButton.setTitleColor(Colors.buttonPressedColor, for: .selected)

@@ -390,16 +390,16 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5x5-ZT-IMi" userLabel="OpenEventContainer">
-                                        <rect key="frame" x="20" y="283.5" width="335" height="50"/>
+                                        <rect key="frame" x="20" y="283.5" width="335" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ניתן לצפות באירוע זה בשידור ישיר." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCr-Xe-9IO">
-                                                <rect key="frame" x="5" y="0.0" width="325" height="20.5"/>
+                                                <rect key="frame" x="5" y="8" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AJ-Is-iwM">
-                                                <rect key="frame" x="128" y="20.5" width="79" height="30"/>
+                                                <rect key="frame" x="128" y="28.5" width="79" height="30"/>
                                                 <state key="normal" title="לצפיה באירוע"/>
                                                 <connections>
                                                     <action selector="OpenEventButtonWasClicked:" destination="euQ-tX-Zvn" eventType="touchUpInside" id="Zpd-VR-Xcw"/>
@@ -411,20 +411,20 @@
                                             <constraint firstItem="2AJ-Is-iwM" firstAttribute="top" secondItem="fCr-Xe-9IO" secondAttribute="bottom" id="B5A-Pw-oMe"/>
                                             <constraint firstAttribute="trailing" secondItem="fCr-Xe-9IO" secondAttribute="trailing" constant="5" id="CUH-WT-OB4"/>
                                             <constraint firstItem="fCr-Xe-9IO" firstAttribute="leading" secondItem="5x5-ZT-IMi" secondAttribute="leading" constant="5" id="aMd-MA-nwm"/>
-                                            <constraint firstItem="fCr-Xe-9IO" firstAttribute="top" secondItem="5x5-ZT-IMi" secondAttribute="top" id="i39-7q-HxB"/>
-                                            <constraint firstAttribute="height" constant="50" id="n81-oU-AXF"/>
+                                            <constraint firstItem="fCr-Xe-9IO" firstAttribute="top" secondItem="5x5-ZT-IMi" secondAttribute="top" constant="8" id="i39-7q-HxB"/>
+                                            <constraint firstAttribute="height" constant="66" id="n81-oU-AXF"/>
                                             <constraint firstItem="2AJ-Is-iwM" firstAttribute="centerX" secondItem="5x5-ZT-IMi" secondAttribute="centerX" id="vjh-ho-CkD"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ss-29-rjU" userLabel="Feedback" customClass="FeedbackView" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="343.5" width="335" height="50"/>
+                                        <rect key="frame" x="20" y="359.5" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.20784313725490194" green="0.0078431372549019607" blue="0.074509803921568626" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6OO-Xy-ohO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-i3-wiM">
-                                        <rect key="frame" x="20" y="403.5" width="335" height="220.5"/>
+                                        <rect key="frame" x="20" y="419.5" width="335" height="220.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NBY-F1-158">
                                                 <rect key="frame" x="4" y="4" width="327" height="216.5"/>
@@ -1530,7 +1530,7 @@
                                                         <rect key="frame" x="0.0" y="40.5" width="319" height="71"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בדיקות" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNr-rk-7UK">
-                                                                <rect key="frame" x="272" y="13.5" width="47" height="20.5"/>
+                                                                <rect key="frame" x="272" y="13.5" width="47" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>

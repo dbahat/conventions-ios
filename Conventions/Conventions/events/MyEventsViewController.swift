@@ -164,47 +164,10 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             }
             self.reloadMyEvents()
             
-            var numberOfAddedEventsMessgae: String
-            if newlyImportedEvents.count == 1 {
-                numberOfAddedEventsMessgae = "נוסף אירוע אחד."
-            } else if newlyImportedEvents.count == 0 {
-                numberOfAddedEventsMessgae = "לא נוספו אירועים."
-            } else {
-                numberOfAddedEventsMessgae = String(format: "נוספו %d אירועים.\n\n", newlyImportedEvents.count)
-            }
-            
             UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
             UserDefaults.standard.set(importedEvents.email, forKey: "email")
                             
-            let message =
-                numberOfAddedEventsMessgae + "\nהצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
-            controller.topLabel = message
-            
-            var topLabelMessage = "משתמש : \(importedEvents.email)"
-            if importedEvents.userId != "" {
-                topLabelMessage = topLabelMessage + " : מספר \(importedEvents.userId)"
-            }
-            controller.bottomLabel = topLabelMessage + "\n\nניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים נוספים."
-            controller.onLogoutClicked = {
-                self.logout()
-                controller.dismiss(animated: true)
-            }
-            controller.modalPresentationStyle = .formSheet
-            if let popover = controller.popoverPresentationController {
-                popover.sourceView = self.view
-                popover.sourceRect = self.view.bounds
-                popover.permittedArrowDirections = []
-            }
-            
-            if let qrData = importedEvents.qrData {
-                UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
-                controller.image = UIImage(data: qrData)
-            }
-            
-            self.present(controller, animated: true, completion: nil)
+            self.showImportedTicketsViewController(userId: importedEvents.userId, email: importedEvents.email, numberOfImported: newlyImportedEvents.count)
         })
     }
     
@@ -216,7 +179,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     
     @IBAction func showQrWasClicked(_ sender: UIBarButtonItem) {
         guard
-            let userId = UserDefaults.standard.string(forKey: "userId"),
+            var userId = UserDefaults.standard.string(forKey: "userId"),
             let email = UserDefaults.standard.string(forKey: "email")
         else {
             // in case there's stored user data show the import events dialog
@@ -224,14 +187,22 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             return
         }
         
+        showImportedTicketsViewController(userId: userId, email: email)
+    }
+    
+    private func showImportedTicketsViewController(userId: String, email: String, numberOfImported: Int? = nil) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
-        var topLabelMessage = "משתמש : \(email)"
+        var topLabelMessage = "משתמש: \(email)"
         if userId != "" {
-            topLabelMessage = topLabelMessage + " : מספר \(userId)"
+            topLabelMessage = topLabelMessage + "\nמס׳ משתמש: \(userId)"
         }
+        if let imported = numberOfImported {
+            topLabelMessage = topLabelMessage + "\nאירועים שנקלטו מהאתר: \(imported)"
+        }
+        
         controller.topLabel = topLabelMessage
-        controller.bottomLabel = "ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳ בפינה השמאלית העליונה של המסך.\n ניתן לייבא כרטיסים למשתמש נוסף ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
+        controller.bottomLabel = "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים." + "\n\n" + "ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳בפינה השמאלית העליונה של המסך.\n\nניתן לייבא כרטיסים נוספים ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
         controller.onLogoutClicked = {
             self.logout()
             controller.dismiss(animated: true)
