@@ -153,7 +153,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             self.progressBarView.isHidden = true
             
             if error != nil {
-                TTGSnackbar(message: "ייבוא האירועים נכשל. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
+                TTGSnackbar(message: "ארעה שגיאה בהתחברות. נסה שנית מאוחר יותר.", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
@@ -166,6 +166,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             
             UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
             UserDefaults.standard.set(importedEvents.email, forKey: "email")
+            UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
                             
             self.showImportedTicketsViewController(userId: importedEvents.userId, email: importedEvents.email, numberOfImported: newlyImportedEvents.count)
         })
@@ -193,16 +194,33 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     private func showImportedTicketsViewController(userId: String, email: String, numberOfImported: Int? = nil) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
-        var topLabelMessage = "משתמש: \(email)"
-        if userId != "" {
-            topLabelMessage = topLabelMessage + "\nמס׳ משתמש: \(userId)"
-        }
+        
+        var topLabelMessage = ""
         if let imported = numberOfImported {
-            topLabelMessage = topLabelMessage + "\nאירועים שנקלטו מהאתר: \(imported)"
+            topLabelMessage = topLabelMessage + "אירועים שנקלטו מהאתר: \(imported)\n\n"
         }
+        topLabelMessage = topLabelMessage + "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
         
         controller.topLabel = topLabelMessage
-        controller.bottomLabel = "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים." + "\n\n" + "ניתן לגשת ל-QR שנית ע״י לחיצה על הכפתור ׳הצג QR׳בפינה השמאלית העליונה של המסך.\n\nניתן לייבא כרטיסים נוספים ע״י לחיצה נוספת על הכפתור ׳ייבא כרטיסים׳."
+        controller.midLabel = "משתמש: \(email)"
+        
+        if userId != "" {
+            controller.bottomLabel = "מס׳ משתמש: \(userId)"
+            controller.importedTickets.updatesButtonImage.isHidden = true
+        } else {
+            controller.bottomLabel = "קנית כרטיסים? רענן כדי להציג מספר משתמש"
+        }
+        
+        controller.onRefreshClicked = {
+            controller.importedTickets.updatesButtonImage.startRotate()
+            UserTicketsRetriever().retrieve(caller: self, callback: {(importedEvents, error) in
+                controller.importedTickets.updatesButtonImage.stopRotate()
+                if (importedEvents.userId != "") {
+                    controller.importedTickets.bottomLabel.text = "מס׳ משתמש: \(importedEvents.userId)"
+                    controller.importedTickets.updatesButtonImage.isHidden = true
+                }
+            })
+        }
         controller.onLogoutClicked = {
             self.logout()
             controller.dismiss(animated: true)

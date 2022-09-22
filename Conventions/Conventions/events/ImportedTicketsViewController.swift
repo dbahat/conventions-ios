@@ -9,17 +9,21 @@
 import Foundation
 
 class ImportedTicketsViewController: UIViewController {
-    @IBOutlet private var importedTickets: ImportedTicketsView!
+    @IBOutlet var importedTickets: ImportedTicketsView!
     
     var topLabel: String?
+    var midLabel: String?
     var bottomLabel: String?
     var image: UIImage?
     var onLogoutClicked: (() -> Void)?
+    var onRefreshClicked: (() -> Void)?
     
     override func viewDidLoad() {
         importedTickets.topLabel.text = topLabel
+        importedTickets.midLabel.text = midLabel
         importedTickets.bottomLabel.text = bottomLabel
         importedTickets.image.image = image
         importedTickets.onLogoutClicked = onLogoutClicked
+        importedTickets.onRefreshClicked = onRefreshClicked
     }
 }

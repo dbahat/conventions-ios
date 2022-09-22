@@ -12,10 +12,13 @@ class ImportedTicketsView : UIView {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var midLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var updatesButtonImage: UIImageView!
     
     var onLogoutClicked: (() -> Void)?
+    var onRefreshClicked: (() -> Void)?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -25,7 +28,12 @@ class ImportedTicketsView : UIView {
         
         topLabel.textColor = Colors.textColor
         bottomLabel.textColor = Colors.textColor
+        midLabel.textColor = Colors.textColor
         logoutButton.tintColor = Colors.buttonColor
+    }
+    
+    @IBAction func refreshWasClicked(_ sender: UITapGestureRecognizer) {
+        onRefreshClicked?()
     }
     
     @IBAction func logoutWasClicked(_ sender: UIButton) {

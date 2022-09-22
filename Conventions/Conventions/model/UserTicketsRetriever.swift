@@ -24,6 +24,11 @@ class UserTicketsRetriever {
             let data = UserDefaults.standard.object(forKey: "AuthState") as? Data,
             let authState = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OIDAuthState.self, from: data) {
                 authState.performAction(freshTokens: {accessToken, idToken, error in
+                    if error != nil {
+                        callback(Tickets(), error)
+                        return
+                    }
+                    
                     if
                             let unwrappedToken = idToken,
                             let parsedIdToken = OIDIDToken.init(idTokenString: unwrappedToken),
@@ -35,6 +40,11 @@ class UserTicketsRetriever {
                 })
         } else {
             interactiveLogin(caller: caller, callback: { authState, error in
+                if error != nil {
+                    callback(Tickets(), error)
+                    return
+                }
+                
                 guard
                     let authState = authState,
                     let tokenResponse = authState.lastTokenResponse,
@@ -58,6 +68,11 @@ class UserTicketsRetriever {
     private func interactiveLogin(caller: UIViewController, callback: @escaping (_ result: OIDAuthState?, _ error: Error?) -> Void) {
         OIDAuthorizationService.discoverConfiguration(forIssuer: issuer) { configuration, error in
 
+            if error != nil {
+                callback(nil, error)
+                return
+            }
+            
             guard
                 let config = configuration,
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -88,7 +103,11 @@ class UserTicketsRetriever {
     
     private func fetchTicketsAndQr(token: String?, email: String, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
         self.sendRequest(url: UserTicketsRetriever.userTicketsApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
-            if error != nil {callback(Tickets(), error)}
+            if error != nil {
+                callback(Tickets(), error)
+                return
+            }
+            
             guard
                 let unwrappedData = data,
                 let tickets = self.deserialize(unwrappedData)
@@ -100,18 +119,26 @@ class UserTicketsRetriever {
             let intTickets = tickets.filter({Int($0) != nil}).map({Int($0)!})
 
             self.sendRequest(url: UserTicketsRetriever.userIdApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
-                if error != nil {callback(Tickets(), error)}
+                if error != nil {
+                    callback(Tickets(), error)
+                    return
+                }
+                
                 guard
                     let unwrappedData = data,
                     let userId = String(data: unwrappedData, encoding: .utf8)
                 else {
                     callback(Tickets(), error)
-                    return;
+                    return
                 }
                 
                 let qrApi = UserTicketsRetriever.qrApi.appendingPathComponent(email)
                 self.sendRequest(url: qrApi, method: "GET", body: nil, completionHandler: { (data, error) in
-                    if error != nil {callback(Tickets(), error)}
+                    if error != nil {
+                        callback(Tickets(), error)
+                        return
+                    }
+                    
                     guard
                         let qrData = data
                     else {
