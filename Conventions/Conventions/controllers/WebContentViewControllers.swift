@@ -19,17 +19,13 @@ class WebContentViewController: BaseViewController {
                 return
         }
         
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+
         contentTextView.attributedText = webContent.htmlAttributedString()
     }
     
     func getWebPageName() -> String {
         return ""
-    }
-}
-
-class DiscountsViewController: WebContentViewController {
-    override func getWebPageName() -> String {
-        return "/DiscountsContent.html"
     }
 }
 
