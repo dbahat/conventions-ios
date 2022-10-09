@@ -206,12 +206,13 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         if userId != "" {
             controller.bottomLabel = "מס׳ משתמש: \(userId)"
-            controller.importedTickets.updatesButtonImage.isHidden = true
+            controller.shouldHideUpdatesButtonImage = true
         } else {
             controller.bottomLabel = "קנית כרטיסים? רענן כדי להציג מספר משתמש"
         }
         
         controller.onRefreshClicked = {
+            // At this point the controller was already created so we can access it's outlet directory
             controller.importedTickets.updatesButtonImage.startRotate()
             UserTicketsRetriever().retrieve(caller: self, callback: {(importedEvents, error) in
                 controller.importedTickets.updatesButtonImage.stopRotate()

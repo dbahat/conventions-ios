@@ -17,6 +17,7 @@ class ImportedTicketsViewController: UIViewController {
     var image: UIImage?
     var onLogoutClicked: (() -> Void)?
     var onRefreshClicked: (() -> Void)?
+    var shouldHideUpdatesButtonImage = false
     
     override func viewDidLoad() {
         importedTickets.topLabel.text = topLabel
@@ -25,5 +26,6 @@ class ImportedTicketsViewController: UIViewController {
         importedTickets.image.image = image
         importedTickets.onLogoutClicked = onLogoutClicked
         importedTickets.onRefreshClicked = onRefreshClicked
+        importedTickets.updatesButtonImage.isHidden = shouldHideUpdatesButtonImage
     }
 }
