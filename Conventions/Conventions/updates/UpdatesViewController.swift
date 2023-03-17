@@ -101,7 +101,6 @@ class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableV
         tableViewController.refreshControl = UIRefreshControl()
         tableViewController.refreshControl?.tintColor = Colors.colorAccent
         tableViewController.refreshControl?.addTarget(self, action: #selector(UpdatesViewController.refresh), for: UIControl.Event.valueChanged)
-        addChild(tableViewController)
         tableViewController.didMove(toParent: self)
     }
 }

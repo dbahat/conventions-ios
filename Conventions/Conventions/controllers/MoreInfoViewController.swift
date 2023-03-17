@@ -17,7 +17,7 @@ class MoreInfoViewController : UITableViewController {
     @IBOutlet private weak var feedbackImage: UIImageView!
     @IBOutlet private weak var updatesImage: UIImageView!
     @IBOutlet private weak var IconKidsImage: UIImageView!
-    @IBOutlet private weak var secondHandImage: UIImageView!
+//    @IBOutlet private weak var secondHandImage: UIImageView!
     @IBOutlet private weak var discountdImage: UIImageView!
     @IBOutlet private weak var accessabilityImage: UIImageView!
     @IBOutlet private weak var mapImage: UIImageView!
@@ -57,7 +57,7 @@ class MoreInfoViewController : UITableViewController {
         adjustImageView(accessabilityImage)
         adjustImageView(mapImage)
 //        adjustImageView(updatesImage)
-        adjustImageView(secondHandImage)
+//        adjustImageView(secondHandImage)
         adjustImageView(discountdImage)
         
         feedbackLabel.textColor = Colors.textColor
@@ -67,7 +67,7 @@ class MoreInfoViewController : UITableViewController {
         accessabilityLabel.textColor = Colors.textColor
         mapLabel.textColor = Colors.textColor
 //        updatesLabel.textColor = Colors.textColor
-        secondHandLabel.textColor = Colors.textColor
+//        secondHandLabel.textColor = Colors.textColor
         discountsLabel.textColor = Colors.textColor
     }
     

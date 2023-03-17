@@ -124,7 +124,7 @@ class SffEventsParser {
             let hasVirtual = event["has_virtual"] as? Bool,
             let isInhouse = event["is_inhouse"] as? Bool
         else {
-            return nil
+            return EventType.Presentation(mode: .Physical, location: .Indoors)
         }
         
         return EventType.Presentation(mode: hasPhysical && hasVirtual ? .Hybrid : (hasVirtual ? .Virtual : .Physical),

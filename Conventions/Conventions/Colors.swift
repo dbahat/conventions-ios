@@ -45,7 +45,7 @@ class Colors {
     static let feedbackButtonColorEvent = Colors.black
     static let feedbackButtonColorConvetion = Colors.black
     static let feedbackLinksColorEvent = Colors.olamot2023_yellow
-    static let feedbackLinksColorConvention = Colors.olamot2023_yellow
+    static let feedbackLinksColorConvention = Colors.olamot2023_red1
     
     static let mapBackgroundColor = UIColor.clear
     
