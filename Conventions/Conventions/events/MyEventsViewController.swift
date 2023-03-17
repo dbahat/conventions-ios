@@ -39,8 +39,8 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         reloadMyEvents()
         tableView.reloadData()
         progressBarView.isHidden = true
-        progressBarView.backgroundColor = Colors.black
-        importingTicketsLabel.textColor = Colors.icon2022_green1
+        progressBarView.backgroundColor = Colors.white
+        importingTicketsLabel.textColor = Colors.black
         
         scrollToCurrentRunningEventsIfNeeded()
     }

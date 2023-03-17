@@ -37,13 +37,13 @@ class BeforeConventionHomeContentView : UIView {
         updatesButtonContainer.backgroundColor = Colors.homeButtonsColor
         mainContentContainer.backgroundColor = Colors.homeNextEventColor
         timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
-        remainingDaysLabel.textColor = Colors.icon2022_green1
+        remainingDaysLabel.textColor = Colors.textColor
         conventionDatesLabel.textColor = Colors.homeTimeTextColor
         eventsButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         updatesButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         
         container.layer.borderWidth = 1
-        container.layer.borderColor = Colors.icon2022_green1.cgColor
+        container.layer.borderColor = Colors.textColor.cgColor
     }
     
     func setDates(start: Date, end: Date) {

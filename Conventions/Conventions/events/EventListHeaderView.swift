@@ -18,6 +18,6 @@ class EventListHeaderView: UITableViewHeaderFooterView {
         
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = Colors.eventTimeHeaderColor
-        time.textColor = Colors.textColor
+        time.textColor = Colors.eventTimeHeaderTextColor
     }
 }

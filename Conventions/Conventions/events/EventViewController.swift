@@ -47,14 +47,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         if event.canFillFeedback() {
             feedbackView.backgroundColor = Colors.eventFeedbackBoxColor
             feedbackView.layer.borderWidth = 1
-            feedbackView.layer.borderColor = Colors.white.cgColor
+            feedbackView.layer.borderColor = Colors.textColor.cgColor
             
             feedbackView.delegate = self
             feedbackView.setFeedback(questions: event.feedbackQuestions,
                                      answers: event.feedbackAnswers,
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
-            feedbackView.buttonColor = Colors.icon2022_red1
+            feedbackView.buttonColor = Colors.olamot2023_yellow
             feedbackView.answerButtonsColor = Colors.feedbackButtonColorEvent
             feedbackView.linkColor = Colors.feedbackLinksColorEvent
             feedbackView.answerButtonsPressedColor = Colors.feedbackButtonPressedColor
@@ -75,13 +75,13 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             feedbackViewHeightConstraint.constant = 0
         }
         
-        lecturer.textColor = Colors.icon2022_green1
+        lecturer.textColor = Colors.textColor
         eventTitle.textColor = Colors.eventTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
-        hall.textColor = Colors.icon2022_green1
-        time.textColor = Colors.icon2022_green1
-        prices.textColor = Colors.icon2022_green1
-        tags.textColor = Colors.icon2022_green1
+        hall.textColor = Colors.textColor
+        time.textColor = Colors.textColor
+        prices.textColor = Colors.textColor
+        tags.textColor = Colors.textColor
         
         
         titleAndEventTypeContainer.backgroundColor = Colors.eventTitleBackground
@@ -89,7 +89,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         lecturerContainer.backgroundColor = Colors.eventDetailsBoxColor
         metadataContainer.backgroundColor = Colors.eventDetailsBoxColor
         lecturerAndMetadataContainer.layer.borderWidth = 1
-        lecturerAndMetadataContainer.layer.borderColor = Colors.icon2022_green1.cgColor
+        lecturerAndMetadataContainer.layer.borderColor = Colors.textColor.cgColor
         
         feedbackView.event = event
         lecturer.text = event.lecturer
@@ -120,12 +120,12 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventDescriptionContainer.isHidden = event.description == ""
         eventDescriptionContainer.backgroundColor = Colors.eventDetailsBoxColor
         eventDescriptionContainer.layer.borderWidth = 1
-        eventDescriptionContainer.layer.borderColor = Colors.icon2022_green1.cgColor
+        eventDescriptionContainer.layer.borderColor = Colors.textColor.cgColor
         eventDescriptionTextView.delegate = self
         refreshFavoriteBarIconImage()
         
         refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
-        refreshAvailableTicketsButton.tintColor = Colors.icon2022_green1
+        refreshAvailableTicketsButton.tintColor = Colors.textColor
         
         if event.directWatchAvailable && event.isEventAvailable() {
             OpenEventContainerHeightConstraint.constant = 66
@@ -134,7 +134,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             OpenEventButton.setTitleColor(Colors.buttonPressedColor, for: .selected)
             openEventConatiner.backgroundColor = Colors.eventOpenEventConatinerColor
             openEventConatiner.layer.borderWidth = 1
-            openEventConatiner.layer.borderColor = Colors.white.cgColor
+            openEventConatiner.layer.borderColor = Colors.textColor.cgColor
         } else {
             OpenEventContainerHeightConstraint.constant = 0
             openEventLabel.isHidden = true
@@ -142,7 +142,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         }
         
         if let eventDescription = event.description {
-            eventDescriptionTextView.attributedText = eventDescription.htmlAttributedString(color: Colors.icon2022_green1)
+            eventDescriptionTextView.attributedText = eventDescription.htmlAttributedString(color: Colors.textColor)
         }
     }
     
@@ -257,10 +257,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         
         if (availableTicketsCount == 0) {
             availableTickets.font = UIFont.boldSystemFont(ofSize: 15)
-            availableTickets.textColor = Colors.icon2022_green1
+            availableTickets.textColor = Colors.textColor
         } else {
             availableTickets.font = UIFont.systemFont(ofSize: 15)
-            availableTickets.textColor = Colors.icon2022_green1
+            availableTickets.textColor = Colors.textColor
         }
         
         availableTickets.text = String(

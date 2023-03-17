@@ -12,8 +12,8 @@ class Convention {
     static let instance = Convention()
     static let date = Date.from(year: 2022, month: 10, day: 11)
     static let endDate = Date.from(year: 2022, month: 10, day: 13)
-    static let name = "icon2022"
-    static let displayName = "פסטיבל אייקון 2022"
+    static let name = "olamot2023"
+    static let displayName = "כנס עולמות 2023"
     
     var halls: Array<Hall>
     var events: Events

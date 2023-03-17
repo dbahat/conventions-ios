@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    func htmlAttributedString(color: UIColor = UIColor.white) -> NSAttributedString? {
+    func htmlAttributedString(color: UIColor = Colors.textColor) -> NSAttributedString? {
         let htmlTemplate = """
         <!doctype html>
         <html>

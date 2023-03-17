@@ -16,7 +16,7 @@ class UpdateTableViewCell: UITableViewCell {
         title.backgroundColor = Colors.updateTimeBackground
         
         message.text = update.text
-        message.textColor = Colors.icon2022_green1
+        message.textColor = Colors.textColor
         
         message.backgroundColor = update.isNew ? UIColor.clear : UIColor.clear
     }

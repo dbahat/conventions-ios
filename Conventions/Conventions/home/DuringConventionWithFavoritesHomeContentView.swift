@@ -93,28 +93,30 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         goToMyEventsButton.backgroundColor = Colors.homeButtonsColor
 
         currentEventContainer.layer.borderWidth = 1
-        currentEventContainer.layer.borderColor = Colors.icon2022_green1.cgColor
+        currentEventContainer.layer.borderColor = Colors.black.cgColor
+        currentEventContainer.backgroundColor = Colors.olamot2023_yellow
         upcomingEventContainer.layer.borderWidth = 1
-        upcomingEventContainer.layer.borderColor = Colors.white.cgColor
+        upcomingEventContainer.layer.borderColor = Colors.black.cgColor
+        upcomingEventContainer.backgroundColor = Colors.olamot2023_green
         
         goToMyEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
         
-        currentEventTitle.textColor = Colors.icon2022_green1
-        currentEventHall.textColor = Colors.icon2022_green1
+        currentEventTitle.textColor = Colors.textColor
+        currentEventHall.textColor = Colors.textColor
         currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
-        currentEventImage.tintColor = Colors.icon2022_green1
+        currentEventImage.tintColor = Colors.black
         upcomingEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
-        upcomingEventImage.tintColor = Colors.white
+        upcomingEventImage.tintColor = Colors.black
         
-        upcomingEventTime.textColor = Colors.homeMainLabelTextColor
-        upcomingEventHall.textColor = Colors.homeMainLabelTextColor
-        upcomingEventTitle.textColor = Colors.homeMainLabelTextColor
+        upcomingEventTime.textColor = Colors.textColor
+        upcomingEventHall.textColor = Colors.textColor
+        upcomingEventTitle.textColor = Colors.textColor
         
-        currentEventHeaderTitle.textColor = Colors.black
-        upcomingEventHeaderTitle.textColor = Colors.black
+        currentEventHeaderTitle.textColor = Colors.olamot2023_yellow
+        upcomingEventHeaderTitle.textColor = Colors.olamot2023_green
         
-        currentEventHeader.backgroundColor = Colors.icon2022_green1
-        upcomingEventHeader.backgroundColor = Colors.white
+        currentEventHeader.backgroundColor = Colors.black
+        upcomingEventHeader.backgroundColor = Colors.black
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {
