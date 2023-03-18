@@ -50,6 +50,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         feedbackView.setHeaderHidden(true)
         feedbackView.textColor = Colors.textColor
         feedbackView.buttonColor = Colors.buttonColor
+        feedbackView.buttonColorPressed = Colors.buttonPressedColor
         feedbackView.linkColor = Colors.feedbackLinksColorConvention
         
         feedbackView.setFeedback(
@@ -68,7 +69,9 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         initializeEventsTableViews()
         
         navigationItem.title = "פידבק לכנס"
-        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: UIControl.State())
+        submitAllFeedbacksButton.setTitleColor(Colors.buttonColor, for: .normal)
+        submitAllFeedbacksButton.setTitleColor(Colors.buttonPressedColor, for: .highlighted)
+
     
         fillEventFeedbackTitleLabel.textColor = Colors.textColor
         fillEventFeedbackMessageLabel.textColor = Colors.textColor

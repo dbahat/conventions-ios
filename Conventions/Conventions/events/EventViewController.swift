@@ -55,6 +55,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
             feedbackView.buttonColor = Colors.olamot2023_yellow
+            feedbackView.buttonColorPressed = Colors.buttonPressedColor
             feedbackView.answerButtonsColor = Colors.feedbackButtonColorEvent
             feedbackView.linkColor = Colors.feedbackLinksColorEvent
             feedbackView.answerButtonsPressedColor = Colors.feedbackButtonPressedColor

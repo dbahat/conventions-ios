@@ -19,26 +19,25 @@ class Colors {
     static let olamot2023_pink1 = UIColor(hexString: "#d8a388")
     static let olamot2023_pink2 = UIColor(hexString: "#d18f6d")
     static let olamot2023_pink2_transperent = UIColor(hexString: "#D8D18F6D")
-    
-    static let icon2022_green1 = UIColor(hexString: "#9eea51")
-    
+        
     static let black = UIColor.black
     static let white = UIColor.white
     
     static let colorAccent = Colors.olamot2023_red1
-    static let tabBarSelectedTabColor = Colors.buttonPressedColor
-    static let tabBarUnselectedTabColor = Colors.buttonColor
+    static let tabBarSelectedTabColor = Colors.olamot2023_brown1
+    static let tabBarUnselectedTabColor = Colors.black
     static let textColor = UIColor.black
     static let backgroundColor = UIColor.clear
     static let linksColor = Colors.olamot2023_red1
     
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.olamot2023_red1
-    static let eventTimeDefaultBackgroundColor = Colors.icon2022_green1
+    static let eventTimeDefaultBackgroundColor = Colors.olamot2023_green
     static let eventTimeHeaderColor = Colors.olamot2023_red1
     static let eventTimeHeaderTextColor = Colors.white
-    static let buttonColor = Colors.olamot2023_brown1
-    static let buttonPressedColor = Colors.olamot2023_brown2
+    static let buttonColor = Colors.olamot2023_red1
+    static let buttonPressedColor = Colors.olamot2023_red2
+    static let buttonDisabledColor = Colors.olamot2023_brown1
     
     static let feedbackButtonPressedColor = Colors.olamot2023_yellow
     
@@ -78,7 +77,7 @@ class Colors {
     static let secondHandOpenFormColor = Colors.eventNotStartedColor
     
     // Home colors
-    static let homeButtonsColor = Colors.buttonColor
+    static let homeButtonsColor = Colors.olamot2023_brown1
     static let homeButtonsTextColor = UIColor.black
     static let homeCurrentEventColor = Colors.olamot2023_green
     static let homeNextEventColor = Colors.olamot2023_yellow

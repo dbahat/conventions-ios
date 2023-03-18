@@ -48,7 +48,13 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
     var buttonColor = Colors.buttonColor {
         didSet {
             changeStateButton.setTitleColor(buttonColor, for: UIControl.State())
-            sendButton.setTitleColor(buttonColor, for: UIControl.State())
+            sendButton.setTitleColor(buttonColor, for: .normal)
+        }
+    }
+    var buttonColorPressed = Colors.buttonPressedColor {
+        didSet {
+            sendButton.setTitleColor(buttonColorPressed, for: .highlighted)
+            sendButton.setTitleColor(buttonColorPressed, for: .selected)
         }
     }
     var answerButtonsColor = Colors.feedbackButtonColorConvetion
@@ -128,6 +134,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         moreInfoFeedbackTextView.textColor = textColor
         
         updateMoreFeedbackLink()
+        sendButton.setTitleColor(Colors.buttonDisabledColor, for: .disabled)
     }
     
     private func updateMoreFeedbackLink() {
