@@ -11,14 +11,15 @@ import UIKit
 
 class SffEventsParser {
     func parse(data: Data) -> Array<ConventionEvent>! {
-        var result = Array<ConventionEvent>();
+        // Needed since in some cases server issues resulted in duplicated events (with the same event ID)
+        var tempResult = Dictionary<String, ConventionEvent>()
         
         guard let deserializedEvents =
             ((try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray) as NSArray??),
             let events = deserializedEvents
         else {
             print("Failed to deserialize events");
-            return result;
+            return Array<ConventionEvent>();
         }
         
         for rawEvent in events {
@@ -102,7 +103,9 @@ class SffEventsParser {
                 conventionEvent.category = category
             }
             if let tags = event["tags"] as? Array<String> {
-                conventionEvent.tags = tags
+                // Needed since in some cases server issues resulted in duplicated tags
+                let tagSet = Set<String>(tags)
+                conventionEvent.tags = tagSet.map( {$0} )
             }
             if let virtualUrl = event["virtual_url"] as? String {
                 conventionEvent.virtualUrl = virtualUrl
@@ -111,11 +114,11 @@ class SffEventsParser {
                 conventionEvent.isTicketless = isTicketless
             }
             
-            result.append(conventionEvent)
+            tempResult.updateValue(conventionEvent, forKey: conventionEvent.id)
             
         }
         
-        return result;
+        return tempResult.values.map({ $0 });
     }
     
     private func parsePresentation(_ event: Dictionary<String, AnyObject>) -> EventType.Presentation? {
