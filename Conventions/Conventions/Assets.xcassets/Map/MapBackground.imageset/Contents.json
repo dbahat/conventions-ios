@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "olamot2023_map 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "olamot2023_map 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "olamot2023_map.png",
+      "filename" : "Olamot2023_MapBG.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
