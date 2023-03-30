@@ -11,16 +11,14 @@ import Foundation
 class DiscountsViewController : BaseViewController, UITableViewDataSource {
     
     private let items = [
-        Item(text: "סודוך, רחוב קרליבך 20. כשר בשרי. 27 ש\"ח לטוסט רגיל/נקנקיה בלחמניה ושתייה מהמקרר בתוספת של 3 ש\"ח, עד השעה 16:00.",
-             image: UIImage(named: "DiscountSuduh")),
-        Item(text: "ארומה, רחוב הארבעה 24. 10% הנחה.",
+        Item(text: "ארומה סניף הארבעה – 10% הנחה",
              image: UIImage(named: "DiscountAroma")),
-        Item(text: "\u{200F}TLAB, רחוב החשמונאים 103. גלידה מתנה בקניית משקה.",
+        Item(text: "סודוך סניף קרליבך – סודוך טוסט ב-29 ש\"ח",
+             image: UIImage(named: "DiscountSuduh")),
+        Item(text: "ויסוצקי Tlab החשמונאים – תוספת באבל פירותי חינם",
              image: UIImage(named: "DiscountTlab")),
-        Item(text: "אובן קובן. רחוב הארבעה 16. משקה חינם (סאקה/בירה/שתיה קלה).",
-             image: UIImage(named: "DiscountObanKoban")),
-        Item(text: "ממפיס, רחוב קרליבך 20. כשר בשר חלק, ירק מהדרין. 10% הנחה.",
-             image: UIImage(named: "DiscountMemphis")),
+        Item(text: "אובן קובן הארבעה 16 – 10% הנחה",
+             image: UIImage(named: "DiscountObanKoban"))
     ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
