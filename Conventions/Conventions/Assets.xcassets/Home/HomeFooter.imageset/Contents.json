@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "olamot2023_home_bottom 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "olamot2023_home_bottom 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "olamot2023_home_bottom.png",
+      "filename" : "OpeningBottom_900x129_3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

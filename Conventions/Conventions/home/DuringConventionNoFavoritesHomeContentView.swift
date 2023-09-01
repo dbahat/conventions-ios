@@ -36,13 +36,15 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         eventsTable.rowHeight = UITableView.automaticDimension
         
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        titleContainer.layer.cornerRadius = 4
         titleLabel.textColor = Colors.homeTimeTextColor
         goToEventsButton.backgroundColor = Colors.homeButtonsColor
-        goToEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
-        eventsTable.backgroundColor = Colors.homeNextEventColor
-        eventsTable.separatorColor = Colors.textColor
+        goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
+        goToEventsButton.layer.cornerRadius = 4
+        eventsTable.backgroundColor = UIColor.clear
+        eventsTable.separatorColor = UIColor.clear
         
-        eventsTable.layer.borderWidth = 1
+        eventsTable.layer.borderWidth = 0
         eventsTable.layer.borderColor = Colors.textColor.cgColor
     }
     
@@ -59,33 +61,39 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // Using section headers to simulate spacing between cells
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = eventsTable.dequeueReusableCell(withIdentifier: cellIdentifer) {
-            return bind(cell, event: events[indexPath.row])
+            return bind(cell, event: events[indexPath.section])
         }
         
-        return bind(UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifer), event:events[indexPath.row])
+        return bind(UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifer), event:events[indexPath.section])
     }
     
     private func bind(_ cell: UITableViewCell, event: ConventionEvent) -> UITableViewCell {
         cell.textLabel?.text = event.title
         cell.textLabel?.textAlignment = .right
-        cell.textLabel?.textColor = Colors.textColor
+        cell.textLabel?.textColor = Colors.homeDuringConvetionNoFavoriteCardTextColor
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         cell.textLabel?.numberOfLines = 2
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = Colors.homeDuringConvetionNoFavoriteCardBackgroundColor
+        cell.layer.cornerRadius = 4
         
         if event.directWatchAvailable {
             cell.imageView?.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
-            cell.tintColor = Colors.textColor
+            cell.tintColor = Colors.homeDuringConvetionNoFavoriteCardTextColor
         } else {
             cell.imageView?.image = nil
         }

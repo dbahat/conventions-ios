@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="currentEventContainer" destination="L1x-J9-UHN" id="n99-1N-i3J"/>
                 <outlet property="currentEventContainerHeight" destination="ibB-2H-xCt" id="olb-u2-fUx"/>
+                <outlet property="currentEventContentContainer" destination="059-1h-zxW" id="t4X-fl-6pd"/>
                 <outlet property="currentEventHall" destination="94p-td-38M" id="V4k-xm-JWF"/>
                 <outlet property="currentEventHeader" destination="XOj-GB-mEa" id="sx9-ap-VYe"/>
                 <outlet property="currentEventHeaderTitle" destination="rMA-KY-jJn" id="HLu-nQ-6F7"/>
@@ -20,6 +21,7 @@
                 <outlet property="currentEventTitle" destination="bGF-Lu-plq" id="B1q-Et-xWa"/>
                 <outlet property="goToMyEventsButton" destination="iiY-kd-cdi" id="tot-dw-Tav"/>
                 <outlet property="upcomingEventContainer" destination="dWD-SS-IaZ" id="W1I-XX-5xf"/>
+                <outlet property="upcomingEventContentContainer" destination="zUH-sl-zq9" id="Jjw-D8-b8E"/>
                 <outlet property="upcomingEventHall" destination="Bp0-WS-RDI" id="R80-mV-PLv"/>
                 <outlet property="upcomingEventHeader" destination="QFk-si-Hb0" id="5xx-aV-crf"/>
                 <outlet property="upcomingEventHeaderTitle" destination="8d5-6k-MlM" id="F5c-4p-YCR"/>

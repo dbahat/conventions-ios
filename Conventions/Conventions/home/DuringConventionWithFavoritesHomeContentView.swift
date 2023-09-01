@@ -18,7 +18,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     @IBOutlet weak var currentEventHall: UILabel!
     @IBOutlet weak var currentEventImage: UIImageView!
     @IBOutlet weak var currentEventImageWidth: NSLayoutConstraint!
-    
+    @IBOutlet weak var currentEventContentContainer: UIView!
     
     @IBOutlet weak var upcomingEventContainer: UIView!
     @IBOutlet weak var upcomingEventHeight: NSLayoutConstraint!
@@ -29,6 +29,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     @IBOutlet weak var upcomingEventTime: UILabel!
     @IBOutlet weak var upcomingEventImage: UIImageView!
     @IBOutlet weak var upcomingEventImageWidth: NSLayoutConstraint!
+    @IBOutlet weak var upcomingEventContentContainer: UIView!
     
     @IBOutlet private weak var goToMyEventsButton: UIButton!
     
@@ -92,31 +93,34 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         
         goToMyEventsButton.backgroundColor = Colors.homeButtonsColor
 
-        currentEventContainer.layer.borderWidth = 1
+        currentEventContainer.layer.borderWidth = 0
         currentEventContainer.layer.borderColor = Colors.black.cgColor
-        currentEventContainer.backgroundColor = Colors.olamot2023_yellow
-        upcomingEventContainer.layer.borderWidth = 1
+        currentEventContainer.backgroundColor = Colors.clear
+        currentEventContentContainer.backgroundColor = Colors.homeCurrentEventColor
+        
+        upcomingEventContainer.layer.borderWidth = 0
         upcomingEventContainer.layer.borderColor = Colors.black.cgColor
-        upcomingEventContainer.backgroundColor = Colors.olamot2023_green
+        upcomingEventContainer.backgroundColor = Colors.clear
+        upcomingEventContentContainer.backgroundColor = Colors.homeNextEventColor
         
-        goToMyEventsButton.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
+        goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         
-        currentEventTitle.textColor = Colors.textColor
-        currentEventHall.textColor = Colors.textColor
+        currentEventTitle.textColor = Colors.homeButtonsTextColor
+        currentEventHall.textColor = Colors.homeButtonsTextColor
         currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         currentEventImage.tintColor = Colors.black
         upcomingEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         upcomingEventImage.tintColor = Colors.black
         
-        upcomingEventTime.textColor = Colors.textColor
-        upcomingEventHall.textColor = Colors.textColor
-        upcomingEventTitle.textColor = Colors.textColor
+        upcomingEventTime.textColor = Colors.homeButtonsTextColor
+        upcomingEventHall.textColor = Colors.homeButtonsTextColor
+        upcomingEventTitle.textColor = Colors.homeButtonsTextColor
         
-        currentEventHeaderTitle.textColor = Colors.olamot2023_yellow
-        upcomingEventHeaderTitle.textColor = Colors.olamot2023_green
+        currentEventHeaderTitle.textColor = Colors.homeEventHeadersTextColor
+        upcomingEventHeaderTitle.textColor = Colors.homeEventHeadersTextColor
         
-        currentEventHeader.backgroundColor = Colors.black
-        upcomingEventHeader.backgroundColor = Colors.black
+        currentEventHeader.backgroundColor = Colors.homeEventHeadersBackgroundColor
+        upcomingEventHeader.backgroundColor = Colors.homeEventHeadersBackgroundColor
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {
