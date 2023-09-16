@@ -116,11 +116,11 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         upcomingEventHall.textColor = Colors.homeButtonsTextColor
         upcomingEventTitle.textColor = Colors.homeButtonsTextColor
         
-        currentEventHeaderTitle.textColor = Colors.homeEventHeadersTextColor
-        upcomingEventHeaderTitle.textColor = Colors.homeEventHeadersTextColor
+        currentEventHeaderTitle.textColor = Colors.homeCurrentEventHeadersTextColor
+        upcomingEventHeaderTitle.textColor = Colors.homeUpcomingEventHeadersTextColor
         
-        currentEventHeader.backgroundColor = Colors.homeEventHeadersBackgroundColor
-        upcomingEventHeader.backgroundColor = Colors.homeEventHeadersBackgroundColor
+        currentEventHeader.backgroundColor = Colors.homeCurrentEventHeadersBackgroundColor
+        upcomingEventHeader.backgroundColor = Colors.homeUpcomingEventHeadersBackgroundColor
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {

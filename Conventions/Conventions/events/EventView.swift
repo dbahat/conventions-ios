@@ -32,6 +32,9 @@ class EventView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         inflateNib(EventView.self)
+        
+        titleAndDetailsContainer.layer.cornerRadius = 4
+        timeLayout.layer.cornerRadius = 4
     }
     
 
@@ -45,15 +48,15 @@ class EventView: UIView {
         title.text = event.title
         lecturer.text = event.lecturer
         hallName.text = event.hall.name
-        let designedAsVirtual = event.type.presentation.designedAsVirtual()
-        timeLayout.backgroundColor = designedAsVirtual ? Colors.eventTimeboxColorVirtual : Colors.eventTimeboxColor
+
+        timeLayout.backgroundColor = calculateEventColor(event: event)
         timeLayout.layer.borderWidth = 0
         timeLayout.layer.borderColor = calculateEventColor(event: event).cgColor
         seperator.backgroundColor = Colors.eventSeperatorColor
 
         
         // Allow dynamic changing of the favorite button color
-        favoriteButtonImage.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
+        favoriteButtonImage.image = event.attending == true ? UIImage(named: "EventAttending")?.withRenderingMode(.alwaysTemplate) : UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
         favoriteButtonImage.tintColor = event.attending == true ? Colors.eventMarkedAsFavorite : Colors.eventNotMarkedAsFavorite
         
         if let textColor = event.textColor {
@@ -61,6 +64,7 @@ class EventView: UIView {
             endTime.textColor = textColor;
             standAndEndTimeSeperator.textColor = textColor
         } else {
+            let designedAsVirtual = event.type.presentation.designedAsVirtual()
             startTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
             endTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
             standAndEndTimeSeperator.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
@@ -68,7 +72,7 @@ class EventView: UIView {
         
         titleAndDetailsContainer.backgroundColor = Colors.eventViewTitleAndDetailsContainerBackground
         
-        let dateBasedColor = calculateEventColor(event: event)
+        let dateBasedColor = Colors.eventContentTextColor
         title.textColor = dateBasedColor
         lecturer.textColor = dateBasedColor
         hallName.textColor = dateBasedColor

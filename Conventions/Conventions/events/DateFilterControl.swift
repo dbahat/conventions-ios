@@ -46,9 +46,11 @@ class DateFilterControl : UISegmentedControl {
         } else {
             tintColor = Colors.datePickerColor
         }
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.textColor]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.datePickerTextColor]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
+        
+        backgroundColor = Colors.datePickerBackgroundColor
     }
     
     func updateNumberOfResultsPerSegment(_ resultsPerSegment: Array<Int>) {

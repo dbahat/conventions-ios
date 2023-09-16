@@ -15,7 +15,7 @@ class AboutViewController : BaseViewController {
     @IBOutlet private weak var aboutAppTitleLabel: UILabel!
     @IBOutlet private weak var abountContentTextView: UITextView!
     
-    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור כנס עולמות. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: איתמר ריינר, אלי בויום, גליה בהט, מיה שראל."
+    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: איתמר ריינר, אלי בויום, גליה בהט, מיה שראל."
  
     override func viewDidLoad() {
         super.viewDidLoad()

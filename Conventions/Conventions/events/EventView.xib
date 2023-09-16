@@ -190,7 +190,7 @@
         <tapGestureRecognizer id="PAd-ob-HPP"/>
     </objects>
     <resources>
-        <image name="EventNotAttending" width="36" height="36"/>
+        <image name="EventNotAttending" width="30" height="30"/>
         <image name="Feedback_icon" width="24" height="24"/>
     </resources>
 </document>
