@@ -92,14 +92,17 @@ class Colors {
     static let eventContentTextColor = Colors.icon2023_brown7
     
     // Event colors
-    static let eventDetailsBoxColor = Colors.olamot2023_yellow
-    static let eventTitleBackground = Colors.black
-    static let eventTitleBoarderColor = Colors.black
-    static let eventTitleTextColor = Colors.olamot2023_yellow
+    static let eventTitleBoxColor = Colors.clear
+    static let eventDetailsBoxColor = Colors.icon2023_brown1
+    static let eventTitleBackground = Colors.clear
+    static let eventTitleBoarderColor = Colors.clear
+    static let eventTitleTextColor = Colors.black
+    static let eventSubTitleTextColor = Colors.icon2023_brown1
     static let eventFeedbackBoxColor = Colors.olamot2023_red1
     //static let eventFeedbackButtonsColor = Colors.feedbackButtonColor
     //static let eventFeedbackAnswersButtonsColor = Colors.feedbackButtonColor
     static let eventFeedbackTextColor = Colors.olamot2023_yellow
+    static let eventDescriptionTextColor = Colors.black
     
     // SecondHand colorss
     static let secondHandClosedFormColor = Colors.eventEndedColor

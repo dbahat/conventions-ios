@@ -15,15 +15,19 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     
     @IBOutlet private weak var toastView: UIView!
     @IBOutlet fileprivate weak var eventTitleBoxBoarderView: UIView!
-    @IBOutlet fileprivate weak var lecturer: UILabel!
-    @IBOutlet fileprivate weak var eventTitle: UILabel!
-    @IBOutlet fileprivate weak var eventTypeAndCategory: UILabel!
+    @IBOutlet private weak var eventTitle: UILabel!
+    @IBOutlet private weak var eventTitleContainer: UIView!
+    
+    @IBOutlet private weak var eventSubTitle: UILabel!
+    @IBOutlet private weak var eventSubTitleContainer: UIView!
+    @IBOutlet private weak var eventTypeAndCategory: UILabel!
+    @IBOutlet private weak var eventTypeAndCategoryContainer: UIView!
+    
     @IBOutlet fileprivate weak var hall: UILabel!
     @IBOutlet fileprivate weak var time: UILabel!
     @IBOutlet fileprivate weak var tags: UILabel!
     @IBOutlet fileprivate weak var prices: UILabel!
     @IBOutlet fileprivate weak var titleAndEventTypeContainer: UIView!
-    @IBOutlet fileprivate weak var lecturerContainer: UIView!
     @IBOutlet fileprivate weak var metadataContainer: UIView!
     @IBOutlet fileprivate weak var lecturerAndMetadataContainer: UIStackView!
     
@@ -46,7 +50,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         
         if event.canFillFeedback() {
             feedbackView.backgroundColor = Colors.eventFeedbackBoxColor
-            feedbackView.layer.borderWidth = 1
+            feedbackView.layer.borderWidth = 0
             feedbackView.layer.borderColor = Colors.textColor.cgColor
             
             feedbackView.delegate = self
@@ -75,10 +79,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             feedbackView.isHidden = true
             feedbackViewHeightConstraint.constant = 0
         }
-        
-        lecturer.textColor = Colors.textColor
+                
         eventTitle.textColor = Colors.eventTitleTextColor
+        eventSubTitle.textColor = Colors.eventSubTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
+        eventTitleContainer.backgroundColor = Colors.icon2023_brown1
+        eventSubTitleContainer.backgroundColor = Colors.icon2023_brown8
+        eventTypeAndCategoryContainer.backgroundColor = Colors.icon2023_brown3
+        
         hall.textColor = Colors.textColor
         time.textColor = Colors.textColor
         prices.textColor = Colors.textColor
@@ -87,15 +95,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         
         titleAndEventTypeContainer.backgroundColor = Colors.eventTitleBackground
         eventTitleBoxBoarderView.backgroundColor = Colors.eventTitleBoarderColor
-        lecturerContainer.backgroundColor = Colors.eventDetailsBoxColor
-        metadataContainer.backgroundColor = Colors.eventDetailsBoxColor
-        lecturerAndMetadataContainer.layer.borderWidth = 1
+        metadataContainer.backgroundColor = Colors.eventTitleBoxColor
+        lecturerAndMetadataContainer.layer.borderWidth = 0
         lecturerAndMetadataContainer.layer.borderColor = Colors.textColor.cgColor
         
         feedbackView.event = event
-        lecturer.text = event.lecturer
-        eventTitle.text = event.title
-        eventTypeAndCategory.text =  event.type.description + " - אירוע " + formatPredentationMode(event.type.presentation.mode)
+        eventTitle.text = event.lecturer
+        eventSubTitle.text = event.type.description
+        eventTypeAndCategory.text =  event.title
         hall.text = event.hall.name
         
         time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
@@ -120,7 +127,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         
         eventDescriptionContainer.isHidden = event.description == ""
         eventDescriptionContainer.backgroundColor = Colors.eventDetailsBoxColor
-        eventDescriptionContainer.layer.borderWidth = 1
+        eventDescriptionContainer.layer.borderWidth = 0
         eventDescriptionContainer.layer.borderColor = Colors.textColor.cgColor
         eventDescriptionTextView.delegate = self
         refreshFavoriteBarIconImage()
@@ -134,7 +141,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             OpenEventButton.setTitleColor(Colors.buttonColor, for: .normal)
             OpenEventButton.setTitleColor(Colors.buttonPressedColor, for: .selected)
             openEventConatiner.backgroundColor = Colors.eventOpenEventConatinerColor
-            openEventConatiner.layer.borderWidth = 1
+            openEventConatiner.layer.borderWidth = 0
             openEventConatiner.layer.borderColor = Colors.textColor.cgColor
         } else {
             OpenEventContainerHeightConstraint.constant = 0
@@ -143,7 +150,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         }
         
         if let eventDescription = event.description {
-            eventDescriptionTextView.attributedText = eventDescription.htmlAttributedString(color: Colors.textColor)
+            eventDescriptionTextView.attributedText = eventDescription.htmlAttributedString(color: Colors.eventDescriptionTextColor)
         }
     }
     
