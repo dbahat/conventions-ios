@@ -18,6 +18,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     @IBOutlet private weak var eventTitle: UILabel!
     @IBOutlet private weak var eventTitleContainer: UIView!
     
+    @IBOutlet private weak var eventTitleContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var eventSubTitle: UILabel!
     @IBOutlet private weak var eventSubTitleContainer: UIView!
     @IBOutlet private weak var eventTypeAndCategory: UILabel!
@@ -100,7 +101,14 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         lecturerAndMetadataContainer.layer.borderColor = Colors.textColor.cgColor
         
         feedbackView.event = event
-        eventTitle.text = event.lecturer
+        if let lecturer = event.lecturer {
+            eventTitle.text = lecturer
+            if lecturer.isEmpty {
+                eventTitleContainerHeightConstraint.isActive = true
+                eventTitleContainerHeightConstraint.constant = 0
+            }
+        }
+        
         eventSubTitle.text = event.type.description
         eventTypeAndCategory.text =  event.title
         hall.text = event.hall.name

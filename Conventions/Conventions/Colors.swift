@@ -54,7 +54,7 @@ class Colors {
     static let tabBarSelectedTabColor = Colors.white
     static let tabBarUnselectedTabColor = Colors.icon2023_brown3
     static let textColor = UIColor.white
-    static let backgroundColor = Colors.icon2023_green4
+    static let backgroundColor = Colors.clear
     static let linksColor = Colors.icon2023_brown2
     
     static let switchButtonsColor = Colors.colorAccent
@@ -65,13 +65,14 @@ class Colors {
     static let eventTimeHeaderColor = Colors.icon2023_brown6
     static let eventTimeHeaderTextColor = Colors.white
     static let buttonColor = Colors.icon2023_blue4
+    static let logoffButtonColor = Colors.icon2023_red1
     static let buttonPressedColor = Colors.icon2023_blue2
     static let buttonDisabledColor = Colors.icon2023_gray1
     
-    static let feedbackButtonPressedColor = Colors.olamot2023_yellow
+    static let feedbackButtonPressedColor = Colors.icon2023_brown2
     
-    static let feedbackButtonColorEvent = Colors.black
-    static let feedbackButtonColorConvetion = Colors.black
+    static let feedbackButtonColorEvent = Colors.icon2023_brown2
+    static let feedbackButtonColorConvetion = Colors.icon2023_brown2
     static let feedbackLinksColorEvent = Colors.olamot2023_yellow
     static let feedbackLinksColorConvention = Colors.olamot2023_red1
     

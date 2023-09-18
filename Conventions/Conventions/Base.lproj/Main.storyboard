@@ -282,8 +282,14 @@
                                                             <constraint firstItem="l8J-Dg-5UO" firstAttribute="leading" secondItem="lwT-GC-shI" secondAttribute="leading" id="6nP-46-4WO"/>
                                                             <constraint firstAttribute="bottom" secondItem="l8J-Dg-5UO" secondAttribute="bottom" constant="4" id="enu-hX-al0"/>
                                                             <constraint firstItem="l8J-Dg-5UO" firstAttribute="top" secondItem="lwT-GC-shI" secondAttribute="top" constant="4" id="fPo-AB-Vjf"/>
+                                                            <constraint firstAttribute="height" constant="27.5" id="pne-bc-WsP"/>
                                                             <constraint firstAttribute="trailing" secondItem="l8J-Dg-5UO" secondAttribute="trailing" id="rPM-bR-NNo"/>
                                                         </constraints>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="pne-bc-WsP"/>
+                                                            </mask>
+                                                        </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-Qb-eT6">
                                                         <rect key="frame" x="0.0" y="77.5" width="327" height="27.5"/>
@@ -539,6 +545,7 @@
                         <outlet property="eventTitle" destination="l8J-Dg-5UO" id="fFc-70-r3e"/>
                         <outlet property="eventTitleBoxBoarderView" destination="4Mk-2g-684" id="sGq-ZQ-h6x"/>
                         <outlet property="eventTitleContainer" destination="lwT-GC-shI" id="QRt-0u-Skn"/>
+                        <outlet property="eventTitleContainerHeightConstraint" destination="pne-bc-WsP" id="HgB-vM-U20"/>
                         <outlet property="eventTypeAndCategory" destination="XNp-hP-p2k" id="viA-E9-ZzQ"/>
                         <outlet property="eventTypeAndCategoryContainer" destination="RbT-yQ-KRM" id="DzV-tS-vDH"/>
                         <outlet property="feedbackView" destination="9Ss-29-rjU" id="k0U-o7-HEF"/>

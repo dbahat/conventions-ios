@@ -26,10 +26,13 @@ class ImportedTicketsView : UIView {
         view.frame = self.bounds;
         addSubview(view);
         
-        topLabel.textColor = Colors.textColor
-        bottomLabel.textColor = Colors.textColor
-        midLabel.textColor = Colors.textColor
-        logoutButton.tintColor = Colors.buttonColor
+        // Using black & white for maximal contract, to help the convention scanners to read more efficiently
+        backgroundColor = Colors.white
+        topLabel.textColor = Colors.black
+        bottomLabel.textColor = Colors.black
+        midLabel.textColor = Colors.black
+        
+        logoutButton.tintColor = Colors.logoffButtonColor
     }
     
     @IBAction func refreshWasClicked(_ sender: UITapGestureRecognizer) {

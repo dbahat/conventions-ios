@@ -43,6 +43,13 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     
     override func questionDidSet(_ question: FeedbackQuestion) {
         questionLabel.text = question.question
+        
+        for button in getButtons() {
+            let selectedImage = UIImage(named: "EventAttending")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
+            button.setImage(selectedImage, for: .selected)
+            let notSelectedImage = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
+            button.setImage(notSelectedImage, for: .normal)
+        }
     }
     
     override func setAnswer(_ answer: FeedbackAnswer) {
@@ -70,34 +77,44 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
     }
     
     private func getButtons() -> [UIButton] {
-        return [positiveFeedbackButton, negetiveFeedbackButton, veryPositiveFeedbackButton, veryNegetiveFeedbackButton, neutralFeedbackButton]
+        return [veryPositiveFeedbackButton, positiveFeedbackButton, neutralFeedbackButton, negetiveFeedbackButton, veryNegetiveFeedbackButton]
     }
     
     private func resetState(button: UIButton, newState: FeedbackAnswer.Smiley.SmileyType) {
         // In case the user clicked on an already selected button, clear the selection
         if button.isSelected {
-            button.isSelected = false
-            button.tintColor = feedbackAnswerColor
-            if let unwrappedQuestion = question {
-                delegate?.questionCleared(unwrappedQuestion)
-            }
+            resetAllButtons()
             return
         }
         
         setState(newState)
     }
     
-    private func setState(_ newState: FeedbackAnswer.Smiley.SmileyType) {
+    private func resetAllButtons() {
         for button in getButtons() {
-            button.tintColor = feedbackAnswerColor
             button.isSelected = false
+            button.tintColor = feedbackAnswerColor
+            button.imageView?.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
+            if let unwrappedQuestion = question {
+                delegate?.questionCleared(unwrappedQuestion)
+            }
+        }
+    }
+    
+    private func setState(_ newState: FeedbackAnswer.Smiley.SmileyType) {
+        let selectedButton = getButton(forState: newState)
+        for button in getButtons() {
+            let buttonIndex = getButtons().firstIndex(of: button)!
+            let stateIndex = getButtons().firstIndex(of: selectedButton)!
+            button.tintColor = feedbackAnswerColor
+            button.isSelected = buttonIndex > stateIndex
         }
         
-        let button = getButton(forState: newState)
+
         let image = newState.getImage()
-        button.setImage(image, for: .selected)
-        button.isSelected = true
-        button.tintColor = feedbackAnswerPressedColor
+        selectedButton.setImage(image, for: .selected)
+        selectedButton.isSelected = true
+        selectedButton.tintColor = feedbackAnswerPressedColor
         
         delegate?.questionWasAnswered(FeedbackAnswer.Smiley(questionText: question!.question, answer: newState))
     }
