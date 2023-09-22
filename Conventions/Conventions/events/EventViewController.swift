@@ -59,7 +59,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
                                      answers: event.feedbackAnswers,
                                      isSent: event.didSubmitFeedback())
             feedbackView.textColor = Colors.eventFeedbackTextColor
-            feedbackView.buttonColor = Colors.olamot2023_yellow
+            feedbackView.buttonColor = Colors.feedbackButtonColorEvent
             feedbackView.buttonColorPressed = Colors.buttonPressedColor
             feedbackView.answerButtonsColor = Colors.feedbackButtonColorEvent
             feedbackView.linkColor = Colors.feedbackLinksColorEvent
@@ -113,14 +113,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventTypeAndCategory.text =  event.title
         hall.text = event.hall.name
         
-        time.text = event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
+        time.text = event.hall.name + ", " + event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         time.font = UIFont.boldSystemFont(ofSize: 15)
         
         prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
-        tags.text = String(format: "%@\n\n%@",
-                           // Using the tags textView to add the disclamer to avoid having to alter the existing UI layout constraints.
-                           // Ideally this disclamer should have it's own textView.
-                           getEventTypeDisclamer(),
+        tags.text = String(format: "%@",
                            "תגיות: " + event.tags.joined(separator: ", ")
                            )
         

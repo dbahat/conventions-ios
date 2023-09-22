@@ -10,16 +10,6 @@ import Foundation
 
 class Colors {
     
-    static let olamot2023_yellow = UIColor(hexString: "#f0cc92")
-    static let olamot2023_green = UIColor(hexString: "#9d9855")
-    static let olamot2023_red1 = UIColor(hexString: "#902b13")
-    static let olamot2023_red2 = UIColor(hexString: "#442017")
-    static let olamot2023_brown1 = UIColor(hexString: "#a87246")
-    static let olamot2023_brown2 = UIColor(hexString: "#63332C")
-    static let olamot2023_pink1 = UIColor(hexString: "#d8a388")
-    static let olamot2023_pink2 = UIColor(hexString: "#d18f6d")
-    static let olamot2023_pink2_transperent = UIColor(hexString: "#D8D18F6D")
-    
     static let icon2023_red1 = UIColor(hexString: "#BA1200")
     static let icon2023_red2 = UIColor(hexString: "#D41206")
     static let icon2023_brown1 = UIColor(hexString: "#FFF6E5")
@@ -53,7 +43,7 @@ class Colors {
     static let colorAccent = Colors.icon2023_brown3
     static let tabBarSelectedTabColor = Colors.white
     static let tabBarUnselectedTabColor = Colors.icon2023_brown3
-    static let textColor = UIColor.white
+    static let textColor = Colors.white
     static let backgroundColor = Colors.clear
     static let linksColor = Colors.icon2023_brown2
     
@@ -61,7 +51,7 @@ class Colors {
     static let datePickerColor = Colors.icon2023_brown1
     static let datePickerTextColor = Colors.black
     static let datePickerBackgroundColor = icon2023_transparent_brown1
-    static let eventTimeDefaultBackgroundColor = Colors.olamot2023_green
+    static let eventTimeDefaultBackgroundColor = Colors.white
     static let eventTimeHeaderColor = Colors.icon2023_brown6
     static let eventTimeHeaderTextColor = Colors.white
     static let buttonColor = Colors.icon2023_blue4
@@ -69,12 +59,12 @@ class Colors {
     static let buttonPressedColor = Colors.icon2023_blue2
     static let buttonDisabledColor = Colors.icon2023_gray1
     
-    static let feedbackButtonPressedColor = Colors.icon2023_brown2
+    static let feedbackButtonPressedColor = Colors.icon2023_brown6
     
-    static let feedbackButtonColorEvent = Colors.icon2023_brown2
+    static let feedbackButtonColorEvent = Colors.icon2023_brown6
     static let feedbackButtonColorConvetion = Colors.icon2023_brown2
-    static let feedbackLinksColorEvent = Colors.olamot2023_yellow
-    static let feedbackLinksColorConvention = Colors.olamot2023_red1
+    static let feedbackLinksColorEvent = Colors.icon2023_brown6
+    static let feedbackLinksColorConvention = Colors.linksColor
     
     static let mapBackgroundColor = UIColor.clear
     
@@ -88,7 +78,7 @@ class Colors {
     static let eventSeperatorColor = Colors.clear
     static let eventOpenEventConatinerColor = UIColor.clear
     static let eventTimeboxTextColor = Colors.icon2023_brown7
-    static let eventTimeboxTextColorVirtual = Colors.olamot2023_pink1
+    static let eventTimeboxTextColorVirtual = Colors.eventTimeboxTextColor
     static let eventViewTitleAndDetailsContainerBackground = Colors.icon2023_brown1
     static let eventContentTextColor = Colors.icon2023_brown7
     
@@ -99,10 +89,8 @@ class Colors {
     static let eventTitleBoarderColor = Colors.clear
     static let eventTitleTextColor = Colors.black
     static let eventSubTitleTextColor = Colors.icon2023_brown1
-    static let eventFeedbackBoxColor = Colors.olamot2023_red1
-    //static let eventFeedbackButtonsColor = Colors.feedbackButtonColor
-    //static let eventFeedbackAnswersButtonsColor = Colors.feedbackButtonColor
-    static let eventFeedbackTextColor = Colors.olamot2023_yellow
+    static let eventFeedbackBoxColor = Colors.icon2023_brown2
+    static let eventFeedbackTextColor = Colors.icon2023_brown6
     static let eventDescriptionTextColor = Colors.black
     
     // SecondHand colorss
@@ -127,7 +115,7 @@ class Colors {
     
     // Updates colors
     static let updateTimeBackground = Colors.black
-    static let updateTimeTextColor = Colors.olamot2023_pink2
+    static let updateTimeTextColor = Colors.textColor
     
     // Map colors
     static let mapIndicatorColor = UIColor.clear

@@ -114,7 +114,7 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         let image = newState.getImage()
         selectedButton.setImage(image, for: .selected)
         selectedButton.isSelected = true
-        selectedButton.tintColor = feedbackAnswerPressedColor
+        selectedButton.tintColor = feedbackAnswerColor
         
         delegate?.questionWasAnswered(FeedbackAnswer.Smiley(questionText: question!.question, answer: newState))
     }

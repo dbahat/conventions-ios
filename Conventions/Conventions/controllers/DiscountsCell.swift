@@ -11,4 +11,5 @@ import Foundation
 class DiscountCell : UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
 }

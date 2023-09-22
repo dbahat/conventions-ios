@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon2023_map2 2.png",
+      "filename" : "discounts_oz.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon2023_map2 1.png",
+      "filename" : "discounts_oz 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon2023_map2.png",
+      "filename" : "discounts_oz 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
