@@ -120,7 +120,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
         addSubview(view);
         
         feedbackIcon.image = feedbackIcon.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        feedbackIcon.tintColor = Colors.buttonColor
+        feedbackIcon.tintColor = Colors.expandFeedbackButtonColor
         
         // Register all cells dynamiclly, since we want each cell to have a seperate xib file
         questionsTableView.register(UINib(nibName: String(describing: SmileyFeedbackQuestionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SmileyFeedbackQuestionCell.self))

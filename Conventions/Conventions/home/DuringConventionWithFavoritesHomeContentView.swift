@@ -91,36 +91,42 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         
         let screenRect = UIScreen.main.bounds
         
-        goToMyEventsButton.backgroundColor = Colors.homeButtonsColor
+        goToMyEventsButton.backgroundColor = Colors.homeFirstButtonColor
+        goToMyEventsButton.layer.cornerRadius = 4
 
         currentEventContainer.layer.borderWidth = 0
         currentEventContainer.layer.borderColor = Colors.black.cgColor
         currentEventContainer.backgroundColor = Colors.clear
         currentEventContentContainer.backgroundColor = Colors.homeCurrentEventColor
+        currentEventContentContainer.layer.cornerRadius = 4
         
         upcomingEventContainer.layer.borderWidth = 0
         upcomingEventContainer.layer.borderColor = Colors.black.cgColor
         upcomingEventContainer.backgroundColor = Colors.clear
         upcomingEventContentContainer.backgroundColor = Colors.homeNextEventColor
+        upcomingEventContentContainer.layer.cornerRadius = 4
         
         goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         
-        currentEventTitle.textColor = Colors.homeButtonsTextColor
-        currentEventHall.textColor = Colors.homeButtonsTextColor
+        currentEventTitle.textColor = Colors.homeFirstButtonColor
+        currentEventHall.textColor = Colors.homeFirstButtonColor
         currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         currentEventImage.tintColor = Colors.black
         upcomingEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         upcomingEventImage.tintColor = Colors.black
         
-        upcomingEventTime.textColor = Colors.homeButtonsTextColor
-        upcomingEventHall.textColor = Colors.homeButtonsTextColor
-        upcomingEventTitle.textColor = Colors.homeButtonsTextColor
+        upcomingEventTime.textColor = Colors.homeFirstButtonColor
+        upcomingEventHall.textColor = Colors.homeFirstButtonColor
+        upcomingEventTitle.textColor = Colors.homeFirstButtonColor
         
         currentEventHeaderTitle.textColor = Colors.homeCurrentEventHeadersTextColor
         upcomingEventHeaderTitle.textColor = Colors.homeUpcomingEventHeadersTextColor
         
         currentEventHeader.backgroundColor = Colors.homeCurrentEventHeadersBackgroundColor
         upcomingEventHeader.backgroundColor = Colors.homeUpcomingEventHeadersBackgroundColor
+        
+        currentEventHeader.layer.cornerRadius = 4
+        upcomingEventHeader.layer.cornerRadius = 4
     }
     
     @IBAction func navigateToCurrentEventWasClicked(_ sender: UITapGestureRecognizer) {

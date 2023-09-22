@@ -19,6 +19,8 @@ class ImportedTicketsViewController: UIViewController {
     var onRefreshClicked: (() -> Void)?
     var shouldHideUpdatesButtonImage = false
     
+    var originalBrightness = UIScreen.main.brightness
+    
     override func viewDidLoad() {
         importedTickets.topLabel.text = topLabel
         importedTickets.midLabel.text = midLabel
@@ -27,5 +29,17 @@ class ImportedTicketsViewController: UIViewController {
         importedTickets.onLogoutClicked = onLogoutClicked
         importedTickets.onRefreshClicked = onRefreshClicked
         importedTickets.updatesButtonImage.isHidden = shouldHideUpdatesButtonImage
+        importedTickets.onBrightnessClicked = { (isOn: Bool) -> Void in
+            if isOn {
+                self.originalBrightness = UIScreen.main.brightness
+                UIScreen.main.brightness = 1
+            } else {
+                UIScreen.main.brightness = self.originalBrightness
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UIScreen.main.brightness = self.originalBrightness
     }
 }

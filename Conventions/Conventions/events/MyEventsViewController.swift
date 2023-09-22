@@ -26,7 +26,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         
-        noEventsLabel.textColor = Colors.eventNotStartedColor
+        noEventsLabel.textColor = Colors.hintTextColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -199,13 +199,13 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         if let imported = numberOfImported {
             topLabelMessage = topLabelMessage + "אירועים שנקלטו מהאתר: \(imported)\n\n"
         }
-        topLabelMessage = topLabelMessage + "הצג את קוד ה-QR בקופות עבור איסוף מהיר של הכרטיסים."
+        topLabelMessage = topLabelMessage + "הצג את קוד ה-QR בקופות העצמאיות עבור איסוף מהיר של הכרטיסים."
         
         controller.topLabel = topLabelMessage
-        controller.midLabel = "משתמש: \(email)"
+        controller.midLabel = "שם משתמש: \(email)"
         
         if userId != "" {
-            controller.bottomLabel = "מס׳ משתמש: \(userId)"
+            controller.bottomLabel = "מספר משתמש: \(userId)"
             controller.shouldHideUpdatesButtonImage = true
         } else {
             controller.bottomLabel = "קנית כרטיסים? רענן כדי להציג מספר משתמש"
@@ -217,7 +217,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             UserTicketsRetriever().retrieve(caller: self, callback: {(importedEvents, error) in
                 controller.importedTickets.updatesButtonImage.stopRotate()
                 if (importedEvents.userId != "") {
-                    controller.importedTickets.bottomLabel.text = "מס׳ משתמש: \(importedEvents.userId)"
+                    controller.importedTickets.bottomLabel.text = "מספר משתמש: \(importedEvents.userId)"
                     controller.importedTickets.updatesButtonImage.isHidden = true
                 }
             })

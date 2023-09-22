@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,18 +21,28 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="HomeBigIcon" translatesAutoresizingMaskIntoConstraints="NO" id="91T-Ud-Wb5">
+                    <rect key="frame" x="8" y="8" width="359" height="478"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQ1-DO-L4e">
-                    <rect key="frame" x="0.0" y="394.5" width="375" height="242.5"/>
+                    <rect key="frame" x="0.0" y="494" width="375" height="143"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9er-mV-dYf" customClass="RoundedView" customModule="Conventions" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="242.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="תודה שבאתם לפסטיבל אייקון 2023" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x5-6R-en3">
+                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-WE-LXA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <rect key="frame" x="0.0" y="45" width="375" height="45"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הכנס נגמר" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jva-fr-GH2">
-                                            <rect key="frame" x="8" y="8" width="359" height="38.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הפסטיבל נגמר" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jva-fr-GH2">
+                                            <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -46,12 +56,12 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="s6Y-eC-6Vp">
-                                    <rect key="frame" x="0.0" y="54.5" width="375" height="188"/>
+                                    <rect key="frame" x="0.0" y="90" width="375" height="53"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לשליחת פידבק" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-Ja-3yP">
-                                            <rect key="frame" x="24" y="8" width="327" height="172"/>
+                                            <rect key="frame" x="24" y="12" width="327" height="29"/>
                                             <gestureRecognizers/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -59,8 +69,8 @@
                                     <color key="backgroundColor" red="0.53333333329999999" green="0.34509803919999998" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="nBU-Ja-3yP" secondAttribute="trailing" constant="24" id="BVK-hf-QdH"/>
-                                        <constraint firstItem="nBU-Ja-3yP" firstAttribute="top" secondItem="s6Y-eC-6Vp" secondAttribute="top" constant="8" id="LXE-9o-l8N"/>
-                                        <constraint firstAttribute="bottom" secondItem="nBU-Ja-3yP" secondAttribute="bottom" constant="8" id="ln6-Tu-HSN"/>
+                                        <constraint firstItem="nBU-Ja-3yP" firstAttribute="top" secondItem="s6Y-eC-6Vp" secondAttribute="top" constant="12" id="LXE-9o-l8N"/>
+                                        <constraint firstAttribute="bottom" secondItem="nBU-Ja-3yP" secondAttribute="bottom" constant="12" id="ln6-Tu-HSN"/>
                                         <constraint firstItem="nBU-Ja-3yP" firstAttribute="leading" secondItem="s6Y-eC-6Vp" secondAttribute="leading" constant="24" id="rfF-Lg-HYS"/>
                                     </constraints>
                                     <connections>
@@ -70,12 +80,15 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="9x5-6R-en3" firstAttribute="leading" secondItem="9er-mV-dYf" secondAttribute="leading" constant="8" id="2UX-bL-EpW"/>
                                 <constraint firstAttribute="bottom" secondItem="s6Y-eC-6Vp" secondAttribute="bottom" id="56e-Ie-j74"/>
+                                <constraint firstItem="JTa-WE-LXA" firstAttribute="top" secondItem="9x5-6R-en3" secondAttribute="bottom" constant="8" id="7ze-qY-cXJ"/>
                                 <constraint firstItem="JTa-WE-LXA" firstAttribute="leading" secondItem="9er-mV-dYf" secondAttribute="leading" id="EEE-lF-uOg"/>
                                 <constraint firstItem="s6Y-eC-6Vp" firstAttribute="leading" secondItem="9er-mV-dYf" secondAttribute="leading" id="KQk-Cc-3k9"/>
                                 <constraint firstItem="s6Y-eC-6Vp" firstAttribute="top" secondItem="JTa-WE-LXA" secondAttribute="bottom" id="KfA-Ll-9vb"/>
-                                <constraint firstItem="JTa-WE-LXA" firstAttribute="top" secondItem="9er-mV-dYf" secondAttribute="top" id="eGW-rj-0Kz"/>
+                                <constraint firstItem="9x5-6R-en3" firstAttribute="top" secondItem="9er-mV-dYf" secondAttribute="top" constant="8" id="SdE-Tx-uKB"/>
                                 <constraint firstAttribute="trailing" secondItem="JTa-WE-LXA" secondAttribute="trailing" id="mBn-HM-i9Z"/>
+                                <constraint firstAttribute="trailing" secondItem="9x5-6R-en3" secondAttribute="trailing" constant="8" id="t72-3X-Zr0"/>
                                 <constraint firstAttribute="trailing" secondItem="s6Y-eC-6Vp" secondAttribute="trailing" id="yo7-np-Gyh"/>
                             </constraints>
                         </view>
@@ -92,9 +105,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="RQ1-DO-L4e" secondAttribute="trailing" id="HYR-J3-vUu"/>
-                <constraint firstItem="RQ1-DO-L4e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="HtZ-zw-OIH"/>
                 <constraint firstItem="RQ1-DO-L4e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QdO-8H-0ZN"/>
+                <constraint firstAttribute="trailing" secondItem="91T-Ud-Wb5" secondAttribute="trailing" constant="8" id="kPu-3t-8J8"/>
                 <constraint firstAttribute="bottom" secondItem="RQ1-DO-L4e" secondAttribute="bottom" constant="30" id="lQy-zH-GoT"/>
+                <constraint firstItem="RQ1-DO-L4e" firstAttribute="top" secondItem="91T-Ud-Wb5" secondAttribute="bottom" constant="8" id="ppv-8p-F7B"/>
+                <constraint firstItem="91T-Ud-Wb5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="vmx-4B-GZB"/>
+                <constraint firstItem="91T-Ud-Wb5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ysR-wa-a5F"/>
             </constraints>
             <point key="canvasLocation" x="137" y="22"/>
         </view>
@@ -104,4 +120,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="HomeBigIcon" width="300" height="366"/>
+    </resources>
 </document>

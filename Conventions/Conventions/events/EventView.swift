@@ -34,7 +34,9 @@ class EventView: UIView {
         inflateNib(EventView.self)
         
         titleAndDetailsContainer.layer.cornerRadius = 4
+        titleAndDetailsContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         timeLayout.layer.cornerRadius = 4
+        timeLayout.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     
 
@@ -65,9 +67,10 @@ class EventView: UIView {
             standAndEndTimeSeperator.textColor = textColor
         } else {
             let designedAsVirtual = event.type.presentation.designedAsVirtual()
-            startTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
-            endTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
-            standAndEndTimeSeperator.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : Colors.eventTimeboxTextColor
+            let eventTimeTextColor = calculateEventTimeTextColor(event: event)
+            startTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : eventTimeTextColor
+            endTime.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : eventTimeTextColor
+            standAndEndTimeSeperator.textColor = designedAsVirtual ? Colors.eventTimeboxTextColorVirtual : eventTimeTextColor
         }
         
         titleAndDetailsContainer.backgroundColor = Colors.eventViewTitleAndDetailsContainerBackground
@@ -100,6 +103,17 @@ class EventView: UIView {
         } else {
             feedbackIcon.isHidden = true
             feedbackContainerWidthConstraint.constant = 0
+        }
+    }
+    
+    private func calculateEventTimeTextColor(event: ConventionEvent) -> UIColor {
+        let currentTime = Date.now()
+        if event.endTime.timeIntervalSince1970 < currentTime.timeIntervalSince1970 {
+            return Colors.eventNotRunningTimeTextColor
+        } else if event.startTime.timeIntervalSince1970 <= currentTime.timeIntervalSince1970 {
+            return Colors.eventRunningTimeTextColor
+        } else {
+            return Colors.eventNotRunningTimeTextColor
         }
     }
     

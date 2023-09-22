@@ -10,7 +10,11 @@ import Foundation
 
 class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol {
     
-    @IBOutlet weak var homeContentContainer: UIView!
+    @IBOutlet private weak var homeContentContainer: UIView!
+    @IBOutlet private weak var homeFooterImage: UIImageView!
+    @IBOutlet private weak var homeTopImage: UIImageView!
+    @IBOutlet private weak var homeContentContainerTopLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var homeContentContainerBottomLayoutConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +49,10 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         
         if (Date.now().timeIntervalSince1970 < Convention.date.timeIntervalSince1970) {
             let contentView = BeforeConventionHomeContentView(frame: homeContentContainer.bounds)
+            homeFooterImage.image = nil
+            homeTopImage.image = nil
+            homeContentContainerTopLayoutConstraint.isActive = true
+            homeContentContainerBottomLayoutConstraint.isActive = true
             contentView.setDates(start: Convention.date, end: Convention.endDate)
             contentView.delegate = self
             return contentView
@@ -52,6 +60,10 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
         if (!Convention.instance.events.getAll().contains(where: {!$0.hasStarted()}) && currentFavoriteEvent == nil) {
             let contentView = AfterConventionHomeContentView(frame: homeContentContainer.bounds)
             contentView.delegate = self
+            homeFooterImage.image = nil
+            homeTopImage.image = nil
+            homeContentContainerTopLayoutConstraint.isActive = true
+            homeContentContainerBottomLayoutConstraint.isActive = true
             return contentView
         }
         

@@ -32,34 +32,45 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="HomeFooter" translatesAutoresizingMaskIntoConstraints="NO" id="axt-QF-84t">
-                                <rect key="frame" x="37.5" y="468" width="300" height="150"/>
+                                <rect key="frame" x="12" y="468" width="300" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="axt-QF-84t" firstAttribute="centerX" secondItem="R6L-gR-sYf" secondAttribute="centerX" id="0jt-bK-PtZ"/>
-                            <constraint firstItem="axt-QF-84t" firstAttribute="height" relation="lessThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="height" multiplier="0.224919" id="Alc-vK-aiN"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="width" secondItem="R6L-gR-sYf" secondAttribute="width" id="BUp-Bb-K92"/>
                             <constraint firstItem="287-1g-uPQ" firstAttribute="top" secondItem="K5e-Dv-uh1" secondAttribute="bottom" constant="12" id="EQG-eH-lad"/>
+                            <constraint firstItem="287-1g-uPQ" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" id="J6Q-Jo-czR"/>
                             <constraint firstAttribute="trailing" secondItem="287-1g-uPQ" secondAttribute="trailing" constant="12" id="K7v-hx-C8H"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="centerX" secondItem="R6L-gR-sYf" secondAttribute="centerX" id="MfX-x1-5uY"/>
                             <constraint firstItem="axt-QF-84t" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" id="OiY-Fy-4o7"/>
-                            <constraint firstItem="K5e-Dv-uh1" firstAttribute="height" relation="lessThanOrEqual" secondItem="R6L-gR-sYf" secondAttribute="height" multiplier="0.4" id="PQd-Bt-PWm"/>
                             <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="axt-QF-84t" secondAttribute="bottom" id="Tgu-3X-Qee"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K5e-Dv-uh1" secondAttribute="trailing" id="WXc-iL-JCh"/>
+                            <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" constant="150" id="Xpj-1P-4J9"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="top" secondItem="ICa-px-lEN" secondAttribute="bottom" id="Y7y-ER-6cM"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="height" secondItem="R6L-gR-sYf" secondAttribute="height" id="b8r-Rd-QXJ"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="centerX" secondItem="R6L-gR-sYf" secondAttribute="centerX" id="ePY-K3-8ax"/>
                             <constraint firstItem="287-1g-uPQ" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leading" constant="12" id="frM-h2-iqG"/>
                             <constraint firstItem="K5e-Dv-uh1" firstAttribute="leading" secondItem="R6L-gR-sYf" secondAttribute="leadingMargin" id="hrq-Xx-Akw"/>
                             <constraint firstItem="Cmf-sb-utp" firstAttribute="centerY" secondItem="R6L-gR-sYf" secondAttribute="centerY" id="lEr-zY-yQq"/>
+                            <constraint firstItem="axt-QF-84t" firstAttribute="leading" secondItem="287-1g-uPQ" secondAttribute="leading" id="qBc-4Z-9kP"/>
+                            <constraint firstItem="Yyc-iT-ol0" firstAttribute="top" secondItem="287-1g-uPQ" secondAttribute="bottom" constant="8" id="waU-2k-cS0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J6Q-Jo-czR"/>
+                                <exclude reference="waU-2k-cS0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="בית" image="MenuHome" id="of9-vU-9eH"/>
                     <navigationItem key="navigationItem" title="בית" id="tX2-4D-qWu"/>
                     <connections>
                         <outlet property="homeContentContainer" destination="287-1g-uPQ" id="uPT-s3-uFP"/>
+                        <outlet property="homeContentContainerBottomLayoutConstraint" destination="waU-2k-cS0" id="7xo-kF-a6f"/>
+                        <outlet property="homeContentContainerTopLayoutConstraint" destination="J6Q-Jo-czR" id="XJs-qV-yCP"/>
+                        <outlet property="homeFooterImage" destination="axt-QF-84t" id="EBf-JC-olc"/>
+                        <outlet property="homeTopImage" destination="K5e-Dv-uh1" id="eZE-CC-2ar"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aek-6o-zfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,7 +245,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-dg-4zG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q76-A4-Mva">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -357,7 +368,7 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-Qh-IQE" userLabel="seperator">
                                                         <rect key="frame" x="0.0" y="44" width="335" height="1"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="4eM-kC-SrI"/>
                                                         </constraints>
@@ -376,7 +387,7 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6k-1y-Rfa" userLabel="Seperator">
                                                         <rect key="frame" x="0.0" y="101" width="335" height="1"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="W1c-tD-hQl"/>
                                                         </constraints>
@@ -522,7 +533,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </scrollView>
                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zc5-Tg-41f">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -2271,14 +2282,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r01-Z4-ri2"/>
+        <segue reference="w1u-TZ-YLe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="237.66667175292969" height="74.333335876464844"/>
         <image name="AppBackground" width="300" height="533.33331298828125"/>
         <image name="Floor1" width="900" height="1084.6666259765625"/>
         <image name="HomeBackground" width="300" height="533.33331298828125"/>
-        <image name="HomeFooter" width="300.33334350585938" height="150.33332824707031"/>
+        <image name="HomeFooter" width="300" height="150"/>
         <image name="HomeImage" width="237.66667175292969" height="74.333335876464844"/>
         <image name="MapBackground" width="300" height="533.33331298828125"/>
         <image name="MenuAbout" width="33.333332061767578" height="33.333332061767578"/>

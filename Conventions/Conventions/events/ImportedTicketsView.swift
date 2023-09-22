@@ -16,9 +16,12 @@ class ImportedTicketsView : UIView {
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var updatesButtonImage: UIImageView!
+    @IBOutlet weak var brightnessSwitch: UISwitch!
+    @IBOutlet weak var brightnessLabel: UILabel!
     
     var onLogoutClicked: (() -> Void)?
     var onRefreshClicked: (() -> Void)?
+    var onBrightnessClicked: ((Bool) -> Void)?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -31,6 +34,8 @@ class ImportedTicketsView : UIView {
         topLabel.textColor = Colors.black
         bottomLabel.textColor = Colors.black
         midLabel.textColor = Colors.black
+        brightnessLabel.textColor = Colors.black
+        brightnessSwitch.onTintColor = Colors.colorAccent
         
         logoutButton.tintColor = Colors.logoffButtonColor
     }
@@ -43,4 +48,7 @@ class ImportedTicketsView : UIView {
         onLogoutClicked?()
     }
     
+    @IBAction func brightnessWasClicked(_ sender: UISwitch) {
+        onBrightnessClicked?(sender.isOn)
+    }
 }

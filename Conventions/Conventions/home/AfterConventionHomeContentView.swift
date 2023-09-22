@@ -30,12 +30,14 @@ class AfterConventionHomeContentView : UIView {
     
     private func commonInit() {
         inflateNib(AfterConventionHomeContentView.self)
-        titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
-        contentContainer.backgroundColor = Colors.homeNextEventColor
-        titleLabel.textColor = Colors.homeTimeTextColor
+        titleContainer.backgroundColor = Colors.clear
+        contentContainer.backgroundColor = Colors.buttonColor
+        titleLabel.textColor = Colors.textColor
         sendFeedbackLabel.textColor = Colors.textColor
         
-        container.layer.borderWidth = 1
+        contentContainer.layer.cornerRadius = 4
+        
+        container.layer.borderWidth = 0
         container.layer.borderColor = Colors.black.cgColor
     }
     

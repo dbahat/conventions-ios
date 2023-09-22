@@ -39,6 +39,12 @@ class Updates {
             
             let parsedUpdates = self.parse(updates)
             let sortedUpdates = parsedUpdates.sorted(by: {$0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970})
+            sortedUpdates.forEach({
+                let update = $0
+                if self.getAll().contains(where: {$0.text == update.text}) {
+                    update.isNew = $0.isNew
+                }
+            })
             
             // Using main thread for syncronizing access to events
             DispatchQueue.main.async {

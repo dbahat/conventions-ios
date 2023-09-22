@@ -304,13 +304,14 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     }
     
     fileprivate func initializeSearchBar() {
-        searchBar.barTintColor = Colors.eventTimeHeaderColor
         searchBar.searchBarStyle = .minimal
         searchBar.barStyle = .black
-        searchBar.tintColor = Colors.colorAccent
+        searchBar.tintColor = Colors.white
         searchBar.delegate = self
         searchBar.semanticContentAttribute = .forceRightToLeft
         searchBar.endEditing(true)
+        searchBar.layer.backgroundColor = Colors.icon2023_transparent_brown1.cgColor
+
         
         var searchTextField: UITextField
         if #available(iOS 13.0, *) {
@@ -319,6 +320,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
              searchTextField = searchBar.value(forKey: "searchField") as! UITextField
         }
         searchTextField.textAlignment = .right
+        searchTextField.textColor = Colors.white
     }
     
     fileprivate func getSectionIndex(forDate: Date) -> Int? {

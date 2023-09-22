@@ -53,6 +53,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             feedbackView.backgroundColor = Colors.eventFeedbackBoxColor
             feedbackView.layer.borderWidth = 0
             feedbackView.layer.borderColor = Colors.textColor.cgColor
+            feedbackView.layer.cornerRadius = 4
             
             feedbackView.delegate = self
             feedbackView.setFeedback(questions: event.feedbackQuestions,
@@ -87,6 +88,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventTitleContainer.backgroundColor = Colors.icon2023_brown1
         eventSubTitleContainer.backgroundColor = Colors.icon2023_brown8
         eventTypeAndCategoryContainer.backgroundColor = Colors.icon2023_brown3
+        
+        eventTypeAndCategoryContainer.layer.cornerRadius = 4
+        eventTypeAndCategoryContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        eventSubTitleContainer.layer.cornerRadius = 4
+        eventSubTitleContainer.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
         hall.textColor = Colors.textColor
         time.textColor = Colors.textColor
@@ -134,6 +140,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventDescriptionContainer.backgroundColor = Colors.eventDetailsBoxColor
         eventDescriptionContainer.layer.borderWidth = 0
         eventDescriptionContainer.layer.borderColor = Colors.textColor.cgColor
+        eventDescriptionContainer.layer.cornerRadius = 4
         eventDescriptionTextView.delegate = self
         refreshFavoriteBarIconImage()
         
@@ -274,6 +281,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         } else {
             availableTickets.font = UIFont.systemFont(ofSize: 15)
             availableTickets.textColor = Colors.textColor
+        }
+        
+        if availableTicketsCount == 0 {
+            availableTickets.textColor = Colors.highlightedTextColor
+            availableTickets.font = UIFont.boldSystemFont(ofSize: 16)
         }
         
         availableTickets.text = String(

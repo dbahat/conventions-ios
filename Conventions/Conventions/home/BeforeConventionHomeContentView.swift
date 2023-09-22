@@ -33,16 +33,19 @@ class BeforeConventionHomeContentView : UIView {
     private func commonInit() {
         inflateNib(BeforeConventionHomeContentView.self)
         
-        eventsButtonContainer.backgroundColor = Colors.homeButtonsColor
-        updatesButtonContainer.backgroundColor = Colors.homeButtonsColor
-        mainContentContainer.backgroundColor = Colors.homeNextEventColor
-        timeBoxContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        eventsButtonContainer.backgroundColor = Colors.homeFirstButtonColor
+        updatesButtonContainer.backgroundColor = Colors.homeSecondButtonColor
+        mainContentContainer.backgroundColor = Colors.clear
+        timeBoxContainer.backgroundColor = Colors.clear
         remainingDaysLabel.textColor = Colors.textColor
-        conventionDatesLabel.textColor = Colors.homeTimeTextColor
-        eventsButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
-        updatesButtonContainer.setTitleColor(Colors.homeButtonsTextColor, for: .normal)
+        conventionDatesLabel.textColor = Colors.textColor
+        eventsButtonContainer.setTitleColor(Colors.homeFirstButtonTextColor, for: .normal)
+        updatesButtonContainer.setTitleColor(Colors.homeSecondButtonTextColor, for: .normal)
         
-        container.layer.borderWidth = 1
+        eventsButtonContainer.layer.cornerRadius = 4
+        updatesButtonContainer.layer.cornerRadius = 4
+        
+        container.layer.borderWidth = 0
         container.layer.borderColor = Colors.textColor.cgColor
     }
     

@@ -34,7 +34,7 @@ class Colors {
     
     static let icon2023_gray1 = UIColor(hexString: "#E1E6E8")
     static let icon2023_gray2 = UIColor(hexString: "#79899C")
-    static let icon2023_transparent_brown1 = UIColor(hexString: "#D8FFF6E5")
+    static let icon2023_transparent_brown1 = UIColor(hexString: "#FFF6E5", alpha: 0.1)
 
     static let black = UIColor.black
     static let white = UIColor.white
@@ -44,13 +44,15 @@ class Colors {
     static let tabBarSelectedTabColor = Colors.white
     static let tabBarUnselectedTabColor = Colors.icon2023_brown3
     static let textColor = Colors.white
+    static let hintTextColor = Colors.icon2023_brown3
     static let backgroundColor = Colors.clear
     static let linksColor = Colors.icon2023_brown2
+    static let highlightedTextColor = icon2023_brown2
     
     static let switchButtonsColor = Colors.colorAccent
     static let datePickerColor = Colors.icon2023_brown1
     static let datePickerTextColor = Colors.black
-    static let datePickerBackgroundColor = icon2023_transparent_brown1
+    static let datePickerBackgroundColor = icon2023_brown1
     static let eventTimeDefaultBackgroundColor = Colors.white
     static let eventTimeHeaderColor = Colors.icon2023_brown6
     static let eventTimeHeaderTextColor = Colors.white
@@ -59,12 +61,14 @@ class Colors {
     static let buttonPressedColor = Colors.icon2023_blue2
     static let buttonDisabledColor = Colors.icon2023_gray1
     
+    static let feedbackButtonColor = Colors.icon2023_brown1
     static let feedbackButtonPressedColor = Colors.icon2023_brown6
     
     static let feedbackButtonColorEvent = Colors.icon2023_brown6
     static let feedbackButtonColorConvetion = Colors.icon2023_brown2
     static let feedbackLinksColorEvent = Colors.icon2023_brown6
     static let feedbackLinksColorConvention = Colors.linksColor
+    static let expandFeedbackButtonColor = Colors.icon2023_brown6
     
     static let mapBackgroundColor = UIColor.clear
     
@@ -72,6 +76,8 @@ class Colors {
     static let eventEndedColor = Colors.icon2023_brown2
     static let eventRunningColor = Colors.icon2023_brown5
     static let eventNotStartedColor = Colors.icon2023_brown3
+    static let eventRunningTimeTextColor = Colors.white
+    static let eventNotRunningTimeTextColor = Colors.icon2023_brown7
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
     static let eventMarkedAsFavorite = Colors.icon2023_brown5
     static let eventNotMarkedAsFavorite = Colors.icon2023_brown5
@@ -98,8 +104,10 @@ class Colors {
     static let secondHandOpenFormColor = Colors.eventNotStartedColor
     
     // Home colors
-    static let homeButtonsColor = Colors.icon2023_blue4
-    static let homeButtonsTextColor = Colors.black
+    static let homeFirstButtonColor = Colors.icon2023_blue4
+    static let homeSecondButtonColor = Colors.icon2023_brown1
+    static let homeFirstButtonTextColor = Colors.icon2023_brown1
+    static let homeSecondButtonTextColor = Colors.icon2023_brown6
     static let homeCurrentEventColor = Colors.icon2023_brown1
     static let homeNextEventColor = Colors.icon2023_brown1
     static let homeTimeTextColor = Colors.icon2023_brown1
@@ -114,8 +122,10 @@ class Colors {
 
     
     // Updates colors
-    static let updateTimeBackground = Colors.black
-    static let updateTimeTextColor = Colors.textColor
+    static let updateTimeBackground = Colors.clear
+    static let updateTimeTextColor = Colors.icon2023_green3
+    static let updateTextColor = Colors.icon2023_brown7
+    static let updateBackgroundColor = Colors.icon2023_brown1
     
     // Map colors
     static let mapIndicatorColor = UIColor.clear

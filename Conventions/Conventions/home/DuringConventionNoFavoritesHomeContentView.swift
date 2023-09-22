@@ -38,7 +38,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
         titleContainer.layer.cornerRadius = 4
         titleLabel.textColor = Colors.homeTimeTextColor
-        goToEventsButton.backgroundColor = Colors.homeButtonsColor
+        goToEventsButton.backgroundColor = Colors.homeFirstButtonColor
         goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         goToEventsButton.layer.cornerRadius = 4
         eventsTable.backgroundColor = UIColor.clear
