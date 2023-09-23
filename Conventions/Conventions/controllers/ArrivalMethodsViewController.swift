@@ -22,7 +22,7 @@ class ArrivalMethodsViewController: BaseViewController {
         
         let camera = GMSCameraPosition.camera(withLatitude: latitude,
             longitude: longitude, zoom: 16)
-        mapView.isMyLocationEnabled = true
+        mapView.isMyLocationEnabled = false
         mapView.camera = camera
         
         let marker = GMSMarker()
