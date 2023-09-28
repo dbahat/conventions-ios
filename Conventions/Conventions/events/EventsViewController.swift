@@ -33,6 +33,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
 
         let eventHeaderView = UINib(nibName: String(describing: EventListHeaderView.self), bundle: nil)
         self.tableView.register(eventHeaderView, forHeaderFooterViewReuseIdentifier: String(describing: EventListHeaderView.self))
@@ -309,7 +311,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchBar.tintColor = Colors.white
         searchBar.delegate = self
         searchBar.semanticContentAttribute = .forceRightToLeft
-        searchBar.endEditing(true)
         searchBar.layer.backgroundColor = Colors.icon2023_transparent_brown1.cgColor
 
         

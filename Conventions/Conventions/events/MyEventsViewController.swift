@@ -133,7 +133,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         
         let alertController = UIAlertController(title: "אזהרה", message: "אתה עומד להסיר את האירוע מהאירועים שלי. האם אתה בטוח?", preferredStyle: UIAlertController.Style.alert)
         let cancelAction = UIAlertAction(title: "בטל", style: UIAlertAction.Style.cancel) { (result : UIAlertAction) -> Void in }
-        let okAction = UIAlertAction(title: "אשר", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+        let okAction = UIAlertAction(title: "אשר", style: UIAlertAction.Style.destructive) { (result : UIAlertAction) -> Void in
 
             event.attending = false;
             self.reloadMyEvents();
@@ -163,6 +163,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 event.attending = true
             }
             self.reloadMyEvents()
+            self.tableView.reloadData()
             
             UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
             UserDefaults.standard.set(importedEvents.email, forKey: "email")

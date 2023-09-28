@@ -109,6 +109,7 @@
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749C28E61CC200C1953F /* DiscountsViewController.swift */; };
 		A451749F28E6270F00C1953F /* DiscountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749E28E6270F00C1953F /* DiscountsCell.swift */; };
+		A454B5E72AC60F4F008A40C6 /* UIViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */; };
 		A47561162AB6177D00956EED /* icon2023Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A47561152AB6177D00956EED /* icon2023Events.json */; };
 		A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A493499322678C8100B4B805 /* AccessabilityContent.html */; };
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
@@ -229,6 +230,7 @@
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A451749C28E61CC200C1953F /* DiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
 		A451749E28E6270F00C1953F /* DiscountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsCell.swift; sourceTree = "<group>"; };
+		A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtentions.swift; sourceTree = "<group>"; };
 		A47561152AB6177D00956EED /* icon2023Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon2023Events.json; sourceTree = "<group>"; };
 		A493499322678C8100B4B805 /* AccessabilityContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AccessabilityContent.html; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				3B114C3F1D30224C003C6167 /* UITextView.swift */,
 				3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */,
 				A4048C5B28CCD85B0052E243 /* StringExtentions.swift */,
+				A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */,
 			);
 			name = extentions;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
 				3B4B4A781D341B2A00943EF5 /* MultipleAnswerCell.swift in Sources */,
+				A454B5E72AC60F4F008A40C6 /* UIViewControllerExtentions.swift in Sources */,
 				3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */,
 				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
 				3B3E67E81F53F34900A82DB1 /* SurveyForm.swift in Sources */,

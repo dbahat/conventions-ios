@@ -61,7 +61,8 @@ class DiscountsViewController : BaseViewController, UITableViewDataSource {
              image: UIImage(named: "discounts_gaming_land")),
         Item(text: "הממלכה",
              image: UIImage(named: "discounts_kingdom")),
-        Item(text: "נשיונל ג'אוגרפיק קידס"),
+        Item(text: "נשיונל ג'אוגרפיק קידס",
+            image: UIImage(named: "discounts_national_geographic_kids")),
     ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
