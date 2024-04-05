@@ -14,8 +14,6 @@ class AboutViewController : BaseViewController {
     @IBOutlet private weak var aboutAppContentLabel: UILabel!
     @IBOutlet private weak var aboutAppTitleLabel: UILabel!
     @IBOutlet private weak var abountContentTextView: UITextView!
-    
-    private let aboutAppContent = "האפליקציה פותחה על ידי דוד בהט וטל ספן עבור פסטיבל אייקון. בקשות והצעות ניתן לכתוב בדף האפליקציה בחנות. תודות: איתמר ריינר, אלי בויום, גליה בהט, מיה שראל."
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +27,8 @@ class AboutViewController : BaseViewController {
         }
         
         abountContentTextView.attributedText = aboutContent.htmlAttributedString()
-        
-        aboutAppContentLabel.text = aboutAppContent
-        aboutAppContentLabel.textColor = Colors.textColor
-        aboutAppTitleLabel.textColor = Colors.textColor
-        
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            aboutAppVersionLabel.text = "גרסה " + version
-            aboutAppVersionLabel.textColor = Colors.textColor
-        }
+        abountContentTextView.backgroundColor = Colors.olamot2024_pink50_transparent_80
+        abountContentTextView.layer.cornerRadius = 4
         
         navigationItem.title = "אודות הכנס"
     }

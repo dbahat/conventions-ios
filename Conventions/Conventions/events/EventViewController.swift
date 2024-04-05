@@ -85,9 +85,9 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventTitle.textColor = Colors.eventTitleTextColor
         eventSubTitle.textColor = Colors.eventSubTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
-        eventTitleContainer.backgroundColor = Colors.icon2023_brown1
-        eventSubTitleContainer.backgroundColor = Colors.icon2023_brown8
-        eventTypeAndCategoryContainer.backgroundColor = Colors.icon2023_brown3
+        eventTitleContainer.backgroundColor = Colors.olamot2024_pink50
+        eventSubTitleContainer.backgroundColor = Colors.olamot2024_pink100
+        eventTypeAndCategoryContainer.backgroundColor = Colors.olamot2024_pink300
         
         eventTypeAndCategoryContainer.layer.cornerRadius = 4
         eventTypeAndCategoryContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -122,7 +122,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         time.text = event.hall.name + ", " + event.startTime.format("EEE dd.MM") + ", " + event.startTime.format("HH:mm") + " - " + event.endTime.format("HH:mm")
         time.font = UIFont.boldSystemFont(ofSize: 15)
         
-        prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
+        if event.price > 0 {
+            prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
+        } else {
+            prices.text = "מחיר: חינם"
+        }
         tags.text = String(format: "%@",
                            "תגיות: " + event.tags.joined(separator: ", ")
                            )
@@ -130,7 +134,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         if let availableTicketsCount = event.availableTickets, availableTicketsCount >= 0, event.isTicketless == false {
             updateAvailableTicketsText(availableTicketsCount: availableTicketsCount)
         } else {
-            availableTickets.removeFromSuperview()
+            availableTickets.text = ""
             refreshAvailableTicketsButton.removeFromSuperview()
         }
         
@@ -276,16 +280,11 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     private func updateAvailableTicketsText(availableTicketsCount: Int) {
         
         if (availableTicketsCount == 0) {
-            availableTickets.font = UIFont.boldSystemFont(ofSize: 15)
-            availableTickets.textColor = Colors.textColor
+            availableTickets.textColor = Colors.olamot2024_red1
+            availableTickets.font = UIFont.boldSystemFont(ofSize: 16)
         } else {
             availableTickets.font = UIFont.systemFont(ofSize: 15)
             availableTickets.textColor = Colors.textColor
-        }
-        
-        if availableTicketsCount == 0 {
-            availableTickets.textColor = Colors.highlightedTextColor
-            availableTickets.font = UIFont.boldSystemFont(ofSize: 16)
         }
         
         availableTickets.text = String(

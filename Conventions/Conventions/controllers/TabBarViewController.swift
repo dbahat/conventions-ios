@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad();
         
         selectedIndex = 4;
+        self.tabBar.backgroundColor = Colors.tabBarBackgroundColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet), name: ConventionEvent.AttendingWasSetEventName, object: nil);
         

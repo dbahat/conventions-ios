@@ -9,94 +9,101 @@
 import Foundation
 
 class Colors {
-    
-    static let icon2023_red1 = UIColor(hexString: "#BA1200")
-    static let icon2023_red2 = UIColor(hexString: "#D41206")
-    static let icon2023_brown1 = UIColor(hexString: "#FFF6E5")
-    static let icon2023_brown2 = UIColor(hexString: "#FFDEA1")
-    static let icon2023_brown3 = UIColor(hexString: "#E4B177")
-    static let icon2023_brown4 = UIColor(hexString: "#D29957")
-    static let icon2023_brown5 = UIColor(hexString: "#B06C1E")
-    static let icon2023_brown6 = UIColor(hexString: "#69401F")
-    static let icon2023_brown7 = UIColor(hexString: "#251B0F")
-    static let icon2023_brown8 = UIColor(hexString: "#67462B")
-    static let icon2023_brown9 = UIColor(hexString: "#FCE9C4")
-    
-    static let icon2023_green1 = UIColor(hexString: "#45A355")
-    static let icon2023_green2 = UIColor(hexString: "#0F621D")
-    static let icon2023_green3 = UIColor(hexString: "#054810")
-    static let icon2023_green4 = UIColor(hexString: "#407048")
-    static let icon2023_green5 = UIColor(hexString: "#98D8A3")
-    static let icon2023_blue1 = UIColor(hexString: "#2C3C5E")
-    static let icon2023_blue2 = UIColor(hexString: "#3E536B")
-    static let icon2023_blue3 = UIColor(hexString: "#103074")
-    static let icon2023_blue4 = UIColor(hexString: "#4774D4")
-    
-    static let icon2023_gray1 = UIColor(hexString: "#E1E6E8")
-    static let icon2023_gray2 = UIColor(hexString: "#79899C")
-    static let icon2023_transparent_brown1 = UIColor(hexString: "#FFF6E5", alpha: 0.1)
+        
+    static let olamot2024_blue50 = UIColor(hexString: "#F0FDFF")
+    static let olamot2024_blue50_transparent_80 = UIColor(hexString: "#F0FDFF",alpha: 0.8)
+    static let olamot2024_blue50_transparent_90 = UIColor(hexString: "#F0FDFF",alpha: 0.9)
+    static let olamot2024_blue100 = UIColor(hexString: "#D6FAFF")
+    static let olamot2024_blue200 = UIColor(hexString: "#B6EBF3")
+    static let olamot2024_blue300 = UIColor(hexString: "#94DCE7")
+    static let olamot2024_blue500 = UIColor(hexString: "#5AAEBB")
+    static let olamot2024_blue600 = UIColor(hexString: "#348895")
+    static let olamot2024_blue700 = UIColor(hexString: "#1A727F")
+    static let olamot2024_blue700_transparent_50 = UIColor(hexString: "#1A727F", alpha: 0.5)
+    static let olamot2024_blue900 = UIColor(hexString: "#08353C")
 
+    static let olamot2024_pink50 = UIColor(hexString: "#FFF5F6")
+    static let olamot2024_pink50_transparent_80 = UIColor(hexString: "#FFF5F6", alpha: 0.8)
+    static let olamot2024_pink100 = UIColor(hexString: "#FFE5E7")
+    static let olamot2024_pink200 = UIColor(hexString: "#FAD0D3")
+    static let olamot2024_pink300 = UIColor(hexString: "#E7B2B6")
+    static let olamot2024_pink400 = UIColor(hexString: "#E6A3AB")
+    static let olamot2024_pink600 = UIColor(hexString: "#B45069")
+    static let olamot2024_pink700 = UIColor(hexString: "#871A40")
+    static let olamot2024_pink900 = UIColor(hexString: "#4A061E")
+
+    static let olamot2024_gray1 = UIColor(hexString: "#E1E6E8")
+    static let olamot2024_gray3 = UIColor(hexString: "#A3B5BC")
+    static let olamot2024_gold = UIColor(hexString: "#E8B247")
+    static let olamot2024_red1 = UIColor(hexString: "#D41206")
+    static let olamot2024_green1 = UIColor(hexString: "#99C95E")
+    static let olamot2024_black = UIColor(hexString: "#303030")
+    
     static let black = UIColor.black
     static let white = UIColor.white
     static let clear = UIColor.clear
     
-    static let colorAccent = Colors.icon2023_brown3
-    static let tabBarSelectedTabColor = Colors.white
-    static let tabBarUnselectedTabColor = Colors.icon2023_brown3
-    static let textColor = Colors.white
-    static let hintTextColor = Colors.icon2023_brown3
+    static let colorAccent = Colors.olamot2024_blue900
+    static let tabBarSelectedTabColor = Colors.black
+    static let tabBarUnselectedTabColor = Colors.olamot2024_pink700
+    static let tabBarBackgroundColor = Colors.olamot2024_pink50_transparent_80
+    static let textColor = Colors.olamot2024_blue900
+    static let hintTextColor = Colors.olamot2024_blue700
     static let backgroundColor = Colors.clear
-    static let linksColor = Colors.icon2023_brown2
-    static let highlightedTextColor = icon2023_brown2
+    static let linksColor = Colors.olamot2024_blue700
+    static let highlightedTextColor = Colors.olamot2024_blue100
+    
+    static let navigationBarBackgroundColor = Colors.olamot2024_pink600
+    static let navigationBarTextColor = Colors.olamot2024_pink50
     
     static let switchButtonsColor = Colors.colorAccent
-    static let datePickerColor = Colors.icon2023_brown1
-    static let datePickerTextColor = Colors.black
-    static let datePickerBackgroundColor = icon2023_brown1
-    static let eventTimeDefaultBackgroundColor = Colors.white
-    static let eventTimeHeaderColor = Colors.icon2023_brown6
-    static let eventTimeHeaderTextColor = Colors.white
-    static let buttonColor = Colors.icon2023_blue4
-    static let logoffButtonColor = Colors.icon2023_red1
-    static let buttonPressedColor = Colors.icon2023_blue2
-    static let buttonDisabledColor = Colors.icon2023_gray1
+    static let datePickerColor = Colors.olamot2024_pink200
+    static let datePickerTextColor = Colors.olamot2024_pink700
+    static let datePickerBackgroundColor = Colors.olamot2024_pink50
+    static let eventTimeDefaultBackgroundColor = Colors.olamot2024_pink200
+    static let eventTimeHeaderColor = Colors.olamot2024_blue700_transparent_50
+    static let eventTimeHeaderTextColor = Colors.olamot2024_blue900
+    static let buttonColor = Colors.olamot2024_blue700
+    static let logoffButtonColor = Colors.olamot2024_red1
+    static let buttonPressedColor = Colors.olamot2024_blue300
+    static let buttonDisabledColor = Colors.olamot2024_gray3
     
-    static let feedbackButtonColor = Colors.icon2023_brown1
-    static let feedbackButtonPressedColor = Colors.icon2023_brown6
+    static let feedbackButtonColor = Colors.buttonColor
+    static let feedbackButtonPressedColor = Colors.buttonPressedColor
     
-    static let feedbackButtonColorEvent = Colors.icon2023_brown6
-    static let feedbackButtonColorConvetion = Colors.icon2023_brown2
-    static let feedbackLinksColorEvent = Colors.icon2023_brown6
+    static let feedbackButtonColorEvent = Colors.buttonColor
+    static let feedbackButtonColorConvetion = Colors.olamot2024_gold
+    static let feedbackLinksColorEvent = Colors.linksColor
     static let feedbackLinksColorConvention = Colors.linksColor
-    static let expandFeedbackButtonColor = Colors.icon2023_brown6
+    static let expandFeedbackButtonColor = Colors.olamot2024_blue700
     
     static let mapBackgroundColor = UIColor.clear
     
     // Events colors
-    static let eventEndedColor = Colors.icon2023_brown2
-    static let eventRunningColor = Colors.icon2023_brown5
-    static let eventNotStartedColor = Colors.icon2023_brown3
+    static let eventEndedColor = Colors.olamot2024_pink200
+    static let eventRunningColor = Colors.olamot2024_pink600
+    static let eventNotStartedColor = Colors.olamot2024_pink300
     static let eventRunningTimeTextColor = Colors.white
-    static let eventNotRunningTimeTextColor = Colors.icon2023_brown7
-    static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.eventMarkedAsFavorite
-    static let eventMarkedAsFavorite = Colors.icon2023_brown5
-    static let eventNotMarkedAsFavorite = Colors.icon2023_brown5
+    static let eventNotRunningTimeTextColor = Colors.olamot2024_pink900
+    static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.olamot2024_pink700
+    static let eventMarkedAsFavorite = Colors.olamot2024_gold
+    static let eventNotMarkedAsFavorite = Colors.olamot2024_gold
     static let eventSeperatorColor = Colors.clear
     static let eventOpenEventConatinerColor = UIColor.clear
-    static let eventTimeboxTextColor = Colors.icon2023_brown7
+    static let eventTimeboxTextColor = Colors.eventContentTextColor
     static let eventTimeboxTextColorVirtual = Colors.eventTimeboxTextColor
-    static let eventViewTitleAndDetailsContainerBackground = Colors.icon2023_brown1
-    static let eventContentTextColor = Colors.icon2023_brown7
+    static let eventViewTitleAndDetailsContainerBackground = Colors.olamot2024_pink50
+    static let eventContentTextColor = Colors.olamot2024_pink900
     
     // Event colors
     static let eventTitleBoxColor = Colors.clear
-    static let eventDetailsBoxColor = Colors.icon2023_brown1
+    static let eventDetailsBoxColor = Colors.olamot2024_pink50
     static let eventTitleBackground = Colors.clear
     static let eventTitleBoarderColor = Colors.clear
-    static let eventTitleTextColor = Colors.black
-    static let eventSubTitleTextColor = Colors.icon2023_brown1
-    static let eventFeedbackBoxColor = Colors.icon2023_brown2
-    static let eventFeedbackTextColor = Colors.icon2023_brown6
+    static let eventTitleTextColor = Colors.olamot2024_pink900
+    static let eventSubTitleTextColor = Colors.olamot2024_pink900
+    static let eventFeedbackBoxColor = Colors.olamot2024_blue50_transparent_80
+    static let eventFeedbackTextColor = Colors.olamot2024_blue700
     static let eventDescriptionTextColor = Colors.black
     
     // SecondHand colorss
@@ -104,28 +111,30 @@ class Colors {
     static let secondHandOpenFormColor = Colors.eventNotStartedColor
     
     // Home colors
-    static let homeFirstButtonColor = Colors.icon2023_blue4
-    static let homeSecondButtonColor = Colors.icon2023_brown1
-    static let homeFirstButtonTextColor = Colors.icon2023_brown1
-    static let homeSecondButtonTextColor = Colors.icon2023_brown6
-    static let homeCurrentEventColor = Colors.icon2023_brown1
-    static let homeNextEventColor = Colors.icon2023_brown1
-    static let homeTimeTextColor = Colors.icon2023_brown1
-    static let homeTimeBoxContainerColor = Colors.icon2023_brown8
-    static let homeDuringConvetionNoFavoriteCardTextColor = Colors.black
-    static let homeDuringConvetionNoFavoriteCardBackgroundColor = Colors.icon2023_brown1
-    static let homeCurrentEventHeadersBackgroundColor = Colors.icon2023_brown8
-    static let homeUpcomingEventHeadersBackgroundColor = Colors.icon2023_brown2
-    static let homeCurrentEventHeadersTextColor = Colors.icon2023_brown1
-    static let homeUpcomingEventHeadersTextColor = Colors.black
-    static let homeGoToMyEventsButtonTitleColor = Colors.icon2023_brown1
+    static let homeFirstButtonColor = Colors.olamot2024_pink900
+    static let homeSecondButtonColor = Colors.olamot2024_pink900
+    static let homeFirstButtonTextColor = Colors.olamot2024_blue100
+    static let homeSecondButtonTextColor = Colors.olamot2024_blue900
+    static let homeCurrentEventColor = Colors.olamot2024_pink50_transparent_80
+    static let homeNextEventColor = Colors.olamot2024_pink50_transparent_80
+    static let homeTimeTextColor = Colors.olamot2024_pink50
+    static let homeTimeBoxContainerColor = Colors.olamot2024_pink600
+    static let homeDuringConvetionNoFavoriteCardTextColor = Colors.olamot2024_pink900
+    static let homeDuringConvetionNoFavoriteCardBackgroundColor = Colors.olamot2024_pink50_transparent_80
+    static let homeCurrentEventHeadersBackgroundColor = Colors.olamot2024_pink600
+    static let homeUpcomingEventHeadersBackgroundColor = Colors.olamot2024_pink400
+    static let homeCurrentEventHeadersTextColor = Colors.olamot2024_pink50
+    static let homeUpcomingEventHeadersTextColor = Colors.olamot2024_pink900
+    static let homeGoToMyEventsButtonColor = Colors.olamot2024_blue600
+    static let homeGoToMyEventsButtonTitleColor = Colors.olamot2024_blue100
+    static let homeTextColor = Colors.olamot2024_blue700
 
     
     // Updates colors
     static let updateTimeBackground = Colors.clear
-    static let updateTimeTextColor = Colors.icon2023_green3
-    static let updateTextColor = Colors.icon2023_brown7
-    static let updateBackgroundColor = Colors.icon2023_brown1
+    static let updateTimeTextColor = Colors.olamot2024_blue900
+    static let updateTextColor = Colors.olamot2024_pink900
+    static let updateBackgroundColor = Colors.olamot2024_pink50_transparent_80
     
     // Map colors
     static let mapIndicatorColor = UIColor.clear

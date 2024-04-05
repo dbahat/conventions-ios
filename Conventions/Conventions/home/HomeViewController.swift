@@ -27,11 +27,12 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // This specific page should have no title
-        tabBarController?.navigationItem.title = ""
-        
         homeContentContainer.subviews.forEach({ $0.removeFromSuperview() })
         homeContentContainer.addSubview(createHomeContentView())
+    }
+    
+    override func shouldShowTabBar() -> Bool {
+        return false
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -32,6 +32,7 @@ class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var developerOptionsContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var alertsLabel: UILabel!
     @IBOutlet private weak var remindersLabel: UILabel!
+    @IBOutlet private weak var contentContainerView: UIView!
     
     private var debugOptionsSwitchTapCount = 0
     
@@ -59,6 +60,9 @@ class NotificationSettingsViewController: BaseViewController {
         testMessageLabel.textColor = Colors.textColor
         alertsLabel.textColor = Colors.textColor
         remindersLabel.textColor = Colors.textColor
+        
+        contentContainerView.backgroundColor = Colors.olamot2024_pink50_transparent_80
+        contentContainerView.layer.cornerRadius = 4
     }
     
     @IBAction private func generalNotificationsTapped(_ sender: UISwitch) {

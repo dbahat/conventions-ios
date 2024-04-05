@@ -178,7 +178,8 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     // Needed so the events can be invisible when scrolled behind the sticky header.
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         for cell in tableView.visibleCells {
-            let hiddenFrameHeight = scrollView.contentOffset.y + navigationController!.navigationBar.frame.size.height - cell.frame.origin.y
+            let maskMargin = 16.0 // Have a mask slightly bigger then the header as a margin
+            let hiddenFrameHeight = scrollView.contentOffset.y + navigationController!.navigationBar.frame.size.height - cell.frame.origin.y + maskMargin
             if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
                 if let customCell = cell as? EventTableViewCell {
                     customCell.maskCell(fromTop: hiddenFrameHeight)
@@ -221,6 +222,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 
                 return event.title.contains(searchText)
                     || event.hall.name.contains(searchText)
+                    || event.tags.contains(searchText)
             })
         }
         
@@ -311,7 +313,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         searchBar.tintColor = Colors.white
         searchBar.delegate = self
         searchBar.semanticContentAttribute = .forceRightToLeft
-        searchBar.layer.backgroundColor = Colors.icon2023_transparent_brown1.cgColor
+        searchBar.layer.backgroundColor = Colors.clear.cgColor
 
         
         var searchTextField: UITextField

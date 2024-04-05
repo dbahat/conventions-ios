@@ -46,6 +46,8 @@ class MoreInfoViewController : UITableViewController {
         tabBarController?.navigationItem.rightBarButtonItem = nil
         tabBarController?.navigationItem.leftBarButtonItem = nil
         
+        navigationController?.navigationBar.backgroundColor = Colors.clear
+        
         let imageView = UIImageView(image: UIImage(named: "AppBackground"))
         imageView.contentMode = .scaleToFill
         tableView?.backgroundView = imageView

@@ -17,6 +17,7 @@ class AfterConventionHomeContentView : UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var container: RoundedView!
     @IBOutlet private weak var sendFeedbackLabel: UILabel!
+    @IBOutlet private weak var thanksForComingLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +34,8 @@ class AfterConventionHomeContentView : UIView {
         titleContainer.backgroundColor = Colors.clear
         contentContainer.backgroundColor = Colors.buttonColor
         titleLabel.textColor = Colors.textColor
-        sendFeedbackLabel.textColor = Colors.textColor
+        thanksForComingLabel.textColor = Colors.textColor
+        sendFeedbackLabel.textColor = Colors.homeFirstButtonTextColor
         
         contentContainer.layer.cornerRadius = 4
         

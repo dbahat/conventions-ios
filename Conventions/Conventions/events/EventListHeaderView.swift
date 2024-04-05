@@ -10,7 +10,6 @@ import UIKit
 
 class EventListHeaderView: UITableViewHeaderFooterView {
 
-    @IBOutlet weak var containerView: CardView!
     @IBOutlet weak var time: UILabel!
     
     override func awakeFromNib() {
@@ -19,7 +18,5 @@ class EventListHeaderView: UITableViewHeaderFooterView {
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = Colors.eventTimeHeaderColor
         time.textColor = Colors.eventTimeHeaderTextColor
-        
-        self.backgroundView?.layer.cornerRadius = 4
     }
 }

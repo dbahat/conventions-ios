@@ -14,9 +14,16 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Set the tab bar (which is also in the navigation controller) to have the title / button of the 
-        // current tab.
-        tabBarController?.navigationItem.title = navigationItem.title
+        if shouldShowTabBar() {
+            // Set the tab bar (which is also in the navigation controller) to have the title / button of the
+            // current tab.
+            tabBarController?.navigationItem.title = navigationItem.title
+            navigationController?.navigationBar.backgroundColor = Colors.navigationBarBackgroundColor
+        } else {
+            tabBarController?.navigationItem.title = ""
+            navigationController?.navigationBar.backgroundColor = Colors.clear
+        }
+        
         tabBarController?.navigationItem.rightBarButtonItem = navigationItem.rightBarButtonItem
         tabBarController?.navigationItem.leftBarButtonItem = navigationItem.leftBarButtonItem
         
@@ -24,10 +31,14 @@ class BaseViewController: UIViewController {
         // root view controller doesn't have a name, but we want it named for the default back button).
         navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first == self, animated: false)
         
-        navigationController?.navigationBar.barTintColor = Colors.textColor
-        navigationController?.navigationBar.tintColor = Colors.textColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : Colors.textColor]
+        navigationController?.navigationBar.barTintColor = Colors.navigationBarTextColor
+        navigationController?.navigationBar.tintColor = Colors.navigationBarTextColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : Colors.navigationBarTextColor]
 
         self.view.backgroundColor = Colors.backgroundColor
+    }
+    
+    func shouldShowTabBar() -> Bool {
+        return true
     }
 }

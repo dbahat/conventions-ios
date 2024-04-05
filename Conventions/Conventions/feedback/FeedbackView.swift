@@ -319,7 +319,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             return "הפידבק נשלח. תודה!"
         }
         
-        return Convention.instance.isFeedbackSendingTimeOver() ? "זמן שליחת הפידבק הסתיים" : "האירוע נגמר"
+        return Convention.instance.isFeedbackSendingTimeOver() ? "זמן שליחת הפידבק הסתיים" : "הגיע הזמן להשאיר פידבק!"
     }
     
     enum State {

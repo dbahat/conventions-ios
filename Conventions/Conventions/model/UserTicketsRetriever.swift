@@ -119,18 +119,8 @@ class UserTicketsRetriever {
             let intTickets = tickets.filter({Int($0) != nil}).map({Int($0)!})
 
             self.sendRequest(url: UserTicketsRetriever.userIdApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
-                if error != nil {
-                    callback(Tickets(), error)
-                    return
-                }
-                
-                guard
-                    let unwrappedData = data,
-                    let userId = String(data: unwrappedData, encoding: .utf8)
-                else {
-                    callback(Tickets(), error)
-                    return
-                }
+                // ignoring userId fetch failures. Since there are valid cases where it can be missing (user defined but missing initial login)
+                let userId = data != nil ? String(data: data!, encoding: .utf8)! : ""
                 
                 let qrApi = UserTicketsRetriever.qrApi.appendingPathComponent(email)
                 self.sendRequest(url: qrApi, method: "GET", body: nil, completionHandler: { (data, error) in
