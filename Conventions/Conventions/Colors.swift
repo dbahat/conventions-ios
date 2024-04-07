@@ -44,8 +44,8 @@ class Colors {
     static let clear = UIColor.clear
     
     static let colorAccent = Colors.olamot2024_blue900
-    static let tabBarSelectedTabColor = Colors.black
-    static let tabBarUnselectedTabColor = Colors.olamot2024_pink700
+    static let tabBarSelectedTabColor = Colors.olamot2024_pink700
+    static let tabBarUnselectedTabColor = Colors.black
     static let tabBarBackgroundColor = Colors.olamot2024_pink50_transparent_80
     static let textColor = Colors.olamot2024_blue900
     static let hintTextColor = Colors.olamot2024_blue700
