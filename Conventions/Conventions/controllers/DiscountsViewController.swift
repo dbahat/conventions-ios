@@ -24,7 +24,7 @@ class DiscountsViewController : DiscountsAndActivitiesViewController {
                  linkText: "לביקור באתר T Lab",
                  linkUrl: "https://wissotzky-tlab.co.il"),
             
-            Item(text: "בוזה\nהטבה בהצגת כרטיס או תג",
+            Item(text: "בוזה\nכדור אחד ב-16 שח\n2 כדורים ב-22 שח\nלכל באות ובאי הכנס\n",
                  image: UIImage(named: "olamot2024_discounts_buzza"),
                  linkText: "לביקור באתר בוזה",
                  linkUrl: "https://www.buzaisrael.co.il"),
