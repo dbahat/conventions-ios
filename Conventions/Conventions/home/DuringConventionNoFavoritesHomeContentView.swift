@@ -102,7 +102,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.navigateToEventClicked(event: events[indexPath.row])
+        delegate?.navigateToEventClicked(event: events[indexPath.section])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
