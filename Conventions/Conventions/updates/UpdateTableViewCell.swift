@@ -14,16 +14,16 @@ class UpdateTableViewCell: UITableViewCell {
     
     func setUpdate(_ update: Update) {
         title.text = update.date.format("HH:mm dd.MM.yyyy")
-        title.textColor = Colors.updateTextColor
+        title.textColor = Colors.updateTimeTextColor
         title.backgroundColor = Colors.updateTimeBackground
         
         message.text = update.text
-        message.textColor = Colors.updateTimeTextColor
+        message.textColor = Colors.updateTextColor
         
         container.backgroundColor = Colors.updateBackgroundColor
         container.layer.cornerRadius = 4
         
-        isNewLabel.backgroundColor = Colors.olamot2024_pink600
+        isNewLabel.backgroundColor = Colors.icon2024_clay600
         isNewLabel.layer.cornerRadius = 8
         
         isNewLabel.isHidden = !update.isNew

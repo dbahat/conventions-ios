@@ -82,12 +82,12 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             feedbackViewHeightConstraint.constant = 0
         }
                 
-        eventTitle.textColor = Colors.eventTitleTextColor
+        eventTitle.textColor = Colors.textColor
         eventSubTitle.textColor = Colors.eventSubTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
-        eventTitleContainer.backgroundColor = Colors.olamot2024_pink50
-        eventSubTitleContainer.backgroundColor = Colors.olamot2024_pink100
-        eventTypeAndCategoryContainer.backgroundColor = Colors.olamot2024_pink300
+        eventTitleContainer.backgroundColor = Colors.icon2024_clay50
+        eventSubTitleContainer.backgroundColor = Colors.icon2024_clay100
+        eventTypeAndCategoryContainer.backgroundColor = Colors.icon2024_clay400
         
         eventTypeAndCategoryContainer.layer.cornerRadius = 4
         eventTypeAndCategoryContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -280,7 +280,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     private func updateAvailableTicketsText(availableTicketsCount: Int) {
         
         if (availableTicketsCount == 0) {
-            availableTickets.textColor = Colors.olamot2024_red1
+            availableTickets.textColor = Colors.icon2024_red
             availableTickets.font = UIFont.boldSystemFont(ofSize: 16)
         } else {
             availableTickets.font = UIFont.systemFont(ofSize: 15)

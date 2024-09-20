@@ -108,16 +108,16 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         
         goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         
-        currentEventTitle.textColor = Colors.homeFirstButtonColor
-        currentEventHall.textColor = Colors.homeFirstButtonColor
+        currentEventTitle.textColor = Colors.homeCurrentEventTextColor
+        currentEventHall.textColor = Colors.homeCurrentEventTextColor
         currentEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         currentEventImage.tintColor = Colors.black
         upcomingEventImage.image = UIImage(named: "HomeOnlineEvent")?.withRenderingMode(.alwaysTemplate)
         upcomingEventImage.tintColor = Colors.black
         
-        upcomingEventTime.textColor = Colors.homeFirstButtonColor
-        upcomingEventHall.textColor = Colors.homeFirstButtonColor
-        upcomingEventTitle.textColor = Colors.homeFirstButtonColor
+        upcomingEventTime.textColor = Colors.homeUpcomingEventTextColor
+        upcomingEventHall.textColor = Colors.homeUpcomingEventTextColor
+        upcomingEventTitle.textColor = Colors.homeUpcomingEventTextColor
         
         currentEventHeaderTitle.textColor = Colors.homeCurrentEventHeadersTextColor
         upcomingEventHeaderTitle.textColor = Colors.homeUpcomingEventHeadersTextColor

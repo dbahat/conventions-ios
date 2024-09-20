@@ -39,7 +39,7 @@ class ArrivalMethodsViewController: BaseViewController {
         }
         
         directionsTextView.layer.cornerRadius = 4
-        directionsTextView.backgroundColor = Colors.olamot2024_pink50_transparent_80
+        directionsTextView.backgroundColor = Colors.icon2024_cream50_transparent_90
         directionsTextView.attributedText = directions.htmlAttributedString()
     }
 
