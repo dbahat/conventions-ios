@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAnalytics
+import FirebaseMessaging
 
 class NotificationSettingsViewController: BaseViewController {
     @IBOutlet private weak var generalCategoryButton: UISwitch!

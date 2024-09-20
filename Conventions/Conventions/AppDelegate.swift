@@ -8,8 +8,9 @@
 
 import UIKit
 import GoogleMaps
-import Firebase
+import FirebaseCore
 import UserNotifications
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAnalytics
 
 class EventsViewController: BaseViewController, EventCellStateProtocol, UITableViewDataSource, UITableViewDelegate, SearchCategoriesProtocol, UIScrollViewDelegate, UISearchBarDelegate {
     @IBOutlet fileprivate weak var tableView: UITableView!

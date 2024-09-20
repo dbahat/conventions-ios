@@ -1,12 +1,12 @@
 use_modular_headers!
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '12.0'
+platform :ios, '15.0'
 target "Conventions" do
     pod 'AppAuth'
-    pod 'GoogleMaps'
-    pod 'Firebase/Core'
-    pod 'Firebase/Messaging'
+    pod 'GoogleMaps', '~> 9.1.1'
+    pod 'FirebaseCore', '~> 11.2.0'
     pod 'UICollectionViewRightAlignedLayout'
-    pod 'Firebase/Crashlytics'
-    pod 'Firebase/Analytics'
+    pod 'FirebaseCrashlytics', '~> 11.2.0'
+    pod 'FirebaseAnalytics', '~> 11.2.0'
+    pod 'FirebaseMessaging', '~> 11.2.0'
 end

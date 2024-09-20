@@ -6,7 +6,7 @@
 //  Copyright © 2016 Amai. All rights reserved.
 //
 
-import Firebase
+import FirebaseAnalytics
 
 class UpdatesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     

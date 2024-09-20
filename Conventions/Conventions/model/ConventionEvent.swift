@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-import Firebase
+import FirebaseMessaging
+import FirebaseAnalytics
 
 class ConventionEvent {
     

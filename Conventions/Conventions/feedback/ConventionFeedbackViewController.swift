@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAnalytics
 
 class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol {
     
