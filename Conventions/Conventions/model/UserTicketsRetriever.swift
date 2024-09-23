@@ -16,7 +16,7 @@ class UserTicketsRetriever {
     
     private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/cod3/events_per_user_sso?slug=" + Convention.name)!
     private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/cod3/get_user_id_sso?slug=" + Convention.name)!
-    private static let qrApi = URL(string: "https://api.sf-f.org.il/cons/qr/login")!
+    private static let qrApi = "https://api.sf-f.org.il/cons/qr/byToken"
     
     func retrieve(caller: UIViewController, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
         
@@ -32,9 +32,10 @@ class UserTicketsRetriever {
                     if
                             let unwrappedToken = idToken,
                             let parsedIdToken = OIDIDToken.init(idTokenString: unwrappedToken),
-                            let email = parsedIdToken.claims["email"] as? String
+                            let email = parsedIdToken.claims["email"] as? String,
+                            let token = accessToken
                     {
-                        self.fetchTicketsAndQr(token: accessToken, email: email, callback: callback)
+                        self.fetchTicketsAndQr(token: token, email: email, callback: callback)
                         return
                     }
                 })
@@ -50,13 +51,14 @@ class UserTicketsRetriever {
                     let tokenResponse = authState.lastTokenResponse,
                     let idToken = tokenResponse.idToken,
                     let parsedIdToken = OIDIDToken.init(idTokenString: idToken),
-                    let email = parsedIdToken.claims["email"] as? String
+                    let email = parsedIdToken.claims["email"] as? String,
+                    let token = tokenResponse.accessToken
                 else {
                     callback(Tickets(), error)
                     return
                 }
                 
-                self.fetchTicketsAndQr(token: tokenResponse.accessToken, email: email, callback: callback)
+                self.fetchTicketsAndQr(token: token, email: email, callback: callback)
             })
         }
     }
@@ -101,7 +103,7 @@ class UserTicketsRetriever {
         }
     }
     
-    private func fetchTicketsAndQr(token: String?, email: String, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
+    private func fetchTicketsAndQr(token: String, email: String, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
         self.sendRequest(url: UserTicketsRetriever.userTicketsApi, method: "GET", token: token, body: nil, completionHandler: { (data, error) in
             if error != nil {
                 callback(Tickets(), error)
@@ -122,7 +124,7 @@ class UserTicketsRetriever {
                 // ignoring userId fetch failures. Since there are valid cases where it can be missing (user defined but missing initial login)
                 let userId = data != nil ? String(data: data!, encoding: .utf8)! : ""
                 
-                let qrApi = UserTicketsRetriever.qrApi.appendingPathComponent(email)
+                let qrApi = URL(string: UserTicketsRetriever.qrApi + "?token=\(token)&email=\(email)")!
                 self.sendRequest(url: qrApi, method: "GET", body: nil, completionHandler: { (data, error) in
                     if error != nil {
                         callback(Tickets(), error)
@@ -152,7 +154,6 @@ class UserTicketsRetriever {
         request.httpMethod = method
         request.httpBody = body
         if let oauthToken = token {
-            //request.setValue("Bearer \(oauthToken)", forHTTPHeaderField: "Authorization")
             let sessionConfig =  URLSessionConfiguration.default
             sessionConfig.httpAdditionalHeaders = ["Authorization": "Bearer \(oauthToken)"]
             session = URLSession(configuration: sessionConfig)
