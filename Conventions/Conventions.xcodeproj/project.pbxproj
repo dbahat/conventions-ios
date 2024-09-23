@@ -104,8 +104,8 @@
 		3BFE31081F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE31071F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift */; };
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
+		86D13FBB2CA1EC2E00E4BF95 /* icon2024Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D13FBA2CA1EC2E00E4BF95 /* icon2024Events.json */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
-		A41B3D822BC0011E008C07D2 /* olamot2024Events.json in Resources */ = {isa = PBXBuildFile; fileRef = A41B3D812BC0011E008C07D2 /* olamot2024Events.json */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749C28E61CC200C1953F /* DiscountsViewController.swift */; };
@@ -224,8 +224,8 @@
 		3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtentions.swift; path = extentions/UIViewExtentions.swift; sourceTree = "<group>"; };
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
+		86D13FBA2CA1EC2E00E4BF95 /* icon2024Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2024Events.json; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
-		A41B3D812BC0011E008C07D2 /* olamot2024Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = olamot2024Events.json; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A451749C28E61CC200C1953F /* DiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				A41B3D812BC0011E008C07D2 /* olamot2024Events.json */,
+				86D13FBA2CA1EC2E00E4BF95 /* icon2024Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -630,7 +630,7 @@
 			files = (
 				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
-				A41B3D822BC0011E008C07D2 /* olamot2024Events.json in Resources */,
+				86D13FBB2CA1EC2E00E4BF95 /* icon2024Events.json in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
