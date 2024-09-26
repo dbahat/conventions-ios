@@ -310,7 +310,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
     fileprivate func initializeSearchBar() {
         searchBar.searchBarStyle = .minimal
         searchBar.barStyle = .black
-        searchBar.tintColor = Colors.white
+        searchBar.tintColor = Colors.eventSearchBarTextColor
         searchBar.delegate = self
         searchBar.semanticContentAttribute = .forceRightToLeft
         searchBar.layer.backgroundColor = Colors.clear.cgColor
@@ -323,7 +323,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
              searchTextField = searchBar.value(forKey: "searchField") as! UITextField
         }
         searchTextField.textAlignment = .right
-        searchTextField.textColor = Colors.white
+        searchTextField.textColor = Colors.eventSearchBarTextColor
     }
     
     fileprivate func getSectionIndex(forDate: Date) -> Int? {

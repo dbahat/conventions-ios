@@ -85,8 +85,8 @@ class EventView: UIView {
             feedbackContainerWidthConstraint.constant = 26
             
             if event.didSubmitFeedback() {
-                feedbackIcon.image = UIImage(named: "Feedback_icon_sent")
-                feedbackIcon.tintColor = Colors.buttonPressedColor
+                feedbackIcon.image = UIImage(named: "Feedback_icon_sent")?.withRenderingMode(.alwaysTemplate)
+                feedbackIcon.tintColor = Colors.eventFeedbackIconSentColor
             } else {
                 
                 let imageName = event.feedbackAnswers.count > 0 && !Convention.instance.isFeedbackSendingTimeOver()

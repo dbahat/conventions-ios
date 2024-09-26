@@ -35,9 +35,9 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         eventsTable.estimatedRowHeight = 30
         eventsTable.rowHeight = UITableView.automaticDimension
         
-        titleContainer.backgroundColor = Colors.homeTimeBoxContainerColor
+        titleContainer.backgroundColor = Colors.homeTitleDuringConventionNoFavoritesBackgroundColor
         titleContainer.layer.cornerRadius = 4
-        titleLabel.textColor = Colors.homeTimeTextColor
+        titleLabel.textColor = Colors.homeTitleDuringConventionNoFavoritesTextColor
         goToEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
         goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         goToEventsButton.layer.cornerRadius = 4

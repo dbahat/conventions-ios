@@ -115,15 +115,15 @@ import Foundation
             func description() -> String {
                 switch self {
                 case .veryNegetive:
-                    return "☹️"
+                    return "1"
                 case .negetive:
-                    return "🙁"
+                    return "2"
                 case .neutral:
-                    return "😐"
+                    return "3"
                 case .positive:
-                    return "🙂"
+                    return "4"
                 case .veryPositive:
-                    return "😃"
+                    return "5"
                 }
             }
             

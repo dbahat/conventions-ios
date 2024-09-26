@@ -52,9 +52,9 @@ class Colors {
     static let clear = UIColor.clear
     
     static let colorAccent = Colors.icon2024_blue900
-    static let tabBarSelectedTabColor = Colors.icon2024_cream700
-    static let tabBarUnselectedTabColor = Colors.icon2024_gray800
-    static let tabBarBackgroundColor = Colors.clear
+    static let tabBarSelectedTabColor = Colors.icon2024_cream50
+    static let tabBarUnselectedTabColor = Colors.icon2024_cream400
+    static let tabBarBackgroundColor = Colors.icon2024_blue600
     static let textColor = Colors.icon2024_gray800
     static let hintTextColor = Colors.icon2024_gray700
     static let backgroundColor = Colors.clear
@@ -66,10 +66,10 @@ class Colors {
     static let switchButtonsColor = Colors.icon2024_cream1000
     static let datePickerColor = Colors.icon2024_cream500
     static let datePickerTextColor = Colors.textColor
-    static let datePickerBackgroundColor = Colors.icon2024_cream200
+    static let datePickerBackgroundColor = Colors.icon2024_cream50
     static let eventTimeDefaultBackgroundColor = Colors.icon2024_clay200
     static let eventTimeHeaderColor = Colors.icon2024_cream500
-    static let eventTimeHeaderTextColor = Colors.textColor
+    static let eventTimeHeaderTextColor = Colors.icon2024_cream1000
     static let buttonColor = Colors.icon2024_blue600
     static let logoffButtonColor = Colors.icon2024_cream1000
     static let buttonPressedColor = Colors.icon2024_blue300
@@ -79,7 +79,7 @@ class Colors {
     static let feedbackButtonPressedColor = Colors.buttonPressedColor
     
     static let feedbackButtonColorEvent = Colors.buttonColor
-    static let feedbackButtonColorConvetion = Colors.icon2024_gold
+    static let feedbackButtonColorConvetion = Colors.icon2024_cream700
     static let feedbackLinksColorEvent = Colors.linksColor
     static let feedbackLinksColorConvention = Colors.linksColor
     static let expandFeedbackButtonColor = Colors.icon2024_blue600
@@ -87,6 +87,7 @@ class Colors {
     static let mapBackgroundColor = UIColor.clear
     
     // Events colors
+    static let eventSearchBarTextColor = Colors.icon2024_clay900
     static let eventEndedColor = Colors.icon2024_blue100
     static let eventRunningColor = Colors.icon2024_blue600
     static let eventNotStartedColor = Colors.icon2024_blue200
@@ -101,6 +102,7 @@ class Colors {
     static let eventTimeboxTextColorVirtual = Colors.eventTimeboxTextColor
     static let eventViewTitleAndDetailsContainerBackground = Colors.icon2024_cream50_transparent_90
     static let eventContentTextColor = Colors.icon2024_cream1000
+    static let eventFeedbackIconSentColor = Colors.icon2024_green600
     
     // Event colors
     static let eventTitleBoxColor = Colors.clear
@@ -125,9 +127,11 @@ class Colors {
     static let homeCurrentEventColor = Colors.icon2024_cream50_transparent_90
     static let homeNextEventColor = Colors.icon2024_cream50_transparent_90
     static let homeTimeTextColor = Colors.textColor
+    static let homeTitleDuringConventionNoFavoritesTextColor = Colors.white
+    static let homeTitleDuringConventionNoFavoritesBackgroundColor = Colors.icon2024_blue600
     static let homeTimeBoxContainerColor = Colors.icon2024_cream50_transparent_90
-    static let homeDuringConvetionNoFavoriteCardTextColor = Colors.icon2024_clay900
-    static let homeDuringConvetionNoFavoriteCardBackgroundColor = Colors.icon2024_cream50_transparent_90
+    static let homeDuringConvetionNoFavoriteCardTextColor = Colors.textColor
+    static let homeDuringConvetionNoFavoriteCardBackgroundColor = Colors.icon2024_cream50
     static let homeCurrentEventHeadersBackgroundColor = Colors.icon2024_blue600
     static let homeUpcomingEventHeadersBackgroundColor = Colors.icon2024_blue200
     static let homeCurrentEventHeadersTextColor = Colors.icon2024_cream200
