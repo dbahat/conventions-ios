@@ -8,84 +8,60 @@
 
 import Foundation
 
-// Using UITableViewController since we want this tableView to have static cells
-class MoreInfoViewController : UITableViewController {
+class MoreInfoViewController : BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet private weak var settingsImage: UIImageView!
-    @IBOutlet private weak var aboutImage: UIImageView!
-    @IBOutlet private weak var arrivalMethodsImage: UIImageView!
-    @IBOutlet private weak var feedbackImage: UIImageView!
-    @IBOutlet private weak var updatesImage: UIImageView!
-    @IBOutlet private weak var IconKidsImage: UIImageView!
-//    @IBOutlet private weak var secondHandImage: UIImageView!
-    @IBOutlet private weak var discountdImage: UIImageView!
-    @IBOutlet private weak var accessabilityImage: UIImageView!
-    @IBOutlet private weak var mapImage: UIImageView!
-    @IBOutlet private weak var activitiesImage: UIImageView!
+    var items = [
+        Item(name: "מפת המתחם", imageId: "MenuMap", viewControllerId: "MapViewController"),
+        Item(name: "דרכי הגעה", imageId: "MenuArrivalMethods", viewControllerId: "ArrivalMethodsViewController"),
+        Item(name: "אודות הכנס", imageId: "MenuAbout", viewControllerId: "AboutViewController"),
+        Item(name: "נגישות", imageId: "MenuAccessability", viewControllerId: "AccessabilityViewController"),
+        Item(name: "הגדרות", imageId: "MenuSettings", viewControllerId: "NotificationSettingsViewController"),
+    ]
     
-    @IBOutlet private weak var feedbackLabel: UILabel!
-    @IBOutlet private weak var settingsLabel: UILabel!
-    @IBOutlet private weak var aboutLabel: UILabel!
-    @IBOutlet private weak var arrivalMethodsLabel: UILabel!
-    @IBOutlet private weak var updatesLabel: UILabel!
-    @IBOutlet private weak var iconKidsLabel: UILabel!
-    @IBOutlet private weak var secondHandLabel: UILabel!
-    @IBOutlet private weak var discountsLabel: UILabel!
-    @IBOutlet private weak var accessabilityLabel: UILabel!
-    @IBOutlet private weak var mapLabel: UILabel!
-    @IBOutlet private weak var activitiesLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if Convention.instance.canFillConventionFeedback() {
+            items.insert(Item(name: "פידבק לכנס", imageId: "MenuFeedback", viewControllerId: "ConventionFeedbackViewController"), at: 0)
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Since not extending BaseViewController
-        self.view.backgroundColor = Colors.backgroundColor
         
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
         tabBarController?.navigationItem.rightBarButtonItem = nil
         tabBarController?.navigationItem.leftBarButtonItem = nil
-        
-        navigationController?.navigationBar.backgroundColor = Colors.clear
-        
-        let imageView = UIImageView(image: UIImage(named: "AppBackground"))
-        imageView.contentMode = .scaleToFill
-        tableView?.backgroundView = imageView
-        
-        adjustImageView(settingsImage)
-        adjustImageView(aboutImage)
-        adjustImageView(feedbackImage)
-        adjustImageView(arrivalMethodsImage)
-        adjustImageView(accessabilityImage)
-        adjustImageView(mapImage)
-//        adjustImageView(updatesImage)
-//        adjustImageView(secondHandImage)
-        adjustImageView(discountdImage)
-        adjustImageView(activitiesImage)
-        
-        feedbackLabel.textColor = Colors.textColor
-        settingsLabel.textColor = Colors.textColor
-        aboutLabel.textColor = Colors.textColor
-        arrivalMethodsLabel.textColor = Colors.textColor
-        accessabilityLabel.textColor = Colors.textColor
-        mapLabel.textColor = Colors.textColor
-//        updatesLabel.textColor = Colors.textColor
-//        secondHandLabel.textColor = Colors.textColor
-        discountsLabel.textColor = Colors.textColor
-        activitiesLabel.textColor = Colors.textColor
     }
     
-    private func adjustImageView(_ imageView: UIImageView) {
-        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = Colors.textColor
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        items.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Hide the feedback menu if not yet relevant
-        if indexPath.row == 0 && !Convention.instance.canFillConventionFeedback() {
-            return 0
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoreInfoItemCell", for: indexPath) as! MoreInfoItemCell
+        let item = items[indexPath.row]
+        cell.imageIcon.image = UIImage(named: item.imageId)?.withRenderingMode(.alwaysTemplate)
+        cell.titleLabel.text = item.name
         
-        return 44
+        cell.titleLabel.textColor = Colors.textColor
+        cell.imageIcon.tintColor = Colors.textColor
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: item.viewControllerId))
+        navigationController?.pushViewController(feedbackVc, animated: true)
+    }
+    
+    struct Item {
+        var name: String
+        var imageId: String
+        var viewControllerId: String
     }
 }

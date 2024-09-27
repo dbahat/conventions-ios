@@ -104,6 +104,7 @@
 		3BFE31081F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE31071F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift */; };
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
+		863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */; };
 		86D13FBB2CA1EC2E00E4BF95 /* icon2024Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D13FBA2CA1EC2E00E4BF95 /* icon2024Events.json */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
@@ -224,6 +225,7 @@
 		3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtentions.swift; path = extentions/UIViewExtentions.swift; sourceTree = "<group>"; };
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
+		863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoItemCell.swift; sourceTree = "<group>"; };
 		86D13FBA2CA1EC2E00E4BF95 /* icon2024Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2024Events.json; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */,
 				A451749C28E61CC200C1953F /* DiscountsViewController.swift */,
 				A451749E28E6270F00C1953F /* DiscountsCell.swift */,
+				863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */,
 			);
 			name = controllers;
 			path = Conventions/controllers;
@@ -795,6 +798,7 @@
 				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,
 				A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */,
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
+				863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */,
 				3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,
