@@ -94,8 +94,8 @@ class Colors {
     static let eventRunningTimeTextColor = Colors.white
     static let eventNotRunningTimeTextColor = Colors.icon2024_blue900
     static let eventUserNeedsToCompleteFeecbackButtonColor = Colors.icon2024_cream700
-    static let eventMarkedAsFavorite = Colors.icon2024_gold
-    static let eventNotMarkedAsFavorite = Colors.icon2024_gold
+    static let eventMarkedAsFavorite = Colors.icon2024_cream700
+    static let eventNotMarkedAsFavorite = Colors.icon2024_gray200
     static let eventSeperatorColor = Colors.clear
     static let eventOpenEventConatinerColor = UIColor.clear
     static let eventTimeboxTextColor = Colors.eventContentTextColor
