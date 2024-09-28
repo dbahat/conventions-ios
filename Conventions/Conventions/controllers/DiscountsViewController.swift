@@ -13,65 +13,109 @@ class DiscountsViewController : DiscountsAndActivitiesViewController {
     override func viewDidLoad() {
         items = [
             Item(text: "הטבות במסעדות:", title: true),
-            Item(text: "המסעדות הבאות מעניקות הנחה בהצגת כרטיס או תג של הפסטיבל, במהלך שני הימים של הכנס:"),
-            Item(text: "ארומה. הארבעה 24.\n10% הנחה למעט דילים קיימים בסניף רחוב הארבעה בלבד.",
-                 image: UIImage(named: "olamot2024_discounts_aroma"),
-                 linkText: "לביקור באתר ארומה",
-                 linkUrl: "https://www.aroma.co.il/store/%D7%94%D7%90%D7%A8%D7%91%D7%A2%D7%94-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91"),
+            Item(text: "עוגיה חינם על קניית 3 עוגיות ומעלה",
+                 image: UIImage(named: "icon2024_discounts_night_cookie"),
+                 linkText: "לאתר עוגיית לילה",
+                 linkUrl: "https://www.nightcookie.com/"),
             
-            Item(text: "T LAB. החשמונאים 103.\nתוספת באבלס חינם בכל משקה, בהצגת כרטיס כנס.",
-                 image: UIImage(named: "olamot2024_discounts_tlab"),
-                 linkText: "לביקור באתר T Lab",
-                 linkUrl: "https://wissotzky-tlab.co.il"),
-            
-            Item(text: "בוזה\nכדור אחד ב-16 שח\n2 כדורים ב-22 שח\nלכל באות ובאי הכנס\n",
-                 image: UIImage(named: "olamot2024_discounts_buzza"),
-                 linkText: "לביקור באתר בוזה",
-                 linkUrl: "https://www.buzaisrael.co.il"),
-            
-            Item(text: "הטבות בחנויות:", title: true),
-            Item(text: "החנויות הבאות מעניקות הנחה בהצגת כרטיס או תג של הכנס, במהלך שני הימים של הכנס:"),
-            Item(text: "הממלכה\nמעטפת Funpack פוקימון בהצגת כרטיס בדוכן.",
-                 image: UIImage(named: "olamot2024_discounts_kingdom"),
-                 linkText: "לביקור באתר הממלכה",
-                 linkUrl: "https://thekingdom.co.il/"),
-            
-            Item(text: "עברית\n10% הנחה על כל ספרי המד\"ב והפנטזיה\nההנחה בימי הכנס בלבד\nקוד להנחה 10%: OLAMOT10",
-                 image: UIImage(named: "olamot2024_discounts_evrit"),
-                 linkText: "לביקור באתר עברית",
-                 linkUrl: "https://www.e-vrit.co.il/Category/11/%D7%9E%D7%93_%D7%91_%D7%95%D7%A4%D7%A0%D7%98%D7%96%D7%99%D7%94"),
 
-            Item(text: "ספר מתנה בחנות עברית\nספר מתנה! \"רקורסיה\" מאת בלייק קראוץ' להורדה בחינם.\nההטבה בימי הכנס בלבד\nקוד: OLAMOT",
-                 image: UIImage(named: "olamot2024_discounts_evrit_recursion"),
-                 linkText: "לעמוד הספר רקורסיה",
-                 linkUrl: "https://www.e-vrit.co.il/Product/23635/%D7%A8%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%94"),
-
-            Item(text: "גיימינג לנד\n5% הנחה בדוכן בהצגת כרטיס",
-                 image: UIImage(named: "olamot2024_discounts_gaming_land"),
-                 linkText: "לביקור באתר גיימינג לנד",
-                 linkUrl: "https://www.gamingland.co.il/"),
+            Item(text: "10% הנחה בין השעות 11:30-18:00",
+                 image: UIImage(named: "icon2024_discounts_oban_koban"),
+                 linkText: "לאתר אובן קובן",
+                 linkUrl: "https://www.obankoban.co.il/"),
             
-            Item(text: "חסויות", title: true),
+            Item(text: "10% הנחה, לא כולל דילים קיימים. סניף הארבעה בלבד",
+                 image: UIImage(named: "icon2024_discounts_aroma"),
+                 linkText: "לאתר ארומה",
+                 linkUrl: "https://www.aroma.co.il/store/%D7%94%D7%90%D7%A8%D7%91%D7%A2%D7%94-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91/"),
             
-            Item(text: "IAC – המכללה הישראלית לאנימציה ועיצוב\nתודה למכללה על החסות מוזמנים.ות לבקר בדוכן",
-                 image: UIImage(named: "olamot2024_discounts_iac"),
-                 linkText: "לביקור במכללה לאנימציה",
+            Item(text: "תוספת באבלס על חשבון הבית",
+                 image: UIImage(named: "icon2024_discounts_tlab"),
+                 linkText: "לאתר T LAB",
+                 linkUrl: "https://wissotzky-tlab.co.il/%d7%94%d7%a1%d7%a0%d7%99%d7%a4%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/"),
+            
+            Item(text: "טוסט + שתייה + נקניקיית נשנוש ב-45₪ (במקום 55)",
+                 image: UIImage(named: "icon2024_discounts_suduch"),
+                 linkText: "לאתר סודוך",
+                 linkUrl: "https://suduch.co.il/"),
+            
+            Item(text: "כדור אחד 16 ש\"ח (במקום 18), 2 כדורים 23 ש\"ח (במקום 25)",
+                 image: UIImage(named: "icon2024_discounts_buzza"),
+                 linkText: "לאתר בוזה",
+                 linkUrl: "https://buzaicecream.co.il/"),
+            
+            Item(text: "10% הנחה לא כולל עסקיות צהריים",
+                 image: UIImage(named: "icon2024_discounts_memphis"),
+                 linkText: "לאתר ממפיס",
+                 linkUrl: "https://www.memphis.co.il/about/"),
+            
+            Item(text: "25% הנחה לשנה על מינוי לספרים מוקלטים ודיגיטלים בעברית ובאנגלית",
+                 image: UIImage(named: "icon2024_discounts_storytel"),
+                 linkText: "לאתר storytel",
+                 linkUrl: "https://www.storytel.com/il"),
+            
+            Item(text: "השותפים שלנו", title: true),
+            
+            Item(text: "דיזנגוף סנטר",
+                 image: UIImage(named: "icon2024_discounts_dizengoff"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.dizengof-center.co.il/"),
+            
+            Item(text: "הוצאה לאור - ספרי צמרת",
+                 image: UIImage(named: "icon2024_discounts_tsameret"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://zbooks.co.il/"),
+            
+            Item(text: "בוטיק Out&About",
+                 image: UIImage(named: "icon2024_discounts_emily"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.facebook.com/outandaboutemily?mibextid=ZbWKwL"),
+            
+            Item(text: "הממלכה - משחקי לוח, משחקי תפקידים ועוד",
+                 image: UIImage(named: "icon2024_discounts_kingdom"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://thekingdom.co.il"),
+            
+            Item(text: "יודו מתמחה בחינוך הרפתקני ופיתוח אמצעי הדרכה ולמידה",
+                 image: UIImage(named: "icon2024_discounts_youdo"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://youdoadventures.com/"),
+            
+            Item(text: "סרברו מפתחת חוויות משחקיות המעבירות תוכן וידע",
+                 image: UIImage(named: "icon2024_discounts_cerebro"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://cerebro.co.il/"),
+            
+            Item(text: "משחקים וספרים לחינוך מדעי ושיווין חברתי",
+                 image: UIImage(named: "icon2024_discounts_dov"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://dovladaat.com/shop"),
+            
+            Item(text: "קרן השפע - יוצרת הרפתקאות ומשחקי דמיון",
+                 image: UIImage(named: "icon2024_discounts_keren_hashefa"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://קרן-השפע.co.il/"),
+            
+            Item(text: "אנימאיה - המרכז לאנימציה ומדיה דיגיטלית",
+                 image: UIImage(named: "icon2024_discounts_animaya"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://animaya.co.il/"),
+            
+            Item(text: "תוכנית \"מפתח\" של התזמורת הפילהרמונית הישראלית",
+                 image: UIImage(named: "icon2024_discounts_philharmonicon"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.ipo.co.il"),
+            
+            Item(text: "החנות - קבוצת תיאטרון",
+                 image: UIImage(named: "icon2024_discounts_hanut"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.hanut31.co.il/"),
+            
+            Item(text: "IAC - המכללה הישראלית לאנימציה ועיצוב",
+                 image: UIImage(named: "icon2024_discounts_iac"),
+                 linkText: "לביקור באתר",
                  linkUrl: "https://www.ani-mator.com/"),
             
-            Item(text: "תילתן המכללה לעיצוב ולתקשורת חזותית\nתודה למכללה על החסות מוזמנים.ות לבקר בדוכן",
-                 image: UIImage(named: "olamot2024_discounts_tiltan"),
-                 linkText: "לביקור במכללת תילתן",
-                 linkUrl: "https://www.tiltan.co.il/"),
-            
-            Item(text: "כנרת זמורה דביר\nתחרות הסיפורים של כנס עולמות בחסות הוצאת כנרת-זמורה-דביר",
-                 image: UIImage(named: "olamot2024_discounts_kineret"),
-                 linkText: "לביקור באתר של כנרת זמורה דביר",
-                 linkUrl: "https://www.kinbooks.co.il"),
-            
-            Item(text: "מרלין האדומה / דניאלה ג'וליה טראוב",
-                 image: UIImage(named: "olamot2024_discounts_marilyn"),
-                 linkText: "לרכישת ספר הדיסטופיה הישראלי החדש",
-                 linkUrl: "https://bit.ly/RedMarilynUrion"),
         ]
     }
 }

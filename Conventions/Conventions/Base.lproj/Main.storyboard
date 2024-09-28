@@ -1663,7 +1663,7 @@
             </objects>
             <point key="canvasLocation" x="277.60000000000002" y="2594.7526236881563"/>
         </scene>
-        <!--הטבות וחסויות-->
+        <!--הטבות ושותפויות-->
         <scene sceneID="ziS-ab-taa">
             <objects>
                 <viewController storyboardIdentifier="DiscountsViewController" extendedLayoutIncludesOpaqueBars="YES" id="9zD-oq-szF" customClass="DiscountsViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
@@ -1769,7 +1769,7 @@
                             <constraint firstItem="lBz-fM-J7l" firstAttribute="centerX" secondItem="bRF-fB-Gjv" secondAttribute="centerX" id="vBN-6t-7RL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="הטבות וחסויות" id="T5F-D4-SoF"/>
+                    <navigationItem key="navigationItem" title="הטבות ושותפויות" id="T5F-D4-SoF"/>
                     <connections>
                         <outlet property="topLabel" destination="BSa-63-Kyp" id="KkJ-zu-vo4"/>
                     </connections>
