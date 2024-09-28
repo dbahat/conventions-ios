@@ -100,15 +100,15 @@ import Foundation
             func getImage() -> UIImage {
                 switch self {
                 case .veryNegetive:
-                    return UIImage(named: "EventAttending")!.withRenderingMode(.alwaysTemplate)
+                    return UIImage(named: "FeedbackRatingFull")!.withRenderingMode(.alwaysTemplate)
                 case .negetive:
-                    return UIImage(named: "EventAttending")!.withRenderingMode(.alwaysTemplate)
+                    return UIImage(named: "FeedbackRatingFull")!.withRenderingMode(.alwaysTemplate)
                 case .neutral:
-                    return UIImage(named: "EventAttending")!.withRenderingMode(.alwaysTemplate)
+                    return UIImage(named: "FeedbackRatingFull")!.withRenderingMode(.alwaysTemplate)
                 case .positive:
-                    return UIImage(named: "EventAttending")!.withRenderingMode(.alwaysTemplate)
+                    return UIImage(named: "FeedbackRatingFull")!.withRenderingMode(.alwaysTemplate)
                 case .veryPositive:
-                    return UIImage(named: "EventAttending")!.withRenderingMode(.alwaysTemplate)
+                    return UIImage(named: "FeedbackRatingFull")!.withRenderingMode(.alwaysTemplate)
                 }
             }
             

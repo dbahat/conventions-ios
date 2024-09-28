@@ -45,9 +45,9 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         questionLabel.text = question.question
         
         for button in getButtons() {
-            let selectedImage = UIImage(named: "EventAttending")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
+            let selectedImage = UIImage(named: "FeedbackRatingFull")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
             button.setImage(selectedImage, for: .selected)
-            let notSelectedImage = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
+            let notSelectedImage = UIImage(named: "FeedbackRatingEmpty")?.withRenderingMode(.alwaysTemplate).withTintColor(feedbackAnswerColor)
             button.setImage(notSelectedImage, for: .normal)
         }
     }
@@ -94,7 +94,7 @@ class SmileyFeedbackQuestionCell : FeedbackQuestionCell {
         for button in getButtons() {
             button.isSelected = false
             button.tintColor = feedbackAnswerColor
-            button.imageView?.image = UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)
+            button.imageView?.image = UIImage(named: "FeedbackRatingEmpty")?.withRenderingMode(.alwaysTemplate)
             if let unwrappedQuestion = question {
                 delegate?.questionCleared(unwrappedQuestion)
             }

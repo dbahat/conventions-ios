@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,8 +34,8 @@
                                     <constraint firstAttribute="width" secondItem="9wG-2f-9l2" secondAttribute="height" multiplier="1:1" id="XI5-yu-qPv"/>
                                     <constraint firstAttribute="width" constant="50" id="fM8-ba-PMC"/>
                                 </constraints>
-                                <state key="normal" image="EventNotAttending"/>
-                                <state key="selected" image="EventAttending"/>
+                                <state key="normal" image="FeedbackRatingEmpty"/>
+                                <state key="selected" image="FeedbackRatingFull"/>
                                 <connections>
                                     <action selector="veryNegetiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="4y6-YN-gEN"/>
                                 </connections>
@@ -47,8 +47,8 @@
                                     <constraint firstAttribute="width" secondItem="1DQ-pE-eQB" secondAttribute="height" multiplier="1:1" id="cqt-Zc-g4u"/>
                                     <constraint firstAttribute="height" constant="50" id="qrZ-PR-VKw"/>
                                 </constraints>
-                                <state key="normal" image="EventNotAttending"/>
-                                <state key="selected" image="EventAttending"/>
+                                <state key="normal" image="FeedbackRatingEmpty"/>
+                                <state key="selected" image="FeedbackRatingFull"/>
                                 <connections>
                                     <action selector="negetiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="BvH-Cu-DR8"/>
                                 </connections>
@@ -60,8 +60,8 @@
                                     <constraint firstAttribute="height" constant="50" id="Szy-hC-yiX"/>
                                     <constraint firstAttribute="width" secondItem="374-Yf-I7b" secondAttribute="height" multiplier="1:1" id="dyK-RF-VCj"/>
                                 </constraints>
-                                <state key="normal" image="EventNotAttending"/>
-                                <state key="selected" image="EventAttending"/>
+                                <state key="normal" image="FeedbackRatingEmpty"/>
+                                <state key="selected" image="FeedbackRatingFull"/>
                                 <connections>
                                     <action selector="neutralWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="Dma-nF-2sR"/>
                                 </connections>
@@ -73,8 +73,8 @@
                                     <constraint firstAttribute="width" secondItem="uRW-aQ-XXW" secondAttribute="height" multiplier="1:1" id="mE4-QT-XLP"/>
                                     <constraint firstAttribute="height" constant="50" id="uD7-ip-Nvf"/>
                                 </constraints>
-                                <state key="normal" image="EventNotAttending"/>
-                                <state key="selected" image="EventAttending"/>
+                                <state key="normal" image="FeedbackRatingEmpty"/>
+                                <state key="selected" image="FeedbackRatingFull"/>
                                 <connections>
                                     <action selector="positiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="S1p-lq-aSl"/>
                                 </connections>
@@ -86,8 +86,8 @@
                                     <constraint firstAttribute="height" constant="50" id="QjJ-3q-EeU"/>
                                     <constraint firstAttribute="width" constant="50" id="Zhe-EK-suQ"/>
                                 </constraints>
-                                <state key="normal" image="EventNotAttending"/>
-                                <state key="selected" image="EventAttending"/>
+                                <state key="normal" image="FeedbackRatingEmpty"/>
+                                <state key="selected" image="FeedbackRatingFull"/>
                                 <connections>
                                     <action selector="veryPositiveWasClicked:" destination="YfR-tM-cH3" eventType="touchUpInside" id="h7D-eY-b9J"/>
                                 </connections>
@@ -140,7 +140,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="EventAttending" width="36" height="36"/>
-        <image name="EventNotAttending" width="30" height="30"/>
+        <image name="FeedbackRatingEmpty" width="53" height="51"/>
+        <image name="FeedbackRatingFull" width="53" height="51"/>
     </resources>
 </document>
