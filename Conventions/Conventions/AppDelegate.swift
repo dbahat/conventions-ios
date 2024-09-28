@@ -261,17 +261,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     private func getAlertForNotification(_ notification: UILocalNotification) -> UIAlertController {
-        // Using hardcoded alert title instead of the notification one, since iOS8 didn't have
-        // notification title
         if isConventionFeedbackNotification(notification) {
-            let alert = UIAlertController(title: "עזור לנו להשתפר", message: notification.alertBody, preferredStyle: .alert)
+            let alert = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "מלא פידבק לספטיבל", style: .default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification)
             }));
             alert.addAction(UIAlertAction(title: "בטל", style: .cancel, handler: nil))
             return alert
         } else {
-            let alert = UIAlertController(title: "אירוע עומד להתחיל", message: notification.alertBody, preferredStyle: .alert)
+            let alert = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "פתח אירוע", style: .default, handler: {action -> Void in
                 self.handleNotificationIfNeeded(notification)
             }));
