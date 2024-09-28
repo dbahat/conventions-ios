@@ -152,4 +152,6 @@ class Colors {
     // Map colors
     static let mapIndicatorColor = UIColor.clear
     static let mapIndicatorSelectedColor = UIColor.clear
+    
+    static let staticHtmlContentColor = Colors.icon2024_cream50
 }

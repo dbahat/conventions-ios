@@ -27,7 +27,7 @@ class AboutViewController : BaseViewController {
         }
         
         abountContentTextView.attributedText = aboutContent.htmlAttributedString()
-        abountContentTextView.backgroundColor = Colors.icon2024_cream50
+        abountContentTextView.backgroundColor = Colors.staticHtmlContentColor
         abountContentTextView.layer.cornerRadius = 4
         
         navigationItem.title = "אודות הכנס"

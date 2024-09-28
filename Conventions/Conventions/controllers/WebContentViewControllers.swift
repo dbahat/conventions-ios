@@ -22,7 +22,7 @@ class WebContentViewController: BaseViewController {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
         contentTextView.layer.cornerRadius = 4
-        contentTextView.backgroundColor = Colors.icon2024_cream200
+        contentTextView.backgroundColor = Colors.staticHtmlContentColor
         contentTextView.attributedText = webContent.htmlAttributedString()
     }
     
