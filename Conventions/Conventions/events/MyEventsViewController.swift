@@ -169,7 +169,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             UserDefaults.standard.set(importedEvents.email, forKey: "email")
             UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
                             
-            self.showImportedTicketsViewController(userId: importedEvents.userId, email: importedEvents.email, numberOfImported: newlyImportedEvents.count)
+            self.showImportedTicketsViewController(userId: importedEvents.userId, email: importedEvents.email, numberOfImported: newlyImportedEvents.count, qrData: importedEvents.qrData)
         })
     }
     
@@ -192,7 +192,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         showImportedTicketsViewController(userId: userId, email: email)
     }
     
-    private func showImportedTicketsViewController(userId: String, email: String, numberOfImported: Int? = nil) {
+    private func showImportedTicketsViewController(userId: String, email: String, numberOfImported: Int? = nil, qrData: Data? = nil) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImportedTicketsViewController") as! ImportedTicketsViewController
         
@@ -201,15 +201,15 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             topLabelMessage = topLabelMessage + "אירועים שנקלטו מהאתר: \(imported)\n\n"
         }
         topLabelMessage = topLabelMessage + "הצג את קוד ה-QR בקופות העצמאיות עבור איסוף מהיר של הכרטיסים."
-        
+                
         controller.topLabel = topLabelMessage
         controller.midLabel = "שם משתמש: \(email)"
         
-        if userId != "" {
+        if userId != "" && qrData != nil {
             controller.bottomLabel = "מספר משתמש: \(userId)"
             controller.shouldHideUpdatesButtonImage = true
         } else {
-            controller.bottomLabel = "קנית כרטיסים? רענן כדי להציג מספר משתמש"
+            controller.bottomLabel = "קנית כרטיסים? רענן כדי להציג QR ומספר משתמש"
         }
         
         controller.onRefreshClicked = {
@@ -220,6 +220,9 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 if (importedEvents.userId != "") {
                     controller.importedTickets.bottomLabel.text = "מספר משתמש: \(importedEvents.userId)"
                     controller.importedTickets.updatesButtonImage.isHidden = true
+                }
+                if let qr = importedEvents.qrData {
+                    controller.image = UIImage(data: qr)
                 }
             })
         }

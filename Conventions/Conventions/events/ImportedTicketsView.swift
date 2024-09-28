@@ -19,6 +19,8 @@ class ImportedTicketsView : UIView {
     @IBOutlet weak var brightnessSwitch: UISwitch!
     @IBOutlet weak var brightnessLabel: UILabel!
     
+    @IBOutlet weak var refreshButton: UIImageView!
+    
     var onLogoutClicked: (() -> Void)?
     var onRefreshClicked: (() -> Void)?
     var onBrightnessClicked: ((Bool) -> Void)?
@@ -36,6 +38,8 @@ class ImportedTicketsView : UIView {
         midLabel.textColor = Colors.black
         brightnessLabel.textColor = Colors.black
         brightnessSwitch.onTintColor = Colors.colorAccent
+        refreshButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
+        refreshButton.tintColor = Colors.buttonColor
         
         logoutButton.tintColor = Colors.logoffButtonColor
     }

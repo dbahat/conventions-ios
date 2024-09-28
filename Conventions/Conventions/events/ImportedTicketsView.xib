@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,7 @@
                 <outlet property="image" destination="D8C-FH-UTf" id="1tk-XT-7FC"/>
                 <outlet property="logoutButton" destination="IC9-u8-cxN" id="GyE-gv-hhu"/>
                 <outlet property="midLabel" destination="BFa-qi-OYF" id="GD9-lx-8UB"/>
+                <outlet property="refreshButton" destination="0nf-N7-uc2" id="Z1e-Xw-cJ5"/>
                 <outlet property="topLabel" destination="dyg-Zc-3Fr" id="fA4-Hi-xvD"/>
                 <outlet property="updatesButtonImage" destination="0nf-N7-uc2" id="6Hv-7Y-QL2"/>
             </connections>
@@ -62,7 +63,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BottomLabel" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63E-zL-qVw">
-                    <rect key="frame" x="30" y="598" width="354" height="20.5"/>
+                    <rect key="frame" x="50" y="598" width="334" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -76,7 +77,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuUpdates" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-N7-uc2">
-                    <rect key="frame" x="4" y="596" width="26" height="25"/>
+                    <rect key="frame" x="24" y="596" width="26" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="0nf-N7-uc2" secondAttribute="height" multiplier="34:33" id="BKt-na-hQQ"/>
                         <constraint firstAttribute="height" constant="25" id="qGa-GW-ViZ"/>
@@ -100,7 +101,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tx2-7J-Mew" secondAttribute="trailing" constant="30" id="Lay-Yy-gAB"/>
                 <constraint firstItem="IC9-u8-cxN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Mud-ln-y0T"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="63E-zL-qVw" secondAttribute="trailing" constant="30" id="Nw0-Ca-a9s"/>
-                <constraint firstItem="63E-zL-qVw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="VxC-e0-M1Q"/>
+                <constraint firstItem="63E-zL-qVw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="VxC-e0-M1Q"/>
                 <constraint firstItem="dyg-Zc-3Fr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="bPJ-jJ-UIy"/>
                 <constraint firstItem="63E-zL-qVw" firstAttribute="top" secondItem="BFa-qi-OYF" secondAttribute="bottom" constant="8" id="fH0-Sq-JDD"/>
                 <constraint firstItem="D8C-FH-UTf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="fyh-IM-mpo"/>
