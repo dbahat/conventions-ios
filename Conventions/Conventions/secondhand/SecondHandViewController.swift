@@ -11,6 +11,7 @@ import FirebaseAnalytics
 
 class SecondHandViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, SecondHandFormProtocol, UIScrollViewDelegate {
     
+    @IBOutlet private weak var toastView: UIView!
     @IBOutlet private weak var refreshIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var noItemsFoundLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
@@ -97,7 +98,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                 ])
             
             if (!success) {
-                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "לא ניתן לעדכן. בדוק חיבור לאינטרנט", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
@@ -114,17 +115,17 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         let okAction = UIAlertAction(title: "הוסף", style: .default) { (result : UIAlertAction) -> Void in
             
             guard let formId = Int(alertController.textFields![0].text!) else {
-                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
             if formId < 0 {
-                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "מספר טופס לא תקין", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
             if self.forms.contains(where: {$0.id == formId}) {
-                TTGSnackbar(message: "הטופס כבר קיים ברשימה", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                TTGSnackbar(message: "הטופס כבר קיים ברשימה", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                 return
             }
             
@@ -142,7 +143,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
                     ])
                 
                 if !success {
-                    TTGSnackbar(message: "לא ניתן להוסיף את הטופס", duration: TTGSnackbarDuration.middle, superView: self.view).show()
+                    TTGSnackbar(message: "לא ניתן להוסיף את הטופס", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
                     return
                 }
                 

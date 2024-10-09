@@ -116,8 +116,9 @@ class Colors {
     static let eventDescriptionTextColor = Colors.black
     
     // SecondHand colorss
-    static let secondHandClosedFormColor = Colors.eventEndedColor
-    static let secondHandOpenFormColor = Colors.eventNotStartedColor
+    static let secondHandClosedFormColor = Colors.icon2024_gray700
+    static let secondHandOpenFormColor = Colors.icon2024_cream1000
+    static let secondHandHeaderBackgroundColor = Colors.icon2024_cream200
     
     // Home colors
     static let homeFirstButtonColor = Colors.icon2024_clay700

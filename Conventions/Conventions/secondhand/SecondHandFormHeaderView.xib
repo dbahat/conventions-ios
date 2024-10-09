@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,17 +25,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eix-wU-ndM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eix-wU-ndM">
                     <rect key="frame" x="20" y="318.5" width="30" height="30"/>
                     <state key="normal" title="מחק">
                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="removeWasClicked:" destination="-2" eventType="touchUpInside" id="tjZ-Bl-2m1"/>
+                        <action selector="RemoveWasClicked:" destination="-2" eventType="touchUpInside" id="8rj-bk-8r6"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Tfi-eD-rSO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eix-wU-ndM" secondAttribute="trailing" constant="5" id="7EK-2I-wDX"/>
                 <constraint firstItem="qe7-Tr-AFC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7LQ-UR-x4j"/>
@@ -54,6 +52,7 @@
                 <outlet property="formStatusLabel" destination="Tfi-eD-rSO" id="avq-PS-D8U"/>
                 <outlet property="removeButton" destination="Eix-wU-ndM" id="E10-6q-uXY"/>
             </connections>
+            <point key="canvasLocation" x="-42" y="-15"/>
         </view>
     </objects>
 </document>

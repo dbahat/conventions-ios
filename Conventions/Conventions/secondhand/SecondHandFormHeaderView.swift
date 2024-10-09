@@ -29,11 +29,12 @@ class SecondHandFormHeaderView: UITableViewHeaderFooterView {
                 formIdLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
                 formStatusLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
                 removeButton.setTitleColor(Colors.buttonColor, for: .normal)
+                self.contentView.backgroundColor = Colors.secondHandHeaderBackgroundColor
             }
         }
     }
     
-    @IBAction private func removeWasClicked(_ sender: UIButton) {
+    @IBAction func RemoveWasClicked(_ sender: UIButton) {
         if let unwrappedForm = form {
             delegate?.removeWasClicked(formId: unwrappedForm.id)
         }

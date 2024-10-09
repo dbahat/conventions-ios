@@ -9,7 +9,7 @@
 import Foundation
 
 class SecondHand {
-    private static let refreshUrl = "https://api.sf-f.org.il/yad2/form?formIds="
+    private static let refreshUrl = "https://api.yadash.sf-f.org.il/yad2/form?formIds="
     private static let fileName = Convention.name + "SecondHand.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + "1_" + fileName;
     
