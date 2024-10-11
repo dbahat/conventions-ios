@@ -233,7 +233,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard
             let userInfo = notification?.userInfo,
             let eventId = userInfo[NotificationsSchedualer.EVENT_ABOUT_TO_START_INFO] as? String,
-            let event = Convention.instance.events.getAll().filter({$0.id == eventId}).first,
+            let event = Convention.instance.events.getAll().filter({$0.id == eventId && !$0.isOngoing}).first,
             let vc = self.window?.rootViewController as? UINavigationController,
             let eventVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: EventViewController.self)) as? EventViewController
             else {
