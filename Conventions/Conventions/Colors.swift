@@ -114,6 +114,9 @@ class Colors {
     static let eventFeedbackBoxColor = Colors.icon2024_blue100
     static let eventFeedbackTextColor = Colors.icon2024_blue900
     static let eventDescriptionTextColor = Colors.black
+    static let eventInfoTagContainerBackgroundColor = Colors.icon2024_green600
+    static let eventInfoTagContainerTextColor = Colors.white
+    
     
     // SecondHand colorss
     static let secondHandClosedFormColor = Colors.icon2024_gray700

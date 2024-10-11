@@ -98,13 +98,27 @@ class HomeViewController : BaseViewController, ConventionHomeContentViewProtocol
     private func getCurrentFavoriteEvent() -> ConventionEvent? {
         return Convention.instance.events.getAll()
             .filter({$0.attending && $0.hasStarted() && !$0.hasEnded()})
+            .sorted(by: {
+                if $0.startTime.timeIntervalSince1970 == $1.startTime.timeIntervalSince1970 {
+                    return !$0.isOngoing // depriorities ongoing events
+                }
+                
+                return $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970
+            }
+            )
             .first
     }
     
     private func getUpcomingFavoriteEvent() -> ConventionEvent? {
         return Convention.instance.events.getAll()
-            .sorted(by: {$0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970})
             .filter({$0.attending && !$0.hasStarted()})
+            .sorted(by: {
+                if $0.startTime.timeIntervalSince1970 == $1.startTime.timeIntervalSince1970 {
+                    return !$0.isOngoing // depriorities ongoing events
+                }
+                
+                return $0.startTime.timeIntervalSince1970 < $1.startTime.timeIntervalSince1970
+            })
             .first
     }
     

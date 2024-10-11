@@ -26,6 +26,8 @@ class EventView: UIView {
     @IBOutlet private weak var seperator: UIView!
     @IBOutlet private weak var standAndEndTimeSeperator: UILabel!
     
+    @IBOutlet private weak var eventInfoTagLabel: UILabel!
+    @IBOutlet private weak var eventInfoTagContainer: UIView!
     @IBOutlet private weak var titleAndDetailsContainer: UIView!
     weak var delegate: EventStateProtocol?;
     
@@ -55,7 +57,11 @@ class EventView: UIView {
         timeLayout.layer.borderWidth = 0
         timeLayout.layer.borderColor = calculateEventColor(event: event).cgColor
         seperator.backgroundColor = Colors.eventSeperatorColor
-
+        eventInfoTagContainer.backgroundColor = Colors.eventInfoTagContainerBackgroundColor
+        eventInfoTagContainer.layer.cornerRadius = 4
+        eventInfoTagLabel.textColor = Colors.eventInfoTagContainerTextColor
+        
+        eventInfoTagContainer.isHidden = !event.isOngoing
         
         // Allow dynamic changing of the favorite button color
         favoriteButtonImage.image = event.attending == true ? UIImage(named: "EventAttending")?.withRenderingMode(.alwaysTemplate) : UIImage(named: "EventNotAttending")?.withRenderingMode(.alwaysTemplate)

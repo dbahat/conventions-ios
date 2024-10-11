@@ -239,6 +239,20 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
         let filteredEvents = applyFiltersForEvents(eventsForSelectedDate)
         
         for event in filteredEvents {
+            
+            if event.isOngoing {
+                var currentDate = event.startTime.clearMinutesComponent()
+                while currentDate < event.endTime.clearMinutesComponent() {
+                    if (result[currentDate] == nil) {
+                        result[currentDate] = [event];
+                    } else {
+                        result[currentDate]!.append(event);
+                    }
+                    currentDate = currentDate.addHours(1)
+                }
+                
+                continue ;
+            }
 
             let roundedEventTime = event.startTime.clearMinutesComponent()
             if (result[roundedEventTime as Date] == nil) {

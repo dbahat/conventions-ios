@@ -39,6 +39,7 @@ class ConventionEvent {
     var availableTickets: Int?
     var virtualUrl: String?
     var isTicketless = false
+    var isOngoing = false
     
     var availableTicketsLastModified: Date?
     
@@ -119,6 +120,9 @@ class ConventionEvent {
         if let isTicketless = json["isTicketless"] as? Bool {
             event.isTicketless = isTicketless
         }
+        if let isOngoing = json["isOngoing"] as? Bool {
+            event.isOngoing = isOngoing
+        }
         
         return event
     }
@@ -151,7 +155,8 @@ class ConventionEvent {
             "presentationMode": self.type.presentation.mode.rawValue as AnyObject,
             "presentationLocation": self.type.presentation.location.rawValue as AnyObject,
             "virtualUrl": (self.virtualUrl ?? "") as AnyObject,
-            "isTicketless": self.isTicketless as AnyObject
+            "isTicketless": self.isTicketless as AnyObject,
+            "isOngoing": self.isOngoing as AnyObject
         ]
     }
     

@@ -113,6 +113,9 @@ class SffEventsParser {
             if let isTicketless = event["is_ticketless"] as? Bool {
                 conventionEvent.isTicketless = isTicketless
             }
+            if let isOngoing = event["is_ongoing"] as? Bool {
+                conventionEvent.isOngoing = isOngoing
+            }
             
             tempResult.updateValue(conventionEvent, forKey: conventionEvent.id)
             

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="Conventions" customModuleProvider="target">
             <connections>
                 <outlet property="endTime" destination="rMH-w8-RVL" id="juL-nB-KrC"/>
+                <outlet property="eventInfoTagContainer" destination="aut-wT-FKh" id="1jP-z6-a7o"/>
+                <outlet property="eventInfoTagLabel" destination="u1Y-wG-7xY" id="KFA-PD-6v2"/>
                 <outlet property="favoriteButtonImage" destination="fK2-Tm-LDR" id="60D-U9-ZcX"/>
                 <outlet property="feedbackContainerWidthConstraint" destination="1WZ-dc-KFb" id="maC-MR-I8m"/>
                 <outlet property="feedbackIcon" destination="CNm-3L-gF8" id="ZZy-J2-OFj"/>
@@ -123,16 +126,37 @@
                                         <constraint firstAttribute="width" secondItem="LZx-sj-EmB" secondAttribute="height" multiplier="1:1" id="dFD-PZ-tPH"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aut-wT-FKh">
+                                    <rect key="frame" x="229" y="783.66666666666663" width="83" height="17"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אירוע מתמשך" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1Y-wG-7xY">
+                                            <rect key="frame" x="8" y="1.6666666666666288" width="67" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <constraints>
+                                        <constraint firstItem="u1Y-wG-7xY" firstAttribute="centerY" secondItem="aut-wT-FKh" secondAttribute="centerY" id="UiI-Tz-AdV"/>
+                                        <constraint firstAttribute="trailing" secondItem="u1Y-wG-7xY" secondAttribute="trailing" constant="8" id="k6V-Pr-Loa"/>
+                                        <constraint firstItem="u1Y-wG-7xY" firstAttribute="centerX" secondItem="aut-wT-FKh" secondAttribute="centerX" id="q1b-Ci-RVI"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="r5w-m4-Yqp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0DF-YK-F5U" secondAttribute="trailing" id="3Cv-bJ-7mg"/>
+                                <constraint firstItem="aut-wT-FKh" firstAttribute="top" secondItem="0DF-YK-F5U" secondAttribute="top" id="Ctl-fa-zA3"/>
                                 <constraint firstAttribute="trailing" secondItem="r5w-m4-Yqp" secondAttribute="trailing" constant="8" id="FBo-24-TIJ"/>
                                 <constraint firstItem="LZx-sj-EmB" firstAttribute="leading" secondItem="oe7-bM-u99" secondAttribute="leading" id="H6Y-fE-d7i"/>
                                 <constraint firstAttribute="bottom" secondItem="LZx-sj-EmB" secondAttribute="bottom" id="La5-v0-Yz8"/>
                                 <constraint firstItem="r5w-m4-Yqp" firstAttribute="top" secondItem="oe7-bM-u99" secondAttribute="top" constant="8" id="Lme-gf-ttN"/>
                                 <constraint firstAttribute="bottom" secondItem="0DF-YK-F5U" secondAttribute="bottom" constant="8" id="MnZ-Kv-mwd"/>
+                                <constraint firstItem="aut-wT-FKh" firstAttribute="bottom" secondItem="0DF-YK-F5U" secondAttribute="bottom" id="TlN-GC-rDw"/>
+                                <constraint firstItem="aut-wT-FKh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0DF-YK-F5U" secondAttribute="trailing" id="c6Y-Yk-54u"/>
                                 <constraint firstItem="0DF-YK-F5U" firstAttribute="leading" secondItem="LZx-sj-EmB" secondAttribute="trailing" constant="8" id="i2j-GW-iFd"/>
+                                <constraint firstItem="aut-wT-FKh" firstAttribute="trailing" secondItem="r5w-m4-Yqp" secondAttribute="trailing" id="yQU-Ax-7yR"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -197,7 +221,7 @@
                 <constraint firstAttribute="bottom" secondItem="tZ3-fH-VhW" secondAttribute="bottom" constant="8" id="iNM-ba-4jH"/>
                 <constraint firstAttribute="bottom" secondItem="7xQ-wK-gf8" secondAttribute="bottom" constant="8" id="ziR-B2-pH7"/>
             </constraints>
-            <point key="canvasLocation" x="131" y="155"/>
+            <point key="canvasLocation" x="130.76923076923077" y="154.97630331753552"/>
         </view>
         <tapGestureRecognizer id="PAd-ob-HPP">
             <connections>
@@ -206,7 +230,10 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="EventNotAttending" width="30" height="30"/>
-        <image name="Feedback_icon" width="24" height="24"/>
+        <image name="EventNotAttending" width="48" height="48"/>
+        <image name="Feedback_icon" width="13.333333015441895" height="13.333333015441895"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
