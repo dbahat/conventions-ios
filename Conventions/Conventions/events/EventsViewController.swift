@@ -242,7 +242,7 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
             
             if event.isOngoing {
                 var currentDate = event.startTime.clearMinutesComponent()
-                while currentDate < event.endTime.clearMinutesComponent() {
+                while currentDate <= event.endTime.clearMinutesComponent() {
                     if (result[currentDate] == nil) {
                         result[currentDate] = [event];
                     } else {
