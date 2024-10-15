@@ -1849,7 +1849,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="יד שנייה" id="caQ-uT-w17">
-                        <barButtonItem key="rightBarButtonItem" title="הוסף טופס" id="xhQ-ci-gvQ">
+                        <barButtonItem key="leftBarButtonItem" title="הגש טופס חדש" id="sDK-dO-2C7">
+                            <connections>
+                                <action selector="RegusterFormWasClicked:" destination="bvG-fg-abK" id="w5a-6L-PvC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="בדוק טופס" id="xhQ-ci-gvQ">
                             <connections>
                                 <action selector="addFormWasClicked:" destination="bvG-fg-abK" id="cST-1G-vA1"/>
                             </connections>

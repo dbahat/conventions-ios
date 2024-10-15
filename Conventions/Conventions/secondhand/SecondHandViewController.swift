@@ -160,6 +160,11 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func RegusterFormWasClicked(_ sender: UIBarButtonItem) {
+        UIApplication.shared.open(URL(string: "https://yadash.sf-f.org.il/")!, options: [:]) { (success) in }
+        return;
+    }
+    
     // Needed so the events can be invisible when scrolled behind the sticky header.
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         for cell in tableView.visibleCells {
