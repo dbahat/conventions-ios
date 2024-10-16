@@ -12,42 +12,54 @@ class DiscountsViewController : DiscountsAndActivitiesViewController {
     
     override func viewDidLoad() {
         items = [
-            Item(text: "הטבות במסעדות:", title: true),
-            Item(text: "עוגיה חינם על קניית 3 עוגיות ומעלה",
-                 image: UIImage(named: "icon2024_discounts_night_cookie"),
-                 linkText: "לאתר עוגיית לילה",
-                 linkUrl: "https://www.nightcookie.com/"),
             
-
+            Item(text: "הגרלה בסנטר! כל כרטיס יכול לזכות",
+                 image: UIImage(named: "icon2024_discounts_dizengof_lottery"),
+                 linkText: "למידע נוסף באתר דיזנגוף סנטר",
+                 linkUrl: "https://www.dizengof-center.co.il/activities/events/?ContentID=60925"),
+            
+            Item(text: "מיצים, גלידות ושייקים ב15% הנחה. קרליבך 20",
+                 image: UIImage(named: "icon2024_discounts_vitamin")),
+            
             Item(text: "10% הנחה בין השעות 11:30-18:00",
                  image: UIImage(named: "icon2024_discounts_oban_koban"),
                  linkText: "לאתר אובן קובן",
                  linkUrl: "https://www.obankoban.co.il/"),
+            
+            Item(text: "עוגיה חינם על קניית 3 עוגיות ומעלה",
+                 image: UIImage(named: "icon2024_discounts_night_cookie"),
+                 linkText: "לאתר עוגיית לילה",
+                 linkUrl: "https://www.nightcookie.com/"),
             
             Item(text: "10% הנחה, לא כולל דילים קיימים. סניף הארבעה בלבד",
                  image: UIImage(named: "icon2024_discounts_aroma"),
                  linkText: "לאתר ארומה",
                  linkUrl: "https://www.aroma.co.il/store/%D7%94%D7%90%D7%A8%D7%91%D7%A2%D7%94-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91/"),
             
-            Item(text: "תוספת באבלס על חשבון הבית",
-                 image: UIImage(named: "icon2024_discounts_tlab"),
-                 linkText: "לאתר T LAB",
-                 linkUrl: "https://wissotzky-tlab.co.il/%d7%94%d7%a1%d7%a0%d7%99%d7%a4%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/"),
-            
-            Item(text: "טוסט + שתייה + נקניקיית נשנוש ב-45₪ (במקום 55)",
-                 image: UIImage(named: "icon2024_discounts_suduch"),
-                 linkText: "לאתר סודוך",
-                 linkUrl: "https://suduch.co.il/"),
-            
             Item(text: "כדור אחד 16 ש\"ח (במקום 18), 2 כדורים 23 ש\"ח (במקום 25)",
                  image: UIImage(named: "icon2024_discounts_buzza"),
                  linkText: "לאתר בוזה",
                  linkUrl: "https://buzaicecream.co.il/"),
             
+            Item(text: "טוסט + שתייה + נקניקיית נשנוש ב-45₪ (במקום 55)",
+                 image: UIImage(named: "icon2024_discounts_suduch"),
+                 linkText: "לאתר סודוך",
+                 linkUrl: "https://suduch.co.il/"),
+
             Item(text: "10% הנחה לא כולל עסקיות צהריים",
                  image: UIImage(named: "icon2024_discounts_memphis"),
                  linkText: "לאתר ממפיס",
                  linkUrl: "https://www.memphis.co.il/about/"),
+            
+            Item(text: "תוספת באבלס על חשבון הבית",
+                 image: UIImage(named: "icon2024_discounts_tlab"),
+                 linkText: "לאתר T LAB",
+                 linkUrl: "https://wissotzky-tlab.co.il/%d7%94%d7%a1%d7%a0%d7%99%d7%a4%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/"),
+            
+            Item(text: "שלושה ספרים במתנה בימי הפסטיבל",
+                 image: UIImage(named: "icon2024_discounts_steimatzky_free_books"),
+                 linkText: "למידע נוסף באתר סטימצקי",
+                 linkUrl: "https://d-steimatzky.co.il/?page_id=891070&amp;preview=true"),
             
             Item(text: "25% הנחה לשנה על מינוי לספרים מוקלטים ודיגיטלים בעברית ובאנגלית",
                  image: UIImage(named: "icon2024_discounts_storytel"),
@@ -115,6 +127,31 @@ class DiscountsViewController : DiscountsAndActivitiesViewController {
                  image: UIImage(named: "icon2024_discounts_iac"),
                  linkText: "לביקור באתר",
                  linkUrl: "https://www.ani-mator.com/"),
+            
+            Item(text: "בצלאל המחלקה לאומנויות המסך",
+                 image: UIImage(named: "icon2024_discounts_bezalel"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.bezalel.ac.il/"),
+            
+            Item(text: "קהילת למידה של פנטזיה, מדע בדיוני ומשחקי תפקידים בתואר ראשון עם תעודת הוראה",
+                 image: UIImage(named: "icon2024_discounts_seminar"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.smkb.ac.il/"),
+            
+            Item(text: "אופוס הוצאה לאור",
+                 image: UIImage(named: "icon2024_discounts_opus"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.opus.co.il/?id=main"),
+            
+            Item(text: "מודן הוצאה לאור",
+                 image: UIImage(named: "icon2024_discounts_modan"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "https://www.modan.co.il/"),
+            
+            Item(text: "פינקוזאורוס - מאי רדומיר",
+                 image: UIImage(named: "icon2024_discounts_pinkkosaurus"),
+                 linkText: "לביקור באתר",
+                 linkUrl: "http://www.pinkkishu.co/shop"),
             
         ]
     }
