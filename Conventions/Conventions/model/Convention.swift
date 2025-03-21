@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2024, month: 10, day: 20)
-    static let endDate = Date.from(year: 2024, month: 10, day: 22)
-    static let name = "icon2024"
-    static let displayName = "פסטיבל אייקון 2024"
+    static let date = Date.from(year: 2025, month: 04, day: 16)
+    static let endDate = Date.from(year: 2025, month: 04, day: 17)
+    static let name = "olamot2025"
+    static let displayName = "כנס עולמות 2025"
     
     var halls: Array<Hall>
     var events: Events
