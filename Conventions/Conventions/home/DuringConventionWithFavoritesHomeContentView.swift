@@ -32,6 +32,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     @IBOutlet weak var upcomingEventContentContainer: UIView!
     
     @IBOutlet private weak var goToMyEventsButton: UIButton!
+    @IBOutlet private weak var goToEventsButton: UIButton!
     
     var currentFavoriteEvent: ConventionEvent? {
         didSet {
@@ -92,7 +93,12 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         let screenRect = UIScreen.main.bounds
         
         goToMyEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
+        goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         goToMyEventsButton.layer.cornerRadius = 4
+        
+        goToEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
+        goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
+        goToEventsButton.layer.cornerRadius = 4
 
         currentEventContainer.layer.borderWidth = 0
         currentEventContainer.layer.borderColor = Colors.black.cgColor
@@ -106,7 +112,7 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         upcomingEventContentContainer.backgroundColor = Colors.homeNextEventColor
         upcomingEventContentContainer.layer.cornerRadius = 4
         
-        goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
+
         
         currentEventTitle.textColor = Colors.homeCurrentEventTextColor
         currentEventHall.textColor = Colors.homeCurrentEventTextColor
@@ -149,6 +155,10 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
     
     @IBAction func navigateToMyEventsWasClicked(_ sender: UIButton) {
         delegate?.navigateToFavoritesClicked()
+    }
+    
+    @IBAction func navigateToEventsWasClicked(_ sender: UIButton) {
+        delegate?.navigateToEventsClicked()
     }
     
     private func isToday(event: ConventionEvent) -> Bool {

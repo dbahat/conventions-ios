@@ -13,6 +13,7 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     @IBOutlet private weak var eventsTable: UITableView!
     @IBOutlet private weak var titleContainer: UIView!
     @IBOutlet private weak var goToEventsButton: UIButton!
+    @IBOutlet private weak var goToMyEventsButton: UIButton!
     
     private let cellIdentifer = "cellIdentifer"
     private var events : Array<ConventionEvent> = []
@@ -41,6 +42,11 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
         goToEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
         goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
         goToEventsButton.layer.cornerRadius = 4
+        
+        goToMyEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
+        goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
+        goToMyEventsButton.layer.cornerRadius = 4
+        
         eventsTable.backgroundColor = UIColor.clear
         eventsTable.separatorColor = UIColor.clear
         
@@ -50,6 +56,10 @@ class DuringConventionNoFavoritesHomeContentView : UIView, UITableViewDataSource
     
     @IBAction private func showAllEventsButtonWasClicked(_ sender: UIButton) {
         delegate?.navigateToEventsClicked()
+    }
+    
+    @IBAction func showMyEventsButtonWasClicked(_ sender: UIButton) {
+        delegate?.navigateToFavoritesClicked()
     }
     
     func setEvents(_ events: Array<ConventionEvent>) {

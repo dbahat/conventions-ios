@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +19,7 @@
                 <outlet property="currentEventImage" destination="XO7-qV-t08" id="UfO-PB-o2o"/>
                 <outlet property="currentEventImageWidth" destination="4Ct-6u-mIN" id="fFM-Vu-6y2"/>
                 <outlet property="currentEventTitle" destination="bGF-Lu-plq" id="B1q-Et-xWa"/>
+                <outlet property="goToEventsButton" destination="4ba-jy-yxT" id="m8A-yK-xS2"/>
                 <outlet property="goToMyEventsButton" destination="iiY-kd-cdi" id="tot-dw-Tav"/>
                 <outlet property="upcomingEventContainer" destination="dWD-SS-IaZ" id="W1I-XX-5xf"/>
                 <outlet property="upcomingEventContentContainer" destination="zUH-sl-zq9" id="Jjw-D8-b8E"/>
@@ -65,7 +66,7 @@
                                     <rect key="frame" x="1" y="49.5" width="357" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-Lu-plq">
-                                            <rect key="frame" x="118.5" y="14" width="230.5" height="38.5"/>
+                                            <rect key="frame" x="94" y="14" width="255" height="38.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -89,7 +90,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="באשכול 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94p-td-38M">
-                                            <rect key="frame" x="8" y="54" width="61.5" height="32"/>
+                                            <rect key="frame" x="8" y="54" width="66" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -157,7 +158,7 @@
                                     <rect key="frame" x="1" y="87.5" width="357" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-8u-4fh">
-                                            <rect key="frame" x="118.5" y="14" width="230.5" height="38.5"/>
+                                            <rect key="frame" x="94" y="14" width="255" height="38.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -175,13 +176,13 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="בעוד 46 דקות" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-AD-mWC">
-                                            <rect key="frame" x="260" y="66.5" width="89" height="19.5"/>
+                                            <rect key="frame" x="253.5" y="66.5" width="95.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="באשכול 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-WS-RDI">
-                                            <rect key="frame" x="8" y="54" width="61.5" height="32"/>
+                                            <rect key="frame" x="8" y="54" width="66" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -227,14 +228,23 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
-                    <rect key="frame" x="8" y="597" width="359" height="40"/>
+                    <rect key="frame" x="8" y="619" width="163.5" height="40"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="עבור לאירועים שלי">
+                    <state key="normal" title="האירועים שלי">
                         <color key="titleColor" red="0.65098039220000004" green="0.90980392160000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="navigateToMyEventsWasClicked:" destination="-1" eventType="touchUpInside" id="kiv-i9-giW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-jy-yxT">
+                    <rect key="frame" x="203.5" y="619" width="163.5" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="תוכניה"/>
+                    <connections>
+                        <action selector="navigateToEventsWasClicked:" destination="-1" eventType="touchUpInside" id="zvO-P4-oZD"/>
                     </connections>
                 </button>
             </subviews>
@@ -242,10 +252,13 @@
             <constraints>
                 <constraint firstItem="iiY-kd-cdi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="3ch-xN-e3Q"/>
                 <constraint firstItem="GcL-hK-PrJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6vd-r8-e2n"/>
-                <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" constant="30" id="OlY-NI-9bC"/>
+                <constraint firstItem="iiY-kd-cdi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Bcu-D8-lK7"/>
+                <constraint firstItem="4ba-jy-yxT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Ni3-Bi-dum"/>
+                <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" constant="8" id="OlY-NI-9bC"/>
                 <constraint firstItem="GcL-hK-PrJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ViQ-fv-oft"/>
-                <constraint firstAttribute="trailing" secondItem="iiY-kd-cdi" secondAttribute="trailing" constant="8" id="hMb-ZQ-fih"/>
+                <constraint firstAttribute="bottom" secondItem="4ba-jy-yxT" secondAttribute="bottom" constant="8" id="aZ2-N4-ocM"/>
                 <constraint firstAttribute="trailing" secondItem="GcL-hK-PrJ" secondAttribute="trailing" constant="8" id="kmO-a4-vkF"/>
+                <constraint firstAttribute="trailing" secondItem="4ba-jy-yxT" secondAttribute="trailing" constant="8" id="zkd-eD-g5n"/>
             </constraints>
             <point key="canvasLocation" x="-345" y="121"/>
         </view>
