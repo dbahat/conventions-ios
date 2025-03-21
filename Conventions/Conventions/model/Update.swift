@@ -13,11 +13,13 @@ class Update {
     var text: String = "";
     var date: Date = Date.now();
     var isNew = true;
+    var category: String = "";
     
-    init(id: String, text: String, date: Date) {
-        self.id = id;
-        self.text = text;
-        self.date = date;
+    init(id: String, text: String, date: Date, category: String) {
+        self.id = id
+        self.text = text
+        self.date = date
+        self.category = category
     }
     
     init?(json: Dictionary<String, AnyObject>) {
@@ -25,14 +27,16 @@ class Update {
         guard let text = json["text"] as? String else {return nil}
         guard let date = json["date"] as? TimeInterval else {return nil}
         guard let isNew = json["isNew"] as? Bool else {return nil}
+        guard let category = json["category"] as? String else {return nil}
         
-        self.id = id;
-        self.text = text;
-        self.date = Date(timeIntervalSince1970: date);
-        self.isNew = isNew;
+        self.id = id
+        self.text = text
+        self.date = Date(timeIntervalSince1970: date)
+        self.isNew = isNew
+        self.category = category
     }
     
     func toJson() -> Dictionary<String, AnyObject> {
-        return ["id": id as AnyObject, "text": text as AnyObject, "date": date.timeIntervalSince1970 as AnyObject, "isNew": isNew as AnyObject];
+        return ["id": id as AnyObject, "text": text as AnyObject, "date": date.timeIntervalSince1970 as AnyObject, "isNew": isNew as AnyObject, "category": category as AnyObject];
     }
 }

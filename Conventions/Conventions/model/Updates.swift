@@ -9,9 +9,10 @@
 import Foundation
 
 class Updates {
-    fileprivate static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug="+Convention.name;
-    fileprivate static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
-    fileprivate var updates: Array<Update> = [];
+    private static let apiUrl = "https://api.sf-f.org.il/announcements/get.php?slug=" + Convention.name;
+    private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + Convention.name + "Updates.json";
+    private var updates: Array<Update> = [];
+    private static let testCategory = "test"
     
     init() {
         if let cachedUpdates = load() {
@@ -20,7 +21,8 @@ class Updates {
     }
     
     func getAll() -> Array<Update> {
-        return updates;
+        return updates
+            .filter({$0.category != Convention.name + "_" + Updates.testCategory})
     }
     
     func markAllAsRead() {
@@ -88,19 +90,23 @@ class Updates {
             }
             
             guard let id = update["id"] as? String else {
-                print("Got update without ID. Skipping");
+                print("Got update without id. Skipping");
                 continue;
             }
             guard let text = update["content"] as? String else {
-                print("Got update without ID. Skipping");
+                print("Got update without content. Skipping");
                 continue;
             }
             guard let time = update["update_time"] as? String else {
-                print("Got update without ID. Skipping");
+                print("Got update without update_time. Skipping");
+                continue;
+            }
+            guard let category = update["category"] as? String else {
+                print("Got update without category. Skipping");
                 continue;
             }
             
-            result.append(Update(id: id, text: text, date: parseDate(time)))
+            result.append(Update(id: id, text: text, date: parseDate(time), category: category))
         }
         
         return result
