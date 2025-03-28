@@ -53,7 +53,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
         feedbackView.buttonColorPressed = Colors.feedbackButtonPressedColor
         feedbackView.linkColor = Colors.feedbackLinksColorConvention
         
-        feedbackView.backgroundColor = Colors.icon2024_cream50_transparent_90
+        feedbackView.backgroundColor = Colors.conventionFeedbackViewBackgroundColor
         feedbackView.layer.cornerRadius = 4
         
         feedbackView.setFeedback(

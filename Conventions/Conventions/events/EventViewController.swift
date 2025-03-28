@@ -85,9 +85,9 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventTitle.textColor = Colors.textColor
         eventSubTitle.textColor = Colors.eventSubTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
-        eventTitleContainer.backgroundColor = Colors.icon2024_clay50
-        eventSubTitleContainer.backgroundColor = Colors.icon2024_clay100
-        eventTypeAndCategoryContainer.backgroundColor = Colors.icon2024_clay400
+        eventTitleContainer.backgroundColor = Colors.eventTitleBackgroundColor
+        eventSubTitleContainer.backgroundColor = Colors.eventSubtitleBackgroundColor
+        eventTypeAndCategoryContainer.backgroundColor = Colors.eventTypeAndCategoryBackgroundColor
         
         eventTypeAndCategoryContainer.layer.cornerRadius = 4
         eventTypeAndCategoryContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -148,7 +148,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventDescriptionTextView.delegate = self
         refreshFavoriteBarIconImage()
         
-        refreshAvailableTicketsButton.image = UIImage(named: "MenuUpdates")?.withRenderingMode(.alwaysTemplate)
+        refreshAvailableTicketsButton.image = UIImage(named: "EventRefresh")?.withRenderingMode(.alwaysTemplate)
         refreshAvailableTicketsButton.tintColor = Colors.textColor
         
         if event.directWatchAvailable && event.isEventAvailable() {
@@ -262,7 +262,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     }
     
     private func refreshFavoriteBarIconImage() {
-        navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "MenuAddedToFavorites") : UIImage(named: "MenuAddToFavorites");
+        navigationItem.rightBarButtonItem?.image = event.attending == true ? UIImage(named: "FeedbackRatingFull") : UIImage(named: "FeedbackRatingEmpty");
     }
     
     private func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
@@ -280,7 +280,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
     private func updateAvailableTicketsText(availableTicketsCount: Int) {
         
         if (availableTicketsCount == 0) {
-            availableTickets.textColor = Colors.icon2024_red
+            availableTickets.textColor = Colors.logoffButtonColor
             availableTickets.font = UIFont.boldSystemFont(ofSize: 16)
         } else {
             availableTickets.font = UIFont.systemFont(ofSize: 15)
@@ -288,9 +288,10 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         }
         
         availableTickets.text = String(
-            format: "%@. %@",
+            format: "%@ %@",
             getFormattedNumberOfTickets(availableTicketsCount),
-            event.availableTicketsLastModified == nil ? "" : "עודכן: " + event.availableTicketsLastModified!.format(getAvailableTicketsLastModifiedFormet(event.availableTicketsLastModified!)))
+            event.availableTicketsLastModified == nil ? "" : "(עודכן: " + event.availableTicketsLastModified!.format(getAvailableTicketsLastModifiedFormet(event.availableTicketsLastModified!))
+            + ")" )
     }
     
     private func getAvailableTicketsLastModifiedFormet(_ date: Date) -> String {
@@ -308,7 +309,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         case 10..<30:
             return "נותרו מעט כרטיסים"
         default:
-            return "יש כרטיסים"
+            return "נותרו כרטיסים!"
         }
     }
     

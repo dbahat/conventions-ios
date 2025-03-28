@@ -49,8 +49,8 @@ class MoreInfoViewController : BaseViewController, UITableViewDataSource, UITabl
         cell.imageIcon.image = UIImage(named: item.imageId)?.withRenderingMode(.alwaysTemplate)
         cell.titleLabel.text = item.name
         
-        cell.titleLabel.textColor = Colors.textColor
-        cell.imageIcon.tintColor = Colors.textColor
+        cell.titleLabel.textColor = Colors.homeTextColor
+        cell.imageIcon.tintColor = Colors.homeTextColor
         
         return cell
     }

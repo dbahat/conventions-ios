@@ -57,9 +57,9 @@ class EventView: UIView {
         timeLayout.layer.borderWidth = 0
         timeLayout.layer.borderColor = calculateEventColor(event: event).cgColor
         seperator.backgroundColor = Colors.eventSeperatorColor
-        eventInfoTagContainer.backgroundColor = Colors.eventInfoTagContainerBackgroundColor
+        eventInfoTagContainer.backgroundColor = Colors.eventOngoingTagBackgroundColor
         eventInfoTagContainer.layer.cornerRadius = 4
-        eventInfoTagLabel.textColor = Colors.eventInfoTagContainerTextColor
+        eventInfoTagLabel.textColor = Colors.eventOngoingTagTextColor
         
         eventInfoTagContainer.isHidden = !event.isOngoing
         

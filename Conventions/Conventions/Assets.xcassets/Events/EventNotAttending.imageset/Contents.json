@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "EventNotAttending@2x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "unfavorite.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

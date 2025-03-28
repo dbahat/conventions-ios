@@ -62,7 +62,7 @@ class NotificationSettingsViewController: BaseViewController {
         alertsLabel.textColor = Colors.textColor
         remindersLabel.textColor = Colors.textColor
         
-        contentContainerView.backgroundColor = Colors.icon2024_cream50_transparent_90
+        contentContainerView.backgroundColor = Colors.settingsBackgroundColor
         contentContainerView.layer.cornerRadius = 4
     }
     

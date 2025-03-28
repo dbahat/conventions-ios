@@ -33,6 +33,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableView.register(UINib(nibName: String(describing: SecondHandItemViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SecondHandItemViewCell.self))
         
         addRefreshController()
+        navigationItem.leftItemsSupplementBackButton = true
         
         noItemsFoundLabel.textColor = Colors.textColor
         noItemsFoundLabel.isHidden = forms.count > 0

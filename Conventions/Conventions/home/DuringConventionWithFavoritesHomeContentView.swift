@@ -92,13 +92,13 @@ class DuringConventionWithFavoritesHomeContentView : UIView {
         
         let screenRect = UIScreen.main.bounds
         
-        goToMyEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
-        goToMyEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
-        goToMyEventsButton.layer.cornerRadius = 4
-        
-        goToEventsButton.backgroundColor = Colors.homeGoToMyEventsButtonColor
-        goToEventsButton.setTitleColor(Colors.homeGoToMyEventsButtonTitleColor, for: .normal)
+        goToEventsButton.backgroundColor = Colors.homeFirstButtonColor
+        goToEventsButton.setTitleColor(Colors.homeFirstButtonTextColor, for: .normal)
         goToEventsButton.layer.cornerRadius = 4
+        
+        goToMyEventsButton.backgroundColor = Colors.homeSecondButtonColor
+        goToMyEventsButton.setTitleColor(Colors.homeSecondButtonTextColor, for: .normal)
+        goToMyEventsButton.layer.cornerRadius = 4
 
         currentEventContainer.layer.borderWidth = 0
         currentEventContainer.layer.borderColor = Colors.black.cgColor

@@ -23,7 +23,7 @@ class UpdateTableViewCell: UITableViewCell {
         container.backgroundColor = Colors.updateBackgroundColor
         container.layer.cornerRadius = 4
         
-        isNewLabel.backgroundColor = Colors.icon2024_clay600
+        isNewLabel.backgroundColor = Colors.newUpdateLabelBackgroundColor
         isNewLabel.layer.cornerRadius = 8
         
         isNewLabel.isHidden = !update.isNew
