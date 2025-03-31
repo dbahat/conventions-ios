@@ -32,9 +32,7 @@ class Convention {
     fileprivate init() {
         // The hall order affects the order the events are shown in the programme. Order was selected based on the convention website.
         halls = [
-            Hall(name: "סינמטק 1"),
-            Hall(name: "סינמטק 2"),
-            Hall(name: "סינמטק 5"),
+            Hall(name: "אירועים מיוחדים"),
             
             Hall(name: "אשכול 1"),
             Hall(name: "אשכול 2"),
@@ -42,45 +40,9 @@ class Convention {
             Hall(name: "אשכול 4"),
             Hall(name: "אשכול 5"),
             Hall(name: "אשכול 6"),
-            
-            Hall(name: "מפגשים"),
-            Hall(name: "סדנאות"),
-            Hall(name: "ילדים"),
-            Hall(name: "חוצות"),
-            Hall(name: "הזירה"),
-            Hall(name: "אירועי חוצות 2"),
-            Hall(name: "מיניאטורות 1"),
-            Hall(name: "מיניאטורות: הדגמות"),
-            
-            Hall(name: "ארועים מיוחדים"),
-            
-            Hall(name: "עירוני 1"),
-            Hall(name: "עירוני 2"),
-            Hall(name: "עירוני 3"),
-            Hall(name: "עירוני 4"),
-            Hall(name: "עירוני 5"),
-            Hall(name: "עירוני 6"),
-            Hall(name: "עירוני 7"),
-            Hall(name: "עירוני 8"),
-            Hall(name: "עירוני 9"),
-            
-            Hall(name: "אוהל 1"),
-            Hall(name: "אוהל 2"),
-            Hall(name: "אוהל 3"),
-            Hall(name: "אוהל 4"),
-            Hall(name: "אוהל 5"),
-            Hall(name: "אוהל 6"),
-            Hall(name: "אוהל 7"),
-            Hall(name: "אוהל 8"),
-            Hall(name: "אוהל 20 טבעי"),
-            
-            Hall(name: "ארטמיס 1"),
-            Hall(name: "ארטמיס 2"),
-            Hall(name: "חדר בריחה"),
-            
-            Hall(name: "חדר סדנאות"),
-            Hall(name: "משחקי קופסה 1"),
-            Hall(name: "משחקי קופסה 2")
+            Hall(name: "עירוני ילדים"),
+            Hall(name: "עירוני סדנאות"),
+            Hall(name: "עירוני מפגשים"),
         ];
         
         halls.enumerated().forEach { (index, hall) in
