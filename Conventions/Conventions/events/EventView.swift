@@ -101,8 +101,8 @@ class EventView: UIView {
                 feedbackIcon.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
                 
                 feedbackIcon.tintColor = event.attending || event.feedbackAnswers.count > 0
-                    ? Colors.eventUserNeedsToCompleteFeecbackButtonColor
-                    : dateBasedColor
+                    ? Colors.eventUserNeedsToCompleteFeedbackButtonColor
+                    : Colors.eventFeedbackButtonNoFavorite
             }
             
         } else {
