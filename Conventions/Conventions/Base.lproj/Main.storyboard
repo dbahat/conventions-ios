@@ -810,6 +810,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-xY-vOE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoreInfoItemCell" id="Qx4-RO-JYS" customClass="MoreInfoItemCell" customModule="Conventions" customModuleProvider="target">
@@ -828,13 +829,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mQ-pF-hVd">
+                                                    <rect key="frame" x="24" y="42.5" width="327" height="1"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="wnM-X7-N4L"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Cau-J5-ANa" secondAttribute="trailing" constant="8" id="3ne-Zu-wX0"/>
+                                                <constraint firstItem="3mQ-pF-hVd" firstAttribute="leading" secondItem="IE3-1Q-emr" secondAttribute="leading" constant="24" id="50o-So-cn6"/>
+                                                <constraint firstAttribute="bottom" secondItem="3mQ-pF-hVd" secondAttribute="bottom" id="Frr-zW-efL"/>
                                                 <constraint firstItem="Cau-J5-ANa" firstAttribute="leading" secondItem="mxh-Lr-6DT" secondAttribute="trailing" constant="10" id="RkM-tg-tAf"/>
                                                 <constraint firstItem="mxh-Lr-6DT" firstAttribute="centerY" secondItem="IE3-1Q-emr" secondAttribute="centerY" id="bRq-rH-bKS"/>
                                                 <constraint firstItem="Cau-J5-ANa" firstAttribute="centerY" secondItem="IE3-1Q-emr" secondAttribute="centerY" id="im1-Ih-qO6"/>
+                                                <constraint firstAttribute="trailing" secondItem="3mQ-pF-hVd" secondAttribute="trailing" constant="24" id="tca-U3-BuW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2270,7 +2281,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="186.5" height="172"/>

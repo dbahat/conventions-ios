@@ -27,6 +27,9 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         dateFilterControl.setDates(fromDate: Convention.date, toDate: Convention.endDate)
         
         noEventsLabel.textColor = Colors.hintTextColor
+        
+        progressBarView.backgroundColor = Colors.white
+        importingTicketsLabel.textColor = Colors.black
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,8 +42,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         reloadMyEvents()
         tableView.reloadData()
         progressBarView.isHidden = true
-        progressBarView.backgroundColor = Colors.white
-        importingTicketsLabel.textColor = Colors.black
+
         
         scrollToCurrentRunningEventsIfNeeded()
     }
