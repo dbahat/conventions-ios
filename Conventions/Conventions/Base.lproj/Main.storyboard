@@ -132,8 +132,8 @@
                                     <constraint firstAttribute="height" constant="39" id="U3Y-sa-qOs"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="50" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
-                                <rect key="frame" x="16" y="156" width="343" height="462"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="50" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-uB-BHT">
+                                <rect key="frame" x="16" y="164" width="343" height="454"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.28627450980000002" green="0.73333333329999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
@@ -152,16 +152,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-dD-fE6" customClass="EventView" customModule="Conventions" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="333" height="112"/>
+                                                    <rect key="frame" x="5" y="8" width="333" height="114"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="RWd-dD-fE6" secondAttribute="bottom" constant="5" id="3Tm-Zo-SKP"/>
+                                                <constraint firstAttribute="bottom" secondItem="RWd-dD-fE6" secondAttribute="bottom" id="3Tm-Zo-SKP"/>
                                                 <constraint firstItem="RWd-dD-fE6" firstAttribute="leading" secondItem="MYl-BU-zg9" secondAttribute="leading" constant="5" id="5fY-2w-Gto"/>
                                                 <constraint firstAttribute="trailing" secondItem="RWd-dD-fE6" secondAttribute="trailing" constant="5" id="lNK-0i-hzF"/>
-                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="top" constant="5" id="rxs-SZ-WEY"/>
+                                                <constraint firstItem="RWd-dD-fE6" firstAttribute="top" secondItem="MYl-BU-zg9" secondAttribute="top" constant="8" id="rxs-SZ-WEY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,7 +200,7 @@
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="centerX" secondItem="tYJ-0M-xL8" secondAttribute="centerX" id="Tqa-bE-BJV"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="top" secondItem="sUM-PN-H3K" secondAttribute="bottom" constant="1" id="UIP-ve-Wm7"/>
                             <constraint firstItem="sUM-PN-H3K" firstAttribute="top" secondItem="gtg-g3-pVk" secondAttribute="bottom" id="YLY-0q-Plg"/>
-                            <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="PUg-8I-cRS" secondAttribute="bottom" id="eKe-BD-OgF"/>
+                            <constraint firstItem="PSg-uB-BHT" firstAttribute="top" secondItem="PUg-8I-cRS" secondAttribute="bottom" constant="8" id="eKe-BD-OgF"/>
                             <constraint firstItem="QXR-6U-4hy" firstAttribute="top" secondItem="BWT-Xb-iHc" secondAttribute="bottom" id="iKK-lK-Qgo"/>
                             <constraint firstItem="wEA-7E-5dI" firstAttribute="centerY" secondItem="tYJ-0M-xL8" secondAttribute="centerY" id="iOq-7L-LM6"/>
                             <constraint firstItem="PUg-8I-cRS" firstAttribute="leading" secondItem="tYJ-0M-xL8" secondAttribute="leading" constant="5" id="ihY-yI-UKn"/>
@@ -2270,7 +2270,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r01-Z4-ri2"/>
+        <segue reference="MNM-zg-NcH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="186.5" height="172"/>

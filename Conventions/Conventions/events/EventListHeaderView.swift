@@ -10,13 +10,15 @@ import UIKit
 
 class EventListHeaderView: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var time: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.backgroundView = UIView()
-        self.backgroundView?.backgroundColor = Colors.eventTimeHeaderColor
+        backgroundView?.backgroundColor = UIColor.clear
+        headerContainer.backgroundColor = Colors.eventTimeHeaderColor
         time.textColor = Colors.eventTimeHeaderTextColor
         time.font = UIFont.boldSystemFont(ofSize: 18)
         
