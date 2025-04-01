@@ -13,8 +13,10 @@ class SecondHandItemViewCell: UITableViewCell {
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var idLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var seperatorView: UIView!
+    @IBOutlet private weak var seperatorHeight: NSLayoutConstraint!
     
-    func bind(item: SecondHand.Item, isFormClosed: Bool) {
+    func bind(item: SecondHand.Item, isFormClosed: Bool, isLastItem: Bool) {
         titleLabel.text = formatDescription(item: item).stringByDecodingHTMLEntities + " (" + item.category.text + ")"
         statusLabel.text = item.status.text
         
@@ -23,6 +25,8 @@ class SecondHandItemViewCell: UITableViewCell {
         statusLabel.textColor = textColor
         idLabel.textColor = textColor
         priceLabel.textColor = textColor
+        seperatorView.backgroundColor = Colors.secondHandSeperatorColor
+        seperatorHeight.constant = isLastItem ? 2 : 1
         
         priceLabel.text = String.init(format: "%d ש״ח", item.price)
         idLabel.text = String.init(format: "%03d/%02d", item.formId, item.indexInForm)

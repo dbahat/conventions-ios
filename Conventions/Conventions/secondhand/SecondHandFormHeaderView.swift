@@ -17,6 +17,12 @@ class SecondHandFormHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private weak var formStatusLabel: UILabel!
     @IBOutlet weak var removeButton: UIButton!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.backgroundView = UIView()
+        self.backgroundView?.backgroundColor = Colors.secondHandBackgroundColor
+    }
     
     weak var delegate: SecondHandFormProtocol?
     

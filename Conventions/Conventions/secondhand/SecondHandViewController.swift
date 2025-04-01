@@ -11,6 +11,7 @@ import FirebaseAnalytics
 
 class SecondHandViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, SecondHandFormProtocol, UIScrollViewDelegate {
     
+    @IBOutlet private weak var secondHandBackgroundView: UIImageView!
     @IBOutlet private weak var toastView: UIView!
     @IBOutlet private weak var refreshIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var noItemsFoundLabel: UILabel!
@@ -45,6 +46,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         tableView.rowHeight = UITableView.automaticDimension
         
         refreshIndicatorView.color = Colors.colorAccent
+        secondHandBackgroundView.backgroundColor = Colors.secondHandBackgroundColor
         
         refresh(force: false)
     }
@@ -69,7 +71,7 @@ class SecondHandViewController: BaseViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SecondHandItemViewCell.self)) as! SecondHandItemViewCell
         let form = forms[indexPath.section]
         let item = form.items[indexPath.row]
-        cell.bind(item: item, isFormClosed: form.status.isClosed())
+        cell.bind(item: item, isFormClosed: form.status.isClosed(), isLastItem: indexPath.row == form.items.count - 1)
         
         return cell
     }

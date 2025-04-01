@@ -45,6 +45,7 @@ class Colors {
     static let olamot2025_dark_green400 = UIColor(hexString: "#0E6337")
 
     static let olamot2025_yellow50 = UIColor(hexString: "#FFFDEB")
+    static let olamot2025_blue300 = UIColor(hexString: "#B2E1FF")
     
     static let black = UIColor.black
     static let white = UIColor.white
@@ -162,4 +163,6 @@ class Colors {
     static let staticHtmlContentColor = Colors.white
     static let settingsBackgroundColor = Colors.clear
     static let conventionFeedbackViewBackgroundColor = Colors.clear
+    static let secondHandBackgroundColor = Colors.olamot2025_blue300
+    static let secondHandSeperatorColor = Colors.olamot2025_gray900
 }
