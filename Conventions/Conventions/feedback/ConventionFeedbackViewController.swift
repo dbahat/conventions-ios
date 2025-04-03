@@ -204,6 +204,7 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
                 if submittedEventsCount == self.eventsToSubmitDataSource.events.count {
                     self.submitAllFeedbacksButton.isHidden = false
                     self.submitAllFeedbacksButtonIndicator.isHidden = true
+                    Convention.instance.eventsInputs.save()
                     
                     // reset the tableViews to reflect the new changes in submitted events
                     self.initializeEventsTableViews()
@@ -261,6 +262,14 @@ class ConventionFeedbackViewController: BaseViewController, FeedbackViewProtocol
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventTableViewCell.self)) as! EventTableViewCell
             cell.setEvent(event)
             return cell
+        }
+        
+        func numberOfSections(in tableView: UITableView) -> Int {
+            1
+        }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            122
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
