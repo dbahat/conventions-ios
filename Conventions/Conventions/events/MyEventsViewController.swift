@@ -176,9 +176,15 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     }
     
     private func logout() {
-        UserTicketsRetriever.logout()
-        UserDefaults.standard.removeObject(forKey: "userId")
-        UserDefaults.standard.removeObject(forKey: "email")
+        UserTicketsRetriever().logout(caller: self, callback: { error in
+            if error != nil {
+                TTGSnackbar(message: "ארעה שגיאה בהתנתקות. נסה שנית מאוחר יותר.", duration: TTGSnackbarDuration.middle, superView: self.toastView).show()
+                return
+            }
+            
+            UserDefaults.standard.removeObject(forKey: "userId")
+            UserDefaults.standard.removeObject(forKey: "email")
+        })
     }
     
     @IBAction func showQrWasClicked(_ sender: UIBarButtonItem) {

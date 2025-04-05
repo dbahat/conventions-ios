@@ -63,8 +63,51 @@ class UserTicketsRetriever {
         }
     }
     
-    static func logout() {
-        UserDefaults.standard.removeObject(forKey: "AuthState")
+    func logout(caller: UIViewController, callback: @escaping (_ error: Error?) -> Void) {
+        
+        if let authStateData = UserDefaults.standard.object(forKey: "AuthState") as? Data {
+
+            if let authState = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OIDAuthState.self, from: authStateData) {
+                
+                authState.performAction(freshTokens: {accessToken, idToken, error in
+                    if error != nil {
+                        callback(error)
+                        return
+                    }
+                    
+                    guard let unwrappedToken = idToken else
+                    {
+                        callback(nil)
+                        return
+                    }
+                    
+                    OIDAuthorizationService.discoverConfiguration(forIssuer: self.issuer) { configuration, error in
+                        guard
+                            let config = configuration,
+                            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                        else {
+                            callback(error)
+                            return
+                        }
+                        
+                        let request = OIDEndSessionRequest(configuration: config, idTokenHint: unwrappedToken, postLogoutRedirectURL: self.redirectURI, additionalParameters: nil)
+                        
+                        let agent = OIDExternalUserAgentIOS(presenting: caller)!
+
+                        appDelegate.currentAuthorizationFlow = OIDAuthorizationService.present(request, externalUserAgent: agent) { [weak self] (response, error) in
+                            if let error = error {
+                                callback(error)
+                            } else {
+                                UserDefaults.standard.removeObject(forKey: "AuthState")
+                                callback(nil)
+                            }
+                        }
+                    }
+                })
+                
+                
+            }
+        }
     }
     
     private func interactiveLogin(caller: UIViewController, callback: @escaping (_ result: OIDAuthState?, _ error: Error?) -> Void) {
