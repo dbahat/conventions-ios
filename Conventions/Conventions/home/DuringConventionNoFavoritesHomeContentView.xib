@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-A5-JUs">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sb2-Em-jjH">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-eX-g27">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -46,7 +46,7 @@
                                     </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-vF-SEq">
-                                    <rect key="frame" x="0.0" y="40" width="375" height="549"/>
+                                    <rect key="frame" x="0.0" y="40" width="375" height="513"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -77,7 +77,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yog-L5-8KG">
-                    <rect key="frame" x="203.5" y="619" width="163.5" height="40"/>
+                    <rect key="frame" x="203.5" y="583" width="163.5" height="40"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="תוכניה">
@@ -88,7 +88,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laO-wm-EIU">
-                    <rect key="frame" x="8" y="619" width="163.5" height="40"/>
+                    <rect key="frame" x="8" y="583" width="163.5" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="האירועים שלי"/>
@@ -99,7 +99,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" constant="8" id="B8u-TK-w9W"/>
+                <constraint firstAttribute="bottom" secondItem="Yog-L5-8KG" secondAttribute="bottom" constant="44" id="B8u-TK-w9W"/>
                 <constraint firstItem="Yog-L5-8KG" firstAttribute="top" secondItem="Hcj-A5-JUs" secondAttribute="bottom" id="BcB-K3-r1Q"/>
                 <constraint firstItem="laO-wm-EIU" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Sd2-sA-lY9"/>
                 <constraint firstItem="Yog-L5-8KG" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="XEq-dB-57V"/>

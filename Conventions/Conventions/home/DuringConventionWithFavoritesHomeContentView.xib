@@ -228,7 +228,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
-                    <rect key="frame" x="8" y="619" width="163.5" height="40"/>
+                    <rect key="frame" x="8" y="583" width="163.5" height="40"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="האירועים שלי">
@@ -239,7 +239,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-jy-yxT">
-                    <rect key="frame" x="203.5" y="619" width="163.5" height="40"/>
+                    <rect key="frame" x="203.5" y="583" width="163.5" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="תוכניה"/>
@@ -254,9 +254,9 @@
                 <constraint firstItem="GcL-hK-PrJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6vd-r8-e2n"/>
                 <constraint firstItem="iiY-kd-cdi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Bcu-D8-lK7"/>
                 <constraint firstItem="4ba-jy-yxT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Ni3-Bi-dum"/>
-                <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" constant="8" id="OlY-NI-9bC"/>
+                <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" constant="44" id="OlY-NI-9bC"/>
                 <constraint firstItem="GcL-hK-PrJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ViQ-fv-oft"/>
-                <constraint firstAttribute="bottom" secondItem="4ba-jy-yxT" secondAttribute="bottom" constant="8" id="aZ2-N4-ocM"/>
+                <constraint firstAttribute="bottom" secondItem="4ba-jy-yxT" secondAttribute="bottom" constant="44" id="aZ2-N4-ocM"/>
                 <constraint firstAttribute="trailing" secondItem="GcL-hK-PrJ" secondAttribute="trailing" constant="8" id="kmO-a4-vkF"/>
                 <constraint firstAttribute="trailing" secondItem="4ba-jy-yxT" secondAttribute="trailing" constant="8" id="zkd-eD-g5n"/>
             </constraints>
