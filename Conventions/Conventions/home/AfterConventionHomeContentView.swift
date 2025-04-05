@@ -12,9 +12,7 @@ class AfterConventionHomeContentView : UIView {
     
     weak var delegate: ConventionHomeContentViewProtocol?
     
-    @IBOutlet private weak var titleContainer: UIView!
     @IBOutlet private weak var contentContainer: UIView!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var container: RoundedView!
     @IBOutlet private weak var sendFeedbackLabel: UILabel!
     @IBOutlet private weak var thanksForComingLabel: UILabel!
@@ -31,10 +29,8 @@ class AfterConventionHomeContentView : UIView {
     
     private func commonInit() {
         inflateNib(AfterConventionHomeContentView.self)
-        titleContainer.backgroundColor = Colors.clear
-        contentContainer.backgroundColor = Colors.buttonColor
-        titleLabel.textColor = Colors.textColor
-        thanksForComingLabel.textColor = Colors.textColor
+        contentContainer.backgroundColor = Colors.homeFirstButtonColor
+        thanksForComingLabel.textColor = Colors.homeFirstButtonTextColor
         sendFeedbackLabel.textColor = Colors.homeFirstButtonTextColor
         
         contentContainer.layer.cornerRadius = 4
