@@ -207,7 +207,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
         controller.topLabel = topLabelMessage
         controller.midLabel = "שם משתמש: \(email)"
         
-        if userId != "" && qrData != nil {
+        if userId != "" {
             controller.bottomLabel = "מספר משתמש: \(userId)"
             controller.shouldHideUpdatesButtonImage = true
         } else {
