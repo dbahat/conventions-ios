@@ -21,6 +21,10 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
     var shouldScrollToCurrentDateAndTime = true
     private var myEvents: Array<ConventionEvent>?
     
+    private static var userIdKey = "userId_" + Convention.name
+    private static var emailKey = "email_" + Convention.name
+    private static var qrDataKey = "qrData_" + Convention.name
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -167,9 +171,9 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             self.reloadMyEvents()
             self.tableView.reloadData()
             
-            UserDefaults.standard.set(importedEvents.userId, forKey: "userId")
-            UserDefaults.standard.set(importedEvents.email, forKey: "email")
-            UserDefaults.standard.set(importedEvents.qrData, forKey: "qrData")
+            UserDefaults.standard.set(importedEvents.userId, forKey: MyEventsViewController.userIdKey)
+            UserDefaults.standard.set(importedEvents.email, forKey: MyEventsViewController.emailKey)
+            UserDefaults.standard.set(importedEvents.qrData, forKey: MyEventsViewController.qrDataKey)
                             
             self.showImportedTicketsViewController(userId: importedEvents.userId, email: importedEvents.email, numberOfImported: newlyImportedEvents.count, qrData: importedEvents.qrData)
         })
@@ -182,15 +186,15 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
                 return
             }
             
-            UserDefaults.standard.removeObject(forKey: "userId")
-            UserDefaults.standard.removeObject(forKey: "email")
+            UserDefaults.standard.removeObject(forKey: MyEventsViewController.userIdKey)
+            UserDefaults.standard.removeObject(forKey: MyEventsViewController.emailKey)
         })
     }
     
     @IBAction func showQrWasClicked(_ sender: UIBarButtonItem) {
         guard
-            var userId = UserDefaults.standard.string(forKey: "userId"),
-            let email = UserDefaults.standard.string(forKey: "email")
+            var userId = UserDefaults.standard.string(forKey: MyEventsViewController.userIdKey),
+            let email = UserDefaults.standard.string(forKey: MyEventsViewController.emailKey)
         else {
             // in case there's stored user data show the import events dialog
             importEventsWasClicked(sender)
@@ -238,7 +242,7 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             self.logout()
             controller.dismiss(animated: true)
         }
-        if let qrData = UserDefaults.standard.data(forKey: "qrData") {
+        if let qrData = UserDefaults.standard.data(forKey: MyEventsViewController.qrDataKey) {
             controller.image = UIImage(data: qrData)
         }
 

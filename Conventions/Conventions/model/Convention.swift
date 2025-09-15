@@ -10,10 +10,10 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2025, month: 04, day: 16)
-    static let endDate = Date.from(year: 2025, month: 04, day: 17)
-    static let name = "olamot2025"
-    static let displayName = "כנס עולמות 2025"
+    static let date = Date.from(year: 2025, month: 10, day: 08)
+    static let endDate = Date.from(year: 2025, month: 10, day: 10)
+    static let name = "icon2025"
+    static let displayName = "פסטיבל אייקון 2025"
     
     var halls: Array<Hall>
     var events: Events
@@ -40,9 +40,36 @@ class Convention {
             Hall(name: "אשכול 4"),
             Hall(name: "אשכול 5"),
             Hall(name: "אשכול 6"),
-            Hall(name: "עירוני ילדים"),
+            Hall(name: "ילדים"),
             Hall(name: "עירוני סדנאות"),
-            Hall(name: "עירוני מפגשים"),
+            Hall(name: "מפגשים"),
+            
+            Hall(name: "עירוני 1"),
+            Hall(name: "עירוני 2"),
+            Hall(name: "עירוני 3"),
+            Hall(name: "עירוני 4"),
+            Hall(name: "עירוני 5"),
+            Hall(name: "עירוני 6"),
+            Hall(name: "עירוני 7"),
+            Hall(name: "עירוני 8"),
+            Hall(name: "עירוני 9"),
+            Hall(name: "עירוני 10"),
+            
+            Hall(name: "סינמטק 1"),
+            Hall(name: "סינמטק 2"),
+            Hall(name: "סינמטק 3"),
+            Hall(name: "סינמטק 4"),
+            Hall(name: "סינמטק 5"),
+            
+            Hall(name: "משחקי קופסה 1"),
+            Hall(name: "משחקי קופסה 2"),
+            
+            Hall(name: "סדנאות 1"),
+            Hall(name: "סדנאות 2"),
+            
+            Hall(name: "החללית"),
+            Hall(name: "חוצות"),
+            Hall(name: "אייקוד"),
         ];
         
         halls.enumerated().forEach { (index, hall) in

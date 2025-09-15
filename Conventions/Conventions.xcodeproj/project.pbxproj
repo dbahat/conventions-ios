@@ -105,7 +105,7 @@
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
 		863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */; };
-		869D99132D8D8840008898CB /* olamot2025Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 869D99122D8D8840008898CB /* olamot2025Events.json */; };
+		86CD6A0E2E788EE00023D1CD /* icon2025Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 86CD6A0D2E788EE00023D1CD /* icon2025Events.json */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
@@ -226,7 +226,7 @@
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoItemCell.swift; sourceTree = "<group>"; };
-		869D99122D8D8840008898CB /* olamot2025Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2025Events.json; sourceTree = "<group>"; };
+		86CD6A0D2E788EE00023D1CD /* icon2025Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2025Events.json; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				869D99122D8D8840008898CB /* olamot2025Events.json */,
+				86CD6A0D2E788EE00023D1CD /* icon2025Events.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -632,11 +632,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC755721F7FE67D005B051C /* SecondHandItemViewCell.xib in Resources */,
+				86CD6A0E2E788EE00023D1CD /* icon2025Events.json in Resources */,
 				3BF22D461D9EC5490090E8E6 /* ArrivalMethodsContent.html in Resources */,
 				3B5E0C781C933B2D004BF8AE /* LaunchScreen.storyboard in Resources */,
 				3B8D9FF21D1DA068005181DA /* SmileyFeedbackQuestionCell.xib in Resources */,
 				3BF22D451D9EC5490090E8E6 /* AboutContent.html in Resources */,
-				869D99132D8D8840008898CB /* olamot2025Events.json in Resources */,
 				3B4B4A7C1D35823600943EF5 /* TableMultipleAnswerFeedbackQuestionCell.xib in Resources */,
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,

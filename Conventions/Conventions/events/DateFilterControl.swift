@@ -29,9 +29,6 @@ class DateFilterControl : UISegmentedControl {
         segmentDates = []
         for i in 0...getNumberOfDays(fromDate: fromDate.clearTimeComponent(), toDate: self.toDate) {
             let date = toDate.addDays(-i)
-            if isWeekend(date) {
-                continue
-            }
             let segmentTitle = date.format("EEE (dd.MM)")
             insertSegment(withTitle: segmentTitle , at: i, animated: false)
             segmentTitles?.append(segmentTitle)

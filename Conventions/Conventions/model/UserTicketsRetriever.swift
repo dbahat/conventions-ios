@@ -10,18 +10,19 @@ import Foundation
 
 class UserTicketsRetriever {
     
-    private let issuer = URL(string: "https://sso.sf-f.org.il/auth/realms/sf-f")!
+    private let issuer = URL(string: "https://sso.sf-f.org.il/realms/sf-f")!
     private let clientId = "con_apps_v2"
     private let redirectURI = URL(string: "sf-f.conventions://oauth2redirect/sff")!
-    
+
     private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/cod3/events_per_user_sso?slug=" + Convention.name)!
     private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/cod3/get_user_id_sso?slug=" + Convention.name)!
     private static let qrApi = "https://api.sf-f.org.il/cons/qr/byToken"
-    
+    private static let appStateKey = "AuthState_" + Convention.name
+
     func retrieve(caller: UIViewController, callback: @escaping (_ result: Tickets, _ error: Error?) -> Void) {
         
         if
-            let data = UserDefaults.standard.object(forKey: "AuthState") as? Data,
+            let data = UserDefaults.standard.object(forKey: UserTicketsRetriever.appStateKey) as? Data,
             let authState = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OIDAuthState.self, from: data) {
                 authState.performAction(freshTokens: {accessToken, idToken, error in
                     if error != nil {
@@ -65,7 +66,7 @@ class UserTicketsRetriever {
     
     func logout(caller: UIViewController, callback: @escaping (_ error: Error?) -> Void) {
         
-        if let authStateData = UserDefaults.standard.object(forKey: "AuthState") as? Data {
+        if let authStateData = UserDefaults.standard.object(forKey: UserTicketsRetriever.appStateKey) as? Data {
 
             if let authState = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OIDAuthState.self, from: authStateData) {
                 
@@ -98,7 +99,7 @@ class UserTicketsRetriever {
                             if let error = error {
                                 callback(error)
                             } else {
-                                UserDefaults.standard.removeObject(forKey: "AuthState")
+                                UserDefaults.standard.removeObject(forKey: UserTicketsRetriever.appStateKey)
                                 callback(nil)
                             }
                         }
@@ -138,7 +139,7 @@ class UserTicketsRetriever {
                 if let state = authState,
                    let data = try? NSKeyedArchiver.archivedData(withRootObject: state, requiringSecureCoding: true)
                 {
-                    UserDefaults.standard.set(data, forKey: "AuthState")
+                    UserDefaults.standard.set(data, forKey: UserTicketsRetriever.appStateKey)
                 }
 
                 callback(authState, error)
