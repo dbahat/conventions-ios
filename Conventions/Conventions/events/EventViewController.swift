@@ -82,7 +82,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
             feedbackViewHeightConstraint.constant = 0
         }
                 
-        eventTitle.textColor = Colors.textColor
+        eventTitle.textColor = Colors.eventSubTitleTextColor
         eventSubTitle.textColor = Colors.eventSubTitleTextColor
         eventTypeAndCategory.textColor = Colors.eventTitleTextColor
         eventTitleContainer.backgroundColor = Colors.eventTitleBackgroundColor

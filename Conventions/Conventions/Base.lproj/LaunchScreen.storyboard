@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.4392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Rb-1lE">
-                                <rect key="frame" x="74" y="263" width="227" height="141.5"/>
+                                <rect key="frame" x="47.5" y="302" width="280" height="63.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
@@ -48,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HomeBackground" width="300" height="532.5"/>
-        <image name="HomeImage" width="227" height="141.5"/>
+        <image name="HomeBackground" width="300" height="608.5"/>
+        <image name="HomeImage" width="280" height="63.5"/>
     </resources>
 </document>
