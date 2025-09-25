@@ -141,17 +141,8 @@ class SecondHand {
         let category: Category
         
         struct Status : Codable {
-            let id: Id
+            let id: Int
             let text: String
-            
-            enum Id : Int, Codable {
-                case created = 1
-                case ready
-                case sold
-                case missing
-                case returned
-                case other
-            }
         }
         
         struct Category : Codable {

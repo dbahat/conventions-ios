@@ -200,7 +200,7 @@ class Colors {
     static let mapIndicatorColor = UIColor.clear
     static let mapIndicatorSelectedColor = UIColor.clear
     
-    static let staticHtmlContentColor = Colors.white
+    static let staticHtmlContentColor = Colors.icon2025_gold100
     static let settingsBackgroundColor = Colors.clear
     static let conventionFeedbackViewBackgroundColor = Colors.icon2025_gold100
     static let secondHandBackgroundColor = Colors.clear
