@@ -30,6 +30,6 @@ class AboutViewController : BaseViewController {
         abountContentTextView.backgroundColor = Colors.staticHtmlContentColor
         abountContentTextView.layer.cornerRadius = 4
         
-        navigationItem.title = "אודות הכנס"
+        navigationItem.title = "אודות הפסטיבל"
     }
 }

@@ -164,7 +164,7 @@ class Colors {
     
     
     // SecondHand colorss
-    static let secondHandClosedFormColor = Colors.icon2025_brown800
+    static let secondHandClosedFormColor = Colors.icon2025_brown300
     static let secondHandOpenFormColor = Colors.icon2025_brown800
     static let secondHandHeaderBackgroundColor = Colors.clear
     
@@ -203,6 +203,14 @@ class Colors {
     static let staticHtmlContentColor = Colors.icon2025_gold100
     static let settingsBackgroundColor = Colors.clear
     static let conventionFeedbackViewBackgroundColor = Colors.icon2025_gold100
+    
     static let secondHandBackgroundColor = Colors.clear
     static let secondHandSeperatorColor = Colors.icon2025_brown300
+    static let secondHandStatusClosedColor = Colors.icon2025_brown300
+    static let secondHandStatusCreatedColor = Colors.icon2025_blue2_600
+    static let secondHandStatusSoldColor = Colors.icon2025_green200
+    static let secondHandStatusMissingColor = Colors.icon2025_red
+    static let secondHandStatusDefaultColor = Colors.icon2025_brown800
+    static let secondHandRemoveFormButtonColor = Colors.icon2025_blue1_500
+    
 }

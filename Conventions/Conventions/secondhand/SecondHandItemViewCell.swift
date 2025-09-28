@@ -22,7 +22,7 @@ class SecondHandItemViewCell: UITableViewCell {
         
         let textColor = isFormClosed ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
         titleLabel.textColor = textColor
-        statusLabel.textColor = textColor
+        statusLabel.textColor = isFormClosed ? Colors.secondHandClosedFormColor : item.status.color()
         idLabel.textColor = textColor
         priceLabel.textColor = textColor
         seperatorView.backgroundColor = Colors.secondHandSeperatorColor

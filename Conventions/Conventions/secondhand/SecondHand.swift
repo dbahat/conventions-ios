@@ -143,6 +143,19 @@ class SecondHand {
         struct Status : Codable {
             let id: Int
             let text: String
+            
+            func color() -> UIColor {
+                switch id {
+                case 1:
+                    return Colors.secondHandStatusCreatedColor
+                case 3:
+                    return Colors.secondHandStatusSoldColor
+                case 4:
+                    return Colors.secondHandStatusMissingColor
+                default:
+                    return Colors.secondHandStatusDefaultColor
+                }
+            }
         }
         
         struct Category : Codable {

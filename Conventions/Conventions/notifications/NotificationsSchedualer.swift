@@ -32,7 +32,7 @@ class NotificationsSchedualer {
             notification.alertTitle = "עזור לנו להשתפר"
         }
         notification.alertBody = String(format: "%@ הסתיים, ואנחנו רוצים לשמוע את דעתך", arguments: [Convention.displayName]);
-        notification.alertAction = "מלא פידבק על הכנס"
+        notification.alertAction = "מלא פידבק על הפסטיבל"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = [CONVENTION_FEEDBACK_INFO: true];
         UIApplication.shared.scheduleLocalNotification(notification)
@@ -57,7 +57,7 @@ class NotificationsSchedualer {
             notification.alertTitle = "הזדמנות אחרונה להשפיע"
         }
         notification.alertBody = String(format: "נהנתם ב%@? נשארו רק עוד 3 ימים לשליחת פידבק!", arguments: [Convention.displayName]);
-        notification.alertAction = "מלא פידבק על הכנס"
+        notification.alertAction = "מלא פידבק על הפסטיבל"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = [CONVENTION_FEEDBACK_LAST_CHANCE_INFO: true];
         UIApplication.shared.scheduleLocalNotification(notification)

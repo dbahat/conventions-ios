@@ -34,7 +34,7 @@ class SecondHandFormHeaderView: UITableViewHeaderFooterView {
             
                 formIdLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
                 formStatusLabel.textColor = unwrapped.status.isClosed() ? Colors.secondHandClosedFormColor : Colors.secondHandOpenFormColor
-                removeButton.setTitleColor(Colors.buttonColor, for: .normal)
+                removeButton.setTitleColor(Colors.secondHandRemoveFormButtonColor, for: .normal)
                 self.contentView.backgroundColor = Colors.secondHandHeaderBackgroundColor
             }
         }
