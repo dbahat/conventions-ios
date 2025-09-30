@@ -112,7 +112,7 @@ class Colors {
     static let eventTimeHeaderColor = Colors.icon2025_pink100
     static let eventTimeHeaderTextColor = Colors.icon2025_blue1_500
     static let buttonColor = Colors.icon2025_blue2_400
-    static let logoffButtonColor = Colors.icon2025_pink500
+    static let logoffButtonColor = Colors.icon2025_red
     static let buttonPressedColor = Colors.icon2025_blue2_600
     static let buttonDisabledColor = Colors.icon2025_gray200
     

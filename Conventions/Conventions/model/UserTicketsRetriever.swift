@@ -133,7 +133,7 @@ class UserTicketsRetriever {
                                                   scopes: [OIDScopeOpenID, OIDScopeProfile],
                                                   redirectURL: self.redirectURI,
                                                   responseType: OIDResponseTypeCode,
-                                                  additionalParameters: ["prompt":"login"])
+                                                  additionalParameters: ["prompt":"login", "ui_locales": "he"])
             
             appDelegate.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, presenting: caller) { authState, error in
                 if let state = authState,
