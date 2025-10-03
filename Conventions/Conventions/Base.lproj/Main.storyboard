@@ -2170,7 +2170,7 @@
         <!--פעילויות במתחם-->
         <scene sceneID="liE-RF-26e">
             <objects>
-                <viewController storyboardIdentifier="ActivitiesViewController" extendedLayoutIncludesOpaqueBars="YES" id="fyL-PP-F77" userLabel="פעילויות במתחם" customClass="ActivitiesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivitesViewController" extendedLayoutIncludesOpaqueBars="YES" id="fyL-PP-F77" userLabel="פעילויות במתחם" customClass="ActivitiesViewController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wYE-Re-jjV"/>
                         <viewControllerLayoutGuide type="bottom" id="eCW-CJ-mL1"/>
@@ -2212,7 +2212,7 @@
                                                                         <constraint firstAttribute="height" constant="160" id="ae3-uO-OOh"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy0-lk-bkx">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy0-lk-bkx">
                                                                     <rect key="frame" x="0.0" y="172" width="329" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -2275,7 +2275,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="פעילויות במתחם" id="RxV-PS-a95"/>
                     <connections>
-                        <outlet property="topLabel" destination="Hz0-rc-pa8" id="lh3-wS-2la"/>
+                        <outlet property="backgroundStackView" destination="n1m-lF-uby" id="xOy-0W-ZWo"/>
+                        <outlet property="topLabel" destination="Hz0-rc-pa8" id="tS3-kx-41T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IB8-EF-nZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2284,7 +2285,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNM-zg-NcH"/>
+        <segue reference="r01-Z4-ri2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AboutLogo" width="280" height="63.5"/>

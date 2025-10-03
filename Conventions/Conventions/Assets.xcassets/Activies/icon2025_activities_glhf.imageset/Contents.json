@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "icon2025_activities_glhf 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icon2025_activities_glhf 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-dice-64.png",
+      "filename" : "icon2025_activities_glhf.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
