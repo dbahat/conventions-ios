@@ -100,7 +100,7 @@ class DiscountsViewController : DiscountsAndActivitiesViewController {
                  linkUrl: "https://gregcafe.co.il/branch/%D7%92%D7%A8%D7%92-tlv"),
                         
                         
-            Item(text: "העסקים הבאים העניקו חסות לפסטיבל אייקון:", title: true),
+            Item(text: "העסקים הבאים העניקו חסות לכנס עולמות:", title: true),
             
             Item(text: "משחקי ליאם מתרגמת ומנגישה מגוון משחקים נבחרים מהטופ העולמי.<br>המגוון הרחב שלנו מתאים לשחקנים ותיקים, מתחילים ומשפחות.",
                  image: UIImage(named: "icon2025_discounts_liam"),
