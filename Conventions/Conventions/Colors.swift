@@ -138,7 +138,7 @@ class Colors {
     static let eventNotStartedColor = Colors.olamot2026_blue200
     static let eventRunningTimeTextColor = Colors.white
     static let eventNotRunningTimeTextColor = Colors.textColor
-    static let eventUserNeedsToCompleteFeedbackButtonColor = Colors.olamot2026_blue500
+    static let eventUserNeedsToCompleteFeedbackButtonColor = Colors.olamot2026_gray300
     static let eventFeedbackButtonNoFavorite = Colors.olamot2026_blue500
     static let eventMarkedAsFavorite = Colors.olamot2026_copper
     static let eventNotMarkedAsFavorite = Colors.olamot2026_gray300
