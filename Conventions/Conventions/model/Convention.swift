@@ -32,8 +32,6 @@ class Convention {
     fileprivate init() {
         // The hall order affects the order the events are shown in the programme. Order was selected based on the convention website.
         halls = [
-            Hall(name: "אירועים מיוחדים"),
-            
             Hall(name: "אשכול 1"),
             Hall(name: "אשכול 2"),
             Hall(name: "אשכול 3"),
@@ -41,9 +39,7 @@ class Convention {
             Hall(name: "אשכול 5"),
             Hall(name: "אשכול 6"),
             Hall(name: "ילדים"),
-            Hall(name: "עירוני סדנאות"),
-            Hall(name: "עירוני מפגשים"),
-            Hall(name: "עירוני ילדים"),
+
             Hall(name: "מפגשים"),
             
             Hall(name: "עירוני 1"),
@@ -72,6 +68,12 @@ class Convention {
             Hall(name: "החללית"),
             Hall(name: "חוצות"),
             Hall(name: "אייקוד"),
+            
+            Hall(name: "עירוני סדנאות"),
+            Hall(name: "עירוני מפגשים"),
+            Hall(name: "עירוני ילדים"),
+            
+            Hall(name: "אירועים מיוחדים"),
         ];
         
         halls.enumerated().forEach { (index, hall) in
@@ -89,6 +91,8 @@ class Convention {
             url: URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdwefudcwQye8_91qW9wzocvVOYMFsrZyPG6P7_79qBCat57Q/formResponse")!,
             conventionNameEntry: "entry.1882876736",
             deviceIdEntry: "entry.312890800",
+            osEntry: "entry.2141102636",
+            versionEntry: "entry.1078400994",
             questionToFormEntry: ["גיל" : "entry.415572741", "באיזו מידה נהנית מהכנס?" : "entry.1327236956", "האם המפה והשילוט היו ברורים ושימושיים?" : "entry.1416969956", "אם היה אירוע שרצית ללכת אילו ולא הלכת, מה הסיבה לכך?" : "entry.1582215667", "הצעות לשיפור ונושאים לשימור": "entry.993320932"])
         
         eventFeedbackForm = SurveyForm.EventFeedback(
@@ -98,6 +102,8 @@ class Convention {
             eventTitleEntry: "entry.1847107867",
             eventTimeEntry: "entry.1648362575",
             hallEntry: "entry.1510105148",
+            osEntry: "entry.1637672939",
+            versionEntry: "entry.757753933",
             questionToFormEntry: ["האם נהנית באירוע?": "entry.415572741", "ההנחיה באירוע היתה:" : "entry.1327236956", "האם תרצה לבוא לאירועים בנושאים דומים בעתיד?": "entry.1416969956", "נשמח לדעת למה": "entry.1582215667"])
     }
     

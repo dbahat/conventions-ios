@@ -62,10 +62,14 @@ class SurveyForm {
     class Feedback : SurveyForm {
         let conventionNameEntry: String
         let deviceIdEntry: String
+        let osEntry: String
+        let versionEntry: String
         
-        init(url: URL, conventionNameEntry: String, deviceIdEntry: String, questionToFormEntry: Dictionary<String, String>) {
+        init(url: URL, conventionNameEntry: String, deviceIdEntry: String, osEntry: String, versionEntry: String, questionToFormEntry: Dictionary<String, String>) {
             self.conventionNameEntry = conventionNameEntry
             self.deviceIdEntry = deviceIdEntry
+            self.osEntry = osEntry
+            self.versionEntry = versionEntry
             
             super.init(url: url, questionToFormEntry: questionToFormEntry)
         }
@@ -76,10 +80,17 @@ class SurveyForm {
         
         fileprivate func generatePostBody(conventionName: String, answers: Array<FeedbackAnswer>) -> String {
             var postString = generatePostBody(answers: answers)
-            
-            postString.append(String(format: "&%@=%@",
+                .appending(String(format: "&%@=%@",
                                      conventionNameEntry,
                                      conventionName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!))
+                .appending(
+                    String(format: "&%@=%@",
+                           versionEntry,
+                           Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"))
+                .appending(
+                    String(format: "&%@=%@",
+                           osEntry,
+                           "iOS"))
             
             if let deviceId = UIDevice.current.identifierForVendor {
                 postString.append(String(format: "&%@=%@", deviceIdEntry, deviceId.uuidString))
@@ -100,13 +111,15 @@ class SurveyForm {
              eventTitleEntry: String,
              eventTimeEntry: String,
              hallEntry: String,
+             osEntry: String,
+             versionEntry: String,
              questionToFormEntry: Dictionary<String, String>) {
 
             self.eventTitleEntry = eventTitleEntry
             self.eventTimeEntry = eventTimeEntry
             self.hallEntry = hallEntry
             
-            super.init(url: url, conventionNameEntry: conventionNameEntry, deviceIdEntry: deviceIdEntry, questionToFormEntry: questionToFormEntry)
+            super.init(url: url, conventionNameEntry: conventionNameEntry, deviceIdEntry: deviceIdEntry, osEntry: osEntry, versionEntry: versionEntry, questionToFormEntry: questionToFormEntry)
         }
         
         func submit(conventionName: String,
@@ -122,6 +135,10 @@ class SurveyForm {
                                           event: ConventionEvent,
                                           answers: Array<FeedbackAnswer>) -> String {
             
+            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                // use appVersion
+            }
+            
             return generatePostBody(conventionName: conventionName, answers: answers)
                 .appending(
                     String(format: "&%@=%@",
@@ -135,6 +152,14 @@ class SurveyForm {
                     String(format: "&%@=%@",
                            hallEntry,
                            event.hall.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!))
+                .appending(
+                    String(format: "&%@=%@",
+                           versionEntry,
+                           Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"))
+                .appending(
+                    String(format: "&%@=%@",
+                           osEntry,
+                           "iOS"))
         }
     }
 }

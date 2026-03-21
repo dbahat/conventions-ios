@@ -79,7 +79,7 @@ class FeedbackView : UIView, UITableViewDataSource, UITableViewDelegate, Feedbac
             }
             
             sendButton.setTitle("הפידבק נשלח. תודה!", for: UIControl.State())
-            sendButton.setTitleColor(UIColor.white, for: UIControl.State())
+            sendButton.setTitleColor(Colors.feedbackButtonColor, for: UIControl.State())
             sendButton.isUserInteractionEnabled = false
         }
     }
