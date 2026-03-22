@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,16 +39,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="GcL-hK-PrJ">
-                    <rect key="frame" x="8" y="8" width="359" height="353"/>
+                    <rect key="frame" x="16" y="8" width="343" height="353"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-J9-UHN">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="150.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="150.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOj-GB-mEa">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="35.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="35.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מתקיים עכשיו" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-KY-jJn">
-                                            <rect key="frame" x="0.0" y="8" width="359" height="19.5"/>
+                                            <rect key="frame" x="0.0" y="8" width="343" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="059-1h-zxW">
-                                    <rect key="frame" x="1" y="49.5" width="357" height="100"/>
+                                    <rect key="frame" x="1" y="49.5" width="341" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-Lu-plq">
-                                            <rect key="frame" x="94" y="14" width="255" height="38.5"/>
+                                            <rect key="frame" x="78" y="14" width="255" height="38.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHe-Wt-IUH">
-                                            <rect key="frame" x="344.5" y="66.5" width="4.5" height="19.5"/>
+                                            <rect key="frame" x="328.5" y="66.5" width="4.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -134,13 +134,13 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWD-SS-IaZ">
-                            <rect key="frame" x="0.0" y="164.5" width="359" height="188.5"/>
+                            <rect key="frame" x="0.0" y="164.5" width="343" height="188.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFk-si-Hb0">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="73.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירוע הבא" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-6k-MlM">
-                                            <rect key="frame" x="0.0" y="8" width="359" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="8" width="343" height="57.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -155,10 +155,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUH-sl-zq9">
-                                    <rect key="frame" x="1" y="87.5" width="357" height="100"/>
+                                    <rect key="frame" x="1" y="87.5" width="341" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="אירוע עם שם ארוך כל כך שצריך עוד שורה נוספת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-8u-4fh">
-                                            <rect key="frame" x="94" y="14" width="255" height="38.5"/>
+                                            <rect key="frame" x="78" y="14" width="255" height="38.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -176,7 +176,7 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="בעוד 46 דקות" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-AD-mWC">
-                                            <rect key="frame" x="253.5" y="66.5" width="95.5" height="19.5"/>
+                                            <rect key="frame" x="237.5" y="66.5" width="95.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-kd-cdi">
-                    <rect key="frame" x="8" y="583" width="163.5" height="40"/>
+                    <rect key="frame" x="16" y="583" width="163.5" height="40"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.46666666670000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                     <state key="normal" title="האירועים שלי">
@@ -239,7 +239,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-jy-yxT">
-                    <rect key="frame" x="203.5" y="583" width="163.5" height="40"/>
+                    <rect key="frame" x="195.5" y="583" width="163.5" height="40"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="תוכניה"/>
@@ -250,15 +250,15 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iiY-kd-cdi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="3ch-xN-e3Q"/>
-                <constraint firstItem="GcL-hK-PrJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6vd-r8-e2n"/>
+                <constraint firstItem="iiY-kd-cdi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="3ch-xN-e3Q"/>
+                <constraint firstItem="GcL-hK-PrJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6vd-r8-e2n"/>
                 <constraint firstItem="iiY-kd-cdi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Bcu-D8-lK7"/>
                 <constraint firstItem="4ba-jy-yxT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-24" id="Ni3-Bi-dum"/>
                 <constraint firstAttribute="bottom" secondItem="iiY-kd-cdi" secondAttribute="bottom" constant="44" id="OlY-NI-9bC"/>
                 <constraint firstItem="GcL-hK-PrJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ViQ-fv-oft"/>
                 <constraint firstAttribute="bottom" secondItem="4ba-jy-yxT" secondAttribute="bottom" constant="44" id="aZ2-N4-ocM"/>
-                <constraint firstAttribute="trailing" secondItem="GcL-hK-PrJ" secondAttribute="trailing" constant="8" id="kmO-a4-vkF"/>
-                <constraint firstAttribute="trailing" secondItem="4ba-jy-yxT" secondAttribute="trailing" constant="8" id="zkd-eD-g5n"/>
+                <constraint firstAttribute="trailing" secondItem="GcL-hK-PrJ" secondAttribute="trailing" constant="16" id="kmO-a4-vkF"/>
+                <constraint firstAttribute="trailing" secondItem="4ba-jy-yxT" secondAttribute="trailing" constant="16" id="zkd-eD-g5n"/>
             </constraints>
             <point key="canvasLocation" x="-345" y="121"/>
         </view>
