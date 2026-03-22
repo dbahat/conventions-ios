@@ -22,6 +22,6 @@ class EventListHeaderView: UITableViewHeaderFooterView {
         time.textColor = Colors.eventTimeHeaderTextColor
         time.font = UIFont.boldSystemFont(ofSize: 18)
         
-        self.backgroundView?.layer.cornerRadius = 4
+        headerContainer.layer.cornerRadius = 4
     }
 }
