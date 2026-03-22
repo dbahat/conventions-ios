@@ -102,7 +102,7 @@ class Colors {
     static let eventMarkedAsFavorite = Colors.olamot2026_copper
     static let eventNotMarkedAsFavorite = Colors.olamot2026_gray300
     static let eventSeperatorColor = Colors.clear
-    static let eventOpenEventConatinerColor = Colors.clear
+    static let eventOpenEventConatinerColor = Colors.olamot2026_purple100
     static let eventTimeboxTextColor = Colors.eventContentTextColor
     static let eventTimeboxTextColorVirtual = Colors.eventTimeboxTextColor
     static let eventViewTitleAndDetailsContainerBackground = Colors.olamot2026_gray50
