@@ -51,47 +51,6 @@ class Colors {
     static let olamot2026_red = UIColor(hexString: "#C5143A")
 
     
-//    static let icon2025_blue1_25 = UIColor(hexString: "#9CD2FF")
-//    static let icon2025_blue1_500 = UIColor(hexString: "#014882")
-//
-//    static let icon2025_blue2_50 = UIColor(hexString: "#E8EDFF")
-//    static let icon2025_blue2_100 = UIColor(hexString: "#D7DFFF")
-//    static let icon2025_blue2_300 = UIColor(hexString: "#A1B2F3")
-//    static let icon2025_blue2_400 = UIColor(hexString: "#8598E3")
-//    static let icon2025_blue2_500 = UIColor(hexString: "#6077CE")
-//    static let icon2025_blue2_600 = UIColor(hexString: "#465EBB")
-//    static let icon2025_blue2_700 = UIColor(hexString: "#354CA7")
-//    static let icon2025_blue2_800 = UIColor(hexString: "#263A88")
-//    static let icon2025_blue2_900 = UIColor(hexString: "#1A2B70")
-//
-//    static let icon2025_green100 = UIColor(hexString: "#69A785")
-//    static let icon2025_green200 = UIColor(hexString: "#498B67")
-//
-//    static let icon2025_gold100 = UIColor(hexString: "#FFFAF0")
-//    static let icon2025_gold200 = UIColor(hexString: "#FFF5DE")
-//    static let icon2025_gold500 = UIColor(hexString: "#F2DFB3")
-//    static let icon2025_gold700 = UIColor(hexString: "#DAC086")
-//    static let icon2025_gold800 = UIColor(hexString: "#C8AD72")
-//    static let icon2025_gold100_transparent_95 = UIColor(hexString: "#F2FFFAF0")
-//
-//    static let icon2025_brown200 = UIColor(hexString: "#D08F65")
-//    static let icon2025_brown300 = UIColor(hexString: "#BD7C53")
-//    static let icon2025_brown800 = UIColor(hexString: "#522A11")
-//
-//    static let icon2025_gray100 = UIColor(hexString: "#F5F6FA")
-//    static let icon2025_gray200 = UIColor(hexString: "#EBECF2")
-//    static let icon2025_gray300 = UIColor(hexString: "#E6E7ED")
-//    static let icon2025_gray400 = UIColor(hexString: "#DCDEE5")
-//    static let icon2025_gray900 = UIColor(hexString: "#6B6D77")
-//    static let icon2025_gray100_transparent_95 = UIColor(hexString: "#F2F5F6FA")
-//
-//    static let icon2025_pink100 = UIColor(hexString: "#F7EBF4")
-//    static let icon2025_pink300 = UIColor(hexString: "#EED6E6")
-//    static let icon2025_pink400 = UIColor(hexString: "#E0C1D6")
-//    static let icon2025_pink500 = UIColor(hexString: "#D9BACF")
-//
-//    static let icon2025_red = UIColor(hexString: "#C5143A")
-    
     static let black = UIColor.black
     static let white = UIColor.white
     static let clear = UIColor.clear
