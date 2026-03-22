@@ -31,9 +31,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FirebaseApp.configure()
         
-        UITabBar.appearance().unselectedItemTintColor = Colors.tabBarUnselectedTabColor
-        UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
         UITextView.appearance().linkTextAttributes = [ .foregroundColor: Colors.linksColor ]
+
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = Colors.tabBarBackgroundColor
+
+        let itemAppearance = UITabBarItemAppearance()
+
+        itemAppearance.normal.iconColor = Colors.tabBarUnselectedTabColor
+        itemAppearance.normal.titleTextAttributes = [.foregroundColor: Colors.tabBarUnselectedTabColor]
+        itemAppearance.selected.iconColor = Colors.tabBarSelectedTabColor
+        itemAppearance.selected.titleTextAttributes = [.foregroundColor: Colors.tabBarSelectedTabColor]
+
+        tabBarAppearance.stackedLayoutAppearance = itemAppearance
+        tabBarAppearance.inlineLayoutAppearance = itemAppearance
+        tabBarAppearance.compactInlineLayoutAppearance = itemAppearance
+
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+
+        UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
+
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
 
         self.window!.tintColor = Colors.black
         GMSServices.provideAPIKey("AIzaSyBDa-mGOL6WFuXsHsu_0XL5RkuEgqho8a0")
@@ -84,21 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         for category in NotificationSettings.instance.categories {
             Messaging.messaging().subscribe(toTopic: category)
         }
-        
-        // Before iOS 15, defaut tab bar / navigation bar appearance for extended edges apps was different.
-        // Set up iOS 13+ to behave as close as possible to iOS 15 (it can't be identical, so don't apply the same on iOS 15, which looks better)
-        if #unavailable(iOS 15.0) {
-            if #available(iOS 13.0, *) {
-                let tabBarAppearance = UITabBarAppearance()
-                tabBarAppearance.configureWithTransparentBackground()
-                UITabBar.appearance().standardAppearance = tabBarAppearance
-                
-                let navBarAppearance = UINavigationBarAppearance()
-                navBarAppearance.configureWithTransparentBackground()
-                UINavigationBar.appearance().standardAppearance = navBarAppearance
-            }
-        }
-        
+
         return true;
     }
     

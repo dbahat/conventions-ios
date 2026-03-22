@@ -11,12 +11,11 @@ import UIKit
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+
         selectedIndex = 4;
-        self.tabBar.backgroundColor = Colors.tabBarBackgroundColor
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(TabBarViewController.eventAttendanceWasSet), name: ConventionEvent.AttendingWasSetEventName, object: nil);
-        
+
         delegate = self;
     }
     
