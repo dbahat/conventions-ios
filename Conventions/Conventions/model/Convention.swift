@@ -13,6 +13,7 @@ class Convention {
     static let date = Date.from(year: 2026, month: 04, day: 05)
     static let endDate = Date.from(year: 2026, month: 04, day: 06)
     static let name = "olamot2026"
+    static let slug = name + "c"
     static let displayName = "כנס עולמות 2026"
     
     var halls: Array<Hall>

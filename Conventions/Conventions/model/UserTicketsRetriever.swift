@@ -14,8 +14,8 @@ class UserTicketsRetriever {
     private let clientId = "con_apps_v2"
     private let redirectURI = URL(string: "sf-f.conventions://oauth2redirect/sff")!
 
-    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/cod3/events_per_user_sso?slug=" + Convention.name)!
-    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/cod3/get_user_id_sso?slug=" + Convention.name)!
+    private static let userTicketsApi = URL(string: "https://api.sf-f.org.il/program/cod3/events_per_user_sso?slug=" + Convention.slug)!
+    private static let userIdApi = URL(string: "https://api.sf-f.org.il/program/cod3/get_user_id_sso?slug=" + Convention.slug)!
     private static let qrApi = "https://api.sf-f.org.il/cons/qr/byToken"
     private static let appStateKey = "AuthState_" + Convention.name
 
