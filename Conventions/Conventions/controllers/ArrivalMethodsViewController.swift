@@ -10,9 +10,13 @@ import UIKit
 import GoogleMaps
 
 class ArrivalMethodsViewController: BaseViewController {
+    // Ironi (usual convention hall)
+//    fileprivate let latitude = 32.0707265;
+//    fileprivate let longitude = 34.7845003;
     
-    fileprivate let latitude = 32.0707265;
-    fileprivate let longitude = 34.7845003;
+    // Dizengoff
+    fileprivate let latitude = 32.0751854;
+    fileprivate let longitude = 34.7750651;
 
     @IBOutlet fileprivate weak var mapView: GMSMapView!
     @IBOutlet private weak var directionsTextView: UITextView!

@@ -12,7 +12,7 @@ class MoreInfoViewController : BaseViewController, UITableViewDataSource, UITabl
 
     var items = [
 //        Item(name: "מפת המתחם", imageId: "MenuMap", viewControllerId: "MapViewController"),
-        Item(name: "יד שנייה", imageId: "MenuSecondHand", viewControllerId: "SecondHandViewController"),
+//        Item(name: "יד שנייה", imageId: "MenuSecondHand", viewControllerId: "SecondHandViewController"),
         Item(name: "דרכי הגעה", imageId: "MenuArrivalMethods", viewControllerId: "ArrivalMethodsViewController"),
 //        Item(name: "הטבות ושותפויות", imageId: "MenuDiscounts", viewControllerId: "DiscountsViewController"),
 //        Item(name: "פעילויות ומתחמי שת\"פ", imageId: "MenuActivities", viewControllerId: "ActivitesViewController"),
