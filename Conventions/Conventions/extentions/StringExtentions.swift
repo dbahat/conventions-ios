@@ -35,13 +35,18 @@ extension String {
             return nil
         }
 
-        guard let attributedString = try? NSAttributedString(
+        guard let attributedString = try? NSMutableAttributedString(
             data: data,
             options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue],
             documentAttributes: nil
             ) else {
             return nil
         }
+
+        let style = NSMutableParagraphStyle()
+        style.baseWritingDirection = .rightToLeft
+        style.alignment = .right
+        attributedString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: attributedString.length))
 
         return attributedString
     }
