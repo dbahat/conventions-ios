@@ -6,9 +6,9 @@
 //  Copyright © 2016 Amai. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-class MoreInfoViewController : BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class MoreInfoViewController : BaseViewController {
 
     var items = [
 //        Item(name: "מפת המתחם", imageId: "MenuMap", viewControllerId: "MapViewController"),
@@ -20,48 +20,53 @@ class MoreInfoViewController : BaseViewController, UITableViewDataSource, UITabl
         Item(name: "נגישות", imageId: "MenuAccessability", viewControllerId: "AccessabilityViewController"),
         Item(name: "הגדרות", imageId: "MenuSettings", viewControllerId: "NotificationSettingsViewController"),
     ]
-    
-    @IBOutlet private weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if Convention.instance.canFillConventionFeedback() {
             items.insert(Item(name: "פידבק לכנס", imageId: "MenuFeedback", viewControllerId: "ConventionFeedbackViewController"), at: 0)
         }
+
+        embedSwiftUIContent()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // This specific page should have no title
         tabBarController?.navigationItem.title = ""
         tabBarController?.navigationItem.rightBarButtonItem = nil
         tabBarController?.navigationItem.leftBarButtonItem = nil
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+
+    private func embedSwiftUIContent() {
+        let rows = items.map { item in
+            MoreInfoRow(name: item.name, imageId: item.imageId) { [weak self] in
+                self?.select(item)
+            }
+        }
+
+        let hostingController = UIHostingController(rootView: MoreInfoView(rows: rows))
+        hostingController.view.backgroundColor = .clear
+
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingController.view)
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        hostingController.didMove(toParent: self)
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoreInfoItemCell", for: indexPath) as! MoreInfoItemCell
-        let item = items[indexPath.row]
-        cell.imageIcon.image = UIImage(named: item.imageId)?.withRenderingMode(.alwaysTemplate)
-        cell.titleLabel.text = item.name
-        
-        cell.titleLabel.textColor = Colors.homeTextColor
-        cell.imageIcon.tintColor = Colors.homeTextColor
-        
-        return cell
+
+    private func select(_ item: Item) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: item.viewControllerId)
+        navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        let feedbackVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: item.viewControllerId))
-        navigationController?.pushViewController(feedbackVc, animated: true)
-    }
-    
+
     struct Item {
         var name: String
         var imageId: String

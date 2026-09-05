@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193EBE2E7433460CB0E45B0A /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */; };
+		2854135C9E72B1CF3D8234F8 /* StandsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E240839C5B13806D7B7082D /* StandsParser.swift */; };
 		387079260BFE2B652F676BE2 /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 176553DED1F172F71C32A7C4 /* libPods-Conventions.a */; };
+		3995D291406FA817FE2F15B2 /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64524635656308AB1DB01C2 /* Stand.swift */; };
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
-		3995D291406FA817FE2F15B2 /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64524635656308AB1DB01C2 /* Stand.swift */; };
-		2854135C9E72B1CF3D8234F8 /* StandsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E240839C5B13806D7B7082D /* StandsParser.swift */; };
-		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
 		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
 		3B02C2882066BA66005E2139 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B02C2872066BA66005E2139 /* UserNotifications.framework */; };
 		3B049C7D1F7FBB250087FA9C /* SecondHandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */; };
@@ -107,9 +107,8 @@
 		3BFE31081F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE31071F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift */; };
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
-		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
 		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
-		863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */; };
+		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
@@ -122,6 +121,7 @@
 		A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */; };
 		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
+		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,9 +203,6 @@
 		3BB6310A1C89680800D54D3E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
-		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stand.swift; path = model/Stand.swift; sourceTree = "<group>"; };
-		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsParser.swift; path = model/StandsParser.swift; sourceTree = "<group>"; };
-		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsRefresher.swift; path = model/StandsRefresher.swift; sourceTree = "<group>"; };
 		3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
@@ -215,6 +212,7 @@
 		3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFloorViewController.swift; sourceTree = "<group>"; };
 		3BC755711F7FE67D005B051C /* SecondHandItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondHandItemViewCell.xib; sourceTree = "<group>"; };
 		3BC755731F7FE68B005B051C /* SecondHandItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHandItemViewCell.swift; sourceTree = "<group>"; };
+		3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoView.swift; sourceTree = "<group>"; };
 		3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conventions-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BDA282E1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DuringConventionWithFavoritesHomeContentView.xib; path = home/DuringConventionWithFavoritesHomeContentView.xib; sourceTree = "<group>"; };
 		3BDA28301F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DuringConventionWithFavoritesHomeContentView.swift; path = home/DuringConventionWithFavoritesHomeContentView.swift; sourceTree = "<group>"; };
@@ -233,8 +231,7 @@
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
-		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
-		863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoItemCell.swift; sourceTree = "<group>"; };
+		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsParser.swift; path = model/StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
@@ -247,7 +244,10 @@
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
 		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
 		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
+		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsRefresher.swift; path = model/StandsRefresher.swift; sourceTree = "<group>"; };
+		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stand.swift; path = model/Stand.swift; sourceTree = "<group>"; };
 		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
+		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +417,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				8659BCC0304C552A00CD8E73 /* moreinfo */,
 				3BABAE1420605695004D01AA /* gradient */,
 				3B049C7B1F7EB4670087FA9C /* secondhand */,
 				3B17639A1F6D788B009F8F38 /* home */,
@@ -533,12 +534,10 @@
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
 				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
 				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
-				3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */,
 				3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */,
 				A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */,
 				A451749C28E61CC200C1953F /* DiscountsViewController.swift */,
 				A451749E28E6270F00C1953F /* DiscountsCell.swift */,
-				863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */,
 			);
 			name = controllers;
 			path = Conventions/controllers;
@@ -572,6 +571,15 @@
 				176553DED1F172F71C32A7C4 /* libPods-Conventions.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8659BCC0304C552A00CD8E73 /* moreinfo */ = {
+			isa = PBXGroup;
+			children = (
+				3BF22D331D9D93700090E8E6 /* MoreInfoViewController.swift */,
+				3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */,
+			);
+			path = moreinfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -811,7 +819,7 @@
 				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,
 				A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */,
 				3B8664CA1D4234DD00A504FC /* ConventionFeedbackViewController.swift in Sources */,
-				863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */,
+				193EBE2E7433460CB0E45B0A /* MoreInfoView.swift in Sources */,
 				3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */,
 				3B4B4A741D34171E00943EF5 /* MultipleAnswerFeedbackQuestionCell.swift in Sources */,
 				3B981D0A1C65E5A800F31009 /* MyEventsViewController.swift in Sources */,

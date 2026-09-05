@@ -803,81 +803,9 @@
                     <view key="view" contentMode="scaleToFill" id="LYE-Ms-mdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-qY-e4s">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-xY-vOE">
-                                <rect key="frame" x="0.0" y="74" width="375" height="510"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoreInfoItemCell" id="Qx4-RO-JYS" customClass="MoreInfoItemCell" customModule="Conventions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="51"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qx4-RO-JYS" id="IE3-1Q-emr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuFeedback" translatesAutoresizingMaskIntoConstraints="NO" id="Cau-J5-ANa">
-                                                    <rect key="frame" x="331" y="15.5" width="20" height="20"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פידבק לכנס" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxh-Lr-6DT">
-                                                    <rect key="frame" x="239" y="15.5" width="82" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mQ-pF-hVd">
-                                                    <rect key="frame" x="24" y="50" width="327" height="1"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="wnM-X7-N4L"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Cau-J5-ANa" secondAttribute="trailing" constant="8" id="3ne-Zu-wX0"/>
-                                                <constraint firstItem="3mQ-pF-hVd" firstAttribute="leading" secondItem="IE3-1Q-emr" secondAttribute="leading" constant="24" id="50o-So-cn6"/>
-                                                <constraint firstAttribute="bottom" secondItem="3mQ-pF-hVd" secondAttribute="bottom" id="Frr-zW-efL"/>
-                                                <constraint firstItem="Cau-J5-ANa" firstAttribute="leading" secondItem="mxh-Lr-6DT" secondAttribute="trailing" constant="10" id="RkM-tg-tAf"/>
-                                                <constraint firstItem="mxh-Lr-6DT" firstAttribute="centerY" secondItem="IE3-1Q-emr" secondAttribute="centerY" id="bRq-rH-bKS"/>
-                                                <constraint firstItem="Cau-J5-ANa" firstAttribute="centerY" secondItem="IE3-1Q-emr" secondAttribute="centerY" id="im1-Ih-qO6"/>
-                                                <constraint firstAttribute="trailing" secondItem="3mQ-pF-hVd" secondAttribute="trailing" constant="24" id="tca-U3-BuW"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="imageIcon" destination="Cau-J5-ANa" id="BDu-u1-jT0"/>
-                                            <outlet property="titleLabel" destination="mxh-Lr-6DT" id="0zB-EI-xq3"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="iuF-bC-KqU" id="U3d-AY-HgT"/>
-                                    <outlet property="delegate" destination="iuF-bC-KqU" id="d4h-MC-vkW"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="fR2-qY-e4s" firstAttribute="centerX" secondItem="LYE-Ms-mdy" secondAttribute="centerX" id="6gA-dC-Art"/>
-                            <constraint firstItem="fR2-qY-e4s" firstAttribute="width" secondItem="LYE-Ms-mdy" secondAttribute="width" id="D62-ER-0Aj"/>
-                            <constraint firstItem="NEX-vn-z6l" firstAttribute="top" secondItem="dU7-xY-vOE" secondAttribute="bottom" id="Lkq-Dw-d6E"/>
-                            <constraint firstItem="dU7-xY-vOE" firstAttribute="width" secondItem="LYE-Ms-mdy" secondAttribute="width" id="W12-rJ-TWp"/>
-                            <constraint firstItem="dU7-xY-vOE" firstAttribute="centerX" secondItem="LYE-Ms-mdy" secondAttribute="centerX" id="XBl-hS-rHl"/>
-                            <constraint firstItem="fR2-qY-e4s" firstAttribute="centerY" secondItem="LYE-Ms-mdy" secondAttribute="centerY" id="aPs-ZU-67x"/>
-                            <constraint firstItem="fR2-qY-e4s" firstAttribute="height" secondItem="LYE-Ms-mdy" secondAttribute="height" id="emi-wc-Qxn"/>
-                            <constraint firstItem="dU7-xY-vOE" firstAttribute="top" secondItem="bpQ-EW-bON" secondAttribute="bottom" id="mLp-TD-JaZ"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="המשך" image="MenuMoreOptions" selectedImage="MenuMoreOptions" id="Pai-e8-MZM"/>
-                    <connections>
-                        <outlet property="tableView" destination="dU7-xY-vOE" id="Uls-gh-nHg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYt-bG-c43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
