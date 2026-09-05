@@ -1,0 +1,2087 @@
+[
+ {
+  "id": "8",
+  "name": "Magicmark",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 25,
+   "to": 26,
+   "count": 2,
+   "raw": "25-26"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "16",
+  "name": "Trollworx",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 11,
+   "to": 12,
+   "count": 2,
+   "raw": "11-12"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-trollworx.webp"
+ },
+ {
+  "id": "35",
+  "name": "משחקי ליאם, פריק, הממלכה",
+  "category": "",
+  "area": "פ'- פלורין שלישי",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "58",
+  "name": "Sirolynia",
+  "category": "דוכן מסחרי",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 31,
+   "to": 34,
+   "count": 4,
+   "raw": "31-34"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "62",
+  "name": "הקובייה משחקים בע''מ",
+  "category": "דוכן מסחרי",
+  "area": "אשכול",
+  "tableIds": {
+   "from": null,
+   "to": null,
+   "count": null,
+   "raw": "חצי ימין"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "70",
+  "name": "דוב לדעת",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 25,
+   "to": 27,
+   "count": 3,
+   "raw": "25-27"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "86",
+  "name": "דוכן שיפודן",
+  "category": "דוכן מסחרי",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 31,
+   "to": 38,
+   "count": 8,
+   "raw": "31-38"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "94",
+  "name": "NatArt",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 23,
+   "to": 23,
+   "count": 1,
+   "raw": "23"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-natart.webp"
+ },
+ {
+  "id": "97",
+  "name": "מיני-ארט",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "113",
+  "name": "Baaahd Girl",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 15,
+   "to": 16,
+   "count": 2,
+   "raw": "15-16"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "121",
+  "name": "Chaotic Neutral",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 28,
+   "to": 32,
+   "count": 5,
+   "raw": "28-32"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "123",
+  "name": "קומיקס וירקות בע\"מ",
+  "category": "דוכן מסחרי",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 10,
+   "to": 12,
+   "count": 3,
+   "raw": "10-12"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "127",
+  "name": "Rob Artsy",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 24,
+   "to": 24,
+   "count": 1,
+   "raw": "24"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-rob-artsy.webp"
+ },
+ {
+  "id": "144",
+  "name": "הפונדק הוצאה לאור",
+  "category": "דוכן מסחרי",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 9,
+   "to": 10,
+   "count": 2,
+   "raw": "9-10"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "151",
+  "name": "תומיקס קומיקס",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 2,
+   "to": 4,
+   "count": 3,
+   "raw": "2-4"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "188",
+  "name": "Crafty Witches",
+  "category": "דוכן מסחרי",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 25,
+   "to": 26,
+   "count": 2,
+   "raw": "25-26"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "242",
+  "name": "עוץ",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 22,
+   "to": 24,
+   "count": 3,
+   "raw": "22-24"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "279",
+  "name": "FirefliesJar",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 20,
+   "to": 20,
+   "count": 1,
+   "raw": "20"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-firefliesjar.webp"
+ },
+ {
+  "id": "282",
+  "name": "נעה פלד מוצרי דפוס",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 32,
+   "to": 32,
+   "count": 1,
+   "raw": "32"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "293",
+  "name": "שעטנז - יוצרים יהדות פנטסטית",
+  "category": "",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 30,
+   "to": 31,
+   "count": 2,
+   "raw": "30-31"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "7",
+  "name": "חרבות וכשפים",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 2,
+   "to": 3,
+   "count": 2,
+   "raw": "2-3"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "20",
+  "name": "FlyingFox Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "114",
+  "name": "Victorian Rabbit ויקטוריאן רביט",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 29,
+   "to": 29,
+   "count": 1,
+   "raw": "29"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "145",
+  "name": "קי\"ק",
+  "category": "",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 13,
+   "to": 14,
+   "count": 2,
+   "raw": "13-14"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "213",
+  "name": "ספרים בעלמא",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 17,
+   "to": 21,
+   "count": 5,
+   "raw": "17-21"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "15",
+  "name": "קארין סטאר - מכשפה עם מכחול",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 4,
+   "to": 5,
+   "count": 2,
+   "raw": "4-5"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "36",
+  "name": "נעה כץ",
+  "category": "",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 33,
+   "to": 34,
+   "count": 2,
+   "raw": "33-34"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "39",
+  "name": "Lizi Fantasy Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 12,
+   "to": 12,
+   "count": 1,
+   "raw": "12"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-lizi-fantasy-art.webp"
+ },
+ {
+  "id": "45",
+  "name": "Wise Goblin",
+  "category": "",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 25,
+   "to": 27,
+   "count": 3,
+   "raw": "25-27"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "232",
+  "name": "דיאנה בארון, הדס קלנג, אורית ספיר",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "287",
+  "name": "Chimaera Ceramics",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "98",
+  "name": "stuffer",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "107",
+  "name": "שני לימונים",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 8,
+   "to": 8,
+   "count": 1,
+   "raw": "8"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "128",
+  "name": "נרות דוכיפת",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 1,
+   "to": 1,
+   "count": 1,
+   "raw": "1"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "146",
+  "name": "נעמה בר שירה - מלאכיות עליון",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 27,
+   "to": 28,
+   "count": 2,
+   "raw": "27-28"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "154",
+  "name": "Meitlavi95",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 19,
+   "to": 19,
+   "count": 1,
+   "raw": "19"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-meitlavi95.webp"
+ },
+ {
+  "id": "178",
+  "name": "ריוונדל",
+  "category": "",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 15,
+   "to": 16,
+   "count": 2,
+   "raw": "15-16"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "181",
+  "name": "רועי שרז עיצובים",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 23,
+   "to": 24,
+   "count": 2,
+   "raw": "23-24"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "221",
+  "name": "Green hills",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 37,
+   "to": 38,
+   "count": 2,
+   "raw": "37-38"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-green-hiils.webp"
+ },
+ {
+  "id": "240",
+  "name": "Vi The Crafting Witch",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 13,
+   "to": 14,
+   "count": 2,
+   "raw": "13-14"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "250",
+  "name": "Resinbar",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 22,
+   "to": 22,
+   "count": 1,
+   "raw": "22"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-resinbar.webp"
+ },
+ {
+  "id": "280",
+  "name": "שתים בית הוצאה לאור",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 8,
+   "to": 8,
+   "count": 1,
+   "raw": "8"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "30",
+  "name": "Comixunity",
+  "category": "דוכן מסחרי",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 27,
+   "to": 30,
+   "count": 4,
+   "raw": "27-30"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-comixunity.webp"
+ },
+ {
+  "id": "5",
+  "name": "Nighto",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "23",
+  "name": "חרב לעט",
+  "category": "",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 23,
+   "to": 26,
+   "count": 4,
+   "raw": "23-26"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "51",
+  "name": "הסוד שבצללים- עמית מזרחי",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "69",
+  "name": "Pixel.it",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 6,
+   "to": 7,
+   "count": 2,
+   "raw": "6-7"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-pixel-it.webp"
+ },
+ {
+  "id": "77",
+  "name": "מ.ש. אלבוים",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "79",
+  "name": "Pixel Kid",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 8,
+   "to": 9,
+   "count": 2,
+   "raw": "8-9"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-pixel-kid.webp"
+ },
+ {
+  "id": "82",
+  "name": "Art by Ayala",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "83",
+  "name": "Hatz, Lolita & More",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "89",
+  "name": "Anime Glass",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 9,
+   "to": 10,
+   "count": 2,
+   "raw": "9-10"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-anime-glass.webp"
+ },
+ {
+  "id": "93",
+  "name": "החדר בקצה המסדרון",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "96",
+  "name": "השפיריות",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 21,
+   "to": 21,
+   "count": 1,
+   "raw": "21"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "99",
+  "name": "הצד האפל של אנטרקטיקה",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "103",
+  "name": "Velvet Octopus",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 15,
+   "to": 16,
+   "count": 2,
+   "raw": "15-16"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "105",
+  "name": "A Silly Frog",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 17,
+   "to": 18,
+   "count": 2,
+   "raw": "17-18"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "106",
+  "name": "הטמעה - לטכנולוגיה יש חיים משלה",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "111",
+  "name": "עולם המערכה מלסטרה",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "115",
+  "name": "Geekish",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "118",
+  "name": "Miochi & Omriki",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 10,
+   "to": 10,
+   "count": 1,
+   "raw": "10"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "120",
+  "name": "הנרות של תומא",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 34,
+   "to": 35,
+   "count": 2,
+   "raw": "34-35"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "135",
+  "name": "אנשי המעגל + קומיקס",
+  "category": "דוכן מסחרי",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 11,
+   "to": 11,
+   "count": 1,
+   "raw": "11"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "137",
+  "name": "ozart",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 20,
+   "to": 21,
+   "count": 2,
+   "raw": "20-21"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-ozart.webp"
+ },
+ {
+  "id": "140",
+  "name": "נפילת המסדר - אופיר פורמן",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 15,
+   "to": 15,
+   "count": 1,
+   "raw": "15"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "141",
+  "name": "לייזר אייקון",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-laser-icon.webp"
+ },
+ {
+  "id": "149",
+  "name": "אוריג'ין סטורי",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "157",
+  "name": "השני למלכות",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "163",
+  "name": "קומיקום",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "177",
+  "name": "Violetstuff and Goldendew!",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "184",
+  "name": "Natoki",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "185",
+  "name": "יערה הס Magic By Nature",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "191",
+  "name": "TomGoveIllustrations",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 2,
+   "to": 2,
+   "count": 1,
+   "raw": "2"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "194",
+  "name": "רז קלמנוביץ",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "196",
+  "name": "Peculiaris",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-peculiaris.webp"
+ },
+ {
+  "id": "198",
+  "name": "נטי והבלהות",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "199",
+  "name": "Indigo Raven",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 29,
+   "to": 30,
+   "count": 2,
+   "raw": "29-30"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "201",
+  "name": "נושאי החלום",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "208",
+  "name": "שרת החוט עם אקסטרה סופר פנטסטיק",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "211",
+  "name": "ערפילית arpeeleet",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 27,
+   "to": 28,
+   "count": 2,
+   "raw": "27-28"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "216",
+  "name": "RBZ - Unrestrained Jewelry",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "223",
+  "name": "הוצאת זרש ותכשיטי טירת אתנה",
+  "category": "",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 32,
+   "to": 33,
+   "count": 2,
+   "raw": "32-33"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "224",
+  "name": "התאחדות סופרי פנטזיה",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 35,
+   "to": 36,
+   "count": 2,
+   "raw": "35-36"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "234",
+  "name": "מסדר החזירים",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 13,
+   "to": 14,
+   "count": 2,
+   "raw": "13-14"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "237",
+  "name": "mayo san design x artv",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "247",
+  "name": "Picture Disc",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "248",
+  "name": "עומר דוידוב איורים מגולפים",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "252",
+  "name": "רומיר",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "259",
+  "name": "עוז ש. סבג - שדים ומלאכים",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "265",
+  "name": "פרופ-פישנסי",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 9,
+   "to": 9,
+   "count": 1,
+   "raw": "9"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "266",
+  "name": "Tslil Jewelry",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 1,
+   "to": 1,
+   "count": 1,
+   "raw": "1"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-tslil.webp"
+ },
+ {
+  "id": "274",
+  "name": "Fairytales in a Nutshell",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "275",
+  "name": "Dream Weaver Boutique",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ז'- זוטרופוליס",
+  "tableIds": {
+   "from": 42,
+   "to": 42,
+   "count": 1,
+   "raw": "42"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "12",
+  "name": "קימבי",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "19",
+  "name": "מלחמות זבת - The Wars of Zavat",
+  "category": "",
+  "area": "סינמטק",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "41",
+  "name": "Orchi Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ד'- דרגונסטון",
+  "tableIds": {
+   "from": 18,
+   "to": 19,
+   "count": 2,
+   "raw": "18-19"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-orchibald-art.webp"
+ },
+ {
+  "id": "50",
+  "name": "Talush (קומפוקו לשעבר)",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 19,
+   "to": 24,
+   "count": 6,
+   "raw": "19-24"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "59",
+  "name": "Sampai designs",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "73",
+  "name": "גיק שלטר",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "75",
+  "name": "Art by Yael",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 17,
+   "to": 18,
+   "count": 2,
+   "raw": "17-18"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-art-by-yael.webp"
+ },
+ {
+  "id": "90",
+  "name": "chilliesh & illmamnim",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "95",
+  "name": "דבי ינקו-חדד סופרת פנטזיה ומד\"ב",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "112",
+  "name": "White Magic",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "129",
+  "name": "OrannotOren",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "133",
+  "name": "Almogolan Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "א'-אטלנטיס",
+  "tableIds": {
+   "from": 9,
+   "to": 10,
+   "count": 2,
+   "raw": "9-10"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-almogolan-art.webp"
+ },
+ {
+  "id": "31",
+  "name": "גיימינג לנד gaming land",
+  "category": "דוכן מסחרי",
+  "area": "ה'-היפריון",
+  "tableIds": {
+   "from": 5,
+   "to": 9,
+   "count": 5,
+   "raw": "5-9"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "34",
+  "name": "Koruhiko",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 22,
+   "to": 23,
+   "count": 2,
+   "raw": "22-23"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-koruhiko.webp"
+ },
+ {
+  "id": "164",
+  "name": "בוקפוד - ספרי פנטזיה ומדב",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "190",
+  "name": "moss9",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ח'- חלם",
+  "tableIds": {
+   "from": 7,
+   "to": 7,
+   "count": 1,
+   "raw": "7"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "203",
+  "name": "אדיר שור",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "204",
+  "name": "פרויקט א.ס.פ",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "236",
+  "name": "Techelet Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "239",
+  "name": "רשומות איש השמיים",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "241",
+  "name": "הדס וערבה - דקורציה גיקית בעבודת יד",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "245",
+  "name": "Arts and Cats בובות בעבודת יד",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "251",
+  "name": "Miss Scarlet's Studio",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-miss-scarlet-s-studio.webp"
+ },
+ {
+  "id": "254",
+  "name": "Crochet Creatures",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "260",
+  "name": "רחל טקלה - ספרים",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "283",
+  "name": "Bar's Pops",
+  "category": "דוכן מסחרי",
+  "area": "ו'- וולקן",
+  "tableIds": {
+   "from": 21,
+   "to": 24,
+   "count": 4,
+   "raw": "21-24"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "288",
+  "name": "פיית הצמות",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ח'- חלם",
+  "tableIds": {
+   "from": 16,
+   "to": 16,
+   "count": 1,
+   "raw": "16"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "292",
+  "name": "Happy Cats Studio",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "6",
+  "name": "Sharkioo",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "66",
+  "name": "OZ magical gifts",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-oz-magical-gifts.webp"
+ },
+ {
+  "id": "68",
+  "name": "Toysland.il",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "80",
+  "name": "עולמות שבורים - סי להב",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "85",
+  "name": "Shir k",
+  "category": "דוכן מסחרי",
+  "area": "ב'-בה סינג סה",
+  "tableIds": {
+   "from": 13,
+   "to": 14,
+   "count": 2,
+   "raw": "13-14"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-shir-k.webp"
+ },
+ {
+  "id": "88",
+  "name": "Rain's Art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "119",
+  "name": "Artman_sh",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "134",
+  "name": "נארג'לאן - יד אפורה",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "156",
+  "name": "פלמינגו - ספרות ספקולטיבית",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "167",
+  "name": "הדוכן של שימי",
+  "category": "דוכן מסחרי",
+  "area": "ח'- חלם",
+  "tableIds": {
+   "from": 11,
+   "to": 14,
+   "count": 4,
+   "raw": "11-14"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "170",
+  "name": "אנדה ועיר הקרח",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "271",
+  "name": "נדב נחמני",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "21",
+  "name": "B.S Jewellery",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "53",
+  "name": "שומר היערות - אורי וולף",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "3",
+  "name": "Charmless",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "13",
+  "name": "הדוכן של קאספר",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "48",
+  "name": "מאורת הדרקון",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 3,
+   "to": 4,
+   "count": 2,
+   "raw": "3-4"
+  },
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "49",
+  "name": "מריליה",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 21,
+   "to": 22,
+   "count": 2,
+   "raw": "21-22"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "57",
+  "name": "Fantasy House",
+  "category": "דוכן מסחרי",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 1,
+   "to": 2,
+   "count": 2,
+   "raw": "1-2"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-fantasy-house.webp"
+ },
+ {
+  "id": "67",
+  "name": "אנימה סטיישן",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "71",
+  "name": "מיכאל פיק קומיקס",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "76",
+  "name": "אביר הדיו",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "159",
+  "name": "שומרי הקשת האגדית & נולי",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "173",
+  "name": "3DGoodies",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "180",
+  "name": "Raimu",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "195",
+  "name": "Arts by Y",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "231",
+  "name": "Tomatoes Trash",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-tomatoes-trash.webp"
+ },
+ {
+  "id": "244",
+  "name": "אורות הצפון",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "262",
+  "name": "CollectorsIL",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "267",
+  "name": "ענבים",
+  "category": "",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "278",
+  "name": "שער לעולם אחר",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "286",
+  "name": "Captain Ayay",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "65",
+  "name": "מאי סלע",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "74",
+  "name": "Manarts",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "150",
+  "name": "Candy Lenses",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "158",
+  "name": "קאמיקוני",
+  "category": "דוכן מסחרי",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "169",
+  "name": "שומרת האבן - עופרי ארזי",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "186",
+  "name": "LanxiArts",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "255",
+  "name": "HillelArt",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "276",
+  "name": "Unisharks",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "235",
+  "name": "התחנה לעולמות אחרים",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "172",
+  "name": "סטימצקי",
+  "category": "דוכן מסחרי",
+  "area": "סינמטק",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "171",
+  "name": "Fantasy Birds for Nature",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": "logos/copy-of-trollworx.webp"
+ },
+ {
+  "id": "269",
+  "name": "אקווידע",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "142",
+  "name": "MEAT - A Symbolic Fantasy Novel, by Adi Feldman",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "148",
+  "name": "ספר ״פנדורה וסוד התיבה״, ספר ילדים  ״המשאלה״",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "200",
+  "name": "אילה לרנר",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "132",
+  "name": "מיכאל רון קדר, הסופר של \"אגדות סינדרי: בראשית\"",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "206",
+  "name": "הרלנד",
+  "category": "דוכן סופר.ת עצמאי.ת",
+  "area": "ג' - גאליפריי",
+  "tableIds": {
+   "from": 5,
+   "to": 5,
+   "count": 1,
+   "raw": "5"
+  },
+  "discountOrga": "TRUE",
+  "url": "",
+  "logo": "logos/copy-of-natart.webp"
+ },
+ {
+  "id": "138",
+  "name": "מסרגת הקסם",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ },
+ {
+  "id": "253",
+  "name": "Scylla art",
+  "category": "דוכן יוצר.ת עצמאי.ת",
+  "area": "",
+  "tableIds": null,
+  "discountOrga": "FALSE",
+  "url": "",
+  "logo": null
+ }
+]

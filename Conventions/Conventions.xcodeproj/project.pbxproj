@@ -11,6 +11,9 @@
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
 		3B014FB21D95A1AD0002DE8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FB11D95A1AD0002DE8F /* Colors.swift */; };
 		3B0288781D99BA4D006E158C /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288771D99BA4D006E158C /* Updates.swift */; };
+		3995D291406FA817FE2F15B2 /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64524635656308AB1DB01C2 /* Stand.swift */; };
+		2854135C9E72B1CF3D8234F8 /* StandsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E240839C5B13806D7B7082D /* StandsParser.swift */; };
+		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
 		3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0288791D9AF1CB006E158C /* DateFilterControl.swift */; };
 		3B02C2882066BA66005E2139 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B02C2872066BA66005E2139 /* UserNotifications.framework */; };
 		3B049C7D1F7FBB250087FA9C /* SecondHandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B049C7C1F7FBB250087FA9C /* SecondHandViewController.swift */; };
@@ -105,6 +108,7 @@
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
 		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
+		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
 		863315C12CA734F2001E6645 /* MoreInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
@@ -199,6 +203,9 @@
 		3BB6310A1C89680800D54D3E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
+		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stand.swift; path = model/Stand.swift; sourceTree = "<group>"; };
+		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsParser.swift; path = model/StandsParser.swift; sourceTree = "<group>"; };
+		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsRefresher.swift; path = model/StandsRefresher.swift; sourceTree = "<group>"; };
 		3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		3BB6311E1C89838100D54D3E /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		3BB631201C89839400D54D3E /* UpdateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateTableViewCell.xib; sourceTree = "<group>"; };
@@ -226,6 +233,7 @@
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
+		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
 		863315C02CA734F2001E6645 /* MoreInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoItemCell.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
@@ -316,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				861675482F6EF06E005FF7E0 /* olamot2026Events.json */,
+				F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -456,6 +465,9 @@
 				3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */,
 				3B3E67E71F53F34900A82DB1 /* SurveyForm.swift */,
 				A43C104D233682CB00132555 /* Tickets.swift */,
+				B64524635656308AB1DB01C2 /* Stand.swift */,
+				9E240839C5B13806D7B7082D /* StandsParser.swift */,
+				B43644621FF6C3196900854F /* StandsRefresher.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -641,6 +653,7 @@
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
 				861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */,
+				6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
 				3B4B4A761D341A1600943EF5 /* MultipleAnswerCell.xib in Resources */,
@@ -806,6 +819,9 @@
 				A454B5E72AC60F4F008A40C6 /* UIViewControllerExtentions.swift in Sources */,
 				3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */,
 				3BB6311A1C89738400D54D3E /* Update.swift in Sources */,
+				3995D291406FA817FE2F15B2 /* Stand.swift in Sources */,
+				2854135C9E72B1CF3D8234F8 /* StandsParser.swift in Sources */,
+				ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */,
 				3B3E67E81F53F34900A82DB1 /* SurveyForm.swift in Sources */,
 				3BB6311F1C89838100D54D3E /* UpdateTableViewCell.swift in Sources */,
 				3BA2D8111C5FEB69007A8A23 /* ConventionEvent.swift in Sources */,
