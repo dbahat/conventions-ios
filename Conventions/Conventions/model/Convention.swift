@@ -10,11 +10,11 @@ import Foundation
 
 class Convention {
     static let instance = Convention()
-    static let date = Date.from(year: 2026, month: 04, day: 05)
-    static let endDate = Date.from(year: 2026, month: 04, day: 06)
-    static let name = "olamot2026"
-    static let slug = name + "c"
-    static let displayName = "כנס עולמות 2026"
+    static let date = Date.from(year: 2026, month: 09, day: 29)
+    static let endDate = Date.from(year: 2026, month: 10, day: 01)
+    static let name = "icon2026"
+    static let slug = name
+    static let displayName = "פסטיבל אייקון 2026"
     
     var halls: Array<Hall>
     var events: Events
@@ -60,14 +60,14 @@ class Convention {
             Hall(name: "סינמטק 4"),
             Hall(name: "סינמטק 5"),
             
-            Hall(name: "משחקי קופסה 1"),
-            Hall(name: "משחקי קופסה 2"),
-            
+            Hall(name: "חדר משחקי קופסה 1"),
+            Hall(name: "חדר משחקי קופסה 2"),
+
             Hall(name: "סדנאות 1"),
             Hall(name: "סדנאות 2"),
-            
+
             Hall(name: "החללית"),
-            Hall(name: "חוצות"),
+            Hall(name: "זירה וחוצות"),
             Hall(name: "אייקוד"),
             
             Hall(name: "עירוני סדנאות"),
