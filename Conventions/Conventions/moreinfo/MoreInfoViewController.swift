@@ -15,6 +15,7 @@ class MoreInfoViewController : BaseViewController {
 //        Item(name: "יד שנייה", imageId: "MenuSecondHand", viewControllerId: "SecondHandViewController"),
         Item(name: "דרכי הגעה", imageId: "MenuArrivalMethods", viewControllerId: "ArrivalMethodsViewController"),
         Item(name: "הטבות", imageId: "MenuDiscounts", viewControllerId: "DiscountsViewController"),
+        Item(name: "דוכנים", imageId: "MenuActivities", makeViewController: { StandAreasViewController() }),
 //        Item(name: "פעילויות ומתחמי שת\"פ", imageId: "MenuActivities", viewControllerId: "ActivitesViewController"),
         Item(name: "אודות הכנס", imageId: "MenuAbout", viewControllerId: "AboutViewController"),
         Item(name: "נגישות", imageId: "MenuAccessability", viewControllerId: "AccessabilityViewController"),
@@ -63,13 +64,21 @@ class MoreInfoViewController : BaseViewController {
     }
 
     private func select(_ item: Item) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: item.viewControllerId)
+        let viewController: UIViewController
+        if let makeViewController = item.makeViewController {
+            viewController = makeViewController()
+        } else if let viewControllerId = item.viewControllerId {
+            viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewControllerId)
+        } else {
+            return
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     struct Item {
         var name: String
         var imageId: String
-        var viewControllerId: String
+        var viewControllerId: String? = nil
+        var makeViewController: (() -> UIViewController)? = nil
     }
 }

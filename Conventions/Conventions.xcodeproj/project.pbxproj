@@ -122,6 +122,11 @@
 		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
 		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
+		09C35C099FE6489DB942DC4D /* StandAreasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D55271E4B49F4AD694B58 /* StandAreasView.swift */; };
+		15E9AB4A048F4CBA9D827481 /* StandCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0454E26FA894DF4B820D6F2 /* StandCardView.swift */; };
+		F884E7349CD7487E9FAB6C75 /* StandAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */; };
+		357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141D047CAB547DA9ED29406 /* StandsListView.swift */; };
+		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,7 +236,7 @@
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
-		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsParser.swift; path = model/StandsParser.swift; sourceTree = "<group>"; };
+		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
@@ -244,8 +249,13 @@
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
 		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
 		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
-		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandsRefresher.swift; path = model/StandsRefresher.swift; sourceTree = "<group>"; };
-		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stand.swift; path = model/Stand.swift; sourceTree = "<group>"; };
+		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsRefresher.swift; sourceTree = "<group>"; };
+		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
+		C88D55271E4B49F4AD694B58 /* StandAreasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasView.swift; sourceTree = "<group>"; };
+		F0454E26FA894DF4B820D6F2 /* StandCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandCardView.swift; sourceTree = "<group>"; };
+		3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasViewController.swift; sourceTree = "<group>"; };
+		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
+		BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListViewController.swift; sourceTree = "<group>"; };
 		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -431,6 +441,7 @@
 				3BA2D8181C5FF4C5007A8A23 /* events */,
 				3BB6311B1C89833D00D54D3E /* updates */,
 				3BA2D80D1C5FE8A0007A8A23 /* model */,
+				BEA1944F9EAE479DA3205C48 /* stands */,
 				3BADBDE01D55DEA5002227CB /* notifications */,
 				3BA2D7FB1C554ED3007A8A23 /* Assets.xcassets */,
 				3BA2D7F21C554ED3007A8A23 /* AppDelegate.swift */,
@@ -466,11 +477,23 @@
 				3BE551531D999D8100E91634 /* AggregatedSearchCategory.swift */,
 				3B3E67E71F53F34900A82DB1 /* SurveyForm.swift */,
 				A43C104D233682CB00132555 /* Tickets.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		BEA1944F9EAE479DA3205C48 /* stands */ = {
+			isa = PBXGroup;
+			children = (
 				B64524635656308AB1DB01C2 /* Stand.swift */,
 				9E240839C5B13806D7B7082D /* StandsParser.swift */,
 				B43644621FF6C3196900854F /* StandsRefresher.swift */,
+				C88D55271E4B49F4AD694B58 /* StandAreasView.swift */,
+				3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */,
+				F0454E26FA894DF4B820D6F2 /* StandCardView.swift */,
+				7141D047CAB547DA9ED29406 /* StandsListView.swift */,
+				BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */,
 			);
-			name = model;
+			path = stands;
 			sourceTree = "<group>";
 		};
 		3BA2D8181C5FF4C5007A8A23 /* events */ = {
@@ -857,6 +880,11 @@
 				3BA2D8131C5FEDF5007A8A23 /* EventType.swift in Sources */,
 				3B4CEB4D1C7CF7F500AF041B /* CardView.swift in Sources */,
 				3B05C11F1D57B2B500C590FF /* NotificationSettingsViewController.swift in Sources */,
+				09C35C099FE6489DB942DC4D /* StandAreasView.swift in Sources */,
+				F884E7349CD7487E9FAB6C75 /* StandAreasViewController.swift in Sources */,
+				15E9AB4A048F4CBA9D827481 /* StandCardView.swift in Sources */,
+				357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */,
+				558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

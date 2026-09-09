@@ -29,7 +29,8 @@ class Convention {
     let conventionFeedbackForm: SurveyForm.Feedback
     
     let secondHand = SecondHand()
-    
+    let stands = StandsRefresher()
+
     fileprivate init() {
         // The hall order affects the order the events are shown in the programme. Order was selected based on the convention website.
         halls = [

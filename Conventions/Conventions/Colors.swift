@@ -175,5 +175,13 @@ class Colors {
     static let secondHandStatusMissingColor = Colors.olamot2026_red
     static let secondHandStatusDefaultColor = Colors.olamot2026_purple1000
     static let secondHandRemoveFormButtonColor = Colors.olamot2026_blue700
-    
+
+    // Stands colors
+    static let standsCardBackgroundColor = Colors.olamot2026_gray50
+    static let standsCardTitleColor = Colors.textColor
+    static let standsCardSubtitleColor = Colors.hintTextColor
+    static let standsChevronColor = Colors.olamot2026_blue400
+    static let standsCategoryBadgeBackgroundColor = Colors.olamot2026_blue100
+    static let standsCategoryBadgeTextColor = Colors.olamot2026_blue900
+
 }
