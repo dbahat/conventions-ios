@@ -29,8 +29,7 @@ struct StandAreasView: View {
     private var filteredStands: [Stand] {
         let searchText = searchState.searchText
         let matching = searchText.isEmpty ? stands : stands.filter {
-            $0.name.localizedCaseInsensitiveContains(searchText) ||
-            $0.category.localizedCaseInsensitiveContains(searchText)
+            $0.name.localizedCaseInsensitiveContains(searchText)
         }
         return matching.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
     }
@@ -99,7 +98,7 @@ struct StandAreasView: View {
                 .padding(.top, 40)
         } else {
             ForEach(filteredStands, id: \.id) { stand in
-                StandCardView(stand: stand, showArea: true)
+                StandCardView(stand: stand, showArea: true, searchText: searchState.searchText)
             }
         }
     }
