@@ -19,23 +19,36 @@ struct StandCardView: View {
 
     var body: some View {
         VStack(alignment: .trailing, spacing: 8) {
-            highlightedText(
-                stand.name,
-                font: .system(size: 17, weight: .medium),
-                color: Color(uiColor: Colors.standsCardTitleColor)
-            )
+            // ZStack (not .background/.overlay, which size to whichever view they're attached to)
+            // takes the max width and max height of both children independently: the real text
+            // drives the width (so it still wraps normally), while the 2-line ghost text drives
+            // the height whenever the real name only needs 1 line, keeping every card's title the
+            // same height regardless of name length.
+            ZStack(alignment: .topTrailing) {
+                Text("A\nA")
+                    .font(.system(size: 17, weight: .medium))
+                    .opacity(0)
 
-            if !badgeText.isEmpty {
                 highlightedText(
-                    badgeText,
-                    font: .system(size: 12, weight: .semibold),
-                    color: Color(uiColor: Colors.standsCategoryBadgeTextColor)
+                    stand.name,
+                    font: .system(size: 17, weight: .medium),
+                    color: Color(uiColor: Colors.standsCardTitleColor)
                 )
-                .padding(.horizontal, 8)
-                .padding(.vertical, 3)
-                .background(Color(uiColor: Colors.standsCategoryBadgeBackgroundColor))
-                .cornerRadius(4)
+                .lineLimit(2)
             }
+
+            // Badge slot always renders (even with no content) so its height/padding is
+            // reserved on every card; it's just made invisible when there's nothing to show.
+            highlightedText(
+                badgeText.isEmpty ? " " : badgeText,
+                font: .system(size: 12, weight: .semibold),
+                color: Color(uiColor: Colors.standsCategoryBadgeTextColor)
+            )
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
+            .background(Color(uiColor: Colors.standsCategoryBadgeBackgroundColor))
+            .cornerRadius(4)
+            .opacity(badgeText.isEmpty ? 0 : 1)
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.horizontal, 16)

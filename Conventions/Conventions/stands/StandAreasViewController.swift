@@ -35,9 +35,16 @@ class StandAreasViewController: BaseViewController {
     }
 
     private func embedSwiftUIContent() {
-        let rootView = StandAreasView(refresher: Convention.instance.stands, searchState: searchState) { [weak self] area in
-            self?.selectArea(area)
-        }
+        let rootView = StandAreasView(
+            refresher: Convention.instance.stands,
+            searchState: searchState,
+            onSelectArea: { [weak self] area in
+                self?.selectArea(area)
+            },
+            onOpenFilter: { [weak self] in
+                self?.openFilter()
+            }
+        )
 
         let hostingController = UIHostingController(rootView: rootView)
         hostingController.view.backgroundColor = .clear
@@ -59,6 +66,13 @@ class StandAreasViewController: BaseViewController {
         viewController.area = area
         navigationController?.pushViewController(viewController, animated: true)
     }
+
+    private func openFilter() {
+        let viewController = StandsFilterViewController()
+        viewController.stands = Convention.instance.stands.getAll()
+        viewController.filterState = searchState
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension StandAreasViewController: UISearchResultsUpdating {
@@ -74,5 +88,6 @@ extension StandAreasViewController: UISearchControllerDelegate {
 
     func willDismissSearchController(_ searchController: UISearchController) {
         searchState.isActive = false
+        searchState.selectedCategories = []
     }
 }

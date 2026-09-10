@@ -8,12 +8,14 @@ import SwiftUI
 final class StandAreasSearchState: ObservableObject {
     @Published var searchText: String = ""
     @Published var isActive: Bool = false
+    @Published var selectedCategories: Set<String> = []
 }
 
 struct StandAreasView: View {
     let refresher: StandsRefresher
     @ObservedObject var searchState: StandAreasSearchState
     let onSelectArea: (String) -> Void
+    let onOpenFilter: () -> Void
 
     @State private var stands: [Stand] = []
 
@@ -28,8 +30,10 @@ struct StandAreasView: View {
 
     private var filteredStands: [Stand] {
         let searchText = searchState.searchText
-        let matching = searchText.isEmpty ? stands : stands.filter {
-            $0.name.localizedCaseInsensitiveContains(searchText)
+        let categories = searchState.selectedCategories
+        var matching = categories.isEmpty ? stands : stands.filter { categories.contains($0.category) }
+        if !searchText.isEmpty {
+            matching = matching.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
         return matching.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
     }
@@ -91,6 +95,8 @@ struct StandAreasView: View {
 
     @ViewBuilder
     private var standsContent: some View {
+        filterHeader
+
         if filteredStands.isEmpty {
             Text("לא נמצאו דוכנים")
                 .font(.system(size: 15))
@@ -103,13 +109,36 @@ struct StandAreasView: View {
         }
     }
 
+    private var filterHeader: some View {
+        VStack(alignment: .trailing, spacing: 4) {
+            Button(action: onOpenFilter) {
+                HStack(spacing: 6) {
+                    Text("סינון")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
+                    Image(systemName: "line.3.horizontal.decrease.circle")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(Color(uiColor: Colors.standsChevronColor))
+                }
+            }
+            .buttonStyle(.plain)
+
+            Text("נמצאו \(filteredStands.count) דוכנים")
+                .font(.system(size: 13))
+                .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+
     private func updateStands() {
         stands = refresher.getAll()
     }
 }
 
 #Preview {
-    StandAreasView(refresher: StandsRefresher(), searchState: StandAreasSearchState()) { area in
+    StandAreasView(refresher: StandsRefresher(), searchState: StandAreasSearchState(), onSelectArea: { area in
         print("Selected area: \(area)")
-    }
+    }, onOpenFilter: {
+        print("Open filter")
+    })
 }

@@ -129,6 +129,8 @@
 		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 		4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C34A759E582637CBAD8711 /* StandsMapViewController.swift */; };
 		F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */; };
+		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
+		EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C473785875498CBAC35C7B /* StandsFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +264,8 @@
 		5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapView.swift; sourceTree = "<group>"; };
 		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
+		314EF723E06B4547BA6164A2 /* StandsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterView.swift; sourceTree = "<group>"; };
+		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +502,8 @@
 				BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */,
 				30C34A759E582637CBAD8711 /* StandsMapViewController.swift */,
 				5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */,
+				314EF723E06B4547BA6164A2 /* StandsFilterView.swift */,
+				75C473785875498CBAC35C7B /* StandsFilterViewController.swift */,
 			);
 			path = stands;
 			sourceTree = "<group>";
@@ -893,6 +899,8 @@
 				558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */,
 				4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */,
 				F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */,
+				8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */,
+				EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
