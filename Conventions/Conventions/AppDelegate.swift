@@ -16,9 +16,13 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    
+
     // Current app state (forground or background). Needed to know how to handle incoming notifications.
     var isActive = true
+
+    // Defaults to portrait; a presented screen (e.g. the fullscreen stands map) can flip this to
+    // allow rotation for as long as it's on screen, then must restore it to .portrait on dismissal.
+    var orientationLock = UIInterfaceOrientationMask.portrait
     
     var currentAuthorizationFlow: OIDExternalUserAgentSession?
     
@@ -165,6 +169,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         NotificationsSchedualer.scheduleConventionFeedbackLastChanceIfNeeded()
     }
     
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return orientationLock
+    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
         if let authorizationFlow = self.currentAuthorizationFlow, authorizationFlow.resumeExternalUserAgentFlow(with: url) {

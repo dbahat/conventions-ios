@@ -127,6 +127,8 @@
 		F884E7349CD7487E9FAB6C75 /* StandAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */; };
 		357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141D047CAB547DA9ED29406 /* StandsListView.swift */; };
 		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
+		4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C34A759E582637CBAD8711 /* StandsMapViewController.swift */; };
+		F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +258,8 @@
 		3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasViewController.swift; sourceTree = "<group>"; };
 		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
 		BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListViewController.swift; sourceTree = "<group>"; };
+		30C34A759E582637CBAD8711 /* StandsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapViewController.swift; sourceTree = "<group>"; };
+		5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapView.swift; sourceTree = "<group>"; };
 		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -492,6 +496,8 @@
 				F0454E26FA894DF4B820D6F2 /* StandCardView.swift */,
 				7141D047CAB547DA9ED29406 /* StandsListView.swift */,
 				BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */,
+				30C34A759E582637CBAD8711 /* StandsMapViewController.swift */,
+				5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */,
 			);
 			path = stands;
 			sourceTree = "<group>";
@@ -885,6 +891,8 @@
 				15E9AB4A048F4CBA9D827481 /* StandCardView.swift in Sources */,
 				357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */,
 				558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */,
+				4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */,
+				F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

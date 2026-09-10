@@ -18,6 +18,7 @@ The Xcode project lives in `Conventions/` (open `Conventions/Conventions.xcworks
   ```
 - There is no test target in this project (no `*Tests` scheme/target exists) — there is nothing to run with `xcodebuild test`.
 - Key third-party pods: `AppAuth` (OAuth login for ticket import), `GoogleMaps`, `FirebaseCore`/`FirebaseCrashlytics`/`FirebaseAnalytics`/`FirebaseMessaging` (push notifications), `UICollectionViewRightAlignedLayout` (RTL support).
+- Don't run `xcodebuild build` (or otherwise try to compile the project) after making changes — it's slow, and the user prefers to manually test from the Xcode simulator, which compiles the project anyway.
 
 ## Architecture
 
