@@ -61,7 +61,7 @@ class StandAreasViewController: BaseViewController {
         hostingController.didMove(toParent: self)
     }
 
-    private func selectArea(_ area: String) {
+    private func selectArea(_ area: StandArea) {
         let viewController = StandsListViewController()
         viewController.area = area
         navigationController?.pushViewController(viewController, animated: true)

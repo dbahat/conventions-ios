@@ -14,18 +14,17 @@ final class StandAreasSearchState: ObservableObject {
 struct StandAreasView: View {
     let refresher: StandsRefresher
     @ObservedObject var searchState: StandAreasSearchState
-    let onSelectArea: (String) -> Void
+    let onSelectArea: (StandArea) -> Void
     let onOpenFilter: () -> Void
 
     @State private var stands: [Stand] = []
 
-    private var areas: [String] {
+    private var areas: [StandArea] {
         var seen = Set<String>()
         return stands
-            .map(\.area)
-            .filter { !$0.isEmpty }
-            .filter { seen.insert($0).inserted }
-            .sorted { $0.localizedStandardCompare($1) == .orderedAscending }
+            .compactMap(\.area)
+            .filter { seen.insert($0.id).inserted }
+            .sorted { $0.title.localizedStandardCompare($1.title) == .orderedAscending }
     }
 
     private var filteredStands: [Stand] {
@@ -72,11 +71,11 @@ struct StandAreasView: View {
                 .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
                 .padding(.top, 40)
         } else {
-            ForEach(areas, id: \.self) { area in
+            ForEach(areas, id: \.id) { area in
                 Button(action: { onSelectArea(area) }) {
                     HStack(spacing: 10) {
                         Spacer(minLength: 0)
-                        Text(area)
+                        Text(area.title)
                             .font(.system(size: 17, weight: .medium))
                             .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
                         Image(systemName: "chevron.right")

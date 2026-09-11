@@ -7,17 +7,17 @@ import SwiftUI
 
 class StandsListViewController: BaseViewController {
 
-    var area: String = ""
+    var area: StandArea = StandArea(id: "", title: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = area
+        title = area.title
         embedSwiftUIContent()
     }
 
     private func embedSwiftUIContent() {
-        let stands = Convention.instance.stands.getAll().filter { $0.area == area }
+        let stands = Convention.instance.stands.getAll().filter { $0.area?.id == area.id }
         let hostingController = UIHostingController(rootView: StandsListView(stands: stands, onExpandMapTapped: { [weak self] in
             self?.presentFullscreenMap()
         }))

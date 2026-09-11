@@ -56,9 +56,9 @@ struct StandsListView: View {
 
 #Preview {
     StandsListView(stands: [
-        Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: "אולם 1", tableIds: StandTableIds(from: 1, to: 2, count: 2, raw: "1-2"), discountOrga: "TRUE", url: "", logo: nil),
-        Stand(id: "2", name: "הוצאת ספרים כלשהי", category: "מוציאים לאור", area: "אולם 1", tableIds: StandTableIds(from: 5, to: 5, count: 1, raw: "5"), discountOrga: "FALSE", url: "", logo: nil),
-        Stand(id: "3", name: "דוכן משחקי תפקידים", category: "משחקים", area: "אולם 1", tableIds: nil, discountOrga: "FALSE", url: "", logo: nil),
+        Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 1, to: 2, count: 2, list: [1, 2], raw: "1-2"), discountOrga: "TRUE", dates: [], url: "", logo: nil),
+        Stand(id: "2", name: "הוצאת ספרים כלשהי", category: "מוציאים לאור", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 5, to: 5, count: 1, list: [5], raw: "5"), discountOrga: "FALSE", dates: [], url: "", logo: nil),
+        Stand(id: "3", name: "דוכן משחקי תפקידים", category: "משחקים", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: nil, discountOrga: "FALSE", dates: [], url: "", logo: nil),
     ], onExpandMapTapped: {})
 }
 

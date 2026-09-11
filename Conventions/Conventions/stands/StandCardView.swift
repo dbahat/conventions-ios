@@ -13,8 +13,10 @@ struct StandCardView: View {
     private var badgeText: String {
         let raw = stand.tableIds?.raw ?? ""
         guard showArea else { return raw }
-        guard !raw.isEmpty else { return stand.area }
-        return "\(stand.area), \(raw)"
+        let areaTitle = stand.area?.title ?? ""
+        guard !areaTitle.isEmpty else { return raw }
+        guard !raw.isEmpty else { return areaTitle }
+        return "\(areaTitle), \(raw)"
     }
 
     var body: some View {
@@ -81,8 +83,8 @@ struct StandCardView: View {
 
 #Preview {
     VStack(spacing: 12) {
-        StandCardView(stand: Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: "אולם 1", tableIds: StandTableIds(from: 12, to: 15, count: 4, raw: "12-15"), discountOrga: "TRUE", url: "", logo: nil))
-        StandCardView(stand: Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: "א׳", tableIds: StandTableIds(from: 3, to: 3, count: 1, raw: "3"), discountOrga: "FALSE", url: "", logo: nil), showArea: true, searchText: "אטל")
+        StandCardView(stand: Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: [], url: "", logo: nil))
+        StandCardView(stand: Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: StandArea(id: "2", title: "א׳"), description: "", tags: [], tableIds: StandTableIds(from: 3, to: 3, count: 1, list: [3], raw: "3"), discountOrga: "FALSE", dates: [], url: "", logo: nil), showArea: true, searchText: "אטל")
     }
     .padding(16)
 }

@@ -112,8 +112,8 @@ struct StandsFilterView: View {
 #Preview {
     StandsFilterView(
         stands: [
-            Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: "אולם 1", tableIds: nil, discountOrga: "TRUE", url: "", logo: nil),
-            Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: "א׳", tableIds: nil, discountOrga: "FALSE", url: "", logo: nil),
+            Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: nil, discountOrga: "TRUE", dates: [], url: "", logo: nil),
+            Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: StandArea(id: "2", title: "א׳"), description: "", tags: [], tableIds: nil, discountOrga: "FALSE", dates: [], url: "", logo: nil),
         ],
         filterState: StandAreasSearchState()
     )

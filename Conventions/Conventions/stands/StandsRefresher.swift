@@ -9,7 +9,7 @@
 import Foundation
 
 class StandsRefresher {
-    private static let apiUrl = URL(string: "https://api.sf-f.org.il/booths/booths.json")!
+    private static let apiUrl = URL(string: "https://api.sf-f.org.il/booths/\(Convention.slug).json")!
 
     private static let fileName = Convention.name + "Stands.json";
     private static let cacheFile = NSHomeDirectory() + "/Library/Caches/" + fileName;
@@ -34,7 +34,7 @@ class StandsRefresher {
     }
 
     func getAll() -> Array<Stand> {
-        return stands;
+        return stands.filter { $0.area != nil };
     }
 
     func refresh(_ callback: ((_ success: Bool) -> Void)?) {
