@@ -29,9 +29,9 @@ class AfterConventionHomeContentView : UIView {
     
     private func commonInit() {
         inflateNib(AfterConventionHomeContentView.self)
-        contentContainer.backgroundColor = Colors.homeFirstButtonColor
-        thanksForComingLabel.textColor = Colors.homeTextColor
-        sendFeedbackLabel.textColor = Colors.homeFirstButtonTextColor
+        contentContainer.backgroundColor = Colors.homeSecondButtonColor
+        thanksForComingLabel.textColor = Colors.homeCurrentEventHeadersTextColor
+        sendFeedbackLabel.textColor = Colors.homeSecondButtonTextColor
         
         contentContainer.layer.cornerRadius = 4
         

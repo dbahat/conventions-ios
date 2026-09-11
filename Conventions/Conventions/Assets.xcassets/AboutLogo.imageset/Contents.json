@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "olamot2026_logo_title 2.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "olamot2026_logo_title 1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "olamot2026_logo_title.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "icon2026_logo.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
