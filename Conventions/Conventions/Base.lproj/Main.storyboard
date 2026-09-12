@@ -1987,7 +1987,7 @@
                                 <action selector="showQrWasClicked:" destination="dzP-YM-jGI" id="76b-cV-0Gy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="ייבא כרטיסים" hidden="YES" id="KKz-75-ZTL">
+                        <barButtonItem key="rightBarButtonItem" title="ייבא כרטיסים" id="KKz-75-ZTL">
                             <connections>
                                 <action selector="importEventsWasClicked:" destination="dzP-YM-jGI" id="ZCk-P2-keU"/>
                             </connections>

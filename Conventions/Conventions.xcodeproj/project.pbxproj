@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C35C099FE6489DB942DC4D /* StandAreasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D55271E4B49F4AD694B58 /* StandAreasView.swift */; };
+		15E9AB4A048F4CBA9D827481 /* StandCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0454E26FA894DF4B820D6F2 /* StandCardView.swift */; };
 		193EBE2E7433460CB0E45B0A /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */; };
+		27553BE8D22A480C8A906B38 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B805C8DCC4CB694D3722F /* FlowLayout.swift */; };
 		2854135C9E72B1CF3D8234F8 /* StandsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E240839C5B13806D7B7082D /* StandsParser.swift */; };
+		357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141D047CAB547DA9ED29406 /* StandsListView.swift */; };
 		387079260BFE2B652F676BE2 /* libPods-Conventions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 176553DED1F172F71C32A7C4 /* libPods-Conventions.a */; };
 		3995D291406FA817FE2F15B2 /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64524635656308AB1DB01C2 /* Stand.swift */; };
 		3B014FB01D91BD420002DE8F /* SffEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */; };
@@ -107,8 +111,11 @@
 		3BFE31081F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE31071F6EC4F900271F58 /* DuringConventionNoFavoritesHomeContentView.swift */; };
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
+		4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C34A759E582637CBAD8711 /* StandsMapViewController.swift */; };
+		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
 		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
+		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
@@ -122,19 +129,19 @@
 		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
 		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
-		09C35C099FE6489DB942DC4D /* StandAreasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D55271E4B49F4AD694B58 /* StandAreasView.swift */; };
-		15E9AB4A048F4CBA9D827481 /* StandCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0454E26FA894DF4B820D6F2 /* StandCardView.swift */; };
-		F884E7349CD7487E9FAB6C75 /* StandAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */; };
-		357F05E1D35E4D6DA7F3FEC7 /* StandsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141D047CAB547DA9ED29406 /* StandsListView.swift */; };
-		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
-		4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C34A759E582637CBAD8711 /* StandsMapViewController.swift */; };
-		F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */; };
-		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
 		EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C473785875498CBAC35C7B /* StandsFilterViewController.swift */; };
+		EF8AEB350B054BE3842DECE1 /* StandDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */; };
+		F12E459DF3AD4A53891A0400 /* StandDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC06A95D24555A682D677 /* StandDetailsView.swift */; };
+		F884E7349CD7487E9FAB6C75 /* StandAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */; };
+		F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		176553DED1F172F71C32A7C4 /* libPods-Conventions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Conventions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25FBC06A95D24555A682D677 /* StandDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandDetailsView.swift; sourceTree = "<group>"; };
+		30C34A759E582637CBAD8711 /* StandsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapViewController.swift; sourceTree = "<group>"; };
+		314EF723E06B4547BA6164A2 /* StandsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterView.swift; sourceTree = "<group>"; };
+		3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasViewController.swift; sourceTree = "<group>"; };
 		3B014FAF1D91BD420002DE8F /* SffEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SffEventsParser.swift; path = model/SffEventsParser.swift; sourceTree = "<group>"; };
 		3B014FB11D95A1AD0002DE8F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B0288771D99BA4D006E158C /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updates.swift; path = model/Updates.swift; sourceTree = "<group>"; };
@@ -239,6 +246,10 @@
 		3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtentions.swift; path = extentions/UIViewExtentions.swift; sourceTree = "<group>"; };
 		3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConventionHomeContentViewProtocol.swift; path = home/ConventionHomeContentViewProtocol.swift; sourceTree = "<group>"; };
 		428F3D03DF35F465669CCD5B /* Pods-Conventions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.release.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.release.xcconfig"; sourceTree = "<group>"; };
+		5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapView.swift; sourceTree = "<group>"; };
+		6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandDetailsViewController.swift; sourceTree = "<group>"; };
+		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
+		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
 		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
@@ -253,19 +264,14 @@
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
 		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
 		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
+		B06B805C8DCC4CB694D3722F /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsRefresher.swift; sourceTree = "<group>"; };
 		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
+		BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListViewController.swift; sourceTree = "<group>"; };
+		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		C88D55271E4B49F4AD694B58 /* StandAreasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasView.swift; sourceTree = "<group>"; };
 		F0454E26FA894DF4B820D6F2 /* StandCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandCardView.swift; sourceTree = "<group>"; };
-		3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasViewController.swift; sourceTree = "<group>"; };
-		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
-		BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListViewController.swift; sourceTree = "<group>"; };
-		30C34A759E582637CBAD8711 /* StandsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapViewController.swift; sourceTree = "<group>"; };
-		5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsMapView.swift; sourceTree = "<group>"; };
-		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
-		314EF723E06B4547BA6164A2 /* StandsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterView.swift; sourceTree = "<group>"; };
-		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,25 +495,6 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		BEA1944F9EAE479DA3205C48 /* stands */ = {
-			isa = PBXGroup;
-			children = (
-				B64524635656308AB1DB01C2 /* Stand.swift */,
-				9E240839C5B13806D7B7082D /* StandsParser.swift */,
-				B43644621FF6C3196900854F /* StandsRefresher.swift */,
-				C88D55271E4B49F4AD694B58 /* StandAreasView.swift */,
-				3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */,
-				F0454E26FA894DF4B820D6F2 /* StandCardView.swift */,
-				7141D047CAB547DA9ED29406 /* StandsListView.swift */,
-				BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */,
-				30C34A759E582637CBAD8711 /* StandsMapViewController.swift */,
-				5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */,
-				314EF723E06B4547BA6164A2 /* StandsFilterView.swift */,
-				75C473785875498CBAC35C7B /* StandsFilterViewController.swift */,
-			);
-			path = stands;
-			sourceTree = "<group>";
-		};
 		3BA2D8181C5FF4C5007A8A23 /* events */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +602,28 @@
 				3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */,
 			);
 			path = moreinfo;
+			sourceTree = "<group>";
+		};
+		BEA1944F9EAE479DA3205C48 /* stands */ = {
+			isa = PBXGroup;
+			children = (
+				B64524635656308AB1DB01C2 /* Stand.swift */,
+				9E240839C5B13806D7B7082D /* StandsParser.swift */,
+				B43644621FF6C3196900854F /* StandsRefresher.swift */,
+				C88D55271E4B49F4AD694B58 /* StandAreasView.swift */,
+				3A024315160B47EEA46B0AB4 /* StandAreasViewController.swift */,
+				F0454E26FA894DF4B820D6F2 /* StandCardView.swift */,
+				7141D047CAB547DA9ED29406 /* StandsListView.swift */,
+				BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */,
+				30C34A759E582637CBAD8711 /* StandsMapViewController.swift */,
+				5B95120B0F5499EC23D7C6DB /* StandsMapView.swift */,
+				314EF723E06B4547BA6164A2 /* StandsFilterView.swift */,
+				75C473785875498CBAC35C7B /* StandsFilterViewController.swift */,
+				B06B805C8DCC4CB694D3722F /* FlowLayout.swift */,
+				25FBC06A95D24555A682D677 /* StandDetailsView.swift */,
+				6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */,
+			);
+			path = stands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -901,6 +910,9 @@
 				F9FDDD41DE2BB2B77C50766E /* StandsMapView.swift in Sources */,
 				8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */,
 				EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */,
+				27553BE8D22A480C8A906B38 /* FlowLayout.swift in Sources */,
+				F12E459DF3AD4A53891A0400 /* StandDetailsView.swift in Sources */,
+				EF8AEB350B054BE3842DECE1 /* StandDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,7 +1068,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Conventions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 18.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";
@@ -1089,7 +1101,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Conventions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 18.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "SF-F.Conventions";

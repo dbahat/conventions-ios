@@ -9,50 +9,58 @@ struct StandCardView: View {
     let stand: Stand
     var showArea: Bool = false
     var searchText: String = ""
+    var onMoreInfoTapped: (() -> Void)? = nil
 
-    private var badgeText: String {
-        let raw = stand.tableIds?.raw ?? ""
-        guard showArea else { return raw }
-        let areaTitle = stand.area?.title ?? ""
-        guard !areaTitle.isEmpty else { return raw }
-        guard !raw.isEmpty else { return areaTitle }
-        return "\(areaTitle), \(raw)"
+    private var subtitleText: String {
+        showArea ? (stand.area?.title ?? "") : (stand.tableIds?.raw ?? "")
     }
 
     var body: some View {
-        VStack(alignment: .trailing, spacing: 8) {
-            // ZStack (not .background/.overlay, which size to whichever view they're attached to)
-            // takes the max width and max height of both children independently: the real text
-            // drives the width (so it still wraps normally), while the 2-line ghost text drives
-            // the height whenever the real name only needs 1 line, keeping every card's title the
-            // same height regardless of name length.
-            ZStack(alignment: .topTrailing) {
-                Text("A\nA")
-                    .font(.system(size: 17, weight: .medium))
-                    .opacity(0)
+        HStack(spacing: 12) {
+            if let onMoreInfoTapped {
+                Button(action: onMoreInfoTapped) {
+                    Text("מידע נוסף")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color(uiColor: Colors.standCardMoreInfoColor))
+                }
+                .buttonStyle(.plain)
+            }
 
+            VStack(alignment: .trailing, spacing: 8) {
                 highlightedText(
                     stand.name,
                     font: .system(size: 17, weight: .medium),
-                    color: Color(uiColor: Colors.standsCardTitleColor)
+                    color: Color(uiColor: Colors.standsCardTextColor)
                 )
-                .lineLimit(2)
-            }
+                .lineLimit(1)
 
-            // Badge slot always renders (even with no content) so its height/padding is
-            // reserved on every card; it's just made invisible when there's nothing to show.
-            highlightedText(
-                badgeText.isEmpty ? " " : badgeText,
-                font: .system(size: 12, weight: .semibold),
-                color: Color(uiColor: Colors.standsCategoryBadgeTextColor)
-            )
-            .padding(.horizontal, 8)
-            .padding(.vertical, 3)
-            .background(Color(uiColor: Colors.standsCategoryBadgeBackgroundColor))
-            .cornerRadius(4)
-            .opacity(badgeText.isEmpty ? 0 : 1)
+                HStack(spacing: 6) {
+                    if !stand.isActive {
+                        Text("לא פעיל")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(Color(uiColor: Colors.standsCategoryBadgeTextColor))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background(Color(uiColor: Colors.standsCategoryBadgeBackgroundColor))
+                            .cornerRadius(4)
+                    }
+
+                    highlightedText(
+                        subtitleText.isEmpty ? " " : subtitleText,
+                        font: .system(size: 12, weight: .semibold),
+                        color: Color(uiColor: Colors.standCardSubtitleColor)
+                    )
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+
+            Image("StandIcon")
+                .renderingMode(.template)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+                .foregroundColor(Color(uiColor: Colors.standCardIconColor))
         }
-        .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
         .background(Color(uiColor: Colors.standsCardBackgroundColor))
@@ -74,7 +82,7 @@ struct StandCardView: View {
             }
             result = result + Text(remaining[range])
                 .font(font.bold())
-                .foregroundColor(Color(uiColor: Colors.colorAccent))
+                .foregroundColor(Color(uiColor: Colors.standHighlightedTextColor))
             remaining = remaining[range.upperBound...]
         }
         return result + Text(remaining).font(font).foregroundColor(color)

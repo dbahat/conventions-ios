@@ -15,9 +15,14 @@ struct StandAreasView: View {
     let refresher: StandsRefresher
     @ObservedObject var searchState: StandAreasSearchState
     let onSelectArea: (StandArea) -> Void
+    let onSelectStand: (Stand) -> Void
     let onOpenFilter: () -> Void
 
     @State private var stands: [Stand] = []
+
+    private var isFilterActive: Bool {
+        !searchState.selectedCategories.isEmpty
+    }
 
     private var areas: [StandArea] {
         var seen = Set<String>()
@@ -75,12 +80,9 @@ struct StandAreasView: View {
                 Button(action: { onSelectArea(area) }) {
                     HStack(spacing: 10) {
                         Spacer(minLength: 0)
-                        Text(area.title)
+                        Text(area.title != area.id ? "\(area.title) - '\(area.id)" : "\(area.title)")
                             .font(.system(size: 17, weight: .medium))
-                            .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
-                        Image(systemName: "chevron.right")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(Color(uiColor: Colors.standsChevronColor))
+                            .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 16)
@@ -103,28 +105,31 @@ struct StandAreasView: View {
                 .padding(.top, 40)
         } else {
             ForEach(filteredStands, id: \.id) { stand in
-                StandCardView(stand: stand, showArea: true, searchText: searchState.searchText)
+                Button(action: { onSelectStand(stand) }) {
+                    StandCardView(stand: stand, showArea: true, searchText: searchState.searchText)
+                }
+                .buttonStyle(.plain)
             }
         }
     }
 
     private var filterHeader: some View {
-        VStack(alignment: .trailing, spacing: 4) {
-            Button(action: onOpenFilter) {
-                HStack(spacing: 6) {
-                    Text("סינון")
-                        .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
-                    Image(systemName: "line.3.horizontal.decrease.circle")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(Color(uiColor: Colors.standsChevronColor))
-                }
-            }
-            .buttonStyle(.plain)
-
+        HStack(spacing: 6) {
             Text("נמצאו \(filteredStands.count) דוכנים")
                 .font(.system(size: 13))
                 .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
+
+            Button(action: onOpenFilter) {
+                Image("Filter")
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 14, height: 14)
+                    .foregroundColor(Color(uiColor: isFilterActive ? Colors.standFilterOnIconColor : Colors.standFilterIconColor))
+                    .padding(8)
+                    .background(Circle().fill(Color(uiColor: isFilterActive ? Colors.standFilterOnContainerColor : Colors.standFilterContainerColor)))
+            }
+            .buttonStyle(.plain)
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
@@ -137,6 +142,8 @@ struct StandAreasView: View {
 #Preview {
     StandAreasView(refresher: StandsRefresher(), searchState: StandAreasSearchState(), onSelectArea: { area in
         print("Selected area: \(area)")
+    }, onSelectStand: { stand in
+        print("Selected stand: \(stand)")
     }, onOpenFilter: {
         print("Open filter")
     })

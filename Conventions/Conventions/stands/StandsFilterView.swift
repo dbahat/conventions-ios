@@ -27,41 +27,35 @@ struct StandsFilterView: View {
     }
 
     var body: some View {
-        ZStack {
-            Image("AppBackground")
-                .resizable()
-                .ignoresSafeArea()
+        VStack(alignment: .trailing, spacing: 16) {
+            Text("נמצאו \(matchingCount) דוכנים")
+                .font(.system(size: 15))
+                .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
+                .frame(maxWidth: .infinity, alignment: .trailing)
 
-            ScrollView {
-                VStack(alignment: .trailing, spacing: 16) {
-                    Text("נמצאו \(matchingCount) דוכנים")
-                        .font(.system(size: 15))
-                        .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-
-                    HStack {
-                        Button("נקה הכל") {
-                            filterState.selectedCategories.removeAll()
-                        }
-                        .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(Color(uiColor: Colors.colorAccent))
-
-                        Spacer()
-
-                        Text("סוג דוכן")
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
-                    }
-
-                    LazyVGrid(columns: columns, spacing: 12) {
-                        ForEach(categories, id: \.self) { category in
-                            categoryItem(category)
-                        }
-                    }
+            HStack {
+                Button("נקה הכל") {
+                    filterState.selectedCategories.removeAll()
                 }
-                .padding(16)
+                .font(.system(size: 15, weight: .medium))
+                .foregroundColor(Color(uiColor: Colors.standFilterSelectedColor))
+
+                Spacer()
+
+                Text("סוג דוכן")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
+            }
+
+            LazyVGrid(columns: columns, spacing: 12) {
+                ForEach(categories, id: \.self) { category in
+                    categoryItem(category)
+                }
             }
         }
+        .padding(16)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background(Color(uiColor: Colors.standsFilterScreenBackgroundColor).ignoresSafeArea())
     }
 
     private func categoryItem(_ category: String) -> some View {
@@ -69,32 +63,18 @@ struct StandsFilterView: View {
 
         return Button(action: { toggle(category) }) {
             HStack(spacing: 8) {
-                // ZStack (not .background/.overlay, which size to whichever view they're attached to)
-                // takes the max width and max height of both children independently: the real text
-                // drives the width (so it still wraps normally), while the 2-line ghost text drives
-                // the height whenever the category name only needs 1 line, keeping every grid item
-                // the same height regardless of name length.
-                ZStack(alignment: .topTrailing) {
-                    Text("A\nA")
-                        .font(.system(size: 15))
-                        .opacity(0)
-
-                    Text(category)
-                        .font(.system(size: 15))
-                        .foregroundColor(Color(uiColor: Colors.standsCardTitleColor))
-                        .lineLimit(2)
-                        .multilineTextAlignment(.trailing)
-                }
-
-                Spacer(minLength: 4)
+                Text(category)
+                    .font(.system(size: 13))
+                    .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
 
                 Image(systemName: isSelected ? "checkmark.square.fill" : "square")
                     .font(.system(size: 18))
-                    .foregroundColor(isSelected ? Color(uiColor: Colors.colorAccent) : Color(uiColor: Colors.standsChevronColor))
+                    .foregroundColor(isSelected ? Color(uiColor: Colors.standFilterSelectedColor) : Color(uiColor: Colors.standsCardSubtitleColor))
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 12)
-            .background(Color(uiColor: Colors.standsCardBackgroundColor))
             .cornerRadius(4)
         }
         .buttonStyle(.plain)

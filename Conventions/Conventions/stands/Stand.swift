@@ -35,4 +35,12 @@ struct Stand: Codable {
     let logo: String?
 
     var isDiscountOrga: Bool { discountOrga.uppercased() == "TRUE" }
+
+    var isActive: Bool {
+        let today = Date.now().clearTimeComponent()
+        return dates.contains { dateString in
+            guard let date = Date.parse(dateString, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") else { return false }
+            return date.clearTimeComponent() == today
+        }
+    }
 }

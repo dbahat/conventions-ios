@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-This is the iOS app for **Olamot** ("עולמות" / "Worlds"), an annual Israeli science-fiction and fantasy convention (also branded ICON in some years), run by SF&F (sf-f.org.il). It's primarily a UIKit app (storyboards + xibs) written in Swift, targeting iOS 15+, now being gradually migrated to SwiftUI screen-by-screen (see "SwiftUI migration" below). The app is reused/rebranded from year to year for each edition of the convention — most yearly updates touch `Convention.swift`, `Assets.xcassets`, and the discounts/HTML content rather than core logic.
+This is the iOS app for **Olamot** ("עולמות" / "Worlds"), an annual Israeli science-fiction and fantasy convention (also branded ICON in some years), run by SF&F (sf-f.org.il). It's primarily a UIKit app (storyboards + xibs) written in Swift, targeting iOS 16+, now being gradually migrated to SwiftUI screen-by-screen (see "SwiftUI migration" below). The app is reused/rebranded from year to year for each edition of the convention — most yearly updates touch `Convention.swift`, `Assets.xcassets`, and the discounts/HTML content rather than core logic.
 
 The Xcode project lives in `Conventions/` (open `Conventions/Conventions.xcworkspace`, not the `.xcodeproj`, since CocoaPods is used).
 

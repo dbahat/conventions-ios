@@ -8,6 +8,7 @@ import SwiftUI
 class StandsListViewController: BaseViewController {
 
     var area: StandArea = StandArea(id: "", title: "")
+    var standIdToScrollTo: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +19,16 @@ class StandsListViewController: BaseViewController {
 
     private func embedSwiftUIContent() {
         let stands = Convention.instance.stands.getAll().filter { $0.area?.id == area.id }
-        let hostingController = UIHostingController(rootView: StandsListView(stands: stands, onExpandMapTapped: { [weak self] in
-            self?.presentFullscreenMap()
-        }))
+        let hostingController = UIHostingController(rootView: StandsListView(
+            stands: stands,
+            scrollToStandId: standIdToScrollTo,
+            onExpandMapTapped: { [weak self] in
+                self?.presentFullscreenMap()
+            },
+            onStandTapped: { [weak self] stand in
+                self?.presentStandDetails(stand)
+            }
+        ))
         hostingController.view.backgroundColor = .clear
 
         addChild(hostingController)
@@ -63,5 +71,17 @@ class StandsListViewController: BaseViewController {
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         UIViewController.attemptRotationToDeviceOrientation()
         dismiss(animated: true)
+    }
+
+    private func presentStandDetails(_ stand: Stand) {
+        let viewController = StandDetailsViewController()
+        viewController.stand = stand
+        viewController.modalPresentationStyle = .pageSheet
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+        }
+        present(viewController, animated: true)
     }
 }

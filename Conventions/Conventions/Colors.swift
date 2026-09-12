@@ -38,8 +38,10 @@ class Colors {
     static let icon2026_purple600 = UIColor(hexString: "#472360")
 
     static let icon2026_orange25 = UIColor(hexString: "#FFF7F2")
+    static let icon2026_orange50 = UIColor(hexString: "#FCE6D9")
     static let icon2026_orange100 = UIColor(hexString: "#FADAC8")
     static let icon2026_orange300 = UIColor(hexString: "#F7BA99")
+    static let icon2026_orange900 = UIColor(hexString: "#9E3E0A")
 
     static let icon2026_yellow25_95 = UIColor(hexString: "#F2FFFBF5")
     static let icon2026_yellow25 = UIColor(hexString: "#FFFBF5")
@@ -54,6 +56,7 @@ class Colors {
     static let icon2026_gray700 = UIColor(hexString: "#595B67")
     static let icon2026_gray800 = UIColor(hexString: "#414557")
     static let icon2026_gray900 = UIColor(hexString: "#2A2E42")
+    static let icon2026_gray950 = UIColor(hexString: "#0D122B")
 
     static let icon2026_red = UIColor(hexString: "#DD2F31")
     static let icon2026_red2 = UIColor(hexString: "#FD7576")
@@ -187,10 +190,26 @@ class Colors {
 
     // Stands colors
     static let standsCardBackgroundColor = Colors.icon2026_yellow25
-    static let standsCardTitleColor = Colors.textColor
+    static let standsCardTextColor = Colors.textColor
     static let standsCardSubtitleColor = Colors.icon2026_gray900
-    static let standsChevronColor = Colors.icon2026_red
-    static let standsCategoryBadgeBackgroundColor = Colors.icon2026_gray900
-    static let standsCategoryBadgeTextColor = Colors.icon2026_purple600
+    static let standsCategoryBadgeBackgroundColor = Colors.icon2026_gray100
+    static let standsCategoryBadgeTextColor = Colors.icon2026_gray800
+    static let standCardIconColor = Colors.textColor
+    static let standCardSubtitleColor = Colors.icon2026_gray900
+    static let standFilterIconColor = Colors.icon2026_purple25
+    static let standFilterContainerColor = Colors.icon2026_purple600
+    static let standFilterOnIconColor = Colors.icon2026_purple600
+    static let standFilterOnContainerColor = Colors.icon2026_purple25
+    static let standsFilterScreenBackgroundColor = Colors.icon2026_yellow25
+    static let standFilterSelectedColor = Colors.icon2026_blue500
+    static let standZoomOutIconColor = Colors.icon2026_purple25
+    static let standZoomOutContainerColor = Colors.icon2026_purple600
+    static let standHighlightedTextColor = Colors.icon2026_blue500
+    static let standDetailsSubtitleColor = Colors.icon2026_gray800
+    static let standDetailsActiveLabelColor = Colors.icon2026_green950
+    static let standDetailsDescriptionColor = Colors.icon2026_gray950
+    static let standTagBackgroundColor = Colors.icon2026_orange50
+    static let standTagTextColor = Colors.icon2026_orange900
+    static let standCardMoreInfoColor = Colors.icon2026_blue700
 
 }
