@@ -37,25 +37,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UITextView.appearance().linkTextAttributes = [ .foregroundColor: Colors.linksColor ]
 
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithOpaqueBackground()
-        tabBarAppearance.backgroundColor = Colors.tabBarBackgroundColor
+        if #available(iOS 26.0, *) {
+            // iOS 26+: Liquid Glass tab bar. Per WWDC25 "Build a UIKit app with the new design" and
+            // Apple DTS forum replies (dev forum threads 796052, 793700, 817936), UITabBarAppearance's
+            // backgroundColor is ignored/discouraged on Liquid Glass bars, and unselected-item color
+            // overrides don't apply. The only supported color hook is tintColor (selected item's
+            // icon/title), so we use the brand purple there instead of fighting the glass background.
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
 
-        let itemAppearance = UITabBarItemAppearance()
+            let itemAppearance = UITabBarItemAppearance()
+            itemAppearance.selected.iconColor = Colors.tabBarBackgroundColor
+            itemAppearance.selected.titleTextAttributes = [.foregroundColor: Colors.tabBarBackgroundColor]
+            // Currently a no-op on iOS 26 (known Apple bug, unselected items render black regardless):
+            // https://developer.apple.com/forums/thread/793700
+            itemAppearance.normal.iconColor = Colors.tabBarUnselectedTabColor
+            itemAppearance.normal.titleTextAttributes = [.foregroundColor: Colors.tabBarUnselectedTabColor]
 
-        itemAppearance.normal.iconColor = Colors.tabBarUnselectedTabColor
-        itemAppearance.normal.titleTextAttributes = [.foregroundColor: Colors.tabBarUnselectedTabColor]
-        itemAppearance.selected.iconColor = Colors.tabBarSelectedTabColor
-        itemAppearance.selected.titleTextAttributes = [.foregroundColor: Colors.tabBarSelectedTabColor]
+            tabBarAppearance.stackedLayoutAppearance = itemAppearance
+            tabBarAppearance.inlineLayoutAppearance = itemAppearance
+            tabBarAppearance.compactInlineLayoutAppearance = itemAppearance
 
-        tabBarAppearance.stackedLayoutAppearance = itemAppearance
-        tabBarAppearance.inlineLayoutAppearance = itemAppearance
-        tabBarAppearance.compactInlineLayoutAppearance = itemAppearance
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
 
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            UITabBar.appearance().tintColor = Colors.tabBarBackgroundColor
+        } else {
+            // iOS < 26: unchanged, existing opaque tab bar behavior.
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = Colors.tabBarBackgroundColor
 
-        UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
+            let itemAppearance = UITabBarItemAppearance()
+
+            itemAppearance.normal.iconColor = Colors.tabBarUnselectedTabColor
+            itemAppearance.normal.titleTextAttributes = [.foregroundColor: Colors.tabBarUnselectedTabColor]
+            itemAppearance.selected.iconColor = Colors.tabBarSelectedTabColor
+            itemAppearance.selected.titleTextAttributes = [.foregroundColor: Colors.tabBarSelectedTabColor]
+
+            tabBarAppearance.stackedLayoutAppearance = itemAppearance
+            tabBarAppearance.inlineLayoutAppearance = itemAppearance
+            tabBarAppearance.compactInlineLayoutAppearance = itemAppearance
+
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+
+            UITabBar.appearance().tintColor = Colors.tabBarSelectedTabColor
+        }
 
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
