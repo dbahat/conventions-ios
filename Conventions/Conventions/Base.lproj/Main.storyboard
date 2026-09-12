@@ -1982,7 +1982,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="100" title="האירועים שלי" image="MenuEventListWithStar" id="gTS-3I-WYL"/>
                     <navigationItem key="navigationItem" title="האירועים שלי" id="wrn-Dz-eMg">
-                        <barButtonItem key="leftBarButtonItem" title="הצג QR" hidden="YES" id="o1K-Oe-mHX">
+                        <barButtonItem key="leftBarButtonItem" title="הצג QR" id="o1K-Oe-mHX">
                             <connections>
                                 <action selector="showQrWasClicked:" destination="dzP-YM-jGI" id="76b-cV-0Gy"/>
                             </connections>

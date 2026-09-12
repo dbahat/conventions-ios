@@ -246,12 +246,10 @@ class MyEventsViewController: BaseViewController, EventCellStateProtocol, UITabl
             controller.image = UIImage(data: qrData)
         }
 
-        controller.modalPresentationStyle = .formSheet
-        if let popover = controller.popoverPresentationController {
-            popover.sourceView = self.view
-            popover.sourceRect = self.view.bounds
-            popover.permittedArrowDirections = []
-
+        controller.modalPresentationStyle = .pageSheet
+        if let sheet = controller.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
         }
         
         self.present(controller, animated: true, completion: nil)
