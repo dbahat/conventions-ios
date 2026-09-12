@@ -92,7 +92,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         eventTypeAndCategoryContainer.layer.cornerRadius = 4
         eventTypeAndCategoryContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         eventSubTitleContainer.layer.cornerRadius = 4
-        eventSubTitleContainer.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+//        eventSubTitleContainer.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
         hall.textColor = Colors.textColor
         time.textColor = Colors.textColor
@@ -123,7 +123,7 @@ class EventViewController: BaseViewController, FeedbackViewProtocol, UITextViewD
         time.font = UIFont.boldSystemFont(ofSize: 15)
         
         if event.price > 0 {
-            prices.text = String(format: "%d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
+            prices.text = String(format: "מחיר: %d ש״ח, תעריף עמותות מארגנות: %d ש״ח", event.price, event.price > 10 ? event.price - 10 : 0)
         } else {
             prices.text = "מחיר: חינם"
         }

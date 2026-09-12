@@ -134,7 +134,7 @@ class Colors {
     static let eventFeedbackTextColor = Colors.icon2026_green950
     static let eventDescriptionTextColor = Colors.textColor
     static let eventTitleBackgroundColor = Colors.clear
-    static let eventSubtitleBackgroundColor = Colors.clear
+    static let eventSubtitleBackgroundColor = Colors.icon2026_yellow100
     static let eventTypeAndCategoryBackgroundColor = Colors.clear
     
     
