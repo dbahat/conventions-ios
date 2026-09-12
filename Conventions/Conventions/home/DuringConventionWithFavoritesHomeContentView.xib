@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,8 +47,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOj-GB-mEa">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="35.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מתקיים עכשיו" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-KY-jJn">
-                                            <rect key="frame" x="0.0" y="8" width="343" height="19.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מתקיים עכשיו" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-KY-jJn">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="35.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -57,8 +57,8 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="rMA-KY-jJn" firstAttribute="leading" secondItem="XOj-GB-mEa" secondAttribute="leading" id="5yF-Bk-4NA"/>
-                                        <constraint firstItem="rMA-KY-jJn" firstAttribute="top" secondItem="XOj-GB-mEa" secondAttribute="top" constant="8" id="7tb-BE-kbK"/>
-                                        <constraint firstAttribute="bottom" secondItem="rMA-KY-jJn" secondAttribute="bottom" constant="8" id="UGu-E3-8sA"/>
+                                        <constraint firstItem="rMA-KY-jJn" firstAttribute="top" secondItem="XOj-GB-mEa" secondAttribute="top" id="7tb-BE-kbK"/>
+                                        <constraint firstAttribute="bottom" secondItem="rMA-KY-jJn" secondAttribute="bottom" id="UGu-E3-8sA"/>
                                         <constraint firstAttribute="trailing" secondItem="rMA-KY-jJn" secondAttribute="trailing" id="h0O-6U-U6t"/>
                                     </constraints>
                                 </view>
@@ -139,8 +139,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFk-si-Hb0">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="73.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירוע הבא" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-6k-MlM">
-                                            <rect key="frame" x="0.0" y="8" width="343" height="57.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="האירוע הבא" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-6k-MlM">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="73.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -150,8 +150,8 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="8d5-6k-MlM" secondAttribute="trailing" id="Ofx-Tq-jto"/>
                                         <constraint firstItem="8d5-6k-MlM" firstAttribute="leading" secondItem="QFk-si-Hb0" secondAttribute="leading" id="Qc7-rx-f8Q"/>
-                                        <constraint firstAttribute="bottom" secondItem="8d5-6k-MlM" secondAttribute="bottom" constant="8" id="fzN-aD-rxU"/>
-                                        <constraint firstItem="8d5-6k-MlM" firstAttribute="top" secondItem="QFk-si-Hb0" secondAttribute="top" constant="8" id="teI-v5-asu"/>
+                                        <constraint firstAttribute="bottom" secondItem="8d5-6k-MlM" secondAttribute="bottom" id="fzN-aD-rxU"/>
+                                        <constraint firstItem="8d5-6k-MlM" firstAttribute="top" secondItem="QFk-si-Hb0" secondAttribute="top" id="teI-v5-asu"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUH-sl-zq9">
