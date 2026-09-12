@@ -21,8 +21,9 @@ class Updates {
     }
     
     func getAll() -> Array<Update> {
+        let testCategoryId = Convention.name + "_" + Updates.testCategory
         return updates
-            .filter({$0.category != Convention.name + "_" + Updates.testCategory})
+            .filter({$0.category != testCategoryId || NotificationSettings.instance.categories.contains(testCategoryId)})
     }
     
     func markAllAsRead() {
