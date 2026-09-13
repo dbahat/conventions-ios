@@ -207,6 +207,7 @@ class Colors {
     static let standHighlightedTextColor = Colors.icon2026_blue500
     static let standDetailsSubtitleColor = Colors.icon2026_gray800
     static let standDetailsActiveLabelColor = Colors.icon2026_green950
+    static let standDetailsNotActiveLabelColor = Colors.icon2026_red
     static let standDetailsDescriptionColor = Colors.icon2026_gray950
     static let standTagBackgroundColor = Colors.icon2026_orange50
     static let standTagTextColor = Colors.icon2026_orange900

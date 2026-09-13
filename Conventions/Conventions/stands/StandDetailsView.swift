@@ -26,23 +26,26 @@ struct StandDetailsView: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 12) {
             Text(stand.name)
-                .font(.system(size: 24, weight: .semibold))
+                .font(.system(size: 24, weight: .bold))
                 .foregroundColor(Color(uiColor: Colors.textColor))
 
             Text(datesLabel)
-                .font(.system(size: 18))
+                .font(.system(size: 14, weight: .light))
                 .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
 
             Text(areaAndLocationLabel)
-                .font(.system(size: 18))
+                .font(.system(size: 14, weight: .light))
                 .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
 
             Text(stand.isActive ? "פעיל" : "לא פעיל")
-                .font(.system(size: 18))
-                .foregroundColor(Color(uiColor: Colors.standDetailsActiveLabelColor))
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(stand.isActive
+                                 ? Color(uiColor: Colors.standDetailsActiveLabelColor)
+                                 : Color(uiColor: Colors.standDetailsNotActiveLabelColor)
+                )
 
             Text(stand.description)
-                .font(.system(size: 16))
+                .font(.system(size: 16, weight: .light))
                 .foregroundColor(Color(uiColor: Colors.standDetailsDescriptionColor))
                 .multilineTextAlignment(.trailing)
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -51,7 +54,7 @@ struct StandDetailsView: View {
             FlowLayout {
                 ForEach(stand.tags, id: \.self) { tag in
                     Text(tag)
-                        .font(.system(size: 14))
+                        .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(Color(uiColor: Colors.standTagTextColor))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
