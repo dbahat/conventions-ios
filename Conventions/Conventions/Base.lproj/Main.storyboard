@@ -631,61 +631,11 @@
                     <view key="view" contentMode="scaleToFill" id="HV6-8m-8ed">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hf8-Lp-gdM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="spa-7L-sPa">
-                                <rect key="frame" x="0.0" y="74" width="375" height="510"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="6s1-WB-npc" id="SoS-n0-Wt9"/>
-                                    <outlet property="delegate" destination="6s1-WB-npc" id="aPG-k5-diD"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="לא נמצאו עדכונים" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkX-K2-lvV">
-                                <rect key="frame" x="109" y="320.5" width="157" height="26.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-uD-bw3">
-                                <rect key="frame" x="0.0" y="74" width="375" height="510"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="spa-7L-sPa" firstAttribute="top" secondItem="N6h-fc-8yz" secondAttribute="bottom" id="5LA-ei-xsA"/>
-                            <constraint firstItem="hf8-Lp-gdM" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="6oe-Dr-3uW"/>
-                            <constraint firstItem="fIS-uD-bw3" firstAttribute="leading" secondItem="HV6-8m-8ed" secondAttribute="leading" id="Fuj-mD-2Ot"/>
-                            <constraint firstItem="hf8-Lp-gdM" firstAttribute="width" secondItem="HV6-8m-8ed" secondAttribute="width" id="KCa-l0-kJB"/>
-                            <constraint firstAttribute="trailing" secondItem="fIS-uD-bw3" secondAttribute="trailing" id="N0c-pZ-YDx"/>
-                            <constraint firstItem="hf8-Lp-gdM" firstAttribute="height" secondItem="HV6-8m-8ed" secondAttribute="height" id="Qv0-aq-Jbb"/>
-                            <constraint firstItem="spa-7L-sPa" firstAttribute="leading" secondItem="HV6-8m-8ed" secondAttribute="leading" id="Sgc-dT-0EH"/>
-                            <constraint firstItem="lkX-K2-lvV" firstAttribute="centerY" secondItem="HV6-8m-8ed" secondAttribute="centerY" id="XZV-k1-Ioi"/>
-                            <constraint firstItem="x6J-pE-fi6" firstAttribute="top" secondItem="spa-7L-sPa" secondAttribute="bottom" id="c6p-Qu-zGl"/>
-                            <constraint firstItem="fIS-uD-bw3" firstAttribute="top" secondItem="N6h-fc-8yz" secondAttribute="bottom" id="cWU-tb-NbF"/>
-                            <constraint firstItem="hf8-Lp-gdM" firstAttribute="centerY" secondItem="HV6-8m-8ed" secondAttribute="centerY" id="fez-0J-qko"/>
-                            <constraint firstItem="x6J-pE-fi6" firstAttribute="top" secondItem="fIS-uD-bw3" secondAttribute="bottom" id="ikb-mc-qtp"/>
-                            <constraint firstAttribute="trailing" secondItem="spa-7L-sPa" secondAttribute="trailing" id="mvU-E1-DgX"/>
-                            <constraint firstItem="lkX-K2-lvV" firstAttribute="centerX" secondItem="HV6-8m-8ed" secondAttribute="centerX" id="vVh-oP-G5q"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="עדכונים" image="MenuUpdates" selectedImage="MenuUpdates" id="Gkw-hq-pVW"/>
                     <navigationItem key="navigationItem" title="עדכונים" id="cYx-Db-2Ie"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="noUpdatesFoundLabel" destination="lkX-K2-lvV" id="Ahv-Bn-MNJ"/>
-                        <outlet property="tableView" destination="spa-7L-sPa" id="hRw-6A-D76"/>
-                        <outlet property="toastView" destination="fIS-uD-bw3" id="MiM-vh-811"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRH-kk-Qxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
