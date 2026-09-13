@@ -38,6 +38,7 @@ struct Stand: Codable {
 
     var isActive: Bool {
         let today = Date.now().clearTimeComponent()
+        if today < Convention.date || today > Convention.endDate { return true }
         return dates.contains { dateString in
             guard let date = Date.parse(dateString, dateFormat: "yyyy-MM-dd'T'HH:mm:ssxxxxx") else { return false }
             return date.clearTimeComponent() == today

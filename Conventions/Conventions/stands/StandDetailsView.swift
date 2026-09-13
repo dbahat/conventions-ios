@@ -78,7 +78,7 @@ struct StandDetailsView: View {
         tags: ["ספרים", "משחקים", "קוסטיום", "אמנות", "מתנות"],
         tableIds: StandTableIds(from: 45, to: 46, count: 2, list: [45, 46], raw: "45-46"),
         discountOrga: "TRUE",
-        dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T00:00:00+03:00"],
+        dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"],
         url: "",
         logo: nil
     ))
