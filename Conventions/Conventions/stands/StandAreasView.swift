@@ -80,7 +80,7 @@ struct StandAreasView: View {
                 Button(action: { onSelectArea(area) }) {
                     HStack(spacing: 10) {
                         Spacer(minLength: 0)
-                        Text(area.title != area.id ? "\(area.title) - '\(area.id)" : "\(area.title)")
+                        Text(area.title)
                             .font(.system(size: 17, weight: .medium))
                             .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
                     }

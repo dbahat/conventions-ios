@@ -17,7 +17,7 @@ struct StandDetailsView: View {
     }
 
     private var areaAndLocationLabel: String {
-        let areaLabel = stand.area.map { $0.title != $0.id ? "\($0.id) - \($0.title)" : $0.title } ?? ""
+        let areaLabel = stand.area.map { $0.title } ?? ""
         let location = stand.tableIds?.raw ?? ""
         if areaLabel.isEmpty { return location }
         return location.isEmpty ? areaLabel : "\(areaLabel), \(location)"
