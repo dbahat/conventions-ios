@@ -51,14 +51,14 @@ class StandsListViewController: BaseViewController {
         present(navigationController, animated: true) {
             let orientation: UIInterfaceOrientation = orientationMask == .landscape ? .landscapeRight : .portrait
             UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
-            UIViewController.attemptRotationToDeviceOrientation()
+            self.setNeedsUpdateOfSupportedInterfaceOrientations()
         }
     }
 
     private func dismissFullscreenMap(appDelegate: AppDelegate) {
         appDelegate.orientationLock = .portrait
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        UIViewController.attemptRotationToDeviceOrientation()
+        setNeedsUpdateOfSupportedInterfaceOrientations()
         dismiss(animated: true)
     }
 
