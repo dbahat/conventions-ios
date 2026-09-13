@@ -9,6 +9,7 @@ struct StandCardView: View {
     let stand: Stand
     var showArea: Bool = false
     var searchText: String = ""
+    var selected: Bool = false
     var onMoreInfoTapped: (() -> Void)? = nil
 
     private var subtitleText: String {
@@ -64,7 +65,12 @@ struct StandCardView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
         .background(Color(uiColor: Colors.standsCardBackgroundColor))
-        .cornerRadius(4)
+        .cornerRadius(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(selected ? Color(uiColor: Colors.standCardSelectedFrame) : .clear, lineWidth: 1)
+        )
+        .shadow(color: selected ? .black.opacity(0.30) : .clear, radius: 4, x: 0, y: 0)
     }
 
     // Font/color must be applied per-segment rather than chained onto the returned
@@ -93,6 +99,7 @@ struct StandCardView: View {
     VStack(spacing: 12) {
         StandCardView(stand: Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"], url: "", logo: nil))
         StandCardView(stand: Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: StandArea(id: "2", title: "א׳"), description: "", tags: [], tableIds: StandTableIds(from: 3, to: 3, count: 1, list: [3], raw: "3"), discountOrga: "FALSE", dates: [], url: "", logo: nil), showArea: true, searchText: "אטל")
+        StandCardView(stand: Stand(id: "3", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"], url: "", logo: nil), selected: true)
     }
     .padding(16)
 }

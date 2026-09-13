@@ -11,6 +11,8 @@ struct StandsListView: View {
     let onExpandMapTapped: () -> Void
     let onStandTapped: (Stand) -> Void
 
+    @State private var selectedStandId: String?
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -48,8 +50,15 @@ struct StandsListView: View {
                                         .padding(.top, 40)
                                 } else {
                                     ForEach(stands, id: \.id) { stand in
-                                        StandCardView(stand: stand, onMoreInfoTapped: { onStandTapped(stand) })
-                                            .id(stand.id)
+                                        Button(action: { selectedStandId = stand.id }) {
+                                            StandCardView(
+                                                stand: stand,
+                                                selected: selectedStandId == stand.id,
+                                                onMoreInfoTapped: { onStandTapped(stand) }
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
+                                        .id(stand.id)
                                     }
                                 }
                             }
@@ -57,6 +66,7 @@ struct StandsListView: View {
                         }
                         .onAppear {
                             guard let scrollToStandId else { return }
+                            selectedStandId = scrollToStandId
                             DispatchQueue.main.async {
                                 withAnimation {
                                     proxy.scrollTo(scrollToStandId, anchor: .top)

@@ -19,6 +19,7 @@ struct StandAreasView: View {
     let onOpenFilter: () -> Void
 
     @State private var stands: [Stand] = []
+    @State private var selectedStandId: String?
 
     private var isFilterActive: Bool {
         !searchState.selectedCategories.isEmpty
@@ -87,7 +88,7 @@ struct StandAreasView: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 16)
                     .background(Color(uiColor: Colors.standsCardBackgroundColor))
-                    .cornerRadius(4)
+                    .cornerRadius(8)
                 }
                 .buttonStyle(.plain)
             }
@@ -105,8 +106,16 @@ struct StandAreasView: View {
                 .padding(.top, 40)
         } else {
             ForEach(filteredStands, id: \.id) { stand in
-                Button(action: { onSelectStand(stand) }) {
-                    StandCardView(stand: stand, showArea: true, searchText: searchState.searchText)
+                Button(action: {
+                    selectedStandId = stand.id
+                    onSelectStand(stand)
+                }) {
+                    StandCardView(
+                        stand: stand,
+                        showArea: true,
+                        searchText: searchState.searchText,
+                        selected: selectedStandId == stand.id
+                    )
                 }
                 .buttonStyle(.plain)
             }
