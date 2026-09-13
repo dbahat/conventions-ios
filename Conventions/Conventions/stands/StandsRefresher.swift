@@ -34,7 +34,13 @@ class StandsRefresher {
     }
 
     func getAll() -> Array<Stand> {
-        return stands.filter { $0.area != nil };
+        return stands
+            .filter { $0.area != nil }
+            .map { stand in
+                var stand = stand
+                if stand.category.isEmpty { stand.category = "כללי" }
+                return stand
+            };
     }
 
     func refresh(_ callback: ((_ success: Bool) -> Void)?) {

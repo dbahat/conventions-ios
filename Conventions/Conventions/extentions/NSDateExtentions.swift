@@ -48,7 +48,7 @@ extension Date {
         return self.clearMinutesComponent()
     }
     
-    func clearTimeComponent() -> Date! {
+    func clearTimeComponent() -> Date {
         let components = Date.gregorianCalendar.dateComponents(in: Date.timeZone, from: self)
         return Date.from(year: components.year!, month: components.month!, day: components.day!)
     }

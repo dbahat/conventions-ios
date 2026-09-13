@@ -17,7 +17,7 @@ struct StandCardView: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 8) {
             if let onMoreInfoTapped {
                 Button(action: onMoreInfoTapped) {
                     Text("מידע נוסף")
@@ -61,6 +61,7 @@ struct StandCardView: View {
                 .scaledToFit()
                 .frame(width: 24, height: 24)
                 .foregroundColor(Color(uiColor: Colors.standCardIconColor))
+                .padding(.all, 4)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
@@ -97,7 +98,7 @@ struct StandCardView: View {
 
 #Preview {
     VStack(spacing: 12) {
-        StandCardView(stand: Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"], url: "", logo: nil))
+        StandCardView(stand: Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"], url: "", logo: nil), onMoreInfoTapped: {})
         StandCardView(stand: Stand(id: "2", name: "אטלנטיס", category: "דוכן מסחרי", area: StandArea(id: "2", title: "א׳"), description: "", tags: [], tableIds: StandTableIds(from: 3, to: 3, count: 1, list: [3], raw: "3"), discountOrga: "FALSE", dates: [], url: "", logo: nil), showArea: true, searchText: "אטל")
         StandCardView(stand: Stand(id: "3", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: 12, to: 15, count: 4, list: [12, 13, 14, 15], raw: "12-15"), discountOrga: "TRUE", dates: ["2026-09-29T00:00:00+03:00", "2026-09-30T12:00:00+03:00"], url: "", logo: nil), selected: true)
     }

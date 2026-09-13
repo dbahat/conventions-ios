@@ -205,6 +205,7 @@ class Colors {
     static let standZoomOutIconColor = Colors.icon2026_purple25
     static let standZoomOutContainerColor = Colors.icon2026_purple600
     static let standHighlightedTextColor = Colors.icon2026_blue500
+    static let standDetailsTitleColor = Colors.icon2026_brown800
     static let standDetailsSubtitleColor = Colors.icon2026_gray800
     static let standDetailsActiveLabelColor = Colors.icon2026_green950
     static let standDetailsNotActiveLabelColor = Colors.icon2026_red

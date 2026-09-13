@@ -9,6 +9,7 @@ final class StandAreasSearchState: ObservableObject {
     @Published var searchText: String = ""
     @Published var isActive: Bool = false
     @Published var selectedCategories: Set<String> = []
+    @Published var selectedTags: Set<String> = []
 }
 
 struct StandAreasView: View {
@@ -22,7 +23,7 @@ struct StandAreasView: View {
     @State private var selectedStandId: String?
 
     private var isFilterActive: Bool {
-        !searchState.selectedCategories.isEmpty
+        !searchState.selectedCategories.isEmpty || !searchState.selectedTags.isEmpty
     }
 
     private var areas: [StandArea] {
@@ -36,7 +37,11 @@ struct StandAreasView: View {
     private var filteredStands: [Stand] {
         let searchText = searchState.searchText
         let categories = searchState.selectedCategories
+        let tags = searchState.selectedTags
         var matching = categories.isEmpty ? stands : stands.filter { categories.contains($0.category) }
+        if !tags.isEmpty {
+            matching = matching.filter { !tags.isDisjoint(with: $0.tags) }
+        }
         if !searchText.isEmpty {
             matching = matching.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }

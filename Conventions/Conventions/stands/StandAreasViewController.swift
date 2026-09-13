@@ -94,5 +94,6 @@ extension StandAreasViewController: UISearchControllerDelegate {
     func willDismissSearchController(_ searchController: UISearchController) {
         searchState.isActive = false
         searchState.selectedCategories = []
+        searchState.selectedTags = []
     }
 }

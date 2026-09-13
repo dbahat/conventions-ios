@@ -27,7 +27,7 @@ struct StandDetailsView: View {
         VStack(alignment: .trailing, spacing: 12) {
             Text(stand.name)
                 .font(.system(size: 24, weight: .bold))
-                .foregroundColor(Color(uiColor: Colors.textColor))
+                .foregroundColor(Color(uiColor: Colors.standDetailsTitleColor))
 
             Text(datesLabel)
                 .font(.system(size: 14, weight: .light))
@@ -52,7 +52,7 @@ struct StandDetailsView: View {
                 .fixedSize(horizontal: false, vertical: true)
 
             FlowLayout {
-                ForEach(stand.tags, id: \.self) { tag in
+                ForEach([stand.category] + stand.tags, id: \.self) { tag in
                     Text(tag)
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(Color(uiColor: Colors.standTagTextColor))

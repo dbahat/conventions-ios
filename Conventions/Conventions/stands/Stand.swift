@@ -24,7 +24,7 @@ struct StandTableIds: Codable {
 struct Stand: Codable {
     let id: String
     let name: String
-    let category: String
+    var category: String
     let area: StandArea?
     let description: String
     let tags: [String]
