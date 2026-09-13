@@ -117,6 +117,7 @@
 		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
 		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
+		4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749C28E61CC200C1953F /* DiscountsViewController.swift */; };
@@ -254,6 +255,7 @@
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
 		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
+		FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextExtentions.swift; path = extentions/TextExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A451749C28E61CC200C1953F /* DiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */,
 				A4048C5B28CCD85B0052E243 /* StringExtentions.swift */,
 				A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */,
+				FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */,
 			);
 			name = extentions;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */,
 				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
 				A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */,
+				4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */,
 				3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */,
 				3B114C401D30224C003C6167 /* UITextView.swift in Sources */,
 				3B8D9FF01D1D9BA9005181DA /* FeedbackView.swift in Sources */,

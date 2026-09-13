@@ -44,6 +44,9 @@ class StandAreasViewController: BaseViewController {
             onSelectStand: { [weak self] stand in
                 self?.selectStand(stand)
             },
+            onStandTapped: { [weak self] stand in
+                self?.presentStandDetails(stand)
+            },
             onOpenFilter: { [weak self] in
                 self?.openFilter()
             }
@@ -64,6 +67,19 @@ class StandAreasViewController: BaseViewController {
         viewController.area = area
         viewController.standIdToScrollTo = stand.id
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    private func presentStandDetails(_ stand: Stand) {
+        let viewController = StandDetailsViewController()
+        viewController.stand = stand
+        viewController.searchText = searchState.searchText
+        viewController.modalPresentationStyle = .pageSheet
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+        }
+        present(viewController, animated: true)
     }
 
     private func openFilter() {

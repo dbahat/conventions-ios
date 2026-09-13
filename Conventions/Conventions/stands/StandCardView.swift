@@ -28,8 +28,9 @@ struct StandCardView: View {
             }
 
             VStack(alignment: .trailing, spacing: 8) {
-                highlightedText(
+                Text.highlighted(
                     stand.name,
+                    searchText: searchText,
                     font: .system(size: 17, weight: .medium),
                     color: Color(uiColor: Colors.standsCardTextColor)
                 )
@@ -46,8 +47,9 @@ struct StandCardView: View {
                             .cornerRadius(10)
                     }
 
-                    highlightedText(
+                    Text.highlighted(
                         subtitleText.isEmpty ? " " : subtitleText,
+                        searchText: searchText,
                         font: .system(size: 12, weight: .semibold),
                         color: Color(uiColor: Colors.standCardSubtitleColor)
                     )
@@ -72,27 +74,6 @@ struct StandCardView: View {
                 .stroke(selected ? Color(uiColor: Colors.standCardSelectedFrame) : .clear, lineWidth: 1)
         )
         .shadow(color: selected ? .black.opacity(0.30) : .clear, radius: 4, x: 0, y: 0)
-    }
-
-    // Font/color must be applied per-segment rather than chained onto the returned
-    // compound Text, since a modifier chained onto a concatenated Text overrides the
-    // per-segment styling of every run, erasing the highlight.
-    private func highlightedText(_ text: String, font: Font, color: Color) -> Text {
-        guard !searchText.isEmpty else { return Text(text).font(font).foregroundColor(color) }
-
-        var result = Text("")
-        var remaining = Substring(text)
-        while let range = remaining.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive]) {
-            let before = remaining[remaining.startIndex..<range.lowerBound]
-            if !before.isEmpty {
-                result = result + Text(before).font(font).foregroundColor(color)
-            }
-            result = result + Text(remaining[range])
-                .font(font.bold())
-                .foregroundColor(Color(uiColor: Colors.standHighlightedTextColor))
-            remaining = remaining[range.upperBound...]
-        }
-        return result + Text(remaining).font(font).foregroundColor(color)
     }
 }
 

@@ -7,6 +7,7 @@ import SwiftUI
 
 struct StandDetailsView: View {
     let stand: Stand
+    var searchText: String = ""
 
     private var datesLabel: String {
         stand.dates
@@ -44,22 +45,36 @@ struct StandDetailsView: View {
                                  : Color(uiColor: Colors.standDetailsNotActiveLabelColor)
                 )
 
-            Text(stand.description)
-                .font(.system(size: 16, weight: .light))
-                .foregroundColor(Color(uiColor: Colors.standDetailsDescriptionColor))
-                .multilineTextAlignment(.trailing)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .fixedSize(horizontal: false, vertical: true)
+            Text.highlighted(
+                stand.description,
+                searchText: searchText,
+                font: .system(size: 16, weight: .light),
+                color: Color(uiColor: Colors.standDetailsDescriptionColor)
+            )
+            .multilineTextAlignment(.trailing)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .fixedSize(horizontal: false, vertical: true)
 
             FlowLayout {
-                ForEach([stand.category] + stand.tags, id: \.self) { tag in
-                    Text(tag)
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(Color(uiColor: Colors.standTagTextColor))
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 6)
-                        .background(Color(uiColor: Colors.standTagBackgroundColor))
-                        .cornerRadius(10)
+                Text(stand.category)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(Color(uiColor: Colors.standTagTextColor))
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(Color(uiColor: Colors.standTagBackgroundColor))
+                    .cornerRadius(10)
+
+                ForEach(stand.tags, id: \.self) { tag in
+                    Text.highlighted(
+                        tag,
+                        searchText: searchText,
+                        font: .system(size: 14, weight: .semibold),
+                        color: Color(uiColor: Colors.standTagTextColor)
+                    )
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(Color(uiColor: Colors.standTagBackgroundColor))
+                    .cornerRadius(10)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .trailing)

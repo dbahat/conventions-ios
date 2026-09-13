@@ -17,6 +17,7 @@ struct StandAreasView: View {
     @ObservedObject var searchState: StandAreasSearchState
     let onSelectArea: (StandArea) -> Void
     let onSelectStand: (Stand) -> Void
+    let onStandTapped: (Stand) -> Void
     let onOpenFilter: () -> Void
 
     @State private var stands: [Stand] = []
@@ -43,7 +44,11 @@ struct StandAreasView: View {
             matching = matching.filter { !tags.isDisjoint(with: $0.tags) }
         }
         if !searchText.isEmpty {
-            matching = matching.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            matching = matching.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.description.localizedCaseInsensitiveContains(searchText) ||
+                $0.tags.contains { $0.localizedCaseInsensitiveContains(searchText) }
+            }
         }
         return matching.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
     }
@@ -119,7 +124,8 @@ struct StandAreasView: View {
                         stand: stand,
                         showArea: true,
                         searchText: searchState.searchText,
-                        selected: selectedStandId == stand.id
+                        selected: selectedStandId == stand.id,
+                        onMoreInfoTapped: { onStandTapped(stand) }
                     )
                 }
                 .buttonStyle(.plain)
@@ -158,6 +164,8 @@ struct StandAreasView: View {
         print("Selected area: \(area)")
     }, onSelectStand: { stand in
         print("Selected stand: \(stand)")
+    }, onStandTapped: { stand in
+        print("Tapped stand: \(stand)")
     }, onOpenFilter: {
         print("Open filter")
     })
