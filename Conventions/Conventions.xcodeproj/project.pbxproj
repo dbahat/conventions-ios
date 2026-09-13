@@ -128,6 +128,7 @@
 		A4FD0A1926ECBEC30016C65E /* ImportedTicketsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */; };
 		A4FD0A1C26ECC1130016C65E /* ImportedTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */; };
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
+		AB00CDEF12345678ABCDEF01 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00CDEF12345678ABCDEF02 /* AboutView.swift */; };
 		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
 		EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C473785875498CBAC35C7B /* StandsFilterViewController.swift */; };
 		EF8AEB350B054BE3842DECE1 /* StandDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */; };
@@ -264,6 +265,7 @@
 		A4FD0A1826ECBEC30016C65E /* ImportedTicketsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImportedTicketsView.xib; path = events/ImportedTicketsView.xib; sourceTree = "<group>"; };
 		A4FD0A1B26ECC1130016C65E /* ImportedTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsView.swift; path = events/ImportedTicketsView.swift; sourceTree = "<group>"; };
 		A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportedTicketsViewController.swift; path = events/ImportedTicketsViewController.swift; sourceTree = "<group>"; };
+		AB00CDEF12345678ABCDEF02 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B06B805C8DCC4CB694D3722F /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		B43644621FF6C3196900854F /* StandsRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsRefresher.swift; sourceTree = "<group>"; };
 		B64524635656308AB1DB01C2 /* Stand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 		3BA2D7F11C554ED3007A8A23 /* Conventions */ = {
 			isa = PBXGroup;
 			children = (
+				8692B7663056A9F00020D336 /* infopages */,
 				8659BCC0304C552A00CD8E73 /* moreinfo */,
 				3BABAE1420605695004D01AA /* gradient */,
 				3B049C7B1F7EB4670087FA9C /* secondhand */,
@@ -556,7 +559,6 @@
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
 				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
 				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
-				3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */,
 				A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */,
 				A451749C28E61CC200C1953F /* DiscountsViewController.swift */,
 				A451749E28E6270F00C1953F /* DiscountsCell.swift */,
@@ -602,6 +604,15 @@
 				3BCB2D576B7348AC9DEA8C20 /* MoreInfoView.swift */,
 			);
 			path = moreinfo;
+			sourceTree = "<group>";
+		};
+		8692B7663056A9F00020D336 /* infopages */ = {
+			isa = PBXGroup;
+			children = (
+				3BF22D351D9D9B3C0090E8E6 /* AboutViewController.swift */,
+				AB00CDEF12345678ABCDEF02 /* AboutView.swift */,
+			);
+			path = infopages;
 			sourceTree = "<group>";
 		};
 		BEA1944F9EAE479DA3205C48 /* stands */ = {
@@ -858,6 +869,7 @@
 				3BABAE11206047CA004D01AA /* RadialGradientLayer.swift in Sources */,
 				3BC755741F7FE68B005B051C /* SecondHandItemViewCell.swift in Sources */,
 				3BF22D361D9D9B3C0090E8E6 /* AboutViewController.swift in Sources */,
+				AB00CDEF12345678ABCDEF01 /* AboutView.swift in Sources */,
 				3B4B4A821D36BD5900943EF5 /* TableAnswerCell.swift in Sources */,
 				3BADBDE41D55DEA5002227CB /* NotificationsSchedualer.swift in Sources */,
 				3BE551541D999D8100E91634 /* AggregatedSearchCategory.swift in Sources */,
