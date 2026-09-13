@@ -19,7 +19,7 @@ class StandsListViewController: BaseViewController {
 
     private func embedSwiftUIContent() {
         let stands = Convention.instance.stands.getAll().filter { $0.area?.id == area.id }
-        let hostingController = UIHostingController(rootView: StandsListView(
+        let rootView = StandsListView(
             stands: stands,
             scrollToStandId: standIdToScrollTo,
             onExpandMapTapped: { [weak self] in
@@ -28,19 +28,8 @@ class StandsListViewController: BaseViewController {
             onStandTapped: { [weak self] stand in
                 self?.presentStandDetails(stand)
             }
-        ))
-        hostingController.view.backgroundColor = .clear
-
-        addChild(hostingController)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(hostingController.view)
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-        hostingController.didMove(toParent: self)
+        )
+        embedSwiftUIView(rootView)
     }
 
     private func presentFullscreenMap() {
