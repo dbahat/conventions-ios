@@ -45,7 +45,7 @@ class Updates {
             sortedUpdates.forEach({
                 let update = $0
                 if self.getAll().contains(where: {$0.text == update.text}) {
-                    update.isNew = $0.isNew
+                    update.isNew = false
                 }
             })
             

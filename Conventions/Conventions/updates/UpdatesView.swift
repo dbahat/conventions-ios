@@ -43,9 +43,7 @@ struct UpdatesView: View {
             if !hasRequestedInitialRefresh {
                 hasRequestedInitialRefresh = true
                 Convention.instance.updates.refresh { _ in
-                    DispatchQueue.main.async {
-                        updates = Convention.instance.updates.getAll()
-                    }
+                    updates = Convention.instance.updates.getAll()
                 }
             }
         }
