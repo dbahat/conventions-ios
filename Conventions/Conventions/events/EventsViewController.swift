@@ -279,12 +279,6 @@ class EventsViewController: BaseViewController, EventCellStateProtocol, UITableV
                 current.key > other.key
             })
             .map({ applyFiltersForEvents($0.value).count })
-
-        if let searchText = searchBar.text, searchText != "" {
-            dateFilterControl.updateNumberOfResultsPerSegment(numberOfEventsPerDay)
-        } else {
-            dateFilterControl.resetNumberOfResults()
-        }
     }
     
     // Note - This method is accessed by the refreshControl using introspection, and should not be private

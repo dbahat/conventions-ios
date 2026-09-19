@@ -50,14 +50,6 @@ class DateFilterControl : UISegmentedControl {
         backgroundColor = Colors.datePickerBackgroundColor
     }
     
-    func updateNumberOfResultsPerSegment(_ resultsPerSegment: Array<Int>) {
-        for i in 0...numberOfSegments-1 {
-            let currentTitle = segmentTitles?[i] ?? ""
-            let newTitle = String(format: "%@ (%d אירועים)", currentTitle, resultsPerSegment[i])
-            setTitle(newTitle, forSegmentAt: i)
-        }
-    }
-    
     func resetNumberOfResults() {
         for i in 0...numberOfSegments-1 {
             let currentTitle = segmentTitles?[i] ?? ""
