@@ -113,7 +113,7 @@
 		4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */; };
 		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
-		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
+		868A0F17305ED3EE001F2EFA /* icon2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 868A0F16305ED3EE001F2EFA /* icon2026Events.json */; };
 		86BE6E03305E8E790029B24A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE6E02305E8E790029B24A /* SceneDelegate.swift */; };
 		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
@@ -250,7 +250,7 @@
 		6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandDetailsViewController.swift; sourceTree = "<group>"; };
 		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
 		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
-		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
+		868A0F16305ED3EE001F2EFA /* icon2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Events.json; sourceTree = "<group>"; };
 		86BE6E02305E8E790029B24A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 		3B2497CD1C8636E800A87623 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				861675482F6EF06E005FF7E0 /* olamot2026Events.json */,
+				868A0F16305ED3EE001F2EFA /* icon2026Events.json */,
 				F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */,
 			);
 			path = cache;
@@ -718,7 +718,6 @@
 				3BB2A9351C84DF39003DCF98 /* Podfile in Resources */,
 				3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */,
 				3BA2D8211C64E893007A8A23 /* EventListHeaderView.xib in Resources */,
-				861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */,
 				6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */,
 				3B36B7ED1D9680EB00F8EB49 /* SearchCategoriesView.xib in Resources */,
 				3B55A99C1C7A48DD00C5BCE4 /* EventView.xib in Resources */,
@@ -729,6 +728,7 @@
 				3BA2D7FC1C554ED3007A8A23 /* Assets.xcassets in Resources */,
 				A4E2F7B7213DB7CB007E3904 /* IconKids.html in Resources */,
 				A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */,
+				868A0F17305ED3EE001F2EFA /* icon2026Events.json in Resources */,
 				3B4B4A801D36BD4B00943EF5 /* TableAnswerCell.xib in Resources */,
 				3B17639C1F6D78ED009F8F38 /* BeforeConventionHomeContentView.xib in Resources */,
 				3BDA282F1F714AE400B1C517 /* DuringConventionWithFavoritesHomeContentView.xib in Resources */,
