@@ -17,12 +17,13 @@ struct UpdatesView: View {
                 .resizable()
                 .ignoresSafeArea()
 
-            if updates.isEmpty {
-                Text("לא נמצאו עדכונים")
-                    .font(.system(size: 22))
-                    .foregroundColor(Color(uiColor: Colors.hintTextColor))
-            } else {
-                ScrollView {
+            ScrollView {
+                if updates.isEmpty {
+                    Text("לא נמצאו עדכונים")
+                        .font(.system(size: 22))
+                        .foregroundColor(Color(uiColor: Colors.hintTextColor))
+                        .padding(.top, 100)
+                } else {
                     LazyVStack(spacing: 8) {
                         ForEach(updates, id: \.id) { update in
                             UpdateRowView(update: update)
@@ -30,10 +31,10 @@ struct UpdatesView: View {
                     }
                     .padding(8)
                 }
-                .refreshable {
-                    _ = await onRefresh()
-                    updates = Convention.instance.updates.getAll()
-                }
+            }
+            .refreshable {
+                _ = await onRefresh()
+                updates = Convention.instance.updates.getAll()
             }
         }
         .environment(\.layoutDirection, .leftToRight)
