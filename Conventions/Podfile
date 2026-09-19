@@ -10,3 +10,13 @@ target "Conventions" do
     pod 'FirebaseAnalytics', '~> 11.2.0'
     pod 'FirebaseMessaging', '~> 11.2.0'
 end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if Gem::Version.new(config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']) < Gem::Version.new('16.0')
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+      end
+    end
+  end
+end
