@@ -80,9 +80,9 @@ class Colors {
     static let navigationBarTextColor = Colors.textColor
     
     static let switchButtonsColor = Colors.icon2026_purple600
-    static let datePickerColor = Colors.icon2026_purple25
-    static let datePickerTextColor = Colors.icon2026_purple400
-    static let datePickerBackgroundColor = Colors.icon2026_purple100
+    static let datePickerColor = Colors.icon2026_purple100
+    static let datePickerTextColor = Colors.icon2026_purple600
+    static let datePickerBackgroundColor = Colors.icon2026_purple25
     static let eventTimeDefaultBackgroundColor = Colors.eventTimeHeaderColor
     static let eventTimeHeaderColor = Colors.icon2026_orange300
     static let eventTimeHeaderTextColor = Colors.icon2026_brown600
