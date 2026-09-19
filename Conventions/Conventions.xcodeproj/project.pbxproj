@@ -88,7 +88,6 @@
 		3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631171C896B7700D54D3E /* BaseViewController.swift */; };
 		3BB6311A1C89738400D54D3E /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631191C89738400D54D3E /* Update.swift */; };
 		3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */; };
-		D93B5A10BB35007541301791 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECD3C1F0C7CABECA2B9EB3 /* UpdatesView.swift */; };
 		3BB631251C8ADC0B00D54D3E /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631241C8ADC0B00D54D3E /* Events.swift */; };
 		3BB631291C8AE15900D54D3E /* AmaiEventsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */; };
 		3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */; };
@@ -111,12 +110,13 @@
 		3BFE310C1F703F4100271F58 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310B1F703F4100271F58 /* UIViewExtentions.swift */; };
 		3BFE310E1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE310D1F70477E00271F58 /* ConventionHomeContentViewProtocol.swift */; };
 		4A006D324A8462FE00E3694E /* StandsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C34A759E582637CBAD8711 /* StandsMapViewController.swift */; };
+		4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */; };
 		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
 		861675492F6EF06E005FF7E0 /* olamot2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 861675482F6EF06E005FF7E0 /* olamot2026Events.json */; };
+		86BE6E03305E8E790029B24A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE6E02305E8E790029B24A /* SceneDelegate.swift */; };
 		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
 		A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4048C5B28CCD85B0052E243 /* StringExtentions.swift */; };
-		4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */; };
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749C28E61CC200C1953F /* DiscountsViewController.swift */; };
@@ -130,6 +130,7 @@
 		A4FD0A1F26ECC5F80016C65E /* ImportedTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD0A1E26ECC5F80016C65E /* ImportedTicketsViewController.swift */; };
 		AB00CDEF12345678ABCDEF01 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00CDEF12345678ABCDEF02 /* AboutView.swift */; };
 		ABD0BA88CAF4E0981CEEB424 /* StandsRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43644621FF6C3196900854F /* StandsRefresher.swift */; };
+		D93B5A10BB35007541301791 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECD3C1F0C7CABECA2B9EB3 /* UpdatesView.swift */; };
 		EA90C40DF46E4F5394D4A2F1 /* StandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C473785875498CBAC35C7B /* StandsFilterViewController.swift */; };
 		EF8AEB350B054BE3842DECE1 /* StandDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCBFC0AEA46484FB48F18A8 /* StandDetailsViewController.swift */; };
 		F12E459DF3AD4A53891A0400 /* StandDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC06A95D24555A682D677 /* StandDetailsView.swift */; };
@@ -221,7 +222,6 @@
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
 		3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
-		DCECD3C1F0C7CABECA2B9EB3 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		3BB631241C8ADC0B00D54D3E /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = model/Events.swift; sourceTree = "<group>"; };
 		3BB631281C8AE15900D54D3E /* AmaiEventsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmaiEventsParser.swift; path = model/AmaiEventsParser.swift; sourceTree = "<group>"; };
 		3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -251,9 +251,9 @@
 		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
 		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
 		861675482F6EF06E005FF7E0 /* olamot2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = olamot2026Events.json; sourceTree = "<group>"; };
+		86BE6E02305E8E790029B24A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
 		A4048C5B28CCD85B0052E243 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtentions.swift; path = extentions/StringExtentions.swift; sourceTree = "<group>"; };
-		FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextExtentions.swift; path = extentions/TextExtentions.swift; sourceTree = "<group>"; };
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A451749C28E61CC200C1953F /* DiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
@@ -272,8 +272,10 @@
 		BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListViewController.swift; sourceTree = "<group>"; };
 		BF0D5DA764B44976D7A15EBE /* Pods-Conventions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conventions.debug.xcconfig"; path = "Target Support Files/Pods-Conventions/Pods-Conventions.debug.xcconfig"; sourceTree = "<group>"; };
 		C88D55271E4B49F4AD694B58 /* StandAreasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandAreasView.swift; sourceTree = "<group>"; };
+		DCECD3C1F0C7CABECA2B9EB3 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		F0454E26FA894DF4B820D6F2 /* StandCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandCardView.swift; sourceTree = "<group>"; };
 		F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Stands.json; sourceTree = "<group>"; };
+		FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextExtentions.swift; path = extentions/TextExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +472,7 @@
 				3BD446DC1C877A5500CE07E8 /* Conventions-Bridging-Header.h */,
 				3BB631171C896B7700D54D3E /* BaseViewController.swift */,
 				3B014FB11D95A1AD0002DE8F /* Colors.swift */,
+				86BE6E02305E8E790029B24A /* SceneDelegate.swift */,
 			);
 			path = Conventions;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				3BA2D81A1C5FF51D007A8A23 /* EventTableViewCell.swift in Sources */,
 				3B17639E1F6D7BEA009F8F38 /* BeforeConventionHomeContentView.swift in Sources */,
 				3B049C831F7FDB0D0087FA9C /* SecondHandFormHeaderView.swift in Sources */,
+				86BE6E03305E8E790029B24A /* SceneDelegate.swift in Sources */,
 				A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */,
 				3BDA28311F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift in Sources */,
 				3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */,
