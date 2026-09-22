@@ -9,6 +9,9 @@ struct StandsFilterView: View {
     let stands: [Stand]
     @ObservedObject var filterState: StandAreasSearchState
 
+    @State private var isActiveOnlySelected = false
+    @State private var isDiscountedOnlySelected = false
+
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
     private var categories: [String] {
@@ -56,10 +59,29 @@ struct StandsFilterView: View {
 
                     Spacer()
 
-                    Text("סוג דוכן")
+                    Text("סינון")
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
                 }
+
+                LazyVGrid(columns: columns, spacing: 12) {
+                    categoryItem(
+                        "דוכנים פעילים",
+                        isSelected: isActiveOnlySelected,
+                        onToggle: { isActiveOnlySelected.toggle() }
+                    )
+
+                    categoryItem(
+                        "דוכנים בהנחה",
+                        isSelected: isDiscountedOnlySelected,
+                        onToggle: { isDiscountedOnlySelected.toggle() }
+                    )
+                }
+                .environment(\.layoutDirection, .rightToLeft)
+                
+                Text("סוג דוכן")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
 
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(categories, id: \.self) { category in
@@ -72,20 +94,22 @@ struct StandsFilterView: View {
                 }
                 .environment(\.layoutDirection, .rightToLeft)
 
-                Text("תגיות")
-                    .font(.system(size: 17, weight: .semibold))
-                    .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
+                if !tags.isEmpty {
+                    Text("תגיות")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
 
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(tags, id: \.self) { tag in
-                        categoryItem(
-                            tag,
-                            isSelected: filterState.selectedTags.contains(tag),
-                            onToggle: { toggleTag(tag) }
-                        )
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(tags, id: \.self) { tag in
+                            categoryItem(
+                                tag,
+                                isSelected: filterState.selectedTags.contains(tag),
+                                onToggle: { toggleTag(tag) }
+                            )
+                        }
                     }
+                    .environment(\.layoutDirection, .rightToLeft)
                 }
-                .environment(\.layoutDirection, .rightToLeft)
             }
             .padding(16)
         }

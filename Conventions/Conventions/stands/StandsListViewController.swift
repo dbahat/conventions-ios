@@ -18,7 +18,7 @@ class StandsListViewController: BaseViewController {
     }
 
     private func embedSwiftUIContent() {
-        let stands = Convention.instance.stands.getAll().filter { $0.area?.id == area.id }
+        let stands = Convention.instance.stands.getAll().filter { $0.area?.title == area.title }
         let rootView = StandsListView(
             stands: stands,
             scrollToStandId: standIdToScrollTo,

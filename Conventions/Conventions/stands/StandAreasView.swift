@@ -31,7 +31,7 @@ struct StandAreasView: View {
         var seen = Set<String>()
         return stands
             .compactMap(\.area)
-            .filter { seen.insert($0.id).inserted }
+            .filter { seen.insert($0.title).inserted }
             .sorted { $0.title.localizedStandardCompare($1.title) == .orderedAscending }
     }
 

@@ -13,9 +13,12 @@ struct StandCardView: View {
     var onMoreInfoTapped: (() -> Void)? = nil
 
     private var subtitleText: String {
-        showArea ? (stand.area?.title ?? "") : (stand.tableIds?.raw ?? "")
+        if showArea {
+            return stand.area?.title ?? ""
+        }
+        guard let tableIds = stand.tableIds else { return "" }
+        return [tableIds.from, tableIds.to].compactMap { $0 }.joined(separator: "-")
     }
-
     var body: some View {
         HStack(spacing: 8) {
             if let onMoreInfoTapped {
