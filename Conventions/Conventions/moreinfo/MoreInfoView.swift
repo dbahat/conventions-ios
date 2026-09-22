@@ -56,7 +56,7 @@ private struct MoreInfoRowView: View {
                 .frame(height: 51)
 
                 Rectangle()
-                    .fill(Color(uiColor: .systemBackground))
+                    .fill(Color(uiColor: Colors.moreInfoItemSeperatorColor))
                     .frame(height: 1)
                     .padding(.horizontal, 24)
             }
