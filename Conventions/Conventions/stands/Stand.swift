@@ -14,10 +14,10 @@ struct StandArea: Codable {
 }
 
 struct StandTableIds: Codable {
-    let from: Int?
-    let to: Int?
+    let from: String?
+    let to: String?
     let count: Int?
-    let list: [Int]?
+    let list: [String]?
     let raw: String
 }
 
