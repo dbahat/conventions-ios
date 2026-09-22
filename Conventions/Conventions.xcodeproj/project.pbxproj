@@ -114,6 +114,7 @@
 		4A0E9C0A9DF245AB5FB527B7 /* TextExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBF7AF665E5A3A617CB1A /* TextExtentions.swift */; };
 		558AD12D975E4061BFEFC0E9 /* StandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58D51F59AD4CF19A30332D /* StandsListViewController.swift */; };
 		6CFDB649E08EFDFC76EFDF77 /* icon2026Stands.json in Resources */ = {isa = PBXBuildFile; fileRef = F737C00F35F6B7ADD522F1C6 /* icon2026Stands.json */; };
+		865B61F73062F33200289459 /* DiscountsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865B61F63062F33200289459 /* DiscountsListView.swift */; };
 		868A0F17305ED3EE001F2EFA /* icon2026Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 868A0F16305ED3EE001F2EFA /* icon2026Events.json */; };
 		86BE6E03305E8E790029B24A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE6E02305E8E790029B24A /* SceneDelegate.swift */; };
 		8AC3986826FF4E09A8F7F156 /* StandsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314EF723E06B4547BA6164A2 /* StandsFilterView.swift */; };
@@ -121,7 +122,6 @@
 		A43C104C23367E4100132555 /* UserTicketsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104B23367E4100132555 /* UserTicketsRetriever.swift */; };
 		A43C104E233682CB00132555 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C104D233682CB00132555 /* Tickets.swift */; };
 		A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749C28E61CC200C1953F /* DiscountsViewController.swift */; };
-		A451749F28E6270F00C1953F /* DiscountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451749E28E6270F00C1953F /* DiscountsCell.swift */; };
 		A454B5E72AC60F4F008A40C6 /* UIViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */; };
 		A493499422678C8100B4B805 /* AccessabilityContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A493499322678C8100B4B805 /* AccessabilityContent.html */; };
 		A4E2F7B5213DAD84007E3904 /* WebContentViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */; };
@@ -252,6 +252,7 @@
 		7141D047CAB547DA9ED29406 /* StandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsListView.swift; sourceTree = "<group>"; };
 		75C473785875498CBAC35C7B /* StandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandsFilterViewController.swift; sourceTree = "<group>"; };
 		850E3B3A69E2ED2557DAC3F1 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		865B61F63062F33200289459 /* DiscountsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsListView.swift; sourceTree = "<group>"; };
 		868A0F16305ED3EE001F2EFA /* icon2026Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon2026Events.json; sourceTree = "<group>"; };
 		86BE6E02305E8E790029B24A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E240839C5B13806D7B7082D /* StandsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandsParser.swift; sourceTree = "<group>"; };
@@ -259,7 +260,6 @@
 		A43C104B23367E4100132555 /* UserTicketsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTicketsRetriever.swift; path = model/UserTicketsRetriever.swift; sourceTree = "<group>"; };
 		A43C104D233682CB00132555 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = model/Tickets.swift; sourceTree = "<group>"; };
 		A451749C28E61CC200C1953F /* DiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsViewController.swift; sourceTree = "<group>"; };
-		A451749E28E6270F00C1953F /* DiscountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsCell.swift; sourceTree = "<group>"; };
 		A454B5E62AC60F4F008A40C6 /* UIViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtentions.swift; sourceTree = "<group>"; };
 		A493499322678C8100B4B805 /* AccessabilityContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AccessabilityContent.html; sourceTree = "<group>"; };
 		A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewControllers.swift; sourceTree = "<group>"; };
@@ -561,6 +561,7 @@
 		3BB631061C89680800D54D3E /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				865B61F63062F33200289459 /* DiscountsListView.swift */,
 				3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */,
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
 				850E3B3A69E2ED2557DAC3F1 /* RootNavigationController.swift */,
@@ -568,7 +569,6 @@
 				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
 				A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */,
 				A451749C28E61CC200C1953F /* DiscountsViewController.swift */,
-				A451749E28E6270F00C1953F /* DiscountsCell.swift */,
 			);
 			name = controllers;
 			path = Conventions/controllers;
@@ -838,7 +838,6 @@
 				3B664D841F76397B00A7D336 /* HTMLdecode.swift in Sources */,
 				3B8D9FEB1D171B1D005181DA /* FeedbackAnswer.swift in Sources */,
 				3BC5E70D1C8E1D0000AA3C76 /* MapViewController.swift in Sources */,
-				A451749F28E6270F00C1953F /* DiscountsCell.swift in Sources */,
 				3B8664C81D4007DC00A504FC /* UserInput.swift in Sources */,
 				3BF22D341D9D93700090E8E6 /* MoreInfoViewController.swift in Sources */,
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
@@ -867,6 +866,7 @@
 				A451749D28E61CC200C1953F /* DiscountsViewController.swift in Sources */,
 				3BDA28311F714B0700B1C517 /* DuringConventionWithFavoritesHomeContentView.swift in Sources */,
 				3B1763A01F6DB52C009F8F38 /* HomeViewController.swift in Sources */,
+				865B61F73062F33200289459 /* DiscountsListView.swift in Sources */,
 				3BFE31041F6EC00C00271F58 /* AfterConventionHomeContentView.swift in Sources */,
 				3BE551521D96893800E91634 /* SearchCategoriesView.swift in Sources */,
 				3B0288781D99BA4D006E158C /* Updates.swift in Sources */,

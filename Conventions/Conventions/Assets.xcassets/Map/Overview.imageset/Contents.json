@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "icon2025_map 2.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "icon2025_map 1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "icon2025_map.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "icon2026_map.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
