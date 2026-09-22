@@ -607,7 +607,7 @@
         <!--Opening Navigation-->
         <scene sceneID="qe6-hS-6vh">
             <objects>
-                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" sceneMemberID="viewController">
+                <navigationController id="YKF-oi-L6D" userLabel="Opening Navigation" customClass="RootNavigationController" customModule="Conventions" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gh9-EM-aNY">
                         <rect key="frame" x="0.0" y="20" width="375" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>

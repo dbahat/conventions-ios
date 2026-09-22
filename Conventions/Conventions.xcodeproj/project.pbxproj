@@ -85,6 +85,7 @@
 		3BB631051C88EC3800D54D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */; };
 		3BB6310C1C89680800D54D3E /* ArrivalMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */; };
 		3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6310A1C89680800D54D3E /* TabBarViewController.swift */; };
+		3ED1678F98F9E3A01694725F /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850E3B3A69E2ED2557DAC3F1 /* RootNavigationController.swift */; };
 		3BB631181C896B7700D54D3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631171C896B7700D54D3E /* BaseViewController.swift */; };
 		3BB6311A1C89738400D54D3E /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB631191C89738400D54D3E /* Update.swift */; };
 		3BB6311D1C89833D00D54D3E /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */; };
@@ -219,6 +220,7 @@
 		3BB631041C88EC3800D54D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalMethodsViewController.swift; sourceTree = "<group>"; };
 		3BB6310A1C89680800D54D3E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		850E3B3A69E2ED2557DAC3F1 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		3BB631171C896B7700D54D3E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BB631191C89738400D54D3E /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = model/Update.swift; sourceTree = "<group>"; };
 		3BB6311C1C89833D00D54D3E /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 			children = (
 				3BB631071C89680800D54D3E /* ArrivalMethodsViewController.swift */,
 				3BB6310A1C89680800D54D3E /* TabBarViewController.swift */,
+				850E3B3A69E2ED2557DAC3F1 /* RootNavigationController.swift */,
 				3BC5E70C1C8E1D0000AA3C76 /* MapViewController.swift */,
 				3BC5E70E1C8E1DBD00AA3C76 /* MapFloorViewController.swift */,
 				A4E2F7B4213DAD84007E3904 /* WebContentViewControllers.swift */,
@@ -841,6 +844,7 @@
 				3B2FD5171D5A65B30009139A /* NotificationSettings.swift in Sources */,
 				3B4CEB551C7CF88E00AF041B /* CCColorCube.m in Sources */,
 				3BB6310F1C89680800D54D3E /* TabBarViewController.swift in Sources */,
+				3ED1678F98F9E3A01694725F /* RootNavigationController.swift in Sources */,
 				3B02887A1D9AF1CB006E158C /* DateFilterControl.swift in Sources */,
 				3B8D9FF41D1DC7F4005181DA /* SmileyFeedbackQuestionCell.swift in Sources */,
 				A4048C5C28CCD85B0052E243 /* StringExtentions.swift in Sources */,
