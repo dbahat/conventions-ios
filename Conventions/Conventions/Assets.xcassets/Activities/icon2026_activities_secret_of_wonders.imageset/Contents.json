@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "icon2025_activities_icode 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon2025_activities_icode 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon2025_activities_icode.png",
+      "filename" : "icon2026_activities_secret_of_wonders.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

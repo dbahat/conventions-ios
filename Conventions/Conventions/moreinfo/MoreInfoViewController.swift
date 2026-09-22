@@ -16,7 +16,7 @@ class MoreInfoViewController : BaseViewController {
         Item(name: "דרכי הגעה", imageId: "MenuArrivalMethods", viewControllerId: "ArrivalMethodsViewController"),
         Item(name: "הטבות ושותפויות", imageId: "MenuDiscounts", viewControllerId: "DiscountsViewController"),
 //        Item(name: "דוכנים", imageId: "StandIcon", makeViewController: { StandAreasViewController() }),
-//        Item(name: "פעילויות ומתחמי שת\"פ", imageId: "MenuActivities", viewControllerId: "ActivitesViewController"),
+        Item(name: "פעילויות", imageId: "MenuActivities", viewControllerId: "ActivitesViewController"),
         Item(name: "אודות הכנס", imageId: "MenuAbout", viewControllerId: "AboutViewController"),
         Item(name: "נגישות", imageId: "MenuAccessability", viewControllerId: "AccessabilityViewController"),
         Item(name: "הגדרות", imageId: "MenuSettings", viewControllerId: "NotificationSettingsViewController"),
