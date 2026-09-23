@@ -61,7 +61,7 @@ struct StandCardView: View {
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
 
-            Image("StandIcon")
+            Image(stand.categoryIconName)
                 .renderingMode(.template)
                 .resizable()
                 .scaledToFit()

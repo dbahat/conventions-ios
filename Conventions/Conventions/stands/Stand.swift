@@ -55,4 +55,14 @@ struct Stand: Codable {
             return date.clearTimeComponent() == today
         }
     }
+
+    var categoryIconName: String {
+        switch category {
+        case "איור": return "StandMenuDrawing"
+        case "מלאכת יד": return "StandMenuHandicraft"
+        case "משחקי קופסה": return "StandMenuBoardGames"
+        case "ספרים", "קומיקס": return "StandMenuBooks"
+        default: return "StandIcon"
+        }
+    }
 }
