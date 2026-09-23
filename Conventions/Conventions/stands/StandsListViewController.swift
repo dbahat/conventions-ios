@@ -22,8 +22,10 @@ class StandsListViewController: BaseViewController {
         let rootView = StandsListView(
             stands: stands,
             scrollToStandId: standIdToScrollTo,
+            mapImageName: area.mapImageName,
             onExpandMapTapped: { [weak self] in
-                self?.presentFullscreenMap()
+                guard let self, let mapImageName = self.area.mapImageName else { return }
+                self.presentFullscreenMap(mapImageName: mapImageName)
             },
             onStandTapped: { [weak self] stand in
                 self?.presentStandDetails(stand)
@@ -32,10 +34,11 @@ class StandsListViewController: BaseViewController {
         embedSwiftUIView(rootView)
     }
 
-    private func presentFullscreenMap() {
+    private func presentFullscreenMap(mapImageName: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 
         let mapViewController = StandsMapViewController()
+        mapViewController.mapImageName = mapImageName
         mapViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "xmark"),
             primaryAction: UIAction { [weak self] _ in
@@ -46,7 +49,7 @@ class StandsListViewController: BaseViewController {
         let navigationController = UINavigationController(rootViewController: mapViewController)
         navigationController.modalPresentationStyle = .fullScreen
 
-        let orientationMask = StandsMapViewController.preferredOrientationMask
+        let orientationMask = StandsMapViewController.preferredOrientationMask(forMapImageName: mapImageName)
         appDelegate.orientationLock = orientationMask
         present(navigationController, animated: true) {
             let orientation: UIInterfaceOrientation = orientationMask == .landscape ? .landscapeRight : .portrait

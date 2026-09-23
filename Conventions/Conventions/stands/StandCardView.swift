@@ -8,6 +8,7 @@ import SwiftUI
 struct StandCardView: View {
     let stand: Stand
     var showArea: Bool = false
+    var showTableIds: Bool = true
     var searchText: String = ""
     var selected: Bool = false
     var onMoreInfoTapped: (() -> Void)? = nil
@@ -16,7 +17,7 @@ struct StandCardView: View {
         if showArea {
             return stand.area?.title ?? ""
         }
-        guard let tableIds = stand.tableIds else { return "" }
+        guard showTableIds, let tableIds = stand.tableIds else { return "" }
         return [tableIds.from, tableIds.to].compactMap { $0 }.joined(separator: "-")
     }
     var body: some View {

@@ -11,6 +11,17 @@ import Foundation
 struct StandArea: Codable {
     let id: String
     let title: String
+
+    var mapImageName: String? {
+        switch title {
+        case "מגרש": return "Court"
+        case "דה וינצ'י": return "DaVinci"
+        case "סינמטק": return "Cinematheque"
+        case "פופ-אפ": return "PopUp"
+        case "אשכול": return "Pais"
+        default: return nil
+        }
+    }
 }
 
 struct StandTableIds: Codable {

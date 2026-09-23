@@ -10,8 +10,10 @@ import SwiftUI
 // expected to diverge over time, so they shouldn't be coupled through a shared view controller.
 final class StandsMapViewController: UIViewController {
 
-    static var preferredOrientationMask: UIInterfaceOrientationMask {
-        guard let size = UIImage(named: "Overview")?.size, size.width > size.height else {
+    var mapImageName: String = "Overview"
+
+    static func preferredOrientationMask(forMapImageName mapImageName: String) -> UIInterfaceOrientationMask {
+        guard let size = UIImage(named: mapImageName)?.size, size.width > size.height else {
             return .portrait
         }
         return .landscape
@@ -20,6 +22,6 @@ final class StandsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // No background color: this is a fullscreen opaque map, unlike the other hosted screens.
-        embedSwiftUIView(StandsMapView(), backgroundColor: nil)
+        embedSwiftUIView(StandsMapView(mapImageName: mapImageName), backgroundColor: nil)
     }
 }

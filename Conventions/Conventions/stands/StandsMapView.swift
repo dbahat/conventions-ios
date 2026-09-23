@@ -7,13 +7,15 @@ import SwiftUI
 import UIKit
 
 struct StandsMapView: View {
+    let mapImageName: String
+
     var body: some View {
         ZStack {
             Image("AppBackground")
                 .resizable()
                 .ignoresSafeArea()
 
-            ZoomableImageView(image: UIImage(named: "Overview"))
+            ZoomableImageView(image: UIImage(named: mapImageName))
                 .ignoresSafeArea()
         }
     }
@@ -21,7 +23,8 @@ struct StandsMapView: View {
 
 // Wraps the existing UIScrollView-based zoom/double-tap-to-zoom pattern (also used by
 // MapFloorViewController) rather than reimplementing zoom/pan gesture math natively in SwiftUI.
-private struct ZoomableImageView: UIViewRepresentable {
+// Also reused by StandsListView for its inline map preview.
+struct ZoomableImageView: UIViewRepresentable {
     let image: UIImage?
 
     func makeUIView(context: Context) -> UIScrollView {
@@ -78,5 +81,5 @@ private struct ZoomableImageView: UIViewRepresentable {
 }
 
 #Preview {
-    StandsMapView()
+    StandsMapView(mapImageName: "Overview")
 }

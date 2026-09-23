@@ -4,10 +4,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct StandsListView: View {
     let stands: [Stand]
     var scrollToStandId: String? = nil
+    let mapImageName: String?
     let onExpandMapTapped: () -> Void
     let onStandTapped: (Stand) -> Void
 
@@ -21,24 +23,24 @@ struct StandsListView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {
-                    Image("Overview")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxHeight: geometry.size.height / 3)
-                        .overlay(alignment: .bottomLeading) {
-                            Button(action: onExpandMapTapped) {
-                                Image("ZoomOut")
-                                    .renderingMode(.template)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 16, height: 16)
-                                    .foregroundColor(Color(uiColor: Colors.standZoomOutIconColor))
-                                    .padding(10)
-                                    .background(Circle().fill(Color(uiColor: Colors.standZoomOutContainerColor)))
-                                    .shadow(radius: 3)
+                    if let mapImageName {
+                        ZoomableImageView(image: UIImage(named: mapImageName))
+                            .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 3)
+                            .overlay(alignment: .bottomLeading) {
+                                Button(action: onExpandMapTapped) {
+                                    Image("ZoomOut")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 16, height: 16)
+                                        .foregroundColor(Color(uiColor: Colors.standZoomOutIconColor))
+                                        .padding(10)
+                                        .background(Circle().fill(Color(uiColor: Colors.standZoomOutContainerColor)))
+                                        .shadow(radius: 3)
+                                }
+                                .padding(12)
                             }
-                            .padding(12)
-                        }
+                    }
 
                     ScrollViewReader { proxy in
                         ScrollView {
@@ -53,6 +55,7 @@ struct StandsListView: View {
                                         Button(action: { selectedStandId = stand.id }) {
                                             StandCardView(
                                                 stand: stand,
+                                                showTableIds: mapImageName != nil,
                                                 selected: selectedStandId == stand.id,
                                                 onMoreInfoTapped: { onStandTapped(stand) }
                                             )
@@ -85,9 +88,13 @@ struct StandsListView: View {
         Stand(id: "1", name: "עמותת המדע הבדיוני והפנטזיה", category: "עמותות", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: "1", to: "2", count: 2, list: ["1", "2"], raw: "1-2"), discountOrga: "TRUE", dates: [], url: "", logo: nil),
         Stand(id: "2", name: "הוצאת ספרים כלשהי", category: "מוציאים לאור", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: StandTableIds(from: "5", to: "5", count: 1, list: ["5"], raw: "5"), discountOrga: "FALSE", dates: [], url: "", logo: nil),
         Stand(id: "3", name: "דוכן משחקי תפקידים", category: "משחקים", area: StandArea(id: "1", title: "אולם 1"), description: "", tags: [], tableIds: nil, discountOrga: "FALSE", dates: [], url: "", logo: nil),
-    ], onExpandMapTapped: {}, onStandTapped: { _ in })
+    ], mapImageName: "Court", onExpandMapTapped: {}, onStandTapped: { _ in })
 }
 
 #Preview("Empty") {
-    StandsListView(stands: [], onExpandMapTapped: {}, onStandTapped: { _ in })
+    StandsListView(stands: [], mapImageName: "Court", onExpandMapTapped: {}, onStandTapped: { _ in })
+}
+
+#Preview("No map") {
+    StandsListView(stands: [], mapImageName: nil, onExpandMapTapped: {}, onStandTapped: { _ in })
 }
