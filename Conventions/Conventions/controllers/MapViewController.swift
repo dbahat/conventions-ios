@@ -26,7 +26,15 @@ class MapViewController: BaseViewController, UIPageViewControllerDelegate, UIPag
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "דוכנים",
+            image: UIImage(named: "StandIcon"),
+            primaryAction: UIAction { [weak self] _ in
+                self?.navigationController?.pushViewController(StandAreasViewController(), animated: true)
+            }
+        )
+
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil);
         pageViewController.delegate = self;
         
