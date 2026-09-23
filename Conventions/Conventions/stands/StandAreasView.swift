@@ -10,6 +10,8 @@ final class StandAreasSearchState: ObservableObject {
     @Published var isActive: Bool = false
     @Published var selectedCategories: Set<String> = []
     @Published var selectedTags: Set<String> = []
+    @Published var isActiveOnlySelected: Bool = false
+    @Published var isDiscountedOnlySelected: Bool = false
 }
 
 struct StandAreasView: View {
@@ -24,7 +26,8 @@ struct StandAreasView: View {
     @State private var selectedStandId: String?
 
     private var isFilterActive: Bool {
-        !searchState.selectedCategories.isEmpty || !searchState.selectedTags.isEmpty
+        !searchState.selectedCategories.isEmpty || !searchState.selectedTags.isEmpty ||
+        searchState.isActiveOnlySelected || searchState.isDiscountedOnlySelected
     }
 
     private var areas: [StandArea] {
@@ -42,6 +45,12 @@ struct StandAreasView: View {
         var matching = categories.isEmpty ? stands : stands.filter { categories.contains($0.category) }
         if !tags.isEmpty {
             matching = matching.filter { !tags.isDisjoint(with: $0.tags) }
+        }
+        if searchState.isActiveOnlySelected {
+            matching = matching.filter(\.isActive)
+        }
+        if searchState.isDiscountedOnlySelected {
+            matching = matching.filter(\.isDiscountOrga)
         }
         if !searchText.isEmpty {
             matching = matching.filter {
@@ -135,7 +144,7 @@ struct StandAreasView: View {
 
     private var filterHeader: some View {
         HStack(spacing: 6) {
-            Text("נמצאו \(filteredStands.count) דוכנים")
+            Text("נמצאו \(filteredStands.count) דוכנים" + (isFilterActive ? " לאחר סינון" : ""))
                 .font(.system(size: 13))
                 .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
 

@@ -9,9 +9,6 @@ struct StandsFilterView: View {
     let stands: [Stand]
     @ObservedObject var filterState: StandAreasSearchState
 
-    @State private var isActiveOnlySelected = false
-    @State private var isDiscountedOnlySelected = false
-
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
     private var categories: [String] {
@@ -38,6 +35,12 @@ struct StandsFilterView: View {
         if !filterState.selectedTags.isEmpty {
             matching = matching.filter { !filterState.selectedTags.isDisjoint(with: $0.tags) }
         }
+        if filterState.isActiveOnlySelected {
+            matching = matching.filter(\.isActive)
+        }
+        if filterState.isDiscountedOnlySelected {
+            matching = matching.filter(\.isDiscountOrga)
+        }
         return matching.count
     }
 
@@ -53,6 +56,8 @@ struct StandsFilterView: View {
                     Button("נקה הכל") {
                         filterState.selectedCategories.removeAll()
                         filterState.selectedTags.removeAll()
+                        filterState.isActiveOnlySelected = false
+                        filterState.isDiscountedOnlySelected = false
                     }
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(Color(uiColor: Colors.standFilterSelectedColor))
@@ -66,15 +71,15 @@ struct StandsFilterView: View {
 
                 LazyVGrid(columns: columns, spacing: 12) {
                     categoryItem(
-                        "דוכנים פעילים",
-                        isSelected: isActiveOnlySelected,
-                        onToggle: { isActiveOnlySelected.toggle() }
+                        "רק דוכנים פעילים",
+                        isSelected: filterState.isActiveOnlySelected,
+                        onToggle: { filterState.isActiveOnlySelected.toggle() }
                     )
 
                     categoryItem(
-                        "דוכנים בהנחה",
-                        isSelected: isDiscountedOnlySelected,
-                        onToggle: { isDiscountedOnlySelected.toggle() }
+                        "רק דוכנים עם הנחות לחברי העמותות המארגנות",
+                        isSelected: filterState.isDiscountedOnlySelected,
+                        onToggle: { filterState.isDiscountedOnlySelected.toggle() }
                     )
                 }
                 .environment(\.layoutDirection, .rightToLeft)
@@ -127,7 +132,7 @@ struct StandsFilterView: View {
                 Text(category)
                     .font(.system(size: 13))
                     .foregroundColor(Color(uiColor: Colors.standsCardTextColor))
-                    .lineLimit(2)
+                    .lineLimit(3)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 12)
