@@ -49,18 +49,13 @@ class StandsListViewController: BaseViewController {
         let navigationController = UINavigationController(rootViewController: mapViewController)
         navigationController.modalPresentationStyle = .fullScreen
 
-        let orientationMask = StandsMapViewController.preferredOrientationMask(forMapImageName: mapImageName)
-        appDelegate.orientationLock = orientationMask
-        present(navigationController, animated: true) {
-            let orientation: UIInterfaceOrientation = orientationMask == .landscape ? .landscapeRight : .portrait
-            UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-        }
+        // Let the user freely rotate the map screen instead of forcing a specific orientation.
+        appDelegate.orientationLock = .allButUpsideDown
+        present(navigationController, animated: true)
     }
 
     private func dismissFullscreenMap(appDelegate: AppDelegate) {
         appDelegate.orientationLock = .portrait
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         setNeedsUpdateOfSupportedInterfaceOrientations()
         dismiss(animated: true)
     }

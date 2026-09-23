@@ -12,13 +12,6 @@ final class StandsMapViewController: UIViewController {
 
     var mapImageName: String = "Overview"
 
-    static func preferredOrientationMask(forMapImageName mapImageName: String) -> UIInterfaceOrientationMask {
-        guard let size = UIImage(named: mapImageName)?.size, size.width > size.height else {
-            return .portrait
-        }
-        return .landscape
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // No background color: this is a fullscreen opaque map, unlike the other hosted screens.
