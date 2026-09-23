@@ -15,6 +15,38 @@ struct StandsListView: View {
 
     @State private var selectedStandId: String?
 
+    private var sortedStands: [Stand] {
+        stands.sorted(by: Self.isOrderedBefore)
+    }
+
+    private static func isOrderedBefore(_ lhs: Stand, _ rhs: Stand) -> Bool {
+        if lhs.isActive != rhs.isActive {
+            return lhs.isActive
+        }
+
+        let lhsTable = tableSortKey(lhs.tableIds?.from)
+        let rhsTable = tableSortKey(rhs.tableIds?.from)
+
+        if lhsTable.hasFrom != rhsTable.hasFrom {
+            return lhsTable.hasFrom
+        }
+        if lhsTable.letters != rhsTable.letters {
+            return lhsTable.letters.localizedStandardCompare(rhsTable.letters) == .orderedAscending
+        }
+        if lhsTable.number != rhsTable.number {
+            return lhsTable.number < rhsTable.number
+        }
+
+        return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+    }
+
+    private static func tableSortKey(_ from: String?) -> (hasFrom: Bool, letters: String, number: Int) {
+        guard let from, !from.isEmpty else { return (false, "", 0) }
+        let letters = from.prefix { $0.isLetter }
+        let number = Int(from.dropFirst(letters.count)) ?? 0
+        return (true, String(letters), number)
+    }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -51,7 +83,7 @@ struct StandsListView: View {
                                         .foregroundColor(Color(uiColor: Colors.standsCardSubtitleColor))
                                         .padding(.top, 40)
                                 } else {
-                                    ForEach(stands, id: \.id) { stand in
+                                    ForEach(sortedStands, id: \.id) { stand in
                                         Button(action: { selectedStandId = stand.id }) {
                                             StandCardView(
                                                 stand: stand,

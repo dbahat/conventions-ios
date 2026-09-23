@@ -44,6 +44,12 @@ struct StandDetailsView: View {
                                  ? Color(uiColor: Colors.standDetailsActiveLabelColor)
                                  : Color(uiColor: Colors.standDetailsNotActiveLabelColor)
                 )
+            
+            if (stand.isDiscountOrga) {
+                Text("בדוכן זה יש הנחות לחברי העמותות המארגנות.")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(Color(uiColor: Colors.standDetailsDescriptionColor))
+            }
 
             Text.highlighted(
                 stand.description,
