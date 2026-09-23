@@ -80,6 +80,7 @@ struct StandAreasView: View {
                 }
                 .padding(16)
                 .animation(.easeInOut(duration: 0.25), value: searchState.isActive)
+                .animation(.easeInOut(duration: 0.25), value: filteredStands.map(\.id))
             }
         }
         .onAppear {
@@ -138,6 +139,7 @@ struct StandAreasView: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .transition(.opacity)
             }
         }
     }
