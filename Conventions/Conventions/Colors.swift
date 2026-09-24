@@ -214,6 +214,7 @@ class Colors {
     static let standTagTextColor = Colors.icon2026_orange900
     static let standCardMoreInfoColor = Colors.icon2026_blue700
     static let standCardSelectedFrame = Colors.icon2026_orange900
+    static let standTableHighlightColor = Colors.icon2026_red
 
     static let moreInfoItemSeperatorColor = Colors.homeTextColor
 }

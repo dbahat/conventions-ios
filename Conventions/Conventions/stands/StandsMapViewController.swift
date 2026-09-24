@@ -11,10 +11,13 @@ import SwiftUI
 final class StandsMapViewController: UIViewController {
 
     var mapImageName: String = "Overview"
+    var highlightedRects: [CGRect] = []
+    var maximumZoomScale: CGFloat = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // No background color: this is a fullscreen opaque map, unlike the other hosted screens.
-        embedSwiftUIView(StandsMapView(mapImageName: mapImageName), backgroundColor: nil)
+        let mapView = StandsMapView(mapImageName: mapImageName, highlightedRects: highlightedRects, maximumZoomScale: maximumZoomScale)
+        embedSwiftUIView(mapView, backgroundColor: nil)
     }
 }

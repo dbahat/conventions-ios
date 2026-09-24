@@ -23,9 +23,15 @@ class StandsListViewController: BaseViewController {
             stands: stands,
             scrollToStandId: standIdToScrollTo,
             mapImageName: area.mapImageName,
-            onExpandMapTapped: { [weak self] in
+            maximumZoomScale: area.maximumZoomScale,
+            tableRects: { [area] stand in
+                guard let list = stand.tableIds?.list else { return [] }
+                return area.tableRects(for: list)
+            },
+            onExpandMapTapped: { [weak self] stand in
                 guard let self, let mapImageName = self.area.mapImageName else { return }
-                self.presentFullscreenMap(mapImageName: mapImageName)
+                let highlightedRects = stand?.tableIds?.list.map { self.area.tableRects(for: $0) } ?? []
+                self.presentFullscreenMap(mapImageName: mapImageName, highlightedRects: highlightedRects)
             },
             onStandTapped: { [weak self] stand in
                 self?.presentStandDetails(stand)
@@ -34,11 +40,13 @@ class StandsListViewController: BaseViewController {
         embedSwiftUIView(rootView)
     }
 
-    private func presentFullscreenMap(mapImageName: String) {
+    private func presentFullscreenMap(mapImageName: String, highlightedRects: [CGRect]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 
         let mapViewController = StandsMapViewController()
         mapViewController.mapImageName = mapImageName
+        mapViewController.highlightedRects = highlightedRects
+        mapViewController.maximumZoomScale = area.maximumZoomScale
         mapViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "xmark"),
             primaryAction: UIAction { [weak self] _ in

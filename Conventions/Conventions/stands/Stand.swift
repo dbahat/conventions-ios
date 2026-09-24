@@ -6,7 +6,7 @@
 //  Copyright © 2026 Amai. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct StandArea: Codable {
     let id: String
@@ -21,6 +21,46 @@ struct StandArea: Codable {
         case "אשכול": return "Pais"
         default: return nil
         }
+    }
+
+    /// How far a stands map can be pinch/double-tap zoomed in, tuned per area to how
+    /// detailed/tightly packed each map's tables are
+    var maximumZoomScale: CGFloat {
+        switch title {
+        case "מגרש": return 4
+        case "פופ-אפ", "דה וינצ'י", "אשכול": return 2
+        default: return 3
+        }
+    }
+
+    // Table position sidecars (e.g. "PaisTables") are generated offline by
+    // scripts/generate_stand_tables.py from each map's SVG -- tables aren't
+    // <text>/have no id in the SVGs, just an outlined glyph shape -- and
+    // shipped as Data Sets in the asset catalog: {"<tableId>": [x, y, width,
+    // height]}, in the same point coordinates as the map's UIImage.
+    private static var tablePositionsCache: [String: [String: CGRect]] = [:]
+
+    /// The map-image-space rects for the given table IDs, silently skipping
+    /// any table id that isn't in this area's sidecar (or if there is none).
+    func tableRects(for tableIds: [String]) -> [CGRect] {
+        guard let mapImageName else { return [] }
+        let positions = Self.tablePositions(forMap: mapImageName)
+        return tableIds.compactMap { positions[$0] }
+    }
+
+    private static func tablePositions(forMap mapImageName: String) -> [String: CGRect] {
+        if let cached = tablePositionsCache[mapImageName] {
+            return cached
+        }
+        var result: [String: CGRect] = [:]
+        if let asset = NSDataAsset(name: "\(mapImageName)Tables"),
+           let raw = try? JSONDecoder().decode([String: [CGFloat]].self, from: asset.data) {
+            for (id, values) in raw where values.count == 4 {
+                result[id] = CGRect(x: values[0], y: values[1], width: values[2], height: values[3])
+            }
+        }
+        tablePositionsCache[mapImageName] = result
+        return result
     }
 }
 
