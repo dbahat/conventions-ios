@@ -6,11 +6,17 @@
       "title" : "אשכול"
     },
     "tableIds" : {
-      "raw" : "חצי ימין",
-      "to" : null,
-      "count" : null,
-      "list" : null,
-      "from" : null
+      "raw" : "01-05",
+      "to" : "ש5",
+      "count" : 5,
+      "list" : [
+        "ש1",
+        "ש2",
+        "ש3",
+        "ש4",
+        "ש5"
+      ],
+      "from" : "ש1"
     },
     "id" : "62",
     "dates" : [
@@ -33,7 +39,19 @@
       "id" : "ש",
       "title" : "אשכול"
     },
-    "tableIds" : null,
+    "tableIds" : {
+      "raw" : "06-10",
+      "to" : "ש10",
+      "count" : 5,
+      "list" : [
+        "ש6",
+        "ש7",
+        "ש8",
+        "ש9",
+        "ש10"
+      ],
+      "from" : "ש6"
+    },
     "id" : "35",
     "dates" : [
       "2026-09-29T00:00:00+03:00",
@@ -966,10 +984,10 @@
       "2026-10-01T00:00:00+03:00"
     ],
     "url" : "https:\/\/www.instagram.com\/mayo_san_art?igsh=bWpyMThpYWVyZWFn",
-    "logo" : "logos\/icon2026\/mayo-san-design-x-artv.webp",
+    "logo" : null,
     "description" : "הדוכן של מאיו הוא שילוב של אסתטיקת ה- magical girl מעולם האנימה ועד לקשתות פרחים שיגרמו לכם להרגיש כמו פיות ביער! מאיו יוצרת כבר כ- 10 שנים אקססוריז ( עם אקסטרה נצנצים כמובן ) וגם מוכרת פריטי לבוש אלטרנטיביים שנבחרו בקפידה על ידה.",
     "discountOrga" : "TRUE",
-    "name" : "mayo san design x artv",
+    "name" : "mayo san design x art",
     "tags" : [
 
     ]
@@ -1889,7 +1907,7 @@
     ],
     "url" : "https:\/\/www.instagram.com\/baaahdgirldesigns\/",
     "logo" : "logos\/icon2026\/kivsush-design.webp",
-    "description" : "ברוכים הבאים לפינה הכי צבעונית בגלקסיה! אנחנו קבוצת יוצרים שמביאים אהבה לאיור, קומיקס ולפריטים שימושיים עם אופי: שקי קוביות, סימניות, תיקים, מחברות ועוד אוצרות קטנים. למי שאוהב פריטים מיוחדים שמרגישים בדיוק “שלך”.",
+    "description" : "תמצאו אצלי פריטים צבעוניים וקצת קסומים העשויים בעבודת יד, לצד עזרים שימושיים להרפתקנים מכל הסוגים. לכל מי שרוצים להוסיף נגיעה של קסם למסע שלהם.",
     "discountOrga" : "TRUE",
     "name" : "Kivsush Design",
     "tags" : [
@@ -2442,7 +2460,7 @@
     "logo" : null,
     "description" : "פנדורה וסוד התיבה- סיפורה של תיבת פנדורה, רק מהזווית מבט של פנדורה עצמה.\nהמשאלה- אם הייתם יכולים להגשים לעצמכם משאלה, מה הייתם רוצים? והשאלה היותר מעניינת מה הייתם מוכנים לעשות בשביל להגשים אותה ?",
     "discountOrga" : "TRUE",
-    "name" : "ספר ״פנדורה וסוד התיבה״, ספר ילדים  ״המשאלה״",
+    "name" : "ספר ״פנדורה וסוד התיבה״",
     "tags" : [
 
     ]
@@ -3125,7 +3143,7 @@
     "logo" : null,
     "description" : "",
     "discountOrga" : "FALSE",
-    "name" : "יואב",
+    "name" : "נמר נייר",
     "tags" : [
 
     ]
@@ -4430,7 +4448,20 @@
       "id" : "ס",
       "title" : "סינמטק"
     },
-    "tableIds" : null,
+    "tableIds" : {
+      "raw" : "01-06",
+      "to" : "ס6",
+      "count" : 6,
+      "list" : [
+        "ס1",
+        "ס2",
+        "ס3",
+        "ס4",
+        "ס5",
+        "ס6"
+      ],
+      "from" : "ס1"
+    },
     "id" : "172",
     "dates" : [
       "2026-09-29T00:00:00+03:00",
@@ -5237,7 +5268,7 @@
     ]
   },
   {
-    "category" : "",
+    "category" : "איור",
     "area" : {
       "id" : "פ",
       "title" : "פופ-אפ"
@@ -5256,9 +5287,9 @@
     "dates" : [
       "2026-09-29T00:00:00+03:00"
     ],
-    "url" : "",
+    "url" : "https:\/\/www.instagram.com\/chilliesh._?igsh=NnN4emljZ2VpYjBo",
     "logo" : "logos\/icon2026\/chilliesh-illmamnim.webp",
-    "description" : "",
+    "description" : "אנחנו אשכר ומאי, סטודנטיות לאנימציה ואומניות עצמאיות! אנחנו מוכרות פרינטים ומדבקות :)",
     "discountOrga" : "FALSE",
     "name" : "chilliesh & illmamnim",
     "tags" : [
