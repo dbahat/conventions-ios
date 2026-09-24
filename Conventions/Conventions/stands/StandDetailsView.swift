@@ -19,7 +19,7 @@ struct StandDetailsView: View {
 
     private var areaAndLocationLabel: String {
         let areaLabel = stand.area.map { $0.title } ?? ""
-        let location = stand.tableIds?.raw ?? ""
+        let location = [stand.tableIds?.from, stand.tableIds?.to].compactMap { $0 }.joined(separator: "-")
         if areaLabel.isEmpty { return location }
         return location.isEmpty ? areaLabel : "\(areaLabel), \(location)"
     }
@@ -30,25 +30,29 @@ struct StandDetailsView: View {
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(Color(uiColor: Colors.standDetailsTitleColor))
 
-            Text(datesLabel)
-                .font(.system(size: 14, weight: .light))
-                .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
-
+            if (stand.dates.count < 3) {
+                Text(datesLabel)
+                    .font(.system(size: 14, weight: .light))
+                    .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
+            }
+            
             Text(areaAndLocationLabel)
                 .font(.system(size: 14, weight: .light))
                 .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
 
-            Text(stand.isActive ? "פעיל" : "לא פעיל")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundColor(stand.isActive
-                                 ? Color(uiColor: Colors.standDetailsActiveLabelColor)
-                                 : Color(uiColor: Colors.standDetailsNotActiveLabelColor)
-                )
+            if (!stand.isActive) {
+                Text("לא פעיל")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(stand.isActive
+                                     ? Color(uiColor: Colors.standDetailsActiveLabelColor)
+                                     : Color(uiColor: Colors.standDetailsNotActiveLabelColor)
+                    )
+            }
             
             if (stand.isDiscountOrga) {
                 Text("בדוכן זה יש הנחות לחברי העמותות המארגנות.")
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(Color(uiColor: Colors.standDetailsDescriptionColor))
+                    .font(.system(size: 14, weight: .light))
+                    .foregroundColor(Color(uiColor: Colors.standDetailsSubtitleColor))
             }
 
             Text.highlighted(
