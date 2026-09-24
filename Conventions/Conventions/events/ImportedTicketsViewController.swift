@@ -31,12 +31,14 @@ class ImportedTicketsViewController: UIViewController {
         importedTickets.updatesButtonImage.isHidden = shouldHideUpdatesButtonImage
         importedTickets.onBrightnessClicked = { (isOn: Bool) -> Void in
             if isOn {
-                self.originalBrightness = UIScreen.main.brightness
                 UIScreen.main.brightness = 1
             } else {
                 UIScreen.main.brightness = self.originalBrightness
             }
         }
+
+        // Show the QR at maximal brightness so convention scanners can read it more easily
+        UIScreen.main.brightness = 1
     }
     
     override func viewDidDisappear(_ animated: Bool) {

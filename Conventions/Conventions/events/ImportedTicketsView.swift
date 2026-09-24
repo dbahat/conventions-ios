@@ -38,6 +38,7 @@ class ImportedTicketsView : UIView {
         midLabel.textColor = Colors.black
         brightnessLabel.textColor = Colors.black
         brightnessSwitch.onTintColor = Colors.colorAccent
+        brightnessSwitch.isOn = true
         refreshButton.image = UIImage(named: "EventRefresh")?.withRenderingMode(.alwaysTemplate)
         refreshButton.tintColor = Colors.buttonColor
         
